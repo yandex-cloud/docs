@@ -234,9 +234,13 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-## Назначить taint-политику на группу узлов {#assign-taint}
+## Пересоздать группу узлов с новой taint-политикой {#assign-taint}
 
-Добавление [taint-политик](../../concepts/index.md#taints-tolerations) пересоздает группу узлов {{ managed-k8s-name }}. Сначала удаляются все узлы в группе, затем в нее добавляются узлы с taint-политиками.
+{% note warning %}
+
+При добавлении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов {{ managed-k8s-name }} удаляется, затем создается группа узлов с новой конфигурацией.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -281,20 +285,15 @@ description: Следуя данной инструкции, вы сможете
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-- API {#api}
-
-  Чтобы назначить taint-политику на группу узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
-
-  * Taint-политики в параметре `nodeTaints`.
-  * Обновляемый параметр `nodeTaints` в параметре `updateMask`.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
-
 {% endlist %}
 
-## Снять taint-политику с группы узлов {#remove-taint}
+## Пересоздать группу узлов без taint-политики {#remove-taint}
 
-Удаление [taint-политик](../../concepts/index.md#taints-tolerations) пересоздает группу узлов {{ managed-k8s-name }}. Сначала удаляются все узлы в группе, затем в нее добавляются узлы с новой конфигурацией.
+{% note warning %}
+
+При удалении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов {{ managed-k8s-name }} удаляется, затем создается группа узлов с новой конфигурацией.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -319,15 +318,6 @@ description: Следуя данной инструкции, вы сможете
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
-
-- API {#api}
-
-  Чтобы снять taint-политику с группы узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
-
-  * Новый набор taint-политик в параметре `nodeTaints`. Если вы хотите снять все политики, передайте в запросе `"nodeTaints": []`.
-  * Обновляемый параметр `nodeTaints` в параметре `updateMask`.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

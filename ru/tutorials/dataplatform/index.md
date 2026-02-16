@@ -127,6 +127,7 @@ description: На странице представлен список прак�
 * [{#T}](mpg-replication-overview.md)
 * [Миграция базы данных из стороннего кластера {{ PG }} в {{ mpg-name }}](postgresql-data-migration.md)
 * [Миграция базы данных из {{ mpg-name }}](outbound-replication.md)
+* [{#T}](postgresql-versions.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mpg.md)
 * [{#T}](data-transfer-mpg.md)
@@ -211,6 +212,7 @@ description: На странице представлен список прак�
 * [{#T}](managed-mysql.md)
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
+* [{#T}](postgresql-versions.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
 
 ## {{ msp-full-name }} {#spark}

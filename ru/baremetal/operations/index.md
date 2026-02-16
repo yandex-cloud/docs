@@ -19,6 +19,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./servers/rescue-boot.md)
 * [{#T}](./servers/reinstall-os-from-marketplace.md)
 * [{#T}](./servers/reinstall-os-from-own-image.md)
+* [{#T}](./servers/set-up-tagged-vlan.md)
 * [{#T}](./servers/set-up-mc-lag.md)
 * [{#T}](./servers/reset-password.md)
 * [{#T}](./servers/switch-raid-member.md)

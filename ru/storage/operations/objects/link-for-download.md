@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Если для бакета настроена [политика доступа](../../operations/buckets/policy.md), запрещающая создание подписанных ссылок, создать ссылку не получится. 
+Если для бакета настроена [политика доступа](../buckets/policy.md), запрещающая создание подписанных ссылок, создать ссылку не получится. 
 
 {% endnote %}
 
@@ -25,6 +25,18 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [storage-get-link-for-download-cli](../../_includes_service/storage-get-link-for-download-cli.md) %}
 
+- AWS CLI {#aws-cli}
+
+  {% include [storage-get-link-for-download-aws-cli](../../_includes_service/storage-get-link-for-download-aws-cli.md) %}
+
+- SDK для Python (boto3) {#sdk-python}
+
+  {% include [storage-get-link-for-download-sdk-python](../../_includes_service/storage-get-link-for-download-sdk-python.md) %}
+
+- SDK для JavaScript {#sdk-javascript}
+
+  {% include [storage-get-link-for-download-sdk-javascript](../../_includes_service/storage-get-link-for-download-sdk-javascript.md) %}
+
 {% endlist %}
 
 {% note info %}
@@ -32,3 +44,7 @@ description: Следуя данной инструкции, вы сможете
 Продлить срок действия подписанной ссылки на объект в бакете с ограниченным доступом нельзя. Если срок действия ссылки истек, сформируйте новую ссылку.
 
 {% endnote %}
+
+#### См. также {#see-also}
+
+* [{#T}](./link-for-upload.md)

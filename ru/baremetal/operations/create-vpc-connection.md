@@ -5,11 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать приватное соединение с облачными сетями
 
-С помощью [{{ interconnect-full-name }}](../../interconnect/index.yaml) вы можете создать [приватное соединение](../concepts/network.md#private-connection-to-vpc) между [подсетями](../concepts/network.md#private-subnet) {{ baremetal-name }} и [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}.
+С помощью [{{ interconnect-full-name }}](../../interconnect/index.yaml) вы можете создать [приватное соединение](../concepts/private-network.md#private-connection-to-vpc) между [подсетями](../concepts/private-network.md#private-subnet) {{ baremetal-name }} и [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}.
 
 {% note info %}
 
-Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../../baremetal/concepts/network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в {{ baremetal-name }}, а также Routing Instance, в составе которого [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
+Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../../baremetal/concepts/private-network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в {{ baremetal-name }}, а также Routing Instance, в составе которого [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
 
 {% endnote %}
 

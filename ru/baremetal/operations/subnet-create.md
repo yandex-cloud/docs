@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [приватную подсеть](../concepts/network.md#private-subnet).
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [приватную подсеть](../concepts/private-network.md#private-subnet).
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}**.
   1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) Настройте маршрутизацию для взаимодействия с серверами из других [пулов](../concepts/servers.md#server-pools):
 
      1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите имеющийся [VRF](../concepts/network.md#vrf-segment) или создайте новый.
+     1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите имеющийся [VRF](../concepts/private-network.md#vrf-segment) или создайте новый.
      1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** задайте [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
      1. В поле **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** задайте IP-адрес шлюза, через который трафик из подсети будет идти в другие подсети, подключенные к VRF.
      
@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды для создания [приватной подсети](../concepts/network.md#private-subnet):
+  1. Посмотрите описание команды для создания [приватной подсети](../concepts/private-network.md#private-subnet):
 
      ```bash
      yc baremetal private-subnet create --help
@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
      * `--description` — описание подсети. Необязательный параметр.
      * `--labels` — метки подсети. Необязательный параметр.
      * `--vrf-options` — настройки маршрутизации для взаимодействия с серверами из других пулов. Необязательный параметр. Возможные настройки:
-       * `vrf-id` — идентификатор [виртуального сегмента сети (VRF)](../concepts/network.md#vrf-segment).
+       * `vrf-id` — идентификатор [виртуального сегмента сети (VRF)](../concepts/private-network.md#vrf-segment).
        * `vrf-name` — имя VRF.
        * `cidr` — [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
        * `gateway-ip` — IP-адрес шлюза, через который трафик из подсети будет идти в другие подсети, подключенные к VRF. Необязательный параметр.
@@ -165,7 +165,7 @@ description: Следуя данной инструкции, вы сможете
     
   * `description` — описание подсети. Необязательный параметр.
   * `labels` — метки подсети. Необязательный параметр.
-  * `vrfId` — идентификатор [виртуального сегмента сети (VRF)](../concepts/network.md#vrf-segment).
+  * `vrfId` — идентификатор [виртуального сегмента сети (VRF)](../concepts/private-network.md#vrf-segment).
   * `cidr` — [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
   * `gatewayIp` — IP-адрес шлюза. Необязательный параметр.
   * `startIp`, `endIp` — диапазон адресов для DHCP. Необязательный параметр.

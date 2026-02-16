@@ -10,6 +10,8 @@
 
 Количество шардов в кластерах {{ mch-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
+Вы можете создать сразу несколько шардов в кластере.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -17,11 +19,16 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
-  1. Укажите параметры шарда:
-     * Имя и вес.
-     * Чтобы скопировать схему со случайной реплики одного из шардов на хосты нового шарда, выберите опцию **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}**.
-     * Нужное количество хостов.
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
+  1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
+      * имя и вес;
+      * конфигурацию хостов шарда.
+  1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**, чтобы добавить дополнительные шарды, и укажите их параметры.
+  1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**, чтобы добавить дополнительные хосты, и укажите их параметры.
+  1. Чтобы скопировать схему со случайной реплики одного из шардов на хосты новых шардов, выберите опцию **{{ ui-key.yacloud.mdb.forms.field_copy_schema }}**.
+
+      {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
 
 - CLI {#cli}
@@ -30,45 +37,74 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы создать шард, выполните команду (в примере приведены не все доступные параметры):
+  Чтобы создать один или несколько шардов:
 
-  ```bash
-  {{ yc-mdb-ch }} shards add <имя_нового_шарда> \
-    --cluster-name=<имя_кластера> \
-    --host zone-id=<зона_доступности>,`
-      `subnet-name=<имя_подсети>
-  ```
+  1. Посмотрите описание команды CLI для создания шардов:
 
-  Где:
+      ```bash
+      {{ yc-mdb-ch }} shards add --help
+      ```
 
-  
-  * `<имя_нового_шарда>` — должно быть уникальным в кластере.
+  1. Выполните команду создания шардов.
 
-    Может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина — 63 символа.
-  * `--cluster-name` — имя кластера.
+      Укажите в команде один или несколько параметров `--shard`: по одному параметру на каждый шард, который нужно создать.
 
-    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-  * `--host` — параметры хоста:
-    * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
-    * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+      Пример команды для создания одного шарда (приведены не все доступные параметры):
 
+      ```bash
+      {{ yc-mdb-ch }} shards add \
+        --cluster-name=<имя_кластера> \
+        --shard name=<имя_нового_шарда>,`
+               `weight=<вес_шарда> \
+        --host zone-id=<зона_доступности>,`
+              `subnet-name=<имя_подсети>,`
+              `shard-name=<имя_шарда> \
+        --copy-schema
+      ```
+
+      Где:
+
+      * `--cluster-name` — имя кластера.
+
+          Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+      * `--shard` — параметры шарда:
+
+          * `name` — имя шарда. Должно быть уникальным в кластере.
+
+              Может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина — 63 символа.
+
+          * `weight` — вес шарда.
+
+      * `--host` — параметры хоста, который будет добавлен в шард:
+
+          
+          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+          * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+
+
+          * `shard-name` — имя шарда, в который будет добавлен хост.
+
+      * `--copy-schema` — опциональный параметр, который инициирует копирование схемы данных со случайной реплики одного из шардов на хосты нового шарда.
+
+          {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
 - {{ TF }} {#tf}
-
-  {% note info %}
-
-  {{ TF }} не позволяет указывать вес шардов.
-
-  {% endnote %}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mch-name }} блок `host` типа `CLICKHOUSE` с заполненным полем `shard_name` или измените существующие хосты:
+
+  1. Добавьте к описанию кластера {{ mch-name }} один или несколько блоков `shard` и блоков `host` типа `CLICKHOUSE` с заполненным полем `shard_name`:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
        ...
+       shard {
+         name   = "<имя_шарда>"
+         weight = <вес_шарда>
+       }
+
        host {
          type       = "CLICKHOUSE"
          zone       = "<зона_доступности>"
@@ -77,6 +113,10 @@
        }
      }
      ```
+
+  1. (Опционально) Чтобы скопировать схему со случайной реплики одного из шардов на хосты новых шардов, добавьте к описанию кластера поле `copy_schema_on_new_hosts` со значением `true`.
+
+     {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
   1. Проверьте корректность настроек.
 
@@ -96,23 +136,27 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.AddShard](../api-ref/Cluster/addShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.AddShards](../api-ref/Cluster/addShards.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
         ```json
         {
-          "shardName": "<имя_шарда>",
-          "configSpec": {
-            "clickhouse": {
-              "resources": {
-                "resourcePresetId": "<класс_хостов>",
-                "diskSize": "<размер_хранилища_в_байтах>",
-                "diskTypeId": "<тип_диска>"
-              },
-              "weight": "<вес_шарда>"
+          "shardSpecs": [
+            {
+              "name": "<имя_шарда>",
+              "configSpec": {
+                "clickhouse": {
+                  "resources": {
+                    "resourcePresetId": "<класс_хостов>",
+                    "diskSize": "<размер_хранилища_в_байтах>",
+                    "diskTypeId": "<тип_диска>"
+                  },
+                  "weight": "<вес_шарда>"
+                }
+              }
             }
-          },
+          ],
           "hostSpecs": [
             {
               "zoneId": "<зона_доступности>",
@@ -128,12 +172,14 @@
 
         Где:
 
-        * `shardName` — имя шарда.
-        * `configSpec.clickhouse.resources` — ресурсы хостов, которые добавляются в создаваемый шард:
+        * `shardSpecs` — настройки шардов, которые будут добавлены в кластер. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
 
-          * `resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.List](../api-ref/ResourcePreset/list.md).
-          * `diskSize` — размер диска в байтах.
-          * `diskTypeId` — [тип диска](../concepts/storage.md).
+          * `name` — имя шарда.
+          * `configSpec.clickhouse.resources` — ресурсы хостов, которые добавляются в создаваемый шард:
+
+            * `resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.List](../api-ref/ResourcePreset/list.md).
+            * `diskSize` — размер диска в байтах.
+            * `diskTypeId` — [тип диска](../concepts/storage.md).
 
         * `configSpec.clickhouse.weight` — вес шарда.
 
@@ -153,6 +199,8 @@
 
         * `copySchema` — копирование схемы данных со случайной реплики одного из шардов на хосты нового шарда. Возможные значения: `true` или `false`.
 
+          {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
+
      1. Выполните запрос:
 
         ```bash
@@ -160,13 +208,13 @@
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards' \
+          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchCreate' \
           --data '@body.json'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addShards.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -175,24 +223,28 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.AddShards](../api-ref/grpc/Cluster/addShards.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
         ```json
         {
           "cluster_id": "<идентификатор_кластера>",
-          "shard_name": "<имя_шарда>",
-          "config_spec": {
-            "clickhouse": {
-              "resources": {
-                "resource_preset_id": "<класс_хостов>",
-                "disk_size": "<размер_хранилища_в_байтах>",
-                "disk_type_id": "<тип_диска>"
-              },
-              "weight": "<вес_шарда>"
+          "shard_specs": [
+            {
+              "name": "<имя_шарда>",
+              "config_spec": {
+                "clickhouse": {
+                  "resources": {
+                    "resource_preset_id": "<класс_хостов>",
+                    "disk_size": "<размер_хранилища_в_байтах>",
+                    "disk_type_id": "<тип_диска>"
+                  },
+                  "weight": "<вес_шарда>"
+                }
+              }
             }
-          },
+          ],
           "host_specs": [
             {
               "zone_id": "<зона_доступности>",
@@ -208,20 +260,23 @@
 
         Где:
 
-        * `shard_name` — имя шарда.
-        * `config_spec.clickhouse.resources` — ресурсы хостов, которые добавляются в создаваемый шард:
+        * `cluster_id` — идентификатор кластера. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        * `shard_specs` — настройки шардов, которые будут добавлены в кластер. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному шарду и имеет следующую структуру:
 
-          * `resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md).
-          * `disk_size` — размер диска в байтах.
-          * `disk_type_id` — [тип диска](../concepts/storage.md).
+          * `name` — имя шарда.
+          * `config_spec.clickhouse.resources` — ресурсы хостов, которые добавляются в создаваемый шард:
 
-        * `config_spec.clickhouse.weight` — вес шарда.
+            * `resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md).
+            * `disk_size` — размер диска в байтах.
+            * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-          По умолчанию каждому шарду назначается вес `1`. Если какому-либо шарду назначить вес больше, данные будут распределены между шардами в соответствии с весами.
+          * `config_spec.clickhouse.weight` — вес шарда.
 
-          При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
+            По умолчанию каждому шарду назначается вес `1`. Если какому-либо шарду назначить вес больше, данные будут распределены между шардами в соответствии с весами.
 
-          Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed).
+            При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
+
+            Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed).
 
         * `host_specs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -233,7 +288,7 @@
 
         * `copy_schema` — копирование схемы данных со случайной реплики одного из шардов на хосты нового шарда. Возможные значения: `true` или `false`.
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+          {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
      1. Выполните запрос:
 
@@ -246,19 +301,13 @@
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
           {{ api-host-mdb }}:{{ port-https }} \
-          yandex.cloud.mdb.clickhouse.v1.ClusterService.AddShard \
+          yandex.cloud.mdb.clickhouse.v1.ClusterService.AddShards \
           < body.json
         ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addShards.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-{% note warning %}
-
-Используйте опцию копирования схемы данных только в том случае, когда схема одинакова на всех шардах кластера.
-
-{% endnote %}
 
 ## Получить список шардов в кластере {#list-shards}
 
@@ -290,7 +339,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -310,7 +359,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -394,7 +443,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.UpdateShard](../api-ref/Cluster/updateShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateShard](../api-ref/Cluster/updateShard.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -454,7 +503,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.UpdateShard](../api-ref/grpc/Cluster/updateShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateShard](../api-ref/grpc/Cluster/updateShard.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -532,10 +581,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
+    1. Удалите один или несколько шардов:
+        * Чтобы удалить один шард, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+        * Чтобы удалить несколько шардов сразу, выберите нужные шарды и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
+    1. В открывшемся окне включите опцию **Я удаляю шарды** и нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -543,21 +595,25 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы удалить шард из кластера, выполните команду:
+  Чтобы удалить один или несколько шардов из кластера, выполните команду, передав нужные имена шардов. Используйте пробел в качестве разделителя.
+
+  Команда для удаления одного шарда имеет вид:
 
   ```bash
-  {{ yc-mdb-ch }} shards delete <имя_шарда> \
-    --cluster-name=<имя_кластера>
+  {{ yc-mdb-ch }} shards delete \
+    --cluster-name=<имя_кластера> \
+    <имя_шарда>
   ```
 
-  Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имена шардов можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Удалите из описания кластера {{ mch-name }} блок `host` с описанием шарда.
+
+  1. Удалите из описания кластера {{ mch-name }} нужные блоки `shard` и `host`.
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -576,16 +632,23 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.DeleteShard](../api-ref/Cluster/deleteShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.DeleteShards](../api-ref/Cluster/deleteShards.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request DELETE \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards:batchDelete' \
+       --data '{
+                 "shardNames": [
+                   <перечень_имен_шардов>
+                 ]
+               }'
      ```
 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя шарда — со [списком шардов в кластере](#list-shards).
+     Где `shardNames` — массив строк. Каждая строка — имя шарда, который нужно удалить. Имена шардов можно запросить со [списком шардов в кластере](#list-shards).
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
 
@@ -596,7 +659,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.DeleteShards](../api-ref/grpc/Cluster/deleteShards.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -607,15 +670,19 @@
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d '{
              "cluster_id": "<идентификатор_кластера>",
-             "shard_name": "<имя_шарда>"
+             "shard_names": [
+               <перечень_имен_шардов>
+             ]
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteShard
+       yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteShards
      ```
 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя шарда — со [списком шардов в кластере](#list-shards).
+     Где `shard_names` — массив строк. Каждая строка — имя шарда, который нужно удалить. Имена шардов можно запросить со [списком шардов в кластере](#list-shards).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteShards.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

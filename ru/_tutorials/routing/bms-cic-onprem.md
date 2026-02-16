@@ -1,6 +1,6 @@
 # Организация сетевой связности между подсетями {{ baremetal-full-name }} и on-premises с помощью {{ interconnect-name }}
 
-В данном руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/network.md#private-network) {{ baremetal-full-name }}, и ресурсами, которые развернуты on-premises. Сетевая связность будет организована с помощью сервисов [{{ interconnect-name }}](../../interconnect/index.yaml) и [{{ cr-name }}](../../cloud-router/index.yaml).
+В данном руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) {{ baremetal-full-name }}, и ресурсами, которые развернуты on-premises. Сетевая связность будет организована с помощью сервисов [{{ interconnect-name }}](../../interconnect/index.yaml) и [{{ cr-name }}](../../cloud-router/index.yaml).
 
 Схема решения:
 
@@ -44,7 +44,7 @@
 
 Создайте необходимую инфраструктуру {{ yandex-cloud }}, в которой вы будете настраивать сетевую связность.
 
-Для настройки {{ interconnect-name }} в сервисе {{ baremetal-name }} понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/network.md#private-subnet) и [VRF](../../baremetal/concepts/network.md#vrf-segment) в {{ baremetal-name }}, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, а также Routing Instance, в составе которого будут [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}.
+Для настройки {{ interconnect-name }} в сервисе {{ baremetal-name }} понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в {{ baremetal-name }}, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, а также Routing Instance, в составе которого будут [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}.
 
 Для проверки сетевой связности понадобятся сервер {{ baremetal-name }} и виртуальная машина {{ compute-name }}.
 
@@ -146,7 +146,7 @@
 
 ## Создайте приватное соединение {#create-private-connection}
 
-После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
+После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 

@@ -5476,6 +5476,7 @@ default:
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
         actions_add-partition: Add partition
+        addAdditionalSubnet: Add additional subnet
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: No OS
         field_CIDR_rwYMi: CIDR
@@ -5525,6 +5526,9 @@ default:
         label_subnetworks_uU4LH: Private subnets
         label_vrf-interconnect-direct-type: Connection ID
         label_vrf-interconnect-select-type: Setup method
+        private-subnets:
+          fields:
+            vlan_jew8J: VLAN
         servers:
           BandwidthRow:
             bandwidthTitle_wvZra: Bandwidth
@@ -5543,6 +5547,7 @@ default:
         title_section-server-info: Server information
         title_section-server-marketplace-app: Marketplace application
         title_section-server-private-network: Private network
+        title_section-server-private-network_xrEye: Private network
         title_section-server-product: Image
         title_section-server-public-network: Public network
         title_section-server-public-network_p7Zhj: Public network
@@ -5711,6 +5716,7 @@ default:
           title_main-settings_68Grp: Main settings
         button_create-cluster: Create ClickHouse cluster
         cluster:
+          add_shard-btn: Add shard
           databases:
             popup-add_button_add: Create
           format-schemas:
@@ -5744,6 +5750,9 @@ default:
           value_coordination-service-embedded-clickhouse-keeper: Embedded ClickHouse Keeper
           value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (on separate hosts)
           value_coordination-service-zookeeper: ZooKeeper (on separate hosts)
+        Cluster:
+          Shards:
+            action_add-shards_iULX7: Create shards
         field_convert_tables_to_replicated: Convert non-replicated tables
         hosts:
           dialog:
@@ -11038,16 +11047,16 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1764089856329713384751806090650435327427957097722
-            tag: '1.28'
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1770707304115734413262392387482750396465759724290
+            tag: 1.28.1-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1764089856329713384751806090650435327427957097722
-            tag: 8.2.29
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1770707304115734413262392387482750396465759724290
+            tag: 8.4.17
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.5
+        tag: 1.0.5+002
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-

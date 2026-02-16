@@ -209,6 +209,16 @@ Text string
 
     Если значение настройки не указано, SSL-сертификат не проверяется.
 
+* **tombstones.on.delete** — определяет, будет ли Debezium генерировать tombstone-маркеры удаления для топиков {{ KF }}.
+
+    Tombstone-маркеры записываются в лог кластера-источника {{ KF }} во время удаления сообщений из топика. Они указывают на записи в логе, которые хранят предыдущие значения удаленных сообщений.
+
+    Если [политика очистки лога](../../managed-kafka/concepts/settings-list.md#settings-topic-cleanup-policy) в кластере-источнике установлена в режим `Compact` или `CompactAndDelete`, во время сжатия лога будут удалены все записи, на которые указывают tombstone-маркеры.
+
+    Значение по умолчанию — `true`.
+
+    Подробнее о настройке см. в [документации Debezium](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
+
 * **unavailable.value.placeholder** — значение, которое устанавливается вместо данных, если их тип не поддерживается.
 
     Значение по умолчанию — `__debezium_unavailable_value`.

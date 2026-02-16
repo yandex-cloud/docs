@@ -30,8 +30,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) using any suitable configuration with publicly accessible hosts.
-    1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration. When creating a cluster:
+    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
+    1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration. When creating your cluster:
         * Enable public access for the hosts.
         * Enable **Data Transfer access**.
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
@@ -50,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) and rules allowing inbound connections to the {{ OS }} and {{ GP }} clusters.
+        * [Security group](../../../vpc/concepts/security-groups.md) and rules allowing connections to the {{ OS }} and {{ GP }} clusters.
         * {{ mos-name }} source cluster and its `admin` account.
         * {{ GP }} target cluster in {{ mgp-name }}.
         * Transfer.
@@ -74,7 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -90,11 +90,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people' && \
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' -d'
          {
@@ -110,7 +110,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
          {
@@ -119,7 +119,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          }
          ' && \
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
          {
@@ -133,7 +133,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <username_in_target_cluster>:<user_password_in_target_cluster> \
+         --user <user_name_in_target_cluster>:<user_password_in_target_cluster> \
          --header 'Content-Type: application/json' \
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
@@ -145,7 +145,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `OpenSearch`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.connection.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select your {{ mos-name }} cluster from the list.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` password.
 
@@ -154,7 +154,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: Select the {{ GP }} cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: Select your {{ GP }} cluster from the list.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `postgres`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: Enter the {{ GP }} cluster user name.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: Enter the {{ GP }} cluster user password.
@@ -165,7 +165,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
         1. [Activate](../../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
@@ -174,7 +174,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -182,20 +182,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
             terraform validate
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Make sure the data from the source {{ mos-name }} cluster has been migrated to the {{ mgp-name }} cluster:
+1. Make sure the data from the source {{ mos-name }} cluster has been transferred to the {{ mgp-name }} cluster:
 
    1. [Get an SSL certificate](../../../managed-greenplum/operations/connect.md#get-ssl-cert) to connect to the {{ GP }} cluster.
    1. Install the dependencies:
@@ -213,7 +213,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 {% list tabs group=instructions %}
 

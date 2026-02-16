@@ -58,6 +58,9 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %} 
+
+
   Чтобы создать подключение к кластеру {{ mpg-name }}:
 
   1. Посмотрите описание команды CLI для создания подключения:
@@ -217,6 +220,9 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
 
   Чтобы создать подключение к кластеру {{ mch-name }}:
 
@@ -378,6 +384,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   Чтобы создать подключение к кластеру {{ mmy-name }}:
 
   1. Посмотрите описание команды CLI для создания подключения:
@@ -535,6 +543,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к кластеру {{ mrd-name }}:
 
@@ -696,6 +706,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   Чтобы создать подключение к кластеру {{ mos-name }}:
 
   1. Посмотрите описание команды CLI для создания подключения:
@@ -843,6 +855,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к кластеру {{ mmg-name }}:
 
@@ -1013,6 +1027,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к кластеру {{ mkf-name }}:
 
@@ -1189,6 +1205,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   Чтобы создать подключение к кластеру {{ mgp-name }}:
 
   1. Посмотрите описание команды CLI для создания подключения:
@@ -1358,6 +1376,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к пользовательской инсталляции {{ PG }}:
 
@@ -1537,6 +1557,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к пользовательской инсталляции {{ CH }}:
 
@@ -1742,6 +1764,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   Чтобы создать подключение к пользовательской инсталляции {{ MY }}:
 
   1. Посмотрите описание команды CLI для создания подключения:
@@ -1914,6 +1938,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к пользовательской инсталляции {{ RD }}:
 
@@ -2112,6 +2138,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   Чтобы создать подключение к пользовательской инсталляции {{ VLK }}:
 
   1. Посмотрите описание команды CLI для создания подключения:
@@ -2286,6 +2314,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   Чтобы создать подключение к пользовательской инсталляции {{ TR }}:
 
   1. Посмотрите описание команды CLI для создания подключения:
@@ -2454,6 +2484,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к пользовательской инсталляции {{ OS }}:
 
@@ -2634,6 +2666,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к пользовательской инсталляции {{ MG }}:
 
@@ -2823,6 +2857,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к пользовательской инсталляции {{ KF }}:
 
@@ -3032,6 +3068,8 @@ description: Пошаговые инструкции по работе с {{ con
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   Чтобы создать подключение к пользовательской инсталляции {{ GP }}:
 

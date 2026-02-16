@@ -204,8 +204,8 @@ description: Следуя данной инструкции, вы сможете
   * `rentalPeriodId` — период аренды сервера. Возможные значения: `1-day`, `1-month`, `3-months`, `6-months` или `1-year`.
   * `networkInterfaces[]` — сетевые интерфейсы:
     * `id` — идентификатор сетевого интерфейса. Не указывается при создании сервера.
-    * `privateSubnetId` — идентификатор [приватной подсети](../../concepts/network.md#private-subnet).
-    * `publicSubnetId` — идентификатор [выделенной публичной подсети](../../concepts/network.md#public-subnet). Необязательный параметр.
+    * `privateSubnetId` — идентификатор [приватной подсети](../../concepts/private-network.md#private-subnet).
+    * `publicSubnetId` — идентификатор [выделенной публичной подсети](../../concepts/public-network.md#public-subnet). Необязательный параметр.
 
       {% note warning %}
 

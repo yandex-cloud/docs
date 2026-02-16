@@ -1,6 +1,6 @@
 # Развертывание веб-приложения на серверах {{ baremetal-full-name }} с L7-балансировщиком и защитой {{ sws-full-name }}
 
-В этом руководстве вы развернете веб-приложение на [серверах](../../baremetal/concepts/servers.md) {{ baremetal-full-name }}. Для обеспечения равномерного распределения нагрузки на хосты с приложением вы настроите [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}. Создаваемое веб-приложение будет защищено от ботов, [DDoS](../../glossary/ddos.md)- и веб-атак в помощью [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }}. [Приватное соединение](../../interconnect/concepts/priv-con.md) между [облачной сетью](../../vpc/concepts/network.md#network) {{ vpc-full-name }} и [приватной сетью](../../baremetal/concepts/network.md#private-network) {{ baremetal-full-name }} обеспечивается с помощью [Routing Instance](../../cloud-router/concepts/routing-instance.md) {{ interconnect-full-name }}.
+В этом руководстве вы развернете веб-приложение на [серверах](../../baremetal/concepts/servers.md) {{ baremetal-full-name }}. Для обеспечения равномерного распределения нагрузки на хосты с приложением вы настроите [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}. Создаваемое веб-приложение будет защищено от ботов, [DDoS](../../glossary/ddos.md)- и веб-атак в помощью [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }}. [Приватное соединение](../../interconnect/concepts/priv-con.md) между [облачной сетью](../../vpc/concepts/network.md#network) {{ vpc-full-name }} и [приватной сетью](../../baremetal/concepts/private-network.md) {{ baremetal-full-name }} обеспечивается с помощью [Routing Instance](../../cloud-router/concepts/routing-instance.md) {{ interconnect-full-name }}.
 
 Схема решения:
 
@@ -10,7 +10,7 @@
 * Инфраструктура на стороне {{ baremetal-name }}, которая включает в себя:
 
     * приватную подсеть `subnet-m4` в [пуле](../../baremetal/concepts/servers.md#server-pools) серверов `{{ region-id }}-m4`;
-    * [виртуальный сегмент сети](../../baremetal/concepts/network.md#vrf-segment) (VRF) `my-vrf`;
+    * [виртуальный сегмент сети](../../baremetal/concepts/private-network.md#vrf-segment) (VRF) `my-vrf`;
     * два сервера {{ baremetal-name }} в пуле серверов `{{ region-id }}-m4` с развернутым веб-приложением — `alb-back-0` и `alb-back-1`.
 * `Routing Instance` {{ interconnect-name }}, который обеспечивает сетевую связность между сетями {{ vpc-name }} и {{ baremetal-name }}.
 * Инфраструктура на стороне [{{ vpc-name }}](../../vpc/index.yaml), которая включает в себя:
@@ -171,7 +171,7 @@
 
 ## Подготовьте окружение {{ baremetal-name }} {#setup-baremetal}
 
-Настройте инфраструктуру на стороне {{ baremetal-name }}. На этом этапе вы создадите [виртуальный сегмент сети (VRF)](../../baremetal/concepts/network.md#vrf-segment), [приватную подсеть](../../baremetal/concepts/network.md#private-subnet) и настроите [приватное соединение](../../baremetal/concepts/network.md#private-connection-to-vpc) с облачной сетью, а также арендуете два [сервера](../../baremetal/concepts/servers.md) {{ baremetal-name }}.
+Настройте инфраструктуру на стороне {{ baremetal-name }}. На этом этапе вы создадите [виртуальный сегмент сети (VRF)](../../baremetal/concepts/private-network.md#vrf-segment), [приватную подсеть](../../baremetal/concepts/private-network.md#private-subnet) и настроите [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) с облачной сетью, а также арендуете два [сервера](../../baremetal/concepts/servers.md) {{ baremetal-name }}.
 
 ### Создайте виртуальный сегмент сети и приватную подсеть {#setup-vrf}
 
@@ -202,7 +202,7 @@
 
 ### Настройте приватное соединение с облачной сетью {#connect-to-vpc}
 
-Создайте [приватное соединение](../../baremetal/concepts/network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
+Создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 

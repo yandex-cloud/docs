@@ -1,4 +1,4 @@
-title: Yandex Object Storage
+title: '{{ objstorage-full-name }}'
 href: index.yaml
 items:
   - name: Начало работы
@@ -75,10 +75,10 @@ items:
             href: operations/objects/rename-move.md
           - name: Копирование объектов
             href: operations/objects/copy.md
-          - name: >-
-              Получение подписанной ссылки (pre-signed URL) на скачивание
-              объекта
+          - name: Скачивание объекта по подписанной ссылке (pre-signed URL)
             href: operations/objects/link-for-download.md
+          - name: Загрузка объекта по подписанной ссылке (pre-signed URL)
+            href: operations/objects/link-for-upload.md
           - name: Настройка блокировок версии объекта
             href: operations/objects/edit-object-lock.md
           - name: Удаление объекта

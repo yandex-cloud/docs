@@ -6,7 +6,7 @@
 
 Сетевая связность с использованием [{{ interconnect-full-name }}](../../interconnect/index.yaml) в {{ baremetal-full-name }} позволяет организовать доступ к [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) приватных подсетей {{ vpc-name }} в облачной инфраструктуре и/или CIDR приватных подсетей в on-prem инфраструктуре.
 
-В этом руководстве вы организуете сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/network.md#private-network) {{ baremetal-full-name }}, и [виртуальной машиной](../../compute/concepts/vm.md) {{ compute-full-name }}, расположенной в подсети [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+В этом руководстве вы организуете сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) {{ baremetal-full-name }}, и [виртуальной машиной](../../compute/concepts/vm.md) {{ compute-full-name }}, расположенной в подсети [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
 
 Аналогичным образом сетевую связность можно организовать и с вашими on-prem ресурсами, расположенными в приватных подсетях в вашей собственной сетевой инфраструктуре.
 
@@ -46,7 +46,7 @@
 
 Создайте необходимую инфраструктуру {{ yandex-cloud }}, в которой вы будете организовывать сетевую связность.
 
-Для настройки {{ interconnect-name }} в сервисе {{ baremetal-name }} понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/network.md#private-subnet) и [VRF](../../baremetal/concepts/network.md#vrf-segment) в {{ baremetal-name }}, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, а также Routing Instance, в составе которого будут [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}.
+Для настройки {{ interconnect-name }} в сервисе {{ baremetal-name }} понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в {{ baremetal-name }}, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, а также Routing Instance, в составе которого будут [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}.
 
 Для проверки сетевой связности понадобятся сервер {{ baremetal-name }} и виртуальная машина {{ compute-name }}.
 
@@ -200,7 +200,7 @@
 
 ## Создайте приватное соединение {#create-prc}
 
-После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
+После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 

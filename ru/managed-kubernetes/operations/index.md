@@ -11,6 +11,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](autoscale.md)
 * [{#T}](apply-tf-provider.md)
 * [{#T}](apply-helm-provider.md)
+* [{#T}](private-registries.md)
 
 ## Подключение к кластеру {#cluster-connect}
 

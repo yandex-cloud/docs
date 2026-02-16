@@ -35,21 +35,21 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
     This tutorial assumes that:
 
-    * To manage {{ keycloak }}, you need a [super administrator account](https://www.keycloak.org/docs/latest/server_admin/index.html#creating-first-admin_server_administration_guide) enabling any operation in any realm.
+    * You are using a [super admin account](https://www.keycloak.org/docs/latest/server_admin/index.html#creating-first-admin_server_administration_guide) with full permissions to manage {{ keycloak }}.
     * All operations are performed in the `master` realm.
-    * {{ keycloak }} is accessible at:
+    * You are accessing {{ keycloak }} at:
 
         ```url
         http://keycloak.example.com:8080
         ```
 
-    * The {{ keycloak }} admin console is accessible at:
+    * You are accessing the {{ keycloak }} admin console at:
 
         ```url
         http://keycloak.example.com:8080/admin/
         ```
 
-## Configure an identity provider {#configure-idp}
+## Configuring an identity provider {#configure-idp}
 
 1. Connect to the {{ keycloak }} management console and select the `master` realm.
 
@@ -72,7 +72,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
         * **Valid redirect URIs**
         * **IDP Initiated SSO Relay State**
 
-        The ACS URL must be in the following format:
+        The ACS URL has the following format:
 
         ```url
         https://c-{{ cluster-id }}.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
@@ -82,7 +82,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
 1. Make sure you can use the client: the relevant option in the top-right corner must be set to **Enabled**.
 
-1. On the **Settings** tab, configure the client parameters as follows:
+1. On the **Settings** tab, configure the client as follows:
 
     * **SAML Capabilities**:
         * **Name ID format**: `email`.
@@ -108,11 +108,11 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
    {% note info %}
    
-   If the **Assigned Default Client Scopes** list on the **Client scopes** tab includes the `role_list` mapping, we recommend you remove it to avoid issues with SAML response validation.
+   If the **Assigned Default Client Scopes** list on the **Client scopes** tab includes the `role_list` mapping, we recommend removing it to avoid issues with SAML response validation.
    
    {% endnote %}
    
-    1. Click URL to connect to {{ OS }} Dashboards with the `-dedicated` suffix.
+    1. Click the URL to connect to {{ OS }} Dashboards with the `-dedicated` suffix.
 
     1. On the **Mappers** tab, click **Configure a new mapper**. Select the **Role list** mapper from the list.
 
@@ -127,11 +127,11 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
 ## Set up SSO for the cluster {#configure-sso}
 
-1. Get the metadata for the [previously created client](#configure-idp):
+1. Get the metadata for the [client you created](#configure-idp):
 
     1. Connect to the {{ keycloak }} management console and select the `master` realm.
     1. In the left-hand panel, select **Clients**.
-    1. Click URL to connect to {{ OS }} Dashboards.
+    1. Click the URL to connect to {{ OS }} Dashboards.
     1. In the top-right corner, expand the **Action** menu and select **Download adapter config**.
     1. Select the `Mod Auth Mellon Files` format and click **Download**.
 
@@ -149,14 +149,14 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
     To set up a {{ keycloak }} authentication source:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Click the cluster name and open the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the required values for these settings:
 
         * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}**: Provider ID.
 
-            For {{ keycloak }}, this ID matches the URL referring to the `master` realm:
+            For {{ keycloak }}, this ID matches the URL pointing to the `master` realm:
 
             ```url
             http://keycloak.example.com:8080/realms/master
@@ -178,7 +178,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
             Specify the same attribute [you configured for the {{ keycloak }} mapper](#configure-idp): `roles`.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Leave the field empty.
+        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Leave this field empty.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Leave the `0` value.
 
@@ -186,7 +186,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
 
-1. Wait for the cluster status to change to `Running`. It may take a few minutes to apply settings.
+1. Wait for the cluster status to change to `Running`. It may take a few minutes to apply the settings.
 
 ## Configure roles for SSO {#map-roles}
 
@@ -221,7 +221,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
                 {% note info %}
 
-                For the sake of simplicity, this tutorial assumes that this setting is enabled to skip email verification at first login.
+                To make this tutorial easy to follow, this setting is enabled to skip email verification at first login.
 
                 {% endnote %}
 
@@ -232,7 +232,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
             {% note info %}
 
-            For the sake of simplicity, this tutorial assumes that this setting is disabled to avoid password change at first login.
+            To make this tutorial easy to follow, this setting is disabled to avoid password change at first login.
 
             {% endnote %}
 
@@ -247,11 +247,11 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
         1. In the **Members** tab, click **Add member**, select `kc_demo_user`, and click **Add**.
         1. In the **Role mapping** tab, click **Assign role**, enable **Filter by realm roles**, select `kc_demo_role` from the role list, and click **Assign**.
 
-1. Map {{ OS }} cluster roles with those in {{ keycloak }}. This will enable you to access a cluster using SSO.
+1. Map {{ OS }} cluster roles with those in {{ keycloak }}. This will enable you to access your cluster using SSO.
 
     To map roles:
 
-    1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to {{ OS }} Dashboards as the `admin` user.
+    1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to {{ OS }} Dashboards as `admin`.
     1. In the left-hand menu, select **{{ OS }} Plugins** → **Security**.
     1. In the left-hand panel, select **Roles**.
     1. Configure role mapping:
@@ -280,7 +280,7 @@ Upon successful authentication with {{ OS }} Dashboards, the user with the `kc_d
 
     On the login page, click **Log in with single sign-on** rather than entering your username and password.
 
-    If you have set up everything correctly, the browser will redirect you to the authentication page in {{ keycloak }}.
+    If you have set up everything correctly, the browser will redirect you to the {{ keycloak }} authentication page.
 
 1. Enter the `kc_demo_user` credentials and click **Sign in**.
 
@@ -288,6 +288,6 @@ Upon successful authentication with {{ OS }} Dashboards, the user with the `kc_d
 
 1. Make sure the user has the `kibana_user` role in {{ OS }}.
 
-    To do this, click the user avatar in the top-right corner and select **View roles and identities**. This will show you the roles assigned to the user.
+    To do this, click the user account picture in the top-right corner and select **View roles and identities**. This will show you the roles assigned to the user.
 
 1. Make sure you can perform all actions the `kibana_user` role permits.
