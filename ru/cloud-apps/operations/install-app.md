@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите развернуть приложение.
-    1. Выберите сервис **{{ ui-key.yacloud.component.navigation-menu.label_cloud-apps }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.component.navigation-menu.label_cloud-apps }}**.
     1. На панели слева выберите **{{ ui-key.yacloud.cloud-apps.label_marketplace }}**.
     1. Выберите нужное приложение и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
     1. Укажите имя приложения и выберите сервисный аккаунт. От имени выбранного сервисного аккаунта будут развертываться все ресурсы приложения, поэтому у него должны быть права на управление этими ресурсами. Например, права, которые позволяют создавать функции {{ sf-name }} или назначать права доступа другому сервисному аккаунту на каталог. Чтобы cоздать сервисный аккаунт с ролью `admin` на каталог, выберите `{{ ui-key.yacloud.component.service-account-field.label_sg-auto }}`.

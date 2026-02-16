@@ -21,13 +21,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+    1. [Create a {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
 
     1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect.md#configuring-security-groups).
 
@@ -75,7 +75,7 @@ Set up the infrastructure:
         terraform validate
         ```
 
-        {{ TF }} will display any configuration errors detected in your files.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -87,9 +87,9 @@ Set up the infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. [Connect to the source {{ mos-name }} cluster](../../../managed-opensearch/operations/connect.md).
+1. [Connect to the {{ mos-name }} source cluster](../../../managed-opensearch/operations/connect.md).
 
-1. Create a test index named `people` and set its schema:
+1. Create a test index named `people` and define its schema:
 
     ```bash
     curl --user admin:<password> \
@@ -160,10 +160,10 @@ Set up the infrastructure:
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select your {{ mos-name }} cluster from the list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
 1. Create a transfer:
 
@@ -171,7 +171,7 @@ Set up the infrastructure:
 
     - Manually {#manual}
 
-      1. [Create](../../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type transfer configured to use the new endpoints.
+      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -179,9 +179,9 @@ Set up the infrastructure:
 
       1. In the `opensearch-to-object-storage.tf` file, specify the values of the following variables:
 
-          * `target_endpoint_id`: ID of the target endpoint.
+          * `target_endpoint_id`: Target endpoint ID.
           * `source_endpoint_id`: Source endpoint ID.
-          * `transfer_enabled`: `1` to create a transfer.
+          * `transfer_enabled`: Set to `1` to create a transfer.
 
       1. Validate your {{ TF }} configuration files using this command:
 
@@ -189,13 +189,13 @@ Set up the infrastructure:
           terraform validate
           ```
 
-          {{ TF }} will display any configuration errors detected in your files.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-          The transfer will activate automatically upon creation.
+          The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
@@ -204,7 +204,7 @@ Set up the infrastructure:
 Make sure the data has been transferred from the {{ mos-name }} cluster to the {{ objstorage-name }} bucket:
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
+1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
@@ -212,12 +212,12 @@ Make sure the data has been transferred from the {{ mos-name }} cluster to the {
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete](../../../storage/operations/objects/delete.md) the `from_MOS` folder from the bucket you created.
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

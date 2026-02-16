@@ -15,6 +15,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 ![migration](../../_assets/data-transfer/tutorials/migration.svg)
 
 * [Миграция кластера {{ PG }}](managed-postgresql.md)
+* [Миграция кластера {{ mpg-name }} на другую версию](postgresql-versions.md)
 * [Миграция кластера {{ MY }}](managed-mysql-to-mysql.md)
 * [Миграция кластера {{ CH }}](managed-clickhouse.md)
 * [Миграция кластера {{ GP }}](managed-greenplum.md)

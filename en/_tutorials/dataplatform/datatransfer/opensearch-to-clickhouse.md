@@ -20,13 +20,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Set up your data transfer infrastructure:
+Set up your data delivery infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) with your preferred configuration, ensuring its hosts are publicly accessible.
+    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
     1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
 
        To connect to the cluster via {{ websql-full-name }}, enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}** in the cluster settings.
@@ -48,7 +48,7 @@ Set up your data transfer infrastructure:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) and rules allowing inbound connections to the {{ mos-name }} and {{ mch-name }} clusters.
+        * [Security group](../../../vpc/concepts/security-groups.md) and rules allowing connections to the {{ mos-name }} and {{ mch-name }} clusters.
         * {{ mos-name }} source cluster and its `admin` account.
         * {{ mch-name }} target cluster, its user account, and a database.
         * Target endpoint.
@@ -66,7 +66,7 @@ Set up your data transfer infrastructure:
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -88,11 +88,11 @@ Set up your data transfer infrastructure:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people' && \
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' \
          --data'
@@ -109,7 +109,7 @@ Set up your data transfer infrastructure:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
          --data'
@@ -119,7 +119,7 @@ Set up your data transfer infrastructure:
          }
          ' && \
     curl --cacert ~/.opensearch/root.crt \
-         --user <source_cluster_user_name>:<source_cluster_user_password> \
+         --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
          --data'
@@ -134,7 +134,7 @@ Set up your data transfer infrastructure:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <username_in_target_cluster>:<user_password_in_target_cluster> \
+         --user <user_name_in_target_cluster>:<user_password_in_target_cluster> \
          --header 'Content-Type: application/json' \
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
@@ -146,7 +146,7 @@ Set up your data transfer infrastructure:
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `OpenSearch`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.connection.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select your {{ mos-name }} cluster from the list.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` password.
 
@@ -166,7 +166,7 @@ Set up your data transfer infrastructure:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the {{ mch-name }} cluster user password.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the {{ mch-name }} cluster database name.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type that will use the endpoints you created.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
         1. [Activate](../../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
@@ -176,7 +176,7 @@ Set up your data transfer infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` for creating a target endpoint and transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -188,14 +188,14 @@ Set up your data transfer infrastructure:
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Check that the data has been transferred from the source {{ mos-name }} cluster to the {{ mch-name }} database:
+1. Make sure the data from the source {{ mos-name }} cluster has been transferred to the {{ mch-name }} database:
 
     {% list tabs group=instructions %}
 
@@ -223,7 +223,7 @@ Set up your data transfer infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
 1. Delete other resources depending on how they were created:

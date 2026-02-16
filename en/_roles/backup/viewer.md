@@ -10,4 +10,6 @@ Users with this role can:
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and its statistics.
 
+This role includes the `backup.auditor` permissions.
+
 To assign the `backup.viewer` role, you need the `admin` role for the cloud or `backup.admin` for the folder.

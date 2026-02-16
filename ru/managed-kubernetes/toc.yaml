@@ -21,6 +21,8 @@ items:
         href: operations/apply-tf-provider.md
       - name: Установка приложений из {{ marketplace-full-name }} с помощью {{ TF }}
         href: operations/apply-helm-provider.md
+      - name: Работа с приватными реестрами Docker-образов
+        href: operations/private-registries.md
       - name: Подключение к кластеру
         items:
           - name: Обзор способов подключения

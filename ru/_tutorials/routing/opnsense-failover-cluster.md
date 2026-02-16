@@ -12,8 +12,8 @@
 
 ![opnsense-failover-cluster](../../_assets/tutorials/opnsense-failover-cluster.svg)
 
-* [Публичная сеть](../../baremetal/concepts/network.md#public-network) {{ baremetal-name }} [пула серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m4`.
-* [Приватная подсеть](../../baremetal/concepts/network.md#private-subnet) {{ baremetal-name }} `opnsense-private-subnet-m4`.
+* [Публичная сеть](../../baremetal/concepts/public-network.md) {{ baremetal-name }} [пула серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m4`.
+* [Приватная подсеть](../../baremetal/concepts/private-network.md#private-subnet) {{ baremetal-name }} `opnsense-private-subnet-m4`.
 * Два сервера {{ baremetal-name }} в составе кластера OPNsense: `opnsense-master` и `opnsense-backup`. При написании настоящего руководства использовался межсетевой экран OPNsense версии `25.1`.
 * Один сервер {{ baremetal-name }} `vmware-esxi` с запущенной платформой [виртуализации](../../glossary/virtualization.md) VMware [ESXi](https://ru.wikipedia.org/wiki/VMware_ESXi). При написании настоящего руководства использовался гипервизор ESXi версии `7.0U3g`.
 * На сервере `vmware-esxi` запущена [виртуальная машина](../../glossary/vm.md): `opnsense-tester-vm`. При написании настоящего руководства виртуальная машина создавались под управлением ОС [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) без графического пользовательского интерфейса.

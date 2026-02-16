@@ -28,7 +28,20 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
       
-      * (Опционально) В полях **{{ ui-key.yacloud.baremetal.field_subnet-id }}** и **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** измените [сетевые настройки](../../concepts/network.md) сервера.
+      * (Опционально) В блоках **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** и **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** измените [сетевые настройки](../../concepts/network.md) сервера.
+
+          Чтобы привязать к серверу [дополнительную приватную подсеть](../../concepts/private-network.md#tagged-vlan-subnet), в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** и в появившемся поле выберите дополнительную подсеть или создайте новую.
+
+          {% include [additional-private-subnet-dhcp-notice](../../../_includes/baremetal/additional-private-subnet-dhcp-notice.md) %}
+
+          Чтобы отвязать дополнительную подсеть от сервера, в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** нажмите значок ![trash-bin](../../../_assets/console-icons/trash-bin.svg) в строке с соответствующей дополнительной приватной подсетью.
+
+          {% note warning %}
+
+          Если вы изменили количество или состав дополнительных приватных подсетей, привязанных к серверу, [настройте](./set-up-tagged-vlan.md) сетевой интерфейс в его операционной системе.
+
+          {% endnote %}
+
       * (Опционально) В поле **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** измените пакет [потребления трафика сервера](../../concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
 
           * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`;
@@ -74,8 +87,8 @@ description: Следуя данной инструкции, вы сможете
       * `--description` — новое описание сервера. Необязательный параметр.
       * `--network-interfaces` — новые сетевые настройки. Необязательный параметр. Возможные значения:
         
-        * `private-subnet-id` — идентификатор новой [приватной подсети](../../concepts/network.md#private-subnet).
-        * `public-subnet-id` — идентификатор новой [выделенной публичной подсети](../../concepts/network.md#public-subnet).
+        * `private-subnet-id` — идентификатор новой [приватной подсети](../../concepts/private-network.md#private-subnet).
+        * `public-subnet-id` — идентификатор новой [выделенной публичной подсети](../../concepts/public-network.md#public-subnet).
 
       * `--labels` — новые метки сервера. Необязательный параметр.
 
@@ -198,8 +211,8 @@ description: Следуя данной инструкции, вы сможете
 
   * `description` — новое описание сервера.
   * `networkInterfaces[]` — новые сетевые настройки. Необязательный параметр. Возможные значения:
-    * `privateSubnetId` — идентификатор новой [приватной подсети](../../concepts/network.md#private-subnet).
-    * `publicSubnetId` — идентификатор новой [выделенной публичной подсети](../../concepts/network.md#public-subnet).
+    * `privateSubnetId` — идентификатор новой [приватной подсети](../../concepts/private-network.md#private-subnet).
+    * `publicSubnetId` — идентификатор новой [выделенной публичной подсети](../../concepts/public-network.md#public-subnet).
   
   Результат:
 

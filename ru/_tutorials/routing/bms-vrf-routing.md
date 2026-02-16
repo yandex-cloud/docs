@@ -10,7 +10,7 @@
 
 ![bms-vrf-routing-scheme](../../_assets/baremetal/bms-vrf-routing-scheme.svg)
 
-В зоне доступности `{{ region-id }}-m` вы настроите окружение из двух [приватных подсетей](../../baremetal/concepts/network.md#private-subnet) `subnet-m3` и `subnet-m4`, созданных соответственно в [пулах серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m3` и `{{ region-id }}-m4`. Эти подсети вы объедините в [виртуальный фрагмент сети](../../baremetal/concepts/network.md#vrf-segment) (VRF) `vrrp-vrf`.
+В зоне доступности `{{ region-id }}-m` вы настроите окружение из двух [приватных подсетей](../../baremetal/concepts/private-network.md#private-subnet) `subnet-m3` и `subnet-m4`, созданных соответственно в [пулах серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m3` и `{{ region-id }}-m4`. Эти подсети вы объедините в [виртуальный фрагмент сети](../../baremetal/concepts/private-network.md#vrf-segment) (VRF) `vrrp-vrf`.
 
 В подсети `subnet-m3` вы создадите два сервера {{ baremetal-name }} — `master-server-m3` и `backup-server-m3`, которые соответственно будут выполнять роли `MASTER` и `BACKUP` в VRRP-группе. На двух этих серверах вы запустите сервис Keepalived и настроите с его помощью виртуальный IP-адрес для  группы серверов в пуле `{{ region-id }}-m3`.
 

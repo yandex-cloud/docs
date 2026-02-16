@@ -1203,6 +1203,8 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Миграция БД из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: Миграция кластера {{ mpg-name }} на другую версию
+        href: dataplatform/postgresql-versions.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
         hidden: true

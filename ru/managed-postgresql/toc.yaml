@@ -149,6 +149,8 @@ items:
             href: tutorials/data-migration.md
           - name: Миграция базы данных из {{ mpg-name }}
             href: tutorials/outbound-replication.md
+          - name: Миграция кластера {{ mpg-name }} на другую версию
+            href: tutorials/postgresql-versions.md
           - name: >-
               Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name
               }}

@@ -279,6 +279,10 @@ description: В статье приведен полный справочник 
 
 ## {{ backup-full-name }} {#backup-roles}
 
+#### backup.auditor {#backup-auditor}
+
+{% include [backup.auditor](../_roles/backup/auditor.md) %}
+
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../_roles/backup/viewer.md) %}

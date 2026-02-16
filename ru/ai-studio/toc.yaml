@@ -39,11 +39,11 @@ items:
     items:
       - name: Обзор AI-агентов
         href: concepts/agents/index.md
-      - name: Голосовые агенты
-        href: concepts/agents/realtime.md
       - name: Текстовые агенты
         href: concepts/agents/text-agents.md
-      - name: Conversations API
+      - name: Голосовые агенты
+        href: concepts/agents/realtime.md
+      - name: Управление контектом диалога
         href: concepts/agents/conversations-api.md
       - name: '{{ code-interpreter }}'
         href: concepts/agents/tools/code-interpreter.md

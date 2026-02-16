@@ -26,7 +26,7 @@ items:
             href: operations/servers/server-kvm.md
           - name: Остановить и запустить сервер
             href: operations/servers/server-stop-and-start.md
-          - name: Отказаться от аренды серверы
+          - name: Отказаться от аренды сервера
             href: operations/servers/server-lease-cancel.md
           - name: Загрузить свой образ ОС
             href: operations/image-upload.md
@@ -42,6 +42,8 @@ items:
                 href: operations/servers/reinstall-os-from-marketplace.md
               - name: Переустановить ОС из своего ISO-образа
                 href: operations/servers/reinstall-os-from-own-image.md
+          - name: Настроить дополнительную приватную подсеть
+            href: operations/servers/set-up-tagged-vlan.md
           - name: Настроить группу агрегирования MC-LAG
             href: operations/servers/set-up-mc-lag.md
           - name: Сбросить пароль на сервере
@@ -87,6 +89,10 @@ items:
         items:
           - name: Обзор
             href: concepts/network.md
+          - name: Публичная сеть
+            href: concepts/public-network.md
+          - name: Приватная сеть
+            href: concepts/private-network.md
           - name: DHCP
             href: concepts/dhcp.md
           - name: MC-LAG
