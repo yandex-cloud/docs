@@ -5482,6 +5482,7 @@ default:
         action_stop-prolongation-server: Выключить автопродление
         action_stop-prolongation-server-dialog: Выключить
         actions_add-partition: Добавить раздел
+        addAdditionalSubnet: Добавить дополнительную подсеть
         field_choose-marketplace-os: Marketplace
         field_choose-no-os: Без операционной системы
         field_CIDR_rwYMi: CIDR
@@ -5531,6 +5532,9 @@ default:
         label_subnetworks_uU4LH: Приватные подсети
         label_vrf-interconnect-direct-type: Идентификатор соединения
         label_vrf-interconnect-select-type: Способ настройки
+        private-subnets:
+          fields:
+            vlan_jew8J: VLAN
         servers:
           BandwidthRow:
             bandwidthTitle_wvZra: Объём данных
@@ -5549,6 +5553,7 @@ default:
         title_section-server-info: Информация о сервере
         title_section-server-marketplace-app: Приложение Marketplace
         title_section-server-private-network: Приватная сеть
+        title_section-server-private-network_xrEye: Приватная сеть
         title_section-server-product: Образ
         title_section-server-public-network: Публичная сеть
         title_section-server-public-network_p7Zhj: Публичная сеть
@@ -5717,6 +5722,7 @@ default:
           title_main-settings_68Grp: Основные настройки
         button_create-cluster: Создать кластер ClickHouse
         cluster:
+          add_shard-btn: Добавить шард
           databases:
             popup-add_button_add: Создать
           format-schemas:
@@ -5750,6 +5756,9 @@ default:
           value_coordination-service-embedded-clickhouse-keeper: ClickHouse Keeper (встроенный)
           value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (на отдельных хостах)
           value_coordination-service-zookeeper: ZooKeeper (на отдельных хостах)
+        Cluster:
+          Shards:
+            action_add-shards_iULX7: Создать шарды
         field_convert_tables_to_replicated: Преобразовать нереплицируемые таблицы
         hosts:
           dialog:
@@ -11046,16 +11055,16 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1764089856329713384751806090650435327427957097722
-            tag: '1.28'
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1770707304115734413262392387482750396465759724290
+            tag: 1.28.1-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1764089856329713384751806090650435327427957097722
-            tag: 8.2.29
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1770707304115734413262392387482750396465759724290
+            tag: 8.4.17
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.5
+        tag: 1.0.5+002
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-

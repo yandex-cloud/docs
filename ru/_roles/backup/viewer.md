@@ -10,4 +10,6 @@
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) и его статистику.
 
+Включает разрешения, предоставляемые ролью `backup.auditor`.
+
 Назначить роль `backup.viewer` может пользователь с ролью `admin` в облаке или `backup.admin` в каталоге.

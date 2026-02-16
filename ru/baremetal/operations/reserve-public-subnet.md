@@ -5,9 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Заказать выделенную публичную подсеть
 
-[Выделенная публичная подсеть](../concepts/network.md#public-subnet) — это публичная подсеть, состоящая из определенного диапазона публичных IP-адресов, которые будут доступны вашим серверам в выбранных [пулах](../concepts/servers.md#server-pools).
+[Выделенная публичная подсеть](../concepts/public-network.md#public-subnet) — это публичная подсеть, состоящая из определенного диапазона публичных IP-адресов, которые будут доступны вашим серверам в выбранных [пулах](../concepts/servers.md#server-pools).
 
-Вы можете арендовать новую выделенную публичную подсеть или преобразовать имеющуюся [эфемерную публичную подсеть](../concepts/network.md#ephemeral-public-subnet) в выделенную.
+Вы можете арендовать новую выделенную публичную подсеть или преобразовать имеющуюся [эфемерную публичную подсеть](../concepts/public-network.md#ephemeral-public-subnet) в выделенную.
 
 ### Арендовать новую выделенную публичную подсеть {#reserve-new-subnet}
 
@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите зарезервировать [выделенную публичную подсеть](../concepts/network.md#public-subnet).
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите зарезервировать [выделенную публичную подсеть](../concepts/public-network.md#public-subnet).
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets }}**.
   1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды для аренды новой [выделенной публичной подсети](../concepts/network.md#public-subnet):
+  1. Посмотрите описание команды для аренды новой [выделенной публичной подсети](../concepts/public-network.md#public-subnet):
 
      ```bash
      yc baremetal public-subnet create --help

@@ -26,6 +26,10 @@ Using the {{ yandex-cloud }} console or the CLI, you can assign a role for a [cl
 
 ### Service roles {#service-roles}
 
+#### backup.auditor {#backup-auditor}
+
+{% include [backup.auditor](../../_roles/backup/auditor.md) %}
+
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../../_roles/backup/viewer.md) %}

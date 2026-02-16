@@ -549,8 +549,8 @@ description: В разделе представлена история изме�
   --- | ---
   `ApplyUpdatePrivateCloudConnection` | Применение изменений приватного соединения с подсетями в VPC или в on-prem инфраструктуре
   `CreateImage` | Создание загрузочного образа
-  `CreatePrivateCloudConnection` | Создание [приватного соединения](../baremetal/concepts/network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
-  `CreatePublicSubnet` | Создание [публичной подсети](../baremetal/concepts/network.md#public-network)
+  `CreatePrivateCloudConnection` | Создание [приватного соединения](../baremetal/concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
+  `CreatePublicSubnet` | Создание [публичной подсети](../baremetal/concepts/public-network.md)
   `DeleteImage` | Удаление загрузочного образа
   `DeletePrivateCloudConnection` | Удаление приватного соединения с подсетями в VPC или в on-prem инфраструктуре
   `DeletePublicSubnet` | Удаление публичной подсети
@@ -821,7 +821,7 @@ description: В разделе представлена история изме�
 
   Событие | Описание
   --- | ---
-  `CreateExternalConnection` стало `CreatePrivateCloudConnection` | Создание [приватного соединения](../baremetal/concepts/network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
+  `CreateExternalConnection` стало `CreatePrivateCloudConnection` | Создание [приватного соединения](../baremetal/concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
   `DeleteExternalConnection` стало `DeletePrivateCloudConnection` | Удаление приватного соединения с подсетями в VPC или в on-prem инфраструктуре
   
   {% endcut %}
@@ -849,10 +849,10 @@ description: В разделе представлена история изме�
   Событие | Описание
   --- | ---
   `BatchCreateServer` | Аренда одновременно нескольких [серверов](../baremetal/concepts/servers.md) {{ baremetal-name }}
-  `CreateExternalConnection` | Создание [приватного соединения](../baremetal/concepts/network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
-  `CreatePrivateSubnet` | Создание [приватной подсети](../baremetal/concepts/network.md#private-subnet)
+  `CreateExternalConnection` | Создание [приватного соединения](../baremetal/concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
+  `CreatePrivateSubnet` | Создание [приватной подсети](../baremetal/concepts/private-network.md#private-subnet)
   `CreateServer` | Аренда сервера {{ baremetal-name }}
-  `CreateVRF` | Создание [виртуального сегмента сети](../baremetal/concepts/network.md#vrf-segment) (VRF)
+  `CreateVRF` | Создание [виртуального сегмента сети](../baremetal/concepts/private-network.md#vrf-segment) (VRF)
   `DeleteExternalConnection` | Удаление приватного соединения с подсетями в VPC или в on-prem инфраструктуре
   `DeletePrivateSubnet` | Удаление приватной подсети
   `DeleteVRF` | Удаление виртуального сегмента сети (VRF)

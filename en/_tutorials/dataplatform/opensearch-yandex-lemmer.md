@@ -3,16 +3,16 @@
 
 With `yandex-lemmer`, you can add a filter to [improve text search in Russian](../../managed-opensearch/concepts/plugins.md#yandex-lemmer) across {{ OS }} documents.
 
-To test the plugin, compare [standard search results](#search-without-yandex-lemmer) to [`yandex-lemmer`](#search-with-yandex-lemmer) search results and then [refine your filter](#improve-search).
+To test the plugin, compare [standard search results](#search-without-yandex-lemmer) to [`yandex-lemmer` search results](#search-with-yandex-lemmer) and then [refine your filter](#improve-search).
 
 After testing, [delete](#clear-out) the created resources if you no longer need them.
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster fee, which covers the use of computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk storage (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -24,7 +24,7 @@ The support cost includes:
 
     * Manually {#manual}
 
-        1. [Create a {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in desired configuration with the following settings:
+        1. [Create a {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) of your preferred configuration with the following settings:
 
             * `yandex-lemmer` and `analysis-icu` plugins enabled.
             * Public access to a group of hosts with the `DATA` role enabled.
@@ -45,18 +45,18 @@ The support cost includes:
             * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
             * {{ mos-name }} cluster.
 
-        1. In the `opensearch-yandex-lemmer.tf` file, specify these variables:
+        1. In the `opensearch-yandex-lemmer.tf` file, specify the following settings:
 
-            * `version`: {{ OS }} version
+            * `version`: {{ OS }} version.
             * `admin_password`: {{ OS }} admin password.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -72,9 +72,9 @@ The support cost includes:
 
     {% include [default-connstring](../../_includes/mdb/mos/default-connstring.md) %}
 
-    You can obtain the host FQDN with a [list of hosts in the cluster](../../managed-opensearch/operations/host-groups.md#list-hosts).
+    You can get the host FQDN with the [list of hosts in the cluster](../../managed-opensearch/operations/host-groups.md#list-hosts).
 
-    A message like this is displayed if the connection is successful:
+    If the connection is successful, you will see a message like this:
 
     ```bash
     {
@@ -91,7 +91,7 @@ The support cost includes:
 
 ## Run a search without yandex-lemmer {#search-without-yandex-lemmer}
 
-1. Add a document to the index named `simple-index`.
+1. Add a document to the index named `simple-index`:
 
     ```bash
     curl \
@@ -105,9 +105,9 @@ The support cost includes:
                 }'
     ```
 
-    `simple-index` will be created automatically when you create the document. By default, indexes use the [built-in text analyzer]({{ os.docs }}/analyzers/supported-analyzers/index/#built-in-analyzers) named `Standard`.
+    `simple-index` will be created automatically when you create the document. By default, indexes use the `Standard` [built-in text analyzer]({{ os.docs }}/analyzers/supported-analyzers/index/#built-in-analyzers).
 
-1. Perform this search:
+1. Run this search:
 
     ```bash
     curl \
@@ -143,7 +143,7 @@ The support cost includes:
 
 ## Run a search with yandex-lemmer {#search-with-yandex-lemmer}
 
-1. Create an index named `lemmer-index`, specify in it the `lemmer` analyzer parameters, and connect it for the `book` field:
+1. Create an index named `lemmer-index` with the `lemmer` analyzer parameters and connect it for the `book` field:
 
     ```bash
     curl \
@@ -190,7 +190,7 @@ The support cost includes:
                 }'
     ```
 
-1. Perform this search:
+1. Run this search:
 
     ```bash
     curl \
@@ -275,12 +275,12 @@ The support cost includes:
     }
     ```
 
-    After getting through the `yandex_lemmer` filter, the `rained` token transforms into two tokens:
+    After being filtered through `yandex_lemmer`, the `rained` token transforms into two tokens:
 
     * `rained`: Source token.
     * `rain`: Root form of `rained`.
 
-    After getting through the `yandex_lemmer` filter, the `it` token remains unchanged because the source token matches the root form of the word.
+    After being filtered through `yandex_lemmer`, the `it` token remains unchanged because the source token matches the root form of the word.
 
 ## Refine your search {#improve-search}
 
@@ -288,11 +288,11 @@ To refine a text search, add more filters to `yandex-lemmer`:
 
 * `nfc`: Performs [NFC normalization](https://www.unicode.org/faq/normalization.html) (text mapping), where the same letter is represented by different characters. This filter is available if the `analysis-icu` plugin is enabled.
 * `lowercase`: Converts text to lower case.
-* `yo_ye`: Repalces the letter "ё" with "е". `yandex-lemmer` does not distinguish between these letters (it will find both `ёлка` and `елка`), but such a replacement allows you to improve the percentage of analyzer cache hits and save some disk space.
+* `yo_ye`: Replaces the letter "ё" with "е". `yandex-lemmer` does not distinguish between these letters (it will find both `ёлка` and `елка`), but such a replacement allows you to improve the percentage of analyzer cache hits and save some disk space.
 
 To use additional filters:
 
-1. Create an index named `index-with-filters` and add into it the `yandex-lemmer` filter and additional filters for the `lemmer-improved` analyzer:
+1. Create an index named `index-with-filters` and add to it the `yandex-lemmer` filter and additional filters for the `lemmer-improved` analyzer:
 
     ```bash
     curl \
@@ -355,7 +355,7 @@ To use additional filters:
 
     Here, the letter "и" (code 1048) and the "˘" [breve](https://ru.wikipedia.org/wiki/Кратка) (code 774) are used instead of "й".
 
-1. Perform this search:
+1. Run this search:
 
     ```bash
     curl \
@@ -403,13 +403,13 @@ To use additional filters:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
 * Manually {#manual}
 
-    [Delete the {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md) cluster.
+    [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
 
 * Using {{ TF }} {#tf}
 

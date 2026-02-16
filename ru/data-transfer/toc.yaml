@@ -127,6 +127,8 @@ items:
         items:
           - name: Кластер {{ PG }}
             href: tutorials/managed-postgresql.md
+          - name: Миграция кластера {{ mpg-name }} на другую версию
+            href: tutorials/postgresql-versions.md
           - name: Данные в {{ MY }}
             href: tutorials/managed-mysql.md
           - name: Сторонний кластер {{ MY }}

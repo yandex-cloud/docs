@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
           На сервере должна быть как минимум одна группа, состоящая не менее чем из двух дисков.
 
           Вы можете добавить на сервер дополнительные группы дисков других типоразмеров. Для этого нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.baremetal.addDiskButton }}**.
-      1. В блоке **{{ ui-key.yacloud_components.baremetal.networkLabel }}** выберите скорость соединения сетевых карт сервера в [публичной](../../concepts/network.md#public-network) и [приватной](../../concepts/network.md#private-network) сетях, а также наличие на сервере [групп агрегирования](../../concepts/mc-lag.md) MC-LAG.
+      1. В блоке **{{ ui-key.yacloud_components.baremetal.networkLabel }}** выберите скорость соединения сетевых карт сервера в [публичной](../../concepts/public-network.md) и [приватной](../../concepts/private-network.md) сетях, а также наличие на сервере [групп агрегирования](../../concepts/mc-lag.md) MC-LAG.
       1. В блоке **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите [пул серверов](../../concepts/servers.md#server-pools), в котором будет расположен сервер.
       1. В блоке **{{ ui-key.yacloud_components.baremetal.withReserve }}** выберите, будет ли на сервере [резервирование питания](../../concepts/servers.md#server-power-supply).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.continue }}**.

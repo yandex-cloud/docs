@@ -7,6 +7,42 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.193.0 (16.02.26) {#version0.193.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.193.0}
+
+##### {{ cloud-registry-name }} {#cloud-registry-0.192.0}
+
+Добавлены команды для управления правами доступа к артефактам в {{ cloud-registry-name }}:
+* `yc cloud-registry artifact list-access-bindings`;
+* `yc cloud-registry artifact set-access-bindings`;
+* `yc cloud-registry artifact add-access-binding`;
+* `yc cloud-registry artifact remove-access-binding`.
+
+##### {{ mos-name }} {#mos-0.192.0}
+
+Изменено описание параметров конфигурации {{ mos-name }} в командах:
+* `yc managed-opensearch cluster create`;
+* `yc managed-opensearch cluster update`.
+
+##### {{ objstorage-name }} {#objstorage-0.192.0}
+
+Добавлены команды для настройки выгрузки метаданных объектов (S3 Inventory):
+* `yc storage bucket create-inventory-configuration`;
+* `yc storage bucket delete-inventory-configuration`;
+* `yc storage bucket get-inventory-configuration`;
+* `yc storage bucket list-inventory-configurations`.
+
+##### {{ mpg-full-name }} {#mpg-0.192.0}
+
+Исправлена проблема с дублированием вывода в команде `yc managed-postgresql connect`.
+
+##### {{ mgp-full-name }} {#mgp-0.192.0}
+
+Исправлена проблема с дублированием вывода в команде `yc managed-greenplum connect`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.192.0 (12.02.26) {#version0.192.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.192.0}
@@ -16,8 +52,6 @@ description: На странице представлены релизы CLI, а
 В следующие команды для управления рабочим процессом добавлены параметры `--set-is-public` и `--remove-is-public`, с помощью которых можно включить или выключить публичный доступ к запуску процесса:
 * `yc serverless workflow create`;
 * `yc serverless workflow update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.191.0 (06.02.26) {#version0.191.0}
 

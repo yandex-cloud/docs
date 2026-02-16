@@ -1,4 +1,4 @@
-# Conversations API
+# Управление контекстом текстового диалога
 
 При работе с Responses API для управления контекстом вы можете [соединять ответы](../../operations/agents/manage-context.md#previous-response) друг с другом, [передавать историю сообщений](../../operations/agents/manage-context.md#manual) в каждом запросе или [использовать _Conversations API_](../../operations/agents/manage-context.md#conversations-api), чтобы хранить диалог как долгоживущий объект со стабильным идентификатором.
 
