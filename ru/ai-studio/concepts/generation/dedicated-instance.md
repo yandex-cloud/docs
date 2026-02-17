@@ -21,7 +21,7 @@
 || **Qwen 2.5 VL 32B Instruct**
 [Карточка модели](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct) | 32 768 | Лицензия [Apache 2.0]({{ license-apache }}) ||
 || **Qwen 2.5 7B Instruct** 
-[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) | 32 768 | [Лицензия Qwen](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE) ||
+[Карточка модели](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) | 32 768 | Лицензия [Apache 2.0]({{ license-apache }}) ||
 || **Gemma 3 4B it**
 [Карточка модели](https://huggingface.co/google/gemma-3-4b-it) | 131 072 | [Условия использования Gemma]({{ license-gemma }})  ||
 || **Gemma 3 12B it**
