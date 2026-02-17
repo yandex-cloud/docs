@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/ydb/cli-ref/resource-preset/index.md
 ---
 
 # yc ydb resource-preset

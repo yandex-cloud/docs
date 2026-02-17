@@ -338,8 +338,14 @@ items:
             href: tutorials/index.md
           - name: Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}
             href: tutorials/s2s-vpn.md
-          - name: Установка Ghost CMS CloudApp в {{ objstorage-name }}
+          - name: >-
+              Установка Ghost CMS в {{ objstorage-name }} с помощью {{
+              cloud-apps-name }}
             href: tutorials/ghost-cms-cloudapp.md
+          - name: >-
+              Установка WordPress High Availability с помощью {{ cloud-apps-name
+              }}
+            href: tutorials/wordpress-cloudapp.md
           - name: >-
               Использование продуктов {{ marketplace-name }} в {{
               managed-k8s-name }}
@@ -392,3 +398,4 @@ items:
         href: security/index.md
       - name: Аудитные логи {{ at-name }}
         href: at-ref.md
+path: ru/marketplace/toc.yaml

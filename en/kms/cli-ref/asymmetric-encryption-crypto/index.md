@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/kms/cli-ref/asymmetric-encryption-crypto/index.md
 ---
 
 # yc kms asymmetric-encryption-crypto

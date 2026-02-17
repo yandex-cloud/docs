@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/setAccessBindings.md
 ---
 
 # Container Registry API, REST: Registry.SetAccessBindings

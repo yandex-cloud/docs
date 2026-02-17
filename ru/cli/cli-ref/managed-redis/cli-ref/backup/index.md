@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/backup/index.md
 ---
 
 # yc managed-redis backup

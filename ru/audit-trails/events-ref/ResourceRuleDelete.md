@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/cdn/events-ref/ResourceRuleDelete.md
 ---
 
 # Cloud CDN Audit Trails Events: ResourceRuleDelete

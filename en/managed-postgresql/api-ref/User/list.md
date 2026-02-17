@@ -38,7 +38,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/list.md
 ---
 
 # Managed Service for PostgreSQL API, REST: User.List

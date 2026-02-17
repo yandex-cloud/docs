@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mos-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mos-name }}.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mos-name }}.
 ---
 
 # {{ TF }} reference for {{ mos-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mos-name }}:
+{{ mos-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |

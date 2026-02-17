@@ -672,7 +672,6 @@ apiPlayground:
               **boolean**
               Do not send logs to Cloud Logging log group.
             type: boolean
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/create.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.Create

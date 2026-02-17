@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/clientEvents/realtimeInputAudioBufferAppend.md
 ---
 
 # REST: input_audio_buffer.append

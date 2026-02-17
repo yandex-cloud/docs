@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/registry/add-labels.md
 ---
 
 # yc container registry add-labels

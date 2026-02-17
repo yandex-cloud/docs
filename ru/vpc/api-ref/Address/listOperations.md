@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/Address/listOperations.md
 ---
 
 # Virtual Private Cloud API, REST: Address.ListOperations

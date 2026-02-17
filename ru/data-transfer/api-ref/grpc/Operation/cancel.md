@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Data Transfer API, gRPC: OperationService.Cancel

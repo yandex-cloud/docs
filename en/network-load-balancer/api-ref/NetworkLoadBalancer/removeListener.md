@@ -29,7 +29,6 @@ apiPlayground:
         - listenerName
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/removeListener.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.RemoveListener

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/workload-identity/oidc/federation/create.md
 ---
 
 # yc iam workload-identity oidc federation create

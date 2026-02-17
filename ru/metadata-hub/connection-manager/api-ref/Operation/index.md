@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Operation/index.md
 ---
 
 # Connection Manager API, REST: Operation

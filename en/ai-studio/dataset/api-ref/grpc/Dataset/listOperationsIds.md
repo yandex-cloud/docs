@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/dataset/v1/dataset/api-ref/grpc/Dataset/listOperationsIds.md
 ---
 
 # Foundation Models Dataset Service API, gRPC: DatasetService.ListOperationsIds

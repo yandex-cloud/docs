@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/dataproc/cli-ref-beta/cluster/list-ui-links.md
 ---
 
 # yc beta dataproc cluster list-ui-links

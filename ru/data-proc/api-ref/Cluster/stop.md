@@ -30,7 +30,6 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/stop.md
 ---
 
 # Yandex Data Processing API, REST: Cluster.Stop

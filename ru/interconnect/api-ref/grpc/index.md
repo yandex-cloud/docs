@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/index.md
 ---
 
 # Cloud Interconnect API: gRPC reference

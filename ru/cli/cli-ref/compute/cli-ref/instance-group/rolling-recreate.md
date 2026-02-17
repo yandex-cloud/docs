@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md
 ---
 
 # yc compute instance-group rolling-recreate

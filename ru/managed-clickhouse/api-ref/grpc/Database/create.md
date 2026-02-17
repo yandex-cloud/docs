@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Database/create.md
 ---
 
 # Managed Service for ClickHouse API, gRPC: DatabaseService.Create

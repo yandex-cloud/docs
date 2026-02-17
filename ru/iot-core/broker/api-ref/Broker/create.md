@@ -127,7 +127,6 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/create.md
 ---
 
 # IoT Core Broker Service, REST: Broker.Create

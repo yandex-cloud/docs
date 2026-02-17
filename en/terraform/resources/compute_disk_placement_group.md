@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_disk_placement_group.md
 ---
 
 # yandex_compute_disk_placement_group (Resource)

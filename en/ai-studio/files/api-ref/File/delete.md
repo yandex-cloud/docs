@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/delete.md
 ---
 
 # Files API, REST: File.Delete

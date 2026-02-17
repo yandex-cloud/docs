@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_saml_federation_user_account.md
 ---
 
 # yandex_organizationmanager_saml_federation_user_account (DataSource)

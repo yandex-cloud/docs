@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/boot-image/remove-labels.md
 ---
 
 # yc baremetal boot-image remove-labels

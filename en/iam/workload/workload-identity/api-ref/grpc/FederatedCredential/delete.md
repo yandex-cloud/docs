@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/workload/workload-identity/api-ref/grpc/FederatedCredential/delete.md
 ---
 
 # Workload Identity, gRPC: FederatedCredentialService.Delete

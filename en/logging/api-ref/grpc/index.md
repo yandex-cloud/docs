@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/index.md
 ---
 
 # Cloud Logging Service: gRPC reference

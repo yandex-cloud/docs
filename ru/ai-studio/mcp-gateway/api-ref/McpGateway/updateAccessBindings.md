@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/serverless/mcpgateway/v1/mcp-gateway/api-ref/McpGateway/updateAccessBindings.md
 ---
 
 # MCP Gateway Service, REST: McpGateway.UpdateAccessBindings

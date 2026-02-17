@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/backup/cli-ref-beta/resource/create-directory.md
 ---
 
 # yc beta backup resource create-directory

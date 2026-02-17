@@ -38,7 +38,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/listOperations.md
 ---
 
 # SAML Federation API, REST: Federation.ListOperations

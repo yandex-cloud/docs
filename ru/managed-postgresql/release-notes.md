@@ -5,8 +5,47 @@ description: В разделе представлена история изме�
 
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-12
+index: 3
+```
 
+### Авторизация через IAM
 
+![image](../_assets/managed-postgresql/changelogs/user-iam.png)
+
+Используйте новый тип авторизации через IAM при создании пользователя базы данных.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-11
+index: 2
+```
+
+### Настройки СУБД
+
+![image](../_assets/managed-postgresql/changelogs/search-settings.png)
+
+Для настроек СУБД воспользуйтесь поиском по их каноническим именам.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-10
+index: 1
+```
+
+### Настройки кластера
+
+![image](../_assets/managed-postgresql/changelogs/resources.png)
+
+Для кластеров {{ PG }} доступны новые классы хостов на платформах AMD Zen 4 и AMD Zen 4 HighFreq.
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 

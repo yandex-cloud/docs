@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/smartcaptcha/cli-ref/captcha/delete.md
 ---
 
 # yc smartcaptcha captcha delete

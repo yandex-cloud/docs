@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/licensemanager/v1/license-manager/api-ref/grpc/Operation/cancel.md
 ---
 
 # Yandex Cloud Marketplace License Manager, gRPC: OperationService.Cancel

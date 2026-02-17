@@ -499,7 +499,7 @@ items:
       - name: Разработка Telegram-бота для распознавания текста и аудио
         href: tutorials/recognizer-bot.md
       - name: Настройка реагирования в {{ cloud-logging-full-name }} и {{ sf-name }}
-        href: tutorials/logging-functions
+        href: tutorials/logging-functions.md
       - name: >-
           Разработка функций в Functions Framework и их развертывание в {{
           serverless-containers-full-name }}
@@ -776,3 +776,4 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
+path: ru/functions/toc.yaml

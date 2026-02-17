@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/monitoring_includes/api-ref/index.md
 ---
 
 # {{ yandex-cloud }} Monitoring API

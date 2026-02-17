@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/load-balancer/cli-ref-beta/network-load-balancer/detach-target-group.md
 ---
 
 # yc beta load-balancer network-load-balancer detach-target-group

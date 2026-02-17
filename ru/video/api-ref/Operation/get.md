@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Operation/get.md
 ---
 
 # Video API, REST: Operation.Get

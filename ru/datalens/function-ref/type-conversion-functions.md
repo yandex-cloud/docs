@@ -1,7 +1,6 @@
 ---
 title: Функции преобразования типов
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/type-conversion-functions.md
 ---
 
 # Функции преобразования типов

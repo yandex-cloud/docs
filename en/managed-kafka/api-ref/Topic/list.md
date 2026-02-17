@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/list.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Topic.List

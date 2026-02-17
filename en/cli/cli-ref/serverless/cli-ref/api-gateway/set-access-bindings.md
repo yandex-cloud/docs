@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/api-gateway/set-access-bindings.md
 ---
 
 # yc serverless api-gateway set-access-bindings

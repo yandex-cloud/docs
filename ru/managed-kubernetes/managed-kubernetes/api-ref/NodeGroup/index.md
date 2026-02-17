@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/index.md
 ---
 
 # Managed Services for Kubernetes API, REST: NodeGroup

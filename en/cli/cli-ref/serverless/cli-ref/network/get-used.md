@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/network/get-used.md
 ---
 
 # yc serverless network get-used

@@ -31,7 +31,6 @@ apiPlayground:
         - ciphertext
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/decrypt.md
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionCrypto.Decrypt

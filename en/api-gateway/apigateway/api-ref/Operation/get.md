@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/Operation/get.md
 ---
 
 # API Gateway Service, REST: Operation.Get

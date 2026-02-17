@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/index.md
 ---
 
 # Network Load Balancer API, REST: TargetGroup

@@ -84,7 +84,6 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/update.md
 ---
 
 # Certificate Manager API, REST: Certificate.Update

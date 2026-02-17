@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/vrf/add-labels.md
 ---
 
 # yc baremetal vrf add-labels

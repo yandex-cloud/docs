@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/speechkit/domain.md
----
 # SpheechKit domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.domain.**SpeechKitDomain**{#yandex_ai_studio_sdk._speechkit.domain.SpeechKitDomain}

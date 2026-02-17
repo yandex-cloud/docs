@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_mfa_enforcement.md
 ---
 
 # yandex_organizationmanager_mfa_enforcement (DataSource)

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/spark/v1/api-ref/grpc/Operation/index.md
 ---
 
 # Managed Spark API, gRPC: OperationService

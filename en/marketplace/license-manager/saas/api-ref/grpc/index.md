@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/grpc/index.md
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS: gRPC reference

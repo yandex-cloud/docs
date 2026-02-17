@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/cluster/update.md
 ---
 
 # yc managed-trino cluster update

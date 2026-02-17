@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseOutputAudioDelta.md
 ---
 
 # REST: response.output_audio.delta '[CURRENTLY NOT SUPPORTED]'

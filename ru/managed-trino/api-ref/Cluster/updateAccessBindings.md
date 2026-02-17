@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Service for Trino API, REST: Cluster.UpdateAccessBindings

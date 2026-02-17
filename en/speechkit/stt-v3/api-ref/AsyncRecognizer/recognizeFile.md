@@ -335,7 +335,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/SummarizationProperty'
-sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
 ---
 
 # SpeechKit Recognition API v3, REST: AsyncRecognizer.RecognizeFile

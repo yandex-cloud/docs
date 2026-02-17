@@ -333,7 +333,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Policy/update.md
 ---
 
 # Certificate Manager Private CA API, REST: Policy.Update

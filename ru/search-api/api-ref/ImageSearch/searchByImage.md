@@ -77,7 +77,6 @@ apiPlayground:
         - required:
             - id
     definitions: null
-sourcePath: en/_api-ref/searchapi/v2/api-ref/ImageSearch/searchByImage.md
 ---
 
 # Web Search API, REST: ImageSearch.SearchByImage

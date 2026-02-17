@@ -832,7 +832,6 @@ apiPlayground:
             $ref: '#/definitions/RateLimit'
         required:
           - name
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/update.md
 ---
 
 # Application Load Balancer API, REST: HttpRouter.Update

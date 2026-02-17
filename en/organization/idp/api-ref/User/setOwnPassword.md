@@ -41,7 +41,6 @@ apiPlayground:
             type: string
         required:
           - password
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/User/setOwnPassword.md
 ---
 
 # Identity Provider API, REST: User.SetOwnPassword

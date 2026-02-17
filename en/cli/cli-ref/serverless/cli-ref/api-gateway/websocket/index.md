@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/api-gateway/websocket/index.md
 ---
 
 # yc serverless api-gateway websocket

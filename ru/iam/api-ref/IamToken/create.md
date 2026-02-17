@@ -29,7 +29,6 @@ apiPlayground:
         - required:
             - jwt
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/create.md
 ---
 
 # Identity and Access Management API, REST: IamToken.Create

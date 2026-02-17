@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/FDIV_SAFE.md
 ---
 
 # FDIV_SAFE

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/createDashboard.md
 ---
 
 # DataLens API: 🚧 [Experimental] Create dashboard

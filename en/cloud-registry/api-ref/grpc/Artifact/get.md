@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cloudregistry/v1/api-ref/grpc/Artifact/get.md
 ---
 
 # Yandex Cloud Registry API, gRPC: ArtifactService.Get

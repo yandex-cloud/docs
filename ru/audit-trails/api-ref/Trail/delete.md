@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/delete.md
 ---
 
 # Audit Trails API, REST: Trail.Delete

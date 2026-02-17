@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/cloud/add-access-binding.md
 ---
 
 # yc resource-manager cloud add-access-binding

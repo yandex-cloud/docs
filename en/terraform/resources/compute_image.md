@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_image.md
 ---
 
 # yandex_compute_image (Resource)

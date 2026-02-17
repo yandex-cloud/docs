@@ -102,7 +102,6 @@ apiPlayground:
         required:
           - name
           - owner
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/create.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Database.Create

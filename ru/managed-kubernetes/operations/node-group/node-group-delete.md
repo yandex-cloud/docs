@@ -69,6 +69,6 @@
 
 - API {#api}
 
-  Чтобы удалить группу узлов, воспользуйтесь методом [delete](../../managed-kubernetes/api-ref/NodeGroup/delete.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
+  Чтобы удалить группу узлов, воспользуйтесь методом REST API [delete](../../managed-kubernetes/api-ref/NodeGroup/delete.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) или вызовом gRPC API [NodeGroupService/Delete](../../managed-kubernetes/api-ref/grpc/NodeGroup/delete.md).
 
 {% endlist %}

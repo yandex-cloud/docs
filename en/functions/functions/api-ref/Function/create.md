@@ -48,7 +48,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/create.md
 ---
 
 # Cloud Functions Service, REST: Function.Create

@@ -45,7 +45,6 @@ apiPlayground:
         required:
           - subjectId
           - subjectType
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/getRdpFile.md
 ---
 
 # Cloud Desktop API, REST: Desktop.GetRdpFile

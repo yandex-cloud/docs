@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/baremetal/cli-ref-beta/boot-image/get.md
 ---
 
 # yc beta baremetal boot-image get

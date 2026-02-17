@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/organization-manager/cli-ref-beta/mfa-enforcement/list-audience.md
 ---
 
 # yc beta organization-manager mfa-enforcement list-audience

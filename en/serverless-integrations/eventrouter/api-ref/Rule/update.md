@@ -431,7 +431,6 @@ apiPlayground:
           - oneOf:
               - required:
                   - deadLetterQueue
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/update.md
 ---
 
 # EventRouter Service, REST: Rule.Update

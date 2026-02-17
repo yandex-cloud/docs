@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/Operation/index.md
 ---
 
 # Container Registry API, REST: Operation

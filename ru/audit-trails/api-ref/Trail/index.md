@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/index.md
 ---
 
 # Audit Trails API, REST: Trail

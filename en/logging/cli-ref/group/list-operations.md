@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/group/list-operations.md
 ---
 
 # yc logging group list-operations

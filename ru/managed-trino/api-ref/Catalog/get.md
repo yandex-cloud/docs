@@ -25,7 +25,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/trino/v1/api-ref/Catalog/get.md
 ---
 
 # Managed Service for Trino API, REST: Catalog.Get

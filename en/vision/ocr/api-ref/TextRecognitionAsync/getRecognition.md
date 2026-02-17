@@ -17,7 +17,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognitionAsync/getRecognition.md
 ---
 
 # Vision OCR API, REST: TextRecognitionAsync.GetRecognition

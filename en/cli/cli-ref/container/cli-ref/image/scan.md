@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/image/scan.md
 ---
 
 # yc container image scan

@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/updateAccessBindings.md
 ---
 
 # Resource Manager API, REST: Cloud.UpdateAccessBindings

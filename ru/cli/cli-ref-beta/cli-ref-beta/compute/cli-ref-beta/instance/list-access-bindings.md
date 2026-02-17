@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/instance/list-access-bindings.md
 ---
 
 # yc beta compute instance list-access-bindings

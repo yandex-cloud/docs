@@ -9,7 +9,6 @@ keywords:
   - output
   - rule
   - filter
-  - target
 ---
 
 # Rule

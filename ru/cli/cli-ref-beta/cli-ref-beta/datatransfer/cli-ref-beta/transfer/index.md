@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/datatransfer/cli-ref-beta/transfer/index.md
 ---
 
 # yc beta datatransfer transfer

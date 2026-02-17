@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/securitydeck/alerts/v1/api-ref/Operation/get.md
 ---
 
 # Security Deck Alerts API, REST: Operation.Get

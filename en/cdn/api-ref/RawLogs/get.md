@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/get.md
 ---
 
 # Cloud CDN API, REST: RawLogs.Get

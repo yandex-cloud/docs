@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseContentPartAdded.md
 ---
 
 # REST: response.content_part.added

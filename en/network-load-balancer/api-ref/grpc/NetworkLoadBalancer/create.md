@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/NetworkLoadBalancer/create.md
 ---
 
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.Create

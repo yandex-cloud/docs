@@ -395,7 +395,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/ytsaurus/v1/api-ref/Cluster/create.md
 ---
 
 # Ytsaurus API, REST: Cluster.Create

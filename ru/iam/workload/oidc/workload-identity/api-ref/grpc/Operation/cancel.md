@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc/Operation/cancel.md
 ---
 
 # Federation, gRPC: OperationService.Cancel

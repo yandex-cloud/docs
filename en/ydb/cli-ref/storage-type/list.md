@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/ydb/cli-ref/storage-type/list.md
 ---
 
 # yc ydb storage-type list

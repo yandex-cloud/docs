@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_snapshot_schedule.md
 ---
 
 # yandex_compute_snapshot_schedule (DataSource)

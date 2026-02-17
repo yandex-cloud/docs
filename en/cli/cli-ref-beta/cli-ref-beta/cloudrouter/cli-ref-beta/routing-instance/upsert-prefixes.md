@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/cloudrouter/cli-ref-beta/routing-instance/upsert-prefixes.md
 ---
 
 # yc beta cloudrouter routing-instance upsert-prefixes

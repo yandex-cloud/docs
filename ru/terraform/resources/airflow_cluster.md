@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Apache Airflow™
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/airflow_cluster.md
 ---
 
 # yandex_airflow_cluster (Resource)

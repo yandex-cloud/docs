@@ -15,6 +15,22 @@ description:
     О том, как публиковать свои продукты и продавать их клиентам Yandex Cloud,
     читайте в документации <a href="/docs/marketplace/quickstart">Yandex Cloud
     Marketplace</a>.
+meta:
+  title: Партнерская программа
+  description: >-
+    Партнерская программа Yandex Cloud позволяет решать задачи клиентов с
+    помощью технологий и сервисов, проверенных нагрузками Яндекса.
+  keywords:
+    - keyword: Партнерская программа {{ yandex-cloud }}
+    - keyword: Реферальная программа {{ yandex-cloud }}
+    - keyword: Как зарабатывать в {{ yandex-cloud }}
+    - keyword: Реферальная программа {{ yandex-cloud }}
+    - keyword: Как зарабатывать в облаке
+    - keyword: Партнерский портал {{ yandex-cloud }}
+    - keyword: Партнерство в {{ yandex-cloud }}
+    - keyword: Партнеры {{ yandex-cloud }}
+    - keyword: Как продавать в {{ yandex-cloud }}
+    - keyword: Как публиковать свои продукты и продавать их клиентам {{ yandex-cloud }}
 links:
   - title: Программа прямого партнерства
     description: Самостоятельное принятие платежей от клиентов и ведение документооборота.
@@ -25,19 +41,3 @@ links:
   - title: Вопросы и ответы
     description: Ответы на часто задаваемые вопросы
     href: qa/all
-meta:
-  title: Партнерская программа
-  description: >-
-    Партнерская программа Yandex Cloud позволяет решать задачи клиентов с
-    помощью технологий и сервисов, проверенных нагрузками Яндекса.
-  keywords:
-    - Партнерская программа {{ yandex-cloud }}
-    - Реферальная программа {{ yandex-cloud }}
-    - Как зарабатывать в {{ yandex-cloud }}
-    - Реферальная программа {{ yandex-cloud }}
-    - Как зарабатывать в облаке
-    - Партнерский портал {{ yandex-cloud }}
-    - Партнерство в {{ yandex-cloud }}
-    - Партнеры {{ yandex-cloud }}
-    - Как продавать в {{ yandex-cloud }}
-    - Как публиковать свои продукты и продавать их клиентам {{ yandex-cloud }}

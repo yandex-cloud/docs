@@ -56,7 +56,6 @@ apiPlayground:
         - externalId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/createExternal.md
 ---
 
 # Identity Hub API, REST: Group.CreateExternal

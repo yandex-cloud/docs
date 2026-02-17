@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/policy/get.md
 ---
 
 # yc backup policy get

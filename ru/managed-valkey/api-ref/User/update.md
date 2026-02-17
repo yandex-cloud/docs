@@ -88,7 +88,6 @@ apiPlayground:
               **string**
               SanitizePayload parameter.
             type: string
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/User/update.md
 ---
 
 # Managed Service for Redis API, REST: User.Update

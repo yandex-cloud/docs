@@ -27,7 +27,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/cancel.md
 ---
 
 # Quota Manager API, REST: QuotaRequest.Cancel

@@ -1,3 +1,6 @@
+---
+canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
+---
 
 # Дообучение моделей в {{ ml-platform-name }} Notebooks
 

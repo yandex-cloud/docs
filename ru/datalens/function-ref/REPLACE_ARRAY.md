@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/REPLACE_ARRAY.md
 ---
 
 # REPLACE (массивы)

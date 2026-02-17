@@ -83,7 +83,6 @@ apiPlayground:
         - updateMask
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/update.md
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.Update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/apigateway/v1/apigateway/api-ref/grpc/ApiGateway/getOpenapiSpec.md
 ---
 
 # API Gateway Service, gRPC: ApiGatewayService.GetOpenapiSpec

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-spark/cli-ref/job/index.md
 ---
 
 # yc managed-spark job

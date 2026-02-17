@@ -83,7 +83,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/streamLogs.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.StreamLogs

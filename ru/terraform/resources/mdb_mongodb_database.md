@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for MongoDB
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_mongodb_database.md
 ---
 
 # yandex_mdb_mongodb_database (Resource)

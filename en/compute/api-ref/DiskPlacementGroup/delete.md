@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/delete.md
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.Delete

@@ -1,3 +1,12 @@
+---
+description: Using Network Time Protocol (NTP) servers, you can set up synchronization with public NTP servers on {{ yandex-cloud }} VMs running Windows Server and Linux. This document tells you how to set up synchronization servers.
+keywords:
+  - ntp
+  - ntp server
+  - sntp
+  - time synchronization
+  - ntp servers
+---
 
 # Configuring time synchronization using NTP
 

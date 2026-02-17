@@ -1,7 +1,6 @@
 ---
 title: '{{ cloud-logging-full-name }} use cases'
 description: Different use cases for {{ cloud-logging-full-name }} in {{ yandex-cloud }}.
-sourcePath: en/logging_includes/tutorials/index.md
 ---
 
 # {{ cloud-logging-name }} tutorials

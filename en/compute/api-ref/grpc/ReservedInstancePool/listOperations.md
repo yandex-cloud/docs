@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/ReservedInstancePool/listOperations.md
 ---
 
 # Compute Cloud API, gRPC: ReservedInstancePoolService.ListOperations

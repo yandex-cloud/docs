@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/kms/cli-ref/symmetric-key/cancel-version-destruction.md
 ---
 
 # yc kms symmetric-key cancel-version-destruction

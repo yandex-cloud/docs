@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/network/list-subnets.md
 ---
 
 # yc vpc network list-subnets

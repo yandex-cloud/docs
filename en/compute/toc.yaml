@@ -428,7 +428,7 @@ items:
       - name: NVIDIA driver update guide
         href: operations/gpu-driver-update.md
   - name: '{{ cos-full-name }}'
-    href: ../cos/
+    href: ../cos/index.yaml
   - name: Tutorials
     items:
       - name: All tutorials
@@ -2267,3 +2267,4 @@ items:
         href: qa/troubleshooting.md
       - name: All questions on one page
         href: qa/all.md
+path: en/compute/toc.yaml

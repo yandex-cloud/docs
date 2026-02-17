@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Provider/activate.md
 ---
 
 # Cloud Backup API, gRPC: ProviderService.Activate

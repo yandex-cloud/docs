@@ -28,7 +28,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/get.md
 ---
 
 # Cloud CDN API, REST: Origin.Get

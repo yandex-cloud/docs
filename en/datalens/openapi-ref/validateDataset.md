@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/validateDataset.md
 ---
 
 # DataLens API: Validate dataset

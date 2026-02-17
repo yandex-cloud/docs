@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/listAccessBindings.md
 ---
 
 # Audit Trails API, REST: Trail.ListAccessBindings

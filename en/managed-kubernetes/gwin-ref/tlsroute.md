@@ -1,6 +1,3 @@
----
-sourcePath: en/_gwin-ref/gwin-ref/tlsroute.md
----
 # TLSRoute
 
 TLSRoute provides a way to route TLS requests. This includes the capability to match requests by hostname and route them to backend services. TLSRoute is used for TCP traffic that is encrypted with TLS.

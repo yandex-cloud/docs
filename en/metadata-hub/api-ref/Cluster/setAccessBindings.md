@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/metastore/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster.SetAccessBindings

@@ -118,3 +118,7 @@ The revocation function was unable to check revocation for the certificate
 #### Какой размер блока используется на дисках кластера? {#block-size}
 
 {% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
+#### Какая версия коннектора MirrorMaker поддерживается в {{ mkf-short-name }} {#mirrormaker-version}
+
+В сервисе {{ mkf-name }} поддержан **MirrorMaker** версии 2.

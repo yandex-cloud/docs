@@ -84,7 +84,6 @@ apiPlayground:
         - size
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/create.md
 ---
 
 # Compute Cloud API, REST: Filesystem.Create

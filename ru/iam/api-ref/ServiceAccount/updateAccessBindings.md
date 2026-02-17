@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/updateAccessBindings.md
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.UpdateAccessBindings

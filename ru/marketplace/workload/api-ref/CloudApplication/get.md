@@ -7,7 +7,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudapps/workload/v1/workload/api-ref/CloudApplication/get.md
 ---
 
 # Cloud Apps Workload API, REST: CloudApplication.Get

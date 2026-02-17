@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearchAsync/search.md
 ---
 
 # Web Search API, gRPC: WebSearchAsyncService.Search

@@ -49,7 +49,6 @@ apiPlayground:
             type: string
         required:
           - filename
-sourcePath: en/_api-ref/video/v1/api-ref/Subtitle/create.md
 ---
 
 # Video API, REST: Subtitle.Create

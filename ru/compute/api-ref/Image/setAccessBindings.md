@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/compute/v1/api-ref/Image/setAccessBindings.md
 ---
 
 # Compute Cloud API, REST: Image.SetAccessBindings

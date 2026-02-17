@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/access-policy-template/index.md
 ---
 
 # yc iam access-policy-template

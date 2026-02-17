@@ -15,7 +15,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Connection/resolveCluster.md
 ---
 
 # Connection Manager API, REST: Connection.ResolveCluster

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/maintenance/reschedule.md
 ---
 
 # yc compute maintenance reschedule

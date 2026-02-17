@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloud-registry/cli-ref/configure-docker.md
 ---
 
 # yc cloud-registry configure-docker

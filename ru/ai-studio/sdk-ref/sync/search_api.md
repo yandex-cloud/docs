@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/search_api.md
----
 # Search API domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.domain.**SearchAPIDomain**{#yandex_ai_studio_sdk._search_api.domain.SearchAPIDomain}

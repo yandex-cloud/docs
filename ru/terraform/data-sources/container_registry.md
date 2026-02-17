@@ -1,6 +1,5 @@
 ---
 subcategory: Container Registry
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/container_registry.md
 ---
 
 # yandex_container_registry (DataSource)

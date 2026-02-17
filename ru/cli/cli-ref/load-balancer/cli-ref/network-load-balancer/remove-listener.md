@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/network-load-balancer/remove-listener.md
 ---
 
 # yc load-balancer network-load-balancer remove-listener

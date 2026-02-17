@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadtesting/api/v1/agent/user/api-ref/index.md
 ---
 
 # Load Testing API: REST reference

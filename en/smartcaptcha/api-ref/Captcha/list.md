@@ -19,7 +19,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/list.md
 ---
 
 # SmartCaptcha API, REST: Captcha.List

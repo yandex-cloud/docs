@@ -8,6 +8,20 @@ description:
     <em>Apache® and <a href="https://hive.apache.org/">Apache Hive™</a> are
     either registered trademarks or trademarks of the Apache Software Foundation
     in the United States and/or other countries.</em>
+meta:
+  title: Yandex MetaData Hub
+  description: >-
+    Yandex MetaData Hub is a Yandex Cloud service that enables managing database
+    connections, storing data exchange workflows, and describing datasets.
+  keywords:
+    - keyword: '{{ metadata-hub-name }}'
+    - keyword: '{{ metadata-hub-name }}'
+    - keyword: managing database connections in {{ yandex-cloud }}
+    - keyword: data schemas in {{ yandex-cloud }}
+    - keyword: data cluster in {{ yandex-cloud }}
+    - keyword: data management in {{ yandex-cloud }}
+    - keyword: managing database connections
+    - keyword: metadata catalog in {{ yandex-cloud }}
 links:
   - title: '{{ connection-manager-name }}'
     description: Automatically creating and managing database connection settings.
@@ -37,17 +51,3 @@ links:
   - title: Release notes
     description: Releases and updates
     href: release-notes/
-meta:
-  title: Yandex MetaData Hub
-  description: >-
-    Yandex MetaData Hub is a Yandex Cloud service that enables managing database
-    connections, storing data exchange workflows, and describing datasets.
-  keywords:
-    - '{{ metadata-hub-name }}'
-    - '{{ metadata-hub-name }}'
-    - managing database connections in {{ yandex-cloud }}
-    - data schemas in {{ yandex-cloud }}
-    - data cluster in {{ yandex-cloud }}
-    - data management in {{ yandex-cloud }}
-    - managing database connections
-    - metadata catalog in {{ yandex-cloud }}

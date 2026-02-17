@@ -10,13 +10,13 @@
   1. Справа от названия облака нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.CloudActions.button_action-delete-cloud_3simi }}**.
 
-     ![delete-cloud1](../../../_assets/resource-manager/delete-cloud-ru1.png)
+     ![delete-cloud1](../../../_assets/resource-manager/delete-cloud-1.png)
 
   1. Выберите срок удаления облака, по истечении которого облако будет удалено. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. Срок удаления облака по умолчанию — 7 дней.
   1. Введите название облака, чтобы подтвердить удаление.
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
-     ![delete-cloud2](../../../_assets/resource-manager/delete-cloud-ru2.png)
+     ![delete-cloud2](../../../_assets/resource-manager/delete-cloud-2.png)
 
 - CLI {#cli}
 

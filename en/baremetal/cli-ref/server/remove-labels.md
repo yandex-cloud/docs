@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/server/remove-labels.md
 ---
 
 # yc baremetal server remove-labels

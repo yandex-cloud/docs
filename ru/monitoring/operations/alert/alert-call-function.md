@@ -1,7 +1,6 @@
 ---
 title: Как отправлять запросы на внешний API при срабатывании алерта в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете создать webhook с вызовом функции {{ sf-full-name }}.
-sourcePath: ru/monitoring_includes/operations/alert/alert-call-function.md
 ---
 
 # Webhook с использованием {{ sf-name }}

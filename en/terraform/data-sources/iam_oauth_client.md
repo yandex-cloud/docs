@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_oauth_client.md
 ---
 
 # yandex_iam_oauth_client (DataSource)

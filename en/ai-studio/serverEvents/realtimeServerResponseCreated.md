@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseCreated.md
 ---
 
 # REST: response.created

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/baremetal/cli-ref-beta/vrf/list.md
 ---
 
 # yc beta baremetal vrf list

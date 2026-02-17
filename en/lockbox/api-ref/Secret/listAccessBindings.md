@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listAccessBindings.md
 ---
 
 # Lockbox API, REST: Secret.ListAccessBindings

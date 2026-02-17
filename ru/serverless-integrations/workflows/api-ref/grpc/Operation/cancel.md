@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Operation/cancel.md
 ---
 
 # Workflows Service, gRPC: OperationService.Cancel

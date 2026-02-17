@@ -256,7 +256,6 @@ apiPlayground:
               if true, cloud console will be able to access a bucket
               regardless of private_endpoints list
             type: boolean
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/create.md
 ---
 
 # Object Storage API, REST: Bucket.Create

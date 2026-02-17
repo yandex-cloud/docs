@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/marketplace/cli-ref-beta/license-manager/instance/get.md
 ---
 
 # yc beta marketplace license-manager instance get

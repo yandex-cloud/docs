@@ -9,6 +9,21 @@ description:
     href="https://kafka.apache.org/34/documentation/#api">3.4.0</a>.
 nav:
   title: Yandex Data Streams
+meta:
+  title: Yandex Data Streams
+  description: >-
+    Yandex Data Streams is a scalable service for real-time data stream
+    management.
+  keywords:
+    - keyword: yds
+    - keyword: '{{ yds-name }}'
+    - keyword: '{{ yds-full-name }}'
+    - keyword: '{{ yds-name }}'
+    - keyword: '{{ yandex-cloud }} data streams'
+    - keyword: data transfer streams in {{ yandex-cloud }}
+    - keyword: data streams
+    - keyword: data transfer streams
+    - keyword: managing data streams in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create a data stream and configure its delivery and storage settings
@@ -34,18 +49,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
-meta:
-  title: Yandex Data Streams
-  description: >-
-    Yandex Data Streams is a scalable service for real-time data stream
-    management.
-  keywords:
-    - yds
-    - '{{ yds-name }}'
-    - '{{ yds-full-name }}'
-    - '{{ yds-name }}'
-    - '{{ yandex-cloud }} data streams'
-    - data transfer streams in {{ yandex-cloud }}
-    - data streams
-    - data transfer streams
-    - managing data streams in {{ yandex-cloud }}

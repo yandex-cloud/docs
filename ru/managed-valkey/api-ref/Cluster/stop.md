@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/stop.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.Stop

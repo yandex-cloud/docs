@@ -1,7 +1,6 @@
 ---
 title: How to install a {{ prometheus-name }} metric collection agent
 description: In this guide, you will learn how to install a {{ prometheus-name }} metric collection agent when creating a VM and how to view the collected metrics.
-sourcePath: en/monitoring_includes/operations/prometheus/ingestion/prometheus-agent.md
 ---
 
 # {{ prometheus-name }} metric collection agent

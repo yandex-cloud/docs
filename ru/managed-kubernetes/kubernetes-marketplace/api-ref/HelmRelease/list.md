@@ -30,7 +30,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/list.md
 ---
 
 # Kubernetes Marketplace, REST: HelmRelease.List

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/cic/cli-ref-beta/trunk-connection/delete.md
 ---
 
 # yc beta cic trunk-connection delete

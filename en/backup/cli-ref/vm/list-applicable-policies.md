@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/vm/list-applicable-policies.md
 ---
 
 # yc backup vm list-applicable-policies

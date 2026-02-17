@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndexFile/index.md
 ---
 
 # Search Index, REST: SearchIndexFile

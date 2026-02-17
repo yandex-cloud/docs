@@ -1,7 +1,6 @@
 ---
 title: How to write metrics via the Remote API
 description: Follow this guide to write metrics via the Remote API.
-sourcePath: en/monitoring_includes/operations/prometheus/ingestion/remote-write.md
 ---
 
 # Writing metrics via the Remote API

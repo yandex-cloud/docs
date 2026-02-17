@@ -82,7 +82,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/streamLogs.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.StreamLogs

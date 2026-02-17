@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Artifact/index.md
 ---
 
 # Yandex Cloud Registry API, REST: Artifact

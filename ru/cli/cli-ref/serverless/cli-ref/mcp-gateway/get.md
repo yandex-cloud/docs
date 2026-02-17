@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/mcp-gateway/get.md
 ---
 
 # yc serverless mcp-gateway get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerConversationItemDeleted.md
 ---
 
 # REST: conversation.item.deleted

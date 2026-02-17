@@ -787,7 +787,6 @@ apiPlayground:
               - http
           - required:
               - grpc
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/update.md
 ---
 
 # Application Load Balancer API, REST: VirtualHost.Update

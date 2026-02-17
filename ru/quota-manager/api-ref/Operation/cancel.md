@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/Operation/cancel.md
 ---
 
 # Quota Manager API, REST: Operation.Cancel

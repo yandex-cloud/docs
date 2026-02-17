@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/backup.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.Backup

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/AttachInstanceNetworkInterface.md
 ---
 
 # Compute Audit Trails Events: AttachInstanceNetworkInterface

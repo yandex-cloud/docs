@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ytsaurus/v1/api-ref/Cluster/list.md
 ---
 
 # Ytsaurus API, REST: Cluster.List

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/cluster/add-labels.md
 ---
 
 # yc container cluster add-labels

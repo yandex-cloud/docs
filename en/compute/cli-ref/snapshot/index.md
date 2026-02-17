@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/snapshot/index.md
 ---
 
 # yc compute snapshot

@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/updateAccessBindings.md
 ---
 
 # Object Storage API, REST: Bucket.UpdateAccessBindings

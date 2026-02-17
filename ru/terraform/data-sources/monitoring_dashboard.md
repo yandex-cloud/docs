@@ -1,6 +1,5 @@
 ---
 subcategory: Monitoring
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/monitoring_dashboard.md
 ---
 
 # yandex_monitoring_dashboard (DataSource)

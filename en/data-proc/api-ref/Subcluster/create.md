@@ -165,7 +165,6 @@ apiPlayground:
             format: int64
         required:
           - measurementDuration
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/create.md
 ---
 
 # Yandex Data Processing API, REST: Subcluster.Create

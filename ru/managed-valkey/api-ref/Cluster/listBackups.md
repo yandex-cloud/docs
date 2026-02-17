@@ -38,7 +38,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/listBackups.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.ListBackups

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/vm/list-tasks.md
 ---
 
 # yc backup vm list-tasks

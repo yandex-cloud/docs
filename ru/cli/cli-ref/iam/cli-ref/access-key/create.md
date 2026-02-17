@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/access-key/create.md
 ---
 
 # yc iam access-key create

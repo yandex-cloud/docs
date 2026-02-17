@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/workflow/deny-unauthenticated-execution.md
 ---
 
 # yc serverless workflow deny-unauthenticated-execution

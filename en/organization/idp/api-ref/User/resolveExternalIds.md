@@ -26,7 +26,6 @@ apiPlayground:
         - userpoolId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/User/resolveExternalIds.md
 ---
 
 # Identity Provider API, REST: User.ResolveExternalIds

@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/inputs.md
----
 # Входы
 
 Вход задается в секции `routes`:`input`. Общий формат описания входа:

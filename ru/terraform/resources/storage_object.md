@@ -1,6 +1,5 @@
 ---
 subcategory: Object Storage
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/storage_object.md
 ---
 
 # yandex_storage_object (Resource)

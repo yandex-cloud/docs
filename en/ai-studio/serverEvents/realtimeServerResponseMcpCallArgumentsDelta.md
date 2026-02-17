@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseMcpCallArgumentsDelta.md
 ---
 
 # REST: response.mcp_call_arguments.delta '[CURRENTLY NOT SUPPORTED]'

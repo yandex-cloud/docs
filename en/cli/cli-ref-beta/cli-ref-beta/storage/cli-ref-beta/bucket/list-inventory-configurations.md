@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/storage/cli-ref-beta/bucket/list-inventory-configurations.md
 ---
 
 # yc beta storage bucket list-inventory-configurations

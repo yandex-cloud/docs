@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud DNS
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/dns_zone_iam_binding.md
 ---
 
 # yandex_dns_zone_iam_binding (Resource)

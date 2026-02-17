@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/index.md
 ---
 
 # yc storage

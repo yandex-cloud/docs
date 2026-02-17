@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/Server/index.md
 ---
 
 # BareMetal API, gRPC: ServerService

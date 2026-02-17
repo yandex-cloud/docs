@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/Operation/get.md
 ---
 
 # SpeechKit Recognition API v3, REST: Operation.Get

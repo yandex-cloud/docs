@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/registry/add-labels.md
 ---
 
 # yc iot registry add-labels

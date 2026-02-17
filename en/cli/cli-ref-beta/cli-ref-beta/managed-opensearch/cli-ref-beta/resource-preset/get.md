@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-opensearch/cli-ref-beta/resource-preset/get.md
 ---
 
 # yc beta managed-opensearch resource-preset get

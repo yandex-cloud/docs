@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/index.md
 ---
 
 # REST: Vector stores

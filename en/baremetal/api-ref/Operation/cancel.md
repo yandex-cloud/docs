@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Operation/cancel.md
 ---
 
 # BareMetal API, REST: Operation.Cancel

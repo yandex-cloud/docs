@@ -1,7 +1,6 @@
 ---
 title: Изменение лог-группы
 description: Следуя данной инструкции, вы сможете изменить лог-группу.
-sourcePath: ru/logging_includes/operations/retention-period.md
 ---
 
 # Изменить лог-группу

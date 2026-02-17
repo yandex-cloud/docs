@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/smartcaptcha/cli-ref/captcha/create.md
 ---
 
 # yc smartcaptcha captcha create

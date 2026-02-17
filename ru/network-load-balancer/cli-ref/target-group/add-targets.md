@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/target-group/add-targets.md
 ---
 
 # yc load-balancer target-group add-targets

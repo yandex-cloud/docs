@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/version/index.md
 ---
 
 # yc managed-clickhouse version

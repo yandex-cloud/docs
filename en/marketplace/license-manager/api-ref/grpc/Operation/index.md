@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/licensemanager/v1/license-manager/api-ref/grpc/Operation/index.md
 ---
 
 # Yandex Cloud Marketplace License Manager, gRPC: OperationService

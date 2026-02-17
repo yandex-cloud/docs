@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/_includes/seriesdata.md
+---
 Create a file named `seriesdata.json` with the uploaded data, for example, in the nano editor:
 
 ```bash

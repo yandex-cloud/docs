@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/user/create.md
 ---
 
 # yc managed-redis user create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/bucket/update.md
 ---
 
 # yc storage bucket update

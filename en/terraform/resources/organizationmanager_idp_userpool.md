@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_idp_userpool.md
 ---
 
 # yandex_organizationmanager_idp_userpool (Resource)

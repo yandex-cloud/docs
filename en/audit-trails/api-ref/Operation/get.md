@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/audittrails/v1/api-ref/Operation/get.md
 ---
 
 # Audit Trails API, REST: Operation.Get

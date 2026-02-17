@@ -30,7 +30,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/deleteHosts.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.DeleteHosts

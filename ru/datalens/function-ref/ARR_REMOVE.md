@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ARR_REMOVE.md
 ---
 
 # ARR_REMOVE

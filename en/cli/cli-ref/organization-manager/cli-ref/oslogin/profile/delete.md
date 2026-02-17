@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/oslogin/profile/delete.md
 ---
 
 # yc organization-manager oslogin profile delete

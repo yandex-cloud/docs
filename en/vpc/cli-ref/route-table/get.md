@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/route-table/get.md
 ---
 
 # yc vpc route-table get

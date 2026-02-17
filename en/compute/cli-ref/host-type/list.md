@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/host-type/list.md
 ---
 
 # yc compute host-type list

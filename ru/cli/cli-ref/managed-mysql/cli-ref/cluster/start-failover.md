@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/cluster/start-failover.md
 ---
 
 # yc managed-mysql cluster start-failover

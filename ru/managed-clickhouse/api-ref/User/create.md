@@ -1796,7 +1796,6 @@ apiPlayground:
               $ref: '#/definitions/UserQuota'
         required:
           - name
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/create.md
 ---
 
 # Managed Service for ClickHouse API, REST: User.Create

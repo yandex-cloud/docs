@@ -2,7 +2,6 @@
 title: Reading and writing {{ k8s }} cluster metrics
 description: Follow this guide to learn how to read and write {{ k8s }} cluster metrics with Prometheus Operator.
 noIndex: true
-sourcePath: en/monitoring_includes/operations/prometheus/read-write-for-kubernetes.md
 ---
 
 # Reading and writing {{ managed-k8s-full-name }} cluster metrics with Prometheus Operator

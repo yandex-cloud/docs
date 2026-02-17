@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/image/list-vulnerabilities.md
 ---
 
 # yc container image list-vulnerabilities

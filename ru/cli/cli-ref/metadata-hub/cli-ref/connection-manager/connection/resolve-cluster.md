@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/metadata-hub/cli-ref/connection-manager/connection/resolve-cluster.md
 ---
 
 # yc metadata-hub connection-manager connection resolve-cluster

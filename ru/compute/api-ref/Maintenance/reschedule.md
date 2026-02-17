@@ -48,7 +48,6 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Maintenance/reschedule.md
 ---
 
 # Compute Cloud API, REST: Maintenance.Reschedule

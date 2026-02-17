@@ -58,7 +58,6 @@ apiPlayground:
             - containerId
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/listRevisions.md
 ---
 
 # Serverless Containers Service, REST: Container.ListRevisions

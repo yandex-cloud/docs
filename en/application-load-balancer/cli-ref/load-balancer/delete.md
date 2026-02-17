@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/load-balancer/delete.md
 ---
 
 # yc application-load-balancer load-balancer delete

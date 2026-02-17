@@ -6,7 +6,7 @@ description: Из статьи вы узнаете, что такое трейл
 # Трейл
 
 
-Трейл — это ресурс {{ at-name }}, который собирает аудитные логи ресурсов {{ yandex-cloud }} и записывает их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}.
+Трейл — это ресурс {{ at-name }}, который собирает аудитные логи ресурсов {{ yandex-cloud }} и записывает их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} или [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}.
 
 ## Область сбора аудитных логов {#collecting-area}
 
@@ -27,29 +27,32 @@ description: Из статьи вы узнаете, что такое трейл
 
 ## Объект назначения {#target}
 
-Каждый трейл загружает аудитные логи только в один объект назначения: бакет, лог-группу или поток данных.
+Каждый трейл загружает аудитные логи только в один объект назначения: бакет, лог-группу, поток данных или шину.
 
 #|
 || **Назначение** | **Когда использовать** | **Задержка** | **Формат** ||
 || Бакет {{ ui-key.yacloud.audit-trails.label_objectStorage }} | Долгосрочное хранение, соответствие требованиям | 5 мин | Массив JSON ||
-|| Лог-группа {{ ui-key.yacloud.audit-trails.label_cloudLogging }} | Мониторинг в реальном времени | секунды | Один JSON-объект ||
+|| Лог-группа {{ ui-key.yacloud.audit-trails.label_cloudLogging }} | Мониторинг в реальном времени | секунды | Поток записей {{ cloud-logging-name }}: одно событие {{ at-name }} соответствует одной записи {{ cloud-logging-name }} ||
 || Поток данных {{ ui-key.yacloud.audit-trails.label_dataStream }} | Интеграция с SIEM, аналитика | секунды | Поток JSON-объектов ||
+|| Шина {{ ui-key.yacloud.audit-trails.label_eventRouter }} | Последующая обработка с отправкой в разные [приемники](../../serverless-integrations/concepts/eventrouter/rule.md#target) | секунды | Поток событий {{ er-name }}: одно событие {{ at-name }} соответствует одному событию {{ er-name }} ||
 |#
 
 Каждый объект назначения имеет свои преимущества:
 
 * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — позволяет долговременно хранить большие объемы данных для дальнейшей обработки.
 * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — помогает реагировать на события и анализировать логи в реальном времени.
-* **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — позволяет передавать данные в другие сервисы и системы с помощью потоковой передачи.
+* **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — позволяет передавать данные в другие сервисы и системы с помощью потоковой передачи. 
+* **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** — позволяет обрабатывать и отправлять данные в разные обработчики и системы в зависимости от типов событий и других условий.
 
 При загрузке аудитных логов в бакет {{ at-name }} формирует файлы аудитных логов приблизительно раз в 5 минут. Трейл запишет все [события](./events.md), которые произошли за это время с ресурсами облака, в один или несколько файлов. Если никакие события за этот период не произойдут, файлы не сформируются.
 
-В лог-группу и поток данных {{ at-name }} загружает аудитные логи в режиме, близком к реальному времени.
+В лог-группу, поток данных и шину {{ at-name }} загружает аудитные логи в режиме, близком к реальному времени.
 
 От типа объекта назначения зависит структура и содержимое сообщения, в котором {{ at-name }} передает аудитные логи:
 * для бакета — в файле находится массив [JSON-объектов](./format.md#scheme) аудитного лога;
 * для лог-группы — в сообщении находится только один JSON-объект аудитного лога.
 * для потока данных — в поток передаются сообщения, содержащие JSON-объекты аудитного лога.
+* для шины — в сообщении находится только один JSON-объект аудитного лога.
 
 {% include [note-lose-target-when-switch-trail](../../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
 
@@ -61,19 +64,20 @@ description: Из статьи вы узнаете, что такое трейл
 * **{{ ui-key.yacloud.common.name }}** — обязательный параметр.
 * **{{ ui-key.yacloud.common.description }}** — опциональный параметр.
 * Блок **{{ ui-key.yacloud.audit-trails.label_destination }}**:
-    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}` или `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`, `{{ ui-key.yacloud.audit-trails.label_dataStream }}` или `{{ ui-key.yacloud.audit-trails.label_eventRouter }}`.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя бакета.
+        * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — бакет.
         * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](./format.md#log-file-name) файла аудитного лога.
         * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — симметричный [ключ шифрования](../../kms/concepts/key.md) {{ kms-full-name }}, которым будет зашифрован бакет.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`:
-        * **{{ ui-key.yacloud.logging.label_loggroup }}** — имя лог-группы.
+        * **{{ ui-key.yacloud.logging.label_loggroup }}** — лог-группа.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_dataStream }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — имя потока данных.
+        * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — поток данных.
         * **Кодек** — метод сжатия событий при записи в поток данных {{ yds-name }}.
 
             {% include [yds-compressing-events](../../_includes/audit-trails/yds-compressing-events.md) %}
-
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_eventRouter }}`:
+        * **Коннектор** — [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`.
 * Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
 * Блок **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
     * **Статус** — включение и выключение сбора аудитных логов уровня конфигурации.

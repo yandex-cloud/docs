@@ -24,7 +24,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/BackupRetentionPolicy/delete.md
 ---
 
 # Managed Service for PostgreSQL API, REST: BackupRetentionPolicy.Delete

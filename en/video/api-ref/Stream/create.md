@@ -127,7 +127,6 @@ apiPlayground:
         required:
           - startTime
           - finishTime
-sourcePath: en/_api-ref/video/v1/api-ref/Stream/create.md
 ---
 
 # Video API, REST: Stream.Create

@@ -13,7 +13,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/stop.md
 ---
 
 # Managed Service for Gitlab API, REST: Instance.Stop

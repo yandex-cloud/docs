@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/OP_PLUS.md
 ---
 
 # Сложение и конкатенация (+)

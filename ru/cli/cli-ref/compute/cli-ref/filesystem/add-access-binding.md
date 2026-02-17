@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/filesystem/add-access-binding.md
 ---
 
 # yc compute filesystem add-access-binding

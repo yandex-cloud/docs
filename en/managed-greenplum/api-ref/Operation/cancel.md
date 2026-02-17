@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Operation/cancel.md
 ---
 
 # Managed Service for Greenplum® API, REST: Operation.Cancel

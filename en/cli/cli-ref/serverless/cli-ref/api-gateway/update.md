@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/api-gateway/update.md
 ---
 
 # yc serverless api-gateway update

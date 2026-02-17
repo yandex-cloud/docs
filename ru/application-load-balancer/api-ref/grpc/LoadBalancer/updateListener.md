@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/LoadBalancer/updateListener.md
 ---
 
 # Application Load Balancer API, gRPC: LoadBalancerService.UpdateListener

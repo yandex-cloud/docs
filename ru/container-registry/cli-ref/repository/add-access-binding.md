@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/repository/add-access-binding.md
 ---
 
 # yc container repository add-access-binding

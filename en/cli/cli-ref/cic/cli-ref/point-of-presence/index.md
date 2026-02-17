@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/point-of-presence/index.md
 ---
 
 # yc cic point-of-presence

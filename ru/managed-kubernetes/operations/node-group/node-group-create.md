@@ -332,7 +332,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) и передайте в запросе:
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) и передайте в запросе:
   * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров {{ managed-k8s-name }} в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов {{ managed-k8s-name }}](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) в параметре `nodeTemplate.networkSettings.type`.

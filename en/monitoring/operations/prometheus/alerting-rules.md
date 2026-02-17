@@ -1,7 +1,6 @@
 ---
 title: How to use {{ prometheus-name }} alerting rules
 description: In this guide, you will learn to create and edit {{ prometheus-name }} files that define alerting rules.
-sourcePath: en/monitoring_includes/operations/prometheus/alerting-rules.md
 ---
 
 # Alerting rules

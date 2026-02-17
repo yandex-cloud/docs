@@ -62,3 +62,4 @@ items:
   - name: Документация Яндекс Спичкит Гибрид ({{ sk-hybrid-full-name }})
     href: docs.md
     hidden: true
+path: ru/speechkit-hybrid/toc.yaml

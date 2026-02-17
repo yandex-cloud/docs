@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/user/delete.md
 ---
 
 # yc managed-postgresql user delete

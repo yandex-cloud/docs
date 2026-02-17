@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/route-table/create.md
 ---
 
 # yc vpc route-table create

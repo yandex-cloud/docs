@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerConversationItemAdded.md
 ---
 
 # REST: conversation.item.added

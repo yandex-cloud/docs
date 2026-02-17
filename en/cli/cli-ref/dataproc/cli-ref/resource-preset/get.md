@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/resource-preset/get.md
 ---
 
 # yc dataproc resource-preset get

@@ -27,7 +27,6 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/move.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.Move

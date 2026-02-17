@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/listMasterHosts.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.ListMasterHosts

@@ -111,7 +111,6 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/create.md
 ---
 
 # EventRouter Service, REST: Bus.Create

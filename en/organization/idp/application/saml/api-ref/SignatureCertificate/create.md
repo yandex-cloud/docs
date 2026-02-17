@@ -32,7 +32,6 @@ apiPlayground:
         - applicationId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/SignatureCertificate/create.md
 ---
 
 # SAML Application API, REST: SignatureCertificate.Create

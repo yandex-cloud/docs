@@ -125,7 +125,6 @@ apiPlayground:
               - content
           - required:
               - signature
-sourcePath: en/_api-ref/ai/vision/v1/vision/api-ref/Vision/batchAnalyze.md
 ---
 
 # Vision API, REST: Vision.BatchAnalyze

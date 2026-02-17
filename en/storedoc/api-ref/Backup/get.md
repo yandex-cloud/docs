@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Backup/get.md
 ---
 
 # Managed Service for MongoDB API, REST: Backup.Get

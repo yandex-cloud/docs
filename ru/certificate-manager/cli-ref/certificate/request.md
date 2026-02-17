@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/certificate-manager/cli-ref/certificate/request.md
 ---
 
 # yc certificate-manager certificate request

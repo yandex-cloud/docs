@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/modifyVectorStore.md
 ---
 
 # REST: Modify vector store

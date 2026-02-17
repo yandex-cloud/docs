@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/trunk-connection/get.md
 ---
 
 # yc cic trunk-connection get

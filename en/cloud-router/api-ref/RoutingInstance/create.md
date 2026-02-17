@@ -112,7 +112,6 @@ apiPlayground:
               **string**
               ID of the cicPrivateConnection that is attached to the routingInstance.
             type: string
-sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/create.md
 ---
 
 # Cloud Router API, REST: RoutingInstance.Create

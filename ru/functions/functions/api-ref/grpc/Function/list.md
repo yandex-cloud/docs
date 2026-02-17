@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/list.md
 ---
 
 # Cloud Functions Service, gRPC: FunctionService.List

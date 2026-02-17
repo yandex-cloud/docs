@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/cluster/update.md
 ---
 
 # yc managed-kafka cluster update

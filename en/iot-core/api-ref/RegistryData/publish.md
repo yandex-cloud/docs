@@ -33,7 +33,6 @@ apiPlayground:
         - topic
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/RegistryData/publish.md
 ---
 
 # IoT Core Service, REST: RegistryData.Publish

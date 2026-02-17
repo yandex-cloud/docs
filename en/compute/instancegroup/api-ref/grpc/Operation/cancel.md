@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/compute/v1/instancegroup/api-ref/grpc/Operation/cancel.md
 ---
 
 # Compute Cloud Instance Groups API, gRPC: OperationService.Cancel

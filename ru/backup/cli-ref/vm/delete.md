@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/vm/delete.md
 ---
 
 # yc backup vm delete

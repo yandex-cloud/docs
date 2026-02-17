@@ -1,3 +1,7 @@
+---
+title: Подключить существующий сервер {{ baremetal-full-name }} к {{ backup-full-name }}
+description: С помощью этого руководства вы можете подключить существующий сервер {{ baremetal-name }} к {{ backup-name }} и настроить на нем резервное копирование данных.
+---
 
 # Подключить существующий сервер {{ baremetal-full-name }} к {{ backup-full-name }}
 

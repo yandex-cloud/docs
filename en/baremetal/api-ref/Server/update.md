@@ -114,7 +114,6 @@ apiPlayground:
               - privateSubnet
           - required:
               - publicSubnet
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Server/update.md
 ---
 
 # BareMetal API, REST: Server.Update

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/search_indexes.md
----
 # Search index types
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_indexes.file.**SearchIndexFile**{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile}

@@ -1,3 +1,13 @@
+---
+title: Установка Ghost CMS CloudApp
+description: Установка и настройка Ghost CMS с помощью Cloud Apps в {{ yandex-cloud }}
+keywords:
+  - ghost
+  - ghost cms
+  - cloudapp
+  - установка ghost
+  - ghost cloudapp
+---
 
 # Установка Ghost CMS CloudApp в {{ yandex-cloud }}
 

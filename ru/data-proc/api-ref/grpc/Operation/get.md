@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Yandex Data Processing API, gRPC: OperationService.Get

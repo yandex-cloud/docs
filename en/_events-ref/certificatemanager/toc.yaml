@@ -37,3 +37,4 @@ items:
     href: events-ref/UpdateDomain.md
   - name: UpdateDomainAccessBindings
     href: events-ref/UpdateDomainAccessBindings.md
+path: en/_events-ref/certificatemanager/toc.yaml

@@ -70,7 +70,6 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
-sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/create.md
 ---
 
 # Files API, REST: File.Create

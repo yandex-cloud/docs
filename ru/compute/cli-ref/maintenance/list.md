@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/maintenance/list.md
 ---
 
 # yc compute maintenance list

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/deleteWizardChart.md
 ---
 
 # DataLens API: Delete wizard chart

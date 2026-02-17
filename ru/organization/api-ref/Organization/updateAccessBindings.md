@@ -82,7 +82,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/updateAccessBindings.md
 ---
 
 # Identity Hub API, REST: Organization.UpdateAccessBindings

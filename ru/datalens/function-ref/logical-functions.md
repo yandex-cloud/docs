@@ -1,7 +1,6 @@
 ---
 title: Логические функции
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/logical-functions.md
 ---
 
 # Логические функции

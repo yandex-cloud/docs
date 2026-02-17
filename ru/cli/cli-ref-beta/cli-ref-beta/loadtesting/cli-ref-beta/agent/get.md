@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/loadtesting/cli-ref-beta/agent/get.md
 ---
 
 # yc beta loadtesting agent get

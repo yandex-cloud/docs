@@ -14,6 +14,21 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_identity_hub">Yandex Identity Hub
     Service Level</a>.
+meta:
+  title: Yandex Identity Hub
+  description: >-
+    Yandex Identity Hub is a cloud service for managing user accounts and access
+    to corporate apps in a centralized way over SAML and OpenID Connect
+    (identity provider) protocols.
+  keywords:
+    - keyword: '{{ org-name }}'
+    - keyword: '{{ org-full-name }}'
+    - keyword: '{{ org-name }}'
+    - keyword: '{{ yandex-cloud }} for businesses'
+    - keyword: corporate access to {{ yandex-cloud }}
+    - keyword: corporate cloud
+    - keyword: cloud for corporate customers
+    - keyword: how to manage employee access
 links:
   - title: Getting started
     description: Create an organization
@@ -32,18 +47,3 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-meta:
-  title: Yandex Identity Hub
-  description: >-
-    Yandex Identity Hub is a cloud service for managing user accounts and access
-    to corporate apps in a centralized way over SAML and OpenID Connect
-    (identity provider) protocols.
-  keywords:
-    - '{{ org-name }}'
-    - '{{ org-full-name }}'
-    - '{{ org-name }}'
-    - '{{ yandex-cloud }} for businesses'
-    - corporate access to {{ yandex-cloud }}
-    - corporate cloud
-    - cloud for corporate customers
-    - how to manage employee access

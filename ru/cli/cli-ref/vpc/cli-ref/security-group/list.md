@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/security-group/list.md
 ---
 
 # yc vpc security-group list

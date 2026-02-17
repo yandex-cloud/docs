@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/cluster/start.md
 ---
 
 # yc dataproc cluster start

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/tools.md
----
 # Tools domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_tools.domain.**Tools**{#yandex_ai_studio_sdk._tools.domain.Tools}

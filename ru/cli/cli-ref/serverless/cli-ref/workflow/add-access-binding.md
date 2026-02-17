@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/workflow/add-access-binding.md
 ---
 
 # yc serverless workflow add-access-binding

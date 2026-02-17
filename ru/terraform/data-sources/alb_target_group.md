@@ -1,6 +1,5 @@
 ---
 subcategory: Application Load Balancer
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/alb_target_group.md
 ---
 
 # yandex_alb_target_group (DataSource)

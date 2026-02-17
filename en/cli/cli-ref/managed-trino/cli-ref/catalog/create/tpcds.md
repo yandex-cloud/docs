@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/catalog/create/tpcds.md
 ---
 
 # yc managed-trino catalog create tpcds

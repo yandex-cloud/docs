@@ -30,7 +30,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/addDomain.md
 ---
 
 # API Gateway Service, REST: ApiGateway.AddDomain

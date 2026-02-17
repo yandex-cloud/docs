@@ -679,7 +679,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Alert'
-sourcePath: en/_api-ref/ydb/v1/api-ref/Database/create.md
 ---
 
 # Managed Service for YDB API, REST: Database.Create

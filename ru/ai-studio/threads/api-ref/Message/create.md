@@ -80,7 +80,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/ContentPart'
-sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Message/create.md
 ---
 
 # Threads, REST: Message.Create

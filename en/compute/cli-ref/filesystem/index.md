@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/filesystem/index.md
 ---
 
 # yc compute filesystem

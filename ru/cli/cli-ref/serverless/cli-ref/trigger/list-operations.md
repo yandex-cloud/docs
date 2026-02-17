@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/list-operations.md
 ---
 
 # yc serverless trigger list-operations

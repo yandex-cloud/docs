@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Policy/get.md
 ---
 
 # Certificate Manager Private CA API, REST: Policy.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/sink/delete.md
 ---
 
 # yc logging sink delete

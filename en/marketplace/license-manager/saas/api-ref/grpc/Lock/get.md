@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/grpc/Lock/get.md
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, gRPC: LockService.Get

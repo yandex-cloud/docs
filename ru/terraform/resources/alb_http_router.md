@@ -1,6 +1,5 @@
 ---
 subcategory: Application Load Balancer
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/alb_http_router.md
 ---
 
 # yandex_alb_http_router (Resource)

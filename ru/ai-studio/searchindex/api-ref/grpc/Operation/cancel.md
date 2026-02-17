@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/searchindex/api-ref/grpc/Operation/cancel.md
 ---
 
 # Search Index, gRPC: OperationService.Cancel

@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/delete.md
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile.Delete

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/list.md
 ---
 
 # Data Transfer API, gRPC: EndpointService.List

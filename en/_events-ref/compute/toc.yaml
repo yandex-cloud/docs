@@ -153,3 +153,4 @@ items:
     href: events-ref/UpdateSnapshotSchedule.md
   - name: UpdateSnapshotScheduleDisks
     href: events-ref/UpdateSnapshotScheduleDisks.md
+path: en/_events-ref/compute/toc.yaml

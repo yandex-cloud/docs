@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/setAccessBindings.md
 ---
 
 # API Gateway Service, REST: ApiGateway.SetAccessBindings

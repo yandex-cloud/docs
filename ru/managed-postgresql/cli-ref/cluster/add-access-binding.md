@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/add-access-binding.md
 ---
 
 # yc managed-postgresql cluster add-access-binding

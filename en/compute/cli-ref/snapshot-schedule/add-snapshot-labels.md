@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/snapshot-schedule/add-snapshot-labels.md
 ---
 
 # yc compute snapshot-schedule add-snapshot-labels

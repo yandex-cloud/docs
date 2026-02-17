@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/remove-labels.md
 ---
 
 # yc compute instance remove-labels

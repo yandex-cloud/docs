@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/get.md
 ---
 
 # Federation, REST: Federation.Get

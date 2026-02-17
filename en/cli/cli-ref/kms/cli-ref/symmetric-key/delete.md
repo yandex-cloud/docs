@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/kms/cli-ref/symmetric-key/delete.md
 ---
 
 # yc kms symmetric-key delete

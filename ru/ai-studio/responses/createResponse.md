@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/responses/createResponse.md
 ---
 
 # REST: Create a model response

@@ -209,7 +209,6 @@ apiPlayground:
               - STANDARD
               - SOFTWARE_ACCELERATED
               - HARDWARE_ACCELERATED
-sourcePath: en/_api-ref/compute/v1/api-ref/ReservedInstancePool/create.md
 ---
 
 # Compute Cloud API, REST: ReservedInstancePool.Create

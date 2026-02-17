@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/apploadbalancer/events-ref/AddLoadBalancerSniMatch.md
 ---
 
 # Application Load Balancer Audit Trails Events: AddLoadBalancerSniMatch

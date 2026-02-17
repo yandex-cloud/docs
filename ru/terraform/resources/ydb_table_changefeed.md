@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for YDB
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/ydb_table_changefeed.md
 ---
 
 # yandex_ydb_table_changefeed (Resource)

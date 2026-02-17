@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/delete.md
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.Delete

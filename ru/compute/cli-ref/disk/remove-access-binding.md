@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/disk/remove-access-binding.md
 ---
 
 # yc compute disk remove-access-binding

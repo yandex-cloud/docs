@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/MSUM.md
 ---
 
 # MSUM (window)

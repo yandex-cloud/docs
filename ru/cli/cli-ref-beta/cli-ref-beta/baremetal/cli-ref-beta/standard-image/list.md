@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/baremetal/cli-ref-beta/standard-image/list.md
 ---
 
 # yc beta baremetal standard-image list

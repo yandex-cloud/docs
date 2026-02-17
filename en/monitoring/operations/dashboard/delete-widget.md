@@ -1,7 +1,6 @@
 ---
 title: How to delete a widget from a dashboard in {{ monitoring-full-name }}
 description: Follow this guide to delete a widget from a dashboard.
-sourcePath: en/monitoring_includes/operations/dashboard/delete-widget.md
 ---
 
 # Deleting a widget from a dashboard

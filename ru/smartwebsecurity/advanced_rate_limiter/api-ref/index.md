@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/index.md
 ---
 
 # SmartWebSecurity ARL API: REST reference

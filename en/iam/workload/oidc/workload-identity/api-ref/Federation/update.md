@@ -75,7 +75,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/update.md
 ---
 
 # Federation, REST: Federation.Update

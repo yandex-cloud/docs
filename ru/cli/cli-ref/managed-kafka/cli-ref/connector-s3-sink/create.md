@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/connector-s3-sink/create.md
 ---
 
 # yc managed-kafka connector-s3-sink create

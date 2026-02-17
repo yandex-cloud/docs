@@ -35,7 +35,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/suspendUserAccounts.md
 ---
 
 # SAML Federation API, REST: Federation.SuspendUserAccounts

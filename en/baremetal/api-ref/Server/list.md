@@ -56,7 +56,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Server/list.md
 ---
 
 # BareMetal API, REST: Server.List

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/cluster/list-backups.md
 ---
 
 # yc managed-mongodb cluster list-backups

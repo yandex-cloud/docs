@@ -103,7 +103,6 @@ apiPlayground:
                   - nextHopAddress
               - required:
                   - gatewayId
-sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/update.md
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.Update

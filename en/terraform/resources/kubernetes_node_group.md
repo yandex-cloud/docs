@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Services for Kubernetes
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kubernetes_node_group.md
 ---
 
 # yandex_kubernetes_node_group (Resource)

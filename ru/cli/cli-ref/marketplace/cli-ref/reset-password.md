@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/marketplace/cli-ref/reset-password.md
 ---
 
 # yc marketplace reset-password

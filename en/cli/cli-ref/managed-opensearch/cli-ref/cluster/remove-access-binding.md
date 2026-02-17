@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-opensearch cluster remove-access-binding

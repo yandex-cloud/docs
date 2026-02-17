@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/backup/delete.md
 ---
 
 # yc managed-greenplum backup delete

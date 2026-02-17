@@ -502,7 +502,6 @@ apiPlayground:
               - METADATA_OPTION_UNSPECIFIED
               - ENABLED
               - DISABLED
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/createVersion.md
 ---
 
 # Cloud Functions Service, REST: Function.CreateVersion

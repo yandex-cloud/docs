@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/connector-mirrormaker/update.md
 ---
 
 # yc managed-kafka connector-mirrormaker update

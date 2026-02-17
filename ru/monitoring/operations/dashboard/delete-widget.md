@@ -1,7 +1,6 @@
 ---
 title: Как удалить виджет с дашборда в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете удалить виджет с дашборда.
-sourcePath: ru/monitoring_includes/operations/dashboard/delete-widget.md
 ---
 
 # Удаление виджета с дашборда

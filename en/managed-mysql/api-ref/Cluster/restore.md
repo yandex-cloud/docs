@@ -2866,7 +2866,6 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceWindow
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/restore.md
 ---
 
 # Managed Service for MySQL API, REST: Cluster.Restore

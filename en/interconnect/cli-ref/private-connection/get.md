@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/private-connection/get.md
 ---
 
 # yc cic private-connection get

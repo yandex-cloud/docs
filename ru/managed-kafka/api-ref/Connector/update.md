@@ -225,7 +225,6 @@ apiPlayground:
               - connectorConfigMirrormaker
           - required:
               - connectorConfigS3Sink
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/update.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Connector.Update

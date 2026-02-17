@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/cluster/get-resource-groups.md
 ---
 
 # yc managed-trino cluster get-resource-groups

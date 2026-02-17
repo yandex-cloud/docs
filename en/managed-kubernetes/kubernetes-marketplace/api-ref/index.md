@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/index.md
 ---
 
 # Kubernetes Marketplace: REST reference

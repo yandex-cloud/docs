@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/user/delete.md
 ---
 
 # yc managed-redis user delete

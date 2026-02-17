@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/DetachInstanceNetworkInterface.md
 ---
 
 # Compute Audit Trails Events: DetachInstanceNetworkInterface

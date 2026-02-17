@@ -1,3 +1,7 @@
+---
+title: Cloud computing. FAQ
+description: 'Why use cloud computing? {{ yandex-cloud }} offers scalable cloud computing capacity: you can quickly create and start VMs on demand and stop them when the load decreases. By leveraging cloud computing, you reduce your IT infrastructure costs as you pay only for the resources you actually consume.'
+---
 
 # General questions about {{ compute-name }}
 

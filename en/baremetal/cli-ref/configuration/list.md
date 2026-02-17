@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/configuration/list.md
 ---
 
 # yc baremetal configuration list

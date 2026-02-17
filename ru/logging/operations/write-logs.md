@@ -1,7 +1,6 @@
 ---
 title: Инструкция о том, как добавить записи в лог-группу в {{ cloud-logging-name }}
 description: Из статьи вы узнаете, как добавить записи в лог-группу в {{ cloud-logging-name }}.
-sourcePath: ru/logging_includes/operations/write-logs.md
 ---
 
 # Добавление записей

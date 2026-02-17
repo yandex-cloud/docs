@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/datasets.md
----
 # Datasets
 
 ## *class* yandex\_ai\_studio\_sdk.\_datasets.status.**DatasetStatus**{#yandex_ai_studio_sdk._datasets.status.DatasetStatus}

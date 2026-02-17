@@ -47,7 +47,6 @@ apiPlayground:
         - data
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/create.md
 ---
 
 # Identity Hub API, REST: UserSshKey.Create

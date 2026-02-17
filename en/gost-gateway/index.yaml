@@ -5,6 +5,11 @@ description:
     integrity. The service enables secure interaction between geographically
     distributed facilities across the regions for compliance with Russian
     legislation.
+meta:
+  title: '{{ gost-gateway-name }}'
+  description: >-
+    {{ gost-gateway-name }} offers a dedicated gateway protected as per the
+    regulatory requirements.
 links:
   - title: Concepts
     description: Learn more about the service's concepts and resources
@@ -12,8 +17,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
-meta:
-  title: '{{ gost-gateway-name }}'
-  description: >-
-    {{ gost-gateway-name }} offers a dedicated gateway protected as per the
-    regulatory requirements.

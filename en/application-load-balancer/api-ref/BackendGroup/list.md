@@ -47,7 +47,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/list.md
 ---
 
 # Application Load Balancer API, REST: BackendGroup.List

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Managed Service for Redis API, gRPC: OperationService.Get

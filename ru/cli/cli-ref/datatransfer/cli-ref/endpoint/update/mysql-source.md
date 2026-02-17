@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/endpoint/update/mysql-source.md
 ---
 
 # yc datatransfer endpoint update mysql-source

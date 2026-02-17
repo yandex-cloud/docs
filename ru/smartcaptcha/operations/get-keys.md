@@ -11,6 +11,8 @@
     1. Нажмите на имя капчи или [создайте](../quickstart.md#creat-captcha) новую капчу.
     1. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**.
 
+       ![step4-get-keys](../../_assets/smartcaptcha/quickstart/step4-get-keys.png)
+
 - API {#api}
 
   Чтобы получить [серверный ключ](../concepts/keys.md), воспользуйтесь методом REST API [GetSecretKey](../api-ref/Captcha/getSecretKey.md) для ресурса [Captcha](../api-ref/Captcha/index.md) или вызовом gRPC API [CaptchaService/GetSecretKey](../api-ref/grpc/Captcha/getSecretKey.md).

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/image/get-latest-by-family.md
 ---
 
 # yc beta compute image get-latest-by-family

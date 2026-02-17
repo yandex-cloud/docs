@@ -61,7 +61,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/setAccessBindings.md
 ---
 
 # Identity Hub API, REST: Organization.SetAccessBindings

@@ -822,7 +822,6 @@ apiPlayground:
         oneOf:
           - required:
               - connection
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/update.md
 ---
 
 # Application Load Balancer API, REST: BackendGroup.Update

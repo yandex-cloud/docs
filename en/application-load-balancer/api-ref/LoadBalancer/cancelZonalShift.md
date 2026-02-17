@@ -28,7 +28,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/cancelZonalShift.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.CancelZonalShift

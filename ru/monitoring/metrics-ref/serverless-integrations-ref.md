@@ -2,7 +2,6 @@
 title: Метрики {{ si-full-name }}
 description: Из статьи вы узнаете про метрики {{ si-name }}.
 editable: false
-sourcePath: ru/monitoring_includes/metrics-ref/serverless-integrations-ref.md
 ---
 
 # Метрики {{ si-full-name }}

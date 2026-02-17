@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/remove-graphite-rollup.md
 ---
 
 # yc managed-clickhouse cluster remove-graphite-rollup

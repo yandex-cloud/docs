@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/workflow/remove-access-binding.md
 ---
 
 # yc serverless workflow remove-access-binding

@@ -23,7 +23,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/getByInstanceAndResource.md
 ---
 
 # Yandex Cloud Marketplace License Manager, REST: Lock.GetByInstanceAndResource

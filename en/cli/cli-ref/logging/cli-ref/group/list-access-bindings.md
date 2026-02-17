@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/group/list-access-bindings.md
 ---
 
 # yc logging group list-access-bindings

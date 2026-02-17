@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/certificate-manager/cli-ref/certificate/remove-access-binding.md
 ---
 
 # yc certificate-manager certificate remove-access-binding

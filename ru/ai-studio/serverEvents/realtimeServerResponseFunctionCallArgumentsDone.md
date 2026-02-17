@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseFunctionCallArgumentsDone.md
 ---
 
 # REST: response.function_call_arguments.done

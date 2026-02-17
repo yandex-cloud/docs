@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/retrieveVectorStoreFileContent.md
 ---
 
 # REST: Retrieve vector store file content

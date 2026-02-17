@@ -16,7 +16,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Storage/getDefault.md
 ---
 
 # BareMetal API, REST: Storage.GetDefault

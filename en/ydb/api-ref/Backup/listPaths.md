@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ydb/v1/api-ref/Backup/listPaths.md
 ---
 
 # Managed Service for YDB API, REST: Backup.ListPaths

@@ -78,3 +78,4 @@ items:
         href: cli-ref/resource-preset/get.md
       - name: list
         href: cli-ref/resource-preset/list.md
+path: en/_cli-ref/cli-ref/managed-elasticsearch/toc.yaml

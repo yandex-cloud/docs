@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/metastore/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster.UpdateAccessBindings

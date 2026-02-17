@@ -1,3 +1,10 @@
+---
+title: 'FAQs: Virtual machines'
+description: Answers to frequently asked questions about VMs in the {{ yandex-cloud }} infrastructure. VM technical specifications and operations. VM configuration (memory, vCPU) you can use.
+keywords:
+  - vm
+  - virtual machines
+---
 
 # Virtual machines
 

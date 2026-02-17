@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/logging_group.md
 ---
 
 # yandex_logging_group (DataSource)

@@ -64,7 +64,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/ToolResult'
-sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/submit.md
 ---
 
 # Runs, REST: Run.Submit

@@ -18,6 +18,23 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_yds">Yandex DataSphere Service
     Level</a>.
+meta:
+  title: Yandex DataSphere
+  description: >-
+    Yandex DataSphere is a full-cycle ML development service that enables
+    leveraging all cloud technology advantages. It combines an intuitive and
+    easy-to-use web interface, familiar IDEs, and seamless integration of
+    various Yandex Cloud computing resources.
+  keywords:
+    - keyword: '{{ ml-platform-full-name }}'
+    - keyword: '{{ ml-platform-short-name }}'
+    - keyword: '{{ ml-platform-short-name }}'
+    - keyword: ML service
+    - keyword: ML service in {{ yandex-cloud }}
+    - keyword: how to set up computing resource configurations
+    - keyword: computing resource configurations in {{ yandex-cloud }}
+    - keyword: seamless resource configurations
+    - keyword: machine learning in {{ yandex-cloud }}
 links:
   - title: Concepts
     description: Learn about the concepts and features of the service
@@ -37,20 +54,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-meta:
-  title: Yandex DataSphere
-  description: >-
-    Yandex DataSphere is a full-cycle ML development service that enables
-    leveraging all cloud technology advantages. It combines an intuitive and
-    easy-to-use web interface, familiar IDEs, and seamless integration of
-    various Yandex Cloud computing resources.
-  keywords:
-    - '{{ ml-platform-full-name }}'
-    - '{{ ml-platform-short-name }}'
-    - '{{ ml-platform-short-name }}'
-    - ML service
-    - ML service in {{ yandex-cloud }}
-    - how to set up computing resource configurations
-    - computing resource configurations in {{ yandex-cloud }}
-    - seamless resource configurations
-    - machine learning in {{ yandex-cloud }}

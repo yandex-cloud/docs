@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/quotamanager/v1/api-ref/grpc/index.md
 ---
 
 # Quota Manager API: gRPC reference

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/RestartInstance.md
 ---
 
 # Compute Audit Trails Events: RestartInstance

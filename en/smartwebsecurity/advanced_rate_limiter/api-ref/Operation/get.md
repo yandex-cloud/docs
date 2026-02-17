@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/Operation/get.md
 ---
 
 # SmartWebSecurity ARL API, REST: Operation.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/placement-group/list-instances.md
 ---
 
 # yc compute placement-group list-instances

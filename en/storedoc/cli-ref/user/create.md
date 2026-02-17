@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/user/create.md
 ---
 
 # yc managed-mongodb user create

@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/listAccessBindings.md
 ---
 
 # EventRouter Service, REST: Bus.ListAccessBindings

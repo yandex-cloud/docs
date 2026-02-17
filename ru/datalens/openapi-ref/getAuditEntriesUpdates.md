@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/getAuditEntriesUpdates.md
 ---
 
 # DataLens API: Get updated entries for audit

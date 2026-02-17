@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/folder/list-access-bindings.md
 ---
 
 # yc resource-manager folder list-access-bindings

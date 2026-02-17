@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Stream/update.md
 ---
 
 # Video API, gRPC: StreamService.Update

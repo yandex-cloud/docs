@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for PostgreSQL
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_postgresql_user.md
 ---
 
 # yandex_mdb_postgresql_user (DataSource)

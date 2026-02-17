@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/index.md
 ---
 
 # SmartCaptcha API: REST reference

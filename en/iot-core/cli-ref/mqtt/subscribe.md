@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/mqtt/subscribe.md
 ---
 
 # yc iot mqtt subscribe

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/DetachInstanceFilesystem.md
 ---
 
 # Compute Audit Trails Events: DetachInstanceFilesystem

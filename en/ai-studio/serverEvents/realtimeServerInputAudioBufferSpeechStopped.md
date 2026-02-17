@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerInputAudioBufferSpeechStopped.md
 ---
 
 # REST: input_audio_buffer.speech_stopped

@@ -115,7 +115,6 @@ apiPlayground:
       EpisodeSignURLAccessParams:
         type: object
         properties: {}
-sourcePath: en/_api-ref/video/v1/api-ref/Episode/create.md
 ---
 
 # Video API, REST: Episode.Create

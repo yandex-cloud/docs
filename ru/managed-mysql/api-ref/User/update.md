@@ -202,7 +202,6 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/update.md
 ---
 
 # Managed Service for MySQL API, REST: User.Update

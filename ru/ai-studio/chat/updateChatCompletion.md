@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/chat/updateChatCompletion.md
 ---
 
 # REST: Update chat completion

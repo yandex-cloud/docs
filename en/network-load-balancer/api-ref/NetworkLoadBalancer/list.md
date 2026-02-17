@@ -44,7 +44,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/list.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.List

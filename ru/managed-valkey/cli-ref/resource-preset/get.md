@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/resource-preset/get.md
 ---
 
 # yc managed-redis resource-preset get

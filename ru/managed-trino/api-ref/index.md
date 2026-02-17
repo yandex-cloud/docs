@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/trino/v1/api-ref/index.md
 ---
 
 # Managed Service for Trino API: REST reference

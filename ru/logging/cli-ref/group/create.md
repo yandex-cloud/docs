@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/group/create.md
 ---
 
 # yc logging group create

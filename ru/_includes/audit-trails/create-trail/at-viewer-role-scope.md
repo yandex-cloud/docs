@@ -1,4 +1,4 @@
-* `audit-trails.viewer` на один из ресурсов, который определяет [нужную область сбора](../../../audit-trails/concepts/trail.md#collecting-area) логов:
+* [audit-trails.viewer](../../../audit-trails/security/index.md#at-viewer) на один из ресурсов, который определяет [нужную область сбора](../../../audit-trails/concepts/trail.md#collecting-area) логов:
 
     * [Организация](../../../organization/operations/add-role.md) — чтобы собирать логи в выбранных облаках организации.
     * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md#access-to-sa) — чтобы собирать логи в выбранных каталогах облака.

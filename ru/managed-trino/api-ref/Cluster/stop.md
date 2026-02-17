@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/stop.md
 ---
 
 # Managed Service for Trino API, REST: Cluster.Stop

@@ -41,6 +41,12 @@ description: Следуя данной инструкции, вы сможете
 
 ## Включить логирование {#enable-logging}
 
+{% note info %}
+
+Чтобы включать или отключать [логирование](../../smartwebsecurity/concepts/logging.md) в балансировщике нагрузки, необходима [роль](../../application-load-balancer/security/index.md#alb-editor) `alb.editor` или выше на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается или находится балансировщик, а также [роль](../../logging/security/index.md#logging-writer) `logging.writer` или выше на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-logging-short-name }} {#logging}
@@ -59,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ at-name }} {#at}
 
-  События {{ at-name }} можно записывать в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }} или поток данных {{ yds-name }}. В этой инструкции настроим запись событий в лог-группу.
+  События {{ at-name }} можно записывать в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }}, поток данных {{ yds-name }} или шину {{ er-name }}. В этой инструкции настроим запись событий в лог-группу.
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

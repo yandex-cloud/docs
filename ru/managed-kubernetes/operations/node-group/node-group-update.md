@@ -171,7 +171,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить параметры [группы узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group), воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup).
+  Чтобы изменить параметры [группы узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group), воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md).
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   Чтобы изменить [облачные метки группы узлов](../../../resource-manager/concepts/labels.md), передайте значения меток в параметре `nodeTemplate.labels`.
 
@@ -222,7 +224,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup).
+  Воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md).
 
 {% endlist %}
 
@@ -707,9 +709,11 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
+    {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
     1. {% include [get-metadata-via-api](../../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-    1. Воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
+    1. Воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
 
         * Идентификатор группы узлов в параметре `nodeGroupId`.
 

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/zone/create.md
 ---
 
 # yc dns zone create

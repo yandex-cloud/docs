@@ -1,7 +1,6 @@
 ---
 title: How to create a log sink in {{ cloud-logging-name }}
 description: In this guide, you will learn how to create a log sink in {{ cloud-logging-name }}.
-sourcePath: en/logging_includes/operations/create-sink.md
 ---
 
 # Creating a log sink

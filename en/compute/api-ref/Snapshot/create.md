@@ -96,7 +96,6 @@ apiPlayground:
               - legacyFeatures
           - required:
               - generation2Features
-sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/create.md
 ---
 
 # Compute Cloud API, REST: Snapshot.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/snapshot/list-access-bindings.md
 ---
 
 # yc compute snapshot list-access-bindings

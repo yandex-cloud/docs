@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/cluster/reschedule-maintenance.md
 ---
 
 # yc managed-mongodb cluster reschedule-maintenance

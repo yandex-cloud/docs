@@ -10,13 +10,13 @@
   1. Справа от названия каталога нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.FolderActions.button_action-delete-folder_mu24C }}**.
 
-     ![delete-folder1](../../../_assets/resource-manager/delete-folder-ru1.png)
+     ![delete-folder1](../../../_assets/resource-manager/delete-folder-1.png)
 
   1. Выберите срок удаления каталога, по истечении которого каталог будет удален. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. По умолчанию срок удаления каталога — 7 дней.
   1. Введите название каталога, чтобы подтвердить удаление. 
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
 
-     ![delete-folder2](../../../_assets/resource-manager/delete-folder-ru2.png)
+     ![delete-folder2](../../../_assets/resource-manager/delete-folder-2.png)
 
 - CLI {#cli}
 

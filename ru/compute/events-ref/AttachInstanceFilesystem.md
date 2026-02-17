@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/AttachInstanceFilesystem.md
 ---
 
 # Compute Audit Trails Events: AttachInstanceFilesystem

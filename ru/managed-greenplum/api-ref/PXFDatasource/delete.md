@@ -26,7 +26,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/delete.md
 ---
 
 # Managed Service for Greenplum® API, REST: PXFDatasource.Delete

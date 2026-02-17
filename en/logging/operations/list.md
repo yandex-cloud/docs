@@ -1,7 +1,6 @@
 ---
 title: How to get a list of log groups in {{ cloud-logging-full-name }}
 description: Follow this guide to get a list of log groups.
-sourcePath: en/logging_includes/operations/list.md
 ---
 
 # Getting a list of log groups

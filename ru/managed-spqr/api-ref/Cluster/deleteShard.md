@@ -26,7 +26,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/deleteShard.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.DeleteShard

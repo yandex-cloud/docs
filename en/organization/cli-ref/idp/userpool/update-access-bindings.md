@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/userpool/update-access-bindings.md
 ---
 
 # yc organization-manager idp userpool update-access-bindings

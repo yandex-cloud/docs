@@ -27,7 +27,6 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/ydb/v1/api-ref/Database/move.md
 ---
 
 # Managed Service for YDB API, REST: Database.Move

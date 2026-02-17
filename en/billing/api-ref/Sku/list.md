@@ -54,7 +54,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/billing/v1/api-ref/Sku/list.md
 ---
 
 # Billing API, REST: Sku.List

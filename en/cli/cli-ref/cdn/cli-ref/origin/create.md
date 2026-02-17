@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cdn/cli-ref/origin/create.md
 ---
 
 # yc cdn origin create

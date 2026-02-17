@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/mcpgateway/v1/mcp-gateway/api-ref/grpc/Operation/index.md
 ---
 
 # MCP Gateway Service, gRPC: OperationService

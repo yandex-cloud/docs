@@ -83,7 +83,6 @@ apiPlayground:
               **[SAMLSettings](#yandex.cloud.mdb.opensearch.v1.SAMLSettings)**
               SAML settings
             $ref: '#/definitions/SAMLSettings'
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/updateAuthSettings.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.UpdateAuthSettings

@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/get.md
 ---
 
 # DataSphere API v2, REST: Community.Get

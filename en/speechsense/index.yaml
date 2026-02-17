@@ -18,6 +18,28 @@ description:
     For terms of use, see the <a
     href="https://yandex.com/legal/cloud_terms_speechsense">{{
     speechsense-full-name }} Terms of Use</a>.
+meta:
+  title: Yandex SpeechSense
+  description: >-
+    {{ speechsense-name }} helps you analyze your business communication
+    channels based on conversation audio recordings or text chat messages and
+    supports integration with your PBX and CRM systems.
+  keywords:
+    - keyword: SpeechSense
+    - keyword: '{{ speechsense-name }} tags'
+    - keyword: '{{ speechsense-name }}'
+    - keyword: dialog tags
+    - keyword: audio recording analysis
+    - keyword: speech recognition in Yandex
+    - keyword: dialog analysis in {{ yandex-cloud }}
+    - keyword: SpeechSense in {{ yandex-cloud }}
+    - keyword: '{{ speechsense-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ speechsense-name }}'
+    - keyword: how to collect dialog statistics and identify keywords
+    - keyword: how to analyze communication channels for business in Yandex
+    - keyword: speech analytics for business
+    - keyword: conversation and message analysis for business
+    - keyword: analysis of conversations and messages from chats
 links:
   - title: Getting started
     description: >-
@@ -39,25 +61,3 @@ links:
   - title: Release notes
     description: Releases and updates
     href: release-notes/
-meta:
-  title: Yandex SpeechSense
-  description: >-
-    {{ speechsense-name }} helps you analyze your business communication
-    channels based on conversation audio recordings or text chat messages and
-    supports integration with your PBX and CRM systems.
-  keywords:
-    - SpeechSense
-    - '{{ speechsense-name }} tags'
-    - '{{ speechsense-name }}'
-    - dialog tags
-    - audio recording analysis
-    - speech recognition in Yandex
-    - dialog analysis in {{ yandex-cloud }}
-    - SpeechSense in {{ yandex-cloud }}
-    - '{{ speechsense-name }} in {{ yandex-cloud }}'
-    - '{{ speechsense-name }}'
-    - how to collect dialog statistics and identify keywords
-    - how to analyze communication channels for business in Yandex
-    - speech analytics for business
-    - conversation and message analysis for business
-    - analysis of conversations and messages from chats

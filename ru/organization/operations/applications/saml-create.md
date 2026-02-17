@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать SAML-приложение в {{ org-full-name }}
 
+
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне поставщика услуг.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}

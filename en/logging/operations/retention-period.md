@@ -1,7 +1,6 @@
 ---
 title: Updating a log group
 description: Follow this guide to update a log group.
-sourcePath: en/logging_includes/operations/retention-period.md
 ---
 
 # Updating a log group

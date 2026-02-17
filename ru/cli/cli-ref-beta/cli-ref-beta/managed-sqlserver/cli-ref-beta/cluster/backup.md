@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-sqlserver/cli-ref-beta/cluster/backup.md
 ---
 
 # yc beta managed-sqlserver cluster backup

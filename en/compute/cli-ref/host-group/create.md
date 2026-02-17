@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/host-group/create.md
 ---
 
 # yc compute host-group create

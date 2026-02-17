@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerInputAudioBufferCommitted.md
 ---
 
 # REST: input_audio_buffer.committed

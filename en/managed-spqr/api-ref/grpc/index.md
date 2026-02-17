@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/spqr/v1/api-ref/grpc/index.md
 ---
 
 # Managed Service for SPQR API: gRPC reference

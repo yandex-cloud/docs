@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/updateAccessBindings.md
 ---
 
 # Federation, REST: Federation.UpdateAccessBindings

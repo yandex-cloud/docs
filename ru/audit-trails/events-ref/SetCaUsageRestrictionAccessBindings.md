@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/certificatemanager/events-ref/SetCaUsageRestrictionAccessBindings.md
 ---
 
 # Certificate Manager Audit Trails Events: SetCaUsageRestrictionAccessBindings

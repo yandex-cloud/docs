@@ -122,7 +122,6 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/update.md
 ---
 
 # IoT Core Broker Service, REST: Broker.Update

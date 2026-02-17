@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/index.md
 ---
 
 # Yandex Cloud Marketplace License Manager: REST reference

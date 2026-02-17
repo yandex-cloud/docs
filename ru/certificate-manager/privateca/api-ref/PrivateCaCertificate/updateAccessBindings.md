@@ -174,7 +174,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/updateAccessBindings.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.UpdateAccessBindings

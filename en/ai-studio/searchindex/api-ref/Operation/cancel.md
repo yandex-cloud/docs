@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/Operation/cancel.md
 ---
 
 # Search Index, REST: Operation.Cancel

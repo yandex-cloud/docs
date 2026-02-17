@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/cloud/get.md
 ---
 
 # yc resource-manager cloud get

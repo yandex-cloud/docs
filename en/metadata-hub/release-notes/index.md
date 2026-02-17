@@ -5,8 +5,49 @@ description: This section contains the {{ metadata-hub-name }} release notes.
 
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-12
+index: 3
+```
+
+### Metadata markup
+
+![image](../../_assets/metadata-hub/changelogs/metadata-markup.jpg)
+
+{{ data-catalog-name }} users now have a practical new metadata markup management space which supports bulk editing mode and presents markup statistics.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-12
+index: 2
+```
+
+### Data storage
 
 
+In **Data storage**, you can view datasets uploaded from multiple sources, view details about these sources and links between data.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-11
+index: 1
+```
+
+### MCP metadata server
+
+
+Configure an MCP server for {{ data-catalog-name }} and connect AI agents to access new features:
+* Metadata search.
+* Viewing metadata catalogs.
+* Getting metadata by its IDs.
+* Getting links between metadata.
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 

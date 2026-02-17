@@ -1,6 +1,5 @@
 ---
 subcategory: IoT Core Devices
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iot_core_device.md
 ---
 
 # yandex_iot_core_device (DataSource)

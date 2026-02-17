@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/zone/move.md
 ---
 
 # yc dns zone move

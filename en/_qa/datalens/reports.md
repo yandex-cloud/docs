@@ -1,3 +1,7 @@
+---
+title: FAQ about reports
+description: This page covers FAQ about reports.
+---
 
 # Reports
 

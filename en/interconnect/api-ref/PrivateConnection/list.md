@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/list.md
 ---
 
 # Cloud Interconnect API, REST: PrivateConnection.List

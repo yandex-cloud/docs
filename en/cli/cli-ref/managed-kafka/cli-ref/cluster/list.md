@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/cluster/list.md
 ---
 
 # yc managed-kafka cluster list

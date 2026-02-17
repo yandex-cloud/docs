@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/provider/activate.md
 ---
 
 # yc backup provider activate

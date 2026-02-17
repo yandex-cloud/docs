@@ -98,7 +98,6 @@ apiPlayground:
         oneOf:
           - required:
               - fixedScale
-sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/update.md
 ---
 
 # Compute Cloud API, REST: HostGroup.Update

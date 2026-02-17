@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/gpu-cluster/add-labels.md
 ---
 
 # yc compute gpu-cluster add-labels

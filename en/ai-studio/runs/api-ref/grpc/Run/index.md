@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/runs/api-ref/grpc/Run/index.md
 ---
 
 # Runs, gRPC: RunService

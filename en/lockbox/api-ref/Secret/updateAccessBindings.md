@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/updateAccessBindings.md
 ---
 
 # Lockbox API, REST: Secret.UpdateAccessBindings

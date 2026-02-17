@@ -63,7 +63,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/create.md
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.Create

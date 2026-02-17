@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/billing/v1/api-ref/Customer/index.md
 ---
 
 # Billing API, REST: Customer

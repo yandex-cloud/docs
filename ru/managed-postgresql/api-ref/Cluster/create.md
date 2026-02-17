@@ -26311,7 +26311,6 @@ apiPlayground:
             type: string
         required:
           - policyName
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.Create

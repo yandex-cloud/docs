@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/add-one-to-one-nat.md
 ---
 
 # yc compute instance add-one-to-one-nat

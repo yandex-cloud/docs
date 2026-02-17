@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/hosts/update.md
 ---
 
 # yc managed-clickhouse hosts update

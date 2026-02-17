@@ -1,7 +1,6 @@
 ---
 title: Аутентификация в API {{ monitoring-full-name }}
 description: 'Для выполнения операций через API {{ monitoring-full-name }} необходимо получить IAM-токен для своего аккаунта. Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API в формате — Authorization: Bearer <IAM-TOKEN>'
-sourcePath: ru/monitoring_includes/api-ref/authentication.md
 ---
 
 # Аутентификация в API {{ yandex-cloud }}

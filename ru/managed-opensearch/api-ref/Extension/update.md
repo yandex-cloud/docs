@@ -30,7 +30,6 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Extension/update.md
 ---
 
 # Managed Service for OpenSearch API, REST: Extension.Update

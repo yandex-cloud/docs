@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.SetAccessBindings

@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/configuration.md
----
 # Конфигурирование
 
 Раздел описывает настройку {{ unified-agent-full-name }}. Предварительно познакомьтесь с [основными понятиями](index.md), которые используются в конфигурации агента.

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/audittrails/v1/api-ref/grpc/index.md
 ---
 
 # Audit Trails API: gRPC reference

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Operation/get.md
 ---
 
 # IoT Core Service, gRPC: OperationService.Get

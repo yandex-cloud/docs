@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/filesystem/create.md
 ---
 
 # yc compute filesystem create

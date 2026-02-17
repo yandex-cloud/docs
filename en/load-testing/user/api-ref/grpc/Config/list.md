@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Config/list.md
 ---
 
 # Load Testing API, gRPC: ConfigService.List

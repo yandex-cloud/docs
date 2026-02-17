@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/listAccessBindings.md
 ---
 
 # Federation, REST: Federation.ListAccessBindings

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/searchapi/v2/api-ref/GenSearch/index.md
 ---
 
 # Web Search API, REST: GenSearch

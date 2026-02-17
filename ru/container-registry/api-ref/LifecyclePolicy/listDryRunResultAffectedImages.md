@@ -54,7 +54,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
 ---
 
 # Container Registry API, REST: LifecyclePolicy.ListDryRunResultAffectedImages

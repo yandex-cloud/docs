@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/monitoring_includes/api-ref/MetricsMeta/listMetrics.md
 ---
 
 # listMetrics method

@@ -31,7 +31,6 @@ apiPlayground:
         - message
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureCrypto/sign.md
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureCrypto.Sign

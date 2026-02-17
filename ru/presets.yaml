@@ -4765,6 +4765,21 @@ default:
             confirm_action: Оплатить
             downgrade_action: Сохранить
             new_limit: Новый лимит
+        branding:
+          AuthBrandingForm:
+            clearAllAction: Сбросить все
+            loginSection:
+              alternativeEntryLabel: Альтернативные способы входа
+              placeholderLabel: Подсказка в поле для входа
+              title: Форма входа
+              welcomeLabel: Приветствие
+            styleSection:
+              colorLabel: Основной цвет
+              title: Цвета и изображения
+          AuthBrandingThemeBlock:
+            backgroundName: Фоновое изображение
+            faviconName: Фавиконка
+            logoName: Логотип
         idp:
           PasswordDialog:
             action_save-password_gaB2s: Сохранить пароль
@@ -4858,6 +4873,7 @@ default:
         federations: Федерации
         groups: Группы
         organization-billing: Управление тарифом
+        organization-branding: Брендирование
         oslogin:
           title: Настройки безопасности
         securitySettings: Настройки безопасности
@@ -5374,6 +5390,7 @@ default:
         label_dataStream: Data Streams
         label_destination: Назначение
         label_event-filter-section: Сбор событий с уровня сервисов
+        label_eventRouter: Event Router
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -8379,6 +8396,12 @@ default:
           value_exclude-all-yes: Все правила
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
+        CaptchaSettingsForm:
+          PresetsSection:
+            label_enable-dynamic-theme_tme9P: Динамическая цветовая схема
+          StyleSection:
+            label_section-customization-dark_dMJ2m: Настройка тёмной цветовой схемы
+            label_section-customization-light_tL96w: Настройка стандартной цветовой схемы
         field_security-rule_priority: Приоритет
         label_additional-challenge: Дополнительное задание
         label_allowed-sites: Список хостов
@@ -8609,8 +8632,14 @@ default:
             label_prefix_4JTZG: Префикс
             label_server-logs_mfGpj: Запись логов
             label_target-bucket_jEJ5E: Бакет для хранения логов
+          BucketSettingsFormSection:
+            field_description-strict-mode_9cpMe: Доступ только через сервисные подключения VPC
+            field_force-cloud-console-access_5bS8y: Доступ из консоли управления
+            field_label-strict-mode_2ttnd: Строгий режим
           BucketVersioningFormSection:
             label_versioning-disabled_ngMWc: Хранить историю изменений объектов
+          Service_onnectionsField:
+            field_lable-service-connections_iGyHa: Сервисные подключения VPC
         permissions-dialog:
           label_role-write: 'READ и WRITE '
         switch_buckets: Бакеты
@@ -8794,6 +8823,19 @@ default:
             field_description: Описание
             field_is-default: Создать подсети
             field_name: Имя
+        private-endpoint:
+          field_address-id: IP-адрес
+          field_address-type: Адрес
+          field_description: Описание
+          field_name: Имя
+          field_network: Сеть
+          field_service: Сервис
+          label_address-type_auto: Автоматически
+          label_address-type_list: Список
+          label_create-private-endpoint: Создать подключение
+          label_dns-field-text: Создать основную DNS-запись
+          label_endpoint-service_object-storage: Object Storage
+          label_network-section: Сетевые настройки
         route-table-form:
           field_name: Имя
           field_network-id: Cеть
@@ -8834,6 +8876,7 @@ default:
         switch_gateways: Шлюзы
         switch_list: Облачные сети
         switch_networks: Подсети
+        switch_private-endpoints: Сервисные подключения
         switch_route-tables: Таблицы маршрутизации
         title_network-map-page: Карта облачной сети
       yagpt:

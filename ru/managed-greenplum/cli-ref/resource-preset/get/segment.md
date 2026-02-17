@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/resource-preset/get/segment.md
 ---
 
 # yc managed-greenplum resource-preset get segment

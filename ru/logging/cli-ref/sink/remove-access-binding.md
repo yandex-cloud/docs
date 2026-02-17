@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/sink/remove-access-binding.md
 ---
 
 # yc logging sink remove-access-binding

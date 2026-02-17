@@ -62,7 +62,6 @@ apiPlayground:
         required:
           - action
           - assignment
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/Application/updateAssignments.md
 ---
 
 # SAML Application API, REST: Application.UpdateAssignments

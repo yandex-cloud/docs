@@ -208,7 +208,6 @@ apiPlayground:
             type: object
             additionalProperties:
               $ref: '#/definitions/VariableInput'
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/create.md
 ---
 
 # API Gateway Service, REST: ApiGateway.Create

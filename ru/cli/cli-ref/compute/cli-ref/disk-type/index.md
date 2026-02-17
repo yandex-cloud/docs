@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/disk-type/index.md
 ---
 
 # yc compute disk-type

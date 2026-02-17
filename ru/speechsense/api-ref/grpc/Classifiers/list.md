@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Classifiers/list.md
 ---
 
 # Talk Analytics API, gRPC: ClassifiersService.List

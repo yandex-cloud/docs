@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/api-ref/grpc/SynchronizationSession/getSession.md
 ---
 
 # Identity Provider API, gRPC: SynchronizationSessionService.GetSession

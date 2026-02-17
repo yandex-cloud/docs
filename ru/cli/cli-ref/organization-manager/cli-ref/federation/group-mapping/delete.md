@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/federation/group-mapping/delete.md
 ---
 
 # yc organization-manager federation group-mapping delete

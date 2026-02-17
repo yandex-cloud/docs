@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PrivateConnection/list.md
 ---
 
 # Cloud Interconnect API, gRPC: PrivateConnectionService.List

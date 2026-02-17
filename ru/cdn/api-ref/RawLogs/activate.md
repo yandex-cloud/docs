@@ -50,7 +50,6 @@ apiPlayground:
             type: string
         required:
           - bucketName
-sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/activate.md
 ---
 
 # Cloud CDN API, REST: RawLogs.Activate

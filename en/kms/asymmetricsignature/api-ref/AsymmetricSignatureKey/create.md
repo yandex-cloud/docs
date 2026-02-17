@@ -83,7 +83,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/create.md
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureKey.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/api-ref/Role/index.md
 ---
 
 # Identity and Access Management API, REST: Role

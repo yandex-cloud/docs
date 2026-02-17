@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/listAccessBindings.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.ListAccessBindings

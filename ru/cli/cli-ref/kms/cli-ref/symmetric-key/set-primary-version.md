@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/kms/cli-ref/symmetric-key/set-primary-version.md
 ---
 
 # yc kms symmetric-key set-primary-version

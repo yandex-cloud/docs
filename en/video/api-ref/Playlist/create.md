@@ -81,7 +81,6 @@ apiPlayground:
               - videoId
           - required:
               - episodeId
-sourcePath: en/_api-ref/video/v1/api-ref/Playlist/create.md
 ---
 
 # Video API, REST: Playlist.Create

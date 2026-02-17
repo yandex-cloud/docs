@@ -225,7 +225,6 @@ apiPlayground:
       ManualUpdatePolicy:
         type: object
         properties: {}
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/update.md
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.Update

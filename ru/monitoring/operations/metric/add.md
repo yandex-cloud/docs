@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/operations/metric/add.md
----
 # Запись пользовательских метрик через API
 
 Чтобы начать записывать пользовательские метрики через API, воспользуйтесь методом [write](../../api-ref/MetricsData/write.md).

@@ -87,7 +87,6 @@ apiPlayground:
         - fromDate
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getDynamics.md
 ---
 
 # Web Search API, REST: Wordstat.GetDynamics

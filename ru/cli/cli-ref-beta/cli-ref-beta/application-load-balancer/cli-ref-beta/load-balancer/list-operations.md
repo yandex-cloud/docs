@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/application-load-balancer/cli-ref-beta/load-balancer/list-operations.md
 ---
 
 # yc beta application-load-balancer load-balancer list-operations

@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/updateAccessBindings.md
 ---
 
 # DataSphere API v2, REST: Project.UpdateAccessBindings

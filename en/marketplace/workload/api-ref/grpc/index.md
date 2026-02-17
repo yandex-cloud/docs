@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cloudapps/workload/v1/workload/api-ref/grpc/index.md
 ---
 
 # Cloud Apps Workload API: gRPC reference

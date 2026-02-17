@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/subnet/delete.md
 ---
 
 # yc vpc subnet delete

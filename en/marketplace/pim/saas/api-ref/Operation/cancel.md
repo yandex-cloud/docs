@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/marketplace/pim/v1/saas/pim/saas/api-ref/Operation/cancel.md
 ---
 
 # Yandex Cloud Marketplace Product Instance Management API, REST: Operation.Cancel

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/user/remove-quota.md
 ---
 
 # yc managed-clickhouse user remove-quota

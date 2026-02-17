@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/create.md
 ---
 
 # Identity Hub API, gRPC: UserSshKeyService.Create

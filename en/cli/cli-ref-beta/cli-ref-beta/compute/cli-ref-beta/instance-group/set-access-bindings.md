@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/instance-group/set-access-bindings.md
 ---
 
 # yc beta compute instance-group set-access-bindings

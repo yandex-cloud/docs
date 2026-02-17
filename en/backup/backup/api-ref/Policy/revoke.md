@@ -29,7 +29,6 @@ apiPlayground:
         - computeInstanceId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/revoke.md
 ---
 
 # Cloud Backup API, REST: Policy.Revoke

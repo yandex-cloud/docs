@@ -728,7 +728,6 @@ apiPlayground:
               **string**
               Security profile that will take effect to all requests routed via particular virtual host.
             type: string
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/updateRoute.md
 ---
 
 # Application Load Balancer API, REST: VirtualHost.UpdateRoute

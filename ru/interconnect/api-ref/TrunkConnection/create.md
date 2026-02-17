@@ -206,7 +206,6 @@ apiPlayground:
               Optional.
               If is not set scheduler selects it by himself.
             type: string
-sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/create.md
 ---
 
 # Cloud Interconnect API, REST: TrunkConnection.Create

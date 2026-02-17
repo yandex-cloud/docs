@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/monitoring_includes/api-ref/MetricsData/prometheusMetrics.md
 ---
 
 # prometheusMetrics method

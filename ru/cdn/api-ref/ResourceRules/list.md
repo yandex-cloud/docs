@@ -18,7 +18,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/list.md
 ---
 
 # Cloud CDN API, REST: ResourceRules.List

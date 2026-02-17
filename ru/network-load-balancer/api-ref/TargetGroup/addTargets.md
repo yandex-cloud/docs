@@ -42,7 +42,6 @@ apiPlayground:
               **string**
               IP address of the target.
             type: string
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 
 # Network Load Balancer API, REST: TargetGroup.AddTargets

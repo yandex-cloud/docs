@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseOutputTextDelta.md
 ---
 
 # REST: response.output_text.delta [CURRENTLY NOT SUPPORTTED]

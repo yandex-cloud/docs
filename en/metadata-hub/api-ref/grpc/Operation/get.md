@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/metastore/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Managed Service for Hive Metastore™ API, gRPC: OperationService.Get

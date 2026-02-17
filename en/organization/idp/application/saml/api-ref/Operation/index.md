@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/Operation/index.md
 ---
 
 # SAML Application API, REST: Operation

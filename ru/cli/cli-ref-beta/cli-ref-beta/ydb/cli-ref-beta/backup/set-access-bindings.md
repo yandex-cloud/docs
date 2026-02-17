@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/ydb/cli-ref-beta/backup/set-access-bindings.md
 ---
 
 # yc beta ydb backup set-access-bindings

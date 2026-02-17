@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ytsaurus/v1/api-ref/Cluster/stop.md
 ---
 
 # Ytsaurus API, REST: Cluster.Stop

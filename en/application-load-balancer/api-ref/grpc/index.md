@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/index.md
 ---
 
 # Application Load Balancer API: gRPC reference

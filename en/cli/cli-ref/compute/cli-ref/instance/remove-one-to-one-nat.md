@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/remove-one-to-one-nat.md
 ---
 
 # yc compute instance remove-one-to-one-nat

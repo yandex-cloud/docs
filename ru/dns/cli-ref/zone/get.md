@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/zone/get.md
 ---
 
 # yc dns zone get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/dataset/v1/dataset/api-ref/grpc/Dataset/validate.md
 ---
 
 # Foundation Models Dataset Service API, gRPC: DatasetService.Validate

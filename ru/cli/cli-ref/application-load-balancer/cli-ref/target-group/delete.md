@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/target-group/delete.md
 ---
 
 # yc application-load-balancer target-group delete

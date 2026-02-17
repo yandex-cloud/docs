@@ -48,7 +48,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/create.md
 ---
 
 # Container Registry API, REST: Registry.Create

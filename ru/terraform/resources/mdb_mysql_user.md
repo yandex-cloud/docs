@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for MySQL
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_user.md
 ---
 
 # yandex_mdb_mysql_user (Resource)

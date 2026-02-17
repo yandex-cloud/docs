@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/serverless_container.md
 ---
 
 # yandex_serverless_container (Resource)

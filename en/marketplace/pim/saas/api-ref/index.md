@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/marketplace/pim/v1/saas/pim/saas/api-ref/index.md
 ---
 
 # Yandex Cloud Marketplace Product Instance Management API: REST reference

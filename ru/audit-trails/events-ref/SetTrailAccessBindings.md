@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/audittrails/events-ref/SetTrailAccessBindings.md
 ---
 
 # Audit Trails Events: SetTrailAccessBindings

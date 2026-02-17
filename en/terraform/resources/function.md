@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/function.md
 ---
 
 # yandex_function (Resource)

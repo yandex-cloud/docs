@@ -2,7 +2,6 @@
 title: Window functions
 description: Window functions in {{ datalens-short-name }} are calculated as aggregate functions of measures.
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/window-functions.md
 ---
 
 # Window functions

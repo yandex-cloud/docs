@@ -1,7 +1,6 @@
 ---
 title: Message routing in {{ monitoring-full-name }}
 description: Message routing features routes, channels, and pipes.
-sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/routing.md
 ---
 
 # Routing

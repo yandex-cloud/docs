@@ -99,7 +99,6 @@ apiPlayground:
               **object**
               The JSON Schema that the model's output must conform to.
             type: object
-sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/TextGenerationBatch/completion.md
 ---
 
 # Foundation Models Text Generation API, REST: TextGenerationBatch.Completion

@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/storage/v1/api-ref/Operation/cancel.md
 ---
 
 # Object Storage API, REST: Operation.Cancel

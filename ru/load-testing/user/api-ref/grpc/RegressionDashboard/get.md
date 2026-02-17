@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/RegressionDashboard/get.md
 ---
 
 # Load Testing API, gRPC: RegressionDashboardService.Get

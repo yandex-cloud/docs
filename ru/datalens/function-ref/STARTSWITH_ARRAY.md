@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/STARTSWITH_ARRAY.md
 ---
 
 # STARTSWITH (массивы)

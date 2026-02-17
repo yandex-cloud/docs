@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/securitydeck/alerts/v1/api-ref/grpc/Alert/listRelatedResources.md
 ---
 
 # Security Deck Alerts API, gRPC: AlertService.ListRelatedResources

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/index.md
----
 # Types
 
 - [Assistant types](assistants.md)

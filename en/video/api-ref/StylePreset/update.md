@@ -171,7 +171,6 @@ apiPlayground:
               - summarization
           - required:
               - description
-sourcePath: en/_api-ref/video/v1/api-ref/StylePreset/update.md
 ---
 
 # Video API, REST: StylePreset.Update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc/Federation/setAccessBindings.md
 ---
 
 # Federation, gRPC: FederationService.SetAccessBindings

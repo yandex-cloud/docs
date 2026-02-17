@@ -59,7 +59,6 @@ apiPlayground:
         required:
           - folderId
           - certificateName
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/CertificateContent/getEx.md
 ---
 
 # Certificate Manager API, REST: CertificateContent.GetEx

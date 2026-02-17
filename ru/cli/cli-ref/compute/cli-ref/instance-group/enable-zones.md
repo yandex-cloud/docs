@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance-group/enable-zones.md
 ---
 
 # yc compute instance-group enable-zones

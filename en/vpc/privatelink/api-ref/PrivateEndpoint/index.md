@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/index.md
 ---
 
 # Virtual Private Cloud API, REST: PrivateEndpoint

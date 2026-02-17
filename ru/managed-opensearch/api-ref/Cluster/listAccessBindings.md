@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listAccessBindings.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.ListAccessBindings

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/translate/v2/api-ref/grpc/Translation/detectLanguage.md
 ---
 
 # Translate API v2, gRPC: TranslationService.DetectLanguage

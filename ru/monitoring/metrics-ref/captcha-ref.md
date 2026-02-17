@@ -2,7 +2,6 @@
 title: Метрики {{ captcha-full-name }}
 description: Из статьи вы узнаете про метрики {{ captcha-name }}.
 editable: false
-sourcePath: ru/monitoring_includes/metrics-ref/captcha-ref.md
 ---
 
 # Метрики {{ captcha-full-name }}

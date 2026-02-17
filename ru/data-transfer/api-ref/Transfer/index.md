@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/index.md
 ---
 
 # Data Transfer API, REST: Transfer

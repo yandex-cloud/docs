@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/Operation/cancel.md
 ---
 
 # Kubernetes Marketplace, REST: Operation.Cancel

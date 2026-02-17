@@ -13,7 +13,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/getRecognition.md
 ---
 
 # SpeechKit Recognition API v3, REST: AsyncRecognizer.GetRecognition

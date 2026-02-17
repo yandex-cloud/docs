@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Cloud Desktop API, gRPC: OperationService.Cancel

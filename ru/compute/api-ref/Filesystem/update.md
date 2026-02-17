@@ -75,7 +75,6 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/update.md
 ---
 
 # Compute Cloud API, REST: Filesystem.Update

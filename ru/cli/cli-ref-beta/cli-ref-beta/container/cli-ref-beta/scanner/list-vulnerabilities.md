@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/container/cli-ref-beta/scanner/list-vulnerabilities.md
 ---
 
 # yc beta container scanner list-vulnerabilities

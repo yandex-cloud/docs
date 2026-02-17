@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/setAccessBindings.md
 ---
 
 # Identity Provider API, REST: Userpool.SetAccessBindings

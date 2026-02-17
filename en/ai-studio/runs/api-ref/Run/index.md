@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/index.md
 ---
 
 # Runs, REST: Run

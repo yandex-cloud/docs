@@ -20,6 +20,37 @@ description:
     more information, see the <a
     href="https://yandex.com/legal/cloud_sla_yvpc">Yandex Virtual Private Cloud
     Service Level Agreement</a>.
+meta:
+  title: Yandex Virtual Private Cloud
+  description: >-
+    Yandex Virtual Private Cloud allows you to manage cloud networks and enable
+    cloud resources to connect to the internet and each other.
+  keywords:
+    - keyword: '{{ vpc-name }}'
+    - keyword: '{{ vpc-name }} network'
+    - keyword: '{{ vpc-name }} subnet'
+    - keyword: '{{ yandex-cloud }} network'
+    - keyword: cloud network
+    - keyword: cloud resource connectivity
+    - keyword: '{{ vpc-full-name }} resources'
+    - keyword: '{{ vpc-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ vpc-name }} gateway'
+    - keyword: '{{ vpc-name }} NAT gateway'
+    - keyword: '{{ vpc-full-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ vpc-full-name }}'
+    - keyword: '{{ vpc-name }} routing'
+    - keyword: '{{ vpc-name }} security group'
+    - keyword: virtual network
+    - keyword: '{{ vpc-name }}'
+    - keyword: '{{ vpc-name }} physical network'
+    - keyword: '{{ vpc-name }}'
+    - keyword: public IP address
+    - keyword: internal IP address
+    - keyword: routing in {{ vpc-name }}
+    - keyword: security group
+    - keyword: security group
+    - keyword: service connection
+    - keyword: Private Endpoint
 links:
   - title: Getting started
     description: Create your first cloud network
@@ -42,34 +73,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-meta:
-  title: Yandex Virtual Private Cloud
-  description: >-
-    Yandex Virtual Private Cloud allows you to manage cloud networks and enable
-    cloud resources to connect to the internet and each other.
-  keywords:
-    - '{{ vpc-name }}'
-    - '{{ vpc-name }} network'
-    - '{{ vpc-name }} subnet'
-    - '{{ yandex-cloud }} network'
-    - cloud network
-    - cloud resource connectivity
-    - '{{ vpc-full-name }} resources'
-    - '{{ vpc-name }} in {{ yandex-cloud }}'
-    - '{{ vpc-name }} gateway'
-    - '{{ vpc-name }} NAT gateway'
-    - '{{ vpc-full-name }} in {{ yandex-cloud }}'
-    - '{{ vpc-full-name }}'
-    - '{{ vpc-name }} routing'
-    - '{{ vpc-name }} security group'
-    - virtual network
-    - '{{ vpc-name }}'
-    - '{{ vpc-name }} physical network'
-    - '{{ vpc-name }}'
-    - public IP address
-    - internal IP address
-    - routing in {{ vpc-name }}
-    - security group
-    - security group
-    - service connection
-    - Private Endpoint

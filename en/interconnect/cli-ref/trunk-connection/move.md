@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/trunk-connection/move.md
 ---
 
 # yc cic trunk-connection move

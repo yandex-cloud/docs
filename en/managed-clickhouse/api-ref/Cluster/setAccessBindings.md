@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.SetAccessBindings

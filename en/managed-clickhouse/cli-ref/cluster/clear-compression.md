@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/clear-compression.md
 ---
 
 # yc managed-clickhouse cluster clear-compression

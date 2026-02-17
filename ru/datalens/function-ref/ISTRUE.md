@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ISTRUE.md
 ---
 
 # IS TRUE

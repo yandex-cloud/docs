@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud CDN
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cdn_resource.md
 ---
 
 # yandex_cdn_resource (Resource)

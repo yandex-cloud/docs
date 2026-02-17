@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/setAccessBindings.md
 ---
 
 # Workflows Service, REST: Workflow.SetAccessBindings

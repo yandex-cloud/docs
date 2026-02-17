@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/trunk-connection/remove-labels.md
 ---
 
 # yc cic trunk-connection remove-labels

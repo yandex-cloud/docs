@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/config/cli-ref/profile/get.md
 ---
 
 # yc config profile get

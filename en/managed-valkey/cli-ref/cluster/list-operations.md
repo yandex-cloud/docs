@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/list-operations.md
 ---
 
 # yc managed-redis cluster list-operations

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/index.md
 ---
 
 # yc managed-metastore

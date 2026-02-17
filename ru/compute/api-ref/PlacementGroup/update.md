@@ -49,7 +49,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/update.md
 ---
 
 # Compute Cloud API, REST: PlacementGroup.Update

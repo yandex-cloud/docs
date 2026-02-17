@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Registry
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cloudregistry_registry_ip_permission.md
 ---
 
 # yandex_cloudregistry_registry_ip_permission (Resource)

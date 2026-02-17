@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/Vrf/listOperations.md
 ---
 
 # BareMetal API, gRPC: VrfService.ListOperations

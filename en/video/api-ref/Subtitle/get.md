@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Subtitle/get.md
 ---
 
 # Video API, REST: Subtitle.Get

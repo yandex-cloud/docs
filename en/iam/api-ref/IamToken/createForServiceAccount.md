@@ -18,7 +18,6 @@ apiPlayground:
         - serviceAccountId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/createForServiceAccount.md
 ---
 
 # Identity and Access Management API, REST: IamToken.CreateForServiceAccount

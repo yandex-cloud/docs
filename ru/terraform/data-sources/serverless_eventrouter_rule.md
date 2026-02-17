@@ -1,6 +1,5 @@
 ---
 subcategory: Serverless Event Router
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/serverless_eventrouter_rule.md
 ---
 
 # yandex_serverless_eventrouter_rule (DataSource)

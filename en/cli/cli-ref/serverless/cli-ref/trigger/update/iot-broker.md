@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/update/iot-broker.md
 ---
 
 # yc serverless trigger update iot-broker

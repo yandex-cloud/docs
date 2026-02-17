@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/BillingAccount/bindBillableObject.md
 ---
 
 # Billing API, gRPC: BillingAccountService.BindBillableObject

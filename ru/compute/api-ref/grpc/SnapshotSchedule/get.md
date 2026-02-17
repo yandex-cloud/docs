@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/SnapshotSchedule/get.md
 ---
 
 # Compute Cloud API, gRPC: SnapshotScheduleService.Get

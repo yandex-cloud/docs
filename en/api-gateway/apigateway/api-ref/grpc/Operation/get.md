@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/apigateway/v1/apigateway/api-ref/grpc/Operation/get.md
 ---
 
 # API Gateway Service, gRPC: OperationService.Get

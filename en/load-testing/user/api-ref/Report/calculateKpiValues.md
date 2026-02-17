@@ -234,7 +234,6 @@ apiPlayground:
               **[KpiThreshold](#yandex.cloud.loadtesting.api.v1.report.KpiThreshold)**
               A condition that should be specified.
             $ref: '#/definitions/KpiThreshold'
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Report/calculateKpiValues.md
 ---
 
 # Load Testing API, REST: Report.CalculateKpiValues

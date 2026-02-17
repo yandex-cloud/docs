@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/index.md
 ---
 
 # Key Management Service API, REST: SymmetricCrypto

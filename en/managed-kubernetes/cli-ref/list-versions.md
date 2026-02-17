@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/list-versions.md
 ---
 
 # yc managed-kubernetes list-versions

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/lockbox/cli-ref/secret/delete.md
 ---
 
 # yc lockbox secret delete

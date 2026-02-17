@@ -7,7 +7,36 @@ description: This section contains the {{ captcha-name }} release notes.
 
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-12
+index: 2
+```
 
+### Adding metadata
+
+Updated {{ captcha-name }} for you to be able to enrich the test with contextual information. Source from the frontend any metadata you believe will help the algorithm better understand the context of the operation and tell real users from bots with more accuracy.
+
+For example, you can provide:
+* User data: user ID, trust level, activity history.
+* Request parameters: cart value, target action.
+* Results of internal checks: risk counter of your anti-fraud system, suspicious behavior flags.
+
+This makes the test more flexible and intelligent, allowing you to selectively reduce the load on trustworthy users and strengthen protection in suspicious cases.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-01
+index: 1
+```
+
+### 152-FZ , GOST R 57580, and PCI DSS certificates
+
+{{ captcha-name }} is certified for compliance with the following security standards: [152-FZ , GOST R 57580, and PCI DSS](https://yandex.cloud/en/security/standards).
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 

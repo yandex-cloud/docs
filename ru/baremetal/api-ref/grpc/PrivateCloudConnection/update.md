@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/PrivateCloudConnection/update.md
 ---
 
 # BareMetal API, gRPC: PrivateCloudConnectionService.Update

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/batch.md
----
 # Batch
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.batch.task\_info.**BatchTaskInfo**{#yandex_ai_studio_sdk._types.batch.task_info.BatchTaskInfo}

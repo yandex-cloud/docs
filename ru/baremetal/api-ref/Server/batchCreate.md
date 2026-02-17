@@ -320,7 +320,6 @@ apiPlayground:
                   - passwordPlainText
               - required:
                   - passwordLockboxSecret
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Server/batchCreate.md
 ---
 
 # BareMetal API, REST: Server.BatchCreate

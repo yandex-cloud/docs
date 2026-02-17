@@ -7,7 +7,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/User/getSelfPasswordMetadata.md
 ---
 
 # Identity Provider API, REST: User.GetSelfPasswordMetadata

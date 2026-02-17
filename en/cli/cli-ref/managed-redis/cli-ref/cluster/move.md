@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/move.md
 ---
 
 # yc managed-redis cluster move

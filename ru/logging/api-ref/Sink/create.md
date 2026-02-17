@@ -91,7 +91,6 @@ apiPlayground:
               **string**
               Prefix to use for saved log object names
             type: string
-sourcePath: en/_api-ref/logging/v1/api-ref/Sink/create.md
 ---
 
 # Cloud Logging Service, REST: Sink.Create

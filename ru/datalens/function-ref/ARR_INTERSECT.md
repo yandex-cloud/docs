@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ARR_INTERSECT.md
 ---
 
 # ARR_INTERSECT

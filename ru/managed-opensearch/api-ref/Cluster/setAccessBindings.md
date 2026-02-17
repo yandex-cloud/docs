@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.SetAccessBindings

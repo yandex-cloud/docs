@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-spark/cli-ref/cluster/list-operations.md
 ---
 
 # yc managed-spark cluster list-operations

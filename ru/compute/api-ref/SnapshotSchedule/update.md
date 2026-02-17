@@ -125,7 +125,6 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
-sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/update.md
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.Update

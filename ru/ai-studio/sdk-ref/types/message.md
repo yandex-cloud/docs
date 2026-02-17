@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/message.md
----
 # Messages
 
 ## Assistant-related message types

@@ -166,7 +166,7 @@
 
    - API {#api}
 
-     Чтобы создать группу узлов {{ managed-k8s-name }}, воспользуйтесь методом [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
+     Чтобы создать группу узлов {{ managed-k8s-name }}, воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) или вызовом gRPC API [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md).
 
    {% endlist %}
 
@@ -229,7 +229,7 @@
 
    - API {#api}
 
-     Чтобы посмотреть информацию об узле {{ managed-k8s-name }}, воспользуйтесь методом [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/).
+     Чтобы посмотреть информацию об узле {{ managed-k8s-name }}, воспользуйтесь методом REST API [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) или вызовом gRPC API [NodeGroupService/List](../../managed-kubernetes/api-ref/grpc/NodeGroup/list.md).
 
    {% endlist %}
 
@@ -295,7 +295,9 @@
 
 - API {#api}
 
-  Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Чтобы назначить {{ k8s }}-метку на уже созданную группу узлов, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
 
   * {{ k8s }}-метки в параметре `nodeLabels`.
   * Обновляемый параметр `nodeLabels` в параметре `updateMask`.
@@ -353,7 +355,9 @@
 
 - API {#api}
 
-  Чтобы снять {{ k8s }}-метку с группы узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Чтобы снять {{ k8s }}-метку с группы узлов, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
 
   * Новый набор {{ k8s }}-меток в параметре `nodeLabels`. Если вы хотите снять все метки, передайте в запросе `"nodeLabels": {}`.
   * Обновляемый параметр `nodeLabels` в параметре `updateMask`.

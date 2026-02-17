@@ -1,7 +1,6 @@
 ---
 title: Как читать метрики
 description: Следуя данной инструкции, вы сможете прочитать метрики.
-sourcePath: ru/monitoring_includes/operations/prometheus/querying/index.md
 ---
 
 # Чтение метрик

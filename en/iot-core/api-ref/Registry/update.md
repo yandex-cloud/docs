@@ -122,7 +122,6 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/update.md
 ---
 
 # IoT Core Service, REST: Registry.Update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/apploadbalancer/events-ref/AddBackendGroupBackend.md
 ---
 
 # Application Load Balancer Audit Trails Events: AddBackendGroupBackend

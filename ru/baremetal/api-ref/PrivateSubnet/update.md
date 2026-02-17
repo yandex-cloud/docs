@@ -103,7 +103,6 @@ apiPlayground:
               **string**
               Gateway IP address for the subnet.
             type: string
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/PrivateSubnet/update.md
 ---
 
 # BareMetal API, REST: PrivateSubnet.Update

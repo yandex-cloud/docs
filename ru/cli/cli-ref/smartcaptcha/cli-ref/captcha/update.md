@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/smartcaptcha/cli-ref/captcha/update.md
 ---
 
 # yc smartcaptcha captcha update

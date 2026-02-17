@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/set-access-bindings.md
 ---
 
 # yc managed-redis cluster set-access-bindings

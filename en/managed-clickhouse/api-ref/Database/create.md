@@ -52,7 +52,6 @@ apiPlayground:
               - DATABASE_ENGINE_REPLICATED
         required:
           - name
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/create.md
 ---
 
 # Managed Service for ClickHouse API, REST: Database.Create

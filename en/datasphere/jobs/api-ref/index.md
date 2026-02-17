@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datasphere/v2/jobs/api-ref/index.md
 ---
 
 # DataSphere Jobs API v2: REST reference

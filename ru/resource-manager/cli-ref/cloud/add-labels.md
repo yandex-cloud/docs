@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/cloud/add-labels.md
 ---
 
 # yc resource-manager cloud add-labels

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/RANK_UNIQUE.md
 ---
 
 # RANK_UNIQUE (оконная)

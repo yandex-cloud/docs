@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/operations/dashboard/api-examples.md
----
 # Examples of working with the gRPC API
 
 The examples below use `grpcurl`.

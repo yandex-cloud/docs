@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Operation/get.md
 ---
 
 # Connection Manager API, REST: Operation.Get

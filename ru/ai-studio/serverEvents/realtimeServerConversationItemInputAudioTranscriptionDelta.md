@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerConversationItemInputAudioTranscriptionDelta.md
 ---
 
 # REST: conversation.item.input_audio_transcription.delta '[CURRENTLY NOT SUPPORTED]'

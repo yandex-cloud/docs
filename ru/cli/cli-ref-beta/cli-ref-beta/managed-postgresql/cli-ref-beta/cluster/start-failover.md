@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-postgresql/cli-ref-beta/cluster/start-failover.md
 ---
 
 # yc beta managed-postgresql cluster start-failover

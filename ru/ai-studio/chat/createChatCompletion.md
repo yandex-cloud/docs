@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/chat/createChatCompletion.md
 ---
 
 # REST: Create chat completion

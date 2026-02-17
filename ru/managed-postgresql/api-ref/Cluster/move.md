@@ -29,7 +29,6 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/move.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.Move

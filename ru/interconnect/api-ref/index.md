@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cic/v1/api-ref/index.md
 ---
 
 # Cloud Interconnect API: REST reference

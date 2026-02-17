@@ -1,3 +1,13 @@
+---
+title: OpenVPN. Создание VPN-соединения
+keywords:
+  - openvpn
+  - openvpn настроить
+  - open vpn
+  - vpn server setup
+  - vpn connection
+  - vpn соединение
+---
 
 # Соединение с облачной сетью при помощи OpenVPN
 

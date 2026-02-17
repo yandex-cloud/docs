@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/files/v1/files/api-ref/index.md
 ---
 
 # Files API: REST reference

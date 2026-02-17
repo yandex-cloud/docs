@@ -416,7 +416,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DataEventsFiltering'
-sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/update.md
 ---
 
 # Audit Trails API, REST: Trail.Update

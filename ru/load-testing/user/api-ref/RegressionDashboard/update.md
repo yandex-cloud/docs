@@ -389,7 +389,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Widget'
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/update.md
 ---
 
 # Load Testing API, REST: RegressionDashboard.Update

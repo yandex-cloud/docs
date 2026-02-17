@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cdn/cli-ref/resource/delete.md
 ---
 
 # yc cdn resource delete

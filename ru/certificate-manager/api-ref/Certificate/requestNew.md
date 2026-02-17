@@ -68,7 +68,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/requestNew.md
 ---
 
 # Certificate Manager API, REST: Certificate.RequestNew

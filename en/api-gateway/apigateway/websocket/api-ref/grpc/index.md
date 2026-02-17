@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/apigateway/websocket/v1/apigateway/websocket/api-ref/grpc/index.md
 ---
 
 # API Gateway WebSocket Connection Service: gRPC reference

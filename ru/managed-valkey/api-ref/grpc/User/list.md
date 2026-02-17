@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/User/list.md
 ---
 
 # Managed Service for Redis API, gRPC: UserService.List

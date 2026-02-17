@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/update/timer.md
 ---
 
 # yc serverless trigger update timer

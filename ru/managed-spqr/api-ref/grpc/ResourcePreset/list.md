@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/spqr/v1/api-ref/grpc/ResourcePreset/list.md
 ---
 
 # Managed Service for SPQR API, gRPC: ResourcePresetService.List

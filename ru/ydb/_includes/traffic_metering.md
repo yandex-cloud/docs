@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/_includes/traffic_metering.md
+---
 
 {% note warning %}
 

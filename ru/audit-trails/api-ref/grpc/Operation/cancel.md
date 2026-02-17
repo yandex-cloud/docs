@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/audittrails/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Audit Trails API, gRPC: OperationService.Cancel

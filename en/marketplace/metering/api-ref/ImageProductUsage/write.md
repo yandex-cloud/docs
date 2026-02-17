@@ -63,7 +63,6 @@ apiPlayground:
           - uuid
           - skuId
           - timestamp
-sourcePath: en/_api-ref/marketplace/metering/v1/metering/api-ref/ImageProductUsage/write.md
 ---
 
 # Marketplace Metering API, REST: ImageProductUsage.Write

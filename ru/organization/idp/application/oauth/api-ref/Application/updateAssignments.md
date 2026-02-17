@@ -66,7 +66,6 @@ apiPlayground:
         required:
           - action
           - assignment
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/updateAssignments.md
 ---
 
 # OAUTH Application API, REST: Application.UpdateAssignments

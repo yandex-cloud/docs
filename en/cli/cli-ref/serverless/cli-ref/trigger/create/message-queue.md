@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/create/message-queue.md
 ---
 
 # yc serverless trigger create message-queue

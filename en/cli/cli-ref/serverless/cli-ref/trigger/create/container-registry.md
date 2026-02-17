@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/create/container-registry.md
 ---
 
 # yc serverless trigger create container-registry

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/access-key/delete.md
 ---
 
 # yc iam access-key delete

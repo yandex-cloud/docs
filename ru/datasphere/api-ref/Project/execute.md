@@ -62,7 +62,6 @@ apiPlayground:
         - required:
             - cellId
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/execute.md
 ---
 
 # DataSphere API v2, REST: Project.Execute

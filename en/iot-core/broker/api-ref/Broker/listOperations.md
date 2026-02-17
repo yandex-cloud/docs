@@ -42,7 +42,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listOperations.md
 ---
 
 # IoT Core Broker Service, REST: Broker.ListOperations

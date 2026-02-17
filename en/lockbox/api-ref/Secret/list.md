@@ -33,7 +33,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/list.md
 ---
 
 # Lockbox API, REST: Secret.List

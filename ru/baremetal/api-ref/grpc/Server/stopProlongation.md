@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/Server/stopProlongation.md
 ---
 
 # BareMetal API, gRPC: ServerService.StopProlongation

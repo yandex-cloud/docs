@@ -453,7 +453,6 @@ apiPlayground:
               **boolean**
               Identifies whether Workload Identity Federation is enabled.
             type: boolean
-sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/update.md
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.Update

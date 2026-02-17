@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md
 ---
 
 # yc compute snapshot-schedule list-disks

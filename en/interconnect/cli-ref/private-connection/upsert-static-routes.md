@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/private-connection/upsert-static-routes.md
 ---
 
 # yc cic private-connection upsert-static-routes

@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iam_workload_identity_federated_credential.md
 ---
 
 # yandex_iam_workload_identity_federated_credential (Resource)

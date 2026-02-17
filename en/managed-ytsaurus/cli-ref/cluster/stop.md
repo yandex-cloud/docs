@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-ytsaurus/cli-ref/cluster/stop.md
 ---
 
 # yc managed-ytsaurus cluster stop

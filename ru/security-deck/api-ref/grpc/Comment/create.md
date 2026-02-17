@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/securitydeck/alerts/v1/api-ref/grpc/Comment/create.md
 ---
 
 # Security Deck Alerts API, gRPC: CommentService.Create

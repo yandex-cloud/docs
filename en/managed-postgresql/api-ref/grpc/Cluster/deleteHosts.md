@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/postgresql/v1/api-ref/grpc/Cluster/deleteHosts.md
 ---
 
 # Managed Service for PostgreSQL API, gRPC: ClusterService.DeleteHosts

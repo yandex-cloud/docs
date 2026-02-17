@@ -1,7 +1,6 @@
 ---
 title: Как управлять элементами дашборда в {{ monitoring-full-name }}
 description: Из статьи вы узнаете, как управлять элементами дашборда в {{ monitoring-name }}.
-sourcePath: ru/monitoring_includes/operations/dashboard/widget-management.md
 ---
 
 # Управление виджетами

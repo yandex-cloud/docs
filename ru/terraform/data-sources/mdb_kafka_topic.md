@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Apache Kafka®
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_kafka_topic.md
 ---
 
 # yandex_mdb_kafka_topic (DataSource)

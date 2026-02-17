@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/index.md
 ---
 
 # SmartWebSecurity WAF API: REST reference

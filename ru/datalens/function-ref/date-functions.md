@@ -1,7 +1,6 @@
 ---
 title: Функции даты и времени
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/date-functions.md
 ---
 
 # Функции даты и времени

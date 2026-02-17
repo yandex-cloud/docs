@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DIV_SAFE.md
 ---
 
 # DIV_SAFE

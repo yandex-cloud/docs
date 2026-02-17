@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Network Load Balancer API, gRPC: OperationService.Get

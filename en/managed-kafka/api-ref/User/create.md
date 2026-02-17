@@ -100,7 +100,6 @@ apiPlayground:
         required:
           - name
           - password
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/create.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: User.Create

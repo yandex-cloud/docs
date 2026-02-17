@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/setAccessBindings.md
 ---
 
 # Lockbox API, REST: Secret.SetAccessBindings

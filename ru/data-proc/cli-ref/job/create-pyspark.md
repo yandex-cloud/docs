@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/job/create-pyspark.md
 ---
 
 # yc dataproc job create-pyspark

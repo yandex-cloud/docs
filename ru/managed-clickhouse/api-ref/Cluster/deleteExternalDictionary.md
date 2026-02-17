@@ -27,7 +27,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/deleteExternalDictionary.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.DeleteExternalDictionary

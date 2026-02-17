@@ -85,7 +85,6 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/ReservedInstancePool/update.md
 ---
 
 # Compute Cloud API, REST: ReservedInstancePool.Update

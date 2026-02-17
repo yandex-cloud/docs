@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/function_trigger.md
 ---
 
 # yandex_function_trigger (DataSource)

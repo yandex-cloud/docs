@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/disk/list-snapshot-schedules.md
 ---
 
 # yc beta compute disk list-snapshot-schedules

@@ -46,7 +46,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/SignatureCertificate/update.md
 ---
 
 # SAML Application API, REST: SignatureCertificate.Update

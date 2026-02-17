@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/listFilesInVectorStoreBatch.md
 ---
 
 # REST: List vector store files in a batch

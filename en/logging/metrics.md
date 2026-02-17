@@ -1,7 +1,6 @@
 ---
 title: Reference for {{ cloud-logging-full-name }} metrics in {{ monitoring-full-name }}
 description: This page provides reference information on the {{ cloud-logging-name }} metrics delivered to {{ monitoring-full-name }}.
-sourcePath: en/logging_includes/metrics.md
 ---
 
 # {{ monitoring-full-name }} metric reference

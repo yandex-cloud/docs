@@ -27,7 +27,6 @@ apiPlayground:
         - destinationZoneId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/relocate.md
 ---
 
 # Virtual Private Cloud API, REST: Subnet.Relocate

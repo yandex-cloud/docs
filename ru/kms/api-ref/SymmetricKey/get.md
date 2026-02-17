@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/get.md
 ---
 
 # Key Management Service API, REST: SymmetricKey.Get

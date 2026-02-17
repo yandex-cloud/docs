@@ -1,6 +1,5 @@
 ---
 subcategory: Smart Web Security
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/sws_waf_profile.md
 ---
 
 # yandex_sws_waf_profile (DataSource)

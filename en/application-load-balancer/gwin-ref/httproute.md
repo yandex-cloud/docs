@@ -1,6 +1,3 @@
----
-sourcePath: en/_gwin-ref/gwin-ref/httproute.md
----
 # HTTPRoute
 
 HTTPRoute provides a way to route HTTP requests. This includes the capability to match requests by hostname, path, header, or query param. Filters can be used to modify requests, and requests should be routed to backend services.

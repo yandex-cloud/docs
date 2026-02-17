@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/backend-group/delete-http-backend.md
 ---
 
 # yc application-load-balancer backend-group delete-http-backend

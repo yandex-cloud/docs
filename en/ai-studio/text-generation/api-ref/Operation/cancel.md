@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/Operation/cancel.md
 ---
 
 # Foundation Models Text Generation API, REST: Operation.Cancel

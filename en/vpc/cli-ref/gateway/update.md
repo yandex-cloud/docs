@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/gateway/update.md
 ---
 
 # yc vpc gateway update

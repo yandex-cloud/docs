@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/backup/cli-ref-beta/policy/delete.md
 ---
 
 # yc beta backup policy delete

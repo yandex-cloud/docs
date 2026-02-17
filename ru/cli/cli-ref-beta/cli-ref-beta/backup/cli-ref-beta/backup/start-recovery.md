@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/backup/cli-ref-beta/backup/start-recovery.md
 ---
 
 # yc beta backup backup start-recovery

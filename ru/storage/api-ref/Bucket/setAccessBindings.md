@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/setAccessBindings.md
 ---
 
 # Object Storage API, REST: Bucket.SetAccessBindings

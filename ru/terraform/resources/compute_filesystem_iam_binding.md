@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_filesystem_iam_binding.md
 ---
 
 # yandex_compute_filesystem_iam_binding (Resource)

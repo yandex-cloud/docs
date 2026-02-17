@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/setAccessBindings.md
 ---
 
 # Audit Trails API, REST: Trail.SetAccessBindings

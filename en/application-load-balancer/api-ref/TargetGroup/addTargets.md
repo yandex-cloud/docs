@@ -55,7 +55,6 @@ apiPlayground:
         oneOf:
           - required:
               - ipAddress
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 
 # Application Load Balancer API, REST: TargetGroup.AddTargets

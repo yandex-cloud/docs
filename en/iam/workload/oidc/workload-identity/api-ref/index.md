@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/index.md
 ---
 
 # Federation: REST reference

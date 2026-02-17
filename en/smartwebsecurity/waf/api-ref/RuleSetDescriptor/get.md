@@ -23,7 +23,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/RuleSetDescriptor/get.md
 ---
 
 # SmartWebSecurity WAF API, REST: RuleSetDescriptor.Get

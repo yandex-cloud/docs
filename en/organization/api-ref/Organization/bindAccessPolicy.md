@@ -45,7 +45,6 @@ apiPlayground:
               type: string
         required:
           - accessPolicyTemplateId
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/bindAccessPolicy.md
 ---
 
 # Identity Hub API, REST: Organization.BindAccessPolicy

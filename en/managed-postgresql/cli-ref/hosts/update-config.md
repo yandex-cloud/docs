@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/hosts/update-config.md
 ---
 
 # yc managed-postgresql hosts update-config

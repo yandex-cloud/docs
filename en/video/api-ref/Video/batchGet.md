@@ -26,7 +26,6 @@ apiPlayground:
         - channelId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Video/batchGet.md
 ---
 
 # Video API, REST: Video.BatchGet

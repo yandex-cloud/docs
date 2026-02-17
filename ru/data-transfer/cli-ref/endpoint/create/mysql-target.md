@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/endpoint/create/mysql-target.md
 ---
 
 # yc datatransfer endpoint create mysql-target

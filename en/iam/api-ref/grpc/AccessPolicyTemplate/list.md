@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/AccessPolicyTemplate/list.md
 ---
 
 # Identity and Access Management API, gRPC: AccessPolicyTemplateService.List

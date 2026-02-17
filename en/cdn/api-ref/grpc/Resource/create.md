@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Resource/create.md
 ---
 
 # Cloud CDN API, gRPC: ResourceService.Create

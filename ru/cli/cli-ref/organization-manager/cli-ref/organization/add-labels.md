@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/organization/add-labels.md
 ---
 
 # yc organization-manager organization add-labels

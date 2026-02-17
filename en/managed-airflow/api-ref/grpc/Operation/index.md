@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/airflow/v1/api-ref/grpc/Operation/index.md
 ---
 
 # Managed Service for Apache Airflow™ API, gRPC: OperationService

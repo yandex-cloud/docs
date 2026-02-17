@@ -26,7 +26,6 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/setUnitBalance.md
 ---
 
 # DataSphere API v2, REST: Project.SetUnitBalance

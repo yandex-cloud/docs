@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Operation/get.md
 ---
 
 # Cloud Backup API, REST: Operation.Get

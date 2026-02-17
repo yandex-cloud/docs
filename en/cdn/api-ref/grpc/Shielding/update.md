@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Shielding/update.md
 ---
 
 # Cloud CDN API, gRPC: ShieldingService.Update

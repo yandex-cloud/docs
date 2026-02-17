@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md
 ---
 
 # yc managed-kubernetes cluster add-access-binding

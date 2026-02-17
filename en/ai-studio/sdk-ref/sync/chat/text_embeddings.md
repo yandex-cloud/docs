@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/chat/text_embeddings.md
----
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_chat.text\_embeddings.function.**ChatEmbeddings**{#yandex_ai_studio_sdk._chat.text_embeddings.function.ChatEmbeddings}

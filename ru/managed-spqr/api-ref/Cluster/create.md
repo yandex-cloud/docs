@@ -599,7 +599,6 @@ apiPlayground:
         oneOf:
           - required:
               - mdbPostgresql
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.Create

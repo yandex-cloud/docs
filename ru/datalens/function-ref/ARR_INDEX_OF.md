@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/ARR_INDEX_OF.md
 ---
 
 # ARR_INDEX_OF

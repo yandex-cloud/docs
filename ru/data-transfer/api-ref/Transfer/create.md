@@ -418,7 +418,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/create.md
 ---
 
 # Data Transfer API, REST: Transfer.Create

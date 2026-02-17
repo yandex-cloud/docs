@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartcaptcha/v1/api-ref/grpc/Captcha/create.md
 ---
 
 # SmartCaptcha API, gRPC: CaptchaService.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/components/cli-ref/index.md
 ---
 
 # yc components

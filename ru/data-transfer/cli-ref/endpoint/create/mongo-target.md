@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/endpoint/create/mongo-target.md
 ---
 
 # yc datatransfer endpoint create mongo-target

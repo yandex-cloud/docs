@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/list-logs.md
 ---
 
 # yc managed-clickhouse cluster list-logs

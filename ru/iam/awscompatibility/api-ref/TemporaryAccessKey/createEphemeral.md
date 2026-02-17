@@ -39,7 +39,6 @@ apiPlayground:
         - sessionName
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md
 ---
 
 # Access Key, REST: TemporaryAccessKey.CreateEphemeral

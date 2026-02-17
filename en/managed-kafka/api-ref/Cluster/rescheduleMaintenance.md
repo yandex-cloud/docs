@@ -47,7 +47,6 @@ apiPlayground:
         - rescheduleType
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.RescheduleMaintenance

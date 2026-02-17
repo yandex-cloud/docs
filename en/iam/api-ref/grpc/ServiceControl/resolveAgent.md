@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceControl/resolveAgent.md
 ---
 
 # Identity and Access Management API, gRPC: ServiceControlService.ResolveAgent

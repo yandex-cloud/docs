@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/billing/usage_records/v1/usage/api-ref/grpc/ConsumptionCore/getServiceUsageReport.md
 ---
 
 # Billing Usage API, gRPC: ConsumptionCoreService.GetServiceUsageReport

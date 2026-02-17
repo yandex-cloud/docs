@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/lockbox/cli-ref/secret/list-operations.md
 ---
 
 # yc lockbox secret list-operations

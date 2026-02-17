@@ -1,6 +1,5 @@
 ---
 subcategory: Serverless Cloud Functions
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/function_scaling_policy.md
 ---
 
 # yandex_function_scaling_policy (DataSource)

@@ -53,3 +53,4 @@ items:
     href: events-ref/UpdateServer.md
   - name: UpdateVRF
     href: events-ref/UpdateVRF.md
+path: en/_events-ref/baremetal/toc.yaml

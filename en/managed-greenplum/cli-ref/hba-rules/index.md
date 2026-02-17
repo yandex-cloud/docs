@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/hba-rules/index.md
 ---
 
 # yc managed-greenplum hba-rules

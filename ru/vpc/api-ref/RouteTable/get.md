@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/get.md
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.Get

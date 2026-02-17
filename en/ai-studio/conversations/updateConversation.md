@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/conversations/updateConversation.md
 ---
 
 # REST: Update a conversation

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Backup/delete.md
 ---
 
 # Cloud Backup API, gRPC: BackupService.Delete

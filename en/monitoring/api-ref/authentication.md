@@ -1,7 +1,6 @@
 ---
 title: Authentication with the {{ monitoring-full-name }} API
 description: 'To work via the {{ monitoring-full-name }} API, get an IAM token for your account. Specify this IAM token to access {{ yandex-cloud }} resources through the API formatted as Authorization: Bearer <IAM-TOKEN>.'
-sourcePath: en/monitoring_includes/api-ref/authentication.md
 ---
 
 # Authentication with the {{ yandex-cloud }} API

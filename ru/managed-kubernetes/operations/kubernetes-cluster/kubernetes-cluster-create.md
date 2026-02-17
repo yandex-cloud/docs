@@ -337,7 +337,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster).
+  Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/Cluster/create.md).
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   Тело запроса зависит от [типа мастера](../../concepts/index.md#master):
 

@@ -373,3 +373,4 @@ items:
     href: security-bulletins/index.md
   - name: Public IP address ranges
     href: ip-list.md
+path: en/security/toc.yaml

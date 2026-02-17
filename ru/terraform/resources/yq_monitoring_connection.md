@@ -1,6 +1,5 @@
 ---
 subcategory: Resource Manager
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/yq_monitoring_connection.md
 ---
 
 # yandex_yq_monitoring_connection (Resource)

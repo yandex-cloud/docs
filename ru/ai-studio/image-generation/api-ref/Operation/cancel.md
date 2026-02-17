@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/foundation_models/v1/image_generation/image-generation/api-ref/Operation/cancel.md
 ---
 
 # Foundation Models Image Generation API, REST: Operation.Cancel

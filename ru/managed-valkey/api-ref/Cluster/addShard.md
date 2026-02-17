@@ -81,7 +81,6 @@ apiPlayground:
               * false - don't assign a public IP to the host.
               * true - the host should have a public IP address.
             type: boolean
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/addShard.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.AddShard

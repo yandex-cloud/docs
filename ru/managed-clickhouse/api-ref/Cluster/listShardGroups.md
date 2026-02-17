@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/listShardGroups.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.ListShardGroups

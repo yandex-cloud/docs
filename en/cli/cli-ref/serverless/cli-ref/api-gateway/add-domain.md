@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/api-gateway/add-domain.md
 ---
 
 # yc serverless api-gateway add-domain

@@ -18,7 +18,6 @@ apiPlayground:
         - subjectContainerId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Synchronization/resetReplicationToken.md
 ---
 
 # Identity Provider API, REST: Synchronization.ResetReplicationToken

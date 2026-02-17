@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/serverless/mcpgateway/v1/mcp-gateway/api-ref/McpGateway/setAccessBindings.md
 ---
 
 # MCP Gateway Service, REST: McpGateway.SetAccessBindings

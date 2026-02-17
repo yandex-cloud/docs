@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/concepts/alerting/notification-channel.md
----
 # Notification channel
 
 To enable notifications of alert status changes, specify a notification channel. The channel contains information about notification recipients and sending methods. You can also specify an escalation (notification sequence) as the sending method.

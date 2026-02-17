@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.UpdateAccessBindings

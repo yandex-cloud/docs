@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/Key/update.md
 ---
 
 # Identity and Access Management API, gRPC: KeyService.Update

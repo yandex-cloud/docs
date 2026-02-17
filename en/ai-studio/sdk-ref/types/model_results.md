@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/model_results.md
----
 # Result types for models
 
 ## Completions

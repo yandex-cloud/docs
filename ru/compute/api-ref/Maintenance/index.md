@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/v1/api-ref/Maintenance/index.md
 ---
 
 # Compute Cloud API, REST: Maintenance

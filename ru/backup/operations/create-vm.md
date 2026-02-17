@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
       1. Включите опцию **{{ backup-name }}**.
       1. (опционально) Выберите политику резервного копирования или нажмите **{{ ui-key.yacloud.common.create }}**, чтобы [создать](./policy-vm/create.md) новую политику.
 
-  1. Укажите другие необходимые параметры ВМ. Подробнее см. [Создать виртуальную машину из публичного образа Linux](../../compute/operations/vm-create/create-linux-vm).
+  1. Укажите другие необходимые параметры ВМ. Подробнее см. [Создать виртуальную машину из публичного образа Linux](../../compute/operations/vm-create/create-linux-vm.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}

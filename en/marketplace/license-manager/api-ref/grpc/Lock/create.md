@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/licensemanager/v1/license-manager/api-ref/grpc/Lock/create.md
 ---
 
 # Yandex Cloud Marketplace License Manager, gRPC: LockService.Create

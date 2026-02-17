@@ -1,7 +1,6 @@
 ---
 title: How to manage dashboard elements in {{ monitoring-full-name }}
 description: In this guide, you will learn how to manage dashboard elements in {{ monitoring-name }}.
-sourcePath: en/monitoring_includes/operations/dashboard/widget-management.md
 ---
 
 # Managing widgets

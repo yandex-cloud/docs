@@ -44,7 +44,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/list.md
 ---
 
 # Workflows Service, REST: Execution.List

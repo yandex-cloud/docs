@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/registry/password/list.md
 ---
 
 # yc iot registry password list

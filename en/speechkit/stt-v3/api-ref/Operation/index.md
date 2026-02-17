@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/Operation/index.md
 ---
 
 # SpeechKit Recognition API v3, REST: Operation

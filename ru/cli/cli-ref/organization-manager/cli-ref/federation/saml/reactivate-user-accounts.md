@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/federation/saml/reactivate-user-accounts.md
 ---
 
 # yc organization-manager federation saml reactivate-user-accounts

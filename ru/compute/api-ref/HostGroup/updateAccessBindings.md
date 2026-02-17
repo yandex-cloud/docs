@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/updateAccessBindings.md
 ---
 
 # Compute Cloud API, REST: HostGroup.UpdateAccessBindings

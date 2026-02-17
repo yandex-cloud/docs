@@ -1,7 +1,6 @@
 ---
 title: How to use Prometheus recording rules
 description: In this guide, you will learn to create and edit Prometheus files that define recording rules.
-sourcePath: en/monitoring_includes/operations/prometheus/recording-rules.md
 ---
 
 # Recording rules

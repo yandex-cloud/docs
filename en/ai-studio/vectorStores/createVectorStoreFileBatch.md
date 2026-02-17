@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/createVectorStoreFileBatch.md
 ---
 
 # REST: Create vector store file batch

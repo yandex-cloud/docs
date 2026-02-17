@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/reschedule-maintenance.md
 ---
 
 # yc managed-clickhouse cluster reschedule-maintenance

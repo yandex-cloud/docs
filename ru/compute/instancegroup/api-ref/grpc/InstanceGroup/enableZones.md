@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/compute/v1/instancegroup/api-ref/grpc/InstanceGroup/enableZones.md
 ---
 
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.EnableZones

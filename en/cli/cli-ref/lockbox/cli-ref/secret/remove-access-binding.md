@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/lockbox/cli-ref/secret/remove-access-binding.md
 ---
 
 # yc lockbox secret remove-access-binding

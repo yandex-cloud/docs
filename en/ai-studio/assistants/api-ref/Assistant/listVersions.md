@@ -28,7 +28,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Assistant/listVersions.md
 ---
 
 # AI Assistants API, REST: Assistant.ListVersions

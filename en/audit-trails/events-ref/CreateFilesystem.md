@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/CreateFilesystem.md
 ---
 
 # Compute Audit Trails Events: CreateFilesystem

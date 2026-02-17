@@ -54,7 +54,6 @@ apiPlayground:
       SharedEgressGatewaySpec:
         type: object
         properties: {}
-sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/create.md
 ---
 
 # Virtual Private Cloud API, REST: Gateway.Create

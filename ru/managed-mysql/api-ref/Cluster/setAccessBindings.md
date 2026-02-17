@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for MySQL API, REST: Cluster.SetAccessBindings

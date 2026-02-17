@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/spark/v1/api-ref/grpc/Job/get.md
 ---
 
 # Managed Spark API, gRPC: JobService.Get

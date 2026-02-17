@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/application-load-balancer/cli-ref-beta/backend-group/add-backend.md
 ---
 
 # yc beta application-load-balancer backend-group add-backend

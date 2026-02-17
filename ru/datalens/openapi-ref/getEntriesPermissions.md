@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/getEntriesPermissions.md
 ---
 
 # DataLens API: Get entries permissions

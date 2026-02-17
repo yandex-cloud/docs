@@ -4762,6 +4762,21 @@ default:
             confirm_action: Pay
             downgrade_action: Save
             new_limit: New limit
+        branding:
+          AuthBrandingForm:
+            clearAllAction: Clear all
+            loginSection:
+              alternativeEntryLabel: Alternative login methods
+              placeholderLabel: Hint in the input field
+              title: Login form
+              welcomeLabel: Welcome text
+            styleSection:
+              colorLabel: Main color
+              title: Colors and images
+          AuthBrandingThemeBlock:
+            backgroundName: Background image
+            faviconName: Favicon
+            logoName: Logo
         idp:
           PasswordDialog:
             action_save-password_gaB2s: Save password
@@ -4855,6 +4870,7 @@ default:
         federations: Federations
         groups: Groups
         organization-billing: Billing management
+        organization-branding: Branding
         oslogin:
           title: Security settings
         securitySettings: Security settings
@@ -5372,6 +5388,7 @@ default:
         label_dataStream: Data Streams
         label_destination: Destination
         label_event-filter-section: Collecting data events
+        label_eventRouter: Event Router
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -8371,6 +8388,12 @@ default:
           value_exclude-all-yes: All rules
       smartcaptcha:
         button_captcha-settings-create: Create captcha
+        CaptchaSettingsForm:
+          PresetsSection:
+            label_enable-dynamic-theme_tme9P: Dynamic color scheme
+          StyleSection:
+            label_section-customization-dark_dMJ2m: Dark theme color settings
+            label_section-customization-light_tL96w: Standard theme color settings
         field_security-rule_priority: Priority
         label_additional-challenge: Additional challenge
         label_allowed-sites: Host list
@@ -8601,8 +8624,14 @@ default:
             label_prefix_4JTZG: Prefix
             label_server-logs_mfGpj: Write logs
             label_target-bucket_jEJ5E: Bucket for log storage
+          BucketSettingsFormSection:
+            field_description-strict-mode_9cpMe: Available only via VPC service connections
+            field_force-cloud-console-access_5bS8y: Access from console
+            field_label-strict-mode_2ttnd: Strict mode
           BucketVersioningFormSection:
             label_versioning-disabled_ngMWc: Store object change history
+          Service_onnectionsField:
+            field_lable-service-connections_iGyHa: VPC service connections
         permissions-dialog:
           label_role-write: 'READ and WRITE '
         switch_buckets: Buckets
@@ -8786,6 +8815,19 @@ default:
             field_description: Description
             field_is-default: Create subnets
             field_name: Name
+        private-endpoint:
+          field_address-id: IP address
+          field_address-type: Address
+          field_description: Description
+          field_name: Name
+          field_network: Network
+          field_service: Service
+          label_address-type_auto: Automatic
+          label_address-type_list: List
+          label_create-private-endpoint: Create connection
+          label_dns-field-text: Create primary DNS record
+          label_endpoint-service_object-storage: Object Storage
+          label_network-section: Network settings
         route-table-form:
           field_name: Name
           field_network-id: Network
@@ -8826,6 +8868,7 @@ default:
         switch_gateways: Gateways
         switch_list: Cloud networks
         switch_networks: Subnets
+        switch_private-endpoints: Service connections
         switch_route-tables: Routing tables
         title_network-map-page: Cloud network map
       yagpt:

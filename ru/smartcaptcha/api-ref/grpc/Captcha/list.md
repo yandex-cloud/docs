@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartcaptcha/v1/api-ref/grpc/Captcha/list.md
 ---
 
 # SmartCaptcha API, gRPC: CaptchaService.List

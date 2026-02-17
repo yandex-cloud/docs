@@ -171,7 +171,6 @@ apiPlayground:
           - destination
           - includedObjectVersions
           - schedule
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/createInventoryConfiguration.md
 ---
 
 # Object Storage API, REST: Bucket.CreateInventoryConfiguration

@@ -44,7 +44,6 @@ apiPlayground:
           ip:
             description: '**string**'
             type: string
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/setIpPermission.md
 ---
 
 # Container Registry API, REST: Registry.SetIpPermission

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/foundation_models/v1/embedding/embeddings/api-ref/Embeddings/index.md
 ---
 
 # Foundation Models Embedding API, REST: Embeddings

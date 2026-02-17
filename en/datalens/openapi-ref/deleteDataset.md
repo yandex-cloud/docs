@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/deleteDataset.md
 ---
 
 # DataLens API: Delete dataset

@@ -9,3 +9,4 @@ items:
         href: operations/install-app.md
   - name: Audit logs {{ at-name }}
     href: at-ref.md
+path: en/cloud-apps/toc.yaml

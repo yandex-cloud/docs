@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloud-registry/cli-ref/artifact/get.md
 ---
 
 # yc cloud-registry artifact get

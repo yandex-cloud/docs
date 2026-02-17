@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/listAccessBindings.md
 ---
 
 # Yandex Cloud Registry API, REST: Registry.ListAccessBindings

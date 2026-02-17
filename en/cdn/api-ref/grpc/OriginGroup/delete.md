@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/OriginGroup/delete.md
 ---
 
 # Cloud CDN API, gRPC: OriginGroupService.Delete

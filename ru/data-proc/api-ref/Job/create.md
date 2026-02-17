@@ -319,7 +319,6 @@ apiPlayground:
               - queryFileUri
           - required:
               - queryList
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/create.md
 ---
 
 # Yandex Data Processing API, REST: Job.Create

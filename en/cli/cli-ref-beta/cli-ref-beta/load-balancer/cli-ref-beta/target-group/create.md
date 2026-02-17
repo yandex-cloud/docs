@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/load-balancer/cli-ref-beta/target-group/create.md
 ---
 
 # yc beta load-balancer target-group create

@@ -460,7 +460,6 @@ apiPlayground:
               - jsonObject
           - required:
               - jsonSchema
-sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Assistant/update.md
 ---
 
 # AI Assistants API, REST: Assistant.Update

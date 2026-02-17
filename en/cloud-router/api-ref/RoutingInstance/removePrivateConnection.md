@@ -25,7 +25,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/removePrivateConnection.md
 ---
 
 # Cloud Router API, REST: RoutingInstance.RemovePrivateConnection

@@ -2546,7 +2546,6 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceWindow
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/update.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.Update

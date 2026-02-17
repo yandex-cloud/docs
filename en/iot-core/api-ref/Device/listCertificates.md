@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/listCertificates.md
 ---
 
 # IoT Core Service, REST: Device.ListCertificates

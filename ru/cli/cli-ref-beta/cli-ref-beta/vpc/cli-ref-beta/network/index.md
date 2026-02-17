@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/vpc/cli-ref-beta/network/index.md
 ---
 
 # yc beta vpc network

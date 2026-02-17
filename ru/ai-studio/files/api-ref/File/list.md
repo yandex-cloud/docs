@@ -28,7 +28,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/list.md
 ---
 
 # Files API, REST: File.List

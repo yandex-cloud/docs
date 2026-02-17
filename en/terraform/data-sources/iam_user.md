@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_user.md
 ---
 
 # yandex_iam_user (DataSource)

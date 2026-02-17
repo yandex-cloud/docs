@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/updateAccessBindings.md
 ---
 
 # API Gateway Service, REST: ApiGateway.UpdateAccessBindings

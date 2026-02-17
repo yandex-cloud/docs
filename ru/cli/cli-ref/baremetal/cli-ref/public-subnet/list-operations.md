@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/public-subnet/list-operations.md
 ---
 
 # yc baremetal public-subnet list-operations

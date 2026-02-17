@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/certificatemanager/events-ref/GetExCertificateContent.md
 ---
 
 # Certificate Manager Audit Trails Events: GetExCertificateContent

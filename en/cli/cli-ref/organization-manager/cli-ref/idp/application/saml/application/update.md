@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/application/saml/application/update.md
 ---
 
 # yc organization-manager idp application saml application update

@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for YDB
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/ydb_database_dedicated.md
 ---
 
 # yandex_ydb_database_dedicated (DataSource)

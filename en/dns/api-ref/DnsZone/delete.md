@@ -16,7 +16,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/delete.md
 ---
 
 # Cloud DNS API, REST: DnsZone.Delete

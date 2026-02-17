@@ -1,6 +1,5 @@
 ---
 subcategory: Billing
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/billing_cloud_binding.md
 ---
 
 # yandex_billing_cloud_binding (DataSource)

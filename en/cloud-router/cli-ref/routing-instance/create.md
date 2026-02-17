@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloudrouter/cli-ref/routing-instance/create.md
 ---
 
 # yc cloudrouter routing-instance create

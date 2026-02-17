@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iam_workload_identity_oidc_federation.md
 ---
 
 # yandex_iam_workload_identity_oidc_federation (Resource)

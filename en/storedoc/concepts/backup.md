@@ -5,7 +5,6 @@ keywords:
   - backups
   - back up
   - backup
-  - backups
   - MongoDB backups
   - Yandex StoreDoc backup
   - backup Yandex StoreDoc

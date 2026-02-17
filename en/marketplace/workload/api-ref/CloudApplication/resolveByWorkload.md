@@ -28,7 +28,6 @@ apiPlayground:
         - workloadId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/cloudapps/workload/v1/workload/api-ref/CloudApplication/resolveByWorkload.md
 ---
 
 # Cloud Apps Workload API, REST: CloudApplication.ResolveByWorkload

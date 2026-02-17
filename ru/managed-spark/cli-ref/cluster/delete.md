@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-spark/cli-ref/cluster/delete.md
 ---
 
 # yc managed-spark cluster delete

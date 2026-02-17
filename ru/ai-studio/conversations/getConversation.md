@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/conversations/getConversation.md
 ---
 
 # REST: Retrieve a conversation

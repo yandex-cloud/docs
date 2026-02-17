@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/device/add-topic-aliases.md
 ---
 
 # yc iot device add-topic-aliases

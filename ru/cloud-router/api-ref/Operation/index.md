@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cloudrouter/v1/api-ref/Operation/index.md
 ---
 
 # Cloud Router API, REST: Operation

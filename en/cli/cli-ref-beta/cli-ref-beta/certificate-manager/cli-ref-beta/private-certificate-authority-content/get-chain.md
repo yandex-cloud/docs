@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/certificate-manager/cli-ref-beta/private-certificate-authority-content/get-chain.md
 ---
 
 # yc beta certificate-manager private-certificate-authority-content get-chain

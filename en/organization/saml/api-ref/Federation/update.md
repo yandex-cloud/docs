@@ -135,7 +135,6 @@ apiPlayground:
               **boolean**
               Value parameter ForceAuthn in SAMLRequest.
             type: boolean
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/update.md
 ---
 
 # SAML Federation API, REST: Federation.Update

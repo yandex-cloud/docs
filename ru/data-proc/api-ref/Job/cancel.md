@@ -25,7 +25,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/cancel.md
 ---
 
 # Yandex Data Processing API, REST: Job.Cancel

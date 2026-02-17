@@ -20,7 +20,6 @@ apiPlayground:
         - subjectContainerId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/convertAllToBasic.md
 ---
 
 # Identity Hub API, REST: Group.ConvertAllToBasic

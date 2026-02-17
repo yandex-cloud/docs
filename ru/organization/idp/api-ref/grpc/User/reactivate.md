@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/api-ref/grpc/User/reactivate.md
 ---
 
 # Identity Provider API, gRPC: UserService.Reactivate

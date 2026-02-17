@@ -49,3 +49,4 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+path: en/websql/toc.yaml

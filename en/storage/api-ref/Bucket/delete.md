@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/delete.md
 ---
 
 # Object Storage API, REST: Bucket.Delete

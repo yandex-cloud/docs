@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/certificate-manager/cli-ref/certificate/list.md
 ---
 
 # yc certificate-manager certificate list

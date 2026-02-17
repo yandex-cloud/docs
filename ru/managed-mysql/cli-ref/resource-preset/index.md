@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/resource-preset/index.md
 ---
 
 # yc managed-mysql resource-preset

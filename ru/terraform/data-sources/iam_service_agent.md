@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_service_agent.md
 ---
 
 # yandex_iam_service_agent (DataSource)

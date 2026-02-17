@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/policy/list-applications.md
 ---
 
 # yc backup policy list-applications

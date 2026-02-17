@@ -127,7 +127,6 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/update.md
 ---
 
 # Cloud Interconnect API, REST: TrunkConnection.Update

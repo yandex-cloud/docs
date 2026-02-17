@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/access-key/get.md
 ---
 
 # yc iam access-key get

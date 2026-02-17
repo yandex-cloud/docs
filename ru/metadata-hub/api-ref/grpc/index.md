@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/metastore/v1/api-ref/grpc/index.md
 ---
 
 # Managed Service for Hive Metastore™ API: gRPC reference

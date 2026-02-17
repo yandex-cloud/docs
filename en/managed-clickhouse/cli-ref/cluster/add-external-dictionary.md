@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/add-external-dictionary.md
 ---
 
 # yc managed-clickhouse cluster add-external-dictionary

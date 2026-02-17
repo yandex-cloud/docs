@@ -1,7 +1,6 @@
 ---
 title: Как читать и визуализировать метрики при помощи {{ grafana-name }}
 description: Следуя данной инструкции, вы сможете прочитать и визуализировать метрики при помощи {{ grafana-name }}.
-sourcePath: ru/monitoring_includes/operations/prometheus/querying/grafana.md
 ---
 
 # Чтение и визуализация метрик при помощи {{ grafana-name }}

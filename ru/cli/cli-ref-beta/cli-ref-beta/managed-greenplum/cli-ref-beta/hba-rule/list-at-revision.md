@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-greenplum/cli-ref-beta/hba-rule/list-at-revision.md
 ---
 
 # yc beta managed-greenplum hba-rule list-at-revision

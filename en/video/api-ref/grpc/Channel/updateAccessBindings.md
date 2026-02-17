@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/updateAccessBindings.md
 ---
 
 # Video API, gRPC: ChannelService.UpdateAccessBindings

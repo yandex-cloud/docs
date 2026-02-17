@@ -2,7 +2,6 @@
 title: '{{ sf-full-name }} metrics'
 description: In this tutorial, you will learn about {{ sf-name }} metrics.
 editable: false
-sourcePath: en/monitoring_includes/metrics-ref/functions-ref.md
 ---
 
 # {{ sf-full-name }} metrics

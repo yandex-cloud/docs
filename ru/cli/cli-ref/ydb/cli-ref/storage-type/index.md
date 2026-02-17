@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/ydb/cli-ref/storage-type/index.md
 ---
 
 # yc ydb storage-type

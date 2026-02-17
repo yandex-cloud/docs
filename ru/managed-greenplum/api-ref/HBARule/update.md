@@ -86,7 +86,6 @@ apiPlayground:
           - database
           - user
           - address
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/update.md
 ---
 
 # Managed Service for Greenplum® API, REST: HBARule.Update

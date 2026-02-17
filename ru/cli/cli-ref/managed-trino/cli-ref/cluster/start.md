@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/cluster/start.md
 ---
 
 # yc managed-trino cluster start

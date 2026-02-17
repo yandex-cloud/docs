@@ -31,7 +31,6 @@ apiPlayground:
         - hash
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureCrypto/signHash.md
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureCrypto.SignHash

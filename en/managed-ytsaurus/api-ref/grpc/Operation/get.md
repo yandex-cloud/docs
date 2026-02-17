@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ytsaurus/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Ytsaurus API, gRPC: OperationService.Get

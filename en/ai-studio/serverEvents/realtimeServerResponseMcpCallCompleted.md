@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseMcpCallCompleted.md
 ---
 
 # REST: response.mcp_call.completed '[CURRENTLY NOT SUPPORTED]'

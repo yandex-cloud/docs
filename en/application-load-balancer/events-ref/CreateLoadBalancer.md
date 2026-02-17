@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/apploadbalancer/events-ref/CreateLoadBalancer.md
 ---
 
 # Application Load Balancer Audit Trails Events: CreateLoadBalancer

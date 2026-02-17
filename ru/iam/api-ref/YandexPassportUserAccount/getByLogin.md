@@ -17,7 +17,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/YandexPassportUserAccount/getByLogin.md
 ---
 
 # Identity and Access Management API, REST: YandexPassportUserAccount.GetByLogin

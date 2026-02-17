@@ -12,6 +12,7 @@ description: На странице представлен список прак�
 * [Сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)
 * [Сайт на базе Joomla с базой данных {{ PG }}](../web/joomla-postgresql/index.md)
 * [Создание сайта на WordPress](../web/wordpress/index.md)
+* [{#T}](../web/wordpress-cloudapp.md)
 * [Сайт на WordPress с кластером БД {{ MY }}](../web/wordpress-mysql/index.md)
 * [Перенос WordPress сайта с хостинга в {{ yandex-cloud }}](../web/wordpress-transfer.md)
 * [Сайт на базе 1С-Битрикс](../web/bitrix-website/index.md)

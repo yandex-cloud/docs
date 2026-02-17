@@ -14,6 +14,24 @@ description:
     To learn how to publish your products and sell them to Yandex Cloud
     customers, see the <a href="/docs/marketplace/quickstart">Yandex Cloud
     Marketplace</a>.
+meta:
+  title: Partner program
+  description: >-
+    The Yandex Cloud partner program empowers you to meet your customers’ needs
+    using technologies and services tested with Yandex workloads.
+  keywords:
+    - keyword: '{{ yandex-cloud }} partner program'
+    - keyword: '{{ yandex-cloud }} referral program '
+    - keyword: How to earn in {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} referral program '
+    - keyword: How to earn in the cloud
+    - keyword: '{{ yandex-cloud }} partner portal'
+    - keyword: Partnership in {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} partners'
+    - keyword: How to sell in {{ yandex-cloud }}
+    - keyword: >-
+        How to publish your products and sell them to {{ yandex-cloud }}
+        customers
 links:
   - title: Partner program
     description: Accept customer payments and manage document flow on your own.
@@ -24,19 +42,3 @@ links:
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/all
-meta:
-  title: Partner program
-  description: >-
-    The Yandex Cloud partner program empowers you to meet your customers’ needs
-    using technologies and services tested with Yandex workloads.
-  keywords:
-    - '{{ yandex-cloud }} partner program'
-    - '{{ yandex-cloud }} referral program '
-    - How to earn in {{ yandex-cloud }}
-    - '{{ yandex-cloud }} referral program '
-    - How to earn in the cloud
-    - '{{ yandex-cloud }} partner portal'
-    - Partnership in {{ yandex-cloud }}
-    - '{{ yandex-cloud }} partners'
-    - How to sell in {{ yandex-cloud }}
-    - How to publish your products and sell them to {{ yandex-cloud }} customers

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/create.md
 ---
 
 # Video API, gRPC: ChannelService.Create

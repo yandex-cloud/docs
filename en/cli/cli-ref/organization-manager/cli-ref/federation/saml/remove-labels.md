@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/federation/saml/remove-labels.md
 ---
 
 # yc organization-manager federation saml remove-labels

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/image/get-last-scan-result.md
 ---
 
 # yc container image get-last-scan-result

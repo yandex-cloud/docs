@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/delete.md
 ---
 
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Delete

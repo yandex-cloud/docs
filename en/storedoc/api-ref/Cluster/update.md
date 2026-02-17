@@ -770,7 +770,6 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceWindow
-sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/update.md
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.Update

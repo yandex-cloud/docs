@@ -1,7 +1,6 @@
 ---
 title: Как создать канал уведомлений с вызовом функции в {{ monitoring-full-name }}
 description: Следуя данной инструкции, вы сможете создать канал уведомлений с вызовом функции {{ sf-full-name }}.
-sourcePath: ru/monitoring_includes/operations/alert/create-channel-function.md
 ---
 
 # Создание канала уведомлений с вызовом функции

@@ -40,9 +40,9 @@ The {{ mkf-name }} usage cost includes:
 
 * Disk type and storage size.
 
-* Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and the type of hosts.
+* Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and host type.
 
-* Egress traffic from {{ yandex-cloud }} to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -61,12 +61,12 @@ The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost
 
 ### Disk space usage {#rules-storage}
 
-You pay for the storage allocated for DB clusters.
+You pay for the storage allocated for database clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
     * For Intel Cascade Lake: In increments of 100 GB.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
-* You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more broker hosts in increments of 93 GB.
+* You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
 
@@ -89,7 +89,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

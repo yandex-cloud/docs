@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/setAccessBindings.md
 ---
 
 # Federation, REST: Federation.SetAccessBindings

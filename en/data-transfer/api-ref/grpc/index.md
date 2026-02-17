@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/index.md
 ---
 
 # Data Transfer API: gRPC reference

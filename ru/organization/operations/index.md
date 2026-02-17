@@ -19,6 +19,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./hide-user-info.md)
 * [{#T}](./delete-org.md)
 * [{#T}](./add-region.md)
+* [{#T}](./manage-branding.md)
 
 ## Управление пользователями {#manage-users}
 

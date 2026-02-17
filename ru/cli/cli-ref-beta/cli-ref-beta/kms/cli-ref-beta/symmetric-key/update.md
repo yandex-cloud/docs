@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/kms/cli-ref-beta/symmetric-key/update.md
 ---
 
 # yc beta kms symmetric-key update

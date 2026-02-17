@@ -67,3 +67,4 @@ items:
     href: events-ref/UpdateVirtualHost.md
   - name: UpdateVirtualHostRoute
     href: events-ref/UpdateVirtualHostRoute.md
+path: en/_events-ref/apploadbalancer/toc.yaml

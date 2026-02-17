@@ -115,7 +115,6 @@ apiPlayground:
       ObjectStorage:
         type: object
         properties: {}
-sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/create.md
 ---
 
 # Virtual Private Cloud API, REST: PrivateEndpoint.Create

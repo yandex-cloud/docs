@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/Operation/get.md
 ---
 
 # Foundation Models Text Generation API, REST: Operation.Get

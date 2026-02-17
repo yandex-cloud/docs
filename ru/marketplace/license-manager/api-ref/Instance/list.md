@@ -48,7 +48,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Instance/list.md
 ---
 
 # Yandex Cloud Marketplace License Manager, REST: Instance.List

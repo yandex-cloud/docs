@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/gitlab/v1/api-ref/grpc/Instance/stop.md
 ---
 
 # Managed Service for Gitlab API, gRPC: InstanceService.Stop

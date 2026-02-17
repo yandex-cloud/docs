@@ -34,7 +34,6 @@ apiPlayground:
           format: duration
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/disableZones.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.DisableZones

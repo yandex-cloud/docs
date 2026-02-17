@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/concepts/visualization/widget.md
----
 # Widgets
 
 _Widgets_ are dashboard elements that display information as a chart or text.

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/Configuration/list.md
 ---
 
 # BareMetal API, gRPC: ConfigurationService.List

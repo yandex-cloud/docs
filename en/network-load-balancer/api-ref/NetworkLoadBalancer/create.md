@@ -286,7 +286,6 @@ apiPlayground:
               $ref: '#/definitions/HealthCheck'
         required:
           - targetGroupId
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/create.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.Create

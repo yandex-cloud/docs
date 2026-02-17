@@ -85,7 +85,6 @@ apiPlayground:
             type: string
         required:
           - type
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/addHosts.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.AddHosts

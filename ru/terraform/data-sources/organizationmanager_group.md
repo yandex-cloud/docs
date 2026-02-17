@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_group.md
 ---
 
 # yandex_organizationmanager_group (DataSource)

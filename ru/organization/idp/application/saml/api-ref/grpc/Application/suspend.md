@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/application/saml/api-ref/grpc/Application/suspend.md
 ---
 
 # SAML Application API, gRPC: ApplicationService.Suspend

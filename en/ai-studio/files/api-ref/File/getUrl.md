@@ -17,7 +17,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/getUrl.md
 ---
 
 # Files API, REST: File.GetUrl

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/hardware-pool/list.md
 ---
 
 # yc baremetal hardware-pool list

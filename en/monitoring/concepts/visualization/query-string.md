@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/concepts/visualization/query-string.md
----
 # Query string
 
 Query string is located in **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**, **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**, and **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. It allows you to specify parameters for charts.

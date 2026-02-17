@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cloudrouter/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Cloud Router API, gRPC: OperationService.Get

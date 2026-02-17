@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/workflow/execution/start.md
 ---
 
 # yc serverless workflow execution start

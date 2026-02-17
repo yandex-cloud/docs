@@ -1,7 +1,6 @@
 ---
 title: Agent best practices
 description: In this article, you will learn about the agent best practices.
-sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/best-practices.md
 ---
 
 # Agent best practices

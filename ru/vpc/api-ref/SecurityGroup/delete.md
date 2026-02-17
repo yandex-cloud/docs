@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/delete.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.Delete

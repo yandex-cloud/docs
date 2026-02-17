@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloudrouter/cli-ref/routing-instance/update-networks.md
 ---
 
 # yc cloudrouter routing-instance update-networks

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/deleteQlChart.md
 ---
 
 # DataLens API: Delete QL chart

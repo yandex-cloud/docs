@@ -56,7 +56,6 @@ apiPlayground:
         required:
           - action
           - subjectId
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/updateMembers.md
 ---
 
 # Identity Hub API, REST: Group.UpdateMembers

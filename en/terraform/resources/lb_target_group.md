@@ -1,6 +1,5 @@
 ---
 subcategory: Network Load Balancer
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/lb_target_group.md
 ---
 
 # yandex_lb_target_group (Resource)

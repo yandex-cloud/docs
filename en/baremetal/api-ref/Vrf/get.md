@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Vrf/get.md
 ---
 
 # BareMetal API, REST: Vrf.Get

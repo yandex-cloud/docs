@@ -45,7 +45,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/Network/create.md
 ---
 
 # Virtual Private Cloud API, REST: Network.Create

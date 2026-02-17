@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/backup/delete.md
 ---
 
 # yc managed-mongodb backup delete

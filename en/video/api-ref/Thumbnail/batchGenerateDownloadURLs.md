@@ -26,7 +26,6 @@ apiPlayground:
         - channelId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/batchGenerateDownloadURLs.md
 ---
 
 # Video API, REST: Thumbnail.BatchGenerateDownloadURLs

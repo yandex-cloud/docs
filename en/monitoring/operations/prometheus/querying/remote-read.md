@@ -1,7 +1,6 @@
 ---
 title: How to read metrics via the Remote API
 description: Follow this guide to read metrics via the Remote API.
-sourcePath: en/monitoring_includes/operations/prometheus/querying/remote-read.md
 ---
 
 # Reading metrics via the Remote API

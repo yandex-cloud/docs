@@ -53,7 +53,6 @@ apiPlayground:
             - folderId
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listConnectedResources.md
 ---
 
 # Cloud Functions Service, REST: Network.ListConnectedResources

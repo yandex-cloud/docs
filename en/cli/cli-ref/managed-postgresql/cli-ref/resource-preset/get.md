@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/resource-preset/get.md
 ---
 
 # yc managed-postgresql resource-preset get

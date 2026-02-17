@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/HostType/list.md
 ---
 
 # Compute Cloud API, gRPC: HostTypeService.List

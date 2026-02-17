@@ -33,7 +33,6 @@ apiPlayground:
         - externalSubjectId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/create.md
 ---
 
 # Workload Identity, REST: FederatedCredential.Create

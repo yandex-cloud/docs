@@ -26,7 +26,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/addCertificate.md
 ---
 
 # IoT Core Service, REST: Registry.AddCertificate

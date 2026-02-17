@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/list-logs.md
 ---
 
 # yc managed-postgresql cluster list-logs
