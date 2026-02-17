@@ -104,7 +104,6 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
-sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/addHosts.md
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.AddHosts

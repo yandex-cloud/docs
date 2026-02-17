@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/listOperations.md
 ---
 
 # Cloud DNS API, gRPC: DnsZoneService.ListOperations

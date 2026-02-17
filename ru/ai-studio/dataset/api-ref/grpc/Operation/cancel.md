@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/dataset/v1/dataset/api-ref/grpc/Operation/cancel.md
 ---
 
 # Foundation Models Dataset Service API, gRPC: OperationService.Cancel

@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Spark
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/spark_cluster.md
 ---
 
 # yandex_spark_cluster (Resource)

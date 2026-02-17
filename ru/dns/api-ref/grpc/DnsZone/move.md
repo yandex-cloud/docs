@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/move.md
 ---
 
 # Cloud DNS API, gRPC: DnsZoneService.Move

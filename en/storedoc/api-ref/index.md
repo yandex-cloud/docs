@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/index.md
 ---
 
 # Managed Service for MongoDB API: REST reference

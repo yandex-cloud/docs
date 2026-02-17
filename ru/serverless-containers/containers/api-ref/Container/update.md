@@ -65,7 +65,6 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/update.md
 ---
 
 # Serverless Containers Service, REST: Container.Update

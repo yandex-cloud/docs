@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/index.md
 ---
 
 # API Gateway Service, REST: ApiGateway

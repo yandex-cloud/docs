@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/users/api-ref/grpc/User/delete.md
 ---
 
 # Users, gRPC: UserService.Delete

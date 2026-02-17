@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/Operation/index.md
 ---
 
 # Access Key, REST: Operation

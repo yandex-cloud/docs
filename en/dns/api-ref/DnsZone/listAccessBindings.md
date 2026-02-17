@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listAccessBindings.md
 ---
 
 # Cloud DNS API, REST: DnsZone.ListAccessBindings

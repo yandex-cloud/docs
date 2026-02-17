@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/catalog/list.md
 ---
 
 # yc managed-trino catalog list

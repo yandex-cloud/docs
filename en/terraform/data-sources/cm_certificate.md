@@ -1,6 +1,5 @@
 ---
 subcategory: Certificate Manager
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/cm_certificate.md
 ---
 
 # yandex_cm_certificate (DataSource)

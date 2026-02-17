@@ -1,6 +1,6 @@
 ---
-title: Зоны контроля Yandex Cloud и пользователей Yandex Managed Service for Kubernetes
-description: Из статьи вы узнаете, что находится в зоне контроля пользователей Yandex Managed Service for Kubernetes и за что отвечает Yandex Cloud.
+title: Зоны контроля {{ yandex-cloud }} и пользователей {{ managed-k8s-full-name }}
+description: Из статьи вы узнаете, что находится в зоне контроля пользователей {{ managed-k8s-full-name }} и за что отвечает {{ yandex-cloud }}.
 ---
 
 # Разграничение зон контроля пользователей {{ managed-k8s-full-name }} и {{ yandex-cloud }}

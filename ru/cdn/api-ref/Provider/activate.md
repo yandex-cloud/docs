@@ -26,7 +26,6 @@ apiPlayground:
         - providerType
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/activate.md
 ---
 
 # Cloud CDN API, REST: Provider.Activate

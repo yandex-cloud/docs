@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/mcpgateway/v1/mcp-gateway/api-ref/McpGateway/get.md
 ---
 
 # MCP Gateway Service, REST: McpGateway.Get

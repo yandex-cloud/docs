@@ -1,6 +1,5 @@
 ---
 subcategory: Network Load Balancer
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/lb_network_load_balancer.md
 ---
 
 # yandex_lb_network_load_balancer (Resource)

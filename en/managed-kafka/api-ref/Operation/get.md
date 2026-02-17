@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Operation/get.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Operation.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/trino/v1/api-ref/grpc/Catalog/get.md
 ---
 
 # Managed Service for Trino API, gRPC: CatalogService.Get

@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_instance_group.md
 ---
 
 # yandex_compute_instance_group (Resource)

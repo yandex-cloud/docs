@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Managed Service for OpenSearch API, gRPC: OperationService.Get

@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_os_login_settings.md
 ---
 
 # yandex_organizationmanager_os_login_settings (DataSource)

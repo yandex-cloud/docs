@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/resource-preset/get.md
 ---
 
 # yc managed-kubernetes resource-preset get

@@ -2,7 +2,6 @@
 title: '{{ mpg-full-name }} metrics'
 description: In this tutorial, you will learn about {{ mpg-name }} metrics.
 editable: false
-sourcePath: en/monitoring_includes/metrics-ref/managed-postgresql-ref.md
 ---
 
 # {{ mpg-full-name }} metrics

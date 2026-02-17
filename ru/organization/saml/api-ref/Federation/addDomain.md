@@ -31,7 +31,6 @@ apiPlayground:
         - domain
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/addDomain.md
 ---
 
 # SAML Federation API, REST: Federation.AddDomain

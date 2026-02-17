@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/COUNT_IF.md
 ---
 
 # COUNT_IF

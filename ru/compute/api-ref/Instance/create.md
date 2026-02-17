@@ -773,7 +773,6 @@ apiPlayground:
         oneOf:
           - required:
               - containerSolution
-sourcePath: en/_api-ref/compute/v1/api-ref/Instance/create.md
 ---
 
 # Compute Cloud API, REST: Instance.Create

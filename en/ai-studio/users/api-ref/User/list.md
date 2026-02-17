@@ -28,7 +28,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/list.md
 ---
 
 # Users, REST: User.List

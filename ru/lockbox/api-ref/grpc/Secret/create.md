@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/lockbox/v1/api-ref/grpc/Secret/create.md
 ---
 
 # Lockbox API, gRPC: SecretService.Create

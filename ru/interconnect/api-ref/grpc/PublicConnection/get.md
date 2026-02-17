@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PublicConnection/get.md
 ---
 
 # Cloud Interconnect API, gRPC: PublicConnectionService.Get

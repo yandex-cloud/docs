@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/index.md
 ---
 
 # Object Storage API: gRPC reference

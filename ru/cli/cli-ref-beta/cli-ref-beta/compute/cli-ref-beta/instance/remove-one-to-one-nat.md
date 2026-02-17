@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/instance/remove-one-to-one-nat.md
 ---
 
 # yc beta compute instance remove-one-to-one-nat

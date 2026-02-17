@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/get.md
 ---
 
 # SmartCaptcha API, REST: Captcha.Get

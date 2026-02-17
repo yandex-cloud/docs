@@ -15,7 +15,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/get.md
 ---
 
 # Managed Service for Gitlab API, REST: Instance.Get

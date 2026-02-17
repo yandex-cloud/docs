@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/RANK_PERCENTILE.md
 ---
 
 # RANK_PERCENTILE (оконная)

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-postgresql/cli-ref-beta/backup-retention-policy/delete.md
 ---
 
 # yc beta managed-postgresql backup-retention-policy delete

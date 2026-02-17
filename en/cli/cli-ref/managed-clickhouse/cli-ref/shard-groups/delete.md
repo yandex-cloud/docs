@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/shard-groups/delete.md
 ---
 
 # yc managed-clickhouse shard-groups delete

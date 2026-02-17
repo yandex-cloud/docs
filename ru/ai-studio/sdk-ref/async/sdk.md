@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/async/sdk.md
----
 # Async SDK
 
 ## *class* yandex\_ai\_studio\_sdk.**AsyncAIStudio**{#yandex_ai_studio_sdk.AsyncAIStudio}

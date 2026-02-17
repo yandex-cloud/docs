@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/cluster/start.md
 ---
 
 # yc managed-kubernetes cluster start

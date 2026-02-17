@@ -1,7 +1,6 @@
 ---
 title: How to add a widget to a dashboard in {{ monitoring-full-name }}
 description: In this guide, you will learn how to add a widget to a dashboard in {{ monitoring-name }}.
-sourcePath: en/monitoring_includes/operations/dashboard/add-widget.md
 ---
 
 # Adding a widget to a dashboard

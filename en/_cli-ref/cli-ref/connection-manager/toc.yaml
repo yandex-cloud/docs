@@ -60,3 +60,4 @@ items:
             href: cli-ref/connection/update/trino.md
           - name: valkey
             href: cli-ref/connection/update/valkey.md
+path: en/_cli-ref/cli-ref/connection-manager/toc.yaml

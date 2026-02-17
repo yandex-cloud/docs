@@ -28,7 +28,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/delete.md
 ---
 
 # Cloud CDN API, REST: OriginGroup.Delete

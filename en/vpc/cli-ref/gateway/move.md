@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/gateway/move.md
 ---
 
 # yc vpc gateway move

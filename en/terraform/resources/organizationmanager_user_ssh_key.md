@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_user_ssh_key.md
 ---
 
 # yandex_organizationmanager_user_ssh_key (Resource)

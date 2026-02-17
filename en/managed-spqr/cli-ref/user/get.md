@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/user/get.md
 ---
 
 # yc managed-sharded-postgresql user get

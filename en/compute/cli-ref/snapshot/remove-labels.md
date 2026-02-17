@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/snapshot/remove-labels.md
 ---
 
 # yc compute snapshot remove-labels

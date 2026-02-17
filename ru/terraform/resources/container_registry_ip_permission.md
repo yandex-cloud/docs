@@ -1,6 +1,5 @@
 ---
 subcategory: Container Registry
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/container_registry_ip_permission.md
 ---
 
 # yandex_container_registry_ip_permission (Resource)

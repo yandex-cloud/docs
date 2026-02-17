@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/userpool/list.md
 ---
 
 # yc organization-manager idp userpool list

@@ -54,7 +54,6 @@ apiPlayground:
           enabled:
             description: '**boolean**'
             type: boolean
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/updateSettings.md
 ---
 
 # Identity Hub API, REST: OsLogin.UpdateSettings

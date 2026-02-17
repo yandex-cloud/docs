@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/backup/cli-ref-beta/resource/get-instance-registration-token.md
 ---
 
 # yc beta backup resource get-instance-registration-token

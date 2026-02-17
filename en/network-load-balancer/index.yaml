@@ -15,6 +15,27 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_loadbalancer">Yandex Network Load
     Balancer Service Level</a>.
+meta:
+  title: Yandex Network Load Balancer
+  description: >-
+    Yandex Network Load Balancer helps enhance application fault tolerance
+    through even distribution of traffic across cloud resources.
+  keywords:
+    - keyword: Network Balancer
+    - keyword: '{{ network-load-balancer-name }}'
+    - keyword: Network Balancer
+    - keyword: '{{ network-load-balancer-full-name }}'
+    - keyword: load balancer
+    - keyword: '{{ yandex-cloud }} network balancer'
+    - keyword: '{{ network-load-balancer-name }} in {{ yandex-cloud }}'
+    - keyword: network load balancer
+    - keyword: load balancer
+    - keyword: load balancer in {{ network-load-balancer-name }}
+    - keyword: distributing traffic in {{ network-load-balancer-name }}
+    - keyword: external load balancer
+    - keyword: internal load balancer
+    - keyword: listener
+    - keyword: traffic in {{ network-load-balancer-name }}
 links:
   - title: Getting started
     description: Set up your first network load balancer
@@ -40,24 +61,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-meta:
-  title: Yandex Network Load Balancer
-  description: >-
-    Yandex Network Load Balancer helps enhance application fault tolerance
-    through even distribution of traffic across cloud resources.
-  keywords:
-    - Network Balancer
-    - '{{ network-load-balancer-name }}'
-    - Network Balancer
-    - '{{ network-load-balancer-full-name }}'
-    - load balancer
-    - '{{ yandex-cloud }} network balancer'
-    - '{{ network-load-balancer-name }} in {{ yandex-cloud }}'
-    - network load balancer
-    - load balancer
-    - load balancer in {{ network-load-balancer-name }}
-    - distributing traffic in {{ network-load-balancer-name }}
-    - external load balancer
-    - internal load balancer
-    - listener
-    - traffic in {{ network-load-balancer-name }}

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/apploadbalancer/events-ref/AddTargetGroupTargets.md
 ---
 
 # Application Load Balancer Audit Trails Events: AddTargetGroupTargets

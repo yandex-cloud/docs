@@ -486,7 +486,6 @@ apiPlayground:
               - jsonObject
           - required:
               - jsonSchema
-sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/create.md
 ---
 
 # Runs, REST: Run.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/Sink/listOperations.md
 ---
 
 # Cloud Logging Service, gRPC: SinkService.ListOperations

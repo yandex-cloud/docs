@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/REGEXP_EXTRACT_ALL.md
 ---
 
 # REGEXP_EXTRACT_ALL

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iam/cli-ref-beta/access-key/create.md
 ---
 
 # yc beta iam access-key create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/searchapi/v2/api-ref/ImageSearch/index.md
 ---
 
 # Web Search API, REST: ImageSearch

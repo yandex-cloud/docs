@@ -85,6 +85,16 @@ For the cluster to work correctly, create rules for incoming and outgoing traffi
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
+2. Add a rule that allows the master to communicate with pods located on nodes. This is necessary, for example, for successful requests to webhook endpoints in pods. 
+This rule is required in clusters with the Calico [network plugin](../../concepts/network-policy.md) installed or without a CNI installed. In clusters using Cilium CNI, this rule is not necessary.
+
+   Create a rule for outgoing traffic to the cluster CIDR:
+
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — Specify the cluster CIDR, e.g., `10.96.0.0/16`.
+
 {% note info %}
 
 If using a [highly available master](../../concepts/index.md#master), allow traffic to the CIDRs of the subnets where the master hosts are located, or to the cluster CIDR for node groups. This is required for transmitting service traffic between the master and nodes.

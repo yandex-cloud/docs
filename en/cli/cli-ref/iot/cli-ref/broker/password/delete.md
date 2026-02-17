@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/broker/password/delete.md
 ---
 
 # yc iot broker password delete

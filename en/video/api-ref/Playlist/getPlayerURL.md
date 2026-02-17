@@ -48,7 +48,6 @@ apiPlayground:
               If true, the player interface controls will be hidden initially.
               Users can typically reveal the controls by moving the mouse over the player.
             type: boolean
-sourcePath: en/_api-ref/video/v1/api-ref/Playlist/getPlayerURL.md
 ---
 
 # Video API, REST: Playlist.GetPlayerURL

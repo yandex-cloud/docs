@@ -44,7 +44,6 @@ apiPlayground:
         required:
           - folderId
           - secretName
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Payload/getEx.md
 ---
 
 # Lockbox API, REST: Payload.GetEx

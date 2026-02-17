@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Test/stop.md
 ---
 
 # Load Testing API, gRPC: TestService.Stop

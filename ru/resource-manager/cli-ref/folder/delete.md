@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/folder/delete.md
 ---
 
 # yc resource-manager folder delete

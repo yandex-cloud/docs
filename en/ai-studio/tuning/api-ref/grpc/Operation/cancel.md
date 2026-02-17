@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Operation/cancel.md
 ---
 
 # Foundation Models Tuning Service API, gRPC: OperationService.Cancel

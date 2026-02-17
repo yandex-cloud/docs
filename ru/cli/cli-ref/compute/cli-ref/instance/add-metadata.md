@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/add-metadata.md
 ---
 
 # yc compute instance add-metadata

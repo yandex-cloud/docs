@@ -43,7 +43,6 @@ apiPlayground:
             - RSA_4096
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/Key/create.md
 ---
 
 # Identity and Access Management API, REST: Key.Create

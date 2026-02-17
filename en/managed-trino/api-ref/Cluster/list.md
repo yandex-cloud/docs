@@ -44,7 +44,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/list.md
 ---
 
 # Managed Service for Trino API, REST: Cluster.List

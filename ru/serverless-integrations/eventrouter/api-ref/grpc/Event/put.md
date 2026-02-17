@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Event/put.md
 ---
 
 # EventRouter Service, gRPC: EventService.Put

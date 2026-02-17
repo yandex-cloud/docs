@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/gpu-cluster/add-access-binding.md
 ---
 
 # yc compute gpu-cluster add-access-binding

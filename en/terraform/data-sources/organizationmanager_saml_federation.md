@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_saml_federation.md
 ---
 
 # yandex_organizationmanager_saml_federation (DataSource)

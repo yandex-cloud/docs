@@ -39,7 +39,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Provider/activate.md
 ---
 
 # Cloud Backup API, REST: Provider.Activate

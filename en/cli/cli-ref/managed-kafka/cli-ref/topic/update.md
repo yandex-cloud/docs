@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/topic/update.md
 ---
 
 # yc managed-kafka topic update

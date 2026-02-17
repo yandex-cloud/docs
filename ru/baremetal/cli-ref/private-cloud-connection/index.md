@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/private-cloud-connection/index.md
 ---
 
 # yc baremetal private-cloud-connection

@@ -59,7 +59,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/create.md
 ---
 
 # Cloud Logging Service, REST: LogGroup.Create

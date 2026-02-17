@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/resource-preset/list.md
 ---
 
 # yc managed-mongodb resource-preset list

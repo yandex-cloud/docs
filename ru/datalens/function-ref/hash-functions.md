@@ -1,7 +1,6 @@
 ---
 title: Хеш-функции
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/hash-functions.md
 ---
 
 # Хеш-функции

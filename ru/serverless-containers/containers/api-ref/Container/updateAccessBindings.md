@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/updateAccessBindings.md
 ---
 
 # Serverless Containers Service, REST: Container.UpdateAccessBindings

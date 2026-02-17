@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/files/v1/files/api-ref/grpc/index.md
 ---
 
 # Files API: gRPC reference

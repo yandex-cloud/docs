@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/cluster/add-labels.md
 ---
 
 # yc managed-mysql cluster add-labels

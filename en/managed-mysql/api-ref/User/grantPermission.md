@@ -97,7 +97,6 @@ apiPlayground:
                 - TRIGGER
                 - UPDATE
                 - REFERENCES
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/grantPermission.md
 ---
 
 # Managed Service for MySQL API, REST: User.GrantPermission

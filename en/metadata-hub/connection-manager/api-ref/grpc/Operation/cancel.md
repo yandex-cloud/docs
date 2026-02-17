@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/connectionmanager/v1/connection-manager/api-ref/grpc/Operation/cancel.md
 ---
 
 # Connection Manager API, gRPC: OperationService.Cancel

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/audit-trails/cli-ref/trail/delete.md
 ---
 
 # yc audit-trails trail delete

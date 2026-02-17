@@ -397,7 +397,6 @@ apiPlayground:
           - zoneId
           - resourcesSpec
           - bootDiskSpec
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/update.md
 ---
 
 # Load Testing API, REST: Agent.Update

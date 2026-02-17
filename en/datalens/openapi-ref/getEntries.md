@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/getEntries.md
 ---
 
 # DataLens API: Get entries

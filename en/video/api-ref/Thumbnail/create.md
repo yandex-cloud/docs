@@ -35,7 +35,6 @@ apiPlayground:
         - required:
             - videoId
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/create.md
 ---
 
 # Video API, REST: Thumbnail.Create

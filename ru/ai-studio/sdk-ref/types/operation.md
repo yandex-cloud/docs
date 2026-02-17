@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/operation.md
----
 # Operation
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.operation.**AsyncOperation**{#yandex_ai_studio_sdk._types.operation.AsyncOperation}

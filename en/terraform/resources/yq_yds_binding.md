@@ -1,6 +1,5 @@
 ---
 subcategory: Yandex Query
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/yq_yds_binding.md
 ---
 
 # yandex_yq_yds_binding (Resource)

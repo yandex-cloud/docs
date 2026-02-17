@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/inputs.md
----
 # Inputs
 
 You can specify an input in the `routes`:`input` section. The common input description format is:

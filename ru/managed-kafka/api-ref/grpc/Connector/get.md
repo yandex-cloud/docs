@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/Connector/get.md
 ---
 
 # Managed Service for Apache Kafka® API, gRPC: ConnectorService.Get

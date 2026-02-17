@@ -57,7 +57,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/listDesktops.md
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.ListDesktops

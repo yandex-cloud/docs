@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/access-analyzer/index.md
 ---
 
 # yc iam access-analyzer

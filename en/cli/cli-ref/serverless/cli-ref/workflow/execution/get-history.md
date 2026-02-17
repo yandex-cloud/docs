@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/workflow/execution/get-history.md
 ---
 
 # yc serverless workflow execution get-history

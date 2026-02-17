@@ -112,7 +112,6 @@ apiPlayground:
           filter:
             description: '**string**'
             type: string
-sourcePath: en/_api-ref/logging/v1/api-ref/Export/create.md
 ---
 
 # Cloud Logging Service, REST: Export.Create

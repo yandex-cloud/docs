@@ -1,6 +1,5 @@
 ---
 subcategory: DataSphere
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datasphere_project.md
 ---
 
 # yandex_datasphere_project (Resource)

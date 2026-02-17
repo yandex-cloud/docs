@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/get-serial-port-output.md
 ---
 
 # yc compute instance get-serial-port-output

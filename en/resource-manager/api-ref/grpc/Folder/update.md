@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Folder/update.md
 ---
 
 # Resource Manager API, gRPC: FolderService.Update

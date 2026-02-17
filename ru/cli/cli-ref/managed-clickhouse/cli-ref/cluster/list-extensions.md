@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/list-extensions.md
 ---
 
 # yc managed-clickhouse cluster list-extensions

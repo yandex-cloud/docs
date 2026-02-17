@@ -2,7 +2,6 @@
 title: '{{ mgp-full-name }} metrics'
 description: In this tutorial, you will learn about {{ mgp-name }} metrics.
 editable: false
-sourcePath: en/monitoring_includes/metrics-ref/managed-greenplum-ref.md
 ---
 
 # {{ mgp-full-name }} metrics

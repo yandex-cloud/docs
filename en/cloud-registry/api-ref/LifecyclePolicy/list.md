@@ -27,7 +27,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/LifecyclePolicy/list.md
 ---
 
 # Yandex Cloud Registry API, REST: LifecyclePolicy.List

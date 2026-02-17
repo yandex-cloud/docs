@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/cluster/set-access-bindings.md
 ---
 
 # yc managed-mongodb cluster set-access-bindings

@@ -3,6 +3,17 @@ description:
   - >-
     Architecture solutions and recommendations for implementing custom use cases
     in Yandex Cloud.
+meta:
+  title: Architecture solutions
+  description: >-
+    Architecture solutions and recommendations for implementing custom use cases
+    in Yandex Cloud.
+  keywords:
+    - keyword: Architecture solutions in {{ yandex-cloud }}
+    - keyword: Custom use cases in {{ yandex-cloud }}
+    - keyword: Recommendations {{ yandex-cloud }}
+    - keyword: Architecture solutions
+    - keyword: Use cases
 blocks:
   - type: card-layout-block
     colSizes:
@@ -50,15 +61,4 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-meta:
-  title: Architecture solutions
-  description: >-
-    Architecture solutions and recommendations for implementing custom use cases
-    in Yandex Cloud.
-  keywords:
-    - Architecture solutions in {{ yandex-cloud }}
-    - Custom use cases in {{ yandex-cloud }}
-    - Recommendations {{ yandex-cloud }}
-    - Architecture solutions
-    - Use cases
 links: []

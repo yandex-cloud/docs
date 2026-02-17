@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/getEntriesRelations.md
 ---
 
 # DataLens API: Get entries relations

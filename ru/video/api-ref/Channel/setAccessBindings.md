@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/video/v1/api-ref/Channel/setAccessBindings.md
 ---
 
 # Video API, REST: Channel.SetAccessBindings

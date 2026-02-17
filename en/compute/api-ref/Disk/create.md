@@ -168,7 +168,6 @@ apiPlayground:
               - legacyFeatures
           - required:
               - generation2Features
-sourcePath: en/_api-ref/compute/v1/api-ref/Disk/create.md
 ---
 
 # Compute Cloud API, REST: Disk.Create

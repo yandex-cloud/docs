@@ -796,7 +796,6 @@ apiPlayground:
         oneOf:
           - required:
               - connection
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/create.md
 ---
 
 # Application Load Balancer API, REST: BackendGroup.Create

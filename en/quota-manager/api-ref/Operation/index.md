@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/Operation/index.md
 ---
 
 # Quota Manager API, REST: Operation

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/async/assistants.md
----
 # Assistants domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_assistants.domain.**AsyncAssistants**{#yandex_ai_studio_sdk._assistants.domain.AsyncAssistants}

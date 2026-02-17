@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/certificate-manager/cli-ref-beta/policy/update-access-bindings.md
 ---
 
 # yc beta certificate-manager policy update-access-bindings

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/index.md
 ---
 
 # Cloud CDN API, REST: ResourceRules

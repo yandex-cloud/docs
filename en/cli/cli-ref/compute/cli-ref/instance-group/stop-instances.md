@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance-group/stop-instances.md
 ---
 
 # yc compute instance-group stop-instances

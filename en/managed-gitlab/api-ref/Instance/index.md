@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/index.md
 ---
 
 # Managed Service for Gitlab API, REST: Instance

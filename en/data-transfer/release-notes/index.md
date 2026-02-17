@@ -6,7 +6,35 @@ description: This section contains the {{ data-transfer-name }} release notes.
 
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-12
+index: 2
+```
 
+### Convenient transfer filtering
+
+![image](../../_assets/data-transfer/changelogs/transfer-filter.png)
+
+Your list of transfers is too long? Filter only the ones you need based on available parameters:
+* Endpoint or transfer name
+* Source and target database type
+* Transfer type
+* Transfer stage
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-11
+index: 1
+```
+
+### Data transfer from {{ ydb-name }} to {{ PG }}
+
+Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG }}. For details about supported data source-target pairs, see the [transfer matrix](../transfer-matrix.md).
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 

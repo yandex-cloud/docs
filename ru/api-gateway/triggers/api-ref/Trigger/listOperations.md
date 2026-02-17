@@ -49,7 +49,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/listOperations.md
 ---
 
 # Cloud Functions Triggers Service, REST: Trigger.ListOperations

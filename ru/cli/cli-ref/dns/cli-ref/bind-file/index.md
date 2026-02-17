@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/bind-file/index.md
 ---
 
 # yc dns bind-file

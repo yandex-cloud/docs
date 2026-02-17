@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/securitydeck/alerts/v1/api-ref/grpc/Operation/index.md
 ---
 
 # Security Deck Alerts API, gRPC: OperationService

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Address/getByValue.md
 ---
 
 # Virtual Private Cloud API, gRPC: AddressService.GetByValue

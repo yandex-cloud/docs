@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Desktop/restart.md
 ---
 
 # Cloud Desktop API, gRPC: DesktopService.Restart

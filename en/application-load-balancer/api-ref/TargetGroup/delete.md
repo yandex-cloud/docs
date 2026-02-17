@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/delete.md
 ---
 
 # Application Load Balancer API, REST: TargetGroup.Delete

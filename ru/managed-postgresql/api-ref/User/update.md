@@ -314,7 +314,6 @@ apiPlayground:
               **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
               Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit).
             $ref: '#/definitions/PGAuditSettings'
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/update.md
 ---
 
 # Managed Service for PostgreSQL API, REST: User.Update

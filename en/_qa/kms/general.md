@@ -1,3 +1,7 @@
+---
+title: '{{ kms-full-name }}. FAQ'
+description: How to get my activity logs in {{ kms-full-name }}? Find the answer to this and other questions in this article.
+---
 
 # General questions about {{ kms-name }}
 

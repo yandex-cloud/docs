@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/smartcaptcha/cli-ref-beta/captcha/get-secret-key.md
 ---
 
 # yc beta smartcaptcha captcha get-secret-key

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/api-gateway/stop.md
 ---
 
 # yc serverless api-gateway stop

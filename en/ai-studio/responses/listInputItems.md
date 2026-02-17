@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/responses/listInputItems.md
 ---
 
 # REST: List input items

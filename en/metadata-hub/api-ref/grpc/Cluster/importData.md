@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/metastore/v1/api-ref/grpc/Cluster/importData.md
 ---
 
 # Managed Service for Hive Metastore™ API, gRPC: ClusterService.ImportData

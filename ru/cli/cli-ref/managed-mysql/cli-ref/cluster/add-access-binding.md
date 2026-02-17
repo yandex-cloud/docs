@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/cluster/add-access-binding.md
 ---
 
 # yc managed-mysql cluster add-access-binding

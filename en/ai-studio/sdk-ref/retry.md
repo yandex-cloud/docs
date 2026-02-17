@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/retry.md
----
 # Request retries
 
 Some general info about how retries works

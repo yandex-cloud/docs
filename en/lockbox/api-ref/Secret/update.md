@@ -117,7 +117,6 @@ apiPlayground:
             type: string
         required:
           - passwordKey
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/update.md
 ---
 
 # Lockbox API, REST: Secret.Update

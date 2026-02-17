@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/catalog/update/tpch.md
 ---
 
 # yc managed-trino catalog update tpch

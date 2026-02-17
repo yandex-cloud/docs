@@ -29,7 +29,6 @@ apiPlayground:
         - folderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/create.md
 ---
 
 # Load Testing API, REST: Config.Create

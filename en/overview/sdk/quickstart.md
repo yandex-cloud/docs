@@ -1,7 +1,6 @@
 ---
 title: Getting started with the {{ yandex-cloud }} SDK
 description: Explore the features of the {{ yandex-cloud }} SDK
-sourcePath: en/sdk/sdk/quickstart.md
 ---
 
 # Getting started with the {{ yandex-cloud }} SDK

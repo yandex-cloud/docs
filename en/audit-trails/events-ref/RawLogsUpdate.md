@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/cdn/events-ref/RawLogsUpdate.md
 ---
 
 # Cloud CDN Audit Trails Events: RawLogsUpdate

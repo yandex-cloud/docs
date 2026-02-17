@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md
 ---
 
 # Key Management Service API, gRPC: AsymmetricSignatureKeyService.UpdateAccessBindings

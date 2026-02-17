@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerConversationItemInputAudioTranscriptionSegment.md
 ---
 
 # REST: conversation.item.input_audio_transcription.segment '[CURRENTLY NOT SUPPORTED]'

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseOutputItemAdded.md
 ---
 
 # REST: response.output_item.added

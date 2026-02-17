@@ -33,6 +33,8 @@ items:
             href: operations/delete-org.md
           - name: Подключить управляемую организацию
             href: operations/add-region.md
+          - name: Настроить брендирование
+            href: operations/manage-branding.md
       - name: Управление пользователями
         items:
           - name: Обзор
@@ -289,6 +291,8 @@ items:
         href: concepts/mfa.md
       - name: Управляемые организации
         href: concepts/controlled-org.md
+      - name: Брендирование
+        href: concepts/branding.md
       - name: Портал Мой аккаунт
         href: concepts/my-account.md
       - name: Аудитные логи и логи входа
@@ -1648,3 +1652,4 @@ items:
     href: sync-agent-release-notes.md
   - name: Обучающие курсы
     href: training.md
+path: ru/organization/toc.yaml

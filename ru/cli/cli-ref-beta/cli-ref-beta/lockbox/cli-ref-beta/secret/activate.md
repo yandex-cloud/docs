@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/lockbox/cli-ref-beta/secret/activate.md
 ---
 
 # yc beta lockbox secret activate

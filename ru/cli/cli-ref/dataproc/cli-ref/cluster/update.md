@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/cluster/update.md
 ---
 
 # yc dataproc cluster update

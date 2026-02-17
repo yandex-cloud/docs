@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/cluster/stop.md
 ---
 
 # yc managed-mongodb cluster stop

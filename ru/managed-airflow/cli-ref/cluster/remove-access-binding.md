@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-airflow/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-airflow cluster remove-access-binding

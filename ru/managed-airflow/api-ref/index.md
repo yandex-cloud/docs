@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/airflow/v1/api-ref/index.md
 ---
 
 # Managed Service for Apache Airflow™ API: REST reference

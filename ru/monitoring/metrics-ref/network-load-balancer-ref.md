@@ -2,7 +2,6 @@
 title: Метрики {{ network-load-balancer-full-name }}
 description: Из статьи вы узнаете про метрики {{ network-load-balancer-name }}.
 editable: false
-sourcePath: ru/monitoring_includes/metrics-ref/network-load-balancer-ref.md
 ---
 
 # Метрики {{ network-load-balancer-full-name }}

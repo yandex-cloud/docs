@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Community/setRestrictions.md
 ---
 
 # DataSphere API v2, gRPC: CommunityService.SetRestrictions

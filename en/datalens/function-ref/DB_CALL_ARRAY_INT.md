@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DB_CALL_ARRAY_INT.md
 ---
 
 # DB_CALL_ARRAY_INT

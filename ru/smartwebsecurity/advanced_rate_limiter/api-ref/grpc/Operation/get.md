@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/advanced_rate_limiter/api-ref/grpc/Operation/get.md
 ---
 
 # SmartWebSecurity ARL API, gRPC: OperationService.Get

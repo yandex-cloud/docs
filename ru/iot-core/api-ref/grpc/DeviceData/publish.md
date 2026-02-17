@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/DeviceData/publish.md
 ---
 
 # IoT Core Service, gRPC: DeviceDataService.Publish

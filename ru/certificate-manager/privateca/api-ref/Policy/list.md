@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Policy/list.md
 ---
 
 # Certificate Manager Private CA API, REST: Policy.List

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/responses/getResponse.md
 ---
 
 # REST: Get a model response

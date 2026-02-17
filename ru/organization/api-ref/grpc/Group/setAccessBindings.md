@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/setAccessBindings.md
 ---
 
 # Identity Hub API, gRPC: GroupService.SetAccessBindings

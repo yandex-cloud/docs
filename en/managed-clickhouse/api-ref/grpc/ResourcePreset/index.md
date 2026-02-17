@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/ResourcePreset/index.md
 ---
 
 # Managed Service for ClickHouse API, gRPC: ResourcePresetService

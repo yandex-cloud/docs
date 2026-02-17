@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/connect-to-serial-port.md
 ---
 
 # yc compute connect-to-serial-port

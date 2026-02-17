@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.UpdateAccessBindings

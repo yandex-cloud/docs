@@ -39,7 +39,6 @@ apiPlayground:
             type: string
         required:
           - name
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Database/create.md
 ---
 
 # Managed Service for SPQR API, REST: Database.Create

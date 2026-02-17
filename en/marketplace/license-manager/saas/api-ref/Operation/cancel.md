@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/Operation/cancel.md
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Operation.Cancel

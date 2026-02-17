@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/cluster/remove-labels.md
 ---
 
 # yc dataproc cluster remove-labels

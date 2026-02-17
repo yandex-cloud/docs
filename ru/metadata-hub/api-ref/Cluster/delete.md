@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/metastore/v1/api-ref/Cluster/delete.md
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster.Delete

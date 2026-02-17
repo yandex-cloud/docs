@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Operation/index.md
 ---
 
 # DataSphere API v2, REST: Operation

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/quota-manager/cli-ref/quota-request/list-operations.md
 ---
 
 # yc quota-manager quota-request list-operations

@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/video/v1/api-ref/Channel/updateAccessBindings.md
 ---
 
 # Video API, REST: Channel.UpdateAccessBindings

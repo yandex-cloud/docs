@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/certificatemanager/events-ref/CreateCaUsageRestriction.md
 ---
 
 # Certificate Manager Audit Trails Events: CreateCaUsageRestriction

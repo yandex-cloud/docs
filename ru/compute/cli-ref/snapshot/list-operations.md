@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/snapshot/list-operations.md
 ---
 
 # yc compute snapshot list-operations

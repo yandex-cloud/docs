@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Backup/list.md
 ---
 
 # Managed Service for MongoDB API, gRPC: BackupService.List

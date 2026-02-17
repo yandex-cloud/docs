@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/access-analyzer/list-subject-access-bindings.md
 ---
 
 # yc iam access-analyzer list-subject-access-bindings

@@ -10,13 +10,13 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
   1. To the right of the cloud name, click ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.CloudActions.button_action-delete-cloud_3simi }}**.
 
-     ![delete-cloud1](../../../_assets/resource-manager/delete-cloud-en1.png)
+     ![delete-cloud1](../../../_assets/resource-manager/delete-cloud-1.png)
 
   1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default period is seven days.
   1. Enter the cloud name to confirm deletion.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
-     ![delete-cloud2](../../../_assets/resource-manager/delete-cloud-en2.png)
+     ![delete-cloud2](../../../_assets/resource-manager/delete-cloud-2.png)
 
 - CLI {#cli}
 

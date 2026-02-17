@@ -131,7 +131,6 @@ apiPlayground:
               - externalAddressSpec
           - required:
               - internalAddressSpec
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/addListener.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.AddListener

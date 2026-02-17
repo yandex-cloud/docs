@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseMcpCallInProgress.md
 ---
 
 # REST: response.mcp_call.in_progress '[CURRENTLY NOT SUPPORTED]'

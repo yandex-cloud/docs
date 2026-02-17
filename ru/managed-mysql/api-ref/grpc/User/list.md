@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/User/list.md
 ---
 
 # Managed Service for MySQL API, gRPC: UserService.List

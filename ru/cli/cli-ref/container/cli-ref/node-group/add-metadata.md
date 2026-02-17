@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/node-group/add-metadata.md
 ---
 
 # yc container node-group add-metadata

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/cluster/remove-labels.md
 ---
 
 # yc managed-kubernetes cluster remove-labels

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/baremetal/events-ref/UpdateImage.md
 ---
 
 # BareMetal Audit Trails Events: UpdateImage

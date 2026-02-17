@@ -1,6 +1,5 @@
 ---
 subcategory: DataSphere
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/datasphere_community.md
 ---
 
 # yandex_datasphere_community (DataSource)

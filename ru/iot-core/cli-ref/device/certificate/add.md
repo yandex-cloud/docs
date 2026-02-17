@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/device/certificate/add.md
 ---
 
 # yc iot device certificate add

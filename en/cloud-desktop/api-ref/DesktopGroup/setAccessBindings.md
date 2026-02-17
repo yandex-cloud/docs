@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/setAccessBindings.md
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.SetAccessBindings

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/UpdateInstanceGroup.md
 ---
 
 # Compute Audit Trails Events: UpdateInstanceGroup

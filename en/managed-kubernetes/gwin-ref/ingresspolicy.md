@@ -1,6 +1,3 @@
----
-sourcePath: en/_gwin-ref/gwin-ref/ingresspolicy.md
----
 # IngressPolicy
 
 IngressPolicy is a Gwin custom resource for configuring ingress-level policies in Yandex Application Load Balancer. It allows you to define ingress group settings, load balancer configuration, backend settings, and virtual host options that apply to Ingress resources.

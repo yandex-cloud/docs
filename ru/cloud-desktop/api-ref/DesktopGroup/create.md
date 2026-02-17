@@ -205,7 +205,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/Subject'
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/create.md
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.Create

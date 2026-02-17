@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ARR_PRODUCT.md
 ---
 
 # ARR_PRODUCT

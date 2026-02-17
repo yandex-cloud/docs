@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Operation/get.md
 ---
 
 # Certificate Manager API, REST: Operation.Get

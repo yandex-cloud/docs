@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/kms/cli-ref-beta/asymmetric-signature-key/list-access-bindings.md
 ---
 
 # yc beta kms asymmetric-signature-key list-access-bindings

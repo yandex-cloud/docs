@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/transfer/create.md
 ---
 
 # yc datatransfer transfer create

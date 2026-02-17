@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/listVectorStoreFiles.md
 ---
 
 # REST: List vector store files

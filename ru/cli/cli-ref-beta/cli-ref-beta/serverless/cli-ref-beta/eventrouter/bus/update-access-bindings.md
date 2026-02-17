@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/serverless/cli-ref-beta/eventrouter/bus/update-access-bindings.md
 ---
 
 # yc beta serverless eventrouter bus update-access-bindings

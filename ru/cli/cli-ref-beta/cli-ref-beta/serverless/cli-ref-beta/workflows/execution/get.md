@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/serverless/cli-ref-beta/workflows/execution/get.md
 ---
 
 # yc beta serverless workflows execution get

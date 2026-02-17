@@ -48,7 +48,6 @@ apiPlayground:
       UnpublishEpisodeAction:
         type: object
         properties: {}
-sourcePath: en/_api-ref/video/v1/api-ref/Episode/performAction.md
 ---
 
 # Video API, REST: Episode.PerformAction

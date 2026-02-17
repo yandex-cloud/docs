@@ -27,7 +27,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/enableZones.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.EnableZones

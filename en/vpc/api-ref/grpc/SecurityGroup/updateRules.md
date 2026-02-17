@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/SecurityGroup/updateRules.md
 ---
 
 # Virtual Private Cloud API, gRPC: SecurityGroupService.UpdateRules

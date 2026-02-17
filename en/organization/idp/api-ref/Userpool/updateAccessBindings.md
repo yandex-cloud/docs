@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/updateAccessBindings.md
 ---
 
 # Identity Provider API, REST: Userpool.UpdateAccessBindings

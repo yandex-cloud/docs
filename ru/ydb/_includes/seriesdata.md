@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/_includes/seriesdata.md
+---
 Создайте файл `seriesdata.json` с данными для загрузки, например с помощью редактора nano:
 
 ```bash

@@ -28,6 +28,29 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_mdb">Yandex Managed Databases
     Service Level</a>.
+meta:
+  title: Yandex StoreDoc
+  description: >-
+    With Yandex StoreDoc, you can deploy and maintain clusters of Yandex
+    StoreDoc 6.0 and 7.0 servers in the Yandex Cloud infrastructure.
+  keywords:
+    - keyword: '{{ mmg-name }}'
+    - keyword: '{{ mmg-full-name }}'
+    - keyword: Service {{ mmg-name }}
+    - keyword: '{{ MG }} in {{ yandex-cloud }}'
+    - keyword: '{{ SD }} in {{ yandex-cloud }}'
+    - keyword: '{{ MG }} cluster'
+    - keyword: '{{ SD }} cluster'
+    - keyword: '{{ MG }} server clusters'
+    - keyword: '{{ SD }} server clusters'
+    - keyword: '{{ MG }}'
+    - keyword: '{{ SD }}'
+    - keyword: MongoDB
+    - keyword: StoreDoc
+    - keyword: '{{ MG }} in cloud'
+    - keyword: '{{ SD }} in cloud'
+    - keyword: NoSQL DBMS
+    - keyword: Open source DBMS
 links:
   - title: Getting started
     description: Create your first database cluster
@@ -50,26 +73,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
-meta:
-  title: Yandex StoreDoc
-  description: >-
-    With Yandex StoreDoc, you can deploy and maintain clusters of Yandex
-    StoreDoc 6.0 and 7.0 servers in the Yandex Cloud infrastructure.
-  keywords:
-    - '{{ mmg-name }}'
-    - '{{ mmg-full-name }}'
-    - Service {{ mmg-name }}
-    - '{{ MG }} in {{ yandex-cloud }}'
-    - '{{ SD }} in {{ yandex-cloud }}'
-    - '{{ MG }} cluster'
-    - '{{ SD }} cluster'
-    - '{{ MG }} server clusters'
-    - '{{ SD }} server clusters'
-    - '{{ MG }}'
-    - '{{ SD }}'
-    - MongoDB
-    - StoreDoc
-    - '{{ MG }} in cloud'
-    - '{{ SD }} in cloud'
-    - NoSQL DBMS
-    - Open source DBMS

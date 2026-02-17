@@ -26,7 +26,6 @@ apiPlayground:
         - channelId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/batchGet.md
 ---
 
 # Video API, REST: StreamLine.BatchGet

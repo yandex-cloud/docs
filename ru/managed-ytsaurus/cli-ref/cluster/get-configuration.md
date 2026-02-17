@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-ytsaurus/cli-ref/cluster/get-configuration.md
 ---
 
 # yc managed-ytsaurus cluster get-configuration

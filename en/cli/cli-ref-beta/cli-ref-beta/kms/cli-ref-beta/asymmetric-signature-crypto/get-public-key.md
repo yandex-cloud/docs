@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/kms/cli-ref-beta/asymmetric-signature-crypto/get-public-key.md
 ---
 
 # yc beta kms asymmetric-signature-crypto get-public-key

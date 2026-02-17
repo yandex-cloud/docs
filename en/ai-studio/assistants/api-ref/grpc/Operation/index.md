@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/assistants/api-ref/grpc/Operation/index.md
 ---
 
 # AI Assistants API, gRPC: OperationService

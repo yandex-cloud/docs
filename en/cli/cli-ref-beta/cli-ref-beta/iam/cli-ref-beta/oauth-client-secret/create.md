@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iam/cli-ref-beta/oauth-client-secret/create.md
 ---
 
 # yc beta iam oauth-client-secret create

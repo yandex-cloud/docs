@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/Database/create.md
 ---
 
 # Managed Service for YDB API, gRPC: DatabaseService.Create

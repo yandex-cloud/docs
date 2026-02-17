@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/audit-trails/cli-ref/trail/create.md
 ---
 
 # yc audit-trails trail create

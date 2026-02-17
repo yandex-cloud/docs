@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-spark/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-spark cluster remove-access-binding

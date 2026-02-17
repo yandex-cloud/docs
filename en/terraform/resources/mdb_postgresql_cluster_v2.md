@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for PostgreSQL
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_postgresql_cluster_v2.md
 ---
 
 # yandex_mdb_postgresql_cluster_v2 (Resource)

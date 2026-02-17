@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/Wordstat/getDynamics.md
 ---
 
 # Web Search API, gRPC: WordstatService.GetDynamics

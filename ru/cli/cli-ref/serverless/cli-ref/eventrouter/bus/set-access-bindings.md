@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/bus/set-access-bindings.md
 ---
 
 # yc serverless eventrouter bus set-access-bindings

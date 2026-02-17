@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/rental-period/list.md
 ---
 
 # yc baremetal rental-period list

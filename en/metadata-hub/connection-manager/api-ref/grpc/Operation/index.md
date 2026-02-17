@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/connectionmanager/v1/connection-manager/api-ref/grpc/Operation/index.md
 ---
 
 # Connection Manager API, gRPC: OperationService

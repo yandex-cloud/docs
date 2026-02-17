@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/s3api/delete-object-tagging.md
 ---
 
 # yc storage s3api delete-object-tagging

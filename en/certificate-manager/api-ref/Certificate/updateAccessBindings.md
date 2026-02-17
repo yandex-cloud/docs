@@ -174,7 +174,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/updateAccessBindings.md
 ---
 
 # Certificate Manager API, REST: Certificate.UpdateAccessBindings

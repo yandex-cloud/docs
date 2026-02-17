@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Operation/index.md
 ---
 
 # IoT Core Service, REST: Operation

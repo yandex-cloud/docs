@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Execution/start.md
 ---
 
 # Workflows Service, gRPC: ExecutionService.Start

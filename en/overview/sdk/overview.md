@@ -1,7 +1,6 @@
 ---
 title: '{{ yandex-cloud }} SDK overview'
 description: Learn about the SDKs used to work with {{ yandex-cloud }}
-sourcePath: en/sdk/sdk/overview.md
 ---
 
 # {{ yandex-cloud }} SDK overview

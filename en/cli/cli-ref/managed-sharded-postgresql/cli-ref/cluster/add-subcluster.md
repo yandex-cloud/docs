@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/cluster/add-subcluster.md
 ---
 
 # yc managed-sharded-postgresql cluster add-subcluster

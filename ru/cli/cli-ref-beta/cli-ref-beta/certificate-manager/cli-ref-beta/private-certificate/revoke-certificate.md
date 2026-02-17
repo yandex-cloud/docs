@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/certificate-manager/cli-ref-beta/private-certificate/revoke-certificate.md
 ---
 
 # yc beta certificate-manager private-certificate revoke-certificate

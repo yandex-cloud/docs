@@ -45,7 +45,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/Key/list.md
 ---
 
 # Identity and Access Management API, REST: Key.List

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/tuning.md
----
 # Tuning
 
 ## Tuning settings types

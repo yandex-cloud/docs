@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/list.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.List

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/cic/cli-ref-beta/public-connection/move.md
 ---
 
 # yc beta cic public-connection move

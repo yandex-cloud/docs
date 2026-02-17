@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/clientEvents/realtimeResponseCancel.md
 ---
 
 # REST: response.cancel

@@ -96,7 +96,6 @@ apiPlayground:
         oneOf:
           - required:
               - fixedScale
-sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/create.md
 ---
 
 # Compute Cloud API, REST: HostGroup.Create

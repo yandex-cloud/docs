@@ -59,7 +59,6 @@ apiPlayground:
               ID of the filesystem that should be attached.
               The maximum string length in characters is 50.
             type: string
-sourcePath: en/_api-ref/compute/v1/api-ref/Instance/attachFilesystem.md
 ---
 
 # Compute Cloud API, REST: Instance.AttachFilesystem

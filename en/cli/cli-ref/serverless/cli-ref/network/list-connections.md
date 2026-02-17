@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/network/list-connections.md
 ---
 
 # yc serverless network list-connections

@@ -15,7 +15,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getRegionsTree.md
 ---
 
 # Web Search API, REST: Wordstat.GetRegionsTree

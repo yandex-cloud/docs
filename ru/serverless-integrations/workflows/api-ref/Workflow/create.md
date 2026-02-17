@@ -159,7 +159,6 @@ apiPlayground:
         required:
           - cronExpression
           - timezone
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/create.md
 ---
 
 # Workflows Service, REST: Workflow.Create

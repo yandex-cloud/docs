@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/Sku/list.md
 ---
 
 # Billing API, gRPC: SkuService.List

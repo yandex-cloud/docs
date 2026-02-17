@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listVersions.md
 ---
 
 # Certificate Manager API, REST: Certificate.ListVersions

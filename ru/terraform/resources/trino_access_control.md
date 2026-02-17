@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Trino
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/trino_access_control.md
 ---
 
 # yandex_trino_access_control (Resource)

@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.SetAccessBindings

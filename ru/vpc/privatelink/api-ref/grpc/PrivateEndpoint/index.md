@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/vpc/v1/privatelink/api-ref/grpc/PrivateEndpoint/index.md
 ---
 
 # Virtual Private Cloud API, gRPC: PrivateEndpointService

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/api-ref/grpc/Userpool/deleteDomain.md
 ---
 
 # Identity Provider API, gRPC: UserpoolService.DeleteDomain

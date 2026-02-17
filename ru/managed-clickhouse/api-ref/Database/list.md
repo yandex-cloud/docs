@@ -38,7 +38,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/list.md
 ---
 
 # Managed Service for ClickHouse API, REST: Database.List

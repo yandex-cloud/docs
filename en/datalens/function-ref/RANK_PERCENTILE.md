@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/RANK_PERCENTILE.md
 ---
 
 # RANK_PERCENTILE (window)

@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/delete.md
 ---
 
 # Certificate Manager API, REST: Certificate.Delete

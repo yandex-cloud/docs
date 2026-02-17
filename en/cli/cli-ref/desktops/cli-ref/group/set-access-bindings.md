@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/desktops/cli-ref/group/set-access-bindings.md
 ---
 
 # yc desktops group set-access-bindings

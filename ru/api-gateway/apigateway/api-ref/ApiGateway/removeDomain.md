@@ -27,7 +27,6 @@ apiPlayground:
         - domainId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/removeDomain.md
 ---
 
 # API Gateway Service, REST: ApiGateway.RemoveDomain

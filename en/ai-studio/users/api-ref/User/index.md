@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/index.md
 ---
 
 # Users, REST: User

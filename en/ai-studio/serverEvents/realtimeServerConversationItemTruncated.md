@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerConversationItemTruncated.md
 ---
 
 # REST: conversation.item.truncated

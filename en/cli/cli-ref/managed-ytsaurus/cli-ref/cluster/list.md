@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-ytsaurus/cli-ref/cluster/list.md
 ---
 
 # yc managed-ytsaurus cluster list

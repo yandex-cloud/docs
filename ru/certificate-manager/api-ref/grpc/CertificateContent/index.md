@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/certificatemanager/v1/api-ref/grpc/CertificateContent/index.md
 ---
 
 # Certificate Manager API, gRPC: CertificateContentService

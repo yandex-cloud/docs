@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Network Load Balancer API, gRPC: OperationService.Cancel

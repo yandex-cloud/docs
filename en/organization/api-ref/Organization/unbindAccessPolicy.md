@@ -29,7 +29,6 @@ apiPlayground:
         - accessPolicyTemplateId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/unbindAccessPolicy.md
 ---
 
 # Identity Hub API, REST: Organization.UnbindAccessPolicy

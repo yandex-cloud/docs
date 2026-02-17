@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/get.md
 ---
 
 # Container Registry API, REST: Registry.Get

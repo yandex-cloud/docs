@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/function/version/set-tag.md
 ---
 
 # yc serverless function version set-tag

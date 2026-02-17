@@ -1,3 +1,7 @@
+---
+title: Публичные материалы о {{ ml-platform-name }}
+description: Видеозаписи конференций и вебинаров, посвященных {{ ml-platform-name }}.
+---
 
 # Публичные материалы о {{ ml-platform-name }}
 

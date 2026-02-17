@@ -1,6 +1,3 @@
----
-sourcePath: en/_gwin-ref/gwin-ref/ingress.md
----
 # Ingress
 
 Ingress manages external access to services in a cluster, typically HTTP. Gwin extends the standard Kubernetes Ingress resource with custom annotations for Yandex Application Load Balancer features.

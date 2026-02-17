@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/deleteConnection.md
 ---
 
 # DataLens API: Delete connection

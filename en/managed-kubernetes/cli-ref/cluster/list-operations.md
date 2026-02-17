@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/cluster/list-operations.md
 ---
 
 # yc managed-kubernetes cluster list-operations

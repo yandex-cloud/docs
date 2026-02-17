@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/mdbproxy/add-labels.md
 ---
 
 # yc serverless mdbproxy add-labels

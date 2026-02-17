@@ -45,7 +45,6 @@ apiPlayground:
               type: string
         required:
           - accessPolicyTemplateId
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/bindAccessPolicy.md
 ---
 
 # Resource Manager API, REST: Folder.BindAccessPolicy

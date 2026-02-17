@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/cluster/update.md
 ---
 
 # yc managed-opensearch cluster update

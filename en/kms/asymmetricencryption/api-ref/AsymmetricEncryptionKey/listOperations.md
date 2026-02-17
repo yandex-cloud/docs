@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/listOperations.md
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.ListOperations

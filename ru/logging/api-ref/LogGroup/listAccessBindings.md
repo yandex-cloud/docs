@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/listAccessBindings.md
 ---
 
 # Cloud Logging Service, REST: LogGroup.ListAccessBindings

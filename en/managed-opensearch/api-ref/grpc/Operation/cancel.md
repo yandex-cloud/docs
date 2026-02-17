@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Managed Service for OpenSearch API, gRPC: OperationService.Cancel

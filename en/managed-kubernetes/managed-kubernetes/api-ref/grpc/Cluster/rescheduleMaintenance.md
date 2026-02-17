@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/k8s/v1/managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md
 ---
 
 # Managed Services for Kubernetes API, gRPC: ClusterService.RescheduleMaintenance

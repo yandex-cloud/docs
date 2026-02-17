@@ -55,7 +55,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRule.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.UpdateRule

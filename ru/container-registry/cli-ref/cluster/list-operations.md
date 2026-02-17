@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/cluster/list-operations.md
 ---
 
 # yc container cluster list-operations

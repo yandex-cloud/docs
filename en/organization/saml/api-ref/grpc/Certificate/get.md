@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/get.md
 ---
 
 # SAML Federation API, gRPC: CertificateService.Get

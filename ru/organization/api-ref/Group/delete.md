@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/delete.md
 ---
 
 # Identity Hub API, REST: Group.Delete

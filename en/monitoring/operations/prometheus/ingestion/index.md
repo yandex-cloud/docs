@@ -1,7 +1,6 @@
 ---
 title: How to write metrics
 description: Follow this guide to write metrics.
-sourcePath: en/monitoring_includes/operations/prometheus/ingestion/index.md
 ---
 
 # Writing metrics

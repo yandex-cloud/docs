@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/baremetal/events-ref/ReinstallServer.md
 ---
 
 # BareMetal Audit Trails Events: ReinstallServer

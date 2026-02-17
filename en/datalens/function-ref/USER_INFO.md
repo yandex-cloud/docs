@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/USER_INFO.md
 ---
 
 # USER_INFO

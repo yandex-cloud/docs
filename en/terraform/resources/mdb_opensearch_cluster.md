@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for OpenSearch
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_opensearch_cluster.md
 ---
 
 # yandex_mdb_opensearch_cluster (Resource)

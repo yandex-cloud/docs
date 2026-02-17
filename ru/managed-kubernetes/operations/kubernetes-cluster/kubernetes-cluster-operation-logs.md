@@ -155,7 +155,7 @@
 
    - API {#api}
 
-     Воспользуйтесь вызовом gRPC API [OperationService/Get](../../managed-kubernetes/api-ref/grpc/Operation/get.md).
+     Воспользуйтесь методом REST API [get](../../managed-kubernetes/api-ref/Operation/get.md) для ресурса [Operation](../../managed-kubernetes/api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../../managed-kubernetes/api-ref/grpc/Operation/get.md).
 
    {% endlist %}
 

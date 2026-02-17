@@ -16,6 +16,15 @@ description:
     обслуживания</a>. Уровень обслуживания сервиса определен в документе <a
     href="https://yandex.ru/legal/cloud_sla_yt/ru/">Уровень обслуживания Yandex
     Managed Service for YTsaurus</a>.
+meta:
+  title: '{{ myt-full-name }}'
+  description: >-
+    Сервис {{ myt-name }} помогает разворачивать и поддерживать кластеры {{
+    ytsaurus-name }} в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: '{{ myt-name }}'
+    - keyword: '{{ myt-full-name }}'
+    - keyword: сервис {{ myt-name }}
 links:
   - title: Начало работы
     description: Создайте первый кластер {{ ytsaurus-name }}
@@ -35,12 +44,3 @@ links:
   - title: История изменений
     description: Перечень обновлений сервиса
     href: release-notes
-meta:
-  title: '{{ myt-full-name }}'
-  description: >-
-    Сервис {{ myt-name }} помогает разворачивать и поддерживать кластеры {{
-    ytsaurus-name }} в инфраструктуре Yandex Cloud.
-  keywords:
-    - '{{ myt-name }}'
-    - '{{ myt-full-name }}'
-    - сервис {{ myt-name }}

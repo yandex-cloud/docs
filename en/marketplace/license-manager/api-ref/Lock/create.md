@@ -23,7 +23,6 @@ apiPlayground:
         - resourceId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/create.md
 ---
 
 # Yandex Cloud Marketplace License Manager, REST: Lock.Create

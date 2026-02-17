@@ -229,7 +229,6 @@ apiPlayground:
               maxLength: 63
               minLength: 1
             maxProperties: 64
-sourcePath: en/_api-ref/searchapi/v2/api-ref/GenSearch/search.md
 ---
 
 # Web Search API, REST: GenSearch.Search

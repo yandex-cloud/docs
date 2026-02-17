@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/catalog/update/oracle.md
 ---
 
 # yc managed-trino catalog update oracle

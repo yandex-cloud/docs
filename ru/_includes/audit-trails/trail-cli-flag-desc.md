@@ -3,19 +3,22 @@
 * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта.
 * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета {{ objstorage-full-name }}, в который будут загружаться аудитные логи.
 
-    С этим параметром нельзя использовать параметры `--destination-log-group-id` и `--destination-yds-stream`.
+    С этим параметром нельзя использовать параметры `--destination-log-group-id`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
 * `--destination-bucket-object-prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
     {% include [note-bucket-prefix](./note-bucket-prefix.md) %}
 
 * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую будут загружаться аудитные логи.
 
-    С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
+    С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
 * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут загружаться аудитные логи.
 
-    С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-log-group-id`.
+    С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-eventrouter-connector-id`.
 * `--destination-yds-database-id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}.
 * `--destination-yds-codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+* `--destination-eventrouter-connector-id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`, в которую будут загружаться аудитные логи.
+
+    С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-yds-stream`.
 * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
 * `--filter-all-cloud-id` — [идентификатор](../../resource-manager/operations/cloud/get-id.md) облака, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
 * `--filter-all-organisation-id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, для всех ресурсов которой будут регистрироваться события уровня конфигурации.

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/speechsense/v1/api-ref/Operation/index.md
 ---
 
 # Talk Analytics API, REST: Operation

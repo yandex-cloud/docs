@@ -269,3 +269,4 @@ items:
                 href: api-ref/Registry/listArtifacts.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+path: en/cloud-registry/toc.yaml

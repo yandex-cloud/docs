@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-kubernetes/cli-ref-beta/cluster/list-access-bindings.md
 ---
 
 # yc beta managed-kubernetes cluster list-access-bindings

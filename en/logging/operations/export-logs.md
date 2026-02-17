@@ -1,7 +1,6 @@
 ---
 title: How to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}
 description: In this guide, you will learn how to export logs from {{ cloud-logging-name }} to {{ objstorage-name }}.
-sourcePath: en/logging_includes/operations/export-logs.md
 ---
 
 # Exporting logs to {{ objstorage-name }}

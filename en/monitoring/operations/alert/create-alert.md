@@ -1,7 +1,6 @@
 ---
 title: Creating an alert
 description: Follow this guide to create an alert.
-sourcePath: en/monitoring_includes/operations/alert/create-alert.md
 ---
 
 # Creating an alert

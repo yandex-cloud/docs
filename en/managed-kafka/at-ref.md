@@ -1,6 +1,6 @@
 ---
 title: '{{ mkf-full-name }} event reference in {{ at-full-name }}'
-description: This page gives a reference for {{ mkf-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ mkf-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference

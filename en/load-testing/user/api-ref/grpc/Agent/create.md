@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Agent/create.md
 ---
 
 # Load Testing API, gRPC: AgentService.Create

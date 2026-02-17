@@ -82,7 +82,6 @@ apiPlayground:
         required:
           - name
           - password
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/User/create.md
 ---
 
 # Managed Service for SPQR API, REST: User.Create

@@ -2,7 +2,6 @@
 title: '{{ cdn-full-name }} metrics'
 description: In this tutorial, you will learn about {{ cdn-name }} metrics.
 editable: false
-sourcePath: en/monitoring_includes/metrics-ref/cdn-ref.md
 ---
 
 # {{ cdn-full-name }} metrics

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/api-ref/grpc/Synchronization/listSupportedAttributes.md
 ---
 
 # Identity Provider API, gRPC: SynchronizationService.ListSupportedAttributes

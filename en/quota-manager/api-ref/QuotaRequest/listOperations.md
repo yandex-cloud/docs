@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/listOperations.md
 ---
 
 # Quota Manager API, REST: QuotaRequest.ListOperations

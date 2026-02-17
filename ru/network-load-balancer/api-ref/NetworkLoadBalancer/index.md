@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/index.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer

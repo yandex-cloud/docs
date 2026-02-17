@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/listAccessBindings.md
 ---
 
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.ListAccessBindings

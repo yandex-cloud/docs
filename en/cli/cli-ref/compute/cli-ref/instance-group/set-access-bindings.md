@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance-group/set-access-bindings.md
 ---
 
 # yc compute instance-group set-access-bindings

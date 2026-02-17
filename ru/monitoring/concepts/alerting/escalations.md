@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/concepts/alerting/escalations.md
----
 # Эскалации
 
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}

@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/logging/v1/api-ref/Export/get.md
 ---
 
 # Cloud Logging Service, REST: Export.Get

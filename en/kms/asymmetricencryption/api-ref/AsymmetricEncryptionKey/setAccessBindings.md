@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md
 ---
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.SetAccessBindings

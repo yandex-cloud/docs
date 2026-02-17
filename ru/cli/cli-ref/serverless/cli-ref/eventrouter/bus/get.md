@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/bus/get.md
 ---
 
 # yc serverless eventrouter bus get

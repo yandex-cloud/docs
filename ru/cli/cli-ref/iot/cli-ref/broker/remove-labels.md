@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/broker/remove-labels.md
 ---
 
 # yc iot broker remove-labels

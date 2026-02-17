@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/folder/add-labels.md
 ---
 
 # yc resource-manager folder add-labels

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/node-group/remove-metadata.md
 ---
 
 # yc container node-group remove-metadata

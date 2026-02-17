@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerMcpListToolsFailed.md
 ---
 
 # REST: mcp_list_tools.failed

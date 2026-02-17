@@ -70,7 +70,6 @@ apiPlayground:
             - lineId
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Episode/list.md
 ---
 
 # Video API, REST: Episode.List

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/lockbox/v1/api-ref/grpc/Payload/getEx.md
 ---
 
 # Lockbox API, gRPC: PayloadService.GetEx

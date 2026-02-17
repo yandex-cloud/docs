@@ -33,6 +33,48 @@ description:
     соблюдение нормативных актов и отраслевых стандартов. Управление настройками
     и ресурсами модулей осуществляется через <a
     href="/docs/security-deck/concepts/workspace">окружения</a> (Workspaces).
+meta:
+  title: Yandex Security Deck
+  description: >-
+    Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
+    модули контроля данных ({{ dspm-name }}), контроля конфигурации ({{
+    cspm-name }}), контроля {{ k8s }} (KSPM), диагностики доступов ({{ ciem-name
+    }}), {{ alerts-name }}, {{ atr-name }}, AI-ассистентом для обеспечения
+    безопасности облачной инфраструктуры и Порталом соответствия требованиям.
+  keywords:
+    - keyword: '{{ sd-name }}'
+    - keyword: '{{ sd-full-name }}'
+    - keyword: сервис {{ sd-name }}
+    - keyword: сервис CNAPP
+    - keyword: модули {{ atr-name }}
+    - keyword: контроль данных {{ dspm-name }}
+    - keyword: комплаенс яндекс облака
+    - keyword: диагностика доступов {{ ciem-name }}
+    - keyword: портал соответствия требованиям в {{ yandex-cloud }}
+    - keyword: compliance {{ yandex-cloud }}
+    - keyword: информационная безопасность {{ yandex-cloud }}
+    - keyword: диагностика доступа в {{ yandex-cloud }}
+    - keyword: уязвимости {{ yandex-cloud }}
+    - keyword: защита данных в {{ yandex-cloud }}
+    - keyword: мониторинг инцидентов {{ yandex-cloud }}
+    - keyword: реагирование на инциденты {{ yandex-cloud }}
+    - keyword: SOC {{ yandex-cloud }}
+    - keyword: контроль конфигурации {{ cspm-name }}
+    - keyword: '{{ cspm-name }}'
+    - keyword: Cloud Security Posture Management
+    - keyword: контроль {{ k8s }} KSPM
+    - keyword: KSPM {{ yandex-cloud }}
+    - keyword: Kubernetes Security Posture Management
+    - keyword: безопасность контейнеров {{ yandex-cloud }}
+    - keyword: '{{ alerts-name }}'
+    - keyword: алерты безопасности {{ yandex-cloud }}
+    - keyword: уведомления безопасности {{ yandex-cloud }}
+    - keyword: AI-ассистент безопасности
+    - keyword: '{{ yagpt-name }} безопасность'
+    - keyword: рекомендации по безопасности {{ yandex-cloud }}
+    - keyword: окружения {{ sd-name }}
+    - keyword: Workspaces {{ sd-name }}
+    - keyword: управление окружениями безопасности
 links:
   - title: Начало работы
     description: Начало работы с сервисом Yandex Security Deck
@@ -52,45 +94,3 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-meta:
-  title: Yandex Security Deck
-  description: >-
-    Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
-    модули контроля данных ({{ dspm-name }}), контроля конфигурации ({{
-    cspm-name }}), контроля {{ k8s }} (KSPM), диагностики доступов ({{ ciem-name
-    }}), {{ alerts-name }}, {{ atr-name }}, AI-ассистентом для обеспечения
-    безопасности облачной инфраструктуры и Порталом соответствия требованиям.
-  keywords:
-    - '{{ sd-name }}'
-    - '{{ sd-full-name }}'
-    - сервис {{ sd-name }}
-    - сервис CNAPP
-    - модули {{ atr-name }}
-    - контроль данных {{ dspm-name }}
-    - комплаенс яндекс облака
-    - диагностика доступов {{ ciem-name }}
-    - портал соответствия требованиям в {{ yandex-cloud }}
-    - compliance {{ yandex-cloud }}
-    - информационная безопасность {{ yandex-cloud }}
-    - диагностика доступа в {{ yandex-cloud }}
-    - уязвимости {{ yandex-cloud }}
-    - защита данных в {{ yandex-cloud }}
-    - мониторинг инцидентов {{ yandex-cloud }}
-    - реагирование на инциденты {{ yandex-cloud }}
-    - SOC {{ yandex-cloud }}
-    - контроль конфигурации {{ cspm-name }}
-    - '{{ cspm-name }}'
-    - Cloud Security Posture Management
-    - контроль {{ k8s }} KSPM
-    - KSPM {{ yandex-cloud }}
-    - Kubernetes Security Posture Management
-    - безопасность контейнеров {{ yandex-cloud }}
-    - '{{ alerts-name }}'
-    - алерты безопасности {{ yandex-cloud }}
-    - уведомления безопасности {{ yandex-cloud }}
-    - AI-ассистент безопасности
-    - '{{ yagpt-name }} безопасность'
-    - рекомендации по безопасности {{ yandex-cloud }}
-    - окружения {{ sd-name }}
-    - Workspaces {{ sd-name }}
-    - управление окружениями безопасности

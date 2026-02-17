@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance-group/remove-metadata.md
 ---
 
 # yc compute instance-group remove-metadata

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/kms/v1/api-ref/grpc/SymmetricKey/get.md
 ---
 
 # Key Management Service API, gRPC: SymmetricKeyService.Get

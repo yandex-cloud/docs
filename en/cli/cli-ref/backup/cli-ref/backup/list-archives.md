@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/backup/list-archives.md
 ---
 
 # yc backup backup list-archives

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-airflow/cli-ref-beta/cluster/get.md
 ---
 
 # yc beta managed-airflow cluster get

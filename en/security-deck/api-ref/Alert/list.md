@@ -60,7 +60,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/securitydeck/alerts/v1/api-ref/Alert/list.md
 ---
 
 # Security Deck Alerts API, REST: Alert.List

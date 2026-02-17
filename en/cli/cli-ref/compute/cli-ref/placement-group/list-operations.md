@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/placement-group/list-operations.md
 ---
 
 # yc compute placement-group list-operations

@@ -48,7 +48,6 @@ apiPlayground:
         - crlReason
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/revokeCertificate.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.RevokeCertificate

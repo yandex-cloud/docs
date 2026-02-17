@@ -1,6 +1,5 @@
 ---
 subcategory: Container Registry
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/container_repository_lifecycle_policy.md
 ---
 
 # yandex_container_repository_lifecycle_policy (DataSource)

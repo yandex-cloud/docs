@@ -1,20 +1,21 @@
 title: Using Microsoft products in Yandex Cloud
-description: >-
-  Move your familiar Microsoft tools to the cloud and use the ready-made
-  scalable Yandex Cloud infrastructure to implement your projects.
-links:
-  - title: Tutorials
-    description: Detailed instructions on how to use Microsoft products in Yandex Cloud
-    href: tutorials/
+description:
+  - >-
+    Move your familiar Microsoft tools to the cloud and use the ready-made
+    scalable Yandex Cloud infrastructure to implement your projects.
 meta:
   title: Using Microsoft products in Yandex Cloud
   description: >-
     Move your familiar Microsoft tools to the cloud and use the ready-made
     scalable Yandex Cloud infrastructure to implement your projects.
   keywords:
-    - microsoft in {{ yandex-cloud }}
-    - microsoft tools in {{ yandex-cloud }}
-    - microsoft products in {{ yandex-cloud }}
-    - microsoft office in {{ yandex-cloud }}
-    - Windows in {{ yandex-cloud }}
-    - microsoft tools in cloud
+    - keyword: microsoft in {{ yandex-cloud }}
+    - keyword: microsoft tools in {{ yandex-cloud }}
+    - keyword: microsoft products in {{ yandex-cloud }}
+    - keyword: microsoft office in {{ yandex-cloud }}
+    - keyword: Windows in {{ yandex-cloud }}
+    - keyword: microsoft tools in cloud
+links:
+  - title: Tutorials
+    description: Detailed instructions on how to use Microsoft products in Yandex Cloud
+    href: tutorials/

@@ -299,7 +299,6 @@ apiPlayground:
         required:
           - amount
           - endDate
-sourcePath: en/_api-ref/billing/v1/api-ref/Budget/create.md
 ---
 
 # Billing API, REST: Budget.Create

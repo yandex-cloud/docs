@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/create-with-container.md
 ---
 
 # yc compute instance create-with-container

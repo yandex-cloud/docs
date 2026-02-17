@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/files/retrieveFile.md
 ---
 
 # REST: Retrieve file

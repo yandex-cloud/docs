@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/extension/list.md
 ---
 
 # yc managed-opensearch extension list

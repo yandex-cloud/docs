@@ -30,7 +30,6 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/move.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.Move

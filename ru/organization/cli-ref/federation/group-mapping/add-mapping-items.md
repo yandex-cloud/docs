@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/federation/group-mapping/add-mapping-items.md
 ---
 
 # yc organization-manager federation group-mapping add-mapping-items

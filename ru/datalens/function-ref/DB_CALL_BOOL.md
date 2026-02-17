@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/DB_CALL_BOOL.md
 ---
 
 # DB_CALL_BOOL

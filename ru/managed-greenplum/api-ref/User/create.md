@@ -53,7 +53,6 @@ apiPlayground:
             type: string
         required:
           - name
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/User/create.md
 ---
 
 # Managed Service for Greenplum® API, REST: User.Create

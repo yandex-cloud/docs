@@ -141,3 +141,4 @@ items:
         href: jwt.md
       - name: Технология единого входа (SSO)
         href: sso.md
+path: ru/glossary/toc.yaml

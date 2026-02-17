@@ -2,8 +2,61 @@
 
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-12
+index: 3
+```
 
+### {{ k8s }} 1.34 in RAPID, 1.33 in REGULAR
 
+![image](../_assets/managed-kubernetes/rapid-1-34-regular-1-33.png)
+
+Use the latest version of {{ k8s }} in your clusters. The following {{ k8s }} versions are now available in the [release channels]({{ link-docs }}/managed-kubernetes/concepts/release-channels-and-updates):
+* 1.34 in `RAPID`
+* 1.33 in `REGULAR`
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-09
+index: 2
+```
+
+### Accessing the {{ yandex-cloud }} API from a cluster using an {{ iam-short-name }} workload identity federation
+
+![image](../_assets/managed-kubernetes/mk8s-wlif.svg)
+
+Get an IAM token for the {{ yandex-cloud }} API authentication directly from your cluster pod by integrating with an {{ iam-name }} workload identity federation. For more information, see the following:
+* [Integration guide]({{ link-docs }}/managed-kubernetes/tutorials/wlif-managed-k8s-integration)
+* [Yandex Neuro Scale 2025 report](https://scale.yandex.cloud/?broadcast=89&speech=2653)
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-09
+index: 1
+```
+
+### {{ yandex-cloud }} Gwin controller 
+
+![image](../_assets/managed-kubernetes/gwin-scheme.png)
+
+Use the new {{ yandex-cloud }} Gwin controller for balancing with {{ alb-name }}. Both the {{ k8s }} [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [Gateway API](https://gateway-api.sigs.k8s.io/) specifications are supported. For more information, see the following:
+* [Gwin tutorials]({{ link-docs }}/managed-kubernetes/alb-ref/gwin-index)
+* [Yandex Neuro Scale 2025 report](https://scale.yandex.cloud/?broadcast=89&speech=2658)
+
+#### Ubuntu 22.04 on cluster nodes
+
+Starting with {{ k8s }} version 1.30, the node OS changed from Ubuntu 20.04 to Ubuntu 22.04. When you update node groups within these versions, new nodes are automatically created from an Ubuntu 22.04 VM image. For more information, see [Updating node group OS]({{ link-docs }}/managed-kubernetes/concepts/node-os-update).
+
+#### Selecting the master configuration in the CLI and {{ TF }}
+
+Use the [{{ yandex-cloud }} CLI]({{ link-docs }}/cli/) and [{{ TF }}]({{ link-docs }}/terraform/) tools to [configure]({{ link-docs }}/managed-kubernetes/concepts/#master-resources) master resources. For more information, see [Creating a {{ managed-k8s-name }} cluster]({{ link-docs }}/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create).
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 

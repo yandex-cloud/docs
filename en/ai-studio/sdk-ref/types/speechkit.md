@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/speechkit.md
----
 # Speechkit
 
 ## Text to speech

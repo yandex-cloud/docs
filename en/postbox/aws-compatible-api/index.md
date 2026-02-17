@@ -13,8 +13,6 @@ keywords:
   - postbox
   - cloud postbox
   - yandex cloud postbox
-  - ses api
-  - aws api
 ---
 
 # How to use the Amazon API to access {{ postbox-name }}

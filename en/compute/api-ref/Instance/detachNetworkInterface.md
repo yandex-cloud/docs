@@ -27,7 +27,6 @@ apiPlayground:
         - networkInterfaceIndex
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachNetworkInterface.md
 ---
 
 # Compute Cloud API, REST: Instance.DetachNetworkInterface

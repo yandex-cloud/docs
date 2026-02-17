@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/marketplace/helm-release/list.md
 ---
 
 # yc managed-kubernetes marketplace helm-release list

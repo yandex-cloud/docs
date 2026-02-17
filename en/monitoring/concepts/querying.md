@@ -1,7 +1,6 @@
 ---
 title: Query language in {{ monitoring-full-name }}
 description: This section describes the {{ monitoring-full-name }} query language. It is used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method.
-sourcePath: en/monitoring_includes/concepts/querying.md
 ---
 
 # Query language in {{ monitoring-name }}

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/container/cli-ref-beta/registry/list-ip-permission.md
 ---
 
 # yc beta container registry list-ip-permission

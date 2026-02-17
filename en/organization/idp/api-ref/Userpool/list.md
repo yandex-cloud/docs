@@ -44,7 +44,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/list.md
 ---
 
 # Identity Provider API, REST: Userpool.List

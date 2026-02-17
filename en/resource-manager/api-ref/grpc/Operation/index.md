@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Operation/index.md
 ---
 
 # Resource Manager API, gRPC: OperationService

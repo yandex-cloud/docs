@@ -18,7 +18,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/list.md
 ---
 
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.List

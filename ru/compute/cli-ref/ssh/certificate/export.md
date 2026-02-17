@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/ssh/certificate/export.md
 ---
 
 # yc compute ssh certificate export

@@ -27,6 +27,23 @@ description:
     href="https://yandex.com/legal/cloud_terms_search_api">{{
     search-api-full-name }}</a> Terms of Use for non-residents of Russia and
     Kazakhstan</li> </ul>
+meta:
+  title: '{{ search-api-full-name }}'
+  description: >-
+    {{ search-api-full-name }} is a service that allows you to query the Yandex
+    search database and get responses in XML and HTML format.
+  keywords:
+    - keyword: '{{ search-api-full-name }}'
+    - keyword: '{{ search-api-name }}'
+    - keyword: how to send queries to Yandex search base
+    - keyword: how to get responses in XML or HTML format
+    - keyword: website search development service
+    - keyword: search development service for a group of websites
+    - keyword: internet search development service
+    - keyword: API v2 interface
+    - keyword: API
+    - keyword: generative response
+    - keyword: '{{ wordstat-name }} API'
 links:
   - title: Getting started
     description: Learn how to get started with the service
@@ -43,20 +60,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
-meta:
-  title: '{{ search-api-full-name }}'
-  description: >-
-    {{ search-api-full-name }} is a service that allows you to query the Yandex
-    search database and get responses in XML and HTML format.
-  keywords:
-    - '{{ search-api-full-name }}'
-    - '{{ search-api-name }}'
-    - how to send queries to Yandex search base
-    - how to get responses in XML or HTML format
-    - website search development service
-    - search development service for a group of websites
-    - internet search development service
-    - API v2 interface
-    - API
-    - generative response
-    - '{{ wordstat-name }} API'

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Extension/list.md
 ---
 
 # Managed Service for ClickHouse API, gRPC: ExtensionService.List

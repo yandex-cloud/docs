@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-spark/cli-ref/cluster/add-access-binding.md
 ---
 
 # yc managed-spark cluster add-access-binding

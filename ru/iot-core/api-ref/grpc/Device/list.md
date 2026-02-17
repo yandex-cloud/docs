@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Device/list.md
 ---
 
 # IoT Core Service, gRPC: DeviceService.List

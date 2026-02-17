@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/zone/remove-labels.md
 ---
 
 # yc dns zone remove-labels

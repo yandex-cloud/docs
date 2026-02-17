@@ -4,7 +4,6 @@ description: Backups of data in images, snapshots, and disks that are not attach
 keywords:
   - backup
   - back up
-  - backup
   - backing up
   - data backups
 ---

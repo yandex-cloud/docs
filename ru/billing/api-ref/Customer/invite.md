@@ -86,7 +86,6 @@ apiPlayground:
               Optional. Tax identification number of the person.
               String length is not limited.
             type: string
-sourcePath: en/_api-ref/billing/v1/api-ref/Customer/invite.md
 ---
 
 # Billing API, REST: Customer.Invite

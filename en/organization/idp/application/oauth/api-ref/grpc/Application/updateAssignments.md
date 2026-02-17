@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/application/oauth/api-ref/grpc/Application/updateAssignments.md
 ---
 
 # OAUTH Application API, gRPC: ApplicationService.UpdateAssignments

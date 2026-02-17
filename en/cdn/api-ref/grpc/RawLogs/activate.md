@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/activate.md
 ---
 
 # Cloud CDN API, gRPC: RawLogsService.Activate

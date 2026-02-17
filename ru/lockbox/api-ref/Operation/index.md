@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Operation/index.md
 ---
 
 # Lockbox API, REST: Operation

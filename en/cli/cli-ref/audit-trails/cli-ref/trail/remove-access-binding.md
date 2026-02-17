@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/audit-trails/cli-ref/trail/remove-access-binding.md
 ---
 
 # yc audit-trails trail remove-access-binding

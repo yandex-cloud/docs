@@ -49,7 +49,6 @@ apiPlayground:
             - INFINIBAND
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/create.md
 ---
 
 # Compute Cloud API, REST: GpuCluster.Create

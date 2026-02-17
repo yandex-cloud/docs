@@ -1,6 +1,5 @@
 ---
 subcategory: Billing
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/billing_cloud_binding.md
 ---
 
 # yandex_billing_cloud_binding (Resource)

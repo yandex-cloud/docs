@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/load-balancer/update-stream-listener.md
 ---
 
 # yc application-load-balancer load-balancer update-stream-listener

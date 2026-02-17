@@ -1,6 +1,5 @@
 ---
 subcategory: Audit Trails
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/audit_trails_trail.md
 ---
 
 # yandex_audit_trails_trail (DataSource)

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/get.md
 ---
 
 # Identity Hub API, gRPC: OrganizationService.Get

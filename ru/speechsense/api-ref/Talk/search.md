@@ -272,7 +272,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/SortField'
-sourcePath: en/_api-ref/speechsense/v1/api-ref/Talk/search.md
 ---
 
 # Talk Analytics API, REST: Talk.Search

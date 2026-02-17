@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/ClusterExtension/delete.md
 ---
 
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Delete

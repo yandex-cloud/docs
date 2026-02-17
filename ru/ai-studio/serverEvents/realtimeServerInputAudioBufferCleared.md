@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerInputAudioBufferCleared.md
 ---
 
 # REST: input_audio_buffer.cleared '[CURRENTLY NOT SUPPORTED]'

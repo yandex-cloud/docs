@@ -50,7 +50,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/list.md
 ---
 
 # Yandex Data Processing API, REST: Job.List

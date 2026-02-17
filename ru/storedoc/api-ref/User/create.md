@@ -68,7 +68,6 @@ apiPlayground:
         required:
           - name
           - password
-sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/create.md
 ---
 
 # Managed Service for MongoDB API, REST: User.Create

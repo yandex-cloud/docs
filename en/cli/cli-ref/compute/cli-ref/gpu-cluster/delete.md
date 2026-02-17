@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/gpu-cluster/delete.md
 ---
 
 # yc compute gpu-cluster delete

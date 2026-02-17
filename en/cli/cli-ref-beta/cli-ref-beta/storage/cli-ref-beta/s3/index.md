@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/storage/cli-ref-beta/s3/index.md
 ---
 
 # yc beta storage s3

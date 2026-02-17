@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listPasswords.md
 ---
 
 # IoT Core Broker Service, REST: Broker.ListPasswords

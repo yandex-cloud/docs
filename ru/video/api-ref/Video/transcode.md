@@ -175,7 +175,6 @@ apiPlayground:
               Enables automatic source language deduction for each track
               and thus may lead to performance degradation.
             type: boolean
-sourcePath: en/_api-ref/video/v1/api-ref/Video/transcode.md
 ---
 
 # Video API, REST: Video.Transcode

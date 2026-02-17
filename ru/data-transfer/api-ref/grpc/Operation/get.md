@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Data Transfer API, gRPC: OperationService.Get

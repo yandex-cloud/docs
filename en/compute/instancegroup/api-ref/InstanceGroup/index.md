@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/index.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup

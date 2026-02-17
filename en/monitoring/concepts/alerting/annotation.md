@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/concepts/alerting/annotation.md
----
 # Annotation
 
 Annotations enable you to save additional information during alert calculation. The annotation name and value are transmitted when sending alert notifications to the `Email` and `Telegram` [channels](notification-channel.md).

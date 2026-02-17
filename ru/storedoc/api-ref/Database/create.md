@@ -41,7 +41,6 @@ apiPlayground:
             type: string
         required:
           - name
-sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Database/create.md
 ---
 
 # Managed Service for MongoDB API, REST: Database.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/federation/saml/delete-domain.md
 ---
 
 # yc organization-manager federation saml delete-domain

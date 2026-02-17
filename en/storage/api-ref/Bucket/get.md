@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/get.md
 ---
 
 # Object Storage API, REST: Bucket.Get

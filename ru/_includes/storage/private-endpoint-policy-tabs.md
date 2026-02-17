@@ -42,6 +42,33 @@
           * В поле **{{ ui-key.yacloud.storage.bucket.policy.field_value }}** укажите идентификатор сервисного подключения (Private Endpoint), например `enpd7rq1s3f5********`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../cli-install.md) %}
+
+  {% include [default-catalogue](../default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения настроек бакета:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+  1. Опишите конфигурацию политики доступа в виде [схемы данных](../../storage/s3/api-ref/policy/scheme.md) формата JSON:
+
+      {% include [policy-scheme-json](../vpc/policy-scheme-json.md) %}
+
+  1. Сохраните готовую конфигурацию в файле `policy.json`.
+  1. Выполните команду:
+
+      ```bash
+      yc storage bucket update \
+        --name <имя_бакета> \
+        --policy-from-file <путь_к_файлу_с_политикой>
+      ```
+
+      После успешного применения политики доступа подключение к бакету будет возможно только из облачной сети {{ vpc-short-name }}, в которой было создано соответствующее сервисное подключение (Private Endpoint).
+
 - AWS CLI {#aws-cli}
 
   {% note info %}
@@ -68,6 +95,57 @@
       ```
 
   После успешного применения политики доступа подключение к бакету будет возможно только из облачной сети {{ vpc-short-name }}, в которой было создано соответствующее сервисное подключение (Private Endpoint).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  {% include [iam-auth-note](iam-auth-note.md) %}
+
+  {% include [terraform-role](terraform-role.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и задайте политику с помощью ресурса `yandex_storage_bucket_policy`:
+
+     ```hcl
+     resource "yandex_storage_bucket_policy" "bpolicy" {
+       bucket = "my-policy-bucket"
+       policy = <<POLICY
+     {
+       "Version": "2012-10-17",
+       "Statement": {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "*",
+         "Resource": [
+           "arn:aws:s3:::<имя_бакета>/*",
+           "arn:aws:s3:::<имя_бакета>"
+         ],
+         "Condition": {
+           "StringEquals": {
+             "yc:private-endpoint-id": "<идентификатор_подключения>"
+           }
+         }
+       }
+     }
+     POLICY
+     }
+     ```
+
+     Где:
+     * `<имя_бакета>` — имя бакета в {{ objstorage-name }}, к которому нужно применить политику доступа, например `my-s3-bucket`.
+     * `<идентификатор_подключения>` — идентификатор сервисного подключения (Private Endpoint), например `enpd7rq1s3f5********`.
+
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_policy).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  Чтобы настроить политику доступа для бакета, воспользуйтесь методом REST API [update](../../storage/api-ref/Bucket/update.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../storage/api-ref/grpc/Bucket/update.md) или методом S3 API [PutBucketPolicy](../../storage/s3/api-ref/policy/put.md). Если ранее для бакета уже была настроена политика доступа, то после применения новой политики она будет полностью перезаписана.
 
 {% endlist %}
 

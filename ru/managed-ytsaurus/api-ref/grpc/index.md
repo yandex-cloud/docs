@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ytsaurus/v1/api-ref/grpc/index.md
 ---
 
 # Ytsaurus API: gRPC reference

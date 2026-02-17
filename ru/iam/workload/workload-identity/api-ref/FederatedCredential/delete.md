@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/delete.md
 ---
 
 # Workload Identity, REST: FederatedCredential.Delete

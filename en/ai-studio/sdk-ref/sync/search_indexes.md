@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/search_indexes.md
----
 # Search indexes domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_indexes.domain.**SearchIndexes**{#yandex_ai_studio_sdk._search_indexes.domain.SearchIndexes}

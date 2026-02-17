@@ -1,6 +1,3 @@
----
-sourcePath: en/_gwin-ref/gwin-ref/grpcroute.md
----
 # GRPCRoute
 
 GRPCRoute provides a way to route gRPC requests. This includes the capability to match requests by hostname, gRPC service, or method. Requests are routed to backend services that support gRPC.

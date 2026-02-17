@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for YDB
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/ydb_database_iam_binding.md
 ---
 
 # yandex_ydb_database_iam_binding (Resource)

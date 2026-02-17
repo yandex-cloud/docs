@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/MURMURHASH2_64.md
 ---
 
 # MURMURHASH2_64

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/public-connection/list.md
 ---
 
 # yc cic public-connection list

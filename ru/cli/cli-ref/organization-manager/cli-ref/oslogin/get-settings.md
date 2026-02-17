@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/oslogin/get-settings.md
 ---
 
 # yc organization-manager oslogin get-settings

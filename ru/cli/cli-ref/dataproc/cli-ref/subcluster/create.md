@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/subcluster/create.md
 ---
 
 # yc dataproc subcluster create

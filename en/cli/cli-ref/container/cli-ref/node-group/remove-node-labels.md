@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/node-group/remove-node-labels.md
 ---
 
 # yc container node-group remove-node-labels

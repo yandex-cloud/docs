@@ -68,7 +68,7 @@ items:
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
           - name: '{{ yagpt-name }} training'
-            href: operations/project/yandexgpt-training
+            href: operations/project/yandexgpt-training.md
       - name: Assistants
         items:
           - name: Creating an assistant
@@ -255,3 +255,4 @@ items:
     href: release-notes/index.md
   - name: FAQ
     href: qa/index.md
+path: en/speechsense/toc.yaml

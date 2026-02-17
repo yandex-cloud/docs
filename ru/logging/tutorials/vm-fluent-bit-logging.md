@@ -1,6 +1,5 @@
 ---
 canonical: '{{ link-docs }}/tutorials/security/vm-fluent-bit-logging'
-sourcePath: ru/logging_includes/tutorials/vm-fluent-bit-logging.md
 ---
 
 # Передача логов с ВМ в {{ cloud-logging-name }}

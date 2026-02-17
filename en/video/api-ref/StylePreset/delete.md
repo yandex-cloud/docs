@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/StylePreset/delete.md
 ---
 
 # Video API, REST: StylePreset.Delete

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/models/domain.md
----
 # Models domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.**Models**{#yandex_ai_studio_sdk._models.Models}

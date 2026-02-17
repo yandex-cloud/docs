@@ -1,6 +1,3 @@
----
-sourcePath: en/_gwin-ref/gwin-ref/gateway.md
----
 # Gateway
 
 Gateway represents an instance of a service-traffic handling infrastructure by binding Listeners to a set of IP addresses. Gwin use these rules to create [Load balancer](https://yandex.cloud/en/docs/application-load-balancer/concepts/application-load-balancer).

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/cloud/list-operations.md
 ---
 
 # yc resource-manager cloud list-operations

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/http-router/delete.md
 ---
 
 # yc application-load-balancer http-router delete

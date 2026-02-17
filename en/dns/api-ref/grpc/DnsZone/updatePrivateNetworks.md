@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/updatePrivateNetworks.md
 ---
 
 # Cloud DNS API, gRPC: DnsZoneService.UpdatePrivateNetworks

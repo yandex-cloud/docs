@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/search_api.md
----
 # Search API
 
 ## Generative serch

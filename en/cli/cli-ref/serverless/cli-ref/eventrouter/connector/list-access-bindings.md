@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/connector/list-access-bindings.md
 ---
 
 # yc serverless eventrouter connector list-access-bindings

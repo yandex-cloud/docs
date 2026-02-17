@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/server/reboot.md
 ---
 
 # yc baremetal server reboot

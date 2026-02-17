@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/container/cli-ref-beta/scan-policy/index.md
 ---
 
 # yc beta container scan-policy

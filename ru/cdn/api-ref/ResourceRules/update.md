@@ -558,7 +558,6 @@ apiPlayground:
               Configuration for HTTP response header filtering.
               This feature allows controlling which headers from the origin are passed to end users.
             $ref: '#/definitions/HeaderFilterOption'
-sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/update.md
 ---
 
 # Cloud CDN API, REST: ResourceRules.Update

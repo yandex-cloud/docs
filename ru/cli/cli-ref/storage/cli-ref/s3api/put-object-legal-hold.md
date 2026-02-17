@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/s3api/put-object-legal-hold.md
 ---
 
 # yc storage s3api put-object-legal-hold

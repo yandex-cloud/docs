@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/serverless/cli-ref-beta/workflow/create.md
 ---
 
 # yc beta serverless workflow create

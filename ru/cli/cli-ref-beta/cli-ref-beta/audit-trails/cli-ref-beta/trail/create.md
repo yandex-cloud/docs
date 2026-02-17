@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/audit-trails/cli-ref-beta/trail/create.md
 ---
 
 # yc beta audit-trails trail create

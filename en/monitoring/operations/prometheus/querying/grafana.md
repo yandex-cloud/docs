@@ -1,7 +1,6 @@
 ---
 title: How to read and visualize metrics with {{ grafana-name }}
 description: Follow this guide to read and visualize metrics with {{ grafana-name }}.
-sourcePath: en/monitoring_includes/operations/prometheus/querying/grafana.md
 ---
 
 # Reading and visualizing metrics with {{ grafana-name }}

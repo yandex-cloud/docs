@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/cluster/list-operations.md
 ---
 
 # yc managed-trino cluster list-operations

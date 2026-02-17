@@ -53,7 +53,6 @@ apiPlayground:
         - uri
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Image/create.md
 ---
 
 # BareMetal API, REST: Image.Create

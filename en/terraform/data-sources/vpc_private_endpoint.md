@@ -1,6 +1,5 @@
 ---
 subcategory: Virtual Private Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/vpc_private_endpoint.md
 ---
 
 # yandex_vpc_private_endpoint (DataSource)

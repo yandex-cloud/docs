@@ -83,7 +83,6 @@ apiPlayground:
       PublicVisibility:
         type: object
         properties: {}
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/create.md
 ---
 
 # Cloud DNS API, REST: DnsZone.Create

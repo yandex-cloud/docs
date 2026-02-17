@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/listOperations.md
 ---
 
 # Application Load Balancer API, REST: HttpRouter.ListOperations

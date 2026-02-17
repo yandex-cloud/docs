@@ -35,7 +35,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Vrf/listOperations.md
 ---
 
 # BareMetal API, REST: Vrf.ListOperations

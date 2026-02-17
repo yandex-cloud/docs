@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/setAccessBindings.md
 ---
 
 # EventRouter Service, REST: Connector.SetAccessBindings

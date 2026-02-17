@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/disk-placement-group/update.md
 ---
 
 # yc compute disk-placement-group update

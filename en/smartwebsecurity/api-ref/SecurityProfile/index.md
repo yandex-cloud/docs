@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/index.md
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile

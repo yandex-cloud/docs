@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/api-key/update.md
 ---
 
 # yc iam api-key update

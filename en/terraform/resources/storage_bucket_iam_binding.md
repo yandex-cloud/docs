@@ -1,6 +1,5 @@
 ---
 subcategory: Object Storage
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/storage_bucket_iam_binding.md
 ---
 
 # yandex_storage_bucket_iam_binding (Resource)

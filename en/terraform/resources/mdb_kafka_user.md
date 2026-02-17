@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Apache Kafka®
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_user.md
 ---
 
 # yandex_mdb_kafka_user (Resource)

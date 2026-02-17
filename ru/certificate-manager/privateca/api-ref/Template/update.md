@@ -45,7 +45,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Template/update.md
 ---
 
 # Certificate Manager Private CA API, REST: Template.Update

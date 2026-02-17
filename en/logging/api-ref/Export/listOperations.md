@@ -47,7 +47,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/logging/v1/api-ref/Export/listOperations.md
 ---
 
 # Cloud Logging Service, REST: Export.ListOperations

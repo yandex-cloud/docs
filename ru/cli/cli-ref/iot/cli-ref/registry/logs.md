@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/registry/logs.md
 ---
 
 # yc iot registry logs

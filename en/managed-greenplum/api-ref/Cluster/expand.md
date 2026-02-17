@@ -56,7 +56,6 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/expand.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Expand

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Message/list.md
 ---
 
 # Threads, gRPC: MessageService.List

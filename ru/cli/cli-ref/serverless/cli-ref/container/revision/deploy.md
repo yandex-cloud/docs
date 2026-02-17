@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/container/revision/deploy.md
 ---
 
 # yc serverless container revision deploy

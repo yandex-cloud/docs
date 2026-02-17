@@ -41,7 +41,6 @@ apiPlayground:
             type: string
         required:
           - name
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/create.md
 ---
 
 # Managed Service for MySQL API, REST: Database.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/remove-labels.md
 ---
 
 # yc serverless trigger remove-labels

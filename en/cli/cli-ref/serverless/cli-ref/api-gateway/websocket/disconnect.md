@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/api-gateway/websocket/disconnect.md
 ---
 
 # yc serverless api-gateway websocket disconnect

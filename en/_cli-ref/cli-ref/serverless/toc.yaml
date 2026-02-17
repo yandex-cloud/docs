@@ -446,3 +446,4 @@ items:
         href: cli-ref/workflow/set-access-bindings.md
       - name: update
         href: cli-ref/workflow/update.md
+path: en/_cli-ref/cli-ref/serverless/toc.yaml

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/cluster/list.md
 ---
 
 # yc managed-mysql cluster list

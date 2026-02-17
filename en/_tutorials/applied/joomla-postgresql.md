@@ -1,3 +1,14 @@
+---
+title: 'Joomla CMS website with a {{ PG }} DB: Installation and setup'
+description: Joomla is a website content management system written in PHP and JavaScript. This tutorial will teach you to deploy websites powered by Joomla CMS with a {{ PG }} database.
+keywords:
+  - joomla
+  - Joomla CMS
+  - '{{ PG }}'
+  - joomla installation
+  - joomla setup
+  - joomla website hosting
+---
 
 # Creating a Joomla website with a {{ PG }} database
 

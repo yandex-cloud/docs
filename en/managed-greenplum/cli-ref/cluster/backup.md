@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/cluster/backup.md
 ---
 
 # yc managed-greenplum cluster backup

@@ -35,7 +35,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Backup/list.md
 ---
 
 # Managed Service for Redis API, REST: Backup.List

@@ -98,7 +98,6 @@ apiPlayground:
         - type
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/create.md
 ---
 
 # Yandex Cloud Registry API, REST: Registry.Create

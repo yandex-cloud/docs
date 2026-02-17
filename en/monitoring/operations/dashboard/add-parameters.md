@@ -1,7 +1,6 @@
 ---
 title: How to add a dashboard parameter to {{ monitoring-full-name }}
 description: In this guide, you will learn how to add a dashboard parameter to {{ monitoring-name }}.
-sourcePath: en/monitoring_includes/operations/dashboard/add-parameters.md
 ---
 
 # Adding a dashboard parameter

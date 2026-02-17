@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/storage/cli-ref-beta/s3api/get-object-retention.md
 ---
 
 # yc beta storage s3api get-object-retention

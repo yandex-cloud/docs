@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for SPQR
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_sharded_postgresql_cluster.md
 ---
 
 # yandex_mdb_sharded_postgresql_cluster (Resource)

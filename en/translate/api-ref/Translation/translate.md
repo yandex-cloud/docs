@@ -112,7 +112,6 @@ apiPlayground:
         oneOf:
           - required:
               - glossaryData
-sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/translate.md
 ---
 
 # Translate API v2, REST: Translation.Translate

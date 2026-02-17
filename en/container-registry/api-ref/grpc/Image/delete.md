@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Image/delete.md
 ---
 
 # Container Registry API, gRPC: ImageService.Delete

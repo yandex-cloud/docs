@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloud-registry/cli-ref/registry/remove-access-binding.md
 ---
 
 # yc cloud-registry registry remove-access-binding

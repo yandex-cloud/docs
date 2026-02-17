@@ -1,6 +1,5 @@
 ---
 subcategory: DataSphere
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datasphere_community_iam_binding.md
 ---
 
 # yandex_datasphere_community_iam_binding (Resource)

@@ -16,6 +16,8 @@ items:
         href: operations/cluster-update.md
       - name: Управление шардами
         href: operations/shards.md
+      - name: Техническое обслуживание
+        href: operations/cluster-maintenance.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Концепции
@@ -376,3 +378,4 @@ items:
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
+path: ru/managed-spqr/toc.yaml

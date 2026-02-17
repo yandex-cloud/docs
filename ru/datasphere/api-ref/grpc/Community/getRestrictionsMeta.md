@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Community/getRestrictionsMeta.md
 ---
 
 # DataSphere API v2, gRPC: CommunityService.GetRestrictionsMeta

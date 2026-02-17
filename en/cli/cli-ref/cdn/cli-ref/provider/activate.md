@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cdn/cli-ref/provider/activate.md
 ---
 
 # yc cdn provider activate

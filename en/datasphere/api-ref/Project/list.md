@@ -44,7 +44,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/list.md
 ---
 
 # DataSphere API v2, REST: Project.List

@@ -5,7 +5,6 @@ keywords:
   - workflows
   - workflow
   - WF
-  - workflow
   - YaWL specification
 ---
 

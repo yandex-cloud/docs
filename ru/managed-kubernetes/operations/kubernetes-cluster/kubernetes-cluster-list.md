@@ -32,7 +32,7 @@
 
 - API {#api}
 
-  Чтобы получить список кластеров {{ k8s }} в каталоге по умолчанию, воспользуйтесь методом [list](../../managed-kubernetes/api-ref/Cluster/list.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
+  Воспользуйтесь методом REST API [list](../../managed-kubernetes/api-ref/Cluster/list.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) или вызовом gRPC API [ClusterService/List](../../managed-kubernetes/api-ref/grpc/Cluster/list.md).
 
 {% endlist %}
 
@@ -69,6 +69,6 @@
 
 - API {#api}
 
-  Чтобы получить подробную информацию о кластере {{ k8s }}, воспользуйтесь методом [get](../../managed-kubernetes/api-ref/Cluster/get.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
+  Чтобы получить подробную информацию о кластере {{ k8s }}, воспользуйтесь методом REST API [get](../../managed-kubernetes/api-ref/Cluster/get.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) или вызовом gRPC API [ClusterService/Get](../../managed-kubernetes/api-ref/grpc/Cluster/get.md).
 
 {% endlist %}

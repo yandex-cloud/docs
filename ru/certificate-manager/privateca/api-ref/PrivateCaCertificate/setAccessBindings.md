@@ -153,7 +153,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/setAccessBindings.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.SetAccessBindings

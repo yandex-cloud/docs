@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/updateAccessBindings.md
 ---
 
 # Cloud Functions Service, REST: Function.UpdateAccessBindings

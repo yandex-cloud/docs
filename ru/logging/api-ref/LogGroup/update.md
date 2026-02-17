@@ -74,7 +74,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/update.md
 ---
 
 # Cloud Logging Service, REST: LogGroup.Update

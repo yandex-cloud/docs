@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/trino/v1/api-ref/Catalog/index.md
 ---
 
 # Managed Service for Trino API, REST: Catalog

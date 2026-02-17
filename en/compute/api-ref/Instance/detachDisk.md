@@ -43,7 +43,6 @@ apiPlayground:
         - required:
             - deviceName
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachDisk.md
 ---
 
 # Compute Cloud API, REST: Instance.DetachDisk

@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/operations/unified-agent/pull_prometheus.md
----
 # Поставка метрик пользовательских приложений
 
 {{ unified-agent-full-name }} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.

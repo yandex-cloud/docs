@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/group/remove-members.md
 ---
 
 # yc organization-manager group remove-members

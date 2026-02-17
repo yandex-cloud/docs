@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/api-key/list-scopes.md
 ---
 
 # yc iam api-key list-scopes

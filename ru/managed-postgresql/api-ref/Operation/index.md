@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Operation/index.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Operation

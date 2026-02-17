@@ -78,7 +78,7 @@ items:
           - name: Revoking a role
             href: operations/roles/revoke.md
   - name: '{{ cos-full-name }}'
-    href: ../cos/
+    href: ../cos/index.yaml
   - name: Tutorials
     items:
       - name: All tutorials
@@ -579,3 +579,4 @@ items:
     href: error/index.md
   - name: FAQ
     href: qa/index.md
+path: en/container-registry/toc.yaml

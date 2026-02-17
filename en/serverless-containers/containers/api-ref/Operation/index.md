@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Operation/index.md
 ---
 
 # Serverless Containers Service, REST: Operation

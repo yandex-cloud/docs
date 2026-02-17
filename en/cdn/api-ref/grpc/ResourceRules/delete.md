@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/ResourceRules/delete.md
 ---
 
 # Cloud CDN API, gRPC: ResourceRulesService.Delete

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iam/cli-ref-beta/key/list-operations.md
 ---
 
 # yc beta iam key list-operations

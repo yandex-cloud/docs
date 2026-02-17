@@ -63,7 +63,6 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/update.md
 ---
 
 # Resource Manager API, REST: Cloud.Update

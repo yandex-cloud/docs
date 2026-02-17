@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-mysql/cli-ref-beta/cluster/reschedule-maintenance.md
 ---
 
 # yc beta managed-mysql cluster reschedule-maintenance

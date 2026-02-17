@@ -49,7 +49,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/list.md
 ---
 
 # Resource Manager API, REST: Folder.List

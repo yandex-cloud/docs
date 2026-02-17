@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/update-extension.md
 ---
 
 # yc managed-clickhouse cluster update-extension

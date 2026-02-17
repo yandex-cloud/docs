@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/operations/metric/prometheusExport.md
----
 # Экспорт метрик в формате Prometheus
 
 Чтобы выгрузить метрики в формате {{ prometheus-name }}, воспользуйтесь методом [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Для загрузки метрик в {{ prometheus-name }} необходимо предварительно настроить сбор метрик в {{ prometheus-name }}.

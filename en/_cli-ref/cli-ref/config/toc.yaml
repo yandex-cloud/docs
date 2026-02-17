@@ -24,3 +24,4 @@ items:
     href: cli-ref/set.md
   - name: unset
     href: cli-ref/unset.md
+path: en/_cli-ref/cli-ref/config/toc.yaml

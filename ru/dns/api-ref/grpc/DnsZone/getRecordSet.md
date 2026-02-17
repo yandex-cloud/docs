@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/getRecordSet.md
 ---
 
 # Cloud DNS API, gRPC: DnsZoneService.GetRecordSet

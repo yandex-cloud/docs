@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/loadtesting/cli-ref/test-config/get.md
 ---
 
 # yc loadtesting test-config get

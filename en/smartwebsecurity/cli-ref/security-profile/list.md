@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/smartwebsecurity/cli-ref/security-profile/list.md
 ---
 
 # yc smartwebsecurity security-profile list

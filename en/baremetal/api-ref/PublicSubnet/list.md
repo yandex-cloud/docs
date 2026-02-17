@@ -57,7 +57,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/PublicSubnet/list.md
 ---
 
 # BareMetal API, REST: PublicSubnet.List

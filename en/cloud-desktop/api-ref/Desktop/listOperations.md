@@ -50,7 +50,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/listOperations.md
 ---
 
 # Cloud Desktop API, REST: Desktop.ListOperations

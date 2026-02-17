@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/cluster/reschedule-maintenance.md
 ---
 
 # yc managed-kubernetes cluster reschedule-maintenance

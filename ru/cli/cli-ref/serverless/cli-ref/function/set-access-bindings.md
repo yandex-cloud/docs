@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/function/set-access-bindings.md
 ---
 
 # yc serverless function set-access-bindings

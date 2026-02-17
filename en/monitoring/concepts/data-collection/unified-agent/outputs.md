@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/outputs.md
----
 # Outputs
 
 You can describe an output in the `routes` section within the `channel`:`output` element. Alternatively, you can do this in the named channel section, `channels`.

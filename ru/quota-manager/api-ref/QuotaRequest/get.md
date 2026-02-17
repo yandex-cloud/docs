@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/get.md
 ---
 
 # Quota Manager API, REST: QuotaRequest.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/registry/list-device-topic-aliases.md
 ---
 
 # yc iot registry list-device-topic-aliases

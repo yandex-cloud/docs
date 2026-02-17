@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Network/list.md
 ---
 
 # Virtual Private Cloud API, gRPC: NetworkService.List

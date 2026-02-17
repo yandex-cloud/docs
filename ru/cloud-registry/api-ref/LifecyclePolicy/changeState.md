@@ -34,7 +34,6 @@ apiPlayground:
         - state
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/LifecyclePolicy/changeState.md
 ---
 
 # Yandex Cloud Registry API, REST: LifecyclePolicy.ChangeState

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/Topic/create.md
 ---
 
 # Managed Service for Apache Kafka® API, gRPC: TopicService.Create

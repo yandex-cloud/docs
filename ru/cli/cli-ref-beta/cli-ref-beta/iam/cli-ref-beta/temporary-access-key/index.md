@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iam/cli-ref-beta/temporary-access-key/index.md
 ---
 
 # yc beta iam temporary-access-key

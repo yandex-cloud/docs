@@ -56,7 +56,6 @@ apiPlayground:
             $ref: '#/definitions/Value'
         required:
           - key
-sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/install.md
 ---
 
 # Kubernetes Marketplace, REST: HelmRelease.Install

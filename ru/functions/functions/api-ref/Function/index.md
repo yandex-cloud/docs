@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/index.md
 ---
 
 # Cloud Functions Service, REST: Function

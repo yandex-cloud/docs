@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/send-event.md
 ---
 
 # yc serverless eventrouter send-event

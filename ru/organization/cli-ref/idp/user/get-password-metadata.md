@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/user/get-password-metadata.md
 ---
 
 # yc organization-manager idp user get-password-metadata

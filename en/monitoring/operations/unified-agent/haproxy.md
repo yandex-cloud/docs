@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/operations/unified-agent/haproxy.md
----
 # Delivering metrics from HAProxy and other third-party applications
 
 {{ unified-agent-full-name }} supports metric collection in {{ prometheus-name }} format and metric conversion to {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that provide them in {{ prometheus-name }} format.

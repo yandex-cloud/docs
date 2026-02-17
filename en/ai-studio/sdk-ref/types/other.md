@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/other.md
----
 # Other types
 
 ## Settings types

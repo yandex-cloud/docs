@@ -25,7 +25,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/delete.md
 ---
 
 # Load Testing API, REST: RegressionDashboard.Delete

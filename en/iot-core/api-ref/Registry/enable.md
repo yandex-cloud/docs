@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/enable.md
 ---
 
 # IoT Core Service, REST: Registry.Enable

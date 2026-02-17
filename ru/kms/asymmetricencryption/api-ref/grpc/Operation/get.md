@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/Operation/get.md
 ---
 
 # Key Management Service API, gRPC: OperationService.Get

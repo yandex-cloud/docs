@@ -122,9 +122,11 @@ description: Следуя данной инструкции, вы сможете
 
     - API {#api}
 
+      {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
       1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-      1. Воспользуйтесь методом API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) и передайте в запросе:
+      1. Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
 
           * Идентификатор группы узлов в параметре `nodeGroupId`.
 

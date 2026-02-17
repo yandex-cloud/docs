@@ -34,7 +34,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/listOperations.md
 ---
 
 # Managed Service for Apache Airflow™ API, REST: Cluster.ListOperations

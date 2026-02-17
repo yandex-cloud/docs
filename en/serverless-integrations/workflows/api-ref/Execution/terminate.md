@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/terminate.md
 ---
 
 # Workflows Service, REST: Execution.Terminate

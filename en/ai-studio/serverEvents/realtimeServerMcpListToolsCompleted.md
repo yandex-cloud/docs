@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerMcpListToolsCompleted.md
 ---
 
 # REST: mcp_list_tools.completed

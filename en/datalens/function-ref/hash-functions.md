@@ -1,7 +1,6 @@
 ---
 title: Hash functions
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/hash-functions.md
 ---
 
 # Hash functions

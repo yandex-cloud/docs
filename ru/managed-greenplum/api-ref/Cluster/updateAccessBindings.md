@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.UpdateAccessBindings

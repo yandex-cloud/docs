@@ -56,7 +56,6 @@ apiPlayground:
             - required:
                 - osLogin
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/SshCertificate/generate.md
 ---
 
 # Identity Hub API, REST: SshCertificate.Generate

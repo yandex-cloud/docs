@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/updateVectorStoreFileAttributes.md
 ---
 
 # REST: Update vector store file attributes

@@ -23,7 +23,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/getTargetStates.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.GetTargetStates

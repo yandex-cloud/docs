@@ -32,7 +32,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/stopInstances.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.StopInstances

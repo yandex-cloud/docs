@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/cloudrouter/cli-ref-beta/routing-instance/remove-private-connection.md
 ---
 
 # yc beta cloudrouter routing-instance remove-private-connection

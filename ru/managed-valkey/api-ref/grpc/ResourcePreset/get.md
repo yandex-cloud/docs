@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/ResourcePreset/get.md
 ---
 
 # Managed Service for Redis API, gRPC: ResourcePresetService.Get

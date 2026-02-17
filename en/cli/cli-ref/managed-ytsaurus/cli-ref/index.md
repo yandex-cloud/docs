@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-ytsaurus/cli-ref/index.md
 ---
 
 # yc managed-ytsaurus

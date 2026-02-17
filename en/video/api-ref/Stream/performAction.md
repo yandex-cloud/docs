@@ -48,7 +48,6 @@ apiPlayground:
       StopAction:
         type: object
         properties: {}
-sourcePath: en/_api-ref/video/v1/api-ref/Stream/performAction.md
 ---
 
 # Video API, REST: Stream.PerformAction

@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/listAccessBindings.md
 ---
 
 # Object Storage API, REST: Bucket.ListAccessBindings

@@ -1,3 +1,7 @@
+---
+title: Initial protection setup in {{ sws-name }}
+description: Follow this guide to secure your service from scratch using {{ sws-full-name }}.
+---
 
 # Setting up basic protection in {{ sws-name }}
 

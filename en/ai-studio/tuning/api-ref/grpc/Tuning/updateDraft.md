@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/updateDraft.md
 ---
 
 # Foundation Models Tuning Service API, gRPC: TuningService.UpdateDraft

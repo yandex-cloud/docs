@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/logging/cli-ref-beta/group/stats.md
 ---
 
 # yc beta logging group stats

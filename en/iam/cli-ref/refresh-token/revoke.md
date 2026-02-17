@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/refresh-token/revoke.md
 ---
 
 # yc iam refresh-token revoke

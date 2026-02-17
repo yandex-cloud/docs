@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/Operation/index.md
 ---
 
 # Application Load Balancer API, REST: Operation

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/cluster/delete.md
 ---
 
 # yc managed-opensearch cluster delete

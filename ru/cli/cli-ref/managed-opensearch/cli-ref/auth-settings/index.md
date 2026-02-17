@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/auth-settings/index.md
 ---
 
 # yc managed-opensearch auth-settings

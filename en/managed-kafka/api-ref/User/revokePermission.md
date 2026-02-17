@@ -83,7 +83,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/revokePermission.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: User.RevokePermission

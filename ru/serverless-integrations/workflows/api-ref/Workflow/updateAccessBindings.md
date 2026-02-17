@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/updateAccessBindings.md
 ---
 
 # Workflows Service, REST: Workflow.UpdateAccessBindings

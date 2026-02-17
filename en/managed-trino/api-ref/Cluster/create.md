@@ -2081,7 +2081,6 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceWindow
-sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Service for Trino API, REST: Cluster.Create

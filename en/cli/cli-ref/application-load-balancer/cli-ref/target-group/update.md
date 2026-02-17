@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/target-group/update.md
 ---
 
 # yc application-load-balancer target-group update

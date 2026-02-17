@@ -33,7 +33,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/list.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: User.List

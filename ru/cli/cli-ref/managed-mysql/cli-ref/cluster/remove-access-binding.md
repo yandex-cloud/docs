@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-mysql cluster remove-access-binding

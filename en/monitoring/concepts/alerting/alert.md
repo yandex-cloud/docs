@@ -1,7 +1,6 @@
 ---
 title: Alerts in {{ monitoring-full-name }}
 description: In {{ monitoring-short-name }}, an alert is a sequence of named queries calculated on a regular basis. Learn more about alerts, their statuses, setup, and usage in this article.
-sourcePath: en/monitoring_includes/concepts/alerting/alert.md
 ---
 
 # Alert

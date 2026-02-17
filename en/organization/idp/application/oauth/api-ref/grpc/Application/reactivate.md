@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/application/oauth/api-ref/grpc/Application/reactivate.md
 ---
 
 # OAUTH Application API, gRPC: ApplicationService.Reactivate

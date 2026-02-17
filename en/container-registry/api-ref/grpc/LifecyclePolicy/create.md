@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/LifecyclePolicy/create.md
 ---
 
 # Container Registry API, gRPC: LifecyclePolicyService.Create

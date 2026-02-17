@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/Backup/listAccessBindings.md
 ---
 
 # Managed Service for YDB API, gRPC: BackupService.ListAccessBindings

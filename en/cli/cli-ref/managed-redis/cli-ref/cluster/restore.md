@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/restore.md
 ---
 
 # yc managed-redis cluster restore

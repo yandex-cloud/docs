@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-clickhouse/cli-ref-beta/resource-preset/index.md
 ---
 
 # yc beta managed-clickhouse resource-preset

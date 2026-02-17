@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/list.md
 ---
 
 # Identity Hub API, gRPC: GroupService.List

@@ -60,7 +60,6 @@ apiPlayground:
         - csr
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/issueCertificateByCsr.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.IssueCertificateByCsr

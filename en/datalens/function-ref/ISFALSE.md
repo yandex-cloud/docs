@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ISFALSE.md
 ---
 
 # IS FALSE

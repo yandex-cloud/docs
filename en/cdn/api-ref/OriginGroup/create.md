@@ -137,7 +137,6 @@ apiPlayground:
               **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
               Set up origin of the content.
             $ref: '#/definitions/OriginMeta'
-sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/create.md
 ---
 
 # Cloud CDN API, REST: OriginGroup.Create

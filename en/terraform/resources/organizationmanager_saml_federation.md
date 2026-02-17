@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_saml_federation.md
 ---
 
 # yandex_organizationmanager_saml_federation (Resource)

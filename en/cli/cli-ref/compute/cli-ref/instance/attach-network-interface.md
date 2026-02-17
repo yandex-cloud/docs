@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/attach-network-interface.md
 ---
 
 # yc compute instance attach-network-interface

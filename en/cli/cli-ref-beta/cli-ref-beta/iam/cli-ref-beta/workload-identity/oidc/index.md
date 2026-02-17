@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iam/cli-ref-beta/workload-identity/oidc/index.md
 ---
 
 # yc beta iam workload-identity oidc

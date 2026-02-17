@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет изменена запись зоны DNS.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите зону из списка.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени нужной записи и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени нужной записи и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Измените TTL или значение записи.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

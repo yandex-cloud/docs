@@ -33,7 +33,6 @@ apiPlayground:
         - sniMatchName
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/removeSniMatch.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.RemoveSniMatch

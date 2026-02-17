@@ -1,6 +1,3 @@
----
-sourcePath: en/_gwin-ref/gwin-ref/servicepolicy.md
----
 # ServicePolicy
 
 ServicePolicy is a Gwin custom resource for configuring Service-specific policies. It allows you to configure how Kubernetes Services are used as ALB targets, controlling target selection, addressing, and zone matching.

@@ -1207,3 +1207,4 @@ items:
       - name: Примеры конфигураций и сценариев Partner
         href: partner/how-to/index.md
         hidden: true
+path: ru/troubleshooting/toc.yaml

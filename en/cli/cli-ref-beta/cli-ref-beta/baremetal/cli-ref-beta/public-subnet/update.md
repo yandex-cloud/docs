@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/baremetal/cli-ref-beta/public-subnet/update.md
 ---
 
 # yc beta baremetal public-subnet update

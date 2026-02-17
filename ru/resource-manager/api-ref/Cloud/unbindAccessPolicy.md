@@ -29,7 +29,6 @@ apiPlayground:
         - accessPolicyTemplateId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/unbindAccessPolicy.md
 ---
 
 # Resource Manager API, REST: Cloud.UnbindAccessPolicy

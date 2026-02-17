@@ -457,7 +457,6 @@ apiPlayground:
               - topicConfig_3
           - required:
               - topicConfig_4
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/update.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Topic.Update

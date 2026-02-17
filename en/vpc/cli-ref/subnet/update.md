@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/subnet/update.md
 ---
 
 # yc vpc subnet update

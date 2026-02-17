@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-clickhouse/cli-ref-beta/cluster/create-external-dictionary.md
 ---
 
 # yc beta managed-clickhouse cluster create-external-dictionary

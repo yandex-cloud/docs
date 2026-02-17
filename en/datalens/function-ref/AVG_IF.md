@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/AVG_IF.md
 ---
 
 # AVG_IF

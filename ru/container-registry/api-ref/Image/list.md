@@ -70,7 +70,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/Image/list.md
 ---
 
 # Container Registry API, REST: Image.List

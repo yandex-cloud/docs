@@ -1,4 +1,4 @@
-* [Как обеспечить отказоустойчивость кластера?](#cluster-fault-tolerance)
+* [Как обеспечить высокую доступность кластера?](#cluster-fault-tolerance)
 
 * [Что делать, если я получаю ошибку вида "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."?](#disk-size)
 
@@ -29,3 +29,5 @@
 * [Как отследить потерю сообщений в топике {{ KF }}?](#lost-messages)
 
 * [Какой размер блока используется на дисках кластера?](#block-size)
+
+* [Какая версия коннектора MirrorMaker поддерживается в {{ mkf-short-name }}?](#mirrormaker-version)

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/zone/list-access-bindings.md
 ---
 
 # yc dns zone list-access-bindings

@@ -28,7 +28,6 @@ apiPlayground:
         - domain
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/addDomain.md
 ---
 
 # Identity Provider API, REST: Userpool.AddDomain

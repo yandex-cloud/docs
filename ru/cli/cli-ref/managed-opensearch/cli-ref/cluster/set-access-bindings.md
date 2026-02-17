@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/cluster/set-access-bindings.md
 ---
 
 # yc managed-opensearch cluster set-access-bindings

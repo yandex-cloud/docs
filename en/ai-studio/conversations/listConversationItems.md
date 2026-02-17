@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/conversations/listConversationItems.md
 ---
 
 # REST: List items

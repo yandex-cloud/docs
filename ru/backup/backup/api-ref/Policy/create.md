@@ -632,7 +632,6 @@ apiPlayground:
           - retention
           - scheduling
           - cbt
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/create.md
 ---
 
 # Cloud Backup API, REST: Policy.Create

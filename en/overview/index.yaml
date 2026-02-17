@@ -17,6 +17,17 @@ description:
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
     pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+meta:
+  title: Yandex Cloud overview
+  description: >-
+    Yandex Cloud is a suite of connected services allowing you to quickly and
+    securely get as much computing power as you need on a pay-as-you-go basis.
+  keywords:
+    - keyword: '{{ yandex-cloud }}'
+    - keyword: '{{ yandex-cloud }} overview'
+    - keyword: list of {{ yandex-cloud }} services
+    - keyword: how to lease computing power
+    - keyword: cloud computing
 links:
   - title: Yandex Cloud services
     description: ''
@@ -51,14 +62,3 @@ links:
   - title: Troubleshooting
     description: ''
     href: qa
-meta:
-  title: Yandex Cloud overview
-  description: >-
-    Yandex Cloud is a suite of connected services allowing you to quickly and
-    securely get as much computing power as you need on a pay-as-you-go basis.
-  keywords:
-    - '{{ yandex-cloud }}'
-    - '{{ yandex-cloud }} overview'
-    - list of {{ yandex-cloud }} services
-    - how to lease computing power
-    - cloud computing

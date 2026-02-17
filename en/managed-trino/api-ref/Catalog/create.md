@@ -720,7 +720,6 @@ apiPlayground:
         required:
           - name
           - connector
-sourcePath: en/_api-ref/trino/v1/api-ref/Catalog/create.md
 ---
 
 # Managed Service for Trino API, REST: Catalog.Create

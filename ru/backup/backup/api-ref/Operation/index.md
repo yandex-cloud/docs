@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Operation/index.md
 ---
 
 # Cloud Backup API, REST: Operation

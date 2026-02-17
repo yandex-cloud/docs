@@ -121,7 +121,6 @@ apiPlayground:
         required:
           - fqdn
           - dnsZoneId
-sourcePath: en/_api-ref/vpc/v1/api-ref/Address/create.md
 ---
 
 # Virtual Private Cloud API, REST: Address.Create

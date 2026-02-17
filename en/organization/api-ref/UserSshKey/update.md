@@ -48,7 +48,6 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/update.md
 ---
 
 # Identity Hub API, REST: UserSshKey.Update

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iot/cli-ref-beta/registry/add-data-stream-export.md
 ---
 
 # yc beta iot registry add-data-stream-export

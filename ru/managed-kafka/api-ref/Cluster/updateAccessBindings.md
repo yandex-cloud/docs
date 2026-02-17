@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Service for Apache Kafka® API, REST: Cluster.UpdateAccessBindings

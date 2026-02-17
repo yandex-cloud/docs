@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/audittrails/events-ref/UpdateTrail.md
 ---
 
 # Audit Trails Events: UpdateTrail

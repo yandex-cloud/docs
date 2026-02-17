@@ -18,7 +18,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/list.md
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile.List

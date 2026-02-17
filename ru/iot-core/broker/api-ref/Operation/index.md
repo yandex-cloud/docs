@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Operation/index.md
 ---
 
 # IoT Core Broker Service, REST: Operation

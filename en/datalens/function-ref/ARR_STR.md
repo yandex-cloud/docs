@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ARR_STR.md
 ---
 
 # ARR_STR

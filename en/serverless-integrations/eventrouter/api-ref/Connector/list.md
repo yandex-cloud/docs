@@ -48,7 +48,6 @@ apiPlayground:
             - folderId
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/list.md
 ---
 
 # EventRouter Service, REST: Connector.List

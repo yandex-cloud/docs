@@ -23,7 +23,6 @@ apiPlayground:
         - projectId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/S3/deactivate.md
 ---
 
 # DataSphere API v2, REST: S3.Deactivate

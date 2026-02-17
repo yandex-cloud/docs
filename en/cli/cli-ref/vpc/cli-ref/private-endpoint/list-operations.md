@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/private-endpoint/list-operations.md
 ---
 
 # yc vpc private-endpoint list-operations

@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/updateAccessBindings.md
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.UpdateAccessBindings

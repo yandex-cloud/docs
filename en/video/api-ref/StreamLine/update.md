@@ -109,7 +109,6 @@ apiPlayground:
               **string**
               URL of a SRT streaming server.
             type: string
-sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/update.md
 ---
 
 # Video API, REST: StreamLine.Update

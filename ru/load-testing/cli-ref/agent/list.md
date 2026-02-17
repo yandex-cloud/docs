@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/loadtesting/cli-ref/agent/list.md
 ---
 
 # yc loadtesting agent list

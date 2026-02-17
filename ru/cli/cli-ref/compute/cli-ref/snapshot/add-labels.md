@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/snapshot/add-labels.md
 ---
 
 # yc compute snapshot add-labels

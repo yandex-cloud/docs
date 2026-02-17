@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/registry/set-access-bindings.md
 ---
 
 # yc container registry set-access-bindings

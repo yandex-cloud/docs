@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/workflow/execution/stop.md
 ---
 
 # yc serverless workflow execution stop

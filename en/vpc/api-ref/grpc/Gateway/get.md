@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Gateway/get.md
 ---
 
 # Virtual Private Cloud API, gRPC: GatewayService.Get

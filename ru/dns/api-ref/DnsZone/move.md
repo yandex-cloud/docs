@@ -29,7 +29,6 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/move.md
 ---
 
 # Cloud DNS API, REST: DnsZone.Move

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS_SUBSEQUENCE.md
 ---
 
 # CONTAINS_SUBSEQUENCE

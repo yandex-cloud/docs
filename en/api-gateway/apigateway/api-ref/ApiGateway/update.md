@@ -225,7 +225,6 @@ apiPlayground:
             type: object
             additionalProperties:
               $ref: '#/definitions/VariableInput'
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/update.md
 ---
 
 # API Gateway Service, REST: ApiGateway.Update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/create-id-token.md
 ---
 
 # yc iam create-id-token

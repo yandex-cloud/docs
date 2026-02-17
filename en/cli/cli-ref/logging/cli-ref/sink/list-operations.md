@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/sink/list-operations.md
 ---
 
 # yc logging sink list-operations

@@ -73,7 +73,6 @@ apiPlayground:
               **string**
               Public part of the device certificate.
             type: string
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/create.md
 ---
 
 # IoT Core Service, REST: Device.Create

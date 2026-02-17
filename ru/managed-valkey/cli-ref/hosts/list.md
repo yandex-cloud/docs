@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/hosts/list.md
 ---
 
 # yc managed-redis hosts list

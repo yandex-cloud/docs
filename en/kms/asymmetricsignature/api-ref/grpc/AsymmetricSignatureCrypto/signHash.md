@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureCrypto/signHash.md
 ---
 
 # Key Management Service API, gRPC: AsymmetricSignatureCryptoService.SignHash

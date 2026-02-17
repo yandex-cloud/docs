@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.UpdateAccessBindings

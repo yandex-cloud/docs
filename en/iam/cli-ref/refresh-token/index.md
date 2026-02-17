@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/refresh-token/index.md
 ---
 
 # yc iam refresh-token

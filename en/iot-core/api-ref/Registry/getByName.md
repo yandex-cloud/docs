@@ -26,7 +26,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/getByName.md
 ---
 
 # IoT Core Service, REST: Registry.GetByName

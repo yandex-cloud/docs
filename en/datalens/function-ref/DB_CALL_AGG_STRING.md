@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/DB_CALL_AGG_STRING.md
 ---
 
 # DB_CALL_AGG_STRING

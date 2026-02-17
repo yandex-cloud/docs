@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Деактивировать и удалить SAML-приложение в {{ org-full-name }}
 
+
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 ## Деактивируйте приложение {#deactivate}

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/audit-trails/cli-ref/trail/set-access-bindings.md
 ---
 
 # yc audit-trails trail set-access-bindings

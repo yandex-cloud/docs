@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/ssh/certificate/index.md
 ---
 
 # yc compute ssh certificate

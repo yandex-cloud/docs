@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/desktops/cli-ref/desktop/list-operations.md
 ---
 
 # yc desktops desktop list-operations

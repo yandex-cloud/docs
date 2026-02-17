@@ -19,6 +19,25 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_speechkit">{{ speechkit-full-name
     }} Service Level</a>.
+meta:
+  title: '{{ speechkit-full-name }}'
+  description: >-
+    Developers can use the Yandex SpeechKit service to implement Yandex speech
+    technologies in their apps: speech recognition (speech-to-text) and speech
+    synthesis (text-to-speech).
+  keywords:
+    - keyword: '{{ speechkit-full-name }}'
+    - keyword: '{{ speechkit-name }}'
+    - keyword: Yandex speech technologies
+    - keyword: Speech-to-Text
+    - keyword: ASR
+    - keyword: speech recognition
+    - keyword: speech recognition in {{ yandex-cloud }}
+    - keyword: Text-to-Speech
+    - keyword: speech synthesis in {{ yandex-cloud }}
+    - keyword: speech synthesis
+    - keyword: '{{ yandex-cloud }} recognition API'
+    - keyword: '{{ yandex-cloud }} synthesis API'
 links:
   - title: Getting started
     description: Convert text to speech and speech to text
@@ -56,22 +75,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-meta:
-  title: '{{ speechkit-full-name }}'
-  description: >-
-    Developers can use the Yandex SpeechKit service to implement Yandex speech
-    technologies in their apps: speech recognition (speech-to-text) and speech
-    synthesis (text-to-speech).
-  keywords:
-    - '{{ speechkit-full-name }}'
-    - '{{ speechkit-name }}'
-    - Yandex speech technologies
-    - Speech-to-Text
-    - ASR
-    - speech recognition
-    - speech recognition in {{ yandex-cloud }}
-    - Text-to-Speech
-    - speech synthesis in {{ yandex-cloud }}
-    - speech synthesis
-    - '{{ yandex-cloud }} recognition API'
-    - '{{ yandex-cloud }} synthesis API'

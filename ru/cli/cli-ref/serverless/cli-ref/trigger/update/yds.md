@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/update/yds.md
 ---
 
 # yc serverless trigger update yds

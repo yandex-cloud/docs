@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/network-load-balancer/index.md
 ---
 
 # yc load-balancer network-load-balancer

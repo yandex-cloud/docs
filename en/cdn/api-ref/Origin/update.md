@@ -114,7 +114,6 @@ apiPlayground:
               - website
           - required:
               - balancer
-sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/update.md
 ---
 
 # Cloud CDN API, REST: Origin.Update

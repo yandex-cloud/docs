@@ -1,6 +1,5 @@
 ---
 subcategory: Application Load Balancer
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/alb_virtual_host.md
 ---
 
 # yandex_alb_virtual_host (DataSource)

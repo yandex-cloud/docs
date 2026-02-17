@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/serverless/cli-ref-beta/mcp-gateway/list-access-bindings.md
 ---
 
 # yc beta serverless mcp-gateway list-access-bindings

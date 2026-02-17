@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/get.md
 ---
 
 # Identity Hub API, gRPC: GroupMappingService.Get

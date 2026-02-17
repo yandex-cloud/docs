@@ -7,7 +7,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/Application/listSupportedAttributeValues.md
 ---
 
 # SAML Application API, REST: Application.ListSupportedAttributeValues

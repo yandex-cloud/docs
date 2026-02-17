@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/extension/create.md
 ---
 
 # yc managed-opensearch extension create

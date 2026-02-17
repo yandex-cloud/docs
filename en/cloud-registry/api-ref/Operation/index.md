@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Operation/index.md
 ---
 
 # Yandex Cloud Registry API, REST: Operation

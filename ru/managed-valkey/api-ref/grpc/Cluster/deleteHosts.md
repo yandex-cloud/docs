@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/deleteHosts.md
 ---
 
 # Managed Service for Redis API, gRPC: ClusterService.DeleteHosts

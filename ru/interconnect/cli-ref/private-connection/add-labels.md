@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/private-connection/add-labels.md
 ---
 
 # yc cic private-connection add-labels

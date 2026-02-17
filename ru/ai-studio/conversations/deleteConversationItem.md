@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/conversations/deleteConversationItem.md
 ---
 
 # REST: Delete an item

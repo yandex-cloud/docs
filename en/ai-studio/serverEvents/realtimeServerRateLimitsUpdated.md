@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerRateLimitsUpdated.md
 ---
 
 # REST: rate_limits.updated '[CURRENTLY NOT SUPPORTED]'

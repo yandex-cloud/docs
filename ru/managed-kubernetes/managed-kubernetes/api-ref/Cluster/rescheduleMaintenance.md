@@ -33,7 +33,6 @@ apiPlayground:
         - delayedUntil
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.RescheduleMaintenance

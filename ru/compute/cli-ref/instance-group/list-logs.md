@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance-group/list-logs.md
 ---
 
 # yc compute instance-group list-logs

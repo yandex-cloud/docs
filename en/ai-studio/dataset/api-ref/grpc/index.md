@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/dataset/v1/dataset/api-ref/grpc/index.md
 ---
 
 # Foundation Models Dataset Service API: gRPC reference

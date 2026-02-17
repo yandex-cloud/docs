@@ -10,3 +10,4 @@ items:
     href: app-in-k8s.md
   - name: Testing fault tolerance in {{ yandex-cloud }}
     href: testing-zone-failure.md
+path: en/architecture/toc.yaml

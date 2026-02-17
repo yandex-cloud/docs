@@ -48,7 +48,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/update.md
 ---
 
 # Identity Hub API, REST: Group.Update

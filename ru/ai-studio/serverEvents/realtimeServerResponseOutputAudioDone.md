@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseOutputAudioDone.md
 ---
 
 # REST: response.output_audio.done '[CURRENTLY NOT SUPPORTED]'

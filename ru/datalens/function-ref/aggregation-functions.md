@@ -13,7 +13,6 @@ keywords:
   - lod
   - уровень детализации
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/aggregation-functions.md
 ---
 
 # Агрегатные функции

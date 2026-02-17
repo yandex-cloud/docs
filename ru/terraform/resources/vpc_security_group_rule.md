@@ -1,6 +1,5 @@
 ---
 subcategory: Virtual Private Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/vpc_security_group_rule.md
 ---
 
 # yandex_vpc_security_group_rule (Resource)

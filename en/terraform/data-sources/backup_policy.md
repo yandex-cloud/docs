@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Backup
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/backup_policy.md
 ---
 
 # yandex_backup_policy (DataSource)

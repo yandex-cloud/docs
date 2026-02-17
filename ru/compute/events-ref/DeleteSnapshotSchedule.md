@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/DeleteSnapshotSchedule.md
 ---
 
 # Compute Audit Trails Events: DeleteSnapshotSchedule

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/backup/batch-delete.md
 ---
 
 # yc backup backup batch-delete

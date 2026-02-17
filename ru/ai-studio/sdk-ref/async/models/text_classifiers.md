@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/async/models/text_classifiers.md
----
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.text\_classifiers.function.**AsyncTextClassifiers**{#yandex_ai_studio_sdk._models.text_classifiers.function.AsyncTextClassifiers}

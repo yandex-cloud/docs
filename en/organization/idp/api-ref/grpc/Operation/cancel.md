@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/api-ref/grpc/Operation/cancel.md
 ---
 
 # Identity Provider API, gRPC: OperationService.Cancel

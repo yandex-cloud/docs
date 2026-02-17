@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/mdbproxy/delete.md
 ---
 
 # yc serverless mdbproxy delete

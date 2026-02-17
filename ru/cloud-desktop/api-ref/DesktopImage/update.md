@@ -54,7 +54,6 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/update.md
 ---
 
 # Cloud Desktop API, REST: DesktopImage.Update

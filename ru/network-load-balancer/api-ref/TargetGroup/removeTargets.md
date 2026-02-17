@@ -42,7 +42,6 @@ apiPlayground:
               **string**
               IP address of the target.
             type: string
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/removeTargets.md
 ---
 
 # Network Load Balancer API, REST: TargetGroup.RemoveTargets

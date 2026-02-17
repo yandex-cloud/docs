@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/updateAccessBindings.md
 ---
 
 # Yandex Cloud Registry API, REST: Registry.UpdateAccessBindings

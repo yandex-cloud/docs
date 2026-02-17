@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/monitoring_includes/metrics-ref/serverless-containers-ref.md
 ---
 
 # Метрики {{ serverless-containers-full-name }}

@@ -28,7 +28,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Thread/list.md
 ---
 
 # Threads, REST: Thread.List

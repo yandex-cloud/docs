@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/gitlab/v1/api-ref/grpc/Operation/get.md
 ---
 
 # Managed Service for Gitlab API, gRPC: OperationService.Get

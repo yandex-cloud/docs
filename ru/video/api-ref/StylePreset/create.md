@@ -163,7 +163,6 @@ apiPlayground:
               - summarization
           - required:
               - description
-sourcePath: en/_api-ref/video/v1/api-ref/StylePreset/create.md
 ---
 
 # Video API, REST: StylePreset.Create

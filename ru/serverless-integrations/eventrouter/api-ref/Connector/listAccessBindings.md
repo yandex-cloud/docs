@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/listAccessBindings.md
 ---
 
 # EventRouter Service, REST: Connector.ListAccessBindings

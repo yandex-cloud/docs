@@ -67,7 +67,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/upsertRecordSets.md
 ---
 
 # Cloud DNS API, REST: DnsZone.UpsertRecordSets

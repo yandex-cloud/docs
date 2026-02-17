@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/listAccessBindings.md
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureKey.ListAccessBindings

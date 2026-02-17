@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/cluster/remove-labels.md
 ---
 
 # yc managed-mysql cluster remove-labels

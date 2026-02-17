@@ -36,7 +36,6 @@ apiPlayground:
         - databaseId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/ydb/v1/api-ref/Database/restore.md
 ---
 
 # Managed Service for YDB API, REST: Database.Restore

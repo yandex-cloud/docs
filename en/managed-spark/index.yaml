@@ -14,6 +14,23 @@ description:
     <em>Apache<sup>®</sup> and Apache Spark<sup>™</sup> are registered
     trademarks or trademarks of Apache Software Foundation in the United States
     and/or other countries.</em>
+meta:
+  title: '{{ msp-full-name }}'
+  description: >-
+    {{ msp-full-name }} helps you deploy and maintain {{ SPRK }} clusters in the
+    {{ yandex-cloud }} infrastructure.
+  keywords:
+    - keyword: Apache Spark
+    - keyword: Spark cluster
+    - keyword: '{{ SPRK }} clusters'
+    - keyword: '{{ msp-full-name }}'
+    - keyword: Spark
+    - keyword: Apache Spark server cluster
+    - keyword: '{{ msp-full-name }} server clusters'
+    - keyword: Spark in {{ yandex-cloud }}
+    - keyword: Apache Spark in {{ yandex-cloud }}
+    - keyword: '{{ msp-full-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ msp-full-name }}'
 links:
   - title: Getting started
     description: Get started with {{ msp-full-name }}
@@ -39,20 +56,3 @@ links:
   - title: Release notes
     description: Releases and updates
     href: release-notes
-meta:
-  title: '{{ msp-full-name }}'
-  description: >-
-    {{ msp-full-name }} helps you deploy and maintain {{ SPRK }} clusters in the
-    {{ yandex-cloud }} infrastructure.
-  keywords:
-    - Apache Spark
-    - Spark cluster
-    - '{{ SPRK }} clusters'
-    - '{{ msp-full-name }}'
-    - Spark
-    - Apache Spark server cluster
-    - '{{ msp-full-name }} server clusters'
-    - Spark in {{ yandex-cloud }}
-    - Apache Spark in {{ yandex-cloud }}
-    - '{{ msp-full-name }} in {{ yandex-cloud }}'
-    - '{{ msp-full-name }}'

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseFunctionCallArgumentsDelta.md
 ---
 
 # REST: response.function_call_arguments.delta

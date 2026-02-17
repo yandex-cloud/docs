@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/conversations/getConversationItem.md
 ---
 
 # REST: Retrieve an item

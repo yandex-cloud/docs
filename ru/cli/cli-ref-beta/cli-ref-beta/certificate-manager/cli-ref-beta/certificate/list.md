@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/certificate-manager/cli-ref-beta/certificate/list.md
 ---
 
 # yc beta certificate-manager certificate list

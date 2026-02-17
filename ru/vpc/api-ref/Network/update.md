@@ -60,7 +60,6 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/Network/update.md
 ---
 
 # Virtual Private Cloud API, REST: Network.Update

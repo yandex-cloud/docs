@@ -176,7 +176,6 @@ apiPlayground:
         required:
           - target
           - type
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Synchronization/createSynchronizationSettings.md
 ---
 
 # Identity Provider API, REST: Synchronization.CreateSynchronizationSettings

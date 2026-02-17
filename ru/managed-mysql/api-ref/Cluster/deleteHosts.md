@@ -31,7 +31,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/deleteHosts.md
 ---
 
 # Managed Service for MySQL API, REST: Cluster.DeleteHosts

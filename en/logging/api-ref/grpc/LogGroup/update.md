@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/LogGroup/update.md
 ---
 
 # Cloud Logging Service, gRPC: LogGroupService.Update

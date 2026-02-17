@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/embeddings/createEmbedding.md
 ---
 
 # REST: Create embeddings

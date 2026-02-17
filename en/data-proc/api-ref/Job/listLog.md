@@ -45,7 +45,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/listLog.md
 ---
 
 # Yandex Data Processing API, REST: Job.ListLog

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/cluster/list-nodes.md
 ---
 
 # yc container cluster list-nodes

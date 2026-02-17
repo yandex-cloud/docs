@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/k8s/v1/managed-kubernetes/api-ref/grpc/ResourcePreset/list.md
 ---
 
 # Managed Services for Kubernetes API, gRPC: ResourcePresetService.List

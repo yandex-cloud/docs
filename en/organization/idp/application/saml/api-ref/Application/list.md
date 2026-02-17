@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/Application/list.md
 ---
 
 # SAML Application API, REST: Application.List

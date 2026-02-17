@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/listOperations.md
 ---
 
 # Cloud Router API, REST: RoutingInstance.ListOperations

@@ -187,7 +187,6 @@ apiPlayground:
               - IMAGE_COLOR_VIOLET
               - IMAGE_COLOR_WHITE
               - IMAGE_COLOR_BLACK
-sourcePath: en/_api-ref/searchapi/v2/api-ref/ImageSearch/search.md
 ---
 
 # Web Search API, REST: ImageSearch.Search

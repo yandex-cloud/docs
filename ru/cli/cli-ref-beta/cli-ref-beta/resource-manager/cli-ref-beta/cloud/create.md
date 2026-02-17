@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/resource-manager/cli-ref-beta/cloud/create.md
 ---
 
 # yc beta resource-manager cloud create

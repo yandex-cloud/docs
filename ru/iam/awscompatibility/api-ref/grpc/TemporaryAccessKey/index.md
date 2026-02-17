@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/TemporaryAccessKey/index.md
 ---
 
 # Access Key, gRPC: TemporaryAccessKeyService

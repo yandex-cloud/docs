@@ -1,3 +1,7 @@
+---
+title: FAQ about private embedding
+description: This page covers FAQ about embedding of private objects.
+---
 
 # Private embedding
 

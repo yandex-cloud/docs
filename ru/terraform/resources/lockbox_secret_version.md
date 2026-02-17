@@ -1,6 +1,5 @@
 ---
 subcategory: Lockbox
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/lockbox_secret_version.md
 ---
 
 # yandex_lockbox_secret_version (Resource)

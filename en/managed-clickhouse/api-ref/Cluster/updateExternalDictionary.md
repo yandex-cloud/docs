@@ -636,7 +636,6 @@ apiPlayground:
                   - mongodbSource
               - required:
                   - postgresqlSource
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/updateExternalDictionary.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.UpdateExternalDictionary

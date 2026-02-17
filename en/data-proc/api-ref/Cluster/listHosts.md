@@ -49,7 +49,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listHosts.md
 ---
 
 # Yandex Data Processing API, REST: Cluster.ListHosts

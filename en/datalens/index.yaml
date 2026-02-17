@@ -10,6 +10,23 @@ description:
   - >-
     Use the Neuroanalyst to automatically analyze your data, get insights,
     create and edit visualizations.
+meta:
+  title: Yandex DataLens
+  description: >-
+    Yandex DataLens is a business analytics tool for visualizing your data.
+    Visualize data from various sources, build dashboards, generate reports in
+    the form of interactive slide deck, and make data-driven decisions using the
+    Neuroanalyst.
+  keywords:
+    - keyword: '{{ datalens-name }}'
+    - keyword: '{{ datalens-full-name }}'
+    - keyword: '{{ datalens-name }}'
+    - keyword: Business analytics service
+    - keyword: BI analytics
+    - keyword: Data visualization in {{ yandex-cloud }}
+    - keyword: How to connect to a data source
+    - keyword: business metrics in {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} analytics'
 links:
   - title: Getting started
     description: Getting started with DataLens
@@ -49,20 +66,3 @@ links:
   - title: DataLens Gallery
     description: Ready-made dashboards for inspiration and business.
     href: concepts/gallery
-meta:
-  title: Yandex DataLens
-  description: >-
-    Yandex DataLens is a business analytics tool for visualizing your data.
-    Visualize data from various sources, build dashboards, generate reports in
-    the form of interactive slide deck, and make data-driven decisions using the
-    Neuroanalyst.
-  keywords:
-    - '{{ datalens-name }}'
-    - '{{ datalens-full-name }}'
-    - '{{ datalens-name }}'
-    - Business analytics service
-    - BI analytics
-    - Data visualization in {{ yandex-cloud }}
-    - How to connect to a data source
-    - business metrics in {{ yandex-cloud }}
-    - '{{ yandex-cloud }} analytics'

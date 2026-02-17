@@ -11,6 +11,19 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_dns">Yandex Cloud DNS service
     level</a>.
+meta:
+  title: Yandex Cloud DNS
+  description: Yandex Cloud DNS helps manage DNS zones and domain names of your resources.
+  keywords:
+    - keyword: domain zones in {{ yandex-cloud }}
+    - keyword: '{{ dns-full-name }}'
+    - keyword: '{{ dns-name }}'
+    - keyword: '{{ dns-name }} zones'
+    - keyword: DNS zones
+    - keyword: '{{ dns-name }} in {{ yandex-cloud }}'
+    - keyword: resource records
+    - keyword: '{{ dns-name }} resource records'
+    - keyword: '{{ dns-name }} resolver'
 links:
   - title: Getting started
     description: Create your first DNS zone
@@ -36,16 +49,3 @@ links:
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/
-meta:
-  title: Yandex Cloud DNS
-  description: Yandex Cloud DNS helps manage DNS zones and domain names of your resources.
-  keywords:
-    - domain zones in {{ yandex-cloud }}
-    - '{{ dns-full-name }}'
-    - '{{ dns-name }}'
-    - '{{ dns-name }} zones'
-    - DNS zones
-    - '{{ dns-name }} in {{ yandex-cloud }}'
-    - resource records
-    - '{{ dns-name }} resource records'
-    - '{{ dns-name }} resolver'

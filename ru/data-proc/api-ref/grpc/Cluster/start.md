@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/start.md
 ---
 
 # Yandex Data Processing API, gRPC: ClusterService.Start

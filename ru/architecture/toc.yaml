@@ -14,3 +14,4 @@ items:
         href: testing-zone-failure-for-alb.md
       - name: Тестирование инфраструктуры на основе {{ network-load-balancer-name }}
         href: testing-zone-failure.md
+path: ru/architecture/toc.yaml

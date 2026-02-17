@@ -32,7 +32,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Instance/get.md
 ---
 
 # Compute Cloud API, REST: Instance.Get

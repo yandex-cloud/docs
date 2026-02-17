@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Bucket/deleteHTTPSConfig.md
 ---
 
 # Object Storage API, gRPC: BucketService.DeleteHTTPSConfig

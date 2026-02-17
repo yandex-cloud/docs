@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/logging/v1/api-ref/Sink/setAccessBindings.md
 ---
 
 # Cloud Logging Service, REST: Sink.SetAccessBindings

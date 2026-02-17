@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_mfa_enforcement_audience.md
 ---
 
 # yandex_organizationmanager_mfa_enforcement_audience (Resource)

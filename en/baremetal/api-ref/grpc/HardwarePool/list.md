@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/HardwarePool/list.md
 ---
 
 # BareMetal API, gRPC: HardwarePoolService.List

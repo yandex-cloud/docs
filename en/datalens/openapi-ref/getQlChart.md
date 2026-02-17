@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/getQlChart.md
 ---
 
 # DataLens API: 🚧 [Experimental] Get QL chart

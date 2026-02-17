@@ -41,6 +41,22 @@ description:
     <em>Apache<sup>®</sup> and Apache Cloudberry<sup>™</sup> are the registered
     trademarks or the trademarks of The Apache Software Foundation in the United
     States of America and/or other countries.</em>
+meta:
+  title: Yandex MPP Analytics for PostgreSQL
+  description: >-
+    Yandex MPP Analytics for PostgreSQL helps you deploy and maintain Greenplum®
+    clusters in the Yandex Cloud infrastructure.
+  keywords:
+    - keyword: '{{ mgp-name }}'
+    - keyword: '{{ mgp-full-name }}'
+    - keyword: '{{ mgp-name }}'
+    - keyword: '{{ GP }} in {{ yandex-cloud }}'
+    - keyword: '{{ GP }} cluster'
+    - keyword: '{{ GP }}'
+    - keyword: Greenplum
+    - keyword: '{{ GP }} in cloud'
+    - keyword: greenplum
+    - keyword: Greenplum in {{ yandex-cloud }}
 links:
   - title: Getting started
     description: Create your first cluster
@@ -63,19 +79,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing/
-meta:
-  title: Yandex MPP Analytics for PostgreSQL
-  description: >-
-    Yandex MPP Analytics for PostgreSQL helps you deploy and maintain Greenplum®
-    clusters in the Yandex Cloud infrastructure.
-  keywords:
-    - '{{ mgp-name }}'
-    - '{{ mgp-full-name }}'
-    - '{{ mgp-name }}'
-    - '{{ GP }} in {{ yandex-cloud }}'
-    - '{{ GP }} cluster'
-    - '{{ GP }}'
-    - Greenplum
-    - '{{ GP }} in cloud'
-    - greenplum
-    - Greenplum in {{ yandex-cloud }}

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/group/add-access-binding.md
 ---
 
 # yc organization-manager group add-access-binding

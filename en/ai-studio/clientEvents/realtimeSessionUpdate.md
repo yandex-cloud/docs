@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/clientEvents/realtimeSessionUpdate.md
 ---
 
 # REST: session.update

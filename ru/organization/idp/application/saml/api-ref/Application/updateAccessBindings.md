@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/Application/updateAccessBindings.md
 ---
 
 # SAML Application API, REST: Application.UpdateAccessBindings

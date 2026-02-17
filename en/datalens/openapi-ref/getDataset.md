@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/getDataset.md
 ---
 
 # DataLens API: Get dataset

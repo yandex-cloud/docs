@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/index.md
 ---
 
 # Identity Provider API, REST: Userpool

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/image/list-access-bindings.md
 ---
 
 # yc compute image list-access-bindings

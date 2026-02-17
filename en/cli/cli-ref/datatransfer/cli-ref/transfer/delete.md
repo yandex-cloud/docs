@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/transfer/delete.md
 ---
 
 # yc datatransfer transfer delete

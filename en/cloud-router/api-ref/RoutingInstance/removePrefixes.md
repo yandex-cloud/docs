@@ -47,7 +47,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/removePrefixes.md
 ---
 
 # Cloud Router API, REST: RoutingInstance.RemovePrefixes

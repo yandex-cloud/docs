@@ -48,7 +48,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/list.md
 ---
 
 # SAML Federation API, REST: Certificate.List

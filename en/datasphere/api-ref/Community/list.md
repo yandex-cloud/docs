@@ -48,7 +48,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/list.md
 ---
 
 # DataSphere API v2, REST: Community.List

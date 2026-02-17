@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/PrivateSubnet/index.md
 ---
 
 # BareMetal API, REST: PrivateSubnet

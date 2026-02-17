@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Gitlab
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/gitlab_instance.md
 ---
 
 # yandex_gitlab_instance (Resource)

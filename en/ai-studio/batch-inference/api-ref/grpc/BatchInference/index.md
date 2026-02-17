@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/batch_inference/v1/batch-inference/api-ref/grpc/BatchInference/index.md
 ---
 
 # Batch Inference Service API, gRPC: BatchInferenceService

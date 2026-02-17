@@ -44,7 +44,6 @@ apiPlayground:
               **string**
               Name of the database that the permission grants access to.
             type: string
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/grantPermission.md
 ---
 
 # Managed Service for ClickHouse API, REST: User.GrantPermission

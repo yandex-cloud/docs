@@ -2,7 +2,6 @@
 title: Метрики {{ dns-full-name }}
 description: Из статьи вы узнаете про метрики {{ dns-name }}.
 editable: false
-sourcePath: ru/monitoring_includes/metrics-ref/dns-ref.md
 ---
 
 # Метрики {{ dns-full-name }}

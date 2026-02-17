@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-opensearch/cli-ref-beta/cluster/restart-open-search.md
 ---
 
 # yc beta managed-opensearch cluster restart-open-search

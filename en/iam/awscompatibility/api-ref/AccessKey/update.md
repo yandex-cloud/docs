@@ -40,7 +40,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/update.md
 ---
 
 # Access Key, REST: AccessKey.Update

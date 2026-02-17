@@ -1,6 +1,5 @@
 ---
 subcategory: Yandex Query
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/yq_ydb_connection.md
 ---
 
 # yandex_yq_ydb_connection (Resource)

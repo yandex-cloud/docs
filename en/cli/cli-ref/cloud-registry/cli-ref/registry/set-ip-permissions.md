@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloud-registry/cli-ref/registry/set-ip-permissions.md
 ---
 
 # yc cloud-registry registry set-ip-permissions

@@ -50,7 +50,6 @@ apiPlayground:
           format: field-mask
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/speechsense/v1/api-ref/Talk/get.md
 ---
 
 # Talk Analytics API, REST: Talk.Get

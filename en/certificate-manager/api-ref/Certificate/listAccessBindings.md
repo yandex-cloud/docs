@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listAccessBindings.md
 ---
 
 # Certificate Manager API, REST: Certificate.ListAccessBindings

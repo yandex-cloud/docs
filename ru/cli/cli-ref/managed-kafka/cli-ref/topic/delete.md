@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/topic/delete.md
 ---
 
 # yc managed-kafka topic delete

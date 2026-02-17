@@ -337,7 +337,6 @@ apiPlayground:
               - tls
           - required:
               - stream
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/addListener.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.AddListener

@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}** нажмите **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**.
   1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** и выберите нужные завершенные трансляции. Чтобы создать новую трансляцию, нажмите кнопку **{{ ui-key.yacloud_video.playlists.action_create-stream }}**.
-  1. Нажмите **{{ ui-key.yacloud_video.common.action_add }}**
+  1. Нажмите **{{ ui-key.yacloud_video.common.action_add }}**.
 
 {% endlist %}
 

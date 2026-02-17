@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-gitlab/cli-ref/instance/index.md
 ---
 
 # yc managed-gitlab instance

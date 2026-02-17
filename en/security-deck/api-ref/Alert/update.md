@@ -76,7 +76,6 @@ apiPlayground:
         - updateMask
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/securitydeck/alerts/v1/api-ref/Alert/update.md
 ---
 
 # Security Deck Alerts API, REST: Alert.Update

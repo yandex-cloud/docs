@@ -1,6 +1,5 @@
 ---
 subcategory: Connection Manager
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/connectionmanager_connection.md
 ---
 
 # yandex_connectionmanager_connection (DataSource)

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cloudregistry/v1/api-ref/grpc/Registry/list.md
 ---
 
 # Yandex Cloud Registry API, gRPC: RegistryService.List

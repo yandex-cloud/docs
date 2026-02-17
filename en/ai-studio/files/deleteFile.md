@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/files/deleteFile.md
 ---
 
 # REST: Delete file

@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/listAccessBindings.md
 ---
 
 # Workflows Service, REST: Workflow.ListAccessBindings

@@ -44,7 +44,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/list.md
 ---
 
 # OAUTH Application API, REST: Application.List

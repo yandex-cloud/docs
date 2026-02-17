@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/listAccessBindings.md
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.ListAccessBindings

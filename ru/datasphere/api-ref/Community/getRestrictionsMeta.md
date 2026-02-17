@@ -7,7 +7,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/getRestrictionsMeta.md
 ---
 
 # DataSphere API v2, REST: Community.GetRestrictionsMeta

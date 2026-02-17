@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/apigateway/v1/apigateway/api-ref/grpc/Operation/cancel.md
 ---
 
 # API Gateway Service, gRPC: OperationService.Cancel

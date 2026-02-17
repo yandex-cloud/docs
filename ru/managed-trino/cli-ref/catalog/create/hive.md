@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/catalog/create/hive.md
 ---
 
 # yc managed-trino catalog create hive

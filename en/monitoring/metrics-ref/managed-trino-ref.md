@@ -2,7 +2,6 @@
 title: '{{ mtr-full-name }} metrics'
 description: In this tutorial, you will learn about {{ mtr-name }} metrics.
 editable: false
-sourcePath: en/monitoring_includes/metrics-ref/managed-trino-ref.md
 ---
 
 # {{ mtr-full-name }} metrics

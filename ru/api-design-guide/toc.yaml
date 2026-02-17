@@ -34,3 +34,4 @@ items:
         href: concepts/operation.md
       - name: Идемпотентность
         href: concepts/idempotency.md
+path: ru/api-design-guide/toc.yaml

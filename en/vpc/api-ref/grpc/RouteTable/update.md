@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/RouteTable/update.md
 ---
 
 # Virtual Private Cloud API, gRPC: RouteTableService.Update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Policy/revoke.md
 ---
 
 # Cloud Backup API, gRPC: PolicyService.Revoke

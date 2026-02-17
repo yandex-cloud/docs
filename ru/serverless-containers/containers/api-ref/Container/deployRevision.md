@@ -492,7 +492,6 @@ apiPlayground:
               **string**
               Optional id of service account with permission to invoke container.
             type: string
-sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/deployRevision.md
 ---
 
 # Serverless Containers Service, REST: Container.DeployRevision

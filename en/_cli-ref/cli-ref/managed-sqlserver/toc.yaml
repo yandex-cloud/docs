@@ -96,3 +96,4 @@ items:
         href: cli-ref/user/revoke-permission.md
       - name: update
         href: cli-ref/user/update.md
+path: en/_cli-ref/cli-ref/managed-sqlserver/toc.yaml

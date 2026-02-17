@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/deleteDashboard.md
 ---
 
 # DataLens API: Delete dashboard

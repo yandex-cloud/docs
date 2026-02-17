@@ -27,7 +27,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/addPassword.md
 ---
 
 # IoT Core Service, REST: Registry.AddPassword

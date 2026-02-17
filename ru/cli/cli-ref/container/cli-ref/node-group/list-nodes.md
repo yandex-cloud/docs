@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/node-group/list-nodes.md
 ---
 
 # yc container node-group list-nodes

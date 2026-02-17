@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/lockbox/cli-ref/secret/schedule-version-destruction.md
 ---
 
 # yc lockbox secret schedule-version-destruction

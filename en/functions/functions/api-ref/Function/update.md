@@ -65,7 +65,6 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/update.md
 ---
 
 # Cloud Functions Service, REST: Function.Update

@@ -54,7 +54,6 @@ apiPlayground:
         - phrase
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/searchapi/v2/api-ref/Wordstat/getRegionsDistribution.md
 ---
 
 # Web Search API, REST: Wordstat.GetRegionsDistribution

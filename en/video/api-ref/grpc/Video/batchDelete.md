@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/batchDelete.md
 ---
 
 # Video API, gRPC: VideoService.BatchDelete

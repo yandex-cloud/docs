@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/workload-identity/index.md
 ---
 
 # yc iam workload-identity

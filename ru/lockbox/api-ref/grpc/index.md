@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/lockbox/v1/api-ref/grpc/index.md
 ---
 
 # Lockbox API: gRPC reference

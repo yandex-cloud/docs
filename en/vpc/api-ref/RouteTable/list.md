@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/list.md
 ---
 
 # Virtual Private Cloud API, REST: RouteTable.List

@@ -96,7 +96,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/update.md
 ---
 
 # Virtual Private Cloud API, REST: Subnet.Update

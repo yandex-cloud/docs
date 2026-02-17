@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseMcpCallArgumentsDone.md
 ---
 
 # REST: response.mcp_call_arguments.done

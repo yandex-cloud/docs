@@ -768,7 +768,6 @@ apiPlayground:
               - http
           - required:
               - grpc
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/create.md
 ---
 
 # Application Load Balancer API, REST: VirtualHost.Create

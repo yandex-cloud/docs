@@ -316,7 +316,6 @@ apiPlayground:
         required:
           - name
           - password
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/create.md
 ---
 
 # Managed Service for PostgreSQL API, REST: User.Create

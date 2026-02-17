@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/config/cli-ref/set.md
 ---
 
 # yc config set

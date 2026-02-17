@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/resource-groups/list.md
 ---
 
 # yc managed-greenplum resource-groups list

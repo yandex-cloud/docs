@@ -54,7 +54,6 @@ apiPlayground:
               **string**
               Expected label for a given text.
             type: string
-sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classification/api-ref/TextClassification/fewShotClassify.md
 ---
 
 # Foundation Models Text Classification API, REST: TextClassification.FewShotClassify

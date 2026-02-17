@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/index.md
 ---
 
 # EventRouter Service, REST: Connector

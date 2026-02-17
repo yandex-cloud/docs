@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/COUNTD_IF.md
 ---
 
 # COUNTD_IF

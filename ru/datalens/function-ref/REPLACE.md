@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/REPLACE.md
 ---
 
 # REPLACE (строковая)

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-postgresql/cli-ref-beta/performance-diagnostics/list-raw-statements.md
 ---
 
 # yc beta managed-postgresql performance-diagnostics list-raw-statements

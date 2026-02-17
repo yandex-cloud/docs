@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/OAuthClientSecret/get.md
 ---
 
 # Identity and Access Management API, gRPC: OAuthClientSecretService.Get

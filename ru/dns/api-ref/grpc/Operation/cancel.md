@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Cloud DNS API, gRPC: OperationService.Cancel

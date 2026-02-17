@@ -6,6 +6,11 @@ description:
   - >-
     {{ yandex-cloud }} предоставляет провайдер, набор модулей и ряд готовых
     решений, которые  вы можете адаптировать под свои задачи.
+meta:
+  title: Terraform в Yandex Cloud
+  description: >-
+    Используйте провайдер {{ yandex-cloud }} для {{ TF }}, чтобы управлять вашей
+    облачной инфраструктурой
 links:
   - title: Начало работы
     description: Разверните тестовую инфраструктуру с помощью {{ TF }}
@@ -19,8 +24,3 @@ links:
   - title: Провайдер {{ yandex-cloud }}
     description: Справочник ресурсов и источников данных {{ yandex-cloud }}
     href: tf-ref/overview
-meta:
-  title: Terraform в Yandex Cloud
-  description: >-
-    Используйте провайдер {{ yandex-cloud }} для {{ TF }}, чтобы управлять вашей
-    облачной инфраструктурой

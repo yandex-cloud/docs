@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/setAccessBindings.md
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.SetAccessBindings

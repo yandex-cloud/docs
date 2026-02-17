@@ -29,7 +29,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/list.md
 ---
 
 # Managed Service for Gitlab API, REST: Instance.List

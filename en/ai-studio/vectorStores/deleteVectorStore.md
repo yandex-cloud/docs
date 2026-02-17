@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/vectorStores/deleteVectorStore.md
 ---
 
 # REST: Delete vector store

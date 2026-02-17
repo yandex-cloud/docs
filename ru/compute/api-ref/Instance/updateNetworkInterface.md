@@ -136,7 +136,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DnsRecordSpec'
-sourcePath: en/_api-ref/compute/v1/api-ref/Instance/updateNetworkInterface.md
 ---
 
 # Compute Cloud API, REST: Instance.UpdateNetworkInterface

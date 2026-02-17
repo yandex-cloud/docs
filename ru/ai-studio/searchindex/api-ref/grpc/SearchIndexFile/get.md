@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/searchindex/api-ref/grpc/SearchIndexFile/get.md
 ---
 
 # Search Index, gRPC: SearchIndexFileService.Get
