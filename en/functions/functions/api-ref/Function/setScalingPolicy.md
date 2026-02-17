@@ -55,7 +55,6 @@ apiPlayground:
         - tag
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/setScalingPolicy.md
 ---
 
 # Cloud Functions Service, REST: Function.SetScalingPolicy

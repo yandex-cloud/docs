@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dns/v1/api-ref/index.md
 ---
 
 # Cloud DNS API: REST reference

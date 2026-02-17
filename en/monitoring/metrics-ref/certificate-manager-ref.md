@@ -2,7 +2,6 @@
 title: '{{ certificate-manager-full-name }} metrics'
 description: In this tutorial, you will learn about {{ certificate-manager-name }} metrics.
 editable: false
-sourcePath: en/monitoring_includes/metrics-ref/certificate-manager-ref.md
 ---
 
 # {{ certificate-manager-full-name }} metrics

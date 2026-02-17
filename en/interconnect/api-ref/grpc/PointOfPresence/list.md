@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PointOfPresence/list.md
 ---
 
 # Cloud Interconnect API, gRPC: PointOfPresenceService.List

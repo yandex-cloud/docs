@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/getSettings.md
 ---
 
 # Identity Hub API, gRPC: OsLoginService.GetSettings

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerResponseOutputTextDone.md
 ---
 
 # REST: response.output_text.done '[CURRENTLY NOT SUPPORTED]'

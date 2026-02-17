@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/snapshot-schedule/list-access-bindings.md
 ---
 
 # yc beta compute snapshot-schedule list-access-bindings

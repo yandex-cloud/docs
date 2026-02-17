@@ -9,3 +9,4 @@ items:
     href: events-ref/UpdateTrail.md
   - name: UpdateTrailAccessBindings
     href: events-ref/UpdateTrailAccessBindings.md
+path: en/_events-ref/audittrails/toc.yaml

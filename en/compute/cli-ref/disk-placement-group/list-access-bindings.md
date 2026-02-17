@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/disk-placement-group/list-access-bindings.md
 ---
 
 # yc compute disk-placement-group list-access-bindings

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/text_generation/text-generation/api-ref/grpc/Tokenizer/tokenizeCompletion.md
 ---
 
 # Foundation Models Text Generation API, gRPC: TokenizerService.TokenizeCompletion

@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы получит
 
 - API {#api}
 
-  Чтобы получить список доступных конфигураций мастера в кластере, воспользуйтесь методом [list](../../managed-kubernetes/api-ref/grpc/ResourcePreset/list.md) для ресурса [ResourcePreset](../../managed-kubernetes/api-ref/grpc/ResourcePreset/).
+  Воспользуйтесь вызовом gRPC API [ResourcePresetService/List](../../managed-kubernetes/api-ref/grpc/ResourcePreset/list.md).
 
 {% endlist %}
 

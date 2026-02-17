@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/metadata-hub/cli-ref/index.md
 ---
 
 # yc metadata-hub

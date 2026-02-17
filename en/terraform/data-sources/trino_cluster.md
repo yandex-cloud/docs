@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Trino
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/trino_cluster.md
 ---
 
 # yandex_trino_cluster (DataSource)

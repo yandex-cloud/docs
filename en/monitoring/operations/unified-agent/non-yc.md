@@ -1,7 +1,6 @@
 ---
 title: Delivering metrics from hosts outside {{ yandex-cloud }}
 description: Follow this guide to deliver metrics from hosts outside {{ yandex-cloud }}.
-sourcePath: en/monitoring_includes/operations/unified-agent/non-yc.md
 ---
 
 # Delivering metrics from hosts outside {{ yandex-cloud }}

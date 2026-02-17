@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/ARR_SUM.md
 ---
 
 # ARR_SUM

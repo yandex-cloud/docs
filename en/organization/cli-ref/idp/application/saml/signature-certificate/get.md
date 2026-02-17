@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/get.md
 ---
 
 # yc organization-manager idp application saml signature-certificate get

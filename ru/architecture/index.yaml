@@ -3,6 +3,17 @@ description:
   - >-
     Архитектурные решения и рекомендации для реализации пользовательских
     сценариев в Yandex Cloud.
+meta:
+  title: Архитектурные решения
+  description: >-
+    Архитектурные решения и рекомендации для реализации пользовательских
+    сценариев в Yandex Cloud.
+  keywords:
+    - keyword: Архитектурные решения в {{ yandex-cloud }}
+    - keyword: Пользовательские сценарии в {{ yandex-cloud }}
+    - keyword: Рекомендации {{ yandex-cloud }}
+    - keyword: Архитектурные решения
+    - keyword: Пользовательские сценарии
 blocks:
   - type: card-layout-block
     colSizes:
@@ -52,15 +63,4 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-meta:
-  title: Архитектурные решения
-  description: >-
-    Архитектурные решения и рекомендации для реализации пользовательских
-    сценариев в Yandex Cloud.
-  keywords:
-    - Архитектурные решения в {{ yandex-cloud }}
-    - Пользовательские сценарии в {{ yandex-cloud }}
-    - Рекомендации {{ yandex-cloud }}
-    - Архитектурные решения
-    - Пользовательские сценарии
 links: []

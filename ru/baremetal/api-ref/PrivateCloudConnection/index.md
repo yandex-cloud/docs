@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/PrivateCloudConnection/index.md
 ---
 
 # BareMetal API, REST: PrivateCloudConnection

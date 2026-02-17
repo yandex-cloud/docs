@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/User/list.md
 ---
 
 # Identity Provider API, REST: User.List

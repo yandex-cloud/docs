@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_idp_application_oauth_application_assignment.md
 ---
 
 # yandex_organizationmanager_idp_application_oauth_application_assignment (Resource)

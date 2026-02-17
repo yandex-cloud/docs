@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-redis cluster remove-access-binding

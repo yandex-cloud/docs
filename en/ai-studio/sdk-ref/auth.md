@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/auth.md
----
 # Authentication
 
 Here must be algorithm about how auto-authorization works

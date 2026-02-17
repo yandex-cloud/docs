@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/listOperations.md
 ---
 
 # Resource Manager API, REST: Folder.ListOperations

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/repository/lifecycle-policy/index.md
 ---
 
 # yc container repository lifecycle-policy

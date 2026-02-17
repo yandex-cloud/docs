@@ -1,7 +1,6 @@
 ---
 title: Функции для работы с массивами
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/array-functions.md
 ---
 
 # Функции для работы с массивами

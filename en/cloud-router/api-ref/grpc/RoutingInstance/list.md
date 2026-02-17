@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cloudrouter/v1/api-ref/grpc/RoutingInstance/list.md
 ---
 
 # Cloud Router API, gRPC: RoutingInstanceService.List

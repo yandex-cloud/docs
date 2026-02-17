@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/setAccessBindings.md
 ---
 
 # Yandex Data Processing API, gRPC: ClusterService.SetAccessBindings

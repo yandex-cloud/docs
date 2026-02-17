@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/filters.md
----
 # Filters
 
 You can describe a filter in the `routes` section within the `channel`:`pipe`:`filter` element. Alternatively, you can do this in the `pipes` section. 

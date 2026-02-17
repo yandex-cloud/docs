@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Image/delete.md
 ---
 
 # BareMetal API, REST: Image.Delete

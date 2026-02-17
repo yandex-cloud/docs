@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/speechkit/text_to_speech.md
----
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.function.**TextToSpeechFunction**{#yandex_ai_studio_sdk._speechkit.text_to_speech.function.TextToSpeechFunction}

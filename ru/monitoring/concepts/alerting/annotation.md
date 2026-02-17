@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/concepts/alerting/annotation.md
----
 # Аннотация
 
 Аннотации позволяют сохранить дополнительную информацию в момент вычисления алерта. Имя и значение аннотаций передаются при отправке уведомлений по алертам в [каналы](notification-channel.md) `Email` и `Telegram`.

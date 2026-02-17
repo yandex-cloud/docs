@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/s3api/list-multipart-uploads.md
 ---
 
 # yc storage s3api list-multipart-uploads

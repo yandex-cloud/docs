@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/cluster/get-credentials.md
 ---
 
 # yc managed-kubernetes cluster get-credentials

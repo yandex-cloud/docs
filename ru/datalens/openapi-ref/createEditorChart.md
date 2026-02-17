@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens-api/openapi-ref/createEditorChart.md
 ---
 
 # DataLens API: 🚧 [Experimental] Create Editor chart

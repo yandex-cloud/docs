@@ -7,5 +7,10 @@ items:
     items:
       - name: Установка приложения
         href: operations/install-app.md
+  - name: Практические руководства
+    items:
+      - name: Создание сайта на WordPress с помощью {{ cloud-apps-name }}
+        href: tutorials/wordpress-cloudapp.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+path: ru/cloud-apps/toc.yaml

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/Operation/index.md
 ---
 
 # DataSphere Jobs API v2, gRPC: OperationService

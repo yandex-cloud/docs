@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Video API, gRPC: OperationService.Cancel

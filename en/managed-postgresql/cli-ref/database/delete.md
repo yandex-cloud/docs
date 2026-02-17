@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/database/delete.md
 ---
 
 # yc managed-postgresql database delete

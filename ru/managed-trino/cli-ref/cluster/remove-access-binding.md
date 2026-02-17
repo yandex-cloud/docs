@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-trino cluster remove-access-binding

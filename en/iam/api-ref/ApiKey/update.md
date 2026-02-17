@@ -59,7 +59,6 @@ apiPlayground:
           format: date-time
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/update.md
 ---
 
 # Identity and Access Management API, REST: ApiKey.Update

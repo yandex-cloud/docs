@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Artifact/get.md
 ---
 
 # Yandex Cloud Registry API, REST: Artifact.Get

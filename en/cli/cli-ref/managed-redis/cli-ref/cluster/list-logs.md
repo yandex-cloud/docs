@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/list-logs.md
 ---
 
 # yc managed-redis cluster list-logs

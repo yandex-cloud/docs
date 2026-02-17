@@ -94,7 +94,6 @@ apiPlayground:
               type: string
         required:
           - clientId
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/create.md
 ---
 
 # OAUTH Application API, REST: Application.Create

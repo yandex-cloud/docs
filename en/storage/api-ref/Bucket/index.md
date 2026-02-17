@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/index.md
 ---
 
 # Object Storage API, REST: Bucket

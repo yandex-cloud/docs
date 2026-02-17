@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/organization-manager/cli-ref-beta/oslogin/user-ssh-key/delete.md
 ---
 
 # yc beta organization-manager oslogin user-ssh-key delete

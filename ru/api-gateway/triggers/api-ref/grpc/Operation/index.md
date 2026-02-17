@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/triggers/v1/triggers/api-ref/grpc/Operation/index.md
 ---
 
 # Cloud Functions Triggers Service, gRPC: OperationService

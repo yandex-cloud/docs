@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/searchindex/api-ref/grpc/Operation/get.md
 ---
 
 # Search Index, gRPC: OperationService.Get

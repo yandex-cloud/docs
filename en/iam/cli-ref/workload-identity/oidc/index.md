@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/workload-identity/oidc/index.md
 ---
 
 # yc iam workload-identity oidc

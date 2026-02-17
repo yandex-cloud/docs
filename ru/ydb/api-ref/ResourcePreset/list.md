@@ -26,7 +26,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ydb/v1/api-ref/ResourcePreset/list.md
 ---
 
 # Managed Service for YDB API, REST: ResourcePreset.List

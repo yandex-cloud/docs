@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/cluster/switch-master.md
 ---
 
 # yc managed-opensearch cluster switch-master

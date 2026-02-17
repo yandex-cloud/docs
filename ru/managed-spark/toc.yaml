@@ -185,3 +185,4 @@ items:
                 href: api-ref/grpc/Operation/cancel.md
   - name: История изменений
     href: release-notes.md
+path: ru/managed-spark/toc.yaml

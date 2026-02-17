@@ -5,6 +5,19 @@ description: This section contains the {{ mch-name }} release notes.
 
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-11
+index: 1
+```
+
+### ClickHouse Keeper
+
+![image](../_assets/managed-clickhouse/changelogs/clickhouse-keeper.png)
+
+Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in your {{ CH }} clusters. {{ CK }} implements a {{ ZK }}-compatible client-server protocol, so you can use any standard {{ ZK }} client to work with it.
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 

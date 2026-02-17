@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/runs.md
----
 # Runs domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_runs.domain.**Runs**{#yandex_ai_studio_sdk._runs.domain.Runs}

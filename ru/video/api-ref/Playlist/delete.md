@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Playlist/delete.md
 ---
 
 # Video API, REST: Playlist.Delete

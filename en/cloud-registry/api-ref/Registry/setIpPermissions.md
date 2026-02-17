@@ -44,7 +44,6 @@ apiPlayground:
           ip:
             description: '**string**'
             type: string
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/setIpPermissions.md
 ---
 
 # Yandex Cloud Registry API, REST: Registry.SetIpPermissions

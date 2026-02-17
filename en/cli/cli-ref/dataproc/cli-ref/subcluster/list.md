@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/subcluster/list.md
 ---
 
 # yc dataproc subcluster list

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/folder/bind-access-policy.md
 ---
 
 # yc resource-manager folder bind-access-policy

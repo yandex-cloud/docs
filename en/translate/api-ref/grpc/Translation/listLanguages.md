@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/translate/v2/api-ref/grpc/Translation/listLanguages.md
 ---
 
 # Translate API v2, gRPC: TranslationService.ListLanguages

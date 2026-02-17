@@ -41,7 +41,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/listArtifacts.md
 ---
 
 # Yandex Cloud Registry API, REST: Registry.ListArtifacts

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/dns/cli-ref-beta/index.md
 ---
 
 # yc beta dns

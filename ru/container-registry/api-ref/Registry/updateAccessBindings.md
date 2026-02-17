@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/updateAccessBindings.md
 ---
 
 # Container Registry API, REST: Registry.UpdateAccessBindings

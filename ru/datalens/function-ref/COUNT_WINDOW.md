@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/COUNT_WINDOW.md
 ---
 
 # COUNT (оконная)

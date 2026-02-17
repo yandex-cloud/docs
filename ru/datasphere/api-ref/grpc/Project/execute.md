@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/execute.md
 ---
 
 # DataSphere API v2, gRPC: ProjectService.Execute

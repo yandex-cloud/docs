@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/get.md
 ---
 
 # Access Key, REST: AccessKey.Get

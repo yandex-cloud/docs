@@ -33,7 +33,6 @@ apiPlayground:
         - text
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/detectLanguage.md
 ---
 
 # Translate API v2, REST: Translation.DetectLanguage

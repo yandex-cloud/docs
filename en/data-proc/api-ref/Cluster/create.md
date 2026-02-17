@@ -377,7 +377,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/CreateSubclusterConfigSpec'
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/create.md
 ---
 
 # Yandex Data Processing API, REST: Cluster.Create

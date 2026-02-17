@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/delete.md
 ---
 
 # Serverless Containers Service, REST: Container.Delete

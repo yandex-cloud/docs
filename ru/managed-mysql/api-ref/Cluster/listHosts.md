@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listHosts.md
 ---
 
 # Managed Service for MySQL API, REST: Cluster.ListHosts

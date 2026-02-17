@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Operation/index.md
 ---
 
 # Certificate Manager Private CA API, REST: Operation

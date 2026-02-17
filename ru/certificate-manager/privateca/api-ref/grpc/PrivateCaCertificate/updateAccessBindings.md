@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/certificatemanager/v1/privateca/api-ref/grpc/PrivateCaCertificate/updateAccessBindings.md
 ---
 
 # Certificate Manager Private CA API, gRPC: PrivateCaCertificateService.UpdateAccessBindings

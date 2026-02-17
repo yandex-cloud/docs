@@ -1,0 +1,1 @@
+{% include [wordpress-static-website](../../_tutorials/applied/wordpress-cloudapp.md) %}

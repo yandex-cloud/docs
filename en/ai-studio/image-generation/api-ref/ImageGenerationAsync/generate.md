@@ -75,7 +75,6 @@ apiPlayground:
               **[AspectRatio](#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
               Aspect ratio of generated image.
             $ref: '#/definitions/AspectRatio'
-sourcePath: en/_api-ref/ai/foundation_models/v1/image_generation/image-generation/api-ref/ImageGenerationAsync/generate.md
 ---
 
 # Foundation Models Image Generation API, REST: ImageGenerationAsync.Generate

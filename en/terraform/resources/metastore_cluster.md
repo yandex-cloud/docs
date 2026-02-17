@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Hive Metastore™
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/metastore_cluster.md
 ---
 
 # yandex_metastore_cluster (Resource)

@@ -109,7 +109,6 @@ apiPlayground:
               type: string
         required:
           - clientId
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/update.md
 ---
 
 # OAUTH Application API, REST: Application.Update

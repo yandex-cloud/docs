@@ -56,7 +56,6 @@ apiPlayground:
             type: boolean
         required:
           - hostName
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/updateHosts.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.UpdateHosts

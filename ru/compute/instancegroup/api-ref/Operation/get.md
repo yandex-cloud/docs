@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/Operation/get.md
 ---
 
 # Compute Cloud Instance Groups API, REST: Operation.Get

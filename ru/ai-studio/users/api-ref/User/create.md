@@ -60,7 +60,6 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
-sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/create.md
 ---
 
 # Users, REST: User.Create

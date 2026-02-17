@@ -109,7 +109,6 @@ apiPlayground:
         required:
           - fqdn
           - dnsZoneId
-sourcePath: en/_api-ref/vpc/v1/api-ref/Address/update.md
 ---
 
 # Virtual Private Cloud API, REST: Address.Update

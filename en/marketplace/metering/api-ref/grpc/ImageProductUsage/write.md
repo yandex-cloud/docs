@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/metering/v1/metering/api-ref/grpc/ImageProductUsage/write.md
 ---
 
 # Marketplace Metering API, gRPC: ImageProductUsageService.Write

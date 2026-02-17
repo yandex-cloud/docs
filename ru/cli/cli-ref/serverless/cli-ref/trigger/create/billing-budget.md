@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/create/billing-budget.md
 ---
 
 # yc serverless trigger create billing-budget

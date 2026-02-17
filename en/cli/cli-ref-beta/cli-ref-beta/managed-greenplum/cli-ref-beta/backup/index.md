@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-greenplum/cli-ref-beta/backup/index.md
 ---
 
 # yc beta managed-greenplum backup

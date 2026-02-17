@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/lockbox/cli-ref/secret/add-access-binding.md
 ---
 
 # yc lockbox secret add-access-binding

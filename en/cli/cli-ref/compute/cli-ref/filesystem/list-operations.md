@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/filesystem/list-operations.md
 ---
 
 # yc compute filesystem list-operations

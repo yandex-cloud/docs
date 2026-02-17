@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/list-backups.md
 ---
 
 # yc managed-redis cluster list-backups

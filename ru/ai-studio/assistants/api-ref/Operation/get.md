@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Operation/get.md
 ---
 
 # AI Assistants API, REST: Operation.Get

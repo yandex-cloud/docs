@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/public-subnet/index.md
 ---
 
 # yc baremetal public-subnet

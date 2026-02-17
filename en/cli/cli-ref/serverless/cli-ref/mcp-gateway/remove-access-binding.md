@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/mcp-gateway/remove-access-binding.md
 ---
 
 # yc serverless mcp-gateway remove-access-binding

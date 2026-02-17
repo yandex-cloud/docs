@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/application/oauth/application/list.md
 ---
 
 # yc organization-manager idp application oauth application list

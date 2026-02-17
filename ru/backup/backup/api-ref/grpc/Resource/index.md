@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Resource/index.md
 ---
 
 # Cloud Backup API, gRPC: ResourceService

@@ -312,7 +312,6 @@ apiPlayground:
               **[CombinationStrategy](#yandex.cloud.ai.assistants.v1.searchindex.CombinationStrategy)**
               Combination strategy for merging rankings from different indices. Default is arithmetic mean
             $ref: '#/definitions/CombinationStrategy'
-sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndex/create.md
 ---
 
 # Search Index, REST: SearchIndex.Create

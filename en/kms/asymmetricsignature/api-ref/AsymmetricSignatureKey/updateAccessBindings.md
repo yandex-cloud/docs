@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/updateAccessBindings.md
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureKey.UpdateAccessBindings

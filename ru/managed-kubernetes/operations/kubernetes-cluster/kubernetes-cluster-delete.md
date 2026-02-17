@@ -59,6 +59,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы удалить кластер {{ k8s }}, воспользуйтесь методом [delete](../../managed-kubernetes/api-ref/Cluster/delete.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
+  Чтобы удалить кластер {{ k8s }}, воспользуйтесь методом REST API [delete](../../managed-kubernetes/api-ref/Cluster/delete.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) или вызовом gRPC API [ClusterService/Delete](../../managed-kubernetes/api-ref/grpc/Cluster/delete.md).
 
 {% endlist %}

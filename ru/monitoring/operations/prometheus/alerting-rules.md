@@ -1,7 +1,6 @@
 ---
 title: Как использовать {{ prometheus-name }} Alerting Rules
 description: Следуя данному руководству, вы сможете создавать и редактировать файлы {{ prometheus-name }} с правилами алертинга (alerting rules).
-sourcePath: ru/monitoring_includes/operations/prometheus/alerting-rules.md
 ---
 
 # Правила алертинга

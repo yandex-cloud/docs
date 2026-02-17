@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/s3api/get-bucket-acl.md
 ---
 
 # yc storage s3api get-bucket-acl

@@ -18,7 +18,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/listActivated.md
 ---
 
 # Cloud CDN API, REST: Provider.ListActivated

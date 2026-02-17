@@ -153,7 +153,6 @@ apiPlayground:
               Restricts which domains can embed content from this channel.
               If not specified or disabled, content can be embedded on any domain.
             $ref: '#/definitions/RefererVerificationSettings'
-sourcePath: en/_api-ref/video/v1/api-ref/Channel/update.md
 ---
 
 # Video API, REST: Channel.Update

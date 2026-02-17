@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iot/cli-ref-beta/device/delete-password.md
 ---
 
 # yc beta iot device delete-password

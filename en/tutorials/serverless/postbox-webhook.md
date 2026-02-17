@@ -4,7 +4,6 @@ description: In this tutorial, you will set up streaming of {{ postbox-full-name
 keywords:
   - webhook
   - webhook integration
-  - webhook
   - integration via webhooks
   - setting up webhooks
 ---

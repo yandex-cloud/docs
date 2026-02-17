@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/kms/cli-ref/asymmetric-signature-key/list-operations.md
 ---
 
 # yc kms asymmetric-signature-key list-operations

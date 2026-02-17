@@ -26,7 +26,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/addCertificate.md
 ---
 
 # IoT Core Broker Service, REST: Broker.AddCertificate

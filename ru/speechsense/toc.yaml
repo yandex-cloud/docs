@@ -68,7 +68,7 @@ items:
           - name: Удалить пользователя из проекта
             href: operations/project/delete-user-from-project.md
           - name: Обучение {{ yagpt-name }}
-            href: operations/project/yandexgpt-training
+            href: operations/project/yandexgpt-training.md
       - name: Ассистенты
         items:
           - name: Создать ассистента
@@ -257,3 +257,4 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
+path: ru/speechsense/toc.yaml

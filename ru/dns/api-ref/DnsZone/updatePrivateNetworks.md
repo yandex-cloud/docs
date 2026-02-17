@@ -32,7 +32,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/updatePrivateNetworks.md
 ---
 
 # Cloud DNS API, REST: DnsZone.UpdatePrivateNetworks

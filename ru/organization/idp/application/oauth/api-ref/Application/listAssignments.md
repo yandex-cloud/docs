@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/listAssignments.md
 ---
 
 # OAUTH Application API, REST: Application.ListAssignments

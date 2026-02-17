@@ -85,7 +85,6 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/User/update.md
 ---
 
 # Managed Service for SPQR API, REST: User.Update

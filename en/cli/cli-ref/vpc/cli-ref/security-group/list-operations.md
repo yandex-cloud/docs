@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/security-group/list-operations.md
 ---
 
 # yc vpc security-group list-operations

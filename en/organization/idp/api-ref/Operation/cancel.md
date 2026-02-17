@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Operation/cancel.md
 ---
 
 # Identity Provider API, REST: Operation.Cancel

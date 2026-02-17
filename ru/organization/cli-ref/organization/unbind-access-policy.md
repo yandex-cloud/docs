@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/organization/unbind-access-policy.md
 ---
 
 # yc organization-manager organization unbind-access-policy

@@ -7,3 +7,4 @@ items:
         href: concepts/index.md
   - name: Управление доступом
     href: security/index.md
+path: ru/ycdr/toc.yaml

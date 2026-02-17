@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md
 ---
 
 # yc cloud-registry registry set-access-bindings

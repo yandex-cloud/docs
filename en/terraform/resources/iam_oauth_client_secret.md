@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iam_oauth_client_secret.md
 ---
 
 # yandex_iam_oauth_client_secret (Resource)

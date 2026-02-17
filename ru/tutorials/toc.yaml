@@ -781,6 +781,8 @@ items:
                 href: web/wordpress/console.md
               - name: '{{ TF }}'
                 href: web/wordpress/terraform.md
+          - name: Создание сайта на WordPress с помощью {{ cloud-apps-name }}
+            href: web/wordpress-cloudapp.md
           - name: Сайт на WordPress с БД {{ MY }}
             items:
               - name: Обзор
@@ -823,7 +825,7 @@ items:
             href: web/flask.md
           - name: Хостинг статического сайта на фреймворке Gatsby
             href: web/gatsby-static-website.md
-          - name: Установка Ghost CMS CloudApp
+          - name: Установка Ghost CMS с помощью {{ cloud-apps-name }}
             href: web/ghost-cms-cloudapp.md
           - name: Миграция в {{ cdn-name }} из стороннего CDN-провайдера
             href: web/migrate-to-yc-cdn.md
@@ -1142,9 +1144,9 @@ items:
       - name: >-
           Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
-        href: dataplatform/./data-transfer-mmy.md
+        href: dataplatform/data-transfer-mmy.md
       - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/./debezium-mmy.md
+        href: dataplatform/debezium-mmy.md
       - name: >-
           Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
@@ -1211,9 +1213,9 @@ items:
       - name: >-
           Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
-        href: dataplatform/./data-transfer-mpg.md
+        href: dataplatform/data-transfer-mpg.md
       - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/./debezium-mpg.md
+        href: dataplatform/debezium-mpg.md
       - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
         hidden: true
@@ -1773,3 +1775,4 @@ items:
           - name: Создание интеллектуального ассистента для Telegram
             hidden: true
             href: ml-ai/tg-bot-assistant.md
+path: ru/tutorials/toc.yaml

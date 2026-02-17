@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/api-ref/grpc/SecurityProfile/list.md
 ---
 
 # SmartWebSecurity API, gRPC: SecurityProfileService.List

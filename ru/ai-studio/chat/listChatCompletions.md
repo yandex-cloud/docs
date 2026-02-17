@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/chat/listChatCompletions.md
 ---
 
 # REST: List Chat Completions

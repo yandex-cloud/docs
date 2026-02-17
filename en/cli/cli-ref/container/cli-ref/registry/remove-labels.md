@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/registry/remove-labels.md
 ---
 
 # yc container registry remove-labels

@@ -7,7 +7,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/speechsense/v1/api-ref/Assistants/listModels.md
 ---
 
 # Talk Analytics API, REST: Assistants.ListModels

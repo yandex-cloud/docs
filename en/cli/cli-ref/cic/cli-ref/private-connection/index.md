@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/private-connection/index.md
 ---
 
 # yc cic private-connection

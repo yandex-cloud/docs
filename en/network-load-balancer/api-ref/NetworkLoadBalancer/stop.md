@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/stop.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.Stop

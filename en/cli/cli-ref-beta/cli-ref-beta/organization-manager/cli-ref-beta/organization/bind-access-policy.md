@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/organization-manager/cli-ref-beta/organization/bind-access-policy.md
 ---
 
 # yc beta organization-manager organization bind-access-policy

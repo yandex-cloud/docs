@@ -210,7 +210,7 @@ description: Следуя данной инструкции, вы сможете
 
   Воспользуйтесь методом REST API [create](../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Create](../managed-kubernetes/api-ref/grpc/NodeGroup/create.md).
 
-  Реквизиты для подключения по SSH передаются в параметре `nodeTemplate.metadata` в ключе `ssh-keys`.
+  Реквизиты для подключения по SSH передаются в параметре `nodeTemplate.metadata` для REST API или `node_template.metadata` для gRPC API в ключе `ssh-keys`.
 
 {% endlist %}
 
@@ -298,6 +298,8 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   1. Если вы хотите передать несколько реквизитов для подключения по SSH, преобразуйте содержимое файла с реквизитами в одну строку, отделив реквизиты друг от друга последовательностью специальных символов CRLF (`\r\n`). В запросе к API с телом в формате JSON нельзя использовать многострочные сообщения.
 
       Пример преобразованных реквизитов:
@@ -308,7 +310,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-  1. Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
+  1. Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
 
       * Идентификатор группы узлов в параметре `nodeGroupId`.
 

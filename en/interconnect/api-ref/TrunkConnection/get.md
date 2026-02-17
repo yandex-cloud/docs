@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/get.md
 ---
 
 # Cloud Interconnect API, REST: TrunkConnection.Get

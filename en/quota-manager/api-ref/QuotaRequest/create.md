@@ -55,7 +55,6 @@ apiPlayground:
             type: string
         required:
           - quotaId
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/create.md
 ---
 
 # Quota Manager API, REST: QuotaRequest.Create

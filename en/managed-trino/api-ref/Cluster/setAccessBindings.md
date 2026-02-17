@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for Trino API, REST: Cluster.SetAccessBindings

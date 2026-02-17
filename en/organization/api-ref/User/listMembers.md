@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/User/listMembers.md
 ---
 
 # Identity Hub API, REST: User.ListMembers

@@ -8,9 +8,16 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете создать трейл, который будет загружать аудитные логи [уровня конфигурации](../concepts/format.md) и [уровня сервисов](../concepts/format-data-plane.md) в один из [объектов назначения](../concepts/trail.md#target):
 
-* бакет [{{ objstorage-full-name }}](../../storage/);
-* лог-группу [{{ cloud-logging-full-name }}](../../logging/);
-* поток данных [{{ yds-full-name }}](../../data-streams/).
+* бакет [{{ objstorage-full-name }}](../../storage/index.yaml);
+* лог-группу [{{ cloud-logging-full-name }}](../../logging/index.yaml);
+* поток данных [{{ yds-full-name }}](../../data-streams/index.yaml);
+* шину [{{ er-full-name }}](../../serverless-integrations/index.yaml).
+
+{% note info %}
+
+В настоящий момент создать трейл с объектом назначения **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** можно только с помощью [консоли управления]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/index.yaml) и [API](../../api-design-guide/index.yaml).
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
@@ -20,60 +27,73 @@ description: Следуя данной инструкции, вы сможете
 
 - Бакет {{ objstorage-name }} {#bucket}
 
-    1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом, в который будут загружаться аудитные логи.
+  1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом, в который будут загружаться аудитные логи.
+  1. (Опционально) Включите шифрование для бакета.
 
-    1. (Опционально) Включите шифрование для бакета.
+      [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у аккаунта, от имени которого вы собираетесь создавать ключ шифрования для бакета, есть [роль](../../kms/security/index.md#kms-editor) `kms.editor` на каталог.
+  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
+  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
-        [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у аккаунта, от имени которого вы собираетесь создавать ключ шифрования для бакета, есть роль `kms.editor` на каталог.
+      * [storage.uploader](../../storage/security/index.md#storage-uploader) на [бакет](../../storage/concepts/bucket.md).
+      * [kms.keys.encrypter](../../kms/security/index.md#kms-keys-encrypter) на [ключ шифрования](../../kms/concepts/key.md) для бакета.
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
+          Эта роль необходима, только если для бакета было включено шифрование.
 
-    1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
-        * `storage.uploader` на бакет.
-        * `kms.keys.encrypter` на ключ шифрования для бакета.
-
-            Эта роль необходима, только если для бакета было включено шифрование.
-
-        {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
-
-    1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
 - Лог-группа {{ cloud-logging-name }} {#logging}
 
-    1. [Создайте лог-группу](../../logging/operations/create-group.md), в которую будут загружаться аудитные логи.
+  1. [Создайте лог-группу](../../logging/operations/create-group.md), в которую будут загружаться аудитные логи.
+  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
+  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
+      * [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md).
 
-    1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
-        * `logging.writer` на лог-группу.
-
-        {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
-
-    1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
 - Поток данных {{ yds-name }} {#data-streams}
 
-    1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream), в который будут загружаться аудитные логи.
+  1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream), в который будут загружаться аудитные логи.
 
-        {% note tip %}
+      {% note tip %}
 
-        Рекомендуем включить [автопартиционирование](../../data-streams/concepts/glossary.md#autopartitioning) на принимающем потоке данных.
+      Рекомендуем включить [автопартиционирование](../../data-streams/concepts/glossary.md#autopartitioning) на принимающем потоке данных.
 
-        Часть событий может потеряться при перегрузке отдельных [сегментов](../../data-streams/concepts/glossary.md#shard) или всего [потока](../../data-streams/concepts/glossary.md#stream-concepts). Автопартиционирование автоматически добавляет сегменты и распределяет нагрузку, что помогает избежать потерь. Если автопартиционирование отключено, самостоятельно проверяйте и увеличивайте количество сегментов при необходимости.
+      Часть событий может потеряться при перегрузке отдельных [сегментов](../../data-streams/concepts/glossary.md#shard) или всего [потока](../../data-streams/concepts/glossary.md#stream-concepts). Автопартиционирование автоматически добавляет сегменты и распределяет нагрузку, что помогает избежать потерь. Если автопартиционирование отключено, самостоятельно проверяйте и увеличивайте количество сегментов при необходимости.
 
-        {% endnote %}
+      {% endnote %}
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
+  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
+  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
-    1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
+      * [yds.writer](../../data-streams/security/index.md#yds-writer) на [поток данных](../../data-streams/concepts/glossary.md#stream-concepts).
 
-        * `yds.writer` на поток данных.
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
-        {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
-    1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
+- Шина {{ er-name }} {#eventrouter}
+
+  1. [Создайте](../../serverless-integrations/operations/eventrouter/bus/create.md) шину {{ er-full-name }}.
+
+      {% note info %}
+
+      В настоящий момент создать [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}` можно только в [консоли управления]({{ link-console-main }}) при создании или изменении трейла, а также с помощью [API {{ er-name }}](../../serverless-integrations/eventrouter/api-ref/Connector/create.md).
+
+      {% endnote %}
+
+  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
+  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
+
+      * [serverless.eventrouter.supplier](../../serverless-integrations/security/eventrouter.md#serverless-eventrouter-supplier) на каталог, в котором находится нужная [шина](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-name }}.
+
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
+
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
 {% endlist %}
 
@@ -83,69 +103,70 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-    1. Введите имя трейла. Оно должно быть уникальным в рамках каталога.
-    1. (Опционально) Введите описание трейла.
-    1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** выберите один из объектов назначения и укажите его настройки:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. Введите имя трейла. Оно должно быть уникальным в рамках каталога.
+  1. (Опционально) Введите описание трейла.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** выберите один из объектов назначения и укажите его настройки:
 
-        * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — загружать аудитные логи в бакет {{ objstorage-name }}. Рекомендуется для долгосрочного хранения данных. Задайте настройки хранения логов:
+      * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — загружать аудитные логи в бакет {{ objstorage-name }}. Рекомендуется для долгосрочного хранения данных. Задайте настройки хранения логов:
 
-            * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя бакета, который [был создан ранее](#before-you-begin).
-            * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — [префикс](../concepts/format.md#log-file-name), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
+          * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — бакет, который [был создан ранее](#before-you-begin).
+          * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — [префикс](../concepts/format.md#log-file-name), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
-                {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+              {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-            * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
+          * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
+      * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — лог-группа, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
+      * **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — поток данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
+      * **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** — коннектор шины {{ er-name }}. Рекомендуется для подробного анализа логов и дальнейшей отправки их в различные обработчики и системы в зависимости от заданных в шине условий.
 
-        * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — укажите имя лог-группы, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
+          В поле **Коннектор** выберите нужный [коннектор](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}` или нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать новый коннектор в нужной шине.
 
-        * **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — укажите имя потока данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт, от имени которого будет работать трейл.
 
-    1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите [созданный ранее](#before-you-begin) сервисный аккаунт, от имени которого будет работать трейл.
+  1. Включите и настройте сбор событий с одного или двух уровней. Такие события попадут в аудитные логи.
 
-    1. Включите и настройте сбор событий с одного или двух уровней. Такие события попадут в аудитные логи.
+      Чтобы настроить **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
 
-        Чтобы настроить **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
+      1. Выберите [область сбора логов](../concepts/trail.md) — `Организация`, `Облако` или `Каталог`. События, которые попадут в логи, будут собираться в указанной области.
 
-        1. Выберите [область сбора логов](../concepts/trail.md) — `Организация`, `Облако` или `Каталог`. События, которые попадут в логи, будут собираться в указанной области.
+          Права сервисного аккаунта, [созданного ранее](#before-you-begin), должны позволять сбор логов из указанной области.
 
-            Права сервисного аккаунта, [созданного ранее](#before-you-begin), должны позволять сбор логов из указанной области.
+      1. В зависимости от выбранной области сбора логов выберите конкретные облака или каталоги, с которых будут собираться события:
 
-        1. В зависимости от выбранной области сбора логов, выберите конкретные облака или каталоги, с которых будут собираться события:
+          * Для области сбора `Организация` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** одно или несколько облаков, с которых будут собираться события.
 
-            * Для области сбора `Организация` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** одно или несколько облаков, с которых будут собираться события.
+              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех облаков в организации.
 
-                Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех облаков в организации.
+          * Для области сбора `Облако` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** один или несколько каталогов, с которых будут собираться события.
 
-            * Для области сбора `Облако` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** один или несколько каталогов, с которых будут собираться события.
+              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех каталогов в облаке.
 
-                Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех каталогов в облаке.
+      Чтобы настроить **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
 
-        Чтобы настроить **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
+      1. Выберите один или несколько сервисов, с которых будут собираться события.
 
-        1. Выберите один или несколько сервисов, с которых будут собираться события.
+      1. Для каждого такого сервиса выберите [область сбора логов](../concepts/trail.md) — `Организация`, `Облако` или `Каталог`. События, которые попадут в логи, будут собираться в указанной области.
 
-        1. Для каждого такого сервиса выберите [область сбора логов](../concepts/trail.md) — `Организация`, `Облако` или `Каталог`. События, которые попадут в логи, будут собираться в указанной области.
+          Права сервисного аккаунта, [созданного ранее](#before-you-begin), должны позволять сбор логов из указанной области.
 
-            Права сервисного аккаунта, [созданного ранее](#before-you-begin), должны позволять сбор логов из указанной области.
+      1. В зависимости от выбранной области сбора логов выберите конкретные облака или каталоги, с которых будут собираться события:
 
-        1. В зависимости от выбранной области сбора логов, выберите конкретные облака или каталоги, с которых будут собираться события:
+          * Для области сбора `Организация` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** одно или несколько облаков, с которых будут собираться события.
 
-            * Для области сбора `Организация` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** одно или несколько облаков, с которых будут собираться события.
+              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех облаков в организации.
 
-                Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех облаков в организации.
+          * Для области сбора `Облако` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** один или несколько каталогов, с которых будут собираться события.
 
-            * Для области сбора `Облако` выберите из выпадающего списка **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** один или несколько каталогов, с которых будут собираться события.
+              Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех каталогов в облаке.
 
-                Оставьте значение по умолчанию (`{{ ui-key.yacloud.common.all }}`), чтобы собирать события со всех каталогов в облаке.
+      1. Для каждого такого сервиса выберите один из следующих фильтров по [событиям](../concepts/events-data-plane.md#dns):
 
-        1. Для каждого такого сервиса выберите один из следующих фильтров по [событиям](../concepts/events-data-plane.md#dns):
-
-            * `Получать все` — чтобы собирать все события сервиса.
-            * `Выбранные` — чтобы собирать только выбранные события. Затем выберите события.
-            * `Исключить` — чтобы собирать все события, кроме выбранных. Затем выберите события.
+          * `Получать все` — чтобы собирать все события сервиса.
+          * `Выбранные` — чтобы собирать только выбранные события. Затем выберите события.
+          * `Исключить` — чтобы собирать все события, кроме выбранных. Затем выберите события.
 
 - CLI {#cli}
 
@@ -192,7 +213,6 @@ description: Следуя данной инструкции, вы сможете
                   ```bash
                   yc storage bucket list
                   ```
-
               * `object_prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
                   {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
@@ -205,6 +225,9 @@ description: Следуя данной инструкции, вы сможете
               * `stream_name` — имя [созданного ранее](#before-you-begin) потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
               * `codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+          * `eventrouter` — загружать логи в [шину](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-full-name }}:
+
+              * `eventrouter_connector_id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`.
       * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) созданного [ранее](#before-you-begin) сервисного аккаунта.
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -241,6 +264,7 @@ description: Следуя данной инструкции, вы сможете
     --destination-yds-stream <имя_потока_данных_YDS> \
     --destination-yds-database-id <идентификатор_базы_данных_YDS> \
     --destination-yds-codec <метод_сжатия_событий> \
+    --destination-eventrouter-connector-id <идентификатор_коннектора_шины> \
     --filter-all-folder-id <идентификатор_каталога> \
     --filter-all-cloud-id <идентификатор_облака> \
     --filter-all-organisation-id <идентификатор_организации> \

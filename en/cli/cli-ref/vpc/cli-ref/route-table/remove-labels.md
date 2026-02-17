@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/route-table/remove-labels.md
 ---
 
 # yc vpc route-table remove-labels

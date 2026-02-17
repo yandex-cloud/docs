@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/lockbox/v1/api-ref/grpc/Operation/index.md
 ---
 
 # Lockbox API, gRPC: OperationService

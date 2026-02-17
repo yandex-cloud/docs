@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/vision/v2/classifier/api-ref/grpc/index.md
 ---
 
 # Vision Classifier API: gRPC reference

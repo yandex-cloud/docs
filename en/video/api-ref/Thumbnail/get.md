@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/get.md
 ---
 
 # Video API, REST: Thumbnail.Get

@@ -410,7 +410,6 @@ apiPlayground:
               - IMAGE_TEXT
               - SILHOUETTES
               - KALEIDOSCOPE
-sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/update.md
 ---
 
 # SmartCaptcha API, REST: Captcha.Update

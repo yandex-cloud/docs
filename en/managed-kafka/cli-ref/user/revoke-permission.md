@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/user/revoke-permission.md
 ---
 
 # yc managed-kafka user revoke-permission

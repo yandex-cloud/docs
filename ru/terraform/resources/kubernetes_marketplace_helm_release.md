@@ -1,6 +1,5 @@
 ---
 subcategory: Kubernetes Marketplace
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kubernetes_marketplace_helm_release.md
 ---
 
 # yandex_kubernetes_marketplace_helm_release (Resource)

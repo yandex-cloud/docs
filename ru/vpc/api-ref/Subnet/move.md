@@ -27,7 +27,6 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/move.md
 ---
 
 # Virtual Private Cloud API, REST: Subnet.Move

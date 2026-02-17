@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/trino/v1/api-ref/Operation/cancel.md
 ---
 
 # Managed Service for Trino API, REST: Operation.Cancel

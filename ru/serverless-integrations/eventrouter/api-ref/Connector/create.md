@@ -189,7 +189,6 @@ apiPlayground:
               - eventServiceSource
           - required:
               - auditTrails
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/create.md
 ---
 
 # EventRouter Service, REST: Connector.Create

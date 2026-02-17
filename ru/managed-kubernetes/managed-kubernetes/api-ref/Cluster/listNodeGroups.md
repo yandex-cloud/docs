@@ -47,7 +47,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/listNodeGroups.md
 ---
 
 # Managed Services for Kubernetes API, REST: Cluster.ListNodeGroups

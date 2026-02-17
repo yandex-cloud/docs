@@ -40,7 +40,6 @@ apiPlayground:
         - databaseName
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/revokePermission.md
 ---
 
 # Managed Service for PostgreSQL API, REST: User.RevokePermission

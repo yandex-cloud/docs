@@ -93,7 +93,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/ScheduledRule'
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/create.md
 ---
 
 # Container Registry API, REST: ScanPolicy.Create

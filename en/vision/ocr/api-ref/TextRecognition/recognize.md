@@ -39,7 +39,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognition/recognize.md
 ---
 
 # Vision OCR API, REST: TextRecognition.Recognize

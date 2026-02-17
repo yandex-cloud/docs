@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/speechsense/v1/api-ref/Assistants/index.md
 ---
 
 # Talk Analytics API, REST: Assistants

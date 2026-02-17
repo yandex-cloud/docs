@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/connector/create/message-queue.md
 ---
 
 # yc serverless eventrouter connector create message-queue

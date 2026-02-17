@@ -49,7 +49,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/listOperations.md
 ---
 
 # API Gateway Service, REST: ApiGateway.ListOperations

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/baremetal/events-ref/CreatePrivateSubnet.md
 ---
 
 # BareMetal Audit Trails Events: CreatePrivateSubnet

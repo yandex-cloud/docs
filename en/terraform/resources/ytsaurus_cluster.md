@@ -1,6 +1,5 @@
 ---
 subcategory: Ytsaurus
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/ytsaurus_cluster.md
 ---
 
 # yandex_ytsaurus_cluster (Resource)

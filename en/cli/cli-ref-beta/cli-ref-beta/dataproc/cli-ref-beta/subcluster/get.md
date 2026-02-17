@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/dataproc/cli-ref-beta/subcluster/get.md
 ---
 
 # yc beta dataproc subcluster get

@@ -23,7 +23,6 @@ apiPlayground:
         - resourceId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/Lock/ensure.md
 ---
 
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Lock.Ensure

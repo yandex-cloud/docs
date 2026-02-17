@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/cdn/cli-ref-beta/cache/prefetch.md
 ---
 
 # yc beta cdn cache prefetch

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/kms/cli-ref/symmetric-crypto/re-encrypt.md
 ---
 
 # yc kms symmetric-crypto re-encrypt

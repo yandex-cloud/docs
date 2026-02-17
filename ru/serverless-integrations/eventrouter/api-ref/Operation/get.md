@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Operation/get.md
 ---
 
 # EventRouter Service, REST: Operation.Get

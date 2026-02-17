@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/responses/deleteResponse.md
 ---
 
 # REST: Delete a model response

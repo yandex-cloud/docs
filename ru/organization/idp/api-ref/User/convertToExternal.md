@@ -29,7 +29,6 @@ apiPlayground:
         - externalId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/User/convertToExternal.md
 ---
 
 # Identity Provider API, REST: User.ConvertToExternal

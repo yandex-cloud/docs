@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/desktops/cli-ref-beta/group/get.md
 ---
 
 # yc beta desktops group get

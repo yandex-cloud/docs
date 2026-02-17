@@ -16,6 +16,23 @@ description:
     <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup>, and Apache Spark™ are
     registered trademarks or trademarks of the Apache Software Foundation in the
     United States and/or other countries.</em>
+meta:
+  title: Yandex Data Processing
+  description: >-
+    This service helps to deploy Apache Hadoop® and Apache Spark™ clusters on
+    Yandex Cloud infrastructure.
+  keywords:
+    - keyword: Data Processing
+    - keyword: Apache Hadoop
+    - keyword: Apache Spark
+    - keyword: '{{ dataproc-name }}'
+    - keyword: Apache Hadoop cluster
+    - keyword: Apache Spark cluster
+    - keyword: '{{ dataproc-name }} clusters'
+    - keyword: Hadoop and Spark in {{ yandex-cloud }}
+    - keyword: Apache in {{ yandex-cloud }}
+    - keyword: '{{ dataproc-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ dataproc-name }}'
 links:
   - title: Step-by-step guides
     description: How to perform routine operations
@@ -35,20 +52,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
-meta:
-  title: Yandex Data Processing
-  description: >-
-    This service helps to deploy Apache Hadoop® and Apache Spark™ clusters on
-    Yandex Cloud infrastructure.
-  keywords:
-    - Data Processing
-    - Apache Hadoop
-    - Apache Spark
-    - '{{ dataproc-name }}'
-    - Apache Hadoop cluster
-    - Apache Spark cluster
-    - '{{ dataproc-name }} clusters'
-    - Hadoop and Spark in {{ yandex-cloud }}
-    - Apache in {{ yandex-cloud }}
-    - '{{ dataproc-name }} in {{ yandex-cloud }}'
-    - '{{ dataproc-name }}'

@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/logging/v1/api-ref/Sink/updateAccessBindings.md
 ---
 
 # Cloud Logging Service, REST: Sink.UpdateAccessBindings

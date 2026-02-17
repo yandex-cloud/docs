@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/user/revoke-permission.md
 ---
 
 # yc managed-postgresql user revoke-permission

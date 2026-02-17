@@ -72,7 +72,6 @@ apiPlayground:
           maxProperties: 64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Image/update.md
 ---
 
 # Compute Cloud API, REST: Image.Update

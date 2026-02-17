@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/list-operations.md
 ---
 
 # yc managed-metastore cluster list-operations

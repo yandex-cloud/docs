@@ -404,7 +404,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DataEventsFiltering'
-sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/create.md
 ---
 
 # Audit Trails API, REST: Trail.Create

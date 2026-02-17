@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/updateAccessBindings.md
 ---
 
 # Resource Manager API, REST: Folder.UpdateAccessBindings

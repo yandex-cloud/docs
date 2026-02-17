@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/logging/v1/api-ref/Sink/index.md
 ---
 
 # Cloud Logging Service, REST: Sink

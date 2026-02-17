@@ -85,7 +85,6 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
-sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/create.md
 ---
 
 # Compute Cloud API, REST: DiskPlacementGroup.Create

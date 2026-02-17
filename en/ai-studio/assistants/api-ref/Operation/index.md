@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Operation/index.md
 ---
 
 # AI Assistants API, REST: Operation

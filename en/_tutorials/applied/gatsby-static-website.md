@@ -1,3 +1,12 @@
+---
+title: Hosting a static Gatsby website
+description: Creating and hosting a static Gatsby website in {{ yandex-cloud }}
+keywords:
+  - gatsby
+  - gatsby website hosting
+  - setting up a gatsby website
+  - gatsby website
+---
 
 # Hosting a static Gatsby website in {{ objstorage-full-name }}
 

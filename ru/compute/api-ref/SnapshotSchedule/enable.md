@@ -16,7 +16,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/enable.md
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.Enable

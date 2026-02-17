@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Operation/index.md
 ---
 
 # Object Storage API, gRPC: OperationService

@@ -7,6 +7,28 @@ description:
     Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
     pursuant to Russian Federal Law 152-FZ.
+meta:
+  title: Yandex Cloud Interconnect
+  description: >-
+    Yandex Cloud Interconnect enables setting up a dedicated physical connection
+    between a customer on-premise infrastructure and Yandex Cloud resources.
+  keywords:
+    - keyword: interconnect
+    - keyword: '{{ interconnect-full-name }}'
+    - keyword: trunk
+    - keyword: '{{ interconnect-name }}'
+    - keyword: '{{ interconnect-name }}'
+    - keyword: '{{ interconnect-name }} in {{ yandex-cloud }}'
+    - keyword: private connection
+    - keyword: connection in {{ interconnect-name }}
+    - keyword: BGP {{ yandex-cloud }}
+    - keyword: point of presence
+    - keyword: cross connection in {{ interconnect-name }}
+    - keyword: cross connection
+    - keyword: '{{ interconnect-name }} transceiver'
+    - keyword: '{{ interconnect-name }} routing'
+    - keyword: trunk
+    - keyword: '{{ interconnect-name }} trunk'
 links:
   - title: Concepts
     description: Learn about features of the service
@@ -20,25 +42,3 @@ links:
   - title: Tutorials
     description: How to use {{ interconnect-name }}
     href: tutorials/
-meta:
-  title: Yandex Cloud Interconnect
-  description: >-
-    Yandex Cloud Interconnect enables setting up a dedicated physical connection
-    between a customer on-premise infrastructure and Yandex Cloud resources.
-  keywords:
-    - interconnect
-    - '{{ interconnect-full-name }}'
-    - trunk
-    - '{{ interconnect-name }}'
-    - '{{ interconnect-name }}'
-    - '{{ interconnect-name }} in {{ yandex-cloud }}'
-    - private connection
-    - connection in {{ interconnect-name }}
-    - BGP {{ yandex-cloud }}
-    - point of presence
-    - cross connection in {{ interconnect-name }}
-    - cross connection
-    - '{{ interconnect-name }} transceiver'
-    - '{{ interconnect-name }} routing'
-    - trunk
-    - '{{ interconnect-name }} trunk'

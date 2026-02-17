@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Cloud/setAccessBindings.md
 ---
 
 # Resource Manager API, gRPC: CloudService.SetAccessBindings

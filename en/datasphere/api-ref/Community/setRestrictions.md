@@ -57,7 +57,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/setRestrictions.md
 ---
 
 # DataSphere API v2, REST: Community.SetRestrictions

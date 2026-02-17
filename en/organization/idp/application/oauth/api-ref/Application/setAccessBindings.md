@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/setAccessBindings.md
 ---
 
 # OAUTH Application API, REST: Application.SetAccessBindings

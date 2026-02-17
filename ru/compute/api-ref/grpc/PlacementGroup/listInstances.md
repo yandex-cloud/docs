@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/PlacementGroup/listInstances.md
 ---
 
 # Compute Cloud API, gRPC: PlacementGroupService.ListInstances

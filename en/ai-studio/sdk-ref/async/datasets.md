@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/async/datasets.md
----
 # Datasets domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_datasets.domain.**AsyncDatasets**{#yandex_ai_studio_sdk._datasets.domain.AsyncDatasets}

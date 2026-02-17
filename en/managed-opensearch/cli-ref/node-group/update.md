@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/node-group/update.md
 ---
 
 # yc managed-opensearch node-group update

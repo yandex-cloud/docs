@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/threads.md
----
 # Threads domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_threads.domain.**Threads**{#yandex_ai_studio_sdk._threads.domain.Threads}

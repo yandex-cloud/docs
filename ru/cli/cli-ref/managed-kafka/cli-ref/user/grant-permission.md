@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/user/grant-permission.md
 ---
 
 # yc managed-kafka user grant-permission

@@ -746,7 +746,6 @@ apiPlayground:
               **[SSLCertificateData](#yandex.cloud.cdn.v1.SSLCertificateData)**
               Certificate data.
             $ref: '#/definitions/SSLCertificateData'
-sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/create.md
 ---
 
 # Cloud CDN API, REST: Resource.Create

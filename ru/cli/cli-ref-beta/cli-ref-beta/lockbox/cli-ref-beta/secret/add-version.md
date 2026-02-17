@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/lockbox/cli-ref-beta/secret/add-version.md
 ---
 
 # yc beta lockbox secret add-version

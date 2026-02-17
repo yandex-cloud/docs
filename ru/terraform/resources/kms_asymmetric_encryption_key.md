@@ -1,6 +1,5 @@
 ---
 subcategory: Key Management Service
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_encryption_key.md
 ---
 
 # yandex_kms_asymmetric_encryption_key (Resource)

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartcaptcha/v1/api-ref/grpc/index.md
 ---
 
 # SmartCaptcha API: gRPC reference

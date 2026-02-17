@@ -1,7 +1,6 @@
 ---
 title: Практические руководства для {{ monitoring-full-name }}
 description: На странице представлен список практических руководств для {{ monitoring-name }}.
-sourcePath: ru/monitoring_includes/tutorials/index.md
 ---
 
 # Практические руководства для {{ monitoring-full-name }}

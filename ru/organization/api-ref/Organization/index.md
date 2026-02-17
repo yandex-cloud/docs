@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/index.md
 ---
 
 # Identity Hub API, REST: Organization

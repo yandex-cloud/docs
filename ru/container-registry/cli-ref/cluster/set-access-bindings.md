@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/cluster/set-access-bindings.md
 ---
 
 # yc container cluster set-access-bindings

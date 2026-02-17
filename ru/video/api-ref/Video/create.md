@@ -139,7 +139,6 @@ apiPlayground:
       VideoSignURLAccessParams:
         type: object
         properties: {}
-sourcePath: en/_api-ref/video/v1/api-ref/Video/create.md
 ---
 
 # Video API, REST: Video.Create

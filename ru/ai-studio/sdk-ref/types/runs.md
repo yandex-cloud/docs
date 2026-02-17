@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/runs.md
----
 # Run types
 
 ## *class* yandex\_ai\_studio\_sdk.\_runs.status.**BaseRunStatus**{#yandex_ai_studio_sdk._runs.status.BaseRunStatus}

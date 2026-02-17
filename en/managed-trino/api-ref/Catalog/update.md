@@ -737,7 +737,6 @@ apiPlayground:
               maxLength: 63
               minLength: 1
             maxProperties: 64
-sourcePath: en/_api-ref/trino/v1/api-ref/Catalog/update.md
 ---
 
 # Managed Service for Trino API, REST: Catalog.Update

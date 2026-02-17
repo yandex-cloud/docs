@@ -1,6 +1,5 @@
 ---
 subcategory: Yandex Query
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/yq_object_storage_connection.md
 ---
 
 # yandex_yq_object_storage_connection (Resource)

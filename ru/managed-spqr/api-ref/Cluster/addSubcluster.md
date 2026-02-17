@@ -122,7 +122,6 @@ apiPlayground:
               * network-ssd - network SSD drive,
               * local-ssd - local SSD storage.
             type: string
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/addSubcluster.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.AddSubcluster

@@ -126,7 +126,6 @@ apiPlayground:
         required:
           - passwordHash
           - passwordHashType
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/User/create.md
 ---
 
 # Identity Provider API, REST: User.Create

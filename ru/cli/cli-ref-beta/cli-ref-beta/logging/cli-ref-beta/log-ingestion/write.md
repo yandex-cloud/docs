@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/logging/cli-ref-beta/log-ingestion/write.md
 ---
 
 # yc beta logging log-ingestion write

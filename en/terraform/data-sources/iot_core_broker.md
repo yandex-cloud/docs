@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iot_core_broker.md
 ---
 
 # yandex_iot_core_broker (DataSource)

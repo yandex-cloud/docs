@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/list.md
 ---
 
 # Cloud CDN API, REST: OriginGroup.List

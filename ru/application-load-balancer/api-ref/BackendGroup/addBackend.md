@@ -587,7 +587,6 @@ apiPlayground:
         oneOf:
           - required:
               - targetGroups
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/addBackend.md
 ---
 
 # Application Load Balancer API, REST: BackendGroup.AddBackend

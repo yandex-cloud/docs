@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/certificatemanager/events-ref/SetCertificateAuthorityAccessBindings.md
 ---
 
 # Certificate Manager Audit Trails Events: SetCertificateAuthorityAccessBindings

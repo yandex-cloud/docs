@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/securitydeck/alerts/v1/api-ref/Alert/index.md
 ---
 
 # Security Deck Alerts API, REST: Alert

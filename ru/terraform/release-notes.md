@@ -2,7 +2,6 @@
 title: '{{ yandex-cloud }} {{ TF }} provider release notes'
 description: Changelog, updates, and version history for the {{ yandex-cloud }} {{ TF }} provider.
 editable: false
-sourcePath: en/terraform/tf-ref/yandex-cloud/release-notes.md
 ---
 
 

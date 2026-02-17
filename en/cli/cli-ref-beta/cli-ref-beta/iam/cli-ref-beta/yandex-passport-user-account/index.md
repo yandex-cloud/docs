@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/iam/cli-ref-beta/yandex-passport-user-account/index.md
 ---
 
 # yc beta iam yandex-passport-user-account

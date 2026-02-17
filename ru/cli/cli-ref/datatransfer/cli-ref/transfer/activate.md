@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/transfer/activate.md
 ---
 
 # yc datatransfer transfer activate

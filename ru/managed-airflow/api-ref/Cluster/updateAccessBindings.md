@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Managed Service for Apache Airflow™ API, REST: Cluster.UpdateAccessBindings

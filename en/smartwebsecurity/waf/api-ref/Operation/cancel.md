@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/Operation/cancel.md
 ---
 
 # SmartWebSecurity WAF API, REST: Operation.Cancel

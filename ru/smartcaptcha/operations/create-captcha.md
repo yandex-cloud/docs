@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 При создании капчи вы можете:
 
 * Подключить капчу к нескольким сайтам.
-* Настроить внешний вид капчи: фон, состояния и ошибки, стиль кнопки **Я не робот**.
+* Настроить внешний вид капчи: фон, состояния и ошибки, стиль кнопки **Я не робот**, светлую и темную тему.
 * Выбрать тип задания и сложность прохождения капчи.
 * Показывать разные варианты капчи в зависимости от параметров входящего запроса. Например, выбрать разную капчу для пользователей из разных регионов.
 
@@ -24,28 +24,28 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Нажмите **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
-     ![screen01](../../_assets/smartcaptcha/create-captcha/screen01.png)
-
   1. Укажите **{{ ui-key.yacloud.common.name }}** создаваемой капчи:
 
       {% include [name-format](../../_includes/smartcaptcha/name-format.md) %}
 
+  1. (Опционально) Добавьте [метки](../../resource-manager/concepts/labels.md):
+
+     1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+     1. Введите метку в формате `ключ: значение`.
+     1. Нажмите **Enter**.
   1. (Опционально) Выберите [**{{ ui-key.yacloud.smartcaptcha.label_no-hostname-check }}**](../concepts/domain-validation.md).
   1. Введите **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}** в формате IP-адресов или доменных имен. Указывайте адрес без протокола и без `/` в конце, например, `example.com`.
 
      Капча будет работать и во всех поддоменах указанных доменных имен.
 
   1. Настройте **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** кнопки **Я не робот** и окна с заданием:
-     * `{{ ui-key.yacloud.smartcaptcha.value_config-standard }}` — внешний вид по умолчанию.
-     * `Серый`.
-     * `Темная тема`.
-     * `Синий`.
+     * (Опционально) Включите опцию **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.PresetsSection.label_enable-dynamic-theme_tme9P }}**, если хотите включить автоматическое изменение цветовой схемы капчи в зависимости от темы браузера.
 
-      В разделе **Настройка внешнего вида** вы можете задать свои параметры окна задания и других элементов: через форму или через описание стилей в формате `JSON`.
+     * В разделах **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.StyleSection.label_section-customization-light_tL96w }}** и **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.StyleSection.label_section-customization-dark_dMJ2m }}** вы можете задать свои параметры окна задания и других элементов: через форму или через описание стилей в формате `JSON`.
 
       Все изменения будут отображаться в окне предпросмотра.
 
-     ![screen02](../../_assets/smartcaptcha/create-captcha/screen02.png)
+     ![step4-8](../../_assets/smartcaptcha/create-captcha/step4-8.png)
 
   1. Настройте **Варианты заданий**. Вы можете указать только капчу по умолчанию или добавить дополнительные [варианты](../concepts/captcha-variants.md), если по разным входящим запросам нужно показывать разную капчу.
   
@@ -88,11 +88,13 @@ description: Следуя данной инструкции, вы сможете
 
      1. Таким же способом добавьте другие варианты капчи и правила для входящего трафика.
 
+     ![step10-11](../../_assets/smartcaptcha/create-captcha/step10-11.png)
+
   1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
    
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-     ![screen03](../../_assets/smartcaptcha/create-captcha/screen03.png)
+     ![step12-13](../../_assets/smartcaptcha/create-captcha/step12-13.png)
 
   Капча отобразится на странице сервиса в разделе **{{ ui-key.yacloud.smartcaptcha.label_captcha-settings-list }}**.
 

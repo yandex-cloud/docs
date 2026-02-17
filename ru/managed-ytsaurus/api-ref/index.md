@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ytsaurus/v1/api-ref/index.md
 ---
 
 # Ytsaurus API: REST reference

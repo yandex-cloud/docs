@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/ml-model/list.md
 ---
 
 # yc managed-clickhouse ml-model list

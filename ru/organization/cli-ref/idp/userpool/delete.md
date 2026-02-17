@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/userpool/delete.md
 ---
 
 # yc organization-manager idp userpool delete

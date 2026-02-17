@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/delete.md
 ---
 
 # Video API, gRPC: PlaylistService.Delete

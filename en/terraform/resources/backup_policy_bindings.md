@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Backup
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/backup_policy_bindings.md
 ---
 
 # yandex_backup_policy_bindings (Resource)

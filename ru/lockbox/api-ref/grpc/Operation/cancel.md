@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/lockbox/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # Lockbox API, gRPC: OperationService.Cancel

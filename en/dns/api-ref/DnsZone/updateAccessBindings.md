@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/updateAccessBindings.md
 ---
 
 # Cloud DNS API, REST: DnsZone.UpdateAccessBindings

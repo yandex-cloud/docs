@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Subtitle/generateUploadURL.md
 ---
 
 # Video API, gRPC: SubtitleService.GenerateUploadURL

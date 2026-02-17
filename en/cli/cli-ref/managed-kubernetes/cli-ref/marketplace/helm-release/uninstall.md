@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/marketplace/helm-release/uninstall.md
 ---
 
 # yc managed-kubernetes marketplace helm-release uninstall

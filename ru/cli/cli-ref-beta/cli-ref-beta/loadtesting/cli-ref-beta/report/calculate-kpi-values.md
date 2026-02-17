@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/loadtesting/cli-ref-beta/report/calculate-kpi-values.md
 ---
 
 # yc beta loadtesting report calculate-kpi-values

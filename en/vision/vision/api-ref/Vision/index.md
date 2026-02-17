@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/vision/v1/vision/api-ref/Vision/index.md
 ---
 
 # Vision API, REST: Vision

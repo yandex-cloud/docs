@@ -68,7 +68,6 @@ apiPlayground:
               - textValue
           - required:
               - binaryValue
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/addVersion.md
 ---
 
 # Lockbox API, REST: Secret.AddVersion

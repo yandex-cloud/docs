@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/SUM_IF_WINDOW.md
 ---
 
 # SUM_IF (оконная)

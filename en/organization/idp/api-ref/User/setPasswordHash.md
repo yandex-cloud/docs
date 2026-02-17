@@ -47,7 +47,6 @@ apiPlayground:
         required:
           - passwordHash
           - passwordHashType
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/User/setPasswordHash.md
 ---
 
 # Identity Provider API, REST: User.SetPasswordHash

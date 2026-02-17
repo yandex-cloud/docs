@@ -4,7 +4,7 @@ name: <имя_трейла>
 folder_id: <идентификатор_каталога>
 destination:
   # Должно быть указано только одно место назначения:
-  # object_storage, cloud_logging, data_stream
+  # object_storage, cloud_logging, data_stream или eventrouter
   # Настройки для всех мест назначения приведены для иллюстрации
   object_storage:
     bucket_id: <имя_бакета>
@@ -15,6 +15,8 @@ destination:
     stream_name: <имя_потока_данных_YDS>
     database_id: <идентификатор_базы_данных_YDS>
     codec: <метод_сжатия_событий>
+  eventrouter:
+    eventrouter_connector_id: <идентификатор_коннектора_шины>
 service_account_id: <идентификатор_сервисного_аккаунта>
 filtering_policy:
   management_events_filter:

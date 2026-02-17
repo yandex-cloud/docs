@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Operation/cancel.md
 ---
 
 # IoT Core Broker Service, REST: Operation.Cancel

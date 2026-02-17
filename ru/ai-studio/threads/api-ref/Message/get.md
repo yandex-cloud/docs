@@ -27,7 +27,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Message/get.md
 ---
 
 # Threads, REST: Message.Get

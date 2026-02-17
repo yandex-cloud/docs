@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/update/object-storage.md
 ---
 
 # yc serverless trigger update object-storage

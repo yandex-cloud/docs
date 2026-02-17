@@ -1,7 +1,6 @@
 ---
 title: Посмотреть метрики ваших сервисов в {{ monitoring-full-name }}
 description: С помощью инструкции вы сможете посмотреть детальные графики метрик ваших сервисов.
-sourcePath: ru/monitoring_includes/operations/metric/metric-explorer.md
 ---
 
 # Посмотреть метрики ваших сервисов в {{ monitoring-full-name }}

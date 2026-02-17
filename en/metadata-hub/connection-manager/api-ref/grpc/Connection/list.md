@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/connectionmanager/v1/connection-manager/api-ref/grpc/Connection/list.md
 ---
 
 # Connection Manager API, gRPC: ConnectionService.List

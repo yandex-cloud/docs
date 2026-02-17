@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/ProjectJob/create.md
 ---
 
 # DataSphere Jobs API v2, gRPC: ProjectJobService.Create

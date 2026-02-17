@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/group/list-effective.md
 ---
 
 # yc organization-manager group list-effective

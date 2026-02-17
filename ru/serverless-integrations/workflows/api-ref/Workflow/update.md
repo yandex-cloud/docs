@@ -171,7 +171,6 @@ apiPlayground:
         required:
           - cronExpression
           - timezone
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/update.md
 ---
 
 # Workflows Service, REST: Workflow.Update

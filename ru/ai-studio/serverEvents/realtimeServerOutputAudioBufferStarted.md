@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerOutputAudioBufferStarted.md
 ---
 
 # REST: output_audio_buffer.started '[CURRENTLY NOT SUPPORTED]'

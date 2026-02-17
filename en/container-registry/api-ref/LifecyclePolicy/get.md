@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/get.md
 ---
 
 # Container Registry API, REST: LifecyclePolicy.Get

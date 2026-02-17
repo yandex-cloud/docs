@@ -24,7 +24,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/deleteOpenSearchNodeGroup.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.DeleteOpenSearchNodeGroup

@@ -1,6 +1,5 @@
 ---
 subcategory: Yandex Data Processing
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/dataproc_cluster.md
 ---
 
 # yandex_dataproc_cluster (DataSource)

@@ -318,7 +318,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Policy/create.md
 ---
 
 # Certificate Manager Private CA API, REST: Policy.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/endpoint/update/postgres-source.md
 ---
 
 # yc datatransfer endpoint update postgres-source

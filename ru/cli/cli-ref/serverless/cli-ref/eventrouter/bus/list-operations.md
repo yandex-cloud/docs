@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/bus/list-operations.md
 ---
 
 # yc serverless eventrouter bus list-operations

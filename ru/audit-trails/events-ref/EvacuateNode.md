@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/compute/events-ref/EvacuateNode.md
 ---
 
 # Compute Audit Trails Events: EvacuateNode

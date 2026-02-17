@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS_ARRAY.md
 ---
 
 # CONTAINS (массивы)

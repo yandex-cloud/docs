@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/serverless_container_iam_binding.md
 ---
 
 # yandex_serverless_container_iam_binding (Resource)

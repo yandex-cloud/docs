@@ -17,7 +17,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/getLastByThread.md
 ---
 
 # Runs, REST: Run.GetLastByThread

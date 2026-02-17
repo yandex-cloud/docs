@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/updateAccessBindings.md
 ---
 
 # Yandex Data Processing API, REST: Cluster.UpdateAccessBindings

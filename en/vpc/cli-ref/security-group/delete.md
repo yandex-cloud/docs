@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/security-group/delete.md
 ---
 
 # yc vpc security-group delete

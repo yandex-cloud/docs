@@ -48,7 +48,6 @@ apiPlayground:
         - login
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/createProfile.md
 ---
 
 # Identity Hub API, REST: OsLogin.CreateProfile

@@ -70,7 +70,6 @@ apiPlayground:
         - privateKey
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/create.md
 ---
 
 # Certificate Manager API, REST: Certificate.Create

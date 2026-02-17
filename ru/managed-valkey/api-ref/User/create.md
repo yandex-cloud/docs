@@ -87,7 +87,6 @@ apiPlayground:
             type: boolean
         required:
           - name
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/User/create.md
 ---
 
 # Managed Service for Redis API, REST: User.Create

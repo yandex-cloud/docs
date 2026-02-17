@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/billing/usage_records/v1/usage/api-ref/grpc/Metadata/getUsage.md
 ---
 
 # Billing Usage API, gRPC: MetadataService.GetUsage

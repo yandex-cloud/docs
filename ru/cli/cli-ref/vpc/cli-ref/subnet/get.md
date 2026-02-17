@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/subnet/get.md
 ---
 
 # yc vpc subnet get

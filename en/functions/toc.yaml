@@ -497,7 +497,7 @@ items:
       - name: >-
           Configuring responses in {{ cloud-logging-full-name }} and {{ sf-name
           }}
-        href: tutorials/logging-functions
+        href: tutorials/logging-functions.md
       - name: >-
           Developing functions in Functions Framework and deploying them to {{
           serverless-containers-full-name }}
@@ -772,3 +772,4 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
+path: en/functions/toc.yaml

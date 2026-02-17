@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/backup-retention-policy/create.md
 ---
 
 # yc managed-postgresql backup-retention-policy create

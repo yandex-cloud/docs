@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/image/get-latest-from-family.md
 ---
 
 # yc compute image get-latest-from-family

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/application/saml/api-ref/grpc/SignatureCertificate/update.md
 ---
 
 # SAML Application API, gRPC: SignatureCertificateService.Update

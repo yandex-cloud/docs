@@ -10,6 +10,28 @@ description:
       <li>View test reports.</li>
       <li>Store and manage data on earlier tests.</li>
     </ul> You can manage this service using the management console.
+meta:
+  title: Yandex Load Testing
+  description: >-
+    Yandex Load Testing helps analyze the performance of your services and
+    applications.
+  keywords:
+    - keyword: '{{ load-testing-full-name }}'
+    - keyword: Load Testing
+    - keyword: '{{ load-testing-name }}'
+    - keyword: '{{ load-testing-full-name }} in {{ yandex-cloud }}'
+    - keyword: load analysis
+    - keyword: load in {{ load-testing-full-name }}
+    - keyword: load test
+    - keyword: testing in {{ load-testing-full-name }}
+    - keyword: load generator
+    - keyword: load testing in {{ load-testing-name }}
+    - keyword: '{{ load-testing-full-name }} load generator'
+    - keyword: test data
+    - keyword: '{{ load-testing-full-name }} data'
+    - keyword: loadtesting
+    - keyword: '{{ load-testing-full-name }} agent'
+    - keyword: testing {{ load-testing-full-name }}
 links:
   - title: Getting started
     description: Getting started with Yandex Load Testing
@@ -29,25 +51,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-meta:
-  title: Yandex Load Testing
-  description: >-
-    Yandex Load Testing helps analyze the performance of your services and
-    applications.
-  keywords:
-    - '{{ load-testing-full-name }}'
-    - Load Testing
-    - '{{ load-testing-name }}'
-    - '{{ load-testing-full-name }} in {{ yandex-cloud }}'
-    - load analysis
-    - load in {{ load-testing-full-name }}
-    - load test
-    - testing in {{ load-testing-full-name }}
-    - load generator
-    - load testing in {{ load-testing-name }}
-    - '{{ load-testing-full-name }} load generator'
-    - test data
-    - '{{ load-testing-full-name }} data'
-    - loadtesting
-    - '{{ load-testing-full-name }} agent'
-    - testing {{ load-testing-full-name }}

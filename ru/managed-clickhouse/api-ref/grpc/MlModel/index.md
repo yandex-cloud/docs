@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/MlModel/index.md
 ---
 
 # Managed Service for ClickHouse API, gRPC: MlModelService

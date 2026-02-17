@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/revoke-token.md
 ---
 
 # yc iam revoke-token

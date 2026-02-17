@@ -19,7 +19,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Storage/batchGetDefault.md
 ---
 
 # BareMetal API, REST: Storage.BatchGetDefault

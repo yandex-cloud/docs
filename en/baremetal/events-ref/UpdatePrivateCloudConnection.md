@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/baremetal/events-ref/UpdatePrivateCloudConnection.md
 ---
 
 # BareMetal Audit Trails Events: UpdatePrivateCloudConnection

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/mcpgateway/v1/mcp-gateway/api-ref/grpc/Operation/cancel.md
 ---
 
 # MCP Gateway Service, gRPC: OperationService.Cancel

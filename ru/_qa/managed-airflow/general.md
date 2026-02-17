@@ -16,7 +16,7 @@ user subnet overlaps with service network range {{ airflow-service-address }}, s
 
 ### Как исправить ошибку `No module named 'airflow.providers.postgres.operators'`? {#airflow-provider-postgres-operators}
 
-При работе с кластером {{ mpg-full-name }} из кластера {{ AF }} вы можете получить ошибку:
+При работе с кластером {{ mpg-name }} из кластера {{ maf-name }} вы можете получить ошибку:
 
 ```bash
 Broken DAG: [/opt/airflow/dags/postgre.py] Traceback (most recent call last):
@@ -34,14 +34,14 @@ ModuleNotFoundError: No module named 'airflow.providers.postgres.operators'
 
 ### Как исправить ошибку `AirflowException: Unknown hook type "postgres"`? {#airflow-provider-postgres-operators-2}
 
-При работе с кластером {{ mpg-full-name }} из кластера {{ AF }} вы можете получить ошибку:
+При работе с кластером {{ mpg-name }} из кластера {{ maf-name }} вы можете получить ошибку:
 
 ```bash
 Task failed with exception: source="task"
 AirflowException: Unknown hook type "postgres"
 ```
 
-По умолчанию в кластерах {{ maf-full-name }} с версией {{ AF }} выше 3.0 не установлен провайдер `apache-airflow-providers-postgres`.
+По умолчанию в кластерах {{ maf-name }} с версией {{ AF }} выше 3.0 не установлен провайдер `apache-airflow-providers-postgres`.
 
 **Решение**:
 
@@ -49,7 +49,7 @@ AirflowException: Unknown hook type "postgres"
 
 ### Как исправить ошибку `No module named 'airflow_clickhouse_plugin'`? {#airflow-clickhouse-plugin}
 
-При работе с кластером {{ mch-full-name }} из кластера {{ AF }} вы можете получить ошибку:
+При работе с кластером {{ mch-name }} из кластера {{ maf-name }} вы можете получить ошибку:
 
 ```bash
 Traceback (most recent call last):
@@ -59,8 +59,38 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'airflow_clickhouse_plugin'
 ```
 
-По умолчанию в {{ maf-full-name }} не установлен плагин `airflow-clickhouse-plugin`.
+По умолчанию в {{ maf-name }} не установлен плагин `airflow-clickhouse-plugin`.
 
 **Решение**:
 
 При создании или изменении кластера {{ maf-name }} в блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `airflow-clickhouse-plugin`.
+
+### Как исправить ошибку `SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]`? {#airflow-clickhouse-ssl}
+
+При попытке подключения к кластеру {{ mch-name }} из кластера {{ maf-name }} вы можете получить ошибку:
+
+```bash
+SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1123)
+```
+
+**Решение**:
+
+1. Скачайте SSL-сертификат по ссылке: [https://storage.yandexcloud.net/cloud-certs/CA.pem](https://storage.yandexcloud.net/cloud-certs/CA.pem).
+1. Положите сертификат в корень бакета с DAG-файлами.
+1. В параметрах подключения укажите путь до сертификата в поле `ca_certs`.
+
+   [Значение созданного секрета](../../managed-airflow/operations/clickhouse.md#create-lockbox-secret):
+   
+   ```json
+   {
+     "conn_type": "clickhouse",
+     "host": "<FQDN_хоста_кластера_ClickHouse®>",
+     "port": 9440,
+     "schema": "default-bd",
+     "login": "admin",
+     "password": "admin-password",
+     "extra": {
+         "secure": "True",
+         "ca_certs": "/opt/airflow/dags/CA.pem"
+     }
+   }

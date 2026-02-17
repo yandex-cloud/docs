@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/database/delete.md
 ---
 
 # yc managed-clickhouse database delete

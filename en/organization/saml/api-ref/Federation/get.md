@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/get.md
 ---
 
 # SAML Federation API, REST: Federation.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/mfa-enforcement/delete.md
 ---
 
 # yc organization-manager mfa-enforcement delete

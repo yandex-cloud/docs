@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-metastore cluster remove-access-binding

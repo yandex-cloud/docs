@@ -157,7 +157,6 @@ apiPlayground:
             type: string
         required:
           - passwordKey
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/create.md
 ---
 
 # Lockbox API, REST: Secret.Create

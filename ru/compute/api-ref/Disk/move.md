@@ -31,7 +31,6 @@ apiPlayground:
         - destinationFolderId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Disk/move.md
 ---
 
 # Compute Cloud API, REST: Disk.Move

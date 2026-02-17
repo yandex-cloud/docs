@@ -40,7 +40,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/listOperations.md
 ---
 
 # Access Key, REST: AccessKey.ListOperations

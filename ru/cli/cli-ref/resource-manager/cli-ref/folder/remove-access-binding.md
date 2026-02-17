@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/folder/remove-access-binding.md
 ---
 
 # yc resource-manager folder remove-access-binding

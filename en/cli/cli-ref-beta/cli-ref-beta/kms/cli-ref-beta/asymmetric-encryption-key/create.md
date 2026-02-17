@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/kms/cli-ref-beta/asymmetric-encryption-key/create.md
 ---
 
 # yc beta kms asymmetric-encryption-key create

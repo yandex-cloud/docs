@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/cluster/create.md
 ---
 
 # yc managed-kafka cluster create

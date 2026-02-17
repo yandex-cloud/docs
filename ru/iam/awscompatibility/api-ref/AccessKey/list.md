@@ -38,7 +38,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/list.md
 ---
 
 # Access Key, REST: AccessKey.List

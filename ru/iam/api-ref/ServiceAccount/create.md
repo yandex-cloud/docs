@@ -50,7 +50,6 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/create.md
 ---
 
 # Identity and Access Management API, REST: ServiceAccount.Create

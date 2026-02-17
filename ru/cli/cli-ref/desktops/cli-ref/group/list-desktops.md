@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/desktops/cli-ref/group/list-desktops.md
 ---
 
 # yc desktops group list-desktops

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/hba-rules/create.md
 ---
 
 # yc managed-greenplum hba-rules create

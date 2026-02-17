@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/user/delete.md
 ---
 
 # yc organization-manager idp user delete

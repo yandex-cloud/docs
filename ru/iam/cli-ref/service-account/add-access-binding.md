@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/service-account/add-access-binding.md
 ---
 
 # yc iam service-account add-access-binding

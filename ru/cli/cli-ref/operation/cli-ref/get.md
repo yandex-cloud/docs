@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/operation/cli-ref/get.md
 ---
 
 # yc operation get

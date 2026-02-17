@@ -153,7 +153,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/setAccessBindings.md
 ---
 
 # Certificate Manager API, REST: Certificate.SetAccessBindings

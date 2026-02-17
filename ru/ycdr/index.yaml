@@ -8,6 +8,11 @@ description:
     аномалий. При обнаружении аномалий {{ ycdr-name }} создает <a
     href="https://yandex.cloud/ru/docs/security-deck/concepts/alerts">алерты</a>,
     указывающие на потенциальный инцидент.
+meta:
+  title: '{{ ycdr-full-name }}'
+  description: >-
+    Сервис {{ ycdr-full-name }} собирает данные о настройках инфраструктуры
+    ваших сервисов в {{ yandex-cloud }}.
 links:
   - title: Концепции
     description: Узнайте о концепциях и ресурсах сервиса
@@ -15,8 +20,3 @@ links:
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
-meta:
-  title: '{{ ycdr-full-name }}'
-  description: >-
-    Сервис {{ ycdr-full-name }} собирает данные о настройках инфраструктуры
-    ваших сервисов в {{ yandex-cloud }}.

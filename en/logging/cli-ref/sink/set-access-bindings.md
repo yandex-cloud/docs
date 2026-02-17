@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/sink/set-access-bindings.md
 ---
 
 # yc logging sink set-access-bindings

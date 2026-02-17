@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/serverless/cli-ref-beta/container/list-access-bindings.md
 ---
 
 # yc beta serverless container list-access-bindings

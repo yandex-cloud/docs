@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Operation/get.md
 ---
 
 # Cloud Functions Triggers Service, REST: Operation.Get

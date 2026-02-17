@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for ClickHouse
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_clickhouse_user.md
 ---
 
 # yandex_mdb_clickhouse_user (DataSource)

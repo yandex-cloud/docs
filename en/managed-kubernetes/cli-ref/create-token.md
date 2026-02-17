@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/create-token.md
 ---
 
 # yc managed-kubernetes create-token

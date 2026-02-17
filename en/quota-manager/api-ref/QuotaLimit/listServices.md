@@ -28,7 +28,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaLimit/listServices.md
 ---
 
 # Quota Manager API, REST: QuotaLimit.ListServices

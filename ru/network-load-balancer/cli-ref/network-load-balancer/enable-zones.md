@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/network-load-balancer/enable-zones.md
 ---
 
 # yc load-balancer network-load-balancer enable-zones

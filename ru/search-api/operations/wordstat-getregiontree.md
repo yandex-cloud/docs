@@ -1,6 +1,6 @@
 # Получить список кодов всех регионов
 
-[REST-метода](../api-ref/Wordstat/getRegionsTree.md) и [gRPC-вызов](../api-ref/grpc/Wordstat/getRegionsTree.md) GetRegionsTree позволяет получить все коды, которые использует Яндекс для определения региона поиска. Список наиболее часто используемых стран и регионов доступен в разделе [{#T}](../reference/regions.md).
+[REST-метод](../api-ref/Wordstat/getRegionsTree.md) и [gRPC-вызов](../api-ref/grpc/Wordstat/getRegionsTree.md) GetRegionsTree позволяет получить все коды, которые использует Яндекс для определения региона поиска. Список наиболее часто используемых стран и регионов доступен в разделе [{#T}](../reference/regions.md).
 
 {% include [preview-stage](../../_includes/preview-pp.md) %}
 

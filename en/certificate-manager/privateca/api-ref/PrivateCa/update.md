@@ -61,7 +61,6 @@ apiPlayground:
           format: int64
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/update.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCa.Update

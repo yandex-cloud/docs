@@ -58,7 +58,6 @@ apiPlayground:
             type: boolean
         required:
           - hostName
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/updateHosts.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.UpdateHosts

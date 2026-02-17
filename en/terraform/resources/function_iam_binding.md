@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/function_iam_binding.md
 ---
 
 # yandex_function_iam_binding (Resource)

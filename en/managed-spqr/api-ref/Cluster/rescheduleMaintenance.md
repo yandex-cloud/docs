@@ -47,7 +47,6 @@ apiPlayground:
         - rescheduleType
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.RescheduleMaintenance

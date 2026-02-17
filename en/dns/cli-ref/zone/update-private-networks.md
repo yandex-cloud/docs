@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/zone/update-private-networks.md
 ---
 
 # yc dns zone update-private-networks

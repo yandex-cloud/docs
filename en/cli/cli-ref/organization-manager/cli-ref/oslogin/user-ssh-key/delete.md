@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/oslogin/user-ssh-key/delete.md
 ---
 
 # yc organization-manager oslogin user-ssh-key delete

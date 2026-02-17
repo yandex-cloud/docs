@@ -101,7 +101,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/updateAccessBindings.md
 ---
 
 # Billing API, REST: BillingAccount.UpdateAccessBindings

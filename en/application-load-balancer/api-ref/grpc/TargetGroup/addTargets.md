@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/TargetGroup/addTargets.md
 ---
 
 # Application Load Balancer API, gRPC: TargetGroupService.AddTargets

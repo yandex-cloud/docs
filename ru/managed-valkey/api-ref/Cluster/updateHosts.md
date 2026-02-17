@@ -66,7 +66,6 @@ apiPlayground:
             format: field-mask
         required:
           - hostName
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/updateHosts.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.UpdateHosts

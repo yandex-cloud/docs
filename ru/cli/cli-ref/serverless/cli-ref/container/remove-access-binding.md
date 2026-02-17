@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/container/remove-access-binding.md
 ---
 
 # yc serverless container remove-access-binding

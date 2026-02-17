@@ -92,7 +92,6 @@ apiPlayground:
       PublicVisibility:
         type: object
         properties: {}
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/update.md
 ---
 
 # Cloud DNS API, REST: DnsZone.Update

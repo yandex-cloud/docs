@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/transfer/deactivate.md
 ---
 
 # yc datatransfer transfer deactivate

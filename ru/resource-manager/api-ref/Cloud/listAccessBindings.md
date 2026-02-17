@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/listAccessBindings.md
 ---
 
 # Resource Manager API, REST: Cloud.ListAccessBindings

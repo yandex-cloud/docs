@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/security-group/update-rule-meta.md
 ---
 
 # yc vpc security-group update-rule-meta

@@ -97,7 +97,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listLogs.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.ListLogs

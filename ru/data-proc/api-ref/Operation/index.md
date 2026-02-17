@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Operation/index.md
 ---
 
 # Yandex Data Processing API, REST: Operation

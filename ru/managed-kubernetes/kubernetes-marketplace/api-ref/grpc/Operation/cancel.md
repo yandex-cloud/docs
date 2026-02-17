@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/k8s/marketplace/v1/kubernetes-marketplace/api-ref/grpc/Operation/cancel.md
 ---
 
 # Kubernetes Marketplace, gRPC: OperationService.Cancel

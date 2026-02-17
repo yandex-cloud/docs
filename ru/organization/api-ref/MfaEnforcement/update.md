@@ -90,7 +90,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/MfaEnforcement/update.md
 ---
 
 # Identity Hub API, REST: MfaEnforcement.Update

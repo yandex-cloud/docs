@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/STARTSWITH_ARRAY.md
 ---
 
 # STARTSWITH (array)

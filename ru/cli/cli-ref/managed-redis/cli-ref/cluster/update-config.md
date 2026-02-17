@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/update-config.md
 ---
 
 # yc managed-redis cluster update-config

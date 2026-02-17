@@ -568,7 +568,6 @@ apiPlayground:
               - yaRuleSet
           - required:
               - mlRuleSet
-sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/create.md
 ---
 
 # SmartWebSecurity WAF API, REST: WafProfile.Create

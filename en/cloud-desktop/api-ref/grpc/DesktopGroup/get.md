@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopGroup/get.md
 ---
 
 # Cloud Desktop API, gRPC: DesktopGroupService.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/s3api/upload-part-copy.md
 ---
 
 # yc storage s3api upload-part-copy

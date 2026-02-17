@@ -63,7 +63,6 @@ apiPlayground:
               Acceptable values are 2 to 5, inclusive.
             type: string
             format: int64
-sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/create.md
 ---
 
 # Compute Cloud API, REST: PlacementGroup.Create

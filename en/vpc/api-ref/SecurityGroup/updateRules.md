@@ -156,7 +156,6 @@ apiPlayground:
                   - securityGroupId
               - required:
                   - predefinedTarget
-sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRules.md
 ---
 
 # Virtual Private Cloud API, REST: SecurityGroup.UpdateRules

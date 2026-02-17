@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/batch.md
----
 # Batch domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_batch.domain.**Batch**{#yandex_ai_studio_sdk._batch.domain.Batch}

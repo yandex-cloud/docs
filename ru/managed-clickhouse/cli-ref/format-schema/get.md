@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/format-schema/get.md
 ---
 
 # yc managed-clickhouse format-schema get

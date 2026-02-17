@@ -1069,7 +1069,6 @@ apiPlayground:
             type: boolean
         required:
           - name
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/restore.md
 ---
 
 # Managed Service for Redis API, REST: Cluster.Restore

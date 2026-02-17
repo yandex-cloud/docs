@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/setAccessBindings.md
 ---
 
 # Cloud DNS API, REST: DnsZone.SetAccessBindings

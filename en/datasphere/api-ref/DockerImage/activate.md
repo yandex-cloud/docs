@@ -23,7 +23,6 @@ apiPlayground:
         - dockerId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/DockerImage/activate.md
 ---
 
 # DataSphere API v2, REST: DockerImage.Activate

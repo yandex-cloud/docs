@@ -57,7 +57,6 @@ apiPlayground:
           dayOfWeek:
             description: '**string**'
             type: string
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/BackupRetentionPolicy/create.md
 ---
 
 # Managed Service for PostgreSQL API, REST: BackupRetentionPolicy.Create

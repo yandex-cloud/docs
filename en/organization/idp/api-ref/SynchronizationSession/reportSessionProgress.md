@@ -89,7 +89,6 @@ apiPlayground:
               $ref: '#/definitions/ChangeInfo'
         required:
           - objectType
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/SynchronizationSession/reportSessionProgress.md
 ---
 
 # Identity Provider API, REST: SynchronizationSession.ReportSessionProgress

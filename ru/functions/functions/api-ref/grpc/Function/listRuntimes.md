@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/listRuntimes.md
 ---
 
 # Cloud Functions Service, gRPC: FunctionService.ListRuntimes

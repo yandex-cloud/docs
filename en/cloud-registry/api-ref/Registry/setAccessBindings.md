@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/setAccessBindings.md
 ---
 
 # Yandex Cloud Registry API, REST: Registry.SetAccessBindings

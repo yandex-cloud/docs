@@ -86,7 +86,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/create.md
 ---
 
 # Managed Service for Gitlab API, REST: Instance.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/Server/powerOn.md
 ---
 
 # BareMetal API, gRPC: ServerService.PowerOn

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/enable-sharding.md
 ---
 
 # yc managed-redis cluster enable-sharding

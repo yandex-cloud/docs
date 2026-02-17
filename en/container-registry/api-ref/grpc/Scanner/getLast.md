@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Scanner/getLast.md
 ---
 
 # Container Registry API, gRPC: ScannerService.GetLast

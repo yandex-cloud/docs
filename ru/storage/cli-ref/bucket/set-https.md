@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/bucket/set-https.md
 ---
 
 # yc storage bucket set-https

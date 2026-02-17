@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/attach-filesystem.md
 ---
 
 # yc compute instance attach-filesystem

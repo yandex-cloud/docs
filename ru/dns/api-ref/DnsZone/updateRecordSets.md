@@ -60,7 +60,6 @@ apiPlayground:
             type: array
             items:
               type: string
-sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/updateRecordSets.md
 ---
 
 # Cloud DNS API, REST: DnsZone.UpdateRecordSets

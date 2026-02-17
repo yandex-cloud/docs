@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dns/cli-ref/bind-file/migrate-to-terraform.md
 ---
 
 # yc dns bind-file migrate-to-terraform

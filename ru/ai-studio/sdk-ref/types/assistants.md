@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/assistants.md
----
 # Assistant types
 
 yandex\_ai\_studio\_sdk.\_types.expiration.**ExpirationProtoTypeT\_contra** = *TypeVar(ExpirationProtoTypeT\_contra, bound=Union, contravariant=True)*{#yandex_ai_studio_sdk._types.expiration.ExpirationProtoTypeT_contra}

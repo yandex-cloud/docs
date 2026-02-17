@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/cdn/events-ref/ResourceCreate.md
 ---
 
 # Cloud CDN Audit Trails Events: ResourceCreate

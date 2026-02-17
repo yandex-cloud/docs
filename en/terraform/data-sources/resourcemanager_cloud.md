@@ -1,6 +1,5 @@
 ---
 subcategory: Resource Manager
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/resourcemanager_cloud.md
 ---
 
 # yandex_resourcemanager_cloud (DataSource)

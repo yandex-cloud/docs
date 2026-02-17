@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/shard-groups/list.md
 ---
 
 # yc managed-clickhouse shard-groups list

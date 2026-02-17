@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/hosts/index.md
 ---
 
 # yc managed-mongodb hosts

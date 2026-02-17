@@ -59,7 +59,6 @@ apiPlayground:
         - login
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/updateProfile.md
 ---
 
 # Identity Hub API, REST: OsLogin.UpdateProfile

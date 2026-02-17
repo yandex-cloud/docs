@@ -28,7 +28,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/cdn/v1/api-ref/Cache/prefetch.md
 ---
 
 # Cloud CDN API, REST: Cache.Prefetch

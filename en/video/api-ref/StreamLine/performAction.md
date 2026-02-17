@@ -48,7 +48,6 @@ apiPlayground:
       DeactivateAction:
         type: object
         properties: {}
-sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/performAction.md
 ---
 
 # Video API, REST: StreamLine.PerformAction

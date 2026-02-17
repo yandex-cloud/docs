@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Message/create.md
 ---
 
 # Threads, gRPC: MessageService.Create

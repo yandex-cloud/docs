@@ -1,6 +1,5 @@
 ---
 subcategory: Smart Web Security
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/sws_advanced_rate_limiter_profile.md
 ---
 
 # yandex_sws_advanced_rate_limiter_profile (Resource)

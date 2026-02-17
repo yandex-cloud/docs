@@ -1,7 +1,6 @@
 ---
 title: Mathematical functions
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/numeric-functions.md
 ---
 
 # Mathematical functions

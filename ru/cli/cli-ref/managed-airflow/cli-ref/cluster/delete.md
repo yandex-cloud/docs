@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-airflow/cli-ref/cluster/delete.md
 ---
 
 # yc managed-airflow cluster delete

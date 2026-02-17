@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/cic/v1/api-ref/Operation/cancel.md
 ---
 
 # Cloud Interconnect API, REST: Operation.Cancel

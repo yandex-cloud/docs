@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/update.md
 ---
 
 # Video API, gRPC: PlaylistService.Update

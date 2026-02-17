@@ -299,7 +299,6 @@ apiPlayground:
               - mode
           - required:
               - functionName
-sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/TextGeneration/completion.md
 ---
 
 # Foundation Models Text Generation API, REST: TextGeneration.Completion

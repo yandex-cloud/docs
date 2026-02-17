@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/public-subnet/add-labels.md
 ---
 
 # yc baremetal public-subnet add-labels

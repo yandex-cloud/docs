@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/cloud-registry/cli-ref-beta/lifecycle-policy/delete.md
 ---
 
 # yc beta cloud-registry lifecycle-policy delete

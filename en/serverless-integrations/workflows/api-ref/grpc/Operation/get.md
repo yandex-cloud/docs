@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Operation/get.md
 ---
 
 # Workflows Service, gRPC: OperationService.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/User/index.md
 ---
 
 # Managed Service for SPQR API, REST: User

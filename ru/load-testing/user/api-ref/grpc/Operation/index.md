@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Operation/index.md
 ---
 
 # Load Testing API, gRPC: OperationService

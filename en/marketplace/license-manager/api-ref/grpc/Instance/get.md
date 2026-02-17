@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/licensemanager/v1/license-manager/api-ref/grpc/Instance/get.md
 ---
 
 # Yandex Cloud Marketplace License Manager, gRPC: InstanceService.Get

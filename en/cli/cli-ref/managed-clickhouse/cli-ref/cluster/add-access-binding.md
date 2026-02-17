@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/cluster/add-access-binding.md
 ---
 
 # yc managed-clickhouse cluster add-access-binding

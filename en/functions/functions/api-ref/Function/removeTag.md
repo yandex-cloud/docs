@@ -28,7 +28,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/removeTag.md
 ---
 
 # Cloud Functions Service, REST: Function.RemoveTag

@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureCrypto/getPublicKey.md
 ---
 
 # Key Management Service API, REST: AsymmetricSignatureCrypto.GetPublicKey

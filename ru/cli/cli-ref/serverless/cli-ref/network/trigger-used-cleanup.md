@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/network/trigger-used-cleanup.md
 ---
 
 # yc serverless network trigger-used-cleanup

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/spqr/v1/api-ref/grpc/User/index.md
 ---
 
 # Managed Service for SPQR API, gRPC: UserService

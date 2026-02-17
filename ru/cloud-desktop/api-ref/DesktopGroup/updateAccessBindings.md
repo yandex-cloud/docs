@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/updateAccessBindings.md
 ---
 
 # Cloud Desktop API, REST: DesktopGroup.UpdateAccessBindings

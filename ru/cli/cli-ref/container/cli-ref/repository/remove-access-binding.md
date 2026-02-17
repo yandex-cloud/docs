@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/repository/remove-access-binding.md
 ---
 
 # yc container repository remove-access-binding

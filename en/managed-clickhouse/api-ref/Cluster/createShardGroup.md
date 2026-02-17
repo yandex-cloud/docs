@@ -44,7 +44,6 @@ apiPlayground:
         - shardGroupName
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/createShardGroup.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.CreateShardGroup

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/quotamanager/v1/api-ref/grpc/QuotaLimit/get.md
 ---
 
 # Quota Manager API, gRPC: QuotaLimitService.Get

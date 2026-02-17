@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
   1. Справа от названия организации нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Выберите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**.
   
-     ![create-cloud1](../../../_assets/resource-manager/create-cloud-ru1.png)
+     ![create-cloud1](../../../_assets/resource-manager/create-cloud-1.png)
   
   1. Введите имя [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Требования к имени:
   
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) Добавьте метку облака.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
-     ![create-cloud2](../../../_assets/resource-manager/create-cloud-ru2.png)
+     ![create-cloud2](../../../_assets/resource-manager/create-cloud-2.png)
 
 - CLI {#cli}
 

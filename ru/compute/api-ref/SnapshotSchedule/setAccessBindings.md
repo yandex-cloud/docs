@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/setAccessBindings.md
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.SetAccessBindings

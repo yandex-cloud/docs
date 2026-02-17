@@ -21,7 +21,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/list.md
 ---
 
 # Cloud Backup API, REST: Policy.List

@@ -49,7 +49,6 @@ apiPlayground:
             - videoId
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/list.md
 ---
 
 # Video API, REST: Thumbnail.List

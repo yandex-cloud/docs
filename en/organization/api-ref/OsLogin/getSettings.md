@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/getSettings.md
 ---
 
 # Identity Hub API, REST: OsLogin.GetSettings

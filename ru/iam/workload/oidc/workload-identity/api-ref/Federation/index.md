@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/index.md
 ---
 
 # Federation, REST: Federation

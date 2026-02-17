@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Services for Kubernetes
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kubernetes_cluster.md
 ---
 
 # yandex_kubernetes_cluster (Resource)

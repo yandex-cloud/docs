@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/user/update-quota.md
 ---
 
 # yc managed-clickhouse user update-quota

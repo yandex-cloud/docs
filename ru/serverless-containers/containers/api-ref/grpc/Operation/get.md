@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Operation/get.md
 ---
 
 # Serverless Containers Service, gRPC: OperationService.Get

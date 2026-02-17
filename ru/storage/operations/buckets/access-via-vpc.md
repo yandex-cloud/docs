@@ -20,9 +20,21 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- Консоль управления {#console}
+
+  {% include [private-endpoint-create-console](../../../_includes/vpc/private-endpoint-create-console.md) %}
+
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [private-endpoint-create-cli](../../../_includes/vpc/private-endpoint-create-cli.md) %}
+
+- {{ TF }} {#tf}
+
+  {% include [private-endpoint-create-tf](../../../_includes/vpc/private-endpoint-create-tf.md) %}
+
+- API {#api}
+
+  Чтобы создать сервисное подключение {{ vpc-short-name }}, воспользуйтесь методом REST API [create](../../../vpc/privatelink/api-ref/PrivateEndpoint/create.md) для ресурса [PrivateEndpoint](../../../vpc/privatelink/api-ref/PrivateEndpoint/index.md) или вызовом gRPC API [PrivateEndpointService/Create](../../../vpc/privatelink/api-ref/grpc/PrivateEndpoint/create.md).
 
 {% endlist %}
 

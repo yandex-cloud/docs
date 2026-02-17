@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_events-ref/audit/baremetal/events-ref/UpdateVRF.md
 ---
 
 # BareMetal Audit Trails Events: UpdateVRF

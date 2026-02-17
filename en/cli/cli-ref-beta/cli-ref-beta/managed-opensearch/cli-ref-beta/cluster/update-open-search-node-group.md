@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-opensearch/cli-ref-beta/cluster/update-open-search-node-group.md
 ---
 
 # yc beta managed-opensearch cluster update-open-search-node-group

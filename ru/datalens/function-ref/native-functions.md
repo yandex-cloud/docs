@@ -7,7 +7,6 @@ keywords:
   - функции
   - вызов
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/native-functions.md
 ---
 
 # Нативные функции

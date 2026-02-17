@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for MySQL
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mysql_database.md
 ---
 
 # yandex_mdb_mysql_database (DataSource)

@@ -50,7 +50,6 @@ apiPlayground:
         required:
           - subjectId
           - subjectType
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/create.md
 ---
 
 # Cloud Desktop API, REST: Desktop.Create

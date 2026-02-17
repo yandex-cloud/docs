@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/rescheduleMaintenance.md
 ---
 
 # Managed Service for Redis API, gRPC: ClusterService.RescheduleMaintenance

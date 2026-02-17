@@ -39,7 +39,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/list.md
 ---
 
 # Workload Identity, REST: FederatedCredential.List

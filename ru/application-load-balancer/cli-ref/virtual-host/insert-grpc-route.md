@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md
 ---
 
 # yc application-load-balancer virtual-host insert-grpc-route

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cic/cli-ref/private-connection/remove-labels.md
 ---
 
 # yc cic private-connection remove-labels

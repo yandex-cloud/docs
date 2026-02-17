@@ -401,7 +401,6 @@ apiPlayground:
               **string**
               Id of Yandex Cloud log group to upload agent logs to
             type: string
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/create.md
 ---
 
 # Load Testing API, REST: Agent.Create

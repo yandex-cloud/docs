@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/operations/metric/add.md
----
 # Writing custom metrics via the API
 
 To start writing custom metrics via the API, use the [write](../../api-ref/MetricsData/write.md) method.

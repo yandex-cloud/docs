@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_snapshot_schedule_iam_binding.md
 ---
 
 # yandex_compute_snapshot_schedule_iam_binding (Resource)

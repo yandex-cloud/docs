@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/stop.md
 ---
 
 # Managed Service for ClickHouse API, gRPC: ClusterService.Stop

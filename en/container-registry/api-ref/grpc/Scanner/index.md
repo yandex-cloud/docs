@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Scanner/index.md
 ---
 
 # Container Registry API, gRPC: ScannerService

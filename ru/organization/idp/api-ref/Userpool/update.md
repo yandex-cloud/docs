@@ -315,7 +315,6 @@ apiPlayground:
               Value must be greater than 0.
             type: string
             format: int64
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/Userpool/update.md
 ---
 
 # Identity Provider API, REST: Userpool.Update

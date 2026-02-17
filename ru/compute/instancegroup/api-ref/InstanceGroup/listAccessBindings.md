@@ -43,7 +43,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/listAccessBindings.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.ListAccessBindings

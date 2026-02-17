@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/workload-identity/oidc/federation/remove-access-binding.md
 ---
 
 # yc iam workload-identity oidc federation remove-access-binding

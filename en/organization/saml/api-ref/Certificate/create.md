@@ -37,7 +37,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/create.md
 ---
 
 # SAML Federation API, REST: Certificate.Create

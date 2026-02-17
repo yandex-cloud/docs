@@ -74,7 +74,7 @@ items:
       - name: >-
           Организация доступа через {{ interconnect-name }} к облачным сетям,
           размещенным за NGFW
-        href: tutorials/cic-with-ngfw
+        href: tutorials/cic-with-ngfw.md
       - name: >-
           Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
           vpc-name }}
@@ -342,3 +342,4 @@ items:
                 href: api-ref/TrunkConnection/listOperations.md
   - name: История изменений
     href: release-notes.md
+path: ru/interconnect/toc.yaml

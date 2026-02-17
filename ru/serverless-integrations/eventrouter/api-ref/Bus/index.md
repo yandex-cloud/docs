@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/index.md
 ---
 
 # EventRouter Service, REST: Bus

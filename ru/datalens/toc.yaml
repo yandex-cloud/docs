@@ -1344,3 +1344,4 @@ items:
       - name: Обращение к несуществующему объекту
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
+path: ru/datalens/toc.yaml

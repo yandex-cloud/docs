@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Connector/update.md
 ---
 
 # EventRouter Service, gRPC: ConnectorService.Update

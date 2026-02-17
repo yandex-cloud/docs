@@ -34,7 +34,6 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/create.md
 ---
 
 # Identity Hub API, REST: Group.Create

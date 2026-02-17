@@ -60,7 +60,6 @@ apiPlayground:
         - ciphertext
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/reEncrypt.md
 ---
 
 # Key Management Service API, REST: SymmetricCrypto.ReEncrypt

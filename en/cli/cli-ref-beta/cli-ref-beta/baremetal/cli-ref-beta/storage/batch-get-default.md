@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/baremetal/cli-ref-beta/storage/batch-get-default.md
 ---
 
 # yc beta baremetal storage batch-get-default

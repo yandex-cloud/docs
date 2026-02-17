@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/monitoring_includes/api-ref/MetricsData/read.md
 ---
 
 # read method

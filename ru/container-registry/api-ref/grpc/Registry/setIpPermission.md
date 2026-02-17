@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Registry/setIpPermission.md
 ---
 
 # Container Registry API, gRPC: RegistryService.SetIpPermission

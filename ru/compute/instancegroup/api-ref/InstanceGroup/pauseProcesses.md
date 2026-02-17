@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/pauseProcesses.md
 ---
 
 # Compute Cloud Instance Groups API, REST: InstanceGroup.PauseProcesses

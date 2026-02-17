@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-airflow/cli-ref/cluster/add-access-binding.md
 ---
 
 # yc managed-airflow cluster add-access-binding

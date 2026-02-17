@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/get.md
 ---
 
 # Yandex Cloud Registry API, REST: Registry.Get

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/types/tools.md
----
 # Tools
 
 ## Search index tool

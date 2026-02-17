@@ -1,7 +1,6 @@
 ---
 title: Metrics collection agent
 description: In this article, you will learn about the metric delivery agent and how it works as well as such concepts as messages, sessions, inputs, outputs, filters, storages, and routing.
-sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/index.md
 ---
 
 # Metrics collection agent

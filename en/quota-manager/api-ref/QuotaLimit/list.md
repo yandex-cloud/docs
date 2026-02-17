@@ -50,7 +50,6 @@ apiPlayground:
         required:
           - id
           - type
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaLimit/list.md
 ---
 
 # Quota Manager API, REST: QuotaLimit.List

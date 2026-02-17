@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/get.md
 ---
 
 # Resource Manager API, REST: Folder.Get

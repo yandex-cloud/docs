@@ -85,6 +85,16 @@ description: Следуя данной инструкции, вы сможете
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
+
+1. Если вы используете кластер без [туннельного режима работы](../../concepts/network-policy.md#cilium) (Cilium CNI не используется), добавьте правило для исходящего трафика до CIDR кластера, которое разрешает мастеру обращаться к подам, которые располагаются на узлах.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите CIDR кластера, например `10.96.0.0/16`.
+    
+    Это правило нужно, например, для успешного обращения к эндпоинтам вебхуков в подах.
+    
+
 {% note info %}
 
 Если вы используете [высокодоступный тип мастера](../../concepts/index.md#master), разрешите трафик для групп узлов до CIDR подсетей, в которых расположены хосты мастера, или до CIDR кластера. Это нужно для передачи служебного трафика между мастером и узлами.

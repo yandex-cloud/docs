@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/translate/v2/api-ref/grpc/Translation/index.md
 ---
 
 # Translate API v2, gRPC: TranslationService

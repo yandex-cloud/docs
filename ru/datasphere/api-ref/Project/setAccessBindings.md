@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/setAccessBindings.md
 ---
 
 # DataSphere API v2, REST: Project.SetAccessBindings

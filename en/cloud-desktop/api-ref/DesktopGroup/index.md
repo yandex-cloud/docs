@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/index.md
 ---
 
 # Cloud Desktop API, REST: DesktopGroup

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/cluster/reschedule-maintenance.md
 ---
 
 # yc container cluster reschedule-maintenance

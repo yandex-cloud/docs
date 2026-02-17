@@ -27,7 +27,6 @@ apiPlayground:
         - versionId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/cancelVersionDestruction.md
 ---
 
 # Lockbox API, REST: Secret.CancelVersionDestruction

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/vpc/cli-ref/subnet/list-used-addresses.md
 ---
 
 # yc vpc subnet list-used-addresses

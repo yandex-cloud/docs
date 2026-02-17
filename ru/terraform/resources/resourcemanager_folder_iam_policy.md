@@ -1,6 +1,5 @@
 ---
 subcategory: Resource Manager
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/resourcemanager_folder_iam_policy.md
 ---
 
 # yandex_resourcemanager_folder_iam_policy (Resource)

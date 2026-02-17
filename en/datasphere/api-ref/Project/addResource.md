@@ -46,7 +46,6 @@ apiPlayground:
         - projectId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/addResource.md
 ---
 
 # DataSphere API v2, REST: Project.AddResource

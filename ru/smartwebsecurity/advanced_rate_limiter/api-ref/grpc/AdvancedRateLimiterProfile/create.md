@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/create.md
 ---
 
 # SmartWebSecurity ARL API, gRPC: AdvancedRateLimiterProfileService.Create

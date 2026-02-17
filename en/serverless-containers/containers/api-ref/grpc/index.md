@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/index.md
 ---
 
 # Serverless Containers Service: gRPC reference

@@ -2340,7 +2340,6 @@ apiPlayground:
             type: string
         required:
           - type
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/addShard.md
 ---
 
 # Managed Service for ClickHouse API, REST: Cluster.AddShard

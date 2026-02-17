@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/chat/completions.md
----
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_chat.completions.function.**ChatCompletions**{#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions}

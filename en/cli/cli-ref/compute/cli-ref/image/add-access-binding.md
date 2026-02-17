@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/image/add-access-binding.md
 ---
 
 # yc compute image add-access-binding

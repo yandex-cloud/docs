@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/Role/list.md
 ---
 
 # Identity and Access Management API, REST: Role.List

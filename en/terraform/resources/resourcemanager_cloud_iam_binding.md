@@ -1,6 +1,5 @@
 ---
 subcategory: Resource Manager
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/resourcemanager_cloud_iam_binding.md
 ---
 
 # yandex_resourcemanager_cloud_iam_binding (Resource)

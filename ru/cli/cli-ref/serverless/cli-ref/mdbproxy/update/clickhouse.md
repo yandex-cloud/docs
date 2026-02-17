@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/mdbproxy/update/clickhouse.md
 ---
 
 # yc serverless mdbproxy update clickhouse

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/container/cli-ref-beta/repository/set-access-bindings.md
 ---
 
 # yc beta container repository set-access-bindings

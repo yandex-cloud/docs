@@ -1,17 +1,18 @@
 ---
 title: Как начать работать с {{ captcha-full-name }}
-description: Следуя данной инструкции, вы сможете создать и настроить капчу.
+description: Быстрая интеграция капчи на ваш сайт за 4 простых шага.
 ---
 
 # Как начать работать с {{ captcha-full-name }}
 
-Чтобы начать работу с сервисом:
+{{ captcha-full-name }} — сервис защиты от ботов и автоматизированных атак.
 
-1. [Создайте капчу](#creat-captcha).
-1. [Получите ключи](#get-keys).
-1. [Добавьте виджет на страницу](#add-widget).
-1. [Проверьте ответ пользователя](#check-answer).
+Чтобы добавить капчу на свою HTML-страницу:
 
+1. [Создайте капчу](#create-captcha) в {{ yandex-cloud }}.
+1. [Скопируйте ключи](#get-keys) на странице с информацией о капче.
+1. [Добавьте код виджета капчи](#add-widget) в свою HTML-страницу.
+1. [Проверьте ответ пользователя](#check-answer) с помощью отправки POST-запроса.
 
 ## Перед началом работы {#before-begin}
 
@@ -19,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 
 
-## Создайте капчу {#creat-captcha}
+## Создайте капчу {#create-captcha}
 
 {% include [user-data-to-ml](../_includes/smartcaptcha/user-data-to-ml.md) %}
 
@@ -31,28 +32,19 @@ description: Следуя данной инструкции, вы сможете
     1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
-       ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
+    1. Введите имя капчи, например `sm-captcha`.
+    1. Укажите список сайтов, на которых будет размещаться капча. Например, `my-shop.com`.
+    1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте без изменений.
+    1. Выберите параметры капчи по умолчанию (или оставьте текущие):
+       1. [Основное задание](./concepts/tasks.md#main-task) — будет показано пользователю первым.
+       1. [Дополнительное задание](./concepts/tasks.md#additional-task) — будет показано, если результат выполнения основного задания кажется сервису подозрительным или если выбран максимальный уровень сложности.
+       1. Выберите [сложность](./concepts/tasks.md#task-difficulty) — `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
 
-    1. Введите имя капчи. Требования к имени:
+         Можно добавить [варианты заданий](concepts/captcha-variants.md) и настроить правила для входящего трафика, чтобы показывать разную капчу разным пользователям. В этом примере будет добавлена только одна капча по умолчанию для всех пользователей.
 
-        {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
+       ![step9-10](../_assets/smartcaptcha/quickstart/step9-10.png)
 
-    1. (Опционально) Отключите [проверку имени домена](./concepts/domain-validation.md).
-    1. Укажите список сайтов, на которых будет размещаться капча.
-    1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте стандартным.
-
-       ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
-
-    1. Настройте капчу по умолчанию:
-       1. Выберите тип [основного задания](./concepts/tasks.md#main-task), которое предлагается решить пользователю.
-       1. Выберите тип [дополнительного задания](./concepts/tasks.md#additional-task), которое предлагается решить пользователю.
-       1. Выберите [сложность](./concepts/tasks.md#task-difficulty) `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
-
-    1. Вы можете добавить [варианты заданий](concepts/captcha-variants.md) и настроить правила для входящего трафика, чтобы показывать разную капчу разным пользователям. В этом примере будет добавлена только одна капча по умолчанию для всех пользователей.
-    1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-       ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
 
 {% endlist %}
 
@@ -62,24 +54,22 @@ description: Следуя данной инструкции, вы сможете
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+    
+    После создания капчи выберите ее в списке и скопируйте два ключа:
+    * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** — для добавления виджета {{ captcha-name }} на ваш сайт или страницу.
+    * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для [проверки ответа](#check-answer) пользователя.
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
-    1. Нажмите на имя капчи или [создайте](#creat-captcha) новую капчу.
-    1. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значения полей **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** и **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**.
+    Сохраните их в безопасном месте.
 
-    ![screen04](../_assets/smartcaptcha/quickstart/screen04.png)
+    ![step4-get-keys](../_assets/smartcaptcha/quickstart/step4-get-keys.png)
 
 {% endlist %}
-
-С помощью ключа клиента вы можете [добавить виджет](#add-widget) {{ captcha-name }} на свою страницу. Ключ сервера потребуется для [проверки ответа](#check-answer) пользователя.
-
 
 ## Добавьте виджет на страницу {#add-widget}
 
 Добавьте виджет автоматическим методом:
 
-1. Подключите JS-скрипт к странице пользователя. Для этого разместите в любом месте страницы (например, внутри тега `<head>`) код:
+1. Подключите JS-скрипт к вашей HTML-странице. Для этого разместите в любом месте страницы (например, внутри тега `<head>`) код:
 
     ```html
     <script src="https://{{ captcha-domain }}/captcha.js" defer></script>
@@ -87,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
 
     Скрипт `captcha.js` автоматически найдет все `div` с классом `smart-captcha` и установит в них виджет.
 
-1. Добавьте на страницу пустой контейнер (элемент `div`), чтобы скрипт `captcha.js` загрузил в него виджет:
+1. Добавьте на страницу пустой контейнер (элемент `div`) для виджета капчи:
 
     ```html
     <div
@@ -97,14 +87,16 @@ description: Следуя данной инструкции, вы сможете
     ></div>
     ```
 
+    Где `<ключ_клиента>` — ключ, скопированный после создания капчи.
+
     {% include [info-container-height](../_includes/smartcaptcha/info-container-height.md) %}
 
-На странице отобразится кнопка **Я не робот**. Сервис проверит запрос пользователя, когда он нажмет кнопку. Если запрос покажется подозрительным, сервис предложит пользователю решить задание.
-
+На странице появится кнопка **Я не робот**. Когда пользователь нажмет кнопку, сервис проверит его запрос.
+Если запрос покажется подозрительным, сервис предложит пользователю пройти задание капчи.
 
 ## Проверьте ответ пользователя {#check-answer}
 
-После проверки пользователю выдается уникальный токен. Токен загружается в элемент `<input type="hidden" name="smart-token" value="<токен>"` внутри контейнера с виджетом. Например, так:
+После проверки капчи пользователю выдается уникальный токен. Токен добавляется в HTML-страницу, в контейнер с виджетом капчи как элемент `<input>`:
 
 ```html
 <div id="captcha-container" class="smart-captcha" ...>
@@ -113,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
 </div>
 ```
 
-Для проверки токена нужно отправить POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
+Для проверки токена отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
 ```
 secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_пользователя>
@@ -123,12 +115,18 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
 {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
-В ответ сервис отправит JSON-объект с полями `status` и `message`. Когда поле `status` принимает значение `ok`, в JSON-объект добавляется поле `host`. Оно показывает, на каком сайте была пройдена проверка. Примеры ответов см. в разделе [Валидация пользователя](concepts/validation.md#service-response).
-
-
 Пример функции проверки токена:
 
 {% list tabs group=programming_language %}
+
+- cURL {#curl}
+
+    ```bash
+    curl -X POST https://{{ captcha-domain }}/validate \
+      -d "secret=<ключ_сервера>" \
+      -d "token=<токен_из_формы>" \
+      -d "ip=<IP_пользователя>"
+    ```
 
 - Node.js {#node}
 
@@ -186,7 +184,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
             callback(true);
         });
     
-        // Write the POST data to the request body
+        // Записываем POST-данные в тело запроса
         req.write(postData);
         req.end();
     }
@@ -233,7 +231,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
         return $resp->status === "ok";
     }
 
-    $token = "<токен>"; //Например, $_POST['smart-token'];
+    $token = "<токен>"; // Например, $_POST['smart-token'];
     if (check_captcha($token)) {
         echo "Passed\n";
     } else {
@@ -256,7 +254,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
            data={
               "secret": SMARTCAPTCHA_SERVER_KEY,
               "token": token,
-              "ip": "<IP-адрес_пользователя>"   # Способ получения IP-адреса зависит от вашего фреймворка и прокси.
+              "ip": "<IP-адрес_пользователя>"  # Способ получения IP-адреса зависит от вашего фреймворка и прокси.
                                                 # Например, во Flask это может быть request.remote_addr
            },
            timeout=1
@@ -276,7 +274,29 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
 {% endlist %}
 
+В ответ сервис отправит JSON-объект с полями:
 
-## Что дальше {#whats-next}
+* `status` — результат проверки: `ok` или `failed`. Если проверка успешна, в JSON-объект добавляется поле `host` — сайт, на котором была пройдена проверка.
+* `message` — сообщение о проверке, например, `Token invalid or expired`.
+  
+Примеры ответов см. в разделе [Валидация пользователя](concepts/validation.md#service-response).
 
-* Узнайте больше [о методах подключения](./concepts/widget-methods.md) виджета {{ captcha-name }}.
+## Частые вопросы {#faq}
+
+**Как проверить работу капчи?**
+
+Откройте страницу с капчей в режиме инкогнито или используйте VPN — это повысит вероятность появления задания.
+
+**Как настроить внешний вид капчи?**
+
+См. раздел [Расширенные настройки виджета](./concepts/widget-methods.md).
+
+**Что делать, если капча не отображается?**
+
+Проверьте, что домен добавлен в список разрешенных сайтов в настройках капчи.
+
+## Полезные ссылки {#links}
+
+* [Методы подключения виджета](./concepts/widget-methods.md)
+* [Настройка внешнего вида](./concepts/captcha-variants.md)
+* [API Reference](./api-ref/)

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/job/create-hive.md
 ---
 
 # yc dataproc job create-hive

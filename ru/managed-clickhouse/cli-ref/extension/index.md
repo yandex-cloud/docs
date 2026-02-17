@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-clickhouse/cli-ref/extension/index.md
 ---
 
 # yc managed-clickhouse extension

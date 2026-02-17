@@ -120,7 +120,6 @@ apiPlayground:
       AutoLineParams:
         type: object
         properties: {}
-sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/create.md
 ---
 
 # Video API, REST: StreamLine.Create

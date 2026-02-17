@@ -62,7 +62,6 @@ apiPlayground:
           - name
           - uri
           - type
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Extension/create.md
 ---
 
 # Managed Service for OpenSearch API, REST: Extension.Create

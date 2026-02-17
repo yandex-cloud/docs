@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/operations/unified-agent/linux_metrics.md
----
 # Поставка системных метрик Linux
 
 Общие метрики виртуальной машины сервис {{ monitoring-full-name }} получает от сервиса {{ compute-full-name }}. Например, количество оперативной памяти, выделенной ВМ в момент запуска. Но как ВМ использует память, можно измерить только собирая данные внутри ВМ. Для сбора и передачи [системных метрик Linux](../../metrics-ref/unifiedagent-ref.md) предназначена утилита {{ unified-agent-full-name }}.

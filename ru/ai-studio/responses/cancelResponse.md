@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/responses/cancelResponse.md
 ---
 
 # REST: Cancel a response

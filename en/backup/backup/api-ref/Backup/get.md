@@ -27,7 +27,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/get.md
 ---
 
 # Cloud Backup API, REST: Backup.Get

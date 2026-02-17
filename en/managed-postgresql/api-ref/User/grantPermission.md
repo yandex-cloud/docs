@@ -46,7 +46,6 @@ apiPlayground:
               **string**
               Name of the database that the permission grants access to.
             type: string
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/grantPermission.md
 ---
 
 # Managed Service for PostgreSQL API, REST: User.GrantPermission

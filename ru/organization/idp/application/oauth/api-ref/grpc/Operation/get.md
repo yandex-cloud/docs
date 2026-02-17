@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/idp/application/oauth/api-ref/grpc/Operation/get.md
 ---
 
 # OAUTH Application API, gRPC: OperationService.Get

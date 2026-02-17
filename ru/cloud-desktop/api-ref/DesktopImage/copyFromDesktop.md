@@ -30,7 +30,6 @@ apiPlayground:
         - desktopId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/copyFromDesktop.md
 ---
 
 # Cloud Desktop API, REST: DesktopImage.CopyFromDesktop

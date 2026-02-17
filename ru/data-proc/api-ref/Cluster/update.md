@@ -325,7 +325,6 @@ apiPlayground:
               **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
               Hadoop specific options
             $ref: '#/definitions/HadoopConfig'
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/update.md
 ---
 
 # Yandex Data Processing API, REST: Cluster.Update

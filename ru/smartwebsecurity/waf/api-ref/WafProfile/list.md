@@ -18,7 +18,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/list.md
 ---
 
 # SmartWebSecurity WAF API, REST: WafProfile.List

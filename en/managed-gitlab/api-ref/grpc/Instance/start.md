@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/gitlab/v1/api-ref/grpc/Instance/start.md
 ---
 
 # Managed Service for Gitlab API, gRPC: InstanceService.Start

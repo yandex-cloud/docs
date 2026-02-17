@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/getOptions.md
 ---
 
 # Foundation Models Tuning Service API, gRPC: TuningService.GetOptions

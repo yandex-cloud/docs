@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/getHTTPSConfig.md
 ---
 
 # Object Storage API, REST: Bucket.GetHTTPSConfig

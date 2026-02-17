@@ -57,7 +57,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Unassisted deployment of the {{ KF }} web interface
+      - name: Self-managed deployment of the {{ KF }} web UI
         href: tutorials/deploy-kafka-ui.md
       - name: >-
           Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
@@ -125,7 +125,7 @@ items:
             href: tutorials/kafka-topic-s3-sync-private.md
       - name: Working with {{ KF }} topics using {{ dataproc-name }}
         href: tutorials/data-processing.md
-      - name: Monitoring message loss in a {{ KF }} topic
+      - name: Monitoring message loss in an {{ KF }} topic
         href: tutorials/retention-policy.md
   - name: Concepts
     items:
@@ -499,3 +499,4 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
+path: en/managed-kafka/toc.yaml

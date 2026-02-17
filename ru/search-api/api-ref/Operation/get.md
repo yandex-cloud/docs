@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/searchapi/v2/api-ref/Operation/get.md
 ---
 
 # Web Search API, REST: Operation.Get

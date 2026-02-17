@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance-group/rolling-restart.md
 ---
 
 # yc compute instance-group rolling-restart

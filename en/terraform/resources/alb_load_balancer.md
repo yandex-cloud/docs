@@ -1,6 +1,5 @@
 ---
 subcategory: Application Load Balancer
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/alb_load_balancer.md
 ---
 
 # yandex_alb_load_balancer (Resource)

@@ -60,7 +60,6 @@ apiPlayground:
         required:
           - id
           - type
-sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/list.md
 ---
 
 # Quota Manager API, REST: QuotaRequest.List

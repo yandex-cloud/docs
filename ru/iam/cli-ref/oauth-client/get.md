@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/oauth-client/get.md
 ---
 
 # yc iam oauth-client get

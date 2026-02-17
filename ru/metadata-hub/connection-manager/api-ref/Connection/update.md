@@ -846,7 +846,6 @@ apiPlayground:
               - greenplum
           - required:
               - storedoc
-sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Connection/update.md
 ---
 
 # Connection Manager API, REST: Connection.Update

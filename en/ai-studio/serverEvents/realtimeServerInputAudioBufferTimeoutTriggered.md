@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerInputAudioBufferTimeoutTriggered.md
 ---
 
 # REST: input_audio_buffer.timeout_triggered '[CURRENTLY NOT SUPPORTED]'

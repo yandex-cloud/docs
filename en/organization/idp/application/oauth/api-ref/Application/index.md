@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/index.md
 ---
 
 # OAUTH Application API, REST: Application

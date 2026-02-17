@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceAccount/create.md
 ---
 
 # Identity and Access Management API, gRPC: ServiceAccountService.Create

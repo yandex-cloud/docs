@@ -15,6 +15,18 @@ description:
     23 и выше.</li> <li>Redis/Valkey™ (только нешардированные кластеры): 6 и
     выше.</li> <li>MongoDB/Yandex StoreDoc: 6 и выше.</li> <li>Yandex Managed
     Service for Trino: 454 и выше.</li> <li>Greenplum®: 6 и выше.</li>     </ul>
+meta:
+  title: Yandex WebSQL
+  keywords:
+    - keyword: '{{ websql-name }}'
+    - keyword: '{{ websql-full-name }}'
+    - keyword: Сервис {{ websql-name }}
+    - keyword: '{{ websql-name }} в {{ yandex-cloud }}'
+    - keyword: SQL в {{ yandex-cloud }}
+    - keyword: Как подключиться к базе данных {{ yandex-cloud }}
+    - keyword: Как подключиться к кластеру {{ yandex-cloud }}
+    - keyword: Как подключиться к публичной базе данных
+    - keyword: сервис для работы с SQL-командами
 links:
   - title: Начало работы
     description: Подключитесь к базе данных
@@ -34,15 +46,3 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-meta:
-  title: Yandex WebSQL
-  keywords:
-    - '{{ websql-name }}'
-    - '{{ websql-full-name }}'
-    - Сервис {{ websql-name }}
-    - '{{ websql-name }} в {{ yandex-cloud }}'
-    - SQL в {{ yandex-cloud }}
-    - Как подключиться к базе данных {{ yandex-cloud }}
-    - Как подключиться к кластеру {{ yandex-cloud }}
-    - Как подключиться к публичной базе данных
-    - сервис для работы с SQL-командами

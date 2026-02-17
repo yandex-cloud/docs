@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/billing/usage_records/v1/usage/api-ref/grpc/Metadata/getCloud.md
 ---
 
 # Billing Usage API, gRPC: MetadataService.GetCloud

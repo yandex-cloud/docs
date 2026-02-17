@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/function/set-scaling-policy.md
 ---
 
 # yc serverless function set-scaling-policy

@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/ytsaurus/v1/api-ref/Operation/get.md
 ---
 
 # Ytsaurus API, REST: Operation.Get

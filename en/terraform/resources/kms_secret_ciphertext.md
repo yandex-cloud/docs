@@ -1,6 +1,5 @@
 ---
 subcategory: Key Management Service
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_secret_ciphertext.md
 ---
 
 # yandex_kms_secret_ciphertext (Resource)

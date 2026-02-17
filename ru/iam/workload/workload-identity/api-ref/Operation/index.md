@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/Operation/index.md
 ---
 
 # Workload Identity, REST: Operation

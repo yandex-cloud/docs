@@ -229,7 +229,6 @@ apiPlayground:
                   - dockerFilters
               - required:
                   - mavenFilters
-sourcePath: en/_api-ref/cloudregistry/v1/api-ref/LifecyclePolicy/update.md
 ---
 
 # Yandex Cloud Registry API, REST: LifecyclePolicy.Update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/datatransfer/cli-ref/transfer/update.md
 ---
 
 # yc datatransfer transfer update

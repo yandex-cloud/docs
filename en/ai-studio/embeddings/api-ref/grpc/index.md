@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/embedding/embeddings/api-ref/grpc/index.md
 ---
 
 # Foundation Models Embedding API: gRPC reference

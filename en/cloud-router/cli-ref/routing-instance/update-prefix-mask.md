@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloudrouter/cli-ref/routing-instance/update-prefix-mask.md
 ---
 
 # yc cloudrouter routing-instance update-prefix-mask

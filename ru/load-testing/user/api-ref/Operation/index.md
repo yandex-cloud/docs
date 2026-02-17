@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Operation/index.md
 ---
 
 # Load Testing API, REST: Operation

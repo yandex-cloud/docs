@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/shards/index.md
 ---
 
 # yc managed-mongodb shards

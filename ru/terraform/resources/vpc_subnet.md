@@ -1,6 +1,5 @@
 ---
 subcategory: Virtual Private Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/vpc_subnet.md
 ---
 
 # yandex_vpc_subnet (Resource)

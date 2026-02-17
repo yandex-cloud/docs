@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/trigger/update/internet-of-things.md
 ---
 
 # yc serverless trigger update internet-of-things

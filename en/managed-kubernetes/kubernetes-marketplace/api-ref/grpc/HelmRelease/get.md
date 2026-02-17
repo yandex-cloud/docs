@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/k8s/marketplace/v1/kubernetes-marketplace/api-ref/grpc/HelmRelease/get.md
 ---
 
 # Kubernetes Marketplace, gRPC: HelmReleaseService.Get

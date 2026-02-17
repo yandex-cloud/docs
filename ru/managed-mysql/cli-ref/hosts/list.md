@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/hosts/list.md
 ---
 
 # yc managed-mysql hosts list

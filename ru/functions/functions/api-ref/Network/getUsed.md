@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/getUsed.md
 ---
 
 # Cloud Functions Service, REST: Network.GetUsed

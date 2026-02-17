@@ -38,7 +38,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/getByName.md
 ---
 
 # IoT Core Service, REST: Device.GetByName

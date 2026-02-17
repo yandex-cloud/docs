@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/lockbox/cli-ref-beta/payload/get-ex.md
 ---
 
 # yc beta lockbox payload get-ex

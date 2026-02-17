@@ -14,4 +14,5 @@ keywords:
 * [Изменение кластера](cluster-update.md)
 * [Управление шардами](shards.md)
 * [Подключение к базе данных](connect.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)

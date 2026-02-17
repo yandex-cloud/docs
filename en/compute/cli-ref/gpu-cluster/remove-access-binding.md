@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/gpu-cluster/remove-access-binding.md
 ---
 
 # yc compute gpu-cluster remove-access-binding

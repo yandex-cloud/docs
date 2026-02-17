@@ -8260,7 +8260,6 @@ apiPlayground:
               **[ConfigHostSpec](#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
               Configuration of a PostgreSQL server for the host.
             $ref: '#/definitions/ConfigHostSpec'
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/addHosts.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Cluster.AddHosts

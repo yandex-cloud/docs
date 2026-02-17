@@ -846,7 +846,6 @@ apiPlayground:
               **string**
               ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder.
             type: string
-sourcePath: en/_api-ref/connectionmanager/v1/connection-manager/api-ref/Connection/create.md
 ---
 
 # Connection Manager API, REST: Connection.Create

@@ -1,7 +1,6 @@
 ---
 title: FAQ about {{ monitoring-full-name }}
 description: This page covers FAQ about {{ monitoring-name }}.
-sourcePath: en/monitoring_includes/qa/all.md
 ---
 
 # FAQ about {{ monitoring-name }}

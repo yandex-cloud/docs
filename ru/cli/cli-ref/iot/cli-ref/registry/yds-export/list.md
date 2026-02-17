@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iot/cli-ref/registry/yds-export/list.md
 ---
 
 # yc iot registry yds-export list

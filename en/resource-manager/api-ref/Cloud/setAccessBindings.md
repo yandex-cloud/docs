@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/setAccessBindings.md
 ---
 
 # Resource Manager API, REST: Cloud.SetAccessBindings

@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/async/models/text_embeddings.md
----
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.text\_embeddings.function.**AsyncTextEmbeddings**{#yandex_ai_studio_sdk._models.text_embeddings.function.AsyncTextEmbeddings}

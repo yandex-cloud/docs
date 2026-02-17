@@ -22,7 +22,6 @@ apiPlayground:
         - searchIndexId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndexFile/batchCreate.md
 ---
 
 # Search Index, REST: SearchIndexFile.BatchCreate

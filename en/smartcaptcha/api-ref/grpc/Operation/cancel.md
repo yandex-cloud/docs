@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartcaptcha/v1/api-ref/grpc/Operation/cancel.md
 ---
 
 # SmartCaptcha API, gRPC: OperationService.Cancel

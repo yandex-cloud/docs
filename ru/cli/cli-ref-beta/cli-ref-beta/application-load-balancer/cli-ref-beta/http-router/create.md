@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/application-load-balancer/cli-ref-beta/http-router/create.md
 ---
 
 # yc beta application-load-balancer http-router create

@@ -19,6 +19,30 @@ description:
     service level is set out in the document titled <a
     href="https://yandex.ru/legal/cloud_sla_yandex_foundation_models/">{{
     ai-studio-full-name }}</a> Service Level.
+meta:
+  title: '{{ ai-studio-full-name }}'
+  description: >-
+    {{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for creating AI
+    applications and AI agents based on large generative models. {{
+    ai-studio-name }} provides everything you need through all stages – from
+    experiments and prototyping to production deployment.
+  keywords:
+    - keyword: '{{ ai-studio-full-name }}'
+    - keyword: '{{ ai-studio-name }}'
+    - keyword: '{{ ai-studio-name }}'
+    - keyword: generative models for business
+    - keyword: neural networks in {{ yandex-cloud }}
+    - keyword: prompting guide
+    - keyword: YandexGPT Lite
+    - keyword: YandexGPT Pro
+    - keyword: YandexART
+    - keyword: AI assistant
+    - keyword: AI agent
+    - keyword: machine learning technologies
+    - keyword: generative models in {{ yandex-cloud }}
+    - keyword: neural networks in business apps
+    - keyword: neural networks in web services
+    - keyword: neural networks in business
 links:
   - title: About {{ ai-studio-name }}
     description: Summary of main features
@@ -50,27 +74,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
-meta:
-  title: '{{ ai-studio-full-name }}'
-  description: >-
-    {{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for creating AI
-    applications and AI agents based on large generative models. {{
-    ai-studio-name }} provides everything you need through all stages – from
-    experiments and prototyping to production deployment.
-  keywords:
-    - '{{ ai-studio-full-name }}'
-    - '{{ ai-studio-name }}'
-    - '{{ ai-studio-name }}'
-    - generative models for business
-    - neural networks in {{ yandex-cloud }}
-    - prompting guide
-    - YandexGPT Lite
-    - YandexGPT Pro
-    - YandexART
-    - AI assistant
-    - AI agent
-    - machine learning technologies
-    - generative models in {{ yandex-cloud }}
-    - neural networks in business apps
-    - neural networks in web services
-    - neural networks in business

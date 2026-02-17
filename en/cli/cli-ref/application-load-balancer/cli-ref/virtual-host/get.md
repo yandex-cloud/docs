@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/virtual-host/get.md
 ---
 
 # yc application-load-balancer virtual-host get

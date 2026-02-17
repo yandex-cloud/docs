@@ -120,7 +120,7 @@ items:
       - name: Системные требования
         href: hybrid-speechkit/system-requirements.md
       - name: Документация {{ sk-hybrid-name }}
-        href: ../speechkit-hybrid/
+        href: ../speechkit-hybrid/index.yaml
   - name: Справочники API
     items:
       - name: Обзор
@@ -278,3 +278,4 @@ items:
         href: qa/tts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+path: ru/speechkit/toc.yaml

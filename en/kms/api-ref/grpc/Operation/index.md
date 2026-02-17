@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/kms/v1/api-ref/grpc/Operation/index.md
 ---
 
 # Key Management Service API, gRPC: OperationService

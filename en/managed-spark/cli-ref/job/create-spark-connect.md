@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-spark/cli-ref/job/create-spark-connect.md
 ---
 
 # yc managed-spark job create-spark-connect

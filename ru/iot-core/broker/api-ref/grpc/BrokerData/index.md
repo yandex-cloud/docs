@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/iot/broker/v1/broker/api-ref/grpc/BrokerData/index.md
 ---
 
 # IoT Core Broker Service, gRPC: BrokerDataService

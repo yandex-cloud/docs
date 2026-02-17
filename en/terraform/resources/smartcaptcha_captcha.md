@@ -1,6 +1,5 @@
 ---
 subcategory: Smart Captcha
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/smartcaptcha_captcha.md
 ---
 
 # yandex_smartcaptcha_captcha (Resource)

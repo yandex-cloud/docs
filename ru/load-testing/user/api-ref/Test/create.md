@@ -190,7 +190,6 @@ apiPlayground:
               **[ArtifactSettings](#yandex.cloud.loadtesting.api.v1.test.ArtifactSettings)**
               Settings which define where to upload test artifacts and which files should be included.
             $ref: '#/definitions/ArtifactSettings'
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/create.md
 ---
 
 # Load Testing API, REST: Test.Create

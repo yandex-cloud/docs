@@ -1112,9 +1112,9 @@ items:
       - name: >-
           Delivering data from {{ mmy-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
-        href: dataplatform/./data-transfer-mmy.md
+        href: dataplatform/data-transfer-mmy.md
       - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/./debezium-mmy.md
+        href: dataplatform/debezium-mmy.md
       - name: >-
           Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
@@ -1181,9 +1181,9 @@ items:
       - name: >-
           Delivering data from {{ mpg-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
-        href: dataplatform/./data-transfer-mpg.md
+        href: dataplatform/data-transfer-mpg.md
       - name: Delivering data from {{ mpg-name }} to {{ mkf-name }} using Debezium
-        href: dataplatform/./debezium-mpg.md
+        href: dataplatform/debezium-mpg.md
       - name: Importing data from {{ mpg-name }} to {{ dataproc-name }} using Sqoop
         href: dataplatform/sqoop-mpg.md
         hidden: true
@@ -1717,3 +1717,4 @@ items:
           - name: Creating an AI assistant for Telegram
             hidden: true
             href: ml-ai/tg-bot-assistant.md
+path: en/tutorials/toc.yaml

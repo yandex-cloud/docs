@@ -28,7 +28,6 @@ apiPlayground:
         - computeInstanceId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/startRecovery.md
 ---
 
 # Cloud Backup API, REST: Backup.StartRecovery

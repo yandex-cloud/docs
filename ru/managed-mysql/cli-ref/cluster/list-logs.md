@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-mysql/cli-ref/cluster/list-logs.md
 ---
 
 # yc managed-mysql cluster list-logs

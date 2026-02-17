@@ -36,7 +36,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/OAuthClient/list.md
 ---
 
 # Identity and Access Management API, REST: OAuthClient.List

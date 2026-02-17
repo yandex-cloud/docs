@@ -47,7 +47,6 @@ apiPlayground:
         - rescheduleType
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.RescheduleMaintenance

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/S3/activate.md
 ---
 
 # DataSphere API v2, gRPC: S3Service.Activate

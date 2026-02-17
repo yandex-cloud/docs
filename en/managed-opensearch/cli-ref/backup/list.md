@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-opensearch/cli-ref/backup/list.md
 ---
 
 # yc managed-opensearch backup list

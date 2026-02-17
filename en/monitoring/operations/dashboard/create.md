@@ -1,7 +1,6 @@
 ---
 title: Creating a dashboard in {{ monitoring-full-name }}
 description: To create a dashboard in {{ monitoring-full-name }}, open the service home page and click **Create dashboard**. Add a widget to your dashboard. Click **Title** under **Add widget** or click **Add** in the dashboard title and then select **Title**. Enter text in the input field. Select the title size. Click **Add**. You will now see the titled widget on the dashboard. Click **Save** in the top-right corner. Enter a name for your dashboard and click **Save**.
-sourcePath: en/monitoring_includes/operations/dashboard/create.md
 ---
 
 # Creating and managing a dashboard in {{ monitoring-name }}

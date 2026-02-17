@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-sharded-postgresql/cli-ref/backup/index.md
 ---
 
 # yc managed-sharded-postgresql backup

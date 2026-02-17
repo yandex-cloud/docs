@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/cluster/set-access-bindings.md
 ---
 
 # yc managed-kafka cluster set-access-bindings

@@ -42,7 +42,6 @@ apiPlayground:
             type: string
         required:
           - name
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/ClusterExtension/create.md
 ---
 
 # Managed Service for ClickHouse API, REST: ClusterExtension.Create

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Filesystem/get.md
 ---
 
 # Compute Cloud API, gRPC: FilesystemService.Get

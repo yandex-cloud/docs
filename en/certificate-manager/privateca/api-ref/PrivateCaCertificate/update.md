@@ -51,7 +51,6 @@ apiPlayground:
           type: boolean
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/update.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.Update

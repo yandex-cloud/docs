@@ -33,7 +33,6 @@ apiPlayground:
         - topic
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/BrokerData/publish.md
 ---
 
 # IoT Core Broker Service, REST: BrokerData.Publish

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Backup/index.md
 ---
 
 # Managed Service for MySQL API, REST: Backup

@@ -35,7 +35,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listDisks.md
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.ListDisks

@@ -87,7 +87,6 @@ apiPlayground:
             type: array
             items:
               $ref: '#/definitions/DnsRecordSpec'
-sourcePath: en/_api-ref/compute/v1/api-ref/Instance/addOneToOneNat.md
 ---
 
 # Compute Cloud API, REST: Instance.AddOneToOneNat

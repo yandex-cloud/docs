@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/ydb/cli-ref/database/set-access-bindings.md
 ---
 
 # yc ydb database set-access-bindings

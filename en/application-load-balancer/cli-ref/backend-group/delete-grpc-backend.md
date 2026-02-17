@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/backend-group/delete-grpc-backend.md
 ---
 
 # yc application-load-balancer backend-group delete-grpc-backend

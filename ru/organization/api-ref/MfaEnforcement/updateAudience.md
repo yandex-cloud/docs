@@ -52,7 +52,6 @@ apiPlayground:
         required:
           - action
           - subjectId
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/MfaEnforcement/updateAudience.md
 ---
 
 # Identity Hub API, REST: MfaEnforcement.UpdateAudience

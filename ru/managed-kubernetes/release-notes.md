@@ -2,8 +2,61 @@
 
 <!-- Changelog begin -->
 
+{% changelog %}
+```
+date: 2025-12
+index: 3
+```
 
+### {{ k8s }} 1.34 в RAPID, 1.33 в REGULAR
 
+![image](../_assets/managed-kubernetes/rapid-1-34-regular-1-33.png)
+
+Используйте актуальную версию {{ k8s }} в ваших кластерах. В [релизных каналах]({{ link-docs }}/managed-kubernetes/concepts/release-channels-and-updates) стали доступны следующие версии {{ k8s }}:
+* 1.34 в `RAPID`;
+* 1.33 в `REGULAR`.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-09
+index: 2
+```
+
+### Доступ к API {{ yandex-cloud }} из кластера с помощью федерации сервисных аккаунтов {{ iam-short-name }}
+
+![image](../_assets/managed-kubernetes/mk8s-wlif.svg)
+
+Получайте IAM-токен для аутентификации в API {{ yandex-cloud }} прямо из пода кластера с помощью интеграции с федерацией сервисных аккаунтов {{ iam-name }}. Подробнее:
+* [Руководство по интеграции]({{ link-docs }}/managed-kubernetes/tutorials/wlif-managed-k8s-integration)
+* [Доклад на Yandex Neuro Scale 2025](https://scale.yandex.cloud/?broadcast=89&speech=2653)
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-09
+index: 1
+```
+
+### Контроллер {{ yandex-cloud }} Gwin 
+
+![image](../_assets/managed-kubernetes/gwin-scheme.png)
+
+Используйте новый контроллер {{ yandex-cloud }} Gwin для балансировки трафика с помощью {{ alb-name }}. Одновременно поддерживаются спецификации {{ k8s }} [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Подробнее:
+* [Документация Gwin]({{ link-docs }}/managed-kubernetes/alb-ref/gwin-index)
+* [Доклад на Yandex Neuro Scale 2025](https://scale.yandex.cloud/?broadcast=89&speech=2658)
+
+#### Ubuntu 22.04 на узлах кластера
+
+Начиная с версии {{ k8s }} 1.30 операционная система узлов изменилась с Ubuntu 20.04 на Ubuntu 22.04. При обновлении групп узлов в этих версиях новые узлы автоматически создаются из образа виртуальной машины с Ubuntu 22.04. Подробнее на странице [Обновление операционной системы в группе узлов]({{ link-docs }}/managed-kubernetes/concepts/node-os-update).
+
+#### Выбор конфигурации мастера в CLI и {{ TF }}
+
+Используйте инструменты [{{ yandex-cloud }} CLI]({{ link-docs }}/cli/) и [{{ TF }}]({{ link-docs }}/terraform/) для [конфигурации]({{ link-docs }}/managed-kubernetes/concepts/#master-resources) ресурсов мастера. Подробнее на странице [Создание кластера {{ managed-k8s-name }}]({{ link-docs }}/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create).
+
+{% endchangelog %}
 
 <!-- Changelog end -->
 

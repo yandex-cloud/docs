@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for MySQL
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_cluster_v2.md
 ---
 
 # yandex_mdb_mysql_cluster_v2 (Resource)

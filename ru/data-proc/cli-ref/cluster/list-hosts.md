@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/cluster/list-hosts.md
 ---
 
 # yc dataproc cluster list-hosts

@@ -1,6 +1,5 @@
 ---
 subcategory: Data Transfer
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datatransfer_endpoint.md
 ---
 
 # yandex_datatransfer_endpoint (Resource)

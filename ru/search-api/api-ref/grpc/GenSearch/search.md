@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/GenSearch/search.md
 ---
 
 # Web Search API, gRPC: GenSearchService.Search

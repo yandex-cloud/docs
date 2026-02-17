@@ -42,7 +42,7 @@
 
 - API {#api}
 
-  Чтобы получить список доступных версий, воспользуйтесь методом [list](../../managed-kubernetes/managed-kubernetes/api-ref/Version/list.md).
+  Чтобы получить список доступных версий, воспользуйтесь методом REST API [list](../managed-kubernetes/api-ref/Version/list.md) для ресурса [Version](../managed-kubernetes/api-ref/Version) или вызовом gRPC API [VersionService/List](../managed-kubernetes/api-ref/grpc/Version/list.md).
 
 {% endlist %}
 
@@ -195,9 +195,11 @@
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   Настройки автоматического обновления задаются в блоке `masterSpec.maintenancePolicy` при [создании кластера {{ managed-k8s-name }}](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/create.md) или [изменении его настроек](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md).
 
-  Воспользуйтесь методом [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) и передайте в запросе:
+  Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md).
   * Настройки автоматического обновления в параметре `masterSpec.maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -314,7 +316,10 @@
 
 - API {#api}
 
-  Воспользуйтесь методом [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) и передайте в запросе:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе:
+
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md).
   * Нужную версию {{ k8s }} в параметре `masterSpec.version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -528,9 +533,11 @@
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   Настройки автоматического обновления задаются в блоке `maintenancePolicy` при [создании группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/create.md) или [изменении ее настроек](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md).
 
-  Воспользуйтесь методом [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) и передайте в запросе:
+  Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).
   * Настройки автоматического обновления в параметре `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -672,7 +679,9 @@
 
 - API {#api}
 
-  Воспользуйтесь методом [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) и передайте в запросе:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).
   * Нужную версию {{ k8s }} в параметре `version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -717,7 +726,9 @@
 
 - API {#api}
 
-  Воспользуйтесь методом [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) и передайте в запросе:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Значение `true` в параметре `masterSpec.version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -753,7 +764,9 @@
 
 - API {#api}
 
-  Воспользуйтесь методом [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) и передайте в запросе:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Воспользуйтесь методом REST API [update](../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
   * Идентификатор группы узлов {{ managed-k8s-name }} в параметре `nodeGroupId`. Чтобы узнать идентификатор группы узлов {{ managed-k8s-name }}, [получите список групп в кластере](node-group/node-group-list.md).
   * Значение `true` в параметре `version.latestRevision`.
   * Список изменяемых настроек в параметре `updateMask`.
@@ -815,7 +828,9 @@
 
 - API {#api}
 
-  Воспользуйтесь методом [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) и передайте в запросе:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Воспользуйтесь методом REST API [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster) или вызовом gRPC API [ClusterService/RescheduleMaintenance](../managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md) и передайте в запросе:
   * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * Новые дату и время обновления в формате `YYYY-MM-DDThh:mm:ssZ` в параметре `delayedUntil`. Например: `2026-01-01T21:00:00Z`.
 

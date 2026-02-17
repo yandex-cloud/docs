@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/delete.md
 ---
 
 # Cloud Router API, REST: RoutingInstance.Delete

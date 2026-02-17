@@ -1,7 +1,6 @@
 ---
 title: Getting information about a {{ cloud-logging-full-name }} sink
 description: Follow this guide to get information about a log sink.
-sourcePath: en/logging_includes/operations/get-sink.md
 ---
 
 # Getting information about a log sink

@@ -2018,7 +2018,6 @@ apiPlayground:
               - metrikaSource
           - required:
               - ydsTarget
-sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/update.md
 ---
 
 # Data Transfer API, REST: Endpoint.Update

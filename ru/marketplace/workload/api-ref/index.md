@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/cloudapps/workload/v1/workload/api-ref/index.md
 ---
 
 # Cloud Apps Workload API: REST reference

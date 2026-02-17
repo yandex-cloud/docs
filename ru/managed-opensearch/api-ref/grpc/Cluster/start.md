@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/start.md
 ---
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.Start

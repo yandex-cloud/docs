@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/quota-manager/cli-ref/quota-limit/list-services.md
 ---
 
 # yc quota-manager quota-limit list-services

@@ -1,7 +1,6 @@
 ---
 title: Начало работы с {{ yandex-cloud }} SDK
 description: Познакомьтесь с возможностями {{ yandex-cloud }} SDK
-sourcePath: ru/sdk/sdk/quickstart.md
 ---
 
 # Как начать работать с {{ yandex-cloud }} SDK

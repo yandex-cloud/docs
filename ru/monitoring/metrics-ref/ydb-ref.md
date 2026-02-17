@@ -2,7 +2,6 @@
 title: Метрики {{ ydb-full-name }}
 description: Из статьи вы узнаете про метрики {{ ydb-name }}.
 editable: false
-sourcePath: ru/monitoring_includes/metrics-ref/ydb-ref.md
 ---
 
 # Метрики {{ ydb-full-name }}

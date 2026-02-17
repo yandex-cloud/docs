@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-postgresql/cli-ref-beta/user/revoke-permission.md
 ---
 
 # yc beta managed-postgresql user revoke-permission

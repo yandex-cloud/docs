@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/video/v1/api-ref/Stream/index.md
 ---
 
 # Video API, REST: Stream

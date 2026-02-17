@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/index.md
----
 # yandex-ai-studio-sdk documentation
 
 Current package version: 0.19.0

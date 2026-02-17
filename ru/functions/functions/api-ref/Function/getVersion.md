@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/getVersion.md
 ---
 
 # Cloud Functions Service, REST: Function.GetVersion

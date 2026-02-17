@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/ResourcePreset/get.md
 ---
 
 # Managed Service for PostgreSQL API, REST: ResourcePreset.Get

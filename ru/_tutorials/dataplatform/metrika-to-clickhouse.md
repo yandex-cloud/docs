@@ -1,3 +1,6 @@
+---
+noIndex: true
+---
 
 # Загрузка данных из {{ metrika }} в витрину {{ CH }} с помощью {{ data-transfer-full-name }}
 

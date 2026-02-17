@@ -38,7 +38,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/delete.md
 ---
 
 # Resource Manager API, REST: Cloud.Delete

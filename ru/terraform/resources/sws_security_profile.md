@@ -1,6 +1,5 @@
 ---
 subcategory: Smart Web Security
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/sws_security_profile.md
 ---
 
 # yandex_sws_security_profile (Resource)

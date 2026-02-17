@@ -80,7 +80,6 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/MfaEnforcement/create.md
 ---
 
 # Identity Hub API, REST: MfaEnforcement.Create

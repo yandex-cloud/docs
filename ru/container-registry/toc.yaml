@@ -78,7 +78,7 @@ items:
           - name: Отозвать роль
             href: operations/roles/revoke.md
   - name: '{{ cos-full-name }}'
-    href: ../cos/
+    href: ../cos/index.yaml
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -587,3 +587,4 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
+path: ru/container-registry/toc.yaml

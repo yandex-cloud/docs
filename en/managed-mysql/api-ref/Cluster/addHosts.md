@@ -76,7 +76,6 @@ apiPlayground:
               Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
-sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/addHosts.md
 ---
 
 # Managed Service for MySQL API, REST: Cluster.AddHosts

@@ -45,7 +45,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/AccessAnalyzer/listSubjectAccessBindings.md
 ---
 
 # Identity and Access Management API, REST: AccessAnalyzer.ListSubjectAccessBindings

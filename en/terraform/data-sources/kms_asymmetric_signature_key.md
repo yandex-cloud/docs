@@ -1,6 +1,5 @@
 ---
 subcategory: Key Management Service
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/kms_asymmetric_signature_key.md
 ---
 
 # yandex_kms_asymmetric_signature_key (DataSource)

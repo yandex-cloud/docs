@@ -1,6 +1,5 @@
 ---
 subcategory: Identity and Access Management
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iam_service_account_key.md
 ---
 
 # yandex_iam_service_account_key (Resource)

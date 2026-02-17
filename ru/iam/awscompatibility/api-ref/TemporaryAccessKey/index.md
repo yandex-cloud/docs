@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/TemporaryAccessKey/index.md
 ---
 
 # Access Key, REST: TemporaryAccessKey

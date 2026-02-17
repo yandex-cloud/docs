@@ -1,6 +1,5 @@
 ---
 subcategory: Lockbox
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/lockbox_secret_version_hashed.md
 ---
 
 # yandex_lockbox_secret_version_hashed (Resource)

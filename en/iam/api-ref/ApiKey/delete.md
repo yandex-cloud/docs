@@ -19,7 +19,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/delete.md
 ---
 
 # Identity and Access Management API, REST: ApiKey.Delete

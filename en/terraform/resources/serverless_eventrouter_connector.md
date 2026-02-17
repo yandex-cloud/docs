@@ -1,6 +1,5 @@
 ---
 subcategory: Serverless Event Router
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/serverless_eventrouter_connector.md
 ---
 
 # yandex_serverless_eventrouter_connector (Resource)

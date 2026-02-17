@@ -1,7 +1,6 @@
 ---
 title: String functions
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/string-functions.md
 ---
 
 # String functions

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/kms/cli-ref/asymmetric-signature-crypto/sign-hash.md
 ---
 
 # yc kms asymmetric-signature-crypto sign-hash

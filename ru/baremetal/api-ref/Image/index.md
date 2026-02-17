@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Image/index.md
 ---
 
 # BareMetal API, REST: Image

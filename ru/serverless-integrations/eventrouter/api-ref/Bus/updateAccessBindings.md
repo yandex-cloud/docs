@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/updateAccessBindings.md
 ---
 
 # EventRouter Service, REST: Bus.UpdateAccessBindings

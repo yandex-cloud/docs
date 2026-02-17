@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerConversationItemRetrieved.md
 ---
 
 # REST: conversation.item.retrieved

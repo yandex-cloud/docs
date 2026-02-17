@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/TrunkConnection/create.md
 ---
 
 # Cloud Interconnect API, gRPC: TrunkConnectionService.Create

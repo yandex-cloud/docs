@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Thread/create.md
 ---
 
 # Threads, gRPC: ThreadService.Create

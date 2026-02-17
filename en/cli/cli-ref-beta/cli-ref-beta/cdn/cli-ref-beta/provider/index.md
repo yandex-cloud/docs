@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/cdn/cli-ref-beta/provider/index.md
 ---
 
 # yc beta cdn provider

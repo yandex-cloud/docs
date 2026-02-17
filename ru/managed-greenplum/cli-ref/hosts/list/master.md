@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/hosts/list/master.md
 ---
 
 # yc managed-greenplum hosts list master

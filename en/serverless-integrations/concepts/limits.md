@@ -7,7 +7,6 @@ keywords:
   - WF
   - eventrouter
   - event router
-  - workflow
   - bus
   - connector
   - rule

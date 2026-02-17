@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for MongoDB API, gRPC: ClusterService.SetAccessBindings

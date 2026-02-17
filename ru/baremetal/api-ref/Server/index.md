@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/Server/index.md
 ---
 
 # BareMetal API, REST: Server

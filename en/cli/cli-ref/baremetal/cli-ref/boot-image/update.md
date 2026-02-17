@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/baremetal/cli-ref/boot-image/update.md
 ---
 
 # yc baremetal boot-image update

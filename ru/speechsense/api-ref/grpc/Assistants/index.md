@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Assistants/index.md
 ---
 
 # Talk Analytics API, gRPC: AssistantsService

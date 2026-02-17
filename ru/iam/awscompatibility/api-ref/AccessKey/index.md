@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/index.md
 ---
 
 # Access Key, REST: AccessKey

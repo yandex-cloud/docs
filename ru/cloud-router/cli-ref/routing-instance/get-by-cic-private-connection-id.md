@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/cloudrouter/cli-ref/routing-instance/get-by-cic-private-connection-id.md
 ---
 
 # yc cloudrouter routing-instance get-by-cic-private-connection-id

@@ -3,6 +3,11 @@ description:
   - >-
     These tutorials will help you meet various challenges with {{ yandex-cloud
     }} services.
+meta:
+  title: Tutorials
+  description: >-
+    These tutorials will help you meet various challenges with {{ yandex-cloud
+    }} services.
 blocks:
   - type: card-layout-block
     colSizes:
@@ -116,9 +121,4 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-meta:
-  title: Tutorials
-  description: >-
-    These tutorials will help you meet various challenges with {{ yandex-cloud
-    }} services.
 links: []

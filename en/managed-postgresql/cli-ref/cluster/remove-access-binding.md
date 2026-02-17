@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/remove-access-binding.md
 ---
 
 # yc managed-postgresql cluster remove-access-binding

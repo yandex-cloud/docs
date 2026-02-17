@@ -28,7 +28,6 @@ apiPlayground:
         - organizationId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Channel/batchDelete.md
 ---
 
 # Video API, REST: Channel.BatchDelete

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/reserved-instance-pool/update.md
 ---
 
 # yc compute reserved-instance-pool update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Desktop/update.md
 ---
 
 # Cloud Desktop API, gRPC: DesktopService.Update

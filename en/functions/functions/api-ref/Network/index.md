@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/index.md
 ---
 
 # Cloud Functions Service, REST: Network

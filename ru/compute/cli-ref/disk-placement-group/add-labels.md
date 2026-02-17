@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/disk-placement-group/add-labels.md
 ---
 
 # yc compute disk-placement-group add-labels

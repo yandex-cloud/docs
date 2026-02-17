@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ydb/v1/api-ref/index.md
 ---
 
 # Managed Service for YDB API: REST reference

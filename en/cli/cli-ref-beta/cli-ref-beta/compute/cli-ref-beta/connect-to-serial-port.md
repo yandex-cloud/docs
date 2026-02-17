@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/connect-to-serial-port.md
 ---
 
 # yc beta compute connect-to-serial-port

@@ -11,6 +11,22 @@ description:
     Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
     pursuant to Russian Federal Law 152-FZ.
+meta:
+  title: Yandex Cloud Router
+  description: >-
+    {{ cr-full-name }} is a service for managing network topologies of a hybrid
+    cloud in {{ yandex-cloud }}.
+  keywords:
+    - keyword: cloud router
+    - keyword: router in {{ yandex-cloud }}
+    - keyword: '{{ cr-name }}'
+    - keyword: '{{ cr-full-name }}'
+    - keyword: '{{ cr-name }} in {{ yandex-cloud }}'
+    - keyword: '{{ cr-name }}'
+    - keyword: Routing Instance
+    - keyword: '{{ cr-full-name }} router'
+    - keyword: '{{ cr-full-name }} hybrid cloud'
+    - keyword: '{{ yandex-cloud }} hybrid cloud'
 links:
   - title: Concepts
     description: Learn about features of the service
@@ -21,19 +37,3 @@ links:
   - title: Use cases
     description: Description of use cases
     href: scenarios/
-meta:
-  title: Yandex Cloud Router
-  description: >-
-    {{ cr-full-name }} is a service for managing network topologies of a hybrid
-    cloud in {{ yandex-cloud }}.
-  keywords:
-    - cloud router
-    - router in {{ yandex-cloud }}
-    - '{{ cr-name }}'
-    - '{{ cr-full-name }}'
-    - '{{ cr-name }} in {{ yandex-cloud }}'
-    - '{{ cr-name }}'
-    - Routing Instance
-    - '{{ cr-full-name }} router'
-    - '{{ cr-full-name }} hybrid cloud'
-    - '{{ yandex-cloud }} hybrid cloud'

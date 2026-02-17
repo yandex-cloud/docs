@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/vpc/v1/privatelink/api-ref/grpc/PrivateEndpoint/create.md
 ---
 
 # Virtual Private Cloud API, gRPC: PrivateEndpointService.Create

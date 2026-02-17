@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-trino/cli-ref-beta/catalog/delete.md
 ---
 
 # yc beta managed-trino catalog delete

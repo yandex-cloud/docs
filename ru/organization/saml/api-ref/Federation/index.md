@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/index.md
 ---
 
 # SAML Federation API, REST: Federation

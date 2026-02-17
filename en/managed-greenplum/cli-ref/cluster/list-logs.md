@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/cluster/list-logs.md
 ---
 
 # yc managed-greenplum cluster list-logs

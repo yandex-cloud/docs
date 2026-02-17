@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/models/image_generation.md
----
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.image\_generation.function.**ImageGeneration**{#yandex_ai_studio_sdk._models.image_generation.function.ImageGeneration}

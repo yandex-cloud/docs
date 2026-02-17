@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/mcpgateway/v1/mcp-gateway/api-ref/index.md
 ---
 
 # MCP Gateway Service: REST reference

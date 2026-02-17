@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Operation/index.md
 ---
 
 # Managed Service for Redis API, REST: Operation

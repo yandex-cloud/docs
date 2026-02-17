@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/ocr/v1/ocr/api-ref/grpc/Operation/get.md
 ---
 
 # Vision OCR API, gRPC: OperationService.Get

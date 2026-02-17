@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/monitoring_includes/api-ref/MetricsMeta/listMetrics.md
 ---
 
 # Метод listMetrics

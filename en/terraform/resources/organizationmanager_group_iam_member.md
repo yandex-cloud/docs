@@ -1,6 +1,5 @@
 ---
 subcategory: Identity Hub
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group_iam_member.md
 ---
 
 # yandex_organizationmanager_group_iam_member (Resource)

@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-trino/cli-ref-beta/cluster/list-access-bindings.md
 ---
 
 # yc beta managed-trino cluster list-access-bindings

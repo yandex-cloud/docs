@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/registry/set-ip-permissions.md
 ---
 
 # yc container registry set-ip-permissions

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/cluster/update-config.md
 ---
 
 # yc managed-greenplum cluster update-config

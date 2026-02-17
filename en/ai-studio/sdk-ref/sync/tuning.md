@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/tuning.md
----
 # Tuning domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_tuning.domain.**Tuning**{#yandex_ai_studio_sdk._tuning.domain.Tuning}

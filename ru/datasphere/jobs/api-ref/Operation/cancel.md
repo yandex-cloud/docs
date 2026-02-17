@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/datasphere/v2/jobs/api-ref/Operation/cancel.md
 ---
 
 # DataSphere Jobs API v2, REST: Operation.Cancel

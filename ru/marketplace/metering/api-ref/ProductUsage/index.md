@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/marketplace/metering/v1/metering/api-ref/ProductUsage/index.md
 ---
 
 # Marketplace Metering API, REST: ProductUsage

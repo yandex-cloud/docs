@@ -132,7 +132,6 @@ apiPlayground:
             $ref: '#/definitions/DiskSizeAutoscaling'
         required:
           - name
-sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/addOpenSearchNodeGroup.md
 ---
 
 # Managed Service for OpenSearch API, REST: Cluster.AddOpenSearchNodeGroup

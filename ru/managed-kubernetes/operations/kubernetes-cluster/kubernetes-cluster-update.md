@@ -138,9 +138,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом [Update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
+  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) или вызовом gRPC API [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md).
 
-  Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging`.
+  Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging` для REST API или `master_spec.master_logging` для gRPC API.
 
 {% endlist %}
 
@@ -348,7 +348,10 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы изменить конфигурацию ресурсов мастера, воспользуйтесь методом [Update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) и передайте в запросе параметр `masterSpec.scalePolicy.autoScale.minResourcePresetId`.
+  Чтобы изменить конфигурацию ресурсов мастера, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) или вызовом gRPC API [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md) и передайте в запросе параметр:
+
+  * `masterSpec.scalePolicy.autoScale.minResourcePresetId` — для REST API.
+  * `master_spec.scale_policy.auto_scale.min_resource_preset_id` — для gRPC API.
 
   {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 

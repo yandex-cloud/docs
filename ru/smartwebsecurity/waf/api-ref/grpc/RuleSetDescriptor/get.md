@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/waf/api-ref/grpc/RuleSetDescriptor/get.md
 ---
 
 # SmartWebSecurity WAF API, gRPC: RuleSetDescriptorService.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/host-group/list-hosts.md
 ---
 
 # yc compute host-group list-hosts

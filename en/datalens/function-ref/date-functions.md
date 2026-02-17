@@ -1,7 +1,6 @@
 ---
 title: Date/Time functions
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/date-functions.md
 ---
 
 # Date/Time functions

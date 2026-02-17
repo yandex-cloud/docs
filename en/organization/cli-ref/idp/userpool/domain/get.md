@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/userpool/domain/get.md
 ---
 
 # yc organization-manager idp userpool domain get

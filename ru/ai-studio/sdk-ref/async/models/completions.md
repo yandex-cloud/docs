@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/async/models/completions.md
----
 # Domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_models.completions.function.**AsyncCompletions**{#yandex_ai_studio_sdk._models.completions.function.AsyncCompletions}

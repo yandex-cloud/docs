@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/COUNT_ITEM.md
 ---
 
 # COUNT_ITEM

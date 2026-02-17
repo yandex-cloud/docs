@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/marketplace/pim/v1/saas/pim/saas/api-ref/grpc/Operation/get.md
 ---
 
 # Yandex Cloud Marketplace Product Instance Management API, gRPC: OperationService.Get

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/TargetGroup/update.md
 ---
 
 # Application Load Balancer API, gRPC: TargetGroupService.Update

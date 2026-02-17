@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md
 ---
 
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Update

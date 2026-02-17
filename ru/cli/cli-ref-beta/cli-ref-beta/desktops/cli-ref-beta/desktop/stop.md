@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/desktops/cli-ref-beta/desktop/stop.md
 ---
 
 # yc beta desktops desktop stop

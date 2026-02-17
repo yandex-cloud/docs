@@ -1,6 +1,5 @@
 ---
 subcategory: Message Queue
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/message_queue.md
 ---
 
 # yandex_message_queue (Resource)

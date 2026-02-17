@@ -3,7 +3,6 @@ title: Access to {{ mgp-name }}
 description: To allow access to {{ mgp-name }} resources (DB clusters and hosts, cluster backups, databases and their users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 keywords:
   - access
-  - access
   - configuring access
   - '{{ GP }} access'
   - green plum

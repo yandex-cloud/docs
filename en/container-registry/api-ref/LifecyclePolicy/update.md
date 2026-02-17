@@ -101,7 +101,6 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
-sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/update.md
 ---
 
 # Container Registry API, REST: LifecyclePolicy.Update

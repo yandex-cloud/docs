@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/listNodes.md
 ---
 
 # Managed Services for Kubernetes API, REST: NodeGroup.ListNodes

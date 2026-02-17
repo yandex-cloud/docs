@@ -493,7 +493,6 @@ apiPlayground:
               - hdfs
           - required:
               - hive
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/create.md
 ---
 
 # Managed Service for Greenplum® API, REST: PXFDatasource.Create

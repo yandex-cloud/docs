@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/organization-manager/cli-ref/idp/user/set-password-hash.md
 ---
 
 # yc organization-manager idp user set-password-hash

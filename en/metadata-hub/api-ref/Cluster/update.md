@@ -239,7 +239,6 @@ apiPlayground:
               - anytime
           - required:
               - weeklyMaintenanceWindow
-sourcePath: en/_api-ref/metastore/v1/api-ref/Cluster/update.md
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster.Update

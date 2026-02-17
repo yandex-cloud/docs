@@ -35,6 +35,22 @@ description:
     <em>Apache<sup>®</sup> и Apache Cloudberry<sup>™</sup> являются
     зарегистрированными товарными знаками или товарными знаками Apache Software
     Foundation в США и/или других странах.</em>
+meta:
+  title: Yandex MPP Analytics for PostgreSQL
+  description: >-
+    Сервис Yandex MPP Analytics for PostgreSQL помогает разворачивать и
+    поддерживать кластеры Greenplum® в инфраструктуре Yandex Cloud.
+  keywords:
+    - keyword: '{{ mgp-name }}'
+    - keyword: '{{ mgp-full-name }}'
+    - keyword: Сервис {{ mgp-name }}
+    - keyword: '{{ GP }} в {{ yandex-cloud }}'
+    - keyword: Кластер {{ GP }}
+    - keyword: '{{ GP }}'
+    - keyword: Гринплам
+    - keyword: '{{ GP }} в облаке'
+    - keyword: greenplum
+    - keyword: greenplum в {{ yandex-cloud }}
 links:
   - title: Начало работы
     description: Создайте первый кластер
@@ -60,19 +76,3 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
-meta:
-  title: Yandex MPP Analytics for PostgreSQL
-  description: >-
-    Сервис Yandex MPP Analytics for PostgreSQL помогает разворачивать и
-    поддерживать кластеры Greenplum® в инфраструктуре Yandex Cloud.
-  keywords:
-    - '{{ mgp-name }}'
-    - '{{ mgp-full-name }}'
-    - Сервис {{ mgp-name }}
-    - '{{ GP }} в {{ yandex-cloud }}'
-    - Кластер {{ GP }}
-    - '{{ GP }}'
-    - Гринплам
-    - '{{ GP }} в облаке'
-    - greenplum
-    - greenplum в {{ yandex-cloud }}

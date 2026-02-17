@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for ValKey
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_redis_cluster.md
 ---
 
 # yandex_mdb_redis_cluster (Resource)

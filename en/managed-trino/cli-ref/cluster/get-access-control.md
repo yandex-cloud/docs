@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-trino/cli-ref/cluster/get-access-control.md
 ---
 
 # yc managed-trino cluster get-access-control

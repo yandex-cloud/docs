@@ -96,7 +96,6 @@ apiPlayground:
             $ref: '#/definitions/MDBPostgreSQL'
         required:
           - type
-sourcePath: en/_api-ref/mdb/spqr/v1/api-ref/Cluster/addHosts.md
 ---
 
 # Managed Service for SPQR API, REST: Cluster.AddHosts

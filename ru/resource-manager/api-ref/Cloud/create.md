@@ -49,7 +49,6 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/create.md
 ---
 
 # Resource Manager API, REST: Cloud.Create

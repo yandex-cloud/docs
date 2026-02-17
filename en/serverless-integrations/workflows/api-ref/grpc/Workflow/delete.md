@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Workflow/delete.md
 ---
 
 # Workflows Service, gRPC: WorkflowService.Delete

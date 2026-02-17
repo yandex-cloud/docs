@@ -51,6 +51,8 @@ description: На странице представлен список прак�
 * [{#T}](./dp-mch-data-exchange.md)
 * [{#T}](./data-transfer-direct-to-mch.md)
 * [{#T}](./gatsby-static-website.md)
+* [{#T}](./wordpress-cloudapp.md)
+* [{#T}](./ghost-cms-cloudapp.md)
 * [{#T}](./objs-mmy-migration.md)
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)

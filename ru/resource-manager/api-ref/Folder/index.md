@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/index.md
 ---
 
 # Resource Manager API, REST: Folder

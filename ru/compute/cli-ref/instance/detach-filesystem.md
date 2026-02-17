@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/compute/cli-ref/instance/detach-filesystem.md
 ---
 
 # yc compute instance detach-filesystem

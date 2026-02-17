@@ -49,7 +49,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/list.md
 ---
 
 # Identity Hub API, REST: Group.List

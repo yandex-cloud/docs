@@ -1,7 +1,6 @@
 ---
 title: Как записать метрики через Remote API
 description: Следуя данной инструкции, вы сможете записать метрики через Remote API.
-sourcePath: ru/monitoring_includes/operations/prometheus/ingestion/remote-write.md
 ---
 
 # Запись метрик через Remote API

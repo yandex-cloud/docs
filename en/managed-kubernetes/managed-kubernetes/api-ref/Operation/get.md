@@ -17,7 +17,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Operation/get.md
 ---
 
 # Managed Services for Kubernetes API, REST: Operation.Get

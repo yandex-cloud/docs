@@ -7,7 +7,6 @@ keywords:
   - function
   - call
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/native-functions.md
 ---
 
 # Native functions

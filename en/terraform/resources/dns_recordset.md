@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud DNS
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/dns_recordset.md
 ---
 
 # yandex_dns_recordset (Resource)

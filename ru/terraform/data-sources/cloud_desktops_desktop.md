@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Desktop
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/cloud_desktops_desktop.md
 ---
 
 # yandex_cloud_desktops_desktop (DataSource)

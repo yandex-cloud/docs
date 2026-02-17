@@ -96,7 +96,6 @@ apiPlayground:
               - videoId
           - required:
               - episodeId
-sourcePath: en/_api-ref/video/v1/api-ref/Playlist/update.md
 ---
 
 # Video API, REST: Playlist.Update

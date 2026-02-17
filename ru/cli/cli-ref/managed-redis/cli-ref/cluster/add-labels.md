@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-redis/cli-ref/cluster/add-labels.md
 ---
 
 # yc managed-redis cluster add-labels

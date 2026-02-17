@@ -81,7 +81,6 @@ apiPlayground:
               Version of the extension. The setting is deprecated and has no effect.
             deprecated: true
             type: string
-sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/update.md
 ---
 
 # Managed Service for PostgreSQL API, REST: Database.Update

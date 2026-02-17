@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/metastore/v1/api-ref/Cluster/index.md
 ---
 
 # Managed Service for Hive Metastore™ API, REST: Cluster

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/start.md
 ---
 
 # Managed Service for Redis API, gRPC: ClusterService.Start

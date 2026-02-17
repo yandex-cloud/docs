@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/listUserAccounts.md
 ---
 
 # SAML Federation API, gRPC: FederationService.ListUserAccounts

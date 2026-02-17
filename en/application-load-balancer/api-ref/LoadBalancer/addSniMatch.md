@@ -146,7 +146,6 @@ apiPlayground:
               - httpHandler
           - required:
               - streamHandler
-sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/addSniMatch.md
 ---
 
 # Application Load Balancer API, REST: LoadBalancer.AddSniMatch

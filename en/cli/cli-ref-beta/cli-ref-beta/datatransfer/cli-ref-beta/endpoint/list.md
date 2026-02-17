@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/datatransfer/cli-ref-beta/endpoint/list.md
 ---
 
 # yc beta datatransfer endpoint list

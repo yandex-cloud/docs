@@ -105,7 +105,6 @@ apiPlayground:
         required:
           - action
           - accessBinding
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/oauth/api-ref/Application/updateAccessBindings.md
 ---
 
 # OAUTH Application API, REST: Application.UpdateAccessBindings

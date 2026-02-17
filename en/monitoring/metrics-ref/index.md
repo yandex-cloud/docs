@@ -1,7 +1,6 @@
 ---
 title: List of {{ yandex-cloud }} metric references
 description: This page contains a list of references for {{ yandex-cloud }} metrics automatically collected in {{ monitoring-full-name }}.
-sourcePath: en/monitoring_includes/metrics-ref/index.md
 ---
 
 # {{ yandex-cloud }} metric references

@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/api_gateway.md
 ---
 
 # yandex_api_gateway (DataSource)

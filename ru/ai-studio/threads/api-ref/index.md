@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/index.md
 ---
 
 # Threads: REST reference

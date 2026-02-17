@@ -20,7 +20,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classification/api-ref/TextClassification/classify.md
 ---
 
 # Foundation Models Text Classification API, REST: TextClassification.Classify

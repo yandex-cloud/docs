@@ -18,6 +18,23 @@ description:
     service level is set out the document titled <a
     href="https://yandex.ru/legal/cloud_sla_translate">Yandex Translate Service
     Level</a>.
+meta:
+  title: Yandex Translate
+  description: >-
+    Use this service to integrate Yandex Translate algorithms into end-user
+    applications or web projects.
+  keywords:
+    - keyword: '{{ translate-full-name }}'
+    - keyword: '{{ translate-short-name }}'
+    - keyword: Algorithm integrations in {{ yandex-cloud }}
+    - keyword: Algorithm integrations
+    - keyword: Integrations of translator algorithms
+    - keyword: Translations in {{ yandex-cloud }}
+    - keyword: Algorithm integrations in {{ yandex-cloud }} applications
+    - keyword: Algorithm integrations in applications
+    - keyword: Algorithm integrations in {{ yandex-cloud }} web projects
+    - keyword: Algorithm integrations in web projects
+    - keyword: Translator API
 links:
   - title: Getting started
     description: Translate your text
@@ -40,20 +57,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-meta:
-  title: Yandex Translate
-  description: >-
-    Use this service to integrate Yandex Translate algorithms into end-user
-    applications or web projects.
-  keywords:
-    - '{{ translate-full-name }}'
-    - '{{ translate-short-name }}'
-    - Algorithm integrations in {{ yandex-cloud }}
-    - Algorithm integrations
-    - Integrations of translator algorithms
-    - Translations in {{ yandex-cloud }}
-    - Algorithm integrations in {{ yandex-cloud }} applications
-    - Algorithm integrations in applications
-    - Algorithm integrations in {{ yandex-cloud }} web projects
-    - Algorithm integrations in web projects
-    - Translator API

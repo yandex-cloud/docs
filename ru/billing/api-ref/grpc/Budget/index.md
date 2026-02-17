@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/Budget/index.md
 ---
 
 # Billing API, gRPC: BudgetService

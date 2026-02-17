@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Yandex Data Processing API, REST: Cluster.SetAccessBindings

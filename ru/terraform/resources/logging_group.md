@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud Logging
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/logging_group.md
 ---
 
 # yandex_logging_group (Resource)

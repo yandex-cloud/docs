@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Desktop/resetPassword.md
 ---
 
 # Cloud Desktop API, gRPC: DesktopService.ResetPassword

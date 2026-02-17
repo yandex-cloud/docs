@@ -2,7 +2,6 @@
 title: Метрики {{ cdn-full-name }}
 description: Из статьи вы узнаете про метрики {{ cdn-name }}.
 editable: false
-sourcePath: ru/monitoring_includes/metrics-ref/cdn-ref.md
 ---
 
 # Метрики {{ cdn-full-name }}

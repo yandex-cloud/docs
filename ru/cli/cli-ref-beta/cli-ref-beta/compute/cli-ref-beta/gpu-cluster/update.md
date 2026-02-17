@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/compute/cli-ref-beta/gpu-cluster/update.md
 ---
 
 # yc beta compute gpu-cluster update

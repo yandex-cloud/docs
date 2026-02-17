@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/logging/v1/api-ref/Export/setAccessBindings.md
 ---
 
 # Cloud Logging Service, REST: Export.SetAccessBindings

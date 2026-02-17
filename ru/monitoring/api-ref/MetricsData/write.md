@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/monitoring_includes/api-ref/MetricsData/write.md
 ---
 
 # Метод write

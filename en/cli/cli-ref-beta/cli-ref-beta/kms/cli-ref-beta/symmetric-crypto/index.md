@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/kms/cli-ref-beta/symmetric-crypto/index.md
 ---
 
 # yc beta kms symmetric-crypto

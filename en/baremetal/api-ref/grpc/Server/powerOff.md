@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/baremetal/v1alpha/api-ref/grpc/Server/powerOff.md
 ---
 
 # BareMetal API, gRPC: ServerService.PowerOff

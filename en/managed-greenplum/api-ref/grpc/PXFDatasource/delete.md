@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/PXFDatasource/delete.md
 ---
 
 # Managed Service for Greenplum® API, gRPC: PXFDatasourceService.Delete

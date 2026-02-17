@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/registry/configure-docker.md
 ---
 
 # yc container registry configure-docker

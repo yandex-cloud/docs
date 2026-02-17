@@ -57,7 +57,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/video/v1/api-ref/Channel/list.md
 ---
 
 # Video API, REST: Channel.List

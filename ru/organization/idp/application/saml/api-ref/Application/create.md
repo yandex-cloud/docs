@@ -233,7 +233,6 @@ apiPlayground:
               Name of the SAML attribute that contains group information.
               The maximum string length in characters is 8000.
             type: string
-sourcePath: en/_api-ref/organizationmanager/v1/idp/application/saml/api-ref/Application/create.md
 ---
 
 # SAML Application API, REST: Application.Create

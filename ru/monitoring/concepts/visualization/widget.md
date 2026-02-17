@@ -1,6 +1,3 @@
----
-sourcePath: ru/monitoring_includes/concepts/visualization/widget.md
----
 # Виджет
 
 _Виджет_ — это элемент дашборда, отображающий информацию в виде графика или текста.

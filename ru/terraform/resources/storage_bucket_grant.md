@@ -1,6 +1,5 @@
 ---
 subcategory: Object Storage
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/storage_bucket_grant.md
 ---
 
 # yandex_storage_bucket_grant (Resource)

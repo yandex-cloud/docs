@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/repository/lifecycle-policy/list-dry-run-affected-images.md
 ---
 
 # yc container repository lifecycle-policy list-dry-run-affected-images

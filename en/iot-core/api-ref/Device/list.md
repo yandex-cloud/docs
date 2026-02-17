@@ -57,7 +57,6 @@ apiPlayground:
             - folderId
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/list.md
 ---
 
 # IoT Core Service, REST: Device.List

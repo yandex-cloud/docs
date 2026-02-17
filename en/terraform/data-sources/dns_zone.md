@@ -1,6 +1,5 @@
 ---
 subcategory: Cloud DNS
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/dns_zone.md
 ---
 
 # yandex_dns_zone (DataSource)

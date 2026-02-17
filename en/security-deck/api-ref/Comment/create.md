@@ -29,7 +29,6 @@ apiPlayground:
         - text
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/securitydeck/alerts/v1/api-ref/Comment/create.md
 ---
 
 # Security Deck Alerts API, REST: Comment.Create

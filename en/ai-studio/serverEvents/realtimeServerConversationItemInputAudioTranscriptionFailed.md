@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerConversationItemInputAudioTranscriptionFailed.md
 ---
 
 # REST: conversation.item.input_audio_transcription.failed '[CURRENTLY NOT SUPPORTED]'

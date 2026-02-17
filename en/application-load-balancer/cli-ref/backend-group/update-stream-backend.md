@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/backend-group/update-stream-backend.md
 ---
 
 # yc application-load-balancer backend-group update-stream-backend

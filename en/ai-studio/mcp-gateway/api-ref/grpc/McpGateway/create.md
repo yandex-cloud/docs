@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/serverless/mcpgateway/v1/mcp-gateway/api-ref/grpc/McpGateway/create.md
 ---
 
 # MCP Gateway Service, gRPC: McpGatewayService.Create

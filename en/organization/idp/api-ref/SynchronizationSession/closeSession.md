@@ -32,7 +32,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/organizationmanager/v1/idp/api-ref/SynchronizationSession/closeSession.md
 ---
 
 # Identity Provider API, REST: SynchronizationSession.CloseSession

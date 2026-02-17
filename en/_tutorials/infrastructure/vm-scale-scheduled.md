@@ -1,3 +1,7 @@
+---
+title: Scheduled instance group scaling
+description: In this tutorial, you will create a {{ compute-full-name }} instance group with a scheduled scaling using {{ sf-full-name }} and timer.
+---
 
 # Scheduled instance group scaling
 

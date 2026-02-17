@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mkf-full-name }}'
-description: This page presents information about the {{ TF }} provider resources and data sources supported by {{ mkf-name }}.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mkf-name }}.
 ---
 
 # {{ TF }} reference for {{ mkf-full-name }}

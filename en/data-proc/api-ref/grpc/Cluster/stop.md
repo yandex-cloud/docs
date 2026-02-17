@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/stop.md
 ---
 
 # Yandex Data Processing API, gRPC: ClusterService.Stop

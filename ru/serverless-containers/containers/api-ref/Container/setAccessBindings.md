@@ -84,7 +84,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/setAccessBindings.md
 ---
 
 # Serverless Containers Service, REST: Container.SetAccessBindings

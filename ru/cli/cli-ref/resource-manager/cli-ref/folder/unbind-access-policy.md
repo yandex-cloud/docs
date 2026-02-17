@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/resource-manager/cli-ref/folder/unbind-access-policy.md
 ---
 
 # yc resource-manager folder unbind-access-policy

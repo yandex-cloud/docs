@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/dataproc/cli-ref/cluster/list-access-bindings.md
 ---
 
 # yc dataproc cluster list-access-bindings

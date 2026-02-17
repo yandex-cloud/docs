@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/ImageSearch/searchByImage.md
 ---
 
 # Web Search API, gRPC: ImageSearchService.SearchByImage

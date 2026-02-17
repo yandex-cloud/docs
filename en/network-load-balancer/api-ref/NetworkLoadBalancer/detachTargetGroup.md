@@ -28,7 +28,6 @@ apiPlayground:
         - targetGroupId
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/detachTargetGroup.md
 ---
 
 # Network Load Balancer API, REST: NetworkLoadBalancer.DetachTargetGroup

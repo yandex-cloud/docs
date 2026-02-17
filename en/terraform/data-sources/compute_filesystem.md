@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_filesystem.md
 ---
 
 # yandex_compute_filesystem (DataSource)

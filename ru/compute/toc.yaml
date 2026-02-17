@@ -424,7 +424,7 @@ items:
       - name: Рекомендации по обновлению драйверов NVIDIA
         href: operations/gpu-driver-update.md
   - name: '{{ cos-full-name }}'
-    href: ../cos/
+    href: ../cos/index.yaml
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -2271,3 +2271,4 @@ items:
         href: qa/all.md
   - name: Обучающие курсы
     href: training.md
+path: ru/compute/toc.yaml

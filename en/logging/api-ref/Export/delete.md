@@ -18,7 +18,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/logging/v1/api-ref/Export/delete.md
 ---
 
 # Cloud Logging Service, REST: Export.Delete

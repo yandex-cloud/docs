@@ -235,7 +235,6 @@ apiPlayground:
               - GLACIER
               - DEEP_ARCHIVE
               - OUTPOSTS
-sourcePath: en/_api-ref/ydb/v1/api-ref/Database/backup.md
 ---
 
 # Managed Service for YDB API, REST: Database.Backup

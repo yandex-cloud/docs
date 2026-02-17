@@ -128,7 +128,6 @@ apiPlayground:
           filter:
             description: '**string**'
             type: string
-sourcePath: en/_api-ref/logging/v1/api-ref/Export/update.md
 ---
 
 # Cloud Logging Service, REST: Export.Update

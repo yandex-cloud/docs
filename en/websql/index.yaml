@@ -15,6 +15,18 @@ description:
     <li>Redis/Valkey™ (non-sharded clusters only): 6 or higher</li>
     <li>MongoDB/Yandex StoreDoc: 6 or higher</li> <li>Yandex Managed Service for
     Trino: 454 or higher</li> <li>Greenplum®: 6 or higher</li>     </ul>
+meta:
+  title: Yandex WebSQL
+  keywords:
+    - keyword: '{{ websql-name }}'
+    - keyword: '{{ websql-full-name }}'
+    - keyword: '{{ websql-name }}'
+    - keyword: '{{ websql-name }} in {{ yandex-cloud }}'
+    - keyword: SQL in {{ yandex-cloud }}
+    - keyword: How to connect to a {{ yandex-cloud }} database
+    - keyword: How to connect to a {{ yandex-cloud }} cluster
+    - keyword: How to connect to a public database
+    - keyword: Service for working with SQL commands
 links:
   - title: Getting started
     description: Connect to a database
@@ -34,15 +46,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculation
     href: pricing
-meta:
-  title: Yandex WebSQL
-  keywords:
-    - '{{ websql-name }}'
-    - '{{ websql-full-name }}'
-    - '{{ websql-name }}'
-    - '{{ websql-name }} in {{ yandex-cloud }}'
-    - SQL in {{ yandex-cloud }}
-    - How to connect to a {{ yandex-cloud }} database
-    - How to connect to a {{ yandex-cloud }} cluster
-    - How to connect to a public database
-    - Service for working with SQL commands

@@ -1,6 +1,5 @@
 ---
 subcategory: Key Management Service
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_signature_key_iam_binding.md
 ---
 
 # yandex_kms_asymmetric_signature_key_iam_binding (Resource)

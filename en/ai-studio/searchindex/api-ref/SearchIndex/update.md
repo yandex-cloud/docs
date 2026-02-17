@@ -74,7 +74,6 @@ apiPlayground:
             description: '**string** (int64)'
             type: string
             format: int64
-sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndex/update.md
 ---
 
 # Search Index, REST: SearchIndex.Update

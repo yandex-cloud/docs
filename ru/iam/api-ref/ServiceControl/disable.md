@@ -47,7 +47,6 @@ apiPlayground:
         required:
           - id
           - type
-sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/disable.md
 ---
 
 # Identity and Access Management API, REST: ServiceControl.Disable

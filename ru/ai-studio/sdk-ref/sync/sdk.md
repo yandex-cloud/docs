@@ -1,6 +1,3 @@
----
-sourcePath: en/_sdk-ref/sdk-ref/sync/sdk.md
----
 # SDK
 
 ## *class* yandex\_ai\_studio\_sdk.**AIStudio**{#yandex_ai_studio_sdk.AIStudio}

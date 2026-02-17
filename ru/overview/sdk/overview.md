@@ -1,7 +1,6 @@
 ---
 title: Обзор {{ yandex-cloud }} SDK
 description: Узнайте про SDK, которые применяются для работы с {{ yandex-cloud }}
-sourcePath: ru/sdk/sdk/overview.md
 ---
 
 # Обзор {{ yandex-cloud }} SDK

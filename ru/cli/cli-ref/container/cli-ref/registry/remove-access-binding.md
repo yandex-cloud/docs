@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/container/cli-ref/registry/remove-access-binding.md
 ---
 
 # yc container registry remove-access-binding

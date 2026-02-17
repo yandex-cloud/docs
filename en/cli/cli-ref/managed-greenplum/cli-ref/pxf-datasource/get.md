@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-greenplum/cli-ref/pxf-datasource/get.md
 ---
 
 # yc managed-greenplum pxf-datasource get

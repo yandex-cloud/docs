@@ -989,7 +989,6 @@ apiPlayground:
               - dataStream
           - required:
               - mail
-sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/create.md
 ---
 
 # Cloud Functions Triggers Service, REST: Trigger.Create

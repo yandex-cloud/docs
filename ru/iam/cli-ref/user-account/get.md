@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/iam/cli-ref/user-account/get.md
 ---
 
 # yc iam user-account get

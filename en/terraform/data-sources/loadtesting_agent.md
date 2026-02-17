@@ -1,6 +1,5 @@
 ---
 subcategory: Compute Cloud
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/loadtesting_agent.md
 ---
 
 # yandex_loadtesting_agent (DataSource)

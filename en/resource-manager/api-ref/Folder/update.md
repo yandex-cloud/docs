@@ -66,7 +66,6 @@ apiPlayground:
         - name
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/update.md
 ---
 
 # Resource Manager API, REST: Folder.Update

@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-kubernetes/cli-ref/node-group/list.md
 ---
 
 # yc managed-kubernetes node-group list

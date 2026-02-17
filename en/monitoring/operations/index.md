@@ -1,7 +1,6 @@
 ---
 title: Step-by-step guides for {{ monitoring-full-name }}
 description: This page presents a list of step-by-step guides for {{ monitoring-name }}.
-sourcePath: en/monitoring_includes/operations/index.md
 ---
 
 # Step-by-step guides for {{ monitoring-full-name }}

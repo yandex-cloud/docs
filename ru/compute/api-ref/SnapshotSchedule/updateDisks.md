@@ -35,7 +35,6 @@ apiPlayground:
             type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/updateDisks.md
 ---
 
 # Compute Cloud API, REST: SnapshotSchedule.UpdateDisks

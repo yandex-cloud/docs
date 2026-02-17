@@ -47,7 +47,6 @@ apiPlayground:
         - uri
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/create.md
 ---
 
 # Managed Service for ClickHouse API, REST: MlModel.Create

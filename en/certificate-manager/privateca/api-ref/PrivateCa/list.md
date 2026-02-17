@@ -32,7 +32,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/list.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCa.List

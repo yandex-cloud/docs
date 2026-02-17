@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/container/cli-ref-beta/lifecycle-policy/list-dry-run-result-affected-images.md
 ---
 
 # yc beta container lifecycle-policy list-dry-run-result-affected-images

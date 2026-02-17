@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/api-ref/grpc/index.md
 ---
 
 # SmartWebSecurity API: gRPC reference

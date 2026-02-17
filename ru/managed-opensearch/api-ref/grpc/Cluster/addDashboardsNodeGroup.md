@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/addDashboardsNodeGroup.md
 ---
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.AddDashboardsNodeGroup

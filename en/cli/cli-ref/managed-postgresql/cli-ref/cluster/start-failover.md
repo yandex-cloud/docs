@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-postgresql/cli-ref/cluster/start-failover.md
 ---
 
 # yc managed-postgresql cluster start-failover

@@ -492,30 +492,31 @@ items:
   - name: Работа с YDB через {{ TF }}
     items:
       - name: Введение в работу с YDB через {{ TF }}
-        href: ./terraform/intro.md
+        href: terraform/intro.md
       - name: Получение данных для аутентификации
-        href: ./terraform/credentials.md
+        href: terraform/credentials.md
       - name: Установка и настройка {{ TF }} и провайдера для подключения к YDB
-        href: ./terraform/install.md
+        href: terraform/install.md
       - name: Создание конфигурационных файлов и подключение к YDB
-        href: ./terraform/configure.md
+        href: terraform/configure.md
       - name: Создание и изменение параметров бессерверной базы данных
-        href: ./terraform/serverless-database.md
+        href: terraform/serverless-database.md
       - name: Создание и изменение параметров выделенной базы данных
-        href: ./terraform/dedicated-database.md
+        href: terraform/dedicated-database.md
       - name: Создание строковых и колоночных таблиц в базе данных
-        href: ./terraform/tables.md
+        href: terraform/tables.md
       - name: Создание документных таблиц в базе данных
-        href: ./terraform/dynamodb-tables.md
+        href: terraform/dynamodb-tables.md
       - name: Создание потока изменений таблицы
-        href: ./terraform/cdc.md
+        href: terraform/cdc.md
       - name: Создание вторичных индексов строковых таблиц
-        href: ./terraform/row-tables-secondary-index.md
+        href: terraform/row-tables-secondary-index.md
       - name: Управление конфигурацией топиков {{ ydb-short-name }}
-        href: ./terraform/topic.md
+        href: terraform/topic.md
   - name: Вопросы и ответы
     href: faq.md
   - name: Публичные материалы
     href: https://ydb.tech/docs/ru/public-talks
   - name: Обучающие курсы
     href: training.md
+path: ru/ydb/toc.yaml

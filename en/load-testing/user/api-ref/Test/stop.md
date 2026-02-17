@@ -15,7 +15,6 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/stop.md
 ---
 
 # Load Testing API, REST: Test.Stop

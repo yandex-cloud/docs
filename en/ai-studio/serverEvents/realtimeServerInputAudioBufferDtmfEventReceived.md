@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/serverEvents/realtimeServerInputAudioBufferDtmfEventReceived.md
 ---
 
 # REST: input_audio_buffer.dtmf_event_received '[CURRENTLY NOT SUPPORTED]'

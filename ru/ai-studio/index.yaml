@@ -21,6 +21,30 @@ description:
     документе <a
     href="https://yandex.ru/legal/cloud_sla_yandex_foundation_models/">Уровень
     обслуживания {{ ai-studio-full-name }}</a>.
+meta:
+  title: '{{ ai-studio-full-name }}'
+  description: >-
+    {{ ai-studio-full-name }} — это платформа {{ yandex-cloud }} для создания
+    AI-приложений и AI-агентов на базе больших генеративных моделей. {{
+    ai-studio-name }} предоставляет все необходимое для всех этапов от
+    экспериментов и прототипирования до промышленного внедрения разработок.
+  keywords:
+    - keyword: '{{ ai-studio-full-name }}'
+    - keyword: '{{ ai-studio-name }}'
+    - keyword: сервис {{ ai-studio-name }}
+    - keyword: генеративные модели для бизнеса
+    - keyword: нейросети в {{ yandex-cloud }}
+    - keyword: учебник промптинга
+    - keyword: YandexGPT Lite
+    - keyword: YandexGPT Pro
+    - keyword: YandexART
+    - keyword: AI-ассистент
+    - keyword: AI-агент
+    - keyword: технологии машинного обучения
+    - keyword: генеративные модели в {{ yandex-cloud }}
+    - keyword: нейросети в бизнес-приложениях
+    - keyword: нейросети в веб-сервисах
+    - keyword: нейросети в бизнесе
 links:
   - title: О сервисе {{ ai-studio-name }}
     description: Краткий обзор основных возможностей сервиса
@@ -52,27 +76,3 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-meta:
-  title: '{{ ai-studio-full-name }}'
-  description: >-
-    {{ ai-studio-full-name }} — это платформа {{ yandex-cloud }} для создания
-    AI-приложений и AI-агентов на базе больших генеративных моделей. {{
-    ai-studio-name }} предоставляет все необходимое для всех этапов от
-    экспериментов и прототипирования до промышленного внедрения разработок.
-  keywords:
-    - '{{ ai-studio-full-name }}'
-    - '{{ ai-studio-name }}'
-    - сервис {{ ai-studio-name }}
-    - генеративные модели для бизнеса
-    - нейросети в {{ yandex-cloud }}
-    - учебник промптинга
-    - YandexGPT Lite
-    - YandexGPT Pro
-    - YandexART
-    - AI-ассистент
-    - AI-агент
-    - технологии машинного обучения
-    - генеративные модели в {{ yandex-cloud }}
-    - нейросети в бизнес-приложениях
-    - нейросети в веб-сервисах
-    - нейросети в бизнесе

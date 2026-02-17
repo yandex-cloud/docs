@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/serverless/cli-ref-beta/function/remove-scaling-policy.md
 ---
 
 # yc beta serverless function remove-scaling-policy

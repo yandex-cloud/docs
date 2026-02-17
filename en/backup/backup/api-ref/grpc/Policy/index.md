@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Policy/index.md
 ---
 
 # Cloud Backup API, gRPC: PolicyService

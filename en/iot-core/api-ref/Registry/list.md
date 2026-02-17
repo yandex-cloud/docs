@@ -34,7 +34,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/list.md
 ---
 
 # IoT Core Service, REST: Registry.List

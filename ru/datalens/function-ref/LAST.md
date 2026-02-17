@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
 ---
 
 # LAST (оконная)

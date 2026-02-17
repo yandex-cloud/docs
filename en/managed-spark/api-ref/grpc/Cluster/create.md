@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/spark/v1/api-ref/grpc/Cluster/create.md
 ---
 
 # Managed Spark API, gRPC: ClusterService.Create

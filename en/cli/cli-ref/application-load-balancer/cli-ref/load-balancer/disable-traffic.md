@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/application-load-balancer/cli-ref/load-balancer/disable-traffic.md
 ---
 
 # yc application-load-balancer load-balancer disable-traffic

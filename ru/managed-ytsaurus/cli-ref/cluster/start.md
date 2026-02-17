@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-ytsaurus/cli-ref/cluster/start.md
 ---
 
 # yc managed-ytsaurus cluster start

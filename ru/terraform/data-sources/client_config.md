@@ -1,6 +1,5 @@
 ---
 subcategory: Client Config
-sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/client_config.md
 ---
 
 # yandex_client_config (DataSource)

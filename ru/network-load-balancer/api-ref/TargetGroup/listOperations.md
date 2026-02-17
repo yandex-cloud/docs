@@ -37,7 +37,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/listOperations.md
 ---
 
 # Network Load Balancer API, REST: TargetGroup.ListOperations

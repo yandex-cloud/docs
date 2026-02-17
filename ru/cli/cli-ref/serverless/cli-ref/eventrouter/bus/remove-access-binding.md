@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/bus/remove-access-binding.md
 ---
 
 # yc serverless eventrouter bus remove-access-binding

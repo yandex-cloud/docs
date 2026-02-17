@@ -405,7 +405,6 @@ apiPlayground:
             enum:
               - ACTION_UNSPECIFIED
               - DENY
-sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/create.md
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile.Create

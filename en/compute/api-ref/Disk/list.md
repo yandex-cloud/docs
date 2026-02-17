@@ -56,7 +56,6 @@ apiPlayground:
       additionalProperties: false
     body: null
     definitions: null
-sourcePath: en/_api-ref/compute/v1/api-ref/Disk/list.md
 ---
 
 # Compute Cloud API, REST: Disk.List

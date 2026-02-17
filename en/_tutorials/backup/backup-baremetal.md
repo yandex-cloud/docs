@@ -1,3 +1,7 @@
+---
+title: Connecting an existing {{ baremetal-full-name }} server to {{ backup-full-name }}
+description: Follow this guide to connect your existing {{ baremetal-name }} server to {{ backup-name }} and configure backups of its data.
+---
 
 # Connecting an existing {{ baremetal-full-name }} server to {{ backup-full-name }}
 

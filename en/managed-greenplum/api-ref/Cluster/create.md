@@ -959,7 +959,6 @@ apiPlayground:
               - folderId
           - required:
               - logGroupId
-sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/create.md
 ---
 
 # Managed Service for Greenplum® API, REST: Cluster.Create

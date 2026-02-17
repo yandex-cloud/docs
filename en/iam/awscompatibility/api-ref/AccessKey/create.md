@@ -24,7 +24,6 @@ apiPlayground:
           type: string
       additionalProperties: false
     definitions: null
-sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/create.md
 ---
 
 # Access Key, REST: AccessKey.Create

@@ -1,6 +1,3 @@
----
-sourcePath: en/monitoring_includes/operations/unified-agent/pull_prometheus.md
----
 # Delivering custom application metrics
 
 {{ unified-agent-full-name }} collects metrics in {{ prometheus-name }} format and converts them to {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that provide them in {{ prometheus-name }} format.

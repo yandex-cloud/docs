@@ -3,6 +3,11 @@ description:
   - >-
     Практические руководства, которые помогут вам решать различные задачи с
     помощью сервисов {{ yandex-cloud }}.
+meta:
+  title: Практические руководства
+  description: >-
+    Практические руководства, которые помогут вам решать различные задачи с
+    помощью сервисов {{ yandex-cloud }}.
 blocks:
   - type: card-layout-block
     colSizes:
@@ -122,9 +127,4 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-meta:
-  title: Практические руководства
-  description: >-
-    Практические руководства, которые помогут вам решать различные задачи с
-    помощью сервисов {{ yandex-cloud }}.
 links: []

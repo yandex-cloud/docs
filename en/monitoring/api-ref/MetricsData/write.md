@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/monitoring_includes/api-ref/MetricsData/write.md
 ---
 
 # Write method

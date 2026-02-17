@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/conversations/deleteConversation.md
 ---
 
 # REST: Delete a conversation

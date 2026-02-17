@@ -1792,7 +1792,6 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
-sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/update.md
 ---
 
 # Managed Service for ClickHouse API, REST: User.Update

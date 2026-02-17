@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/quota-manager/cli-ref/index.md
 ---
 
 # yc quota-manager

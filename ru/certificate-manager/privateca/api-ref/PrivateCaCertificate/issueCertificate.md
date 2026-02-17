@@ -397,7 +397,6 @@ apiPlayground:
               - ipAddress
           - required:
               - registeredId
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/issueCertificate.md
 ---
 
 # Certificate Manager Private CA API, REST: PrivateCaCertificate.IssueCertificate

@@ -93,7 +93,6 @@ apiPlayground:
               **string**
               Gateway IP address for the subnet.
             type: string
-sourcePath: en/_api-ref/baremetal/v1alpha/api-ref/PrivateSubnet/create.md
 ---
 
 # BareMetal API, REST: PrivateSubnet.Create

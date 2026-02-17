@@ -1,6 +1,5 @@
 ---
 subcategory: Managed Service for Greenplum®
-sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_greenplum_resource_group.md
 ---
 
 # yandex_mdb_greenplum_resource_group (Resource)

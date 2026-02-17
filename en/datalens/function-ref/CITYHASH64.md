@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/datalens/function-ref/CITYHASH64.md
 ---
 
 # CITYHASH64

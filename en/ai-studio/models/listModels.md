@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_openapi/openai-compatible/models/listModels.md
 ---
 
 # REST: List models

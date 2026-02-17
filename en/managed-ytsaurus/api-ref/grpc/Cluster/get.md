@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ytsaurus/v1/api-ref/grpc/Cluster/get.md
 ---
 
 # Ytsaurus API, gRPC: ClusterService.Get

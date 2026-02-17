@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/function/remove-access-binding.md
 ---
 
 # yc serverless function remove-access-binding

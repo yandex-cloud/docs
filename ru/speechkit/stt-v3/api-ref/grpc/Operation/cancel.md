@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/Operation/cancel.md
 ---
 
 # SpeechKit Recognition API v3, gRPC: OperationService.Cancel

@@ -1,7 +1,6 @@
 ---
 title: How to start and stop {{ unified-agent-full-name }}
 description: In this tutorial, you will learn how to start and stop {{ unified-agent-full-name }}.
-sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/run-and-stop.md
 ---
 
 # Starting and stopping {{ unified-agent-full-name }}

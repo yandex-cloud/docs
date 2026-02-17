@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/managed-ytsaurus/cli-ref/cluster/delete.md
 ---
 
 # yc managed-ytsaurus cluster delete

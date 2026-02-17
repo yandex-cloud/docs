@@ -1,6 +1,5 @@
 ---
 editable: false
-sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/index.md
 ---
 
 # Workflows Service, REST: Workflow

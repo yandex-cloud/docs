@@ -1,7 +1,6 @@
 ---
 editable: false
 noIndex: true
-sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-spark/cli-ref-beta/job/create.md
 ---
 
 # yc beta managed-spark job create

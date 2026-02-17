@@ -79,7 +79,6 @@ apiPlayground:
         required:
           - roleId
           - subject
-sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/setAccessBindings.md
 ---
 
 # Managed Service for Apache Airflow™ API, REST: Cluster.SetAccessBindings
