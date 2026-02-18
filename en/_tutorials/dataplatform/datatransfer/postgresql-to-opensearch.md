@@ -10,18 +10,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. Create a source {{ mpg-name }} cluster using any suitable [configuration](../../../managed-postgresql/concepts/instance-types.md) with publicly accessible hosts. Specify the following settings:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
@@ -30,9 +32,9 @@ Set up the infrastructure:
 
     1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) target cluster using any suitable configuration with publicly accessible hosts.
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} target cluster.
+    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) for connecting to the {{ mos-name }} target cluster.
 
-    1. Configure security groups for connection to the [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) source cluster and the [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#configuring-security-groups) target cluster.
+    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -41,13 +43,13 @@ Set up the infrastructure:
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [postgresql-to-opensearch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-postgresql-to-opensearch/blob/main/postgresql-to-opensearch.tf) configuration file to the same working directory.
+    1. Download the [postgresql-to-opensearch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-postgresql-to-opensearch/blob/main/postgresql-to-opensearch.tf) configuration file to your current working directory.
 
         This file describes:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) for connection to clusters.
+        * [Security group](../../../vpc/concepts/security-groups.md) required for cluster access.
         * {{ mpg-name }} source cluster.
         * {{ mos-name }} target cluster.
         * Source endpoint.
@@ -79,7 +81,7 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Set up your transfer {#prepare-transfer}
+## Set up the transfer {#prepare-transfer}
 
 1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md). In the `db1` database, create a table named `x_tab` and populate it with data:
 
@@ -97,10 +99,10 @@ Set up the infrastructure:
        (44, 'User5');
      ```
 
-1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/opensearch.md) with the following parameters:
+1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/opensearch.md) with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select your {{ mos-name }} cluster from the list.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
@@ -110,7 +112,7 @@ Set up the infrastructure:
 
     - Manually {#manual}
 
-      1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
+      1. [Create a `{{ PG }}`-type source endpoint](../../../data-transfer/operations/endpoint/source/postgresql.md) with the following cluster connection settings:
 
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }}_source_cluster_name>` from the drop-down list.
@@ -118,7 +120,7 @@ Set up the infrastructure:
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-      1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
+      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the endpoints you created.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -127,7 +129,7 @@ Set up the infrastructure:
       1. In the `postgresql-to-opensearch.tf` file, specify the values of the following variables:
 
           * `target_endpoint_id`: Target endpoint ID.
-          * `transfer_enabled`: `1` to create a transfer.
+          * `transfer_enabled`: Set to `1` to create a transfer.
 
       1. Validate your {{ TF }} configuration files using this command:
 
@@ -141,21 +143,21 @@ Set up the infrastructure:
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-          The transfer will activate automatically upon creation.
+          The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Connect to the target cluster using [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
+1. Connect to the target cluster via [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
 1. Select the `Global` tenant.
 1. Create a new index template named `public.x_tab`:
 
-    1. Open the control panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
+    1. Open the management panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
     1. Under **Management**, select **Stack Management**.
-    1. Go to the **Index Patterns** section and click **Create index pattern**.
-    1. In the **Index pattern name** field, specify `public.x_tab` and click **Next step**.
+    1. Navigate to the **Index Patterns** section and click **Create index pattern**.
+    1. Specify `public.x_tab` in the **Index pattern name** field and click **Next step**.
     1. Click **Create index pattern**.
 
 1. Open the management panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
@@ -164,10 +166,10 @@ Set up the infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

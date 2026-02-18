@@ -236,6 +236,25 @@ The maximum string length in characters is 50. ||
       "headers": [
         "string"
       ]
+    },
+    "geoAcl": {
+      "enabled": "boolean",
+      "mode": "string",
+      "countries": [
+        "string"
+      ]
+    },
+    "referrerAcl": {
+      "enabled": "boolean",
+      "mode": "string",
+      "referrers": [
+        "string"
+      ]
+    },
+    "staticResponse": {
+      "enabled": "boolean",
+      "code": "string",
+      "content": "string"
     }
   },
   "weight": "string"
@@ -363,7 +382,8 @@ The option controls access to content from the specified IP addresses. ||
 || followRedirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
 
 Manage the state of the Redirection from origin option.
-If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
+This option works only when origin shielding is activated. ||
 || websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
 
 Configuration for WebSocket protocol support. ||
@@ -371,6 +391,15 @@ Configuration for WebSocket protocol support. ||
 
 Configuration for HTTP response header filtering.
 This feature allows controlling which headers from the origin are passed to end users. ||
+|| geoAcl | **[GeoACLOption](#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption)**
+
+Configuration for geographic access control. ||
+|| referrerAcl | **[ReferrerACLOption](#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption)**
+
+Configuration for referrer-based access control. ||
+|| staticResponse | **[StaticResponseOption](#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption)**
+
+Configuration for serving a static HTTP response instead of fetching from origin. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -531,6 +560,7 @@ Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`. ||
 || redirectHttpsToHttp | **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
 
 Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTP to HTTPS.
+Deprecated: Use of redirect_https_to_http is deprecated.
 
 Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`. ||
 |#
@@ -689,4 +719,61 @@ Enables or disables feature. ||
 || headers[] | **string**
 
 Whitelist of headers. ||
+|#
+
+## GeoACLOption {#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables the Geo ACL option. ||
+|| mode | **enum** (Mode)
+
+Mode of the Geo ACL.
+
+- `MODE_ALLOW`: Allow access to all specified countries.
+- `MODE_DENY`: Deny access to all specified countries. ||
+|| countries[] | **string**
+
+List of country codes (ISO 3166, uppercase). ||
+|#
+
+## ReferrerACLOption {#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| mode | **enum** (Mode)
+
+Access mode for the referrer list.
+
+- `MODE_ALLOW`: Allow access to all specified referrers.
+- `MODE_DENY`: Deny access to all specified referrers. ||
+|| referrers[] | **string**
+
+List of referer patterns. Supports three types of values:
+1. Domain without scheme with or without query, e.g. "google.com", "ya.ru/abc"
+2. Wildcard pattern with dot separator, e.g. "*.hello.com", "staging.*"
+Note: dot must be present before or after `*` (so "*abc.com" is NOT valid)
+3. Regular expression starting with `~`, e.g. "~^prod\..*\.company.org/abc" ||
+|#
+
+## StaticResponseOption {#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| code | **string** (int64)
+
+HTTP status code. ||
+|| content | **string**
+
+A string containing the response content.
+For 3xx - Location header
+For other codes - body ||
 |#

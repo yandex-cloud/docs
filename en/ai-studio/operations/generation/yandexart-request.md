@@ -135,7 +135,7 @@ To use the examples:
        --request POST \
        --header "Authorization: Bearer <IAM_token_value>" \
        --data "@prompt.json" \
-       "https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync"
+       "https://ai.{{ api-host }}/foundationModels/v1/imageGenerationAsync"
      ```
 
      Where:
@@ -151,10 +151,10 @@ To use the examples:
 
      Save the operation `id` you get in the response.
 
-  1. Generating an image may take from a few seconds up to a few hours. Wait for a while and send a request to `https://llm.api.cloud.yandex.net:443/operations/<operation_ID>` to get the generation result. When the image is ready, you will get the result in a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) file named `image.jpeg`. 
+  1. Generating an image may take from a few seconds up to a few hours. Wait for a while and send a request to `https://operation.api.cloud.yandex.net:443/operations/<operation_ID>` to get the generation result. When the image is ready, you will get the result in a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) file named `image.jpeg`. 
 
      ```bash
-     curl --request GET --header "Authorization: Bearer <IAM_token_value>" https://llm.api.cloud.yandex.net:443/operations/<operation_ID> | jq -r '.response | .image' | base64 -d > image.jpeg
+     curl --request GET --header "Authorization: Bearer <IAM_token_value>" https://operation.api.cloud.yandex.net:443/operations/<operation_ID> | jq -r '.response | .image' | base64 -d > image.jpeg
      ```
 
      Where:

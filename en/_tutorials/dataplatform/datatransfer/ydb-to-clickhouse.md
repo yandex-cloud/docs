@@ -16,7 +16,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-    * In serverless mode, you pay for data operations and storage volume, including stored backups.
+    * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 * {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
@@ -36,6 +36,8 @@ Set up your infrastructure:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
+
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mch-name }} cluster](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
@@ -58,7 +60,7 @@ Set up your infrastructure:
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) and rules for internet access to the {{ mch-name }} cluster.
         * {{ ydb-name }} database.
-        * {{ mch-name }} target cluster.
+        * Target {{ mch-name }} cluster.
         * Source endpoint.
         * Target endpoint.
         * Transfer.
@@ -125,7 +127,7 @@ Set up your infrastructure:
     1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/ydb.md#endpoint-settings) of the `{{ ydb-short-name }}` type with the following database connection settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select your {{ ydb-name }} database from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
 
             
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the `ydb-account` service account.
@@ -165,7 +167,7 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 

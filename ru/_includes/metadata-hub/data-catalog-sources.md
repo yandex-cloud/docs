@@ -3,6 +3,6 @@
 * {{ CH }};
 * {{ data-transfer-full-name }};
 * {{ websql-name }};
-* {{ SD }}/ {{ MG }};
+* {{ SD }}/{{ MG }};
 * {{ OS }};
 * {{ GP }}.

@@ -34,7 +34,7 @@ Create a tuning dataset:
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. In the **{{ ui-key.yacloud.common.type }}** field, select **{{ ui-key.yacloud.yagpt.foundation-models.playground.text-generation.title }}**.
-  1. Add or delete dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Add or delete dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to organize resources into logical groups.
   1. Click **Select file** or drag the JSON file you created earlier to the loading area.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
 
@@ -130,7 +130,7 @@ Create a tuning dataset:
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. In the **{{ ui-key.yacloud.tuning.task }}** field, select **{{ ui-key.yacloud.tuning.generation }}**.
-  1. Optionally, add or delete [labels](../../../resource-manager/concepts/labels.md) for tuning. You can use them to split or join resources into logical groups.
+  1. Optionally, add or delete [labels](../../../resource-manager/concepts/labels.md) for tuning. You can use them to organize resources into logical groups.
   1. In the **{{ ui-key.yacloud.yagpt.model }}** field, select the model you need.
   1. In the **{{ ui-key.yacloud.dataset.dataset }}** field, click **{{ ui-key.yacloud.common.add }}**.
   1. In the window that opens, go to the **{{ ui-key.yacloud.dataset.select-from-created }}** tab and select the dataset you created earlier.
@@ -226,7 +226,7 @@ Create a tuning dataset:
      grpcurl \
        -H "Authorization: Bearer <IAM_token>" \
        -d '{"operation_id": "<operation_ID>"}' \
-       {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/Get
+       {{ api-host-operation }}:443 yandex.cloud.operation.OperationService/Get
      ```
 
      Where:
@@ -262,7 +262,7 @@ Create a tuning dataset:
      ```bash
      grpcurl \
        -H "Authorization: Bearer <IAM_token>" \
-       -d '{"task_id": "<job_ID>"}' \
+       -d '{"task_id": "<task_ID>"}' \
        {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/GetMetricsUrl
      ```
 

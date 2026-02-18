@@ -10,7 +10,7 @@ To disable request logging:
 
   When initializing a `AIStudio` class object, set the `enable_server_data_logging` parameter to `False`. In which case {{ ml-sdk-full-name }} will add `x-data-logging-enabled: false` to the meta-information of each gRPC call.
 
-  For example:
+  Here is an example:
 
   ```python
   ...
@@ -37,7 +37,7 @@ To disable request logging:
 
   {% endnote %}
 
-  Add the `x-data-logging-enabled: false` header to your REST request. For example:
+  Add the `x-data-logging-enabled: false` header to your REST request. Here is an example:
 
   ```bash
   export FOLDER_ID=<folder_ID>
@@ -58,12 +58,12 @@ To disable request logging:
   * `FOLDER_ID`: ID of the folder for which your account has the required [role](../security/index.md).
   * `IAM_TOKEN`: [IAM token](../../iam/operations/iam-token/create.md) used for authentication.
   * `@<path_to_JSON_file>`: Path to the JSON file containing a request to the model.
-  * `<model_endpoint>`: Endpoint to access the model. For example:
-    * `https://llm.{{ api-host }}/foundationModels/v1/completion`: For synchronous requests to [{{ yagpt-name }}](../concepts/generation/index.md).
-    * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync`: For [asynchronous](generation/async-request.md) requests to {{ yagpt-name }}.
+  * `<model_endpoint>`: Endpoint to access the model. Here is an example:
+    * `https://ai.{{ api-host }}/foundationModels/v1/completion`: For synchronous requests to [{{ yagpt-name }}](../concepts/generation/index.md).
+    * `https://ai.{{ api-host }}/foundationModels/v1/completionAsync`: For [asynchronous](generation/async-request.md) requests to {{ yagpt-name }}.
     * `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`: For [fine-tuned](../concepts/classifier/index.md#trainable) classifiers.
     * `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`: For [zero-shot](../concepts/classifier/index.md#zero-shot) and [few-shot](../concepts/classifier/index.md#few-shot) classifiers.
-    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync`: For {{ yandexart-name }}.
+    * `https://ai.{{ api-host }}/foundationModels/v1/imageGenerationAsync`: For {{ yandexart-name }}.
 
     For a full list of available endpoints, see the relevant [{{ foundation-models-full-name }}](../concepts/api.md) API references.
 

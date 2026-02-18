@@ -122,6 +122,7 @@ The maximum string length in characters is 1000. ||
           "diskTypeId": "string",
           "diskSize": "string"
         },
+        "reservedInstancePoolId": "string",
         "metadata": "object",
         "v4AddressSpec": {
           "oneToOneNatSpec": {
@@ -269,6 +270,12 @@ The maximum string length in characters is 1000. ||
         }
       ],
       "nodeLabels": "object",
+      "variables": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ],
       "workloadIdentityFederation": {
         "enabled": "boolean"
       }
@@ -364,10 +371,15 @@ Maintenance policy of the node group. ||
 Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/). ||
 || nodeTaints[] | **[Taint](#yandex.cloud.k8s.v1.Taint)**
 
-Taints that are applied to the nodes of the node group at creation time. ||
+Taints that are applied to the nodes of the node group at creation time.
+
+**The `nodeTaints` field is not supported for the [yandex.cloud.k8s.v1.NodeGroupService.Update](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update#Update) request.** ||
 || nodeLabels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
+|| variables[] | **[Variable](#yandex.cloud.k8s.v1.Variable)**
+
+User-defined variables for templating. ||
 || workloadIdentityFederation | **[NodeGroupWorkloadIdentityFederation](#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation)**
 
 Workload Identity Federation parameters of the node group. ||
@@ -403,6 +415,9 @@ Computing resources of the node such as the amount of memory and number of cores
 || bootDiskSpec | **[DiskSpec](#yandex.cloud.k8s.v1.DiskSpec)**
 
 Specification for the boot disk that will be attached to the node. ||
+|| reservedInstancePoolId | **string**
+
+ID of the reserved instance pool. ||
 || metadata | **object** (map<**string**, **string**>)
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
@@ -864,6 +879,25 @@ to start, and allow all already-running pods to continue running.
 new pods onto the node, rather than prohibiting new pods from scheduling
 onto the node entirely. Enforced by the scheduler.
 - `NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint. ||
+|#
+
+## Variable {#yandex.cloud.k8s.v1.Variable}
+
+Variable is a user-defined key-value pair used for templating.
+
+#|
+||Field | Description ||
+|| key | **string**
+
+Variable name.
+Must be unique within the node group.
+
+The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `. ||
+|| value | **string**
+
+Variable value.
+
+The maximum string length in characters is 262144. ||
 |#
 
 ## NodeGroupWorkloadIdentityFederation {#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation}

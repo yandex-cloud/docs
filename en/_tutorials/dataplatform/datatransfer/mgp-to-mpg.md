@@ -11,8 +11,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mgp-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -23,6 +23,8 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 {% list tabs group=instructions %}
 
 - Manually {#manual}
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. [Create a {{ GP }} source cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with the `gp-user` admin username and public hosts.
 
@@ -49,7 +51,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
         This file describes:
 
-        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
+        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) that will host your clusters.
         * [Security groups](../../../vpc/concepts/security-groups.md) to connect to clusters.
         * {{ GP }} source cluster in {{ mgp-name }}.
         * {{ mpg-name }} target cluster.
@@ -74,7 +76,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 {% endlist %}
 
-## Set up your transfer {#prepare-transfer}
+## Set up the transfer {#prepare-transfer}
 
 1. [Create a `{{ GP }}`-type source endpoint](../../../data-transfer/operations/endpoint/source/greenplum.md) and configure it using the following settings:
 
@@ -85,13 +87,13 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user_password>`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}**: `public`.
 
-1. Create a target endpoint and set up the transfer:
+1. Create a target endpoint and a transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a `{{ PG }}`-type target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) and specify its cluster connection settings:
+        1. [Create a `{{ PG }}` target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) with these cluster connection settings:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `Yandex Managed Service for PostgreSQL cluster`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }}_target_cluster_name>` from the drop-down list.
@@ -99,7 +101,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the endpoints you created.
 
             While real-time replication is not supported for this endpoint pair, you can configure regular copying while creating the transfer. To do this, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** field under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}**, select **Regular** and specify the copy interval. The transfer will automatically activate after the specified interval.
 
@@ -114,7 +116,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
         1. In the `greenplum-postgresql.tf` file, specify the following variables:
 
             * `gp_source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -195,11 +197,11 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../../data-transfer/operations/transfer.md#delete) the transfer.
 1. [Delete both the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

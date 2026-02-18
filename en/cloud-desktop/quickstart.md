@@ -110,7 +110,7 @@ Follow this guide to create a desktop group based on pre-installed `Ubuntu 20.04
 
   1. In the list of desktop groups, select the group you created earlier.
   1. In the left-hand panel, select ![persons](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
-  1. Click **{{ ui-key.yacloud_org.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window that opens, select the user group you created earlier.
   1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** and specify the `vdi.desktopGroups.user` [role](./security/index.md#vdi-desktopGroups-user) or `vdi.desktopGroups.maintainer` [role](./security/index.md#vdi-desktopGroups-maintainer).
   1. Click **{{ ui-key.yacloud.common.save }}**.

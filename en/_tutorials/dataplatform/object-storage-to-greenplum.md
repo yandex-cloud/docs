@@ -1,8 +1,8 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. Proceed as follows:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ mgp-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -30,6 +30,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
             * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         
         1. If using security groups, make sure they are [configured correctly](../../managed-greenplum/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
@@ -59,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * Cluster access [security group](../../vpc/concepts/security-groups.md).
             * Service account for bucket operations, e.g., creation and access.
             * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
-            * Source {{ objstorage-name }} bucket.
+            * {{ objstorage-name }} source bucket.
             * {{ GP }} target cluster in {{ mgp-name }}.
             * Transfer.
 
@@ -88,9 +90,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Enable](../../managed-greenplum/operations/update.md#change-additional-settings) the **{{ ui-key.yacloud.mdb.forms.additional-field-datatransfer }}** option in the target cluster.
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
-1. Prepare two CSV files with test data:
+1. Create two CSV files with test data:
 
     * `demo_data1.csv`:
 
@@ -129,7 +131,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Service account’s static access key ID. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
@@ -143,9 +145,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Leave the default values for the other properties.
+    Leave the other settings at their defaults.
 
-1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md#gp) of the `{{ GP }}` type and specify the cluster connection settings in it:
+1. [Create a `{{ GP }}` target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md#gp) with these cluster connection settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<target_{{ GP }}_cluster_name>` from the drop-down list.
@@ -219,7 +221,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data2.csv` file to the {{ objstorage-name }} bucket.
 
-1. Verify that the data from `demo_data2.csv` has been loaded into the target database:
+1. Make sure the data from `demo_data2.csv` has been added to the target database:
 
     1. [Connect](../../managed-greenplum/operations/connect.md) to the `db1` database in the {{ GP }} target cluster.
 

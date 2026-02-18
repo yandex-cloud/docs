@@ -15,7 +15,7 @@ description: Из статьи вы узнаете, как изменить пр
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Выберите группу рабочих столов, к которой хотите изменить права доступа.
   1. На панели слева выберите ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.common.resource-acl.button_new-bindings }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. В открывшемся окне **{{ ui-key.yacloud_components.acl.label.title }}** выдайте или отзовите необходимые разрешения.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

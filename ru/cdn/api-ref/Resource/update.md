@@ -259,7 +259,9 @@ apiPlayground:
             description: |-
               **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
               Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTP to HTTPS.
+              Deprecated: Use of redirect_https_to_http is deprecated.
               Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`.
+            deprecated: true
             $ref: '#/definitions/BoolOption'
         oneOf:
           - required:
@@ -449,6 +451,83 @@ apiPlayground:
             type: array
             items:
               type: string
+      GeoACLOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enables or disables the Geo ACL option.
+            type: boolean
+          mode:
+            description: |-
+              **enum** (Mode)
+              Mode of the Geo ACL.
+              - `MODE_ALLOW`: Allow access to all specified countries.
+              - `MODE_DENY`: Deny access to all specified countries.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - MODE_ALLOW
+              - MODE_DENY
+          countries:
+            description: |-
+              **string**
+              List of country codes (ISO 3166, uppercase).
+            type: array
+            items:
+              type: string
+      ReferrerACLOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enables or disables feature.
+            type: boolean
+          mode:
+            description: |-
+              **enum** (Mode)
+              Access mode for the referrer list.
+              - `MODE_ALLOW`: Allow access to all specified countries.
+              - `MODE_DENY`: Deny access to all specified countries.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - MODE_ALLOW
+              - MODE_DENY
+          referrers:
+            description: |-
+              **string**
+              List of referer patterns. Supports three types of values:
+              1. Domain without scheme with or without query, e.g. "google.com", "ya.ru/abc"
+              2. Wildcard pattern with dot separator, e.g. "*.hello.com", "staging.*"
+              Note: dot must be present before or after `*` (so "*abc.com" is NOT valid)
+              3. Regular expression starting with `~`, e.g. "~^prod\..*\.company.org/abc"
+            type: array
+            items:
+              type: string
+      StaticResponseOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enables or disables feature.
+            type: boolean
+          code:
+            description: |-
+              **string** (int64)
+              HTTP status code.
+            type: string
+            format: int64
+          content:
+            description: |-
+              **string**
+              A string containing the response content.
+              For 3xx - Location header
+              For other codes - body
+            type: string
       ResourceOptions:
         type: object
         properties:
@@ -581,6 +660,7 @@ apiPlayground:
               **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
               Manage the state of the Redirection from origin option.
               If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
+              This option works only when origin shielding is activated.
             $ref: '#/definitions/FollowRedirectsOption'
           websockets:
             description: |-
@@ -593,6 +673,21 @@ apiPlayground:
               Configuration for HTTP response header filtering.
               This feature allows controlling which headers from the origin are passed to end users.
             $ref: '#/definitions/HeaderFilterOption'
+          geoAcl:
+            description: |-
+              **[GeoACLOption](#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption)**
+              Configuration for geographic access control.
+            $ref: '#/definitions/GeoACLOption'
+          referrerAcl:
+            description: |-
+              **[ReferrerACLOption](#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption)**
+              Configuration for referrer-based access control.
+            $ref: '#/definitions/ReferrerACLOption'
+          staticResponse:
+            description: |-
+              **[StaticResponseOption](#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption)**
+              Configuration for serving a static HTTP response instead of fetching from origin.
+            $ref: '#/definitions/StaticResponseOption'
       SSLCertificateCMData:
         type: object
         properties:
@@ -838,6 +933,25 @@ The maximum string length in characters is 50. ||
       "headers": [
         "string"
       ]
+    },
+    "geoAcl": {
+      "enabled": "boolean",
+      "mode": "string",
+      "countries": [
+        "string"
+      ]
+    },
+    "referrerAcl": {
+      "enabled": "boolean",
+      "mode": "string",
+      "referrers": [
+        "string"
+      ]
+    },
+    "staticResponse": {
+      "enabled": "boolean",
+      "code": "string",
+      "content": "string"
     }
   },
   "originProtocol": "string",
@@ -997,7 +1111,8 @@ The option controls access to content from the specified IP addresses. ||
 || followRedirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
 
 Manage the state of the Redirection from origin option.
-If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
+This option works only when origin shielding is activated. ||
 || websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
 
 Configuration for WebSocket protocol support. ||
@@ -1005,6 +1120,15 @@ Configuration for WebSocket protocol support. ||
 
 Configuration for HTTP response header filtering.
 This feature allows controlling which headers from the origin are passed to end users. ||
+|| geoAcl | **[GeoACLOption](#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption)**
+
+Configuration for geographic access control. ||
+|| referrerAcl | **[ReferrerACLOption](#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption)**
+
+Configuration for referrer-based access control. ||
+|| staticResponse | **[StaticResponseOption](#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption)**
+
+Configuration for serving a static HTTP response instead of fetching from origin. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -1165,6 +1289,7 @@ Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`. ||
 || redirectHttpsToHttp | **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
 
 Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTP to HTTPS.
+Deprecated: Use of redirect_https_to_http is deprecated.
 
 Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`. ||
 |#
@@ -1323,6 +1448,63 @@ Enables or disables feature. ||
 || headers[] | **string**
 
 Whitelist of headers. ||
+|#
+
+## GeoACLOption {#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables the Geo ACL option. ||
+|| mode | **enum** (Mode)
+
+Mode of the Geo ACL.
+
+- `MODE_ALLOW`: Allow access to all specified countries.
+- `MODE_DENY`: Deny access to all specified countries. ||
+|| countries[] | **string**
+
+List of country codes (ISO 3166, uppercase). ||
+|#
+
+## ReferrerACLOption {#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| mode | **enum** (Mode)
+
+Access mode for the referrer list.
+
+- `MODE_ALLOW`: Allow access to all specified referrers.
+- `MODE_DENY`: Deny access to all specified referrers. ||
+|| referrers[] | **string**
+
+List of referer patterns. Supports three types of values:
+1. Domain without scheme with or without query, e.g. "google.com", "ya.ru/abc"
+2. Wildcard pattern with dot separator, e.g. "*.hello.com", "staging.*"
+Note: dot must be present before or after `*` (so "*abc.com" is NOT valid)
+3. Regular expression starting with `~`, e.g. "~^prod\..*\.company.org/abc" ||
+|#
+
+## StaticResponseOption {#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| code | **string** (int64)
+
+HTTP status code. ||
+|| content | **string**
+
+A string containing the response content.
+For 3xx - Location header
+For other codes - body ||
 |#
 
 ## SSLTargetCertificate {#yandex.cloud.cdn.v1.SSLTargetCertificate}
@@ -1563,6 +1745,25 @@ ID of the custom certificate. ||
         "headers": [
           "string"
         ]
+      },
+      "geoAcl": {
+        "enabled": "boolean",
+        "mode": "string",
+        "countries": [
+          "string"
+        ]
+      },
+      "referrerAcl": {
+        "enabled": "boolean",
+        "mode": "string",
+        "referrers": [
+          "string"
+        ]
+      },
+      "staticResponse": {
+        "enabled": "boolean",
+        "code": "string",
+        "content": "string"
       }
     },
     "secondaryHostnames": [
@@ -1584,7 +1785,10 @@ ID of the custom certificate. ||
     },
     "labels": "object",
     "providerType": "string",
-    "providerCname": "string"
+    "providerCname": "string",
+    "tls": {
+      "profile": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -1759,6 +1963,9 @@ Type of the CDN provider for this resource. ||
 || providerCname | **string**
 
 CNAME provided by the CDN provider for this resource. ||
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+
+TLS configuration for the resource. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions2}
@@ -1855,7 +2062,8 @@ The option controls access to content from the specified IP addresses. ||
 || followRedirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption2)**
 
 Manage the state of the Redirection from origin option.
-If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
+This option works only when origin shielding is activated. ||
 || websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption2)**
 
 Configuration for WebSocket protocol support. ||
@@ -1863,6 +2071,15 @@ Configuration for WebSocket protocol support. ||
 
 Configuration for HTTP response header filtering.
 This feature allows controlling which headers from the origin are passed to end users. ||
+|| geoAcl | **[GeoACLOption](#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption2)**
+
+Configuration for geographic access control. ||
+|| referrerAcl | **[ReferrerACLOption](#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption2)**
+
+Configuration for referrer-based access control. ||
+|| staticResponse | **[StaticResponseOption](#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption2)**
+
+Configuration for serving a static HTTP response instead of fetching from origin. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2}
@@ -2023,6 +2240,7 @@ Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`. ||
 || redirectHttpsToHttp | **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2)**
 
 Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2). Set up a redirect from HTTP to HTTPS.
+Deprecated: Use of redirect_https_to_http is deprecated.
 
 Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`. ||
 |#
@@ -2183,6 +2401,63 @@ Enables or disables feature. ||
 Whitelist of headers. ||
 |#
 
+## GeoACLOption {#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables the Geo ACL option. ||
+|| mode | **enum** (Mode)
+
+Mode of the Geo ACL.
+
+- `MODE_ALLOW`: Allow access to all specified countries.
+- `MODE_DENY`: Deny access to all specified countries. ||
+|| countries[] | **string**
+
+List of country codes (ISO 3166, uppercase). ||
+|#
+
+## ReferrerACLOption {#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| mode | **enum** (Mode)
+
+Access mode for the referrer list.
+
+- `MODE_ALLOW`: Allow access to all specified referrers.
+- `MODE_DENY`: Deny access to all specified referrers. ||
+|| referrers[] | **string**
+
+List of referer patterns. Supports three types of values:
+1. Domain without scheme with or without query, e.g. "google.com", "ya.ru/abc"
+2. Wildcard pattern with dot separator, e.g. "*.hello.com", "staging.*"
+Note: dot must be present before or after `*` (so "*abc.com" is NOT valid)
+3. Regular expression starting with `~`, e.g. "~^prod\..*\.company.org/abc" ||
+|#
+
+## StaticResponseOption {#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| code | **string** (int64)
+
+HTTP status code. ||
+|| content | **string**
+
+A string containing the response content.
+For 3xx - Location header
+For other codes - body ||
+|#
+
 ## SSLCertificate {#yandex.cloud.cdn.v1.SSLCertificate}
 
 A SSL certificate parameters.
@@ -2230,4 +2505,18 @@ A certificate data custom parameters.
 || id | **string**
 
 ID of the custom certificate. ||
+|#
+
+## TLS {#yandex.cloud.cdn.v1.TLS}
+
+#|
+||Field | Description ||
+|| profile | **enum** (Profile)
+
+TLS profile used for the resource.
+
+- `PROFILE_COMPATIBLE`: TLSv1.2+, less secure
+- `PROFILE_LEGACY`: TLSv1+, excluding most vulnerable
+- `PROFILE_SECURE`: TLSv1.2+, most secure
+- `PROFILE_STRICT`: TLSv1.3 only ||
 |#

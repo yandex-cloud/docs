@@ -25,13 +25,13 @@ ID of the OpenSearch cluster. ||
 Name of the OpenSearch cluster. ||
 || `--max-clause-count` | `int`
 
-Maximum amount of clauses to use in a query. ||
+Defines the maximum product of fields and terms that are queryable simultaneously. ||
 || `--fielddata-cache-size` | `string`
 
-Data field cache size. ||
+The maximum size of the field data cache. ||
 || `--reindex-remote-whitelist` | `value[,value]`
 
-Comma-separated list of host:port pairs indicating the remote sources to be reindexed. ||
+Allowed remote hosts ||
 || `--snapshot-schedule` | `string`
 
 Snapshot schedule type. Supported: 'hourly', 'daily', 'weekly'. Leave empty for default settings. ||

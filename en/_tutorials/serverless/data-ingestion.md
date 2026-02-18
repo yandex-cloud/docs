@@ -31,10 +31,10 @@ If you no longer need to ingest data, [delete the associated resources](#clear-o
 
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-* {{ ydb-name }} database, operating in serverless mode: data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
-* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ ydb-name }} database in serverless mode: Data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
+* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Set up your environment {#setup}
@@ -52,6 +52,9 @@ If you no longer need to ingest data, [delete the associated resources](#clear-o
       * Select the service account you created earlier.
     1. Under **Database**, specify the DB name, username, and password.
     1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     1. Under **Additional settings**, enable the following options:
       * Access from {{ data-transfer-short-name }}.
       * Access from the management console.
@@ -130,7 +133,7 @@ If everything is set up properly, the table will show a new entry containing sys
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).

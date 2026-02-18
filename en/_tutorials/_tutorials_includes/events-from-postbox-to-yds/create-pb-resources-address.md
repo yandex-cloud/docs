@@ -25,6 +25,6 @@
       1. In the **{{ ui-key.yacloud.postbox.label_private-key }}** field, paste the contents of the `privatekey.pem` file from the previous step.
       1. Do not change the other address settings. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. Click the newly created address in the list that opens.
-      1. Under **{{ ui-key.yacloud.postbox.label_signature-verification }}** on the address info page, copy and save the [TXT record](../../../dns/concepts/resource-record.md#txt) from the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field.
+      1. Under **Signature verification** on the address info page, copy and save the [TXT record](../../../dns/concepts/resource-record.md#txt) from the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field.
 
     {% endlist %}

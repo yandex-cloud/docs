@@ -145,7 +145,7 @@ To assign a role to a user:
 
   1. In the left-hand panel, select ![persons-lock](../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
 
   1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../organization/concepts/groups.md) you need or search by group name.
 

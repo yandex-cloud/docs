@@ -4,7 +4,7 @@
 
 1. Найдите в списке нужного пользователя. При необходимости воспользуйтесь строкой поиска или фильтром.
 
-1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.user.action.acl }}**. В открывшемся окне:
+1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. В открывшемся окне:
   
     1. Нажмите значок ![cross](../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
 

@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.DeleteShard
 
 Deletes the specified shard.
+Deprecated. Use **DeleteShards** instead.
 
 ## gRPC request
 

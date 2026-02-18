@@ -37,7 +37,7 @@ To connect a security profile to a virtual host:
 
       * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**: You can associate the security profile with multiple virtual hosts at once.
 
-        To associate the profile with another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
+        To associate the profile with another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. If the selected hosts are already connected to another security profile, confirm the connection.
 
       In the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab, you will see the connected virtual hosts.

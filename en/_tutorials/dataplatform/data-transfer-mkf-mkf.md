@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ mkf-name }} clusters: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -42,8 +42,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Manually {#manual}
 
        1. Create a [source and target {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with public access from the internet in any suitable configuration.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
        1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
-       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the created topic.
+       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
        1. [In the target cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for all topics.
 
    - {{ TF }} {#tf}
@@ -110,7 +113,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
@@ -118,7 +121,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
+    - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -154,16 +157,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a {{ dt-type-repl }}-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-mkf-mkf.tf` file, specify the following settings:
 
-            * `source_endpoint_id`: ID of the source endpoint.
-            * `target_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -177,14 +180,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Make sure that the data from the topic in the source cluster move to the topic in the target {{ mkf-name }} cluster:
+1. Make sure data from the {{ mkf-name }} source cluster topic can be transferred to the target cluster topic:
 
     1. Create a file named `sample.json` with test data:
 
@@ -236,7 +239,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            -X security.protocol=SASL_SSL \
            -X sasl.mechanisms=SCRAM-SHA-512 \
            -X sasl.username="<username_in_source_cluster>" \
-           -X sasl.password="<source_cluster_user_password>" \
+           -X sasl.password="<user_password_in_source_cluster>" \
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
@@ -263,11 +266,11 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

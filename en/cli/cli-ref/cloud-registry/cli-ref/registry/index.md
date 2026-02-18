@@ -10,7 +10,7 @@ editable: false
 
 Syntax:
 
-`yc cloud-registry registry <command>`
+`yc cloud-registry registry <group|command>`
 
 #### Command Tree
 
@@ -43,6 +43,20 @@ Syntax:
 - [yc cloud-registry registry set-ip-permissions](set-ip-permissions.md) — Set ip permissions for the specified registry and delete all existing ip permission if there were any
 
 - [yc cloud-registry registry update](update.md) — Updates the specified registry
+
+- [yc cloud-registry registry lifecycle-policy](lifecycle-policy/index.md) — Manage lifecycle policies for artifacts
+
+  - [yc cloud-registry registry lifecycle-policy change-state](lifecycle-policy/change-state.md) — Changes the state of the specified lifecycle policy
+
+  - [yc cloud-registry registry lifecycle-policy create](lifecycle-policy/create.md) — Create a lifecycle policy.
+
+  - [yc cloud-registry registry lifecycle-policy delete](lifecycle-policy/delete.md) — Deletes the specified lifecycle policy
+
+  - [yc cloud-registry registry lifecycle-policy get](lifecycle-policy/get.md) — Get information about a lifecycle policy.
+
+  - [yc cloud-registry registry lifecycle-policy list](lifecycle-policy/list.md) — List lifecycle policies.
+
+  - [yc cloud-registry registry lifecycle-policy update](lifecycle-policy/update.md) — Updates the specified lifecycle policy
 
 #### Global Flags
 

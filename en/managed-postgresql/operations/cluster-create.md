@@ -45,7 +45,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Enter a cluster name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your applications.
-     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
   1. Select the DBMS version.
   1. Select the host class, which will determine the technical specifications of the [VMs](../../compute/concepts/vm.md) for deploying your database hosts. All available options are listed under [Host classes](../concepts/instance-types.md). Changing the cluster’s host class updates the specifications for all of its existing hosts.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -412,7 +412,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
-     For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
+     For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -596,7 +596,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.  
 
-  1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      ```bash
      curl \
@@ -783,7 +783,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
 
-  1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      ```bash
      grpcurl \

@@ -3,12 +3,58 @@ title: '{{ mpg-full-name }} release notes'
 description: This section contains the {{ mpg-name }} release notes.
 ---
 
+<!-- Changelog begin -->
+
+{% changelog %}
+```
+date: 2025-12
+index: 3
+```
+
+### Authorization via IAM
+
+![image](../_assets/managed-postgresql/changelogs/user-iam.png)
+
+Use the new IAM authentication type when creating a database user.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-11
+index: 2
+```
+
+### DBMS settings
+
+![image](../_assets/managed-postgresql/changelogs/search-settings.png)
+
+To configure DBMS settings, use search by their canonical names.
+
+{% endchangelog %}
+
+{% changelog %}
+```
+date: 2025-10
+index: 1
+```
+
+### Cluster configuration
+
+![image](../_assets/managed-postgresql/changelogs/resources.png)
+
+New host classes are available for {{ PG }} clusters on AMD Zen 4 and AMD Zen 4 HighFreq platforms.
+
+{% endchangelog %}
+
+<!-- Changelog end -->
+
 # {{ mpg-full-name }} release notes
 
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
-* Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
+* Added execution details for your [operations on the cluster](operations/cluster-list.md#list-operations).
 * All [extensions](./operations/extensions/cluster-extensions.md) supported in {{ PG }} 17 are available for {{ PG }} 18.
 * Implemented authorization via {{ iam-short-name }} when [creating](./operations/cluster-users.md#adduser) a {{ PG }} user.
 

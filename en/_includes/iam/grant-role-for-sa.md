@@ -123,9 +123,9 @@ To grant a service account permissions to access an organization, you need the `
 
   1. In the **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** filter, select `{{ ui-key.yacloud_components.acl.label.service-accounts}}`.
 
-  1. If the service account you need already has at least one role assigned, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) in the row with that service account and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. If the service account you need already has at least one role assigned, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) in the row with that service account and select **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
 
-      If the service account is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the account from the list or use the search bar to locate it.
+      If the service account is not on the list, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}** in the top-right corner. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the account from the list or use the search bar to locate it.
 
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the [role](../../iam/concepts/access-control/roles.md) to assign to the service account. You can assign multiple roles.
 

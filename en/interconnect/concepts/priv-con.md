@@ -86,6 +86,7 @@ This scenario assumes you do not have your own equipment at the point of presenc
 
 ## Use cases {#examples}
 
+* [{#T}](../tutorials/partner-trunk-priv-add.md)
 * [{#T}](../tutorials/trunk-priv-add.md)
 * [{#T}](../tutorials/priv-add.md)
 * [{#T}](../tutorials/priv-del.md)

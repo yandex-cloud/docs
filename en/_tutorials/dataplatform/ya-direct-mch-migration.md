@@ -1,7 +1,7 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
 
-You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
+You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. Proceed as follows:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
 1. [Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }}](#objstorage-mch).
@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ sf-name }}: Number of function calls, idle time of provisioned instances, and computing resources allocated to run the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * {{ lockbox-name }}: Number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* {{ mch-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -94,6 +94,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-short-name }}.
         1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. If using security groups, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connections to your {{ mch-name }} cluster.
 
     - {{ TF }} {#tf}
@@ -232,7 +235,7 @@ You will see a Parquet file in the bucket.
         * `Id`: `Int64`
         * `Name`: `String`
 
-    Keep the default values for all other settings.
+    Leave the other settings at their defaults.
 
 1. Create a target endpoint and transfer:
 

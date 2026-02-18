@@ -70,7 +70,7 @@ Before you create a search index, upload the resulting file in JSON Lines format
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -137,7 +137,7 @@ Create a search index from the file uploaded in the previous step:
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -222,7 +222,7 @@ For the agent to be able to use the index you created, provide index ID in the `
 
       client = openai.OpenAI(
           api_key=YANDEX_API_KEY,
-          base_url="https://rest-assistant.{{ api-host }}/v1",
+          base_url="https://ai.{{ api-host }}/v1",
           project=YANDEX_FOLDER_ID,
       )
 

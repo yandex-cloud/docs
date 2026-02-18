@@ -16,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ SD }} cluster: Computing resources allocated to hosts, storage size, and backup size (see [{{ SD }} pricing](../../../storedoc/pricing.md)).
+* {{ SD }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ SD }} pricing](../../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -34,8 +34,9 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         * Cluster version: `6.0`.
         * Database name: `db1`.
         * Username: `user1`.
+        * Access to cluster hosts: Public.
 
-        To connect to the cluster from the internet, enable public access to its hosts.
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     
     1. If using security groups, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
@@ -52,7 +53,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. In the same working directory, place a `.tf` file with the following contents:
+    1. In your current working directory, create a `.tf` file with the following contents:
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "old" { }
@@ -64,7 +65,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         export MONGODB_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../../storedoc/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../../storedoc/operations/cluster-list.md#list-clusters).
 
     1. Import the {{ SD }} version 4.4 cluster settings into the {{ TF }} configuration:
 
@@ -82,13 +83,13 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
     1. Place the file in the new `imported-cluster` directory.
     1. Edit the copied configuration so that you can create a new cluster from it:
 
-        * Specify the new cluster name in the `resource` string and the `name` parameter.
+        * Specify the new cluster name in the `resource` string and in the `name` argument.
         * Set the `version` parameter to `6.0`.
-        * Delete `created_at`, `health`, `id`, `sharded`, and `status`.
-        * In the `host` sections, delete `health` and `name`.
-        * If you have `type = "ANYTIME"` in the `maintenance_window` section, delete the `hour` argument.
-        * Delete all `user` sections (if any). You can add database users with a separate `yandex_mdb_mongodb_user` resource.
-        * Delete all `database` sections (if any). You can add databases using the separate `yandex_mdb_mongodb_database` resource.
+        * Delete the `created_at`, `health`, `id`, `sharded`, and `status` arguments.
+        * In the `host` sections, delete the `health` and `name` arguments.
+        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` argument.
+        * Delete all `user` sections. Use `yandex_mdb_mongodb_user` resource to add database users.
+        * Delete all `database` sections. You can add databases using the separate `yandex_mdb_mongodb_database` resource.
         * Optionally, make further changes if you need to customize the configuration.
 
     1. Add the resource to create the database to the file:
@@ -123,11 +124,11 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 
     1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). [Download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) the provider configuration file rather than creating it manually.
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
         ```bash
         terraform validate
@@ -245,7 +246,7 @@ If the source database has sharded collections, [prepare the target database](..
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).

@@ -18,7 +18,8 @@ IMAGE( src [ , width [ , height [ , alt ] ] ] )
 
 
 
-Допускается добавление изображений с доменов `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net` или `storage.yandexcloud.net`. Самый простой способ — загрузить и опубликовать изображение в [Yandex Object Storage](../../storage/quickstart.md) (ознакомьтесь с [правилами тарификации](../../storage/pricing.md#prices-storage) сервиса).
+
+Допускается добавление изображений с доменов `yastat.net`, `yastatic.net`, `direct.yandex.ru`, `functions.yandexcloud.net`, `storage.yandexcloud.net` или `storage.yandex.net`. Самый простой способ — загрузить и опубликовать изображение в [Yandex Object Storage](../../storage/quickstart.md) (ознакомьтесь с [правилами тарификации](../../storage/pricing.md#prices-storage) сервиса).
 
 
 

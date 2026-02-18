@@ -25,7 +25,7 @@ description: В данном разделе вы узнаете, как в {{ sd
 
       1. В строке с нужным доступом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![person-xmark](../../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud_org.iam-bindings.subject.title_revoke-access-dialog }}**.
       1. В открывшемся окне проверьте правильность информации ресурсе, к которому отзывается доступ, и выберите роли, которые вы хотите отозвать.
-      1. Нажмите кнопку **{{ ui-key.yacloud_org.iam-bindings.subject.action_revoke-all }}** (или **Отозвать выбранные**, если вы выбрали не все роли).
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.revoke-access-dialog.action_revoke-all }}** (или **Отозвать выбранные**, если вы выбрали не все роли).
 
     - Доступ назначен через группу
 

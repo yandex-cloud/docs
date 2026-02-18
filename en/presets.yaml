@@ -321,9 +321,9 @@ default:
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
-  link-datalens-main: https://datalens.yandex.cloud
-  link-datalens-settings: https://datalens.yandex.cloud/settings
-  link-datalens-wizard: https://datalens.yandex.cloud/wizard
+  link-datalens-main: https://datalens.ru
+  link-datalens-settings: https://datalens.ru/settings
+  link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/en/docs
   link-forms-b2b: https://forms.yandex.com/cloud/admin
@@ -4008,6 +4008,7 @@ default:
         action:
           add-role: Add role
           apply: Save
+          revoke-access: Revoke access
           select-subject: Select subject
         button:
           add-role: Add role
@@ -4056,6 +4057,8 @@ default:
           add: Add
           create: Create a new organization
           create-organization: Create organization
+      revoke-access-dialog:
+        action_revoke-all: Revoke all
       search:
         label_placeholder: Search in cloud resources
         search_filters_all: Everywhere
@@ -4491,7 +4494,6 @@ default:
         more: More
         overview: Overview
         resource-acl:
-          button_new-bindings: Assign bindings
           label_invitee-accounts: Invitee accounts
         section-base: General information
       component:
@@ -4576,13 +4578,10 @@ default:
             ssoBinding: Single Sign-On method
             ssoUrl: Link to the IdP login page
         group:
-          action_add-acl: Assign roles
           action_add-member: Add member
           action_create: Create group
           action_edit: Edit
-          action_remove-acl: Revoke access
           action_remove-user: Remove from group
-          action_update-acl: Configure access
           label_id: ID
           label_user: User
           title_tab-access: Group access rights
@@ -4598,7 +4597,6 @@ default:
             add-key: Add key
         user:
           action:
-            acl: Assign bindings
             delete: Delete
             reactivate_1080s: Activate
             reset-date: Reset verification date
@@ -4608,7 +4606,6 @@ default:
             email: Email
             provider: Credential provider
             status: Status
-            user: User
             username: Username
           column_last-auth: Last authentication
       field-data:
@@ -4666,7 +4663,6 @@ default:
         action_create-group: Create group
       iam-bindings:
         subject:
-          action_revoke-all: Revoke all
           title_group: Group
           title_revoke-access-dialog: Revoke access
           value_role-source-filter_direct: Directly appointed
@@ -5025,9 +5021,6 @@ default:
             overview_tab: Dashboard
           WorkspaceParticipantsForm:
             action_add-user: Add participants
-            WorkspaceAclTable:
-              action_assign-roles: Edit roles
-              action_remove-user: Revoke all roles
           WorkspaceResourcesForm:
             actionDelete: Delete
             actionEditConnector: Edit connector
@@ -5388,7 +5381,7 @@ default:
         label_dataStream: Data Streams
         label_destination: Destination
         label_event-filter-section: Collecting data events
-        label_eventRouter: Event Router
+        label_eventRouter: EventRouter
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -5932,6 +5925,7 @@ default:
           label_access-bindings: Access bindings
           label_bindings: Roles
           label_service-account: Service account
+          label_subject: User
           placeholder_filter-by-type: Account type
         save: Save
         save-changes: Save changes
@@ -7916,7 +7910,7 @@ default:
       postbox:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
-        button_validate: Verify address
+        button_run-verification: Run verification
         field_secure-connection: Deliver emails only over a secure connection
         label_address: Domain
         label_configuration-set: Configuration
@@ -7932,7 +7926,6 @@ default:
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
         label_selector: Selector
-        label_signature-verification: Signature verification
         section_restrictions: Restrictions
       postgresql:
         cluster:
@@ -8279,11 +8272,12 @@ default:
           section_rules: Rules
         arlTitle_e3MD8: Advanced Rate Limiter
         attach-dialog:
-          action_add-balancer: Add load balancer
           action_connect: Connect
           label_balancer: Load balancer
           label_http-router: HTTP router
           label_virtual-host: Virtual host
+        AttachSecurityProfileDialog:
+          label_add-resource_v4U3g: Add resource
         baseRulesTitle_xcJEe: Base rules
         CreateDomain:
           createDomain_b2Ykj: Add domain
@@ -8658,22 +8652,22 @@ default:
             label_rbac-settings_o2F64: Access settings
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs
-        label_rbac-catalog-access: Catalog access
+        label_rbac-catalog-access: Catalogs the rule applies to
         label_rbac-catalog-permissions: Permissions
         label_rbac-function: Functions
-        label_rbac-function-access: Function access
+        label_rbac-function-access: Functions the rule applies to
         label_rbac-function-privileges: Privileges
         label_rbac-groups: Groups
         label_rbac-procedure: Procedures
-        label_rbac-procedure-access: Procedure access
+        label_rbac-procedure-access: Procedures the rule applies to
         label_rbac-procedure-privileges: Privileges
         label_rbac-query: Queries
         label_rbac-query-privileges: Privileges
         label_rbac-schema: Schemas
-        label_rbac-schema-access: Schema access
+        label_rbac-schema-access: Schemas the rule applies to
         label_rbac-schema-owner: Schema owner
         label_rbac-table: Tables
-        label_rbac-table-access: Table access
+        label_rbac-table-access: Tables the rule applies to
         label_rbac-users: Users
         rbac-catalog-match-by-empty: Not specified
         rbac-catalog-match-by-id: ID
@@ -8746,9 +8740,9 @@ default:
           button_action-dynamic: Make dynamic
           button_action-enable-protection: Enable deletion protection
           button_action-static: Make static
-          button_create: Reserve address
+          button_create: Reserve public IP address
           label_dns-spec-title: DNS settings
-          label_title: IP addresses
+          label_title: Public IP addresses
           popup-confirm_button_disable-protection: Disable
           popup-confirm_button_dynamic: Change
           popup-confirm_button_enable-protection: Enable
@@ -8864,7 +8858,7 @@ default:
           switch_ip-addresses: IP addresses
           update:
             button_update: Save changes
-        switch_addresses: IP addresses
+        switch_addresses: Public IP addresses
         switch_gateways: Gateways
         switch_list: Cloud networks
         switch_networks: Subnets
@@ -8894,6 +8888,17 @@ default:
               title: Speech recognition
         use-context: Use context
         YaGPT:
+          agent_instruction_9oe6q: Instructions
+          AgentForm:
+            add-mcp-tool_gqwmZ: Add MCP
+            save-and-continue_u1Wis: Create and continue
+            select_dPVTq: Select
+            tools_title_9yUpx: Tools
+          agents_2h9Sa: Agents
+          Assistant:
+            model_iyopt: Model
+          AssistantChat:
+            test-assistant-title_6ZNFg: Agent testing
           ConnectMcpTools:
             add-mcp-tool_dyEgv: Add tools
           create-agent_1txyW: Create agent
@@ -8941,6 +8946,8 @@ default:
             url_w32Uc: URL
           instances-title_j9Cpb: Instances
           mcp-servers-list-title_snWTf: MCP servers
+          mcp-tool_all-tools_gZA6P: Default behavior for all tools
+          mcp-tool_require-approval-policy_never_qPvRW: Confirmation not needed
           McpCallToolForm:
             add_47STV: Add
             add-header_bbBV5: Add header
@@ -8956,6 +8963,7 @@ default:
             url_bUhZ1: URL
           McpServersList:
             label_create-mcp-gateway_3o3Vu: Create MCP server
+          name_hTzhB: Name
           navigation-group_agents_eDBFf: Agent Atelier
           ToolParams:
             tool-params_d87zq: Tool parameters
@@ -10253,6 +10261,7 @@ default:
         foundation_models_properties_action_description_classify: Fine-tuned classification
         foundation_models_properties_action_description_few_shot_classify: Classifcation by prompt
         foundation_models_properties_action_description_generate: Text generation
+        foundation_models_properties_action_description_vision: Working with images
         foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_array: List
         foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_json: JSON
         foundation_models_properties_action_properties_few_shot_classify_properties_labels_properties_labels_json_view_spec_title: JSON object
@@ -10279,6 +10288,15 @@ default:
         foundation_models_properties_action_properties_generate_properties_structured_output_properties_json_schema_view_spec_layout_title: JSON schema
         foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title: Structured output
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Temperature
+        foundation_models_properties_action_properties_vision_properties_context_properties_json_view_spec_layout_title: JSON string
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_base64_view_spec_layout_title: Base64
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_file_view_spec_layout_title: Image source
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_view_spec_item_label: Add image
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_item_label: Add message
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_layout_title: Messages
+        foundation_models_properties_action_properties_vision_properties_context_view_spec_layout_title: Context
+        foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title: Number of tokens
+        foundation_models_properties_action_properties_vision_properties_temperature_view_spec_layout_title: Temperature
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Model URI
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Folder ID
         functions_integration_properties_serverless_function_view_spec_layout_title: Function
@@ -10851,7 +10869,7 @@ default:
         create-tag-key-value: Create tag
         exact-match-key-value: Exact match
         exceptions: Exceptions
-        exceptions-keywords: Exclusionary words
+        exceptions-keywords: Exclusion words
         important-tag-key-value: Important tag
         key-phrases-key-value: Keywords
         new-channel: New channel

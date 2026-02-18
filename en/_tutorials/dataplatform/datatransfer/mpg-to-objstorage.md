@@ -11,14 +11,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -29,8 +29,10 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     
-    1. If using [security groups](../../../managed-postgresql/operations/connect.md#configuring-security-groups) in your cluster, make sure they are configured correctly and allow connecting to the cluster.
+    1. If using security groups, make sure they are [configured correctly](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
 
 
     1. [Create an {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md).
@@ -55,7 +57,7 @@ Set up the infrastructure:
         * [Security group](../../../vpc/concepts/security-groups.md) required for cluster access.
         * Source {{ mpg-name }} cluster.
         * Service account for creating and accessing the bucket.
-        * Target {{ objstorage-name }} bucket.
+        * {{ objstorage-name }} target bucket.
         * Source endpoint.
         * Transfer.
 
@@ -79,7 +81,7 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Set up your transfer {#prepare-transfer}
+## Set up the transfer {#prepare-transfer}
 
 1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md). In the `db1` database, create a table named `x_tab` and populate it with data:
 
@@ -97,7 +99,7 @@ Set up the infrastructure:
        (44, 'User5');
      ```
 
-1. [Create an `{{ objstorage-name }}`-type target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) with the following settings:
+1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
 
@@ -123,14 +125,14 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-    1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
+    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the endpoints you created.
 
 - {{ TF }} {#tf}
 
     1. In the `postgresql-to-objstorage.tf` file, specify these variables:
 
         * `objstorage_endpoint_id`: Target endpoint ID.
-        * `transfer_enabled`: `1` to create a transfer.
+        * `transfer_enabled`: Set to `1` to create a transfer.
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -166,11 +168,11 @@ Set up the infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

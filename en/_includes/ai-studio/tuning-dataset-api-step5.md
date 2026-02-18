@@ -4,7 +4,7 @@ Dataset validation may take some time. To find out validation status and get an 
 grpcurl \
   -H "Authorization: Bearer <IAM_token>" \
   -d '{"operation_id": "<validation_operation_ID>"}' \
-  {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/Get
+  {{ api-host-operation }}:443 yandex.cloud.operation.OperationService/Get
 ```
 
 Where:

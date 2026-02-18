@@ -32,7 +32,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. Optionally, add or delete the tuning [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Optionally, add or delete the tuning [labels](../../../resource-manager/concepts/labels.md). You can use them to organize resources into logical groups.
   1. In the **{{ ui-key.yacloud.tuning.task }}** field, select `{{ ui-key.yacloud.tuning.embedding }}`.
   1. Select **{{ ui-key.yacloud.tuning.embedding-type}}** that matches the prepared dataset. 
   1. In the **{{ ui-key.yacloud.yagpt.model }}** field, select the model you need.
@@ -138,7 +138,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
      grpcurl \
        -H "Authorization: Bearer <IAM_token>" \
        -d '{"operation_id": "<operation_ID>"}' \
-       {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/Get
+       {{ api-host-operation }}:443 yandex.cloud.operation.OperationService/Get
      ```
 
      Where:
@@ -174,7 +174,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
      ```bash
      grpcurl \
        -H "Authorization: Bearer <IAM_token>" \
-       -d '{"task_id": "<job_ID>"}' \
+       -d '{"task_id": "<task_ID>"}' \
        {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/GetMetricsUrl
      ```
 

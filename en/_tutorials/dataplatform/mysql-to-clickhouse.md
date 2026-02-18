@@ -29,6 +29,8 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
+    {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
     1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
@@ -131,15 +133,15 @@ Set up your infrastructure:
 
     1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
             Select your source cluster from the list and specify its connection settings.
 
     1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
             Select your target cluster from the list and specify its connection settings.
 

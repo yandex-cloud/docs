@@ -397,6 +397,8 @@ ID of the instance. ||
 ID of the folder that the instance belongs to. ||
 || createdAt | **string** (date-time)
 
+The date and time when the instance was created.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
@@ -440,7 +442,9 @@ Status of the instance.
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
 
 For example, you may use the metadata in order to provide your public SSH key to the instance.
-For more information, see [Metadata](/docs/compute/concepts/vm-metadata). ||
+For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+
+**The `metadata` field is currently omitted from response for the [yandex.cloud.compute.v1.InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.** ||
 || metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
 
 Options allow user to configure access to instance's metadata ||
@@ -791,8 +795,8 @@ Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
 
 Include or exclude action
 
-- `IN`
-- `NOT_IN` ||
+- `IN`: Include action
+- `NOT_IN`: Exclude action ||
 || values[] | **string**
 
 Affinity value or host ID or host group ID ||

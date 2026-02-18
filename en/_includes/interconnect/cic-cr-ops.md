@@ -29,6 +29,7 @@ Action | Support | YC CLI
 Getting information about a trunk | — | [Description](../../interconnect/operations/trunk-get-info.md)
 Get a list of trunk operations | — | [Description](../../interconnect/operations/trunk-operations.md)
 Creating a direct trunk | [Description](../../interconnect/tutorials/trunk-priv-add.md) | [Description](../../interconnect/operations/trunk-create.md#direct)
+Creating a partner trunk | [Description](../../interconnect/tutorials/partner-trunk-priv-add.md) | [Description](../../interconnect/operations/trunk-create.md#partner)
 Updating trunk parameters | Yes | [Description](../../interconnect/operations/trunk-update.md)
 Updating trunk capacity | [Description](../../interconnect/tutorials/trunk-capacity-change.md) | Not supported
 Deleting a trunk | [Description](../../interconnect/tutorials/trunk-del.md) | [Description](../../interconnect/operations/trunk-delete.md)

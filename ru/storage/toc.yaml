@@ -502,16 +502,24 @@ items:
             href: cli-ref/bucket/index.md
           - name: create
             href: cli-ref/bucket/create.md
+          - name: create-inventory-configuration
+            href: cli-ref/bucket/create-inventory-configuration.md
           - name: delete
             href: cli-ref/bucket/delete.md
           - name: delete-https
             href: cli-ref/bucket/delete-https.md
+          - name: delete-inventory-configuration
+            href: cli-ref/bucket/delete-inventory-configuration.md
           - name: get
             href: cli-ref/bucket/get.md
           - name: get-https
             href: cli-ref/bucket/get-https.md
+          - name: get-inventory-configuration
+            href: cli-ref/bucket/get-inventory-configuration.md
           - name: list
             href: cli-ref/bucket/list.md
+          - name: list-inventory-configurations
+            href: cli-ref/bucket/list-inventory-configurations.md
           - name: set-https
             href: cli-ref/bucket/set-https.md
           - name: stats

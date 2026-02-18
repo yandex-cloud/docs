@@ -1,4 +1,4 @@
-# Transferring data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
+# Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
 
 You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} using change data capture (CDC).
 
@@ -14,6 +14,8 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 
 
 ## Getting started {#before-you-begin}
+
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 1. [Create a _source cluster_](../../managed-mysql/operations/cluster-create.md) with the following settings:
 

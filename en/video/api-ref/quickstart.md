@@ -92,7 +92,7 @@ To grant a service account permissions to access an organization, you need the `
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
   1. In the **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** filter, select `{{ ui-key.yacloud_components.acl.label.service-accounts}}`.
-  1. Click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner of the page.
+  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}** in the top-right corner of the page.
   1. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the previously created service account from the list or use the search bar to locate it.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the `video.admin` or `video.editor` role.
   1. Click **{{ ui-key.yacloud.common.save }}**.
