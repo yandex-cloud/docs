@@ -53,7 +53,7 @@ Enables inserting an image located at the `src` address to the table. The `width
 
 
 
-Images can be added from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `storage.yandexcloud.net` domains. The easiest way is to upload and publish the image in [Yandex Object Storage](../../storage/quickstart.md) (see the pricing [here](../../storage/pricing.md#prices-storage)).
+Images can be added from the `yastat.net`, `yastatic.net`, `direct.yandex.ru`, `functions.yandexcloud.net`, `storage.yandexcloud.net`, or `storage.yandex.net` domains. The easiest way is to upload and publish the image in [Yandex Object Storage](../../storage/quickstart.md) (see the pricing [here](../../storage/pricing.md#prices-storage)).
 
 
 

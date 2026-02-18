@@ -3,7 +3,7 @@
 You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test the replication process](#example-check-replication).
+1. [Test replication](#example-check-replication).
 1. [Query data in the target system](#working-with-data-ch).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -11,10 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mch-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -24,6 +24,8 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 {% list tabs group=instructions %}
 
 - Manually {#manual}
+
+  {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
   1. Create a source {{ mpg-name }} cluster using any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with publicly accessible hosts. Specify the following settings:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
@@ -116,7 +118,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-        1. Create a `ClickHouse`-type [target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) and specify its cluster connection settings:
+        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) of the `ClickHouse` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select `<target_{{ CH }}_cluster_name>` from the drop-down list.
@@ -145,11 +147,11 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
         {% include [terraform-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-        The transfer will activate automatically upon creation.
+        The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
-## Test the replication process {#example-check-replication}
+## Test replication {#example-check-replication}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. To verify that the data has been replicated to the target, connect to the target {{ mch-full-name }} cluster. Make sure the `x_tab` tables in `db1` and the source database have identical schemas, including [timestamp columns](#working-with-data-ch), `__data_transfer_commit_time` and `__data_transfer_delete_time`:
@@ -217,10 +219,10 @@ Using the `FINAL` keyword reduces query performance, so avoid it whenever possib
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

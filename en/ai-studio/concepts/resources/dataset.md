@@ -5,7 +5,7 @@ description: In this article, you will learn what datasets are in {{ foundation-
 
 # Datasets
 
-In {{ foundation-models-full-name }}, datasets store sets of data you need to [tune](../tuning/index.md) and run models in batch mode. You can [create](../../operations/resources/create-dataset.md) datasets in the management console, via API, and [{{ ml-sdk-full-name }}](../../sdk/index.md).
+In {{ foundation-models-full-name }}, datasets store sets of data you need to [tune](../tuning/index.md) and run models in batch mode. You can [create](../../operations/resources/create-dataset.md) datasets in the management console, via the API, and [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 All datasets are created based on [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8)-encoded [JSON Lines](https://jsonlines.org/) files. Dataset contents structure depends on the type of dataset. You can create datasets of the following types:
 
@@ -16,7 +16,7 @@ To get the current list of available dataset types, run this query:
 ```bash
 grpcurl \
   -H "Authorization: Bearer <IAM_token>" \
-  llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListTypes 
+  ai.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListTypes 
 ```
 
 ## Text generation datasets {#generating}

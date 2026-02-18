@@ -1775,4 +1775,6 @@ items:
           - name: Создание интеллектуального ассистента для Telegram
             hidden: true
             href: ml-ai/tg-bot-assistant.md
+          - name: Интеграция AI-аналитика данных с {{ data-catalog-name }}
+            href: ml-ai/data-catalog-integration.md
 path: ru/tutorials/toc.yaml

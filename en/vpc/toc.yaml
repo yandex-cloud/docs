@@ -197,6 +197,10 @@ items:
             href: tutorials/trunk-priv-add.md
           - name: Creating a direct trunk and a public connection in it
             href: tutorials/trunk-pub-add.md
+          - name: Creating a new partner trunk and a private connection in it
+            href: tutorials/partner-trunk-priv-add.md
+          - name: Creating a new partner trunk and a public connection in it
+            href: tutorials/partner-trunk-pub-add.md
           - name: Adding a private connection to a direct or partner trunk
             href: tutorials/priv-add.md
           - name: Adding a public connection to a direct or partner trunk

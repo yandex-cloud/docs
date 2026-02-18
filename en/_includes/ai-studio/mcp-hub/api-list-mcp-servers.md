@@ -4,7 +4,7 @@ Use this REST API [McpGateway.List](../../../ai-studio/mcp-gateway/api-ref/McpGa
 curl \
   --request GET \
   --header "Authorization: Bearer $IAM_TOKEN" \
-  "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways?folderId=<folder_ID>"
+  "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways?folderId=<folder_ID>"
 ```
 
 Where `folderId` is the query parameter containing the ID of the folder you want to view the list of MCP servers for.

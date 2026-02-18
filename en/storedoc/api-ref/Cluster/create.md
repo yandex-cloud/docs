@@ -129,6 +129,12 @@ apiPlayground:
               The maximum size of the internal cache that WiredTiger will use for all data.
             type: number
             format: double
+          cacheSize:
+            description: |-
+              **number** (double)
+              The maximum size of the internal cache that WiredTiger will use for all data in percents.
+            type: number
+            format: double
       CollectionConfig:
         type: object
         properties:
@@ -137,38 +143,45 @@ apiPlayground:
               **enum** (Compressor)
               Default type of compression to use for collection data.
               - `NONE`: No compression.
-              - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v3.6/reference/glossary/#term-snappy) compression.
-              - `ZLIB`: The [zlib](https://docs.mongodb.com/v3.6/reference/glossary/#term-zlib) compression.
+              - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
+              - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
+              - `ZSTD`: The [zstd](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zstd) compression.
             type: string
             enum:
               - COMPRESSOR_UNSPECIFIED
               - NONE
               - SNAPPY
               - ZLIB
+              - ZSTD
+      IndexConfig:
+        type: object
+        properties:
+          prefixCompression:
+            description: |-
+              **boolean**
+              Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression)
+            type: boolean
       WiredTiger:
         type: object
         properties:
           engineConfig:
             description: |-
-              **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger.EngineConfig)**
+              **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.EngineConfig)**
               Engine configuration for WiredTiger.
             $ref: '#/definitions/EngineConfig'
           collectionConfig:
             description: |-
-              **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger.CollectionConfig)**
+              **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig)**
               Collection configuration for WiredTiger.
             $ref: '#/definitions/CollectionConfig'
+          indexConfig:
+            description: |-
+              **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.IndexConfig)**
+              Index configuration for WiredTiger
+            $ref: '#/definitions/IndexConfig'
       Journal:
         type: object
         properties:
-          enabled:
-            description: |-
-              **boolean**
-              Whether the journal is enabled or disabled.
-              Possible values:
-              * true (default) - the journal is enabled.
-              * false - the journal is disabled.
-            type: boolean
           commitInterval:
             description: |-
               **string** (int64)
@@ -183,13 +196,13 @@ apiPlayground:
         properties:
           wiredTiger:
             description: |-
-              **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger)**
+              **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger)**
               Configuration of the WiredTiger storage engine.
             $ref: '#/definitions/WiredTiger'
           journal:
             description: |-
-              **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.Journal)**
-              Configuration of the MongoDB [journal](https://docs.mongodb.com/v3.6/reference/glossary/#term-journal).
+              **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.Journal)**
+              Configuration of the MongoDB [journal](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-journal).
             $ref: '#/definitions/Journal'
       OperationProfiling:
         type: object
@@ -199,7 +212,7 @@ apiPlayground:
               **enum** (Mode)
               Mode which specifies operations that should be profiled.
               - `OFF`: The profiler is off and does not collect any data.
-              - `SLOW_OP`: The profiler collects data for operations that take longer than the value of [slowOpThreshold](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling).
+              - `SLOW_OP`: The profiler collects data for operations that take longer than the value of [slowOpThreshold](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling).
               - `ALL`: The profiler collects data for all operations.
             type: string
             enum:
@@ -216,6 +229,39 @@ apiPlayground:
               Value must be greater than 0.
             type: string
             format: int64
+          slowOpSampleRate:
+            description: |-
+              **number** (double)
+              The fraction of slow operations that should be profiled or logged.
+              operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive.
+              Acceptable values are 0 to 1, inclusive.
+            type: number
+            format: double
+      Compression:
+        type: object
+        properties:
+          compressors:
+            description: |-
+              **enum** (Compressor)
+              Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:
+              - other members of the deployment if the instance is part of a replica set or a sharded cluster
+              - mongosh
+              - drivers that support the OP_COMPRESSED message format.
+              MongoDB supports the following compressors:
+              The number of elements must be in the range 1-3.
+              - `NONE`: No compression.
+              - `SNAPPY`: The [Snappy](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-snappy) compression.
+              - `ZLIB`: The [zlib](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zlib) compression.
+              - `ZSTD`: The [zstd](https://docs.mongodb.com/v7.0/reference/glossary/#std-term-zstd) compression.
+            type: array
+            items:
+              type: string
+              enum:
+                - COMPRESSOR_UNSPECIFIED
+                - NONE
+                - SNAPPY
+                - ZLIB
+                - ZSTD
       Network:
         type: object
         properties:
@@ -226,22 +272,27 @@ apiPlayground:
               Acceptable values are 10 to 32768, inclusive.
             type: string
             format: int64
+          compression:
+            description: |-
+              **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network.Compression)**
+              Compression settings
+            $ref: '#/definitions/Compression'
       MongodConfig3_6:
         type: object
         properties:
           storage:
             description: |-
-              **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage)**
+              **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage)**
               `storage` section of mongod configuration.
             $ref: '#/definitions/Storage'
           operationProfiling:
             description: |-
-              **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling)**
+              **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling)**
               `operationProfiling` section of mongod configuration.
             $ref: '#/definitions/OperationProfiling'
           net:
             description: |-
-              **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Network)**
+              **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network)**
               `net` section of mongod configuration.
             $ref: '#/definitions/Network'
       Resources:

@@ -12,7 +12,10 @@
 
 Оборудование {{ yandex-cloud }} располагается в следующих точках присутствия:
 
+
 {% include [pops](../../_includes/interconnect/pops.md) %}
+
+
 
 
 ## Согласительное письмо {#letter}

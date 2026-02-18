@@ -11,13 +11,13 @@
 
   1. To revoke roles:
 
-      1. In the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.group.action_update-acl }}**.
+      1. In the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
 
       1. Click ![image](../../_assets/console-icons/xmark.svg) next to the roles you want to revoke.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_remove-acl }}**. Confirm the action.
+  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}**. Confirm the action.
 
 - CLI {#cli}
 

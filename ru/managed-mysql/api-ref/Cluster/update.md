@@ -148,25 +148,15 @@ apiPlayground:
               - `NO_UNSIGNED_SUBTRACTION`
               - `NO_ZERO_DATE`
               - `NO_ZERO_IN_DATE`
-              - `NO_FIELD_OPTIONS`
-              - `NO_KEY_OPTIONS`
-              - `NO_TABLE_OPTIONS`
               - `ONLY_FULL_GROUP_BY`
               - `PAD_CHAR_TO_FULL_LENGTH`
               - `PIPES_AS_CONCAT`
               - `REAL_AS_FLOAT`
               - `STRICT_ALL_TABLES`
               - `STRICT_TRANS_TABLES`
+              - `TIME_TRUNCATE_FRACTIONAL`
               - `ANSI`
               - `TRADITIONAL`
-              - `DB2`
-              - `MAXDB`
-              - `MSSQL`
-              - `MYSQL323`
-              - `MYSQL40`
-              - `ORACLE`
-              - `POSTGRESQL`
-              - `NO_AUTO_CREATE_USER`
               - `NO_DIR_IN_CREATE`
             type: array
             items:
@@ -184,25 +174,15 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
-                - NO_FIELD_OPTIONS
-                - NO_KEY_OPTIONS
-                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
+                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
-                - DB2
-                - MAXDB
-                - MSSQL
-                - MYSQL323
-                - MYSQL40
-                - ORACLE
-                - POSTGRESQL
-                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -975,25 +955,15 @@ apiPlayground:
               - `NO_UNSIGNED_SUBTRACTION`
               - `NO_ZERO_DATE`
               - `NO_ZERO_IN_DATE`
-              - `NO_FIELD_OPTIONS`
-              - `NO_KEY_OPTIONS`
-              - `NO_TABLE_OPTIONS`
               - `ONLY_FULL_GROUP_BY`
               - `PAD_CHAR_TO_FULL_LENGTH`
               - `PIPES_AS_CONCAT`
               - `REAL_AS_FLOAT`
               - `STRICT_ALL_TABLES`
               - `STRICT_TRANS_TABLES`
+              - `TIME_TRUNCATE_FRACTIONAL`
               - `ANSI`
               - `TRADITIONAL`
-              - `DB2`
-              - `MAXDB`
-              - `MSSQL`
-              - `MYSQL323`
-              - `MYSQL40`
-              - `ORACLE`
-              - `POSTGRESQL`
-              - `NO_AUTO_CREATE_USER`
               - `NO_DIR_IN_CREATE`
             type: array
             items:
@@ -1011,25 +981,15 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
-                - NO_FIELD_OPTIONS
-                - NO_KEY_OPTIONS
-                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
+                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
-                - DB2
-                - MAXDB
-                - MSSQL
-                - MYSQL323
-                - MYSQL40
-                - ORACLE
-                - POSTGRESQL
-                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -1789,25 +1749,15 @@ apiPlayground:
               - `NO_UNSIGNED_SUBTRACTION`
               - `NO_ZERO_DATE`
               - `NO_ZERO_IN_DATE`
-              - `NO_FIELD_OPTIONS`
-              - `NO_KEY_OPTIONS`
-              - `NO_TABLE_OPTIONS`
               - `ONLY_FULL_GROUP_BY`
               - `PAD_CHAR_TO_FULL_LENGTH`
               - `PIPES_AS_CONCAT`
               - `REAL_AS_FLOAT`
               - `STRICT_ALL_TABLES`
               - `STRICT_TRANS_TABLES`
+              - `TIME_TRUNCATE_FRACTIONAL`
               - `ANSI`
               - `TRADITIONAL`
-              - `DB2`
-              - `MAXDB`
-              - `MSSQL`
-              - `MYSQL323`
-              - `MYSQL40`
-              - `ORACLE`
-              - `POSTGRESQL`
-              - `NO_AUTO_CREATE_USER`
               - `NO_DIR_IN_CREATE`
             type: array
             items:
@@ -1825,25 +1775,15 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
-                - NO_FIELD_OPTIONS
-                - NO_KEY_OPTIONS
-                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
+                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
-                - DB2
-                - MAXDB
-                - MSSQL
-                - MYSQL323
-                - MYSQL40
-                - ORACLE
-                - POSTGRESQL
-                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-

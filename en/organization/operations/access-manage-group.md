@@ -31,7 +31,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
   
   1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
-  1. Click **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
+  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   
   1. Select the user or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. Use search, if required.
   

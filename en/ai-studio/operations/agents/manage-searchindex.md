@@ -58,7 +58,7 @@ Before creating a search index, upload the files you want to index to {{ vector-
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -126,7 +126,7 @@ Create a search index from the pre-uploaded files:
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -215,7 +215,7 @@ To run a search through the index, provide the index ID and the text of your que
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -298,7 +298,7 @@ To remove a source file from the search index, provide the index ID and the file
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 
@@ -361,7 +361,7 @@ To delete the entire search index, provide its ID to the {{ vector-store-name }}
       def main():
           client = OpenAI(
               api_key=YANDEX_API_KEY,
-              base_url="https://rest-assistant.{{ api-host }}/v1",
+              base_url="https://ai.{{ api-host }}/v1",
               project=YANDEX_FOLDER_ID,
           )
 

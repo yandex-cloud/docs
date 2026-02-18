@@ -19,15 +19,15 @@ Use of Amazon services is not part of the [{{ yandex-cloud }} Terms of Use]({{ l
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 * NAT gateway: Hourly use and outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -55,6 +55,8 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mpg_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Make sure that the {{ mpg-name }} cluster's security group has been [set up correctly](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and allows connecting to the cluster from the internet.
     1. Set up an egress [NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet that hosts the target cluster.
     1. [Download an AWS certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) for the region where the Amazon RDS for {{ PG }} instance resides.
@@ -68,7 +70,7 @@ Set up the infrastructure:
     1. [Configure the {{ TF }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) and save it to a separate working directory.
     1. Edit the `provider.tf` file:
 
-        * [Specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) for the `yandex` provider. If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+        * [Specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) for the `yandex` provider. If you have not set the authentication credentials as environment variables, specify them in the configuration file.
         * Add the `aws` provider to `required_providers`:
 
             ```hcl
@@ -113,7 +115,7 @@ Set up the infrastructure:
         * Transfer.
 
     1. [Download an AWS certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) for the region where the Amazon RDS for {{ PG }} instance will reside.
-    1. In the `rds-pg-mpg.tf` file, specify the following:
+    1. In `rds-pg-mpg.tf`, specify the following:
 
         * {{ PG }} versions for Amazon RDS for {{ PG }} and {{ mpg-name }}.
         * Parameter family for the Amazon RDS [parameter group](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithDBInstanceParamGroups.html).
@@ -215,7 +217,7 @@ Set up the infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `mpg_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-    1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer configured to use the new endpoints.
+    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type that will use the endpoints you created.
     1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 - {{ TF }} {#tf}
@@ -234,7 +236,7 @@ Set up the infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+    1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 
@@ -296,7 +298,7 @@ Before deleting the resources, [deactivate the transfer](../../../data-transfer/
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 {% list tabs group=instructions %}
 

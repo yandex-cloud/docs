@@ -24,7 +24,7 @@ If you need a JSON schema to prepare your data, you can get the structure of any
   grpcurl \
     -H "Authorization: Bearer <IAM_token>" \
     -d '{"task_type": "<dataset_type>"}' \
-    llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListUploadSchemas
+    ai.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService.ListUploadSchemas
   ```
   
   Where:

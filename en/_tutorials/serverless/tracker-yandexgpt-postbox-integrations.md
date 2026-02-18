@@ -190,7 +190,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
             The name of the selector will be used to create a TXT resource record, so each selector you create must be unique within your domain.
         1. In the **{{ ui-key.yacloud.postbox.label_private-key }}** field, copy the contents of the `privatekey.pem` private key file you created earlier.
         1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-        1. In the list of addresses that appears, select the created address and, under **{{ ui-key.yacloud.postbox.label_signature-verification }}** on the page that opens, copy and save the values ​​of the **{{ ui-key.yacloud.postbox.label_dns-record-name }}** and **{{ ui-key.yacloud.postbox.label_dns-record-value }}** fields. You will need these to create a TXT resource record.
+        1. In the list of addresses that appears, select the created address and, under **Signature verification** on the page that opens, copy and save the values ​​of the **{{ ui-key.yacloud.postbox.label_dns-record-name }}** and **{{ ui-key.yacloud.postbox.label_dns-record-value }}** fields. You will need these to create a TXT resource record.
 
     {% endlist %}
 
@@ -223,7 +223,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
         1. In the [management console]({{ link-console-main }}), select the folder the new address is in.
         1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** and select the required address.
-        1. Click **{{ ui-key.yacloud.postbox.button_validate }}**. If the TXT record is created correctly, the verification status on the address page will change to `Success`.
+        1. Click **{{ ui-key.yacloud.postbox.button_run-verification }}**. If the TXT record is created correctly, the verification status on the address page will change to `Success`.
 
             DNS server responses are cached, so delays may occur when updating a resource record.
 

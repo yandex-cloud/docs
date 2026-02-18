@@ -177,7 +177,11 @@ Attaches local disks to the instances.
 
 Possible property names:
 
-- `size`: The size of the local disk in bytes. You can also use M and T suffixes to specify MiB or TiB respectively. ||
+- `size`: The size of the local disk in bytes. You can also use M and T suffixes to specify MiB or TiB respectively.
+
+- `kms-key-name`: KMS key used to encrypt the disk.
+
+- `kms-key-id`: An ID of the KMS key used to encrypt the disk. ||
 || `--network-settings` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Network settings for the instance.

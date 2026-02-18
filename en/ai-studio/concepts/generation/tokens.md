@@ -55,7 +55,7 @@ The examples below only serve to illustrate the concept of tokens and do not ind
    curl --request POST \
      --header "Authorization: Bearer ${IAM_TOKEN}" \
      --data "@tbody.json" \
-     "https://llm.api.cloud.yandex.net/foundationModels/v1/tokenize"
+     "https://ai.api.cloud.yandex.net/foundationModels/v1/tokenize"
    ```
 
    Where:

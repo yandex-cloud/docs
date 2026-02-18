@@ -20,13 +20,13 @@ The support cost includes:
 
 * Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket fee, which covers data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -80,7 +80,7 @@ Set up the infrastructure:
       * `dataproc_name`: {{ dataproc-name }} cluster name.
       * `ssh-path`: Path to the public SSH key file for your {{ dataproc-name }} cluster.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
@@ -152,13 +152,15 @@ Set up the infrastructure:
 
   * In the **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** field, select the [previously created](#before-you-begin) bucket.
 
-  * In the **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** menu, enable **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** in the settings to connect to subcluster hosts without an intermediate virtual machine.
+  * In the **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** menu, enable **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** in the settings
+
+      {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 - {{ TF }} {#tf}
 
   1. In the `data-processing-init-actions-geesefs.tf` file, set the variable value as follows: `create_cluster` = `1`.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

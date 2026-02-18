@@ -23,7 +23,7 @@ The support cost for this solution includes:
 
 ## Getting started {#before-you-begin}
 
-### Set up the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -60,13 +60,13 @@ The support cost for this solution includes:
 
     1. In the `clickhouse-hybrid-storage.tf` file, specify the username and password you will use to access the {{ mch-name }} cluster.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 

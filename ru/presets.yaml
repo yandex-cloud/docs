@@ -4011,6 +4011,7 @@ default:
         action:
           add-role: Добавить роль
           apply: Сохранить
+          revoke-access: Отозвать доступ
           select-subject: Выбрать пользователя
         button:
           add-role: Добавить роль
@@ -4059,6 +4060,8 @@ default:
           add: Добавить
           create: Создать новую организацию
           create-organization: Создать организацию
+      revoke-access-dialog:
+        action_revoke-all: Отозвать все
       search:
         label_placeholder: Поиск по облачным ресурсам
         search_filters_all: Везде
@@ -4494,7 +4497,6 @@ default:
         more: Ещё
         overview: Обзор
         resource-acl:
-          button_new-bindings: Назначить роли
           label_invitee-accounts: Приглашенные аккаунты
         section-base: Общая информация
       component:
@@ -4579,13 +4581,10 @@ default:
             ssoBinding: Single Sign-On метод
             ssoUrl: Ссылка на страницу для входа в IdP
         group:
-          action_add-acl: Назначить роли
           action_add-member: Добавить участника
           action_create: Создать группу
           action_edit: Изменить
-          action_remove-acl: Отозвать права доступа
           action_remove-user: Исключить из группы
-          action_update-acl: Настроить доступ
           label_id: Идентификатор
           label_user: Пользователь
           title_tab-access: Права доступа к группе
@@ -4601,7 +4600,6 @@ default:
             add-key: Добавить ключ
         user:
           action:
-            acl: Назначить роли
             delete: Удалить
             reactivate_1080s: Активировать
             reset-date: Сбросить дату верификации
@@ -4611,7 +4609,6 @@ default:
             email: Электронная почта
             provider: Поставщик учётных данных
             status: Статус
-            user: Пользователь
             username: Имя пользователя
           column_last-auth: Дата последней аутентификации
       field-data:
@@ -4669,7 +4666,6 @@ default:
         action_create-group: Создать группу
       iam-bindings:
         subject:
-          action_revoke-all: Отозвать все
           title_group: Группа
           title_revoke-access-dialog: Отозвать доступ
           value_role-source-filter_direct: Назначенные напрямую
@@ -5027,9 +5023,6 @@ default:
             overview_tab: Дашборд
           WorkspaceParticipantsForm:
             action_add-user: Добавить пользователей
-            WorkspaceAclTable:
-              action_assign-roles: Изменить роли
-              action_remove-user: Отозвать все роли
           WorkspaceResourcesForm:
             actionDelete: Удалить
             actionEditConnector: Редактировать коннектор
@@ -5390,7 +5383,7 @@ default:
         label_dataStream: Data Streams
         label_destination: Назначение
         label_event-filter-section: Сбор событий с уровня сервисов
-        label_eventRouter: Event Router
+        label_eventRouter: EventRouter
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -5938,6 +5931,7 @@ default:
           label_access-bindings: Права доступа
           label_bindings: Роли
           label_service-account: Сервисный аккаунт
+          label_subject: Пользователь
           placeholder_filter-by-type: Тип аккаунта
         save: Сохранить
         save-changes: Сохранить изменения
@@ -7924,7 +7918,7 @@ default:
       postbox:
         button_create-configuration-set: Создать конфигурацию
         button_create-identity: Создать адрес
-        button_validate: Проверить адрес
+        button_run-verification: Запустить проверку
         field_secure-connection: Доставлять письмо только по защищенному соединению
         label_address: Домен
         label_configuration-set: Конфигурация
@@ -7940,7 +7934,6 @@ default:
         label_private-key: Приватный ключ
         label_restrict-senders: Ограничить список отправителей
         label_selector: Селектор
-        label_signature-verification: Подтверждение подписи
         section_restrictions: Ограничения
       postgresql:
         cluster:
@@ -8287,11 +8280,12 @@ default:
           section_rules: Правила
         arlTitle_e3MD8: Advanced Rate Limiter
         attach-dialog:
-          action_add-balancer: Добавить балансировщик
           action_connect: Подключить
           label_balancer: Балансировщик
           label_http-router: HTTP-роутер
           label_virtual-host: Виртуальный хост
+        AttachSecurityProfileDialog:
+          label_add-resource_v4U3g: Добавить ресурс
         baseRulesTitle_xcJEe: Базовые правила
         CreateDomain:
           createDomain_b2Ykj: Добавить домен
@@ -8666,22 +8660,22 @@ default:
             label_rbac-settings_o2F64: Настройки доступа
         label_rbac-add-rule: Добавить правило
         label_rbac-catalog: Каталоги
-        label_rbac-catalog-access: Доступ к каталогу
+        label_rbac-catalog-access: Каталоги, к которым применяется правило
         label_rbac-catalog-permissions: Разрешения
         label_rbac-function: Функции
-        label_rbac-function-access: Доступ к функции
+        label_rbac-function-access: Функции, к которым применяется правило
         label_rbac-function-privileges: Привилегии
         label_rbac-groups: Группы
         label_rbac-procedure: Процедуры
-        label_rbac-procedure-access: Доступ к процедуре
+        label_rbac-procedure-access: Процедуры, к которым применяется правило
         label_rbac-procedure-privileges: Привилегии
         label_rbac-query: Запросы
         label_rbac-query-privileges: Привилегии
         label_rbac-schema: Схемы
-        label_rbac-schema-access: Доступ к схеме
+        label_rbac-schema-access: Схемы, к которым применяется правило
         label_rbac-schema-owner: Владелец схемы
         label_rbac-table: Таблицы
-        label_rbac-table-access: Доступ к таблице
+        label_rbac-table-access: Таблицы, к которым применяется правило
         label_rbac-users: Пользователи
         rbac-catalog-match-by-empty: Не задано
         rbac-catalog-match-by-id: ID
@@ -8754,9 +8748,9 @@ default:
           button_action-dynamic: Сделать динамическим
           button_action-enable-protection: Включить защиту от удаления
           button_action-static: Сделать статическим
-          button_create: Зарезервировать адрес
+          button_create: Зарезервировать публичный IP-адрес
           label_dns-spec-title: Настройки DNS
-          label_title: IP-адреса
+          label_title: Публичные IP-адреса
           popup-confirm_button_disable-protection: Выключить
           popup-confirm_button_dynamic: Изменить
           popup-confirm_button_enable-protection: Включить
@@ -8872,7 +8866,7 @@ default:
           switch_ip-addresses: IP-Адреса
           update:
             button_update: Сохранить изменения
-        switch_addresses: IP-адреса
+        switch_addresses: Публичные IP-адреса
         switch_gateways: Шлюзы
         switch_list: Облачные сети
         switch_networks: Подсети
@@ -8902,6 +8896,17 @@ default:
               title: Распознавание речи
         use-context: Использовать контекст
         YaGPT:
+          agent_instruction_9oe6q: Инструкция
+          AgentForm:
+            add-mcp-tool_gqwmZ: Добавить MCP
+            save-and-continue_u1Wis: Создать и продолжить
+            select_dPVTq: Выбрать
+            tools_title_9yUpx: Инструменты
+          agents_2h9Sa: Агенты
+          Assistant:
+            model_iyopt: Модель
+          AssistantChat:
+            test-assistant-title_6ZNFg: Тестирование агента
           ConnectMcpTools:
             add-mcp-tool_dyEgv: Добавить инструменты
           create-agent_1txyW: Создать агента
@@ -8949,6 +8954,8 @@ default:
             url_w32Uc: URL
           instances-title_j9Cpb: Инстансы
           mcp-servers-list-title_snWTf: MCP-серверы
+          mcp-tool_all-tools_gZA6P: Поведение по умолчанию для всех инструментов
+          mcp-tool_require-approval-policy_never_qPvRW: Подтверждение не нужно
           McpCallToolForm:
             add_47STV: Добавить
             add-header_bbBV5: Добавить заголовок
@@ -8964,6 +8971,7 @@ default:
             url_bUhZ1: URL
           McpServersList:
             label_create-mcp-gateway_3o3Vu: Создать MCP-сервер
+          name_hTzhB: Имя
           navigation-group_agents_eDBFf: Agent Atelier
           ToolParams:
             tool-params_d87zq: Параметры инструмента
@@ -10261,6 +10269,7 @@ default:
         foundation_models_properties_action_description_classify: Дообученная классификация
         foundation_models_properties_action_description_few_shot_classify: Классификация по промту
         foundation_models_properties_action_description_generate: Генерация текста
+        foundation_models_properties_action_description_vision: Работа с изображениями
         foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_array: Список
         foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_json: JSON
         foundation_models_properties_action_properties_few_shot_classify_properties_labels_properties_labels_json_view_spec_title: JSON-объект
@@ -10287,6 +10296,15 @@ default:
         foundation_models_properties_action_properties_generate_properties_structured_output_properties_json_schema_view_spec_layout_title: JSON-схема
         foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title: Структурированный вывод
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Температура
+        foundation_models_properties_action_properties_vision_properties_context_properties_json_view_spec_layout_title: JSON-строка
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_base64_view_spec_layout_title: Base64
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_file_view_spec_layout_title: Источник изображения
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_view_spec_item_label: Добавить изображение
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_item_label: Добавить сообщение
+        foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_layout_title: Сообщения
+        foundation_models_properties_action_properties_vision_properties_context_view_spec_layout_title: Контекст
+        foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title: Количество токенов
+        foundation_models_properties_action_properties_vision_properties_temperature_view_spec_layout_title: Температура
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Идентификатор модели
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Идентификатор каталога
         functions_integration_properties_serverless_function_view_spec_layout_title: Функция
@@ -10859,7 +10877,7 @@ default:
         create-tag-key-value: Создать тег
         exact-match-key-value: Точное совпадение
         exceptions: Исключения
-        exceptions-keywords: Слова исключения
+        exceptions-keywords: Слова-исключения
         important-tag-key-value: Важный тег
         key-phrases-key-value: Ключевые фразы
         new-channel: Новый канал

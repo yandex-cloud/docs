@@ -1,6 +1,6 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. To do so:
+You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -25,6 +25,8 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
+    {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md#create-cluster) in any [availability zone](../../overview/concepts/geo-scope.md) with publicly available hosts in any suitable configuration and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mmy_db`.
@@ -41,7 +43,7 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datatransfer }}**: Enabled.
 
-    1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
+    1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
         * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).

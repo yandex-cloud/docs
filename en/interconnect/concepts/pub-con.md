@@ -59,5 +59,6 @@ When using custom IPv4 addresses (type 2 point-to-point subnet), NAT functions m
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/trunk-pub-add.md)
+* [{#T}](../tutorials/partner-trunk-pub-add.md)
 * [{#T}](../tutorials/pub-add.md)
 * [{#T}](../tutorials/pub-del.md)

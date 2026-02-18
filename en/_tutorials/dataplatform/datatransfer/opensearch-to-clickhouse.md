@@ -13,8 +13,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
-* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -25,6 +25,8 @@ Set up your data delivery infrastructure:
 {% list tabs group=instructions %}
 
 - Manually {#manual}
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
     1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
@@ -72,7 +74,7 @@ Set up your data delivery infrastructure:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -150,7 +152,7 @@ Set up your data delivery infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` password.
 
-1. Create a target endpoint and set up the transfer:
+1. Create a target endpoint and a transfer:
 
     {% list tabs group=instructions %}
 
@@ -174,7 +176,7 @@ Set up your data delivery infrastructure:
         1. In the `opensearch-to-clickhouse.tf` file, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` for creating a target endpoint and transfer.
+            * `transfer_enabled`: Set to `1` to create a target endpoint and a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -182,7 +184,7 @@ Set up your data delivery infrastructure:
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -195,7 +197,7 @@ Set up your data delivery infrastructure:
 ## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Make sure the data from the source {{ mos-name }} cluster has been transferred to the {{ mch-name }} database:
+1. Make sure the data from the {{ mos-name }} source cluster has been transferred to the {{ mch-name }} database:
 
     {% list tabs group=instructions %}
 

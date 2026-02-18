@@ -163,7 +163,7 @@ To add an existing external MCP server to {{ mcp-hub-name }}:
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --data "@body.json" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways"
       ```
 
       Result:
@@ -191,7 +191,7 @@ To add an existing external MCP server to {{ mcp-hub-name }}:
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/<MCP_server_ID>"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways/<MCP_server_ID>"
       ```
 
       {% cut "Result" %}

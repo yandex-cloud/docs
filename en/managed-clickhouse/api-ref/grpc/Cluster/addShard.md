@@ -5,6 +5,7 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ClusterService.AddShard
 
 Creates a new shard in the specified cluster.
+Deprecated. Use **AddShards** instead.
 
 ## gRPC request
 

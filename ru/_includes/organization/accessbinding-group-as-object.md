@@ -8,7 +8,7 @@
   
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-access }}**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   
   1. Выберите группу, пользователя или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которым нужно предоставить доступ к группе. При необходимости воспользуйтесь поиском.
   

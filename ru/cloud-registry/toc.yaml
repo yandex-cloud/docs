@@ -95,10 +95,18 @@ items:
         items:
           - name: Overview
             href: cli-ref/artifact/index.md
+          - name: add-access-binding
+            href: cli-ref/artifact/add-access-binding.md
           - name: delete
             href: cli-ref/artifact/delete.md
           - name: get
             href: cli-ref/artifact/get.md
+          - name: list-access-bindings
+            href: cli-ref/artifact/list-access-bindings.md
+          - name: remove-access-binding
+            href: cli-ref/artifact/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/artifact/set-access-bindings.md
       - name: configure-docker
         href: cli-ref/configure-docker.md
       - name: registry
@@ -117,6 +125,22 @@ items:
             href: cli-ref/registry/force-delete.md
           - name: get
             href: cli-ref/registry/get.md
+          - name: lifecycle-policy
+            items:
+              - name: Overview
+                href: cli-ref/registry/lifecycle-policy/index.md
+              - name: change-state
+                href: cli-ref/registry/lifecycle-policy/change-state.md
+              - name: create
+                href: cli-ref/registry/lifecycle-policy/create.md
+              - name: delete
+                href: cli-ref/registry/lifecycle-policy/delete.md
+              - name: get
+                href: cli-ref/registry/lifecycle-policy/get.md
+              - name: list
+                href: cli-ref/registry/lifecycle-policy/list.md
+              - name: update
+                href: cli-ref/registry/lifecycle-policy/update.md
           - name: list
             href: cli-ref/registry/list.md
           - name: list-access-bindings

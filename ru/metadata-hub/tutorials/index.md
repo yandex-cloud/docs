@@ -16,5 +16,9 @@ description: Различные сценарии использования {{ s
 * [{#T}](./sharing-tables.md)
 * [{#T}](./metastore-and-spark.md)
 
+## {{ data-catalog-name }} {#data-catalog}
+
+* [{#T}](./ai-studio-data-catalog-integration.md)
+
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

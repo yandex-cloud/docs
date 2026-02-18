@@ -473,6 +473,10 @@ items:
                 href: operations/data-catalog/get-info-data-store.md
               - name: Разметка хранилища данных
                 href: operations/data-catalog/markup-data-store.md
+      - name: Практические руководства
+        items:
+          - name: Интеграция AI-аналитика данных с {{ data-catalog-name }}
+            href: tutorials/ai-studio-data-catalog-integration.md
       - name: Концепции
         items:
           - name: Каталог метаданных

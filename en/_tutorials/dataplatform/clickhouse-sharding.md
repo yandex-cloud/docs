@@ -31,13 +31,13 @@ The support cost for this solution includes:
 
 ## Getting started {#before-you-begin}
 
-### Set up the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with publicly available hosts and configure it as follows:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `chcluster`.
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Select the required disk type.
@@ -53,7 +53,7 @@ The support cost for this solution includes:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
 
-        Cluster hosts must be accessible from the internet.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     1. [Create two additional shards](../../managed-clickhouse/operations/shards.md#add-shard) named `shard2` and `shard3`.
     1. [Add three {{ ZK }} hosts to the cluster](../../managed-clickhouse/operations/zk-hosts.md#add-zk).
@@ -91,13 +91,13 @@ The support cost for this solution includes:
         * {{ mch-name }} cluster with the required hosts and shards.
 
     1. In the configuration file, specify the username and password that will be used to access the {{ mch-name }} cluster.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
     1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -124,7 +124,7 @@ In the following examples, we use a random number, `rand()`, as a sharding key.
 
 In this example, the distributed table built from `hits_v1` uses every shard in the `chcluster` cluster: `shard1`, `shard2`, and `shard3`.
 
-Before operating the distributed table:
+Before using the distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create the `hits_v1` table on every host in the cluster using the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) engine:
@@ -165,7 +165,7 @@ In this example:
 - We use a single shard group named `sgroup`.
 - The distributed table and its underlying table, `hits_v1`, are in the same `sgroup` shard group within the cluster.
 
-Before operating the distributed table:
+Before using the distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create the `hits_v1` table on every host in the `sgroup` shard group, using the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) engine:
@@ -199,7 +199,7 @@ In this example:
 1. The distributed table resides in the `sgroup` shard group.
 1. The `hits_v1` underlying table resides in the `sgroup_data` shard group.
 
-Before operating the distributed table:
+Before using the distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create the `hits_v1` table on every host of the `sgroup_data` shard group, using the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) engine:

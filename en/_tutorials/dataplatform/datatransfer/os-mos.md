@@ -1,7 +1,7 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. To do this:
+With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Proceed as follows:
 
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -30,6 +30,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         [Create a {{ mos-name }} target cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -44,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ mos-name }} target cluster.
             * Transfer.
 
-        1. In the `data-transfer-os-mos.tf` file, specify the following settings:
+        1. In the `data-transfer-os-mos.tf` file, specify the following variables:
 
             * `mos_version`: {{ OS }} version.
             * `mos_admin_password`: {{ mos-name }} admin password.
@@ -60,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -88,7 +90,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Create a user to run the transfer.
 
-You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` role; however, it is more secure to create separate users with limited privileges for each task.
+You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job.
 
 1. Optionally, in the source cluster, [create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
@@ -152,7 +154,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
 1. Optionally, create a user to run the transfer.
 
-    You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuser` role; however, it is more secure to create separate users with limited privileges for each task.
+    You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job.
 
     1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
@@ -175,7 +177,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-os-mos.tf` file, specify the following settings:
+        1. In the `data-transfer-os-mos.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
@@ -187,7 +189,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 

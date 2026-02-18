@@ -33,6 +33,8 @@ The support cost for this solution includes:
 
         1. [Create a {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) of the configuration you need with public access to a group of hosts with the `DATA` role.
 
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../managed-opensearch/operations/connect.md#configuring-security-groups).
 
     - Using {{ TF }} {#tf}
@@ -46,7 +48,7 @@ The support cost for this solution includes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mos-name }} cluster.
             * {{ mos-name }} cluster.
 
         1. In the `opensearch-index-policy.tf` file, specify the following variables:
@@ -60,7 +62,7 @@ The support cost for this solution includes:
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 

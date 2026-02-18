@@ -81,11 +81,11 @@ Advanced OpenSearch configuration parameters.
 
 Possible property names:
 
-- `max-clause-count`: Maximum amount of clauses to use in a query.
+- `max-clause-count`: Defines the maximum product of fields and terms that are queryable simultaneously.
 
-- `fielddata-cache-size`: Data field cache size.
+- `fielddata-cache-size`: The maximum size of the field data cache.
 
-- `reindex-remote-whitelist`: Comma-separated list of host:port pairs indicating the remote sources to be reindexed. ||
+- `reindex-remote-whitelist`: Allowed remote hosts ||
 || `--keystore-settings` | `key=value[,key=value...]`
 
 A comma-separated list of keystore settings given as key=value pairs. ||

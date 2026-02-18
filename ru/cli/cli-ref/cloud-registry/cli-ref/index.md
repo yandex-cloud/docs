@@ -18,9 +18,17 @@ Syntax:
 
 - [yc cloud-registry artifact](artifact/index.md) — [PREVIEW] Manage artifacts
 
+  - [yc cloud-registry artifact add-access-binding](artifact/add-access-binding.md) — Add access binding for the specified artifact
+
   - [yc cloud-registry artifact delete](artifact/delete.md) — Delete the specified registry artifact
 
   - [yc cloud-registry artifact get](artifact/get.md) — Get information about the artifact
+
+  - [yc cloud-registry artifact list-access-bindings](artifact/list-access-bindings.md) — Lists access bindings for the specified artifact
+
+  - [yc cloud-registry artifact remove-access-binding](artifact/remove-access-binding.md) — Remove access binding for the specified artifact
+
+  - [yc cloud-registry artifact set-access-bindings](artifact/set-access-bindings.md) — Set access bindings for the specified artifact and remove existing ones
 
 - [yc cloud-registry registry](registry/index.md) — [PREVIEW] Manage registries
 

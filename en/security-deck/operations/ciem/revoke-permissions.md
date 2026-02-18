@@ -27,7 +27,7 @@ To revoke a subject's access (role) for a resource:
 
       1. In the row with the access you need, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![person-xmark](../../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud_org.iam-bindings.subject.title_revoke-access-dialog }}**.
       1. In the window that opens, verify info on the resource you are revoking access to and select the roles to revoke.
-      1. Click **{{ ui-key.yacloud_org.iam-bindings.subject.action_revoke-all }}** (or **Revoke selected** if you left some roles unselected).
+      1. Click **{{ ui-key.yacloud_components.revoke-access-dialog.action_revoke-all }}** (or **Revoke selected** if you left some roles unselected).
 
     - Group-based assignment
 

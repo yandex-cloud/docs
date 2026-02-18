@@ -1,26 +1,26 @@
 #|
-||This tutorial is based on a [Data Stories](https://data-stories.ru/) use case of building an analytical stack powered by {{ yandex-cloud }} services. It included uploading data to a storage, processing it, and transforming it into a single data mart for visualization.
+||This tutorial is based on a [Data Stories](https://data-stories.ru/) use case of building an analytical stack powered by {{ yandex-cloud }} services. The use case involved uploading data to storage, processing it, and transforming it into a single data mart for visualization.
 |
 <br>![datastories logo](../../_assets/logos/datastories_logo.png =300x)||
 |#
 
-In this example, we use two CSV tables which we will merge into a single one, import it to Parquet format, and transfer to {{ mch-name }}.
+This example uses two CSV tables. We will merge them into a single table, convert that table into Parquet format, and transfer it to {{ mch-name }}.
 
 
 ## Required paid resources {#paid-resources}
 
 The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including {{ ZK }} hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster fee: Covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * {{ dataproc-name }} cluster fee: Covers the use of VM computing resources, {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
-* Fee for public IP address assignment on cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -31,7 +31,7 @@ Set up the infrastructure:
     1. [Create a cloud network](../../vpc/operations/network-create.md) named `dataproc-network`.
     1. Within the `dataproc-network`, [create a subnet](../../vpc/operations/subnet-create.md) in any availability zone.
     1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for your new subnet.
-    1. In `dataproc-network`, [create a security group](../../vpc/operations/security-group-create.md) named `dataproc-sg` and add the following rules to it:
+    1. In `dataproc-network`, [create a security group](../../vpc/operations/security-group-create.md) named `dataproc-sg` with the following rules:
 
         * One inbound and one outbound rule for service traffic:
 
@@ -67,11 +67,13 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**: Enabled.
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) and the following settings:
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
-        * Public access to cluster hosts: Enabled.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
+        * Public access to cluster hosts: Enabled
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 - {{ TF }} {#tf}
 
@@ -80,7 +82,7 @@ Set up the infrastructure:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [s3-dataproc-ch.tf](https://github.com/yandex-cloud-examples/yc-data-proc-clickhouse-data-export/blob/main/s3-dataproc-ch.tf) configuration file to the same working directory.
+    1. Download the [s3-dataproc-ch.tf](https://github.com/yandex-cloud-examples/yc-data-proc-clickhouse-data-export/blob/main/s3-dataproc-ch.tf) configuration file to your current working directory.
 
         This file describes:
 
@@ -96,11 +98,11 @@ Set up the infrastructure:
 
     1. In the `s3-dataproc-ch.tf` file, specify the following:
 
-        * `folder_id`: Cloud folder ID matching the one in your provider settings.
-        * `input-bucket`: Name of the input data bucket.
+        * `folder_id`: Cloud folder ID, same as in the provider settings.
+        * `input-bucket`: Input data bucket name.
         * `output-bucket`: Output data bucket name.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../data-proc/operations/connect-ssh.md).
-        * `ch_password`: {{ CH }} user password.
+        * `ch_password`: {{ CH }} password.
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -120,10 +122,10 @@ Set up the infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-In this example, we use the following two CSV tables:
+In this example, we will use two CSV tables:
 
-* `coords.csv` with vehicle geographic coordinates.
-* `sensors.csv` with information about speed and other vehicle operating parameters.
+* `coords.csv` contains the vehicle’s geographic coordinates.
+* `sensors.csv` contains vehicle speed and operating parameters.
 
 To prepare the test data:
 
@@ -150,15 +152,15 @@ To prepare the test data:
         ```
       {% endcut %}
 
-1. Create a folder named `csv` in the input bucket and [upload](../../storage/operations/objects/upload.md#simple) the new CSV files to it.
+1. In the input bucket, create a folder named `csv` and [upload](../../storage/operations/objects/upload.md#simple) your CSV files to it.
 
-## Process your data in {{ dataproc-name }} {#process-data}
+## Run data processing in {{ dataproc-name }} {#process-data}
 
-Merge the data from the two tables into one and upload it in Parquet format to the bucket you previously created for processing results:
+Merge two tables into one and upload the resulting table as a Parquet file to the processing results bucket you created earlier :
 
 1. Prepare a script file:
 
-    1. Create a local file named `join-tables.py` and paste the following script to it:
+    1. Create a local file named `join-tables.py` and paste the following script into it:
 
         {% cut "join-tables.py" %}
         ```python
@@ -173,7 +175,7 @@ Merge the data from the two tables into one and upload it in Parquet format to t
         # Reading a table from sensors.csv
         sensors_df = spark.read.csv("s3a://<input_bucket_name>/csv/sensors.csv", header=True)
 
-        # Joining tables by the vehicle_id column
+        # Joining tables on the vehicle_id column
         joined_df = coords_df.join(sensors_df, on="vehicle_id", how="inner")
 
         # Saving the joined table to a bucket in Parquet format
@@ -183,14 +185,14 @@ Merge the data from the two tables into one and upload it in Parquet format to t
 
     1. In your script, specify the following:
 
-        * Name of the input bucket that stores the original CSV tables.
-        * Name of the output bucket where the Parquet file with the merged data will be saved.
+        * Name of the input bucket containing original CSV tables.
+        * Name of the output bucket for the Parquet file containing the joined tables.
 
-    1. In the input bucket, create a folder named `scripts` and [upload](../../storage/operations/objects/upload.md#simple) the `join-tables.py` file to it.
+    1. Create a folder named `scripts` in the input bucket and [upload](../../storage/operations/objects/upload.md#simple) the `join-tables.py` file to it.
 
-1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/join-tables.py`.
+1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) with the file path to your script specified in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/join-tables.py`.
 
-1. Wait for the job to complete and check that the output bucket's `parquet` folder contains the `part-00000-***` Parquet file.
+1. Wait for the job to complete and make sure the output bucket's `parquet` folder contains the `part-00000-***` Parquet file.
 
 {% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
@@ -200,7 +202,7 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 
 1. Prepare a script file:
 
-    1. Create a local file named `parquet-to-ch.py` and paste the following script to it:
+    1. Create a local file named `parquet-to-ch.py` and paste the following script into it:
 
         {% cut "parquet-to-ch.py" %}
         ```python
@@ -209,16 +211,16 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
         # Creating a Spark session
         spark = SparkSession.builder.appName("ParquetClickhouse").getOrCreate()
 
-        # Reading data from a Parquet file
+        # Reading data from the Parquet file
         parquetFile = spark.read.parquet("s3a://<output_bucket_name>/parquet/*.parquet")
 
-        # Specifying the port and {{ CH }} cluster parameters
+        # Specifying the port and other {{ CH }} cluster settings
         jdbcPort = 8443
         jdbcHostname = "c-<cluster_ID>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-        # Transferring a table from a Parquet file to a {{ CH }} table named `measurements`
+        # Loading the table from your Parquet file into the {{ CH }} `measurements` table
         parquetFile.write.format("jdbc") \
         .mode("error") \
         .option("url", jdbcUrl) \
@@ -232,14 +234,14 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 
     1. In your script, specify the following:
 
-        * Name of the bucket with the Parquet file.
+        * Name of the bucket containing your Parquet file.
         * {{ mch-name }} cluster ID.
-        * {{ CH }} user password.
+        * {{ CH }} password.
 
     1. [Upload](../../storage/operations/objects/upload.md#simple) the `parquet-to-ch.py` file to the input data bucket’s `scripts` folder.
 
-1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/parquet-to-ch.py`.
-1. Wait for the job to complete and make sure the joined table has been moved to the cluster:
+1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) with the file path to your script specified in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/parquet-to-ch.py`.
+1. Wait for the job to complete, then verify that the joined table has been transferred to the cluster:
 
     1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `db1` database in the {{ mch-name }} cluster as `user1`.
     1. Run this query:
@@ -248,14 +250,14 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
         SELECT * FROM measurements;
         ```
 
-    If the data export is successful, the response will contain the joined table.
+    If the data export is successful, you will receive the joined table in response.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete all objects](../../storage/operations/objects/delete.md) from the buckets.
-1. Delete other resources using the method matching their creation method:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

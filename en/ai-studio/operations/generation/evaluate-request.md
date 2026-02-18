@@ -53,7 +53,7 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
 
       {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
 
-      * `model`: Model URI. For more information, see [{#T}](../../sdk-ref/sync/chat/completions#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions.md).
+      * `model`: Model URI. For more information, see [Chat domain](../../sdk-ref/sync/chat/completions.md#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions).
 
   1. Run the file you created:
 
@@ -93,7 +93,7 @@ The example below estimates the size of a prompt to a {{ yagpt-name }} model.
      curl --request POST \
        --header "Authorization: Bearer ${IAM_TOKEN}" \
        --data "@tbody.json" \
-       "https://llm.api.cloud.yandex.net/foundationModels/v1/tokenize"
+       "https://ai.api.cloud.yandex.net/foundationModels/v1/tokenize"
      ```
   
      Where:

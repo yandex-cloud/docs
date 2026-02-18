@@ -8,6 +8,8 @@ description: Different use cases for {{ interconnect-name }} in {{ yandex-cloud 
 ## Creating {#create}
 * [{#T}](trunk-priv-add.md)
 * [{#T}](trunk-pub-add.md)
+* [{#T}](partner-trunk-priv-add.md)
+* [{#T}](partner-trunk-pub-add.md)
 
 ## Adding {#add}
 * [{#T}](priv-add.md)

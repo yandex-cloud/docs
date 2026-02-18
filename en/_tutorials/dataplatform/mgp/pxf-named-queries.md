@@ -10,7 +10,7 @@ Named queries can be used with data sources connected to a {{ GP }} cluster thro
 
 To get data from an external source using a named query:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Create an external data source](#create-jdbc-source).
 1. [Create a named query](#create-named-query).
 1. [Create an external table and get data from it](#create-ext-table).
@@ -30,7 +30,7 @@ The support cost for this solution includes:
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -41,6 +41,8 @@ Set up the infrastructure:
     1. In the {{ GP }} cluster [subnet](../../../vpc/concepts/network.md#subnet), [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
     1. [Create](../../../managed-postgresql/operations/cluster-create.md) a {{ mpg-name }} cluster with publicly available hosts.
+
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. In the {{ mpg-name }} cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
@@ -82,7 +84,7 @@ Set up the infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. [Connect](../../../managed-postgresql/operations/connect.md#bash) to the {{ PG }} database.
 

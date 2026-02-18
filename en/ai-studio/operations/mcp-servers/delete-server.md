@@ -29,7 +29,7 @@ To delete an MCP server from [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.m
       ```
   1. {% include [api-list-mcp-servers](../../../_includes/ai-studio/mcp-hub/api-list-mcp-servers.md) %}
 
-      Save the MCP server's `id`. You will need it to send a deletion request.
+      Save the MCP server `id`. You will need it to send a deletion request.
   1. Use the [McpGateway.Delete](../../mcp-gateway/api-ref/McpGateway/delete.md) REST API method to delete the selected MCP server by specifying its ID:
 
       {% note info %}
@@ -42,7 +42,7 @@ To delete an MCP server from [{{ mcp-hub-name }}](../../concepts/mcp-hub/index.m
       curl \
         --request DELETE \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/<MCP_server_ID>"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways/<MCP_server_ID>"
       ```
 
       {% cut "Result" %}

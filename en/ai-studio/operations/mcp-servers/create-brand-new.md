@@ -256,7 +256,7 @@ To create a new MCP server:
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --data "@body.json" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways"
       ```
 
       Result:
@@ -284,7 +284,7 @@ To create a new MCP server:
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        "https://serverless-mcp-gateway.{{ api-host }}/mcpgateway/v1/mcpGateways/<MCP_server_ID>"
+        "https://ai.{{ api-host }}/mcpgateway/v1/mcpGateways/<MCP_server_ID>"
       ```
 
       {% cut "Result" %}

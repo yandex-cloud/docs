@@ -1,6 +1,6 @@
 ---
 title: Connecting to an {{ OS }} cluster in {{ mos-full-name }}
-description: You can connect to {{ OS }} cluster hosts with the DATA role over the internet if you have set up public access to the host of interest, and from {{ yandex-cloud }} VMs residing in the same virtual network.
+description: You can connect to {{ OS }} cluster hosts with the `DATA` role over the internet if you have set up public access to the host of interest, and from {{ yandex-cloud }} VMs residing in the same virtual network.
 keywords:
   - connecting OpenSearch clusters
   - OpenSearch cluster
@@ -45,15 +45,15 @@ Here is a host FQDN example:
 
 ### Getting a host FQDN {#get-fqdn}
 
-There are several ways to get an {{ OS }} host FQDN:
+There are several ways to get a {{ OS }} host's FQDN:
 
 * Look up the FQDN in the management console:
 
     1. Navigate to the cluster page.
-    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Get the list of cluster hosts](host-groups.md#list-hosts) using the CLI or API.
 
@@ -65,9 +65,9 @@ You can connect to hosts with the `DATA` role using a special FQDN with port `92
 
 You can use a special FQDN to send requests to a specific host group with the `DATA` role. To do this, add the `X-Yandex-OpenSearch-NodeGroup=<host_group_name>` header to the request.
 
-You can get the name of the host group with [cluster details](cluster-list.md#get-cluster).
+You can get the host group name with [cluster details](cluster-list.md#get-cluster).
 
-In clusters with multiple `DATA ` or `DASHBOARDS` hosts, a special FQDN may temporarily point to an unavailable host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
+In clusters with multiple `DATA` or `DASHBOARDS` hosts, a special FQDN may temporarily point to an unavailable host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
 
 {% note warning %}
 
@@ -172,7 +172,7 @@ When using the {{ OS }} Dashboards API:
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mos-name }} cluster from a Docker container, add the following lines to your Dockerfile:
+To connect to a {{ mos-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
 

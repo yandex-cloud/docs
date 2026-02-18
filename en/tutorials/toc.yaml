@@ -1400,6 +1400,10 @@ items:
             href: routing/trunk-priv-add.md
           - name: Creating a direct trunk and a public connection in it
             href: routing/trunk-pub-add.md
+          - name: Creating a new partner trunk and a private connection in it
+            href: routing/partner-trunk-priv-add.md
+          - name: Creating a new partner trunk and a public connection in it
+            href: routing/partner-trunk-pub-add.md
           - name: Adding a private connection to a direct or partner trunk
             href: routing/priv-add.md
           - name: Adding a public connection to a direct or partner trunk
