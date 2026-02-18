@@ -43,6 +43,8 @@ items:
         href: concepts/agents/realtime.md
       - name: Text-based agents
         href: concepts/agents/text-agents.md
+      - name: Conversations API
+        href: concepts/agents/conversations-api.md
       - name: '{{ assistant-api }}'
         hidden: true
         items:
@@ -164,6 +166,8 @@ items:
             href: operations/agents/create-function-text-agent.md
           - name: Creating a voice agent via {{ realtime-api }}
             href: operations/agents/create-voice-agent.md
+          - name: Managing conversation context
+            href: operations/agents/manage-context.md
           - name: '{{ assistant-api }}'
             hidden: true
             items:

@@ -15,8 +15,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -28,7 +28,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
+        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster of any suitable configuration. To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
@@ -59,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing inbound connections to the {{ mkf-name }} and {{ mos-name }} clusters.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing connections to the {{ mkf-name }} and {{ mos-name }} clusters.
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic named `sensors`.
             * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
@@ -90,9 +92,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install the following tools:
+1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
@@ -100,7 +102,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
+    - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -156,7 +158,7 @@ Create a local `sample.json` file with the following test data:
 
 {% note tip %}
 
-You can provide data to the {{ mos-name }} cluster as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
+You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
 {% endnote %}
 
@@ -254,7 +256,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
@@ -263,7 +265,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -277,15 +279,15 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        1. The transfer will activate automatically upon creation. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mos-name }} cluster:
+Make sure data from the {{ mkf-name }} source cluster topic can be transferred to the {{ mos-name }} cluster:
 
-1. Send data from the `sample.json` file to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
+1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
@@ -295,13 +297,13 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="mkf-user" \
-       -X sasl.password="<source_cluster_user_password>" \
+       -X sasl.password="<user_password_in_source_cluster>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
-    To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+    To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Check that the {{ mos-name }} cluster's `sensors` index contains the data that was sent:
+1. Check that the {{ mos-name }} cluster's `sensors` index contains the data you sent:
 
     {% list tabs group=programming_language %}
 
@@ -321,7 +323,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
         1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
         1. Select the `Global` tenant.
-        1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+        1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
         1. Under **OpenSearch Dashboards**, select **Discover**.
         1. In the **CHANGE INDEX PATTERN** field, select the `sensors` index.
 
@@ -335,11 +337,11 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

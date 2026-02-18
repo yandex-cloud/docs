@@ -22,7 +22,7 @@ Automatic backups are stored for two weeks.
 
 When a new version is released, the cluster software is [automatically updated](../../managed-opensearch/concepts/update-policy.md) after testing. Clusters running on an {{ OS }} version that is no longer supported will also be automatically updated.
 
-Owners of affected clusters will receive a notice of expected update times and database availability.
+The owner of the affected clusters receives an advance email notice of the update schedule and database availability.
 
 {% include [logs](../logs.md) %}
 
@@ -52,15 +52,15 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell? {#get-ssl-error}
 
-Here is the full text of the error:
+Complete error message:
 
 ```text
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means that when connecting to the website, the service was unable to check whether its certificate was listed among the revoked ones.
+This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
 
 To fix this error:
 
@@ -77,7 +77,7 @@ To fix this error:
 
 #### Why do I get an `Unable to confirm permission` error when activating a transfer? {#data-transfer-error}
 
-Here is the full text of the error:
+Complete error message:
 
 ```text
 Unable to confirm permission 'data-transfer.transfers.createExternal'
@@ -86,6 +86,26 @@ Unable to confirm permission 'data-transfer.transfers.createExternal'
 This error occurs if the transfer is activated in or from a custom {{ OS }} installation database, but the {{ OS }} endpoint settings have no subnet ID specified.
 
 To fix this error, specify a subnet ID in the {{ OS }} endpoint settings, even if the source and target can access each other without the internet.
+
+
+#### How do I make sure that {{ ai-studio-full-name }} AI models can access my {{ mos-name }} cluster for fine-tuning? {#ai-access}
+
+Use one of these methods:
+
+* Configure internet access to hosts with the `DATA` and `MANAGER` roles:
+
+    1. [Enable](../../managed-opensearch/operations/host-groups.md#update-host-group) the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option in the `DATA`/`MANAGER` host group settings.
+    1. [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mos }}`. To do this, create the following ingress rule:
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mos }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+
+* Create and set up a NAT gateway:
+
+    1. [Create a NAT gateway](../../vpc/operations/create-nat-gateway.md).
+    1. [Create a route table](../../vpc/operations/static-route-create.md) with the `0.0.0.0/0` prefix and associate it with the subnet where the group of `DATA` and `MANAGER` hosts reside.
+
 
 #### What is the role of {{ mos-short-name }} in database management and maintenance? {#services}
 

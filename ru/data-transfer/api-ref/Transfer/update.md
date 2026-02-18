@@ -65,22 +65,30 @@ apiPlayground:
         type: object
         properties:
           jobCount:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Number of workers.
             type: string
             format: int64
           processCount:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Number of threads.
             type: string
             format: int64
       YcRuntime:
         type: object
         properties:
           jobCount:
-            description: '**string** (int64)'
+            description: |-
+              **string** (int64)
+              Number of workers in parallel replication.
             type: string
             format: int64
           uploadShardParams:
-            description: '**[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**'
+            description: |-
+              **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**
+              Parallel snapshot parameters
             $ref: '#/definitions/ShardingUploadParams'
       Runtime:
         type: object
@@ -333,41 +341,53 @@ apiPlayground:
           maskField:
             description: |-
               **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
+              Mask field transformer allows you to hash data
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/MaskFieldTransformer'
           filterColumns:
             description: |-
               **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
+              Set up a list of table columns to transfer
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/FilterColumnsTransformer'
           renameTables:
             description: |-
               **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
+              Set rules for renaming tables by specifying the current names of the tables in
+              the source and new names for these tables in the target
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/RenameTablesTransformer'
           replacePrimaryKey:
             description: |-
               **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
+              Override primary keys.
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/ReplacePrimaryKeyTransformer'
           convertToString:
             description: |-
               **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
+              Convert column values to strings
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/ToStringTransformer'
           sharderTransformer:
             description: |-
               **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
+              Set the number of shards for particular tables and a list of columns whose
+              values will be used for calculating a hash to determine a shard.
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/SharderTransformer'
           tableSplitterTransformer:
             description: |-
               **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
+              Splits the X table into multiple tables (X_1, X_2, ..., X_n) based on data.
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/TableSplitterTransformer'
           filterRows:
             description: |-
               **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
+              This filter only applies to transfers with queues (Logbroker or Apache Kafka®)
+              as a data source. When running a transfer, only the strings meeting the
+              specified criteria remain in a changefeed.
               Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
             $ref: '#/definitions/FilterRowsTransformer'
         oneOf:
@@ -393,7 +413,8 @@ apiPlayground:
           transformers:
             description: |-
               **[Transformer](#yandex.cloud.datatransfer.v1.Transformer)**
-              Transformers are set as a list.
+              A list of transformers. You can specify exactly 1 transformer in each element of
+              list
               When activating a transfer, a transformation plan is made for the tables that
               match the specified criteria.
               Transformers are applied to the tables in the sequence specified in the list.
@@ -649,18 +670,30 @@ Includes only one of the fields `ycRuntime`. ||
 
 ## YcRuntime {#yandex.cloud.datatransfer.v1.YcRuntime}
 
+YC Runtime parameters for the transfer
+
 #|
 ||Field | Description ||
-|| jobCount | **string** (int64) ||
-|| uploadShardParams | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)** ||
+|| jobCount | **string** (int64)
+
+Number of workers in parallel replication. ||
+|| uploadShardParams | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**
+
+Parallel snapshot parameters ||
 |#
 
 ## ShardingUploadParams {#yandex.cloud.datatransfer.v1.ShardingUploadParams}
 
+Parallel snapshot parameters
+
 #|
 ||Field | Description ||
-|| jobCount | **string** (int64) ||
-|| processCount | **string** (int64) ||
+|| jobCount | **string** (int64)
+
+Number of workers. ||
+|| processCount | **string** (int64)
+
+Number of threads. ||
 |#
 
 ## Transformation {#yandex.cloud.datatransfer.v1.Transformation}
@@ -675,7 +708,8 @@ Data can only be transformed if the source and target are of different types.
 ||Field | Description ||
 || transformers[] | **[Transformer](#yandex.cloud.datatransfer.v1.Transformer)**
 
-Transformers are set as a list.
+A list of transformers. You can specify exactly 1 transformer in each element of
+list
 When activating a transfer, a transformation plan is made for the tables that
 match the specified criteria.
 Transformers are applied to the tables in the sequence specified in the list. ||
@@ -690,26 +724,46 @@ pairs.
 ||Field | Description ||
 || maskField | **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
 
+Mask field transformer allows you to hash data
+
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 || filterColumns | **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
+
+Set up a list of table columns to transfer
 
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 || renameTables | **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
 
+Set rules for renaming tables by specifying the current names of the tables in
+the source and new names for these tables in the target
+
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 || replacePrimaryKey | **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
+
+Override primary keys.
 
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 || convertToString | **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
 
+Convert column values to strings
+
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 || sharderTransformer | **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
+
+Set the number of shards for particular tables and a list of columns whose
+values will be used for calculating a hash to determine a shard.
 
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 || tableSplitterTransformer | **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
 
+Splits the X table into multiple tables (X_1, X_2, ..., X_n) based on data.
+
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 || filterRows | **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
+
+This filter only applies to transfers with queues (Logbroker or Apache Kafka®)
+as a data source. When running a transfer, only the strings meeting the
+specified criteria remain in a changefeed.
 
 Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
 |#

@@ -2345,6 +2345,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Cluster.AddShard
 
 Creates a new shard in the specified cluster.
+Deprecated. Use **AddShards** instead.
 
 ## HTTP request
 

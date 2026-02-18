@@ -1,6 +1,6 @@
 
 
-You can set up a data transfer from a {{ mpg-name }} database to a {{ mmy-name }} database using {{ data-transfer-name }}. To do this:
+You can set up a data transfer from a {{ mpg-name }} database to a {{ mmy-name }} database using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -23,6 +23,8 @@ Set up your infrastructure:
 {% list tabs group=instructions %}
 
 - Manually {#manual}
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. [Create a {{ mpg-name }} source cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) in any [availability zone](../../../overview/concepts/geo-scope.md) with publicly accessible hosts (of any suitable configuration) and the following settings:
 
@@ -54,7 +56,7 @@ Set up your infrastructure:
 
         This file describes:
 
-        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
+        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) that will host your clusters.
         * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
         * {{ mpg-name }} source cluster.
         * {{ mmy-name }} target cluster.

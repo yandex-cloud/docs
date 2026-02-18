@@ -44,6 +44,8 @@ The support cost for this solution includes:
 
     1. [Create](../../managed-valkey/operations/cluster-create.md) a {{ mrd-name }} cluster with any suitable configuration. To connect to the cluster from your local machine outside {{ yandex-cloud }}, enable TLS and public access for cluster hosts when creating the cluster.
 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     1. Optionally, [create an intermediate Linux VM](../../compute/operations/vm-create/create-linux-vm.md) in {{ compute-full-name }} in the same network as the {{ mrd-name }} cluster using the following configuration:
 
         * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).

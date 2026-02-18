@@ -47,6 +47,10 @@ items:
         href: tutorials/trunk-priv-add.md
       - name: Creating a direct trunk and a public connection in it
         href: tutorials/trunk-pub-add.md
+      - name: Creating a partner trunk and a private connection in it
+        href: tutorials/partner-trunk-priv-add.md
+      - name: Creating a partner trunk and a public connection in it
+        href: tutorials/partner-trunk-pub-add.md
       - name: Adding a private connection to a trunk
         href: tutorials/priv-add.md
       - name: Changing VPC IP prefixes in a routing instance

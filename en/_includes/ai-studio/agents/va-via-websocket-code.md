@@ -234,8 +234,8 @@ async def main():
                     "If asked about the weather, call the get_weather function."
                     "If asked about {voice profiler}, use the file_search function"
                 ),
-                # Response format configuration: response can contain both text and audio
-                "output_modalities": ["text", "audio"],
+                # Response format configuration: the response can contain only audio or text
+                "output_modalities": ["audio"], # example for audio
                 "audio": {
                     "input": {
                         # Input audio format
@@ -279,7 +279,7 @@ async def main():
                         "description": "Web search",
                         "parameters": "{}",
                     },
-                    # File system search tool
+                    # File search tool
                     {
                         "type": "function",
                         "name": "file_search",  # required function name
@@ -408,15 +408,7 @@ async def main():
 
                     # Request for a new agent response
                     log("Sending response.create after function")
-                    await ws.send_json(
-                        {
-                            "type": "response.create",
-                            "response": {
-                                "modalities": ["audio", "text"],
-                                "conversation": "default",
-                            },
-                        }
-                    )
+                    await ws.send_json({"type": "response.create"}) 
                 continue
 
             # Handling errors

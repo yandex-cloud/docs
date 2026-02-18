@@ -43,7 +43,7 @@ To use an example:
 
      client = openai.OpenAI(
          api_key=YANDEX_CLOUD_API_KEY,
-         base_url="https://rest-assistant.api.cloud.yandex.net/v1",
+         base_url="https://ai.api.cloud.yandex.net/v1",
          project=YANDEX_CLOUD_FOLDER
      )
      

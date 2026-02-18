@@ -16,9 +16,9 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
 * Snapshots
 
-    This method is good for {{ ES }} cluster versions 7.11 or lower.
+    This method is good for {{ ES }} cluster versions 7.11 or lower.
 
-    For more information about snapshots, see the [relevant {{ OS }} article]({{ os.docs }}/opensearch/snapshots/index/).
+    For more information about snapshots, see [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/index/).
 
 * Remote [reindexing]({{ os.docs }}/opensearch/reindex-data/).
 
@@ -29,9 +29,9 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
 The support cost for this solution includes:
 
-* {{ mos-name }} cluster fee: using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster fee, which covers the use of computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk storage (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket fee, which covers data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Migration using snapshots {#snapshot}
@@ -63,9 +63,9 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
         {% endnote %}
 
-    1. [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in your desired configuration with the following settings:
+    1. [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in your desired configuration with public access to a group of hosts with the `DATA` role.
 
-        * Public access to a group of `DATA` hosts.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 - Using {{ TF }} {#tf}
 
@@ -78,7 +78,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mos-name }} cluster.
         * Service account for working with the {{ objstorage-name }} bucket.
         * {{ objstorage-name }} bucket.
         * Target {{ mos-name }} cluster.
@@ -90,7 +90,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
         * `os_admin_password`: {{ OS }} admin password.
         * `os_version`: {{ OS }} version.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -115,7 +115,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     1. Click **{{ ui-key.yacloud.common.add }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
-1. Set up the source {{ ES }} cluster:
+1. Configure the {{ ES }} source cluster:
 
     {% include [source-3p](es-mos-migration/source-3p.md) %}
 
@@ -227,7 +227,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     
       1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
       1. Select the `Global` tenant.
-      1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+      1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
       1. Under **{{ OS }} Plugins**, select **Index Management**.
       1. Navigate to **Indexes**.
 
@@ -239,7 +239,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 ### Delete the resources you created {#clear-out-snapshot}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
@@ -280,6 +280,8 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
         [Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in your desired configuration with public access to a group of hosts with the `DATA` role.
 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     - Using {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -291,7 +293,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mos-name }} cluster.
             * Target {{ mos-name }} cluster.
 
         1. In the `es-mos-migration-reindex.tf` file, specify these variables:
@@ -299,7 +301,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
             * `os_admin_password`: {{ OS }} admin password.
             * `os_version`: {{ OS }} version.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -460,7 +462,7 @@ Make sure all indexes have been migrated to the target {{ mos-name }} cluster an
 
   1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
   1. Select the `Global` tenant.
-  1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+  1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
   1. Under **{{ OS }} Plugins**, select **Index Management**.
   1. Navigate to **Indexes**.
 
@@ -473,7 +475,7 @@ Make sure all indexes have been migrated to the target {{ mos-name }} cluster an
 
 
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
 * Delete the resources depending on how you created them:

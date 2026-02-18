@@ -182,15 +182,41 @@ Keystore entries names to remove. ||
 
 ## OpenSearchConfig2 {#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2}
 
+OpenSearch server configuration settings.
+
 #|
 ||Field | Description ||
 || max_clause_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-the maximum number of allowed boolean clauses in a query ||
+Defines the maximum product of fields and terms that are queryable simultaneously.
+Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
+Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
+New thread pools use the updated value.
+
+Default value: **1024**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || fielddata_cache_size | **string**
 
-the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata ||
-|| reindex_remote_whitelist | **string** ||
+The maximum size of the field data cache.
+May be specified as an absolute value (for example, 8GB) or a percentage of the node heap (for example, 50%).
+This setting is dynamic. If you don't specify this setting, the maximum size is 35%.
+This value should be smaller than the **indices.breaker.fielddata.limit**
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| reindex_remote_whitelist | **string**
+
+Allowed remote hosts
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
 |#
 
 ## KeystoreSetting {#yandex.cloud.mdb.opensearch.v1.KeystoreSetting}
@@ -877,22 +903,52 @@ Limit on how large the storage for database instances can automatically grow, in
 ||Field | Description ||
 || effective_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)**
 
-Required field. ||
-|| user_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)** ||
-|| default_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)** ||
+Required field. Effective configuration (a combination of user-defined configuration and default configuration). ||
+|| user_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)**
+
+User-defined configuration. ||
+|| default_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22)**
+
+Default configuration. ||
 |#
 
 ## OpenSearchConfig2 {#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig22}
+
+OpenSearch server configuration settings.
 
 #|
 ||Field | Description ||
 || max_clause_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-the maximum number of allowed boolean clauses in a query ||
+Defines the maximum product of fields and terms that are queryable simultaneously.
+Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
+Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
+New thread pools use the updated value.
+
+Default value: **1024**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
+
+Acceptable values are 1 to 2147483647, inclusive. ||
 || fielddata_cache_size | **string**
 
-the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata ||
-|| reindex_remote_whitelist | **string** ||
+The maximum size of the field data cache.
+May be specified as an absolute value (for example, 8GB) or a percentage of the node heap (for example, 50%).
+This setting is dynamic. If you don't specify this setting, the maximum size is 35%.
+This value should be smaller than the **indices.breaker.fielddata.limit**
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| reindex_remote_whitelist | **string**
+
+Allowed remote hosts
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
 |#
 
 ## Dashboards {#yandex.cloud.mdb.opensearch.v1.Dashboards}

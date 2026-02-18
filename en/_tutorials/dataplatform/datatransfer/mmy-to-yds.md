@@ -38,6 +38,8 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Grant the user](../../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` admin privileges.
 
     

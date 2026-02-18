@@ -5,7 +5,7 @@ A {{ ydb-name }} cluster can ingest data from {{ PG }} databases in real time. T
 
 To start data delivery:
 
-1. [Set up the source cluster](#prepare-source).
+1. [Prepare the source cluster](#prepare-source).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 
@@ -31,7 +31,10 @@ Set up your data delivery infrastructure:
 - Manually {#manual}
 
     1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) using any suitable configuration with publicly accessible hosts.
-    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
     1. [In the source cluster, create a user](../../managed-postgresql/operations/cluster-users.md#adduser) and [assign them](../../managed-postgresql/operations/grant.md) the `mdb_replication` role.
 
 
@@ -171,7 +174,7 @@ Set up your data delivery infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Make sure the data from the {{ mpg-name }} source cluster has been transferred to the {{ ydb-name }} database:

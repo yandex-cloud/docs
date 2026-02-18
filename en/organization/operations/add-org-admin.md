@@ -13,7 +13,7 @@ description: Follow this guide to assign a user as an organization administrator
   
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
 
   1. Select the user you want to assign as an administrator. If required, use the search bar.
 

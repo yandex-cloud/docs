@@ -212,7 +212,6 @@ To get the folder ID, make a
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
 || type | enum **TransferType**
 
-- `TRANSFER_TYPE_UNSPECIFIED`
 - `SNAPSHOT_AND_INCREMENT`: Snapshot and increment
 - `SNAPSHOT_ONLY`: Snapshot
 - `INCREMENT_ONLY`: Increment ||
@@ -241,18 +240,30 @@ Includes only one of the fields `yc_runtime`. ||
 
 ## YcRuntime {#yandex.cloud.datatransfer.v1.YcRuntime}
 
+YC Runtime parameters for the transfer
+
 #|
 ||Field | Description ||
-|| job_count | **int64** ||
-|| upload_shard_params | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)** ||
+|| job_count | **int64**
+
+Number of workers in parallel replication. ||
+|| upload_shard_params | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**
+
+Parallel snapshot parameters ||
 |#
 
 ## ShardingUploadParams {#yandex.cloud.datatransfer.v1.ShardingUploadParams}
 
+Parallel snapshot parameters
+
 #|
 ||Field | Description ||
-|| job_count | **int64** ||
-|| process_count | **int64** ||
+|| job_count | **int64**
+
+Number of workers. ||
+|| process_count | **int64**
+
+Number of threads. ||
 |#
 
 ## Transformation {#yandex.cloud.datatransfer.v1.Transformation}
@@ -267,7 +278,8 @@ Data can only be transformed if the source and target are of different types.
 ||Field | Description ||
 || transformers[] | **[Transformer](#yandex.cloud.datatransfer.v1.Transformer)**
 
-Transformers are set as a list.
+A list of transformers. You can specify exactly 1 transformer in each element of
+list
 When activating a transfer, a transformation plan is made for the tables that
 match the specified criteria.
 Transformers are applied to the tables in the sequence specified in the list. ||
@@ -282,26 +294,46 @@ pairs.
 ||Field | Description ||
 || mask_field | **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
 
+Mask field transformer allows you to hash data
+
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 || filter_columns | **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
+
+Set up a list of table columns to transfer
 
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 || rename_tables | **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
 
+Set rules for renaming tables by specifying the current names of the tables in
+the source and new names for these tables in the target
+
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 || replace_primary_key | **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
+
+Override primary keys.
 
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 || convert_to_string | **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
 
+Convert column values to strings
+
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 || sharder_transformer | **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
+
+Set the number of shards for particular tables and a list of columns whose
+values will be used for calculating a hash to determine a shard.
 
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 || table_splitter_transformer | **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
 
+Splits the X table into multiple tables (X_1, X_2, ..., X_n) based on data.
+
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 || filter_rows | **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
+
+This filter only applies to transfers with queues (Logbroker or Apache Kafka®)
+as a data source. When running a transfer, only the strings meeting the
+specified criteria remain in a changefeed.
 
 Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 |#

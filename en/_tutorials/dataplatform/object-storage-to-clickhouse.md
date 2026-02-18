@@ -1,9 +1,9 @@
 # Loading data from {{ objstorage-full-name }} to {{ mch-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ objstorage-full-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-full-name }} to a {{ mch-name }} table using {{ data-transfer-name }}. Proceed as follows:
 
-1. [Prepare the test data](#prepare-data).
+1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mch-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -26,13 +26,15 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
+    1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration with the following settings:
 
-        * Number of {{ CH }} hosts: Minimum of 2 to enable replication within the cluster.
-        * Public access to cluster hosts: Allowed.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
+        * Number of {{ CH }} hosts: Minimum of 2 to enable replication within the cluster.
+        * Public access to cluster hosts: Allowed.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
     1. If using security groups, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
@@ -62,15 +64,15 @@ Set up your infrastructure:
         * Cluster access [security group](../../vpc/concepts/security-groups.md).
         * Service account for bucket operations, e.g., creation and access.
         * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
-        * Source {{ objstorage-name }} bucket.
-        * Target {{ mch-name }} cluster.
+        * {{ objstorage-name }} source bucket.
+        * {{ mch-name }} target cluster.
         * Target endpoint.
         * Transfer.
 
     1. In the `object-storage-to-clickhouse.tf` file, specify the following:
 
-        * `folder_id`: Cloud folder ID matching the one specified in your provider settings.
-        * `bucket_name`: Bucket name consistent with the following [naming conventions](../../storage/concepts/bucket.md#naming).
+        * `folder_id`: Cloud folder ID, same as in the provider settings.
+        * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `ch_password`: {{ CH }} user password.
 
     1. Validate your {{ TF }} configuration files using this command:
@@ -91,7 +93,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. Prepare two CSV files with test data:
+1. Create two CSV files with test data:
 
     * `demo_data1.csv`:
 
@@ -120,7 +122,7 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Service account’s static access key ID. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
@@ -134,9 +136,9 @@ Set up your infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Keep the default values for all other settings.
+    Leave the other settings at their defaults.
 
-1. Create a target endpoint and set up the transfer:
+1. Create a target endpoint and a transfer:
 
     {% list tabs group=instructions %}
 
@@ -209,7 +211,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data2.csv` file to the {{ objstorage-name }} bucket.
 
-1. Verify that the data from `demo_data2.csv` has been loaded into the target database:
+1. Make sure the data from `demo_data2.csv` has been added to the target database:
 
     1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `db1` database in the {{ mch-name }} target cluster.
 

@@ -33,6 +33,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Cluster.DeleteShard
 
 Deletes the specified shard.
+Deprecated. Use **DeleteShards** instead.
 
 ## HTTP request
 

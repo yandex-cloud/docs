@@ -17,7 +17,7 @@ The host class determines the available [disk types](./storage.md):
 For storage size limitations, see [Quotas and limits](limits.md).
 
 
-The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM available for {{ CH }} to run. For more information, see [Memory management](memory-management.md).
+The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM {{ CH }} can use. For more information, see [Memory management](memory-management.md).
 
 ## Available host classes {#available-flavors}
 

@@ -36,6 +36,8 @@ description: Various {{ vpc-name }} use cases in {{ yandex-cloud }}.
 * [Configuring {{ interconnect-name }} access to cloud networks behind NGFWs](cic-with-ngfw.md)
 * [Creating a direct trunk and a private connection in it](trunk-priv-add.md)
 * [Creating a direct trunk and a public connection in it](trunk-pub-add.md)
+* [Creating a new partner trunk and a private connection in it](partner-trunk-priv-add.md)
+* [Creating a new partner trunk and a public connection in it](partner-trunk-pub-add.md)
 * [Adding a private connection to a direct or partner trunk](priv-add.md)
 * [Adding a public connection to a direct or partner trunk](pub-add.md)
 * [Changing trunk capacity](trunk-capacity-change.md)

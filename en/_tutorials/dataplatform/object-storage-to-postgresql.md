@@ -1,7 +1,7 @@
 # Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }} via {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-full-name }} to a {{ mpg-name }} table using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Set up the transfer](#prepare-transfer).
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -26,12 +26,14 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ mpg-name }}] target cluster(../../managed-postgresql/operations/cluster-create.md) using any suitable [base configuration](../../managed-postgresql/concepts/instance-types.md) and the following settings:
+    1. [Create a {{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) of any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with the following settings:
 
-        * Public access to cluster hosts: Allowed.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
+        * Public access to cluster hosts: Allowed.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
     1. If using security groups, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
@@ -61,13 +63,13 @@ Set up your infrastructure:
         * Service account for bucket operations, e.g., creation and access.
         * {{ lockbox-name }} secret for the service account static key required to configure the source endpoint.
         * {{ objstorage-name }} source bucket.
-        * Target {{ mpg-name }} cluster.
+        * {{ mpg-name }} target cluster.
         * Target endpoint.
         * Transfer.
 
     1. In the `objstorage-to-postgres.tf` file, specify the following:
 
-        * `folder_id`: Cloud folder ID matching the one specified in your provider settings.
+        * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `pg_password`: {{ PG }} user password.
 
@@ -109,7 +111,7 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public component of the service account’s static key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Service account’s static access key ID. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Service account’s secret access key. If you created your infrastructure using {{ TF }}, [copy the key’s value from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
@@ -123,15 +125,15 @@ Set up your infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Keep the default values for all other settings.
+    Leave the other settings at their defaults.
 
-1. Create a target endpoint and set up the transfer:
+1. Create a target endpoint and a transfer:
 
     {% list tabs group=resources %}
 
     - Manually {#manual}
 
-        1. Create a `{{ PG }}`-type [target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) and specify its cluster connection settings:
+        1. [Create a `{{ PG }}` target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) with these cluster connection settings:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Select the name of the {{ PG }} source cluster from the drop-down list.

@@ -53,3 +53,4 @@ description: Различные сценарии использования ма
 * [{#T}](pdf-searchindex-ai-assistant.md)
 * [{#T}](ai-model-ide-integration.md)
 * [{#T}](tg-bot-assistant.md)
+* [{#T}](data-catalog-integration.md)

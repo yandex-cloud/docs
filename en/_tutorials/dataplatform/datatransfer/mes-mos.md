@@ -3,7 +3,7 @@
 
 You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. Proceed as follows:
 
-1. [Set up the source cluster](#configure-source).
+1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -28,7 +28,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        [Create a {{ mos-name }} target cluster](../../../managed-opensearch/operations/cluster-create.md) using any suitable configuration with publicly accessible hosts.
+        [Create a {{ mos-name }} target cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly accessible hosts.
+
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     - {{ TF }} {#tf}
 
@@ -40,15 +42,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * [Network](../../../vpc/concepts/network.md#network).
             * [Subnet](../../../vpc/concepts/network.md#subnet).
-            * [Security group](../../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+            * [Security group](../../../vpc/concepts/security-groups.md) and rules for connecting to a {{ mos-name }} cluster.
             * {{ mos-name }} target cluster.
             * Transfer.
 
         1. In the `data-transfer-es-mos.tf` file, specify the following variables:
 
             * `mos_version`: {{ OS }} version.
-            * `mos_admin_password`: {{ mos-name }} admin user password.
-            * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+            * `mos_admin_password`: {{ mos-name }} admin password.
+            * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
 
         1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
         1. Validate your {{ TF }} configuration files using this command:
@@ -75,16 +77,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt install --yes curl
         ```
 
-    * [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
+    * [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt install --yes jq
         ```
 
-## Set up the source cluster {#configure-source}
+## Configure the source cluster {#configure-source}
 
 
-You can provide data from the {{ ES }} cluster as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each task. To do this, create a user to execute the transfer:
+You can deliver data from the {{ ES }} cluster as `admin` with the `superuser` role; however, however, a more secure strategy is to create dedicated users with limited privileges for each job. To do this, create a user to execute the transfer:
 
 1. In the source cluster, [create a role]({{ links.es.docs }}/elasticsearch/reference/current/defining-roles.html) with the `create_index` and `write` [privileges]({{ links.es.docs }}/elasticsearch/reference/current/security-privileges.html#privileges-list-indices) for all indexes (`*`).
 
@@ -95,10 +97,10 @@ You can provide data from the {{ ES }} cluster as the `admin` user with the `sup
 1. In the source cluster, create a test index named `people` and define its schema:
 
     ```bash
-    curl --user <username_in_source_cluster>:<source_cluster_user_password> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people' && \
-    curl --user <source_cluster_user_name>:<source_cluster_user_password> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people/_mapping?pretty' \
          --data'
@@ -114,7 +116,7 @@ You can provide data from the {{ ES }} cluster as the `admin` user with the `sup
 1. Populate the test index with data:
 
     ```bash
-    curl --user <source_cluster_user_name>:<source_cluster_user_password> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people/_doc/?pretty' \
          --data'
@@ -123,7 +125,7 @@ You can provide data from the {{ ES }} cluster as the `admin` user with the `sup
                "age" : "30"
          }
          ' && \
-    curl --user <username_in_source_cluster>:<source_cluster_user_password> \
+    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people/_doc/?pretty' \
          --data'
@@ -146,9 +148,9 @@ You can provide data from the {{ ES }} cluster as the `admin` user with the `sup
 
 1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
-1. Optionally, create a user to execute the transfer.
+1. Optionally, create a user to run the transfer.
 
-    You can provide data to the {{ mos-name }} cluster as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each task.
+    You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job.
 
     1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
@@ -166,7 +168,7 @@ You can provide data from the {{ ES }} cluster as the `admin` user with the `sup
 
     - Manually {#manual}
 
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the endpoints you created.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
     - {{ TF }} {#tf}
@@ -175,7 +177,7 @@ You can provide data from the {{ ES }} cluster as the `admin` user with the `sup
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -195,7 +197,7 @@ You can provide data from the {{ ES }} cluster as the `admin` user with the `sup
 
 ## Test the transfer {#verify-transfer}
 
-Check that the {{ mos-name }} cluster's `people` index contains the data that was sent:
+Check that the {{ mos-name }} cluster's `people` index contains the data you sent:
 
 {% list tabs group=programming_language %}
 
@@ -214,7 +216,7 @@ Check that the {{ mos-name }} cluster's `people` index contains the data that wa
 
     1. [Connect](../../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
     1. Select the `Global` tenant.
-    1. Open the control panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
+    1. Open the management panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
     1. Under **OpenSearch Dashboards**, select **Discover**.
     1. In the **CHANGE INDEX PATTERN** field, select the `people` index.
 
@@ -222,11 +224,11 @@ Check that the {{ mos-name }} cluster's `people` index contains the data that wa
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

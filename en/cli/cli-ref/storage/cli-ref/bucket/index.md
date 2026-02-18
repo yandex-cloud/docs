@@ -20,15 +20,23 @@ Aliases:
 
 - [yc storage bucket create](create.md) — Create new bucket
 
+- [yc storage bucket create-inventory-configuration](create-inventory-configuration.md) — Creates bucket inventory configuration
+
 - [yc storage bucket delete](delete.md) — Delete the specified bucket
 
 - [yc storage bucket delete-https](delete-https.md) — Deletes bucket https settings
+
+- [yc storage bucket delete-inventory-configuration](delete-inventory-configuration.md) — Delete bucket inventory configuration
 
 - [yc storage bucket get](get.md) — Show information about the specified bucket
 
 - [yc storage bucket get-https](get-https.md) — Shows bucket https settings
 
+- [yc storage bucket get-inventory-configuration](get-inventory-configuration.md) — Get bucket inventory configuration
+
 - [yc storage bucket list](list.md) — Lists buckets of specified folder id
+
+- [yc storage bucket list-inventory-configurations](list-inventory-configurations.md) — Listing bucket inventory configurations
 
 - [yc storage bucket set-https](set-https.md) — Sets bucket https settings
 

@@ -5,40 +5,38 @@ You can supply data from {{ RMQ }} to a {{ mch-name }} cluster in real time. {{ 
 
 To set up data delivery from {{ RMQ }} to {{ mch-name }}:
 
-1. [Set up integration with {{ RMQ }} for the {{ mch-name }} cluster](#configure-mch-for-rmq).
-1. [In the {{ mch-name }} cluster, create a {{ RMQ }} table](#create-rmq-table).
+1. [Set up {{ RMQ }} integration for your {{ mch-name }} cluster](#configure-mch-for-rmq).
+1. [Create a {{ RMQ }} table in the {{ mch-name }} cluster](#create-rmq-table).
 1. [Send the test data to the {{ RMQ }} queue](#send-sample-data-to-rmq).
-1. [Check that the test data is present in the {{ mch-name }} cluster table](#fetch-sample-data).
+1. [Make sure the test data appears in the {{ mch-name }} cluster table](#fetch-sample-data).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name } pricing}](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee: using computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mch-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee, which covers the use of computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with the `db1` database. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts when creating it.
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with your preferred configuration and add the database named `db1`. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
-        {% note info %}
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        You can set up {{ RMQ }} integration when creating a cluster. In this article, integration will be configured [later](#configure-mch-for-rmq).
+        Integration with {{ RMQ }} is available during cluster setup. In this example, however, we will configure the integration [at a later stage](#configure-mch-for-rmq).
 
-        {% endnote %}
-
-    1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md)for{{ RMQ }}. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} network, enable public access when creating it.
+    1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for {{ RMQ }}. Enable public access to the VM during creation so you can connect to it from your local machine. Connections from the {{ yandex-cloud }} network are enabled by default.
 
 - {{ TF }} {#tf}
 
@@ -47,29 +45,29 @@ The support cost includes:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-fetch-data-from-rabbitmq/blob/main/clickhouse-cluster-and-vm-for-rabbitmq.tf) configuration file to the same working directory.
+    1. Download the [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-fetch-data-from-rabbitmq/blob/main/clickhouse-cluster-and-vm-for-rabbitmq.tf) configuration file to your current working directory.
 
         This file describes:
 
         * Network.
         * Subnet.
-        * Default security group and rules required to connect to the cluster and VM from the internet.
+        * Default security group and inbound internet rules for your cluster and VM.
         * {{ mch-name }} cluster.
         * Virtual machine.
 
-    1. Specify the following in the `clickhouse-cluster-and-vm-for-rabbitmq.tf` file:
+    1. In the `clickhouse-cluster-and-vm-for-rabbitmq.tf` file, specify the following:
 
         * Username and password that will be used to access the {{ mch-name }} cluster.
-        * ID of the public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) [image](../../compute/operations/images-with-pre-installed-software/get-list.md) without GPU for the VM.
-        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image that is currently used. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
+        * ID of the public, non-GPU [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) [image](../../compute/operations/images-with-pre-installed-software/get-list.md) to use for the VM.
+        * Username and path to the SSH [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for VM access. By default, the pre-configured image ignores the specified username and automatically creates a user named `ubuntu`. Use it to connect to the VM.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -102,13 +100,13 @@ The support cost includes:
         sudo rabbitmqctl set_topic_permissions -p / <username> amq.topic "cars" "cars"
         ```
 
-1. Install the `amqp-publish` and `amqp-declare-queue` utilities to work with {{ RMQ }} and [jq](https://stedolan.github.io/jq/) for stream processing JSON files:
+1. Install the `amqp-publish` and `amqp-declare-queue` tools for {{ RMQ }} and [jq](https://stedolan.github.io/jq/) for processing JSON streams:
 
     ```bash
     sudo apt update && sudo apt install amqp-tools --yes && sudo apt-get install jq --yes
     ```
 
-1. Check if you can create a queue named `cars` in {{ RMQ }} using `amqp-declare-queue`:
+1. Use `amqp-declare-queue` to create a queue named `cars` in {{ RMQ }}:
 
     ```bash
     amqp-declare-queue \
@@ -116,9 +114,9 @@ The support cost includes:
         --queue=cars
     ```
 
-1. Install the `clickhouse-client` utility to connect to the database in the {{ mch-name }} cluster.
+1. Install `clickhouse-client` to connect to the database in your {{ mch-name }} cluster.
 
-    1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+    1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
         ```bash
         sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -133,23 +131,23 @@ The support cost includes:
         sudo apt update && sudo apt install clickhouse-client --yes
         ```
 
-    1. Download the configuration file for `clickhouse-client`:
+    1. Download the `clickhouse-client` configuration file:
 
         {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-    Check that you can use `clickhouse-client` [to connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
+    Verify that you can [establish an SSL connection to the {{ mch-name }} cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) via `clickhouse-client`.
 
-## Set up integration with {{ RMQ }} for the {{ mch-name }} cluster {#configure-mch-for-rmq}
+## Set up the {{ RMQ }} integration for the {{ mch-name }} cluster {#configure-mch-for-rmq}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces), specify the username and password for {{ RMQ }} authentication in **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq**.
+    In the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces), navigate to the **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Rabbitmq** section and specify the username and password for {{ RMQ }} authentication.
 
 - {{ TF }} {#tf}
 
-    Add the `clickhouse.config.rabbitmq` block with the username and password for {{ RMQ }} authentication to the cluster description:
+    Add the `clickhouse.config.rabbitmq` block containing {{ RMQ }} username and password to the cluster configuration:
 
     ```hcl
     resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
@@ -169,36 +167,36 @@ The support cost includes:
 
 {% endlist %}
 
-## In the {{ mch-name }} cluster, create a {{ RMQ }} table {#create-rmq-table}
+## Create a {{ RMQ }} engine table {#create-rmq-table} in your {{ mch-name }} cluster
 
-Let's assume you put the following JSON car sensor data into the {{ RMQ }} queue named `cars` at the exchange point named `exchange`:
+Suppose, you publish the following JSON car sensor data to the {{ RMQ }} exchange named `exchange`, which routes it to the `cars` queue:
 
-* `device_id`: String ID of the device.
-* `datetime`: Date and time when the data was generated, in `YYYY-MM-DD HH:MM:SS` format.
+* `device_id`: Device string identifier.
+* `datetime`: Date and time of data generation in `YYYY-MM-DD HH:MM:SS` format.
 * Car coordinates:
 
     * `latitude`: Latitude.
     * `longitude`: Longitude.
-    * `altitude`: Altitude above sea level.
+    * `altitude`: Height above mean sea level.
 
 * `speed`: Current speed.
-* `battery_voltage`: Battery voltage (for electric cars; for cars with internal combustion engine, this parameter is `null`).
+* `battery_voltage`: Battery voltage for electric cars. `null` for ICE vehicles.
 * `cabin_temperature`: Temperature inside the car.
-* `fuel_level`: Fuel level (for cars with internal combustion engine; for electric cars, this parameter is `null`).
+* `fuel_level`: Fuel level for ICE cars. `null` for electric cars.
 
-This data will be transmitted as {{ RMQ }} messages. Each message will contain a JSON object as a string in the following format:
+This data will be transmitted as {{ RMQ }} messages. Each message will contain a string containing a serialized JSON object with the following structure:
 
 ```json
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-The {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) for data inserted into the table, which converts strings from {{ RMQ }} messages to the appropriate column values.
+For table inserts, the {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) that parses rows from {{ RMQ }} messages into the required column values.
 
-Create a table in the {{ mch-name }} cluster to accept data from {{ RMQ }}:
+In the {{ mch-name }} cluster, create a table to store data incoming from {{ RMQ }}:
 
-1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
-1. Run this request:
+1. Run this query:
 
     ```sql
     CREATE TABLE IF NOT EXISTS db1.cars (
@@ -219,11 +217,11 @@ Create a table in the {{ mch-name }} cluster to accept data from {{ RMQ }}:
         rabbitmq_format = 'JSONEachRow';
     ```
 
-This table will be automatically filled with messages read from the `cars` queue at {{ RMQ }}'s exchange point named `exchange`. When reading the data, {{ mch-name }} uses the [authentication credentials provided earlier](#configure-mch-for-rmq).
+This table will be automatically populated with messages consumed from the `cars` queue, which is bound to {{ RMQ }} `exchange`. When reading the data, {{ mch-name }} uses the [authentication credentials provided earlier](#configure-mch-for-rmq).
 
 ## Send the test data to the {{ RMQ }} queue {#send-sample-data-to-rmq}
 
-1. Create a `sample.json` file with test data:
+1. Create a file named `sample.json` with test data:
 
     ```json
     {
@@ -263,7 +261,7 @@ This table will be automatically filled with messages read from the `cars` queue
     }
     ```
 
-1. Send the data from the `sample.json` file to the previously created `cars` queue of the exchange point named `exchange` using `jq` and `amqp-publish`.
+1. Use `jq` and `amqp-publish` to send data from `sample.json` to the previously created `cars` queue via `exchange`.
 
     ```bash
     jq \
@@ -275,21 +273,21 @@ This table will be automatically filled with messages read from the `cars` queue
     --exchange=exchange
     ```
 
-## Check that the test data is present in the {{ mch-name }} cluster table {#fetch-sample-data}
+## Make sure the test data appears in the {{ mch-name }} cluster table {#fetch-sample-data}
 
-To access the data, use a materialized view (`MATERIALIZED VIEW`). When a materialized view is added to a `{{ RMQ }}` table, it starts collecting data in the background. This allows you to continuously receive messages from {{ RMQ }} and convert them to the required format using `SELECT`.
+To access the data, use a materialized view. Once a materialized view is attached to a `{{ RMQ }}` table, it starts gathering data in the background automatically. This enables the system to continuously consume messages from {{ RMQ }} and convert them to the required format using `SELECT`.
 
 {% note info %}
 
-Although you can read data directly from the table, we recommend using a materialized view, because every message from the queue can be read by {{ CH }} only once.
+A message from the queue can be read by {{ CH }} only once. Therefore, instead of reading data directly from the table, use a materialized view.
 
 {% endnote %}
 
 To create a materialized view for the `db1.cars` table:
 
-1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
-1. Run the following requests:
+1. Run the following queries:
 
     ```sql
     CREATE TABLE IF NOT EXISTS db1.cars_data_source (
@@ -309,17 +307,17 @@ To create a materialized view for the `db1.cars` table:
       AS SELECT * FROM db1.cars;
     ```
 
-To get all the data from the `db1.cars_view` materialized view:
+To retrieve all data from the `db1.cars_view` materialized view:
 
-1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
-1. Run this request:
+1. Run this query:
 
     ```sql
     SELECT * FROM db1.cars_view;
     ```
 
-The query will return a table with data sent to {{ RMQ }}.
+The query results will show all data sent to {{ RMQ }}.
 
 ## Delete the resources you created {#clear-out}
 

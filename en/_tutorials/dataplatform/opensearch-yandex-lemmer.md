@@ -29,6 +29,8 @@ The support cost for this solution includes:
             * `yandex-lemmer` and `analysis-icu` plugins enabled.
             * Public access to a group of hosts with the `DATA` role enabled.
 
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-opensearch/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
 
     * Using {{ TF }} {#tf}
@@ -42,10 +44,10 @@ The support cost for this solution includes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mos-name }} cluster.
             * {{ mos-name }} cluster.
 
-        1. In the `opensearch-yandex-lemmer.tf` file, specify the following settings:
+        1. In the `opensearch-yandex-lemmer.tf` file, specify the following variables:
 
             * `version`: {{ OS }} version.
             * `admin_password`: {{ OS }} admin password.
@@ -56,7 +58,7 @@ The support cost for this solution includes:
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -288,7 +290,7 @@ To refine a text search, add more filters to `yandex-lemmer`:
 
 * `nfc`: Performs [NFC normalization](https://www.unicode.org/faq/normalization.html) (text mapping), where the same letter is represented by different characters. This filter is available if the `analysis-icu` plugin is enabled.
 * `lowercase`: Converts text to lower case.
-* `yo_ye`: Replaces the letter "ё" with "е". `yandex-lemmer` does not distinguish between these letters (it will find both `ёлка` and `елка`), but such a replacement allows you to improve the percentage of analyzer cache hits and save some disk space.
+* `yo_ye`: Replaces the letter `ё` with `е`. `yandex-lemmer` does not distinguish between these letters (it will find both `ёлка` and `елка`), but such a replacement allows you to improve the percentage of analyzer cache hits and save some disk space.
 
 To use additional filters:
 
@@ -353,7 +355,7 @@ To use additional filters:
                 }'
     ```
 
-    Here, the letter "и" (code 1048) and the "˘" [breve](https://ru.wikipedia.org/wiki/Кратка) (code 774) are used instead of "й".
+    Here, the letter `и` (code 1048) and the `˘` [breve](https://ru.wikipedia.org/wiki/Кратка) (code 774) are used instead of `й`.
 
 1. Run this search:
 
@@ -372,7 +374,7 @@ To use additional filters:
                 }'
     ```
 
-    Here, the book name includes the letter "й" (code 1049).
+    Here, the book name includes the letter `й` (code 1049).
 
     The result contains the following lines:
 

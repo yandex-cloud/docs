@@ -1,10 +1,10 @@
 # Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
 
-You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ mkf-name }} _target cluster_ using Change Data Capture (CDC).
+You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ mkf-name }} _target cluster_ using change data capture (CDC).
 
 To set up CDC using {{ data-transfer-name }}:
 
-1. [Set up the source cluster](#prepare-source).
+1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
 1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
@@ -14,13 +14,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
+
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 1. [Create a {{ mpg-name }} source cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration, using the following settings:
 
@@ -43,9 +45,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
     sudo apt update && sudo apt install kafkacat postgresql-client --yes
     ```
 
-    Check that can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+    Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-## Set up the source cluster {#prepare-source}
+## Prepare the source cluster {#prepare-source}
 
 1. For {{ data-transfer-name }} to receive data change notifications from a {{ mpg-name }} cluster, you must create a publication on the source cluster. [Assign](../../managed-postgresql/operations/grant.md) `pg-user` the `mdb_replication` role to allow publication creation.
 
@@ -80,13 +82,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Set up the target cluster {#prepare-target}
 
-The configuration may vary depending on the chosen [topic management method](../../managed-kafka/concepts/topics.md#management). Topic names follow the same convention as [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, we will use the `cdc` example prefix.
+The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) in use. Topic names follow the same convention as [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, we will use the `cdc` example prefix.
 
 {% list tabs group=topic_management %}
 
 - {{ yandex-cloud }} interfaces {#yc}
 
-    When topic management is handled via native {{ yandex-cloud }} interfaces, i.e., management console, CLI, {{ TF }}, or API:
+    When managing topics using native {{ yandex-cloud }} interfaces (management console, CLI, {{ TF }}, or API):
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `cdc.public.measurements`.
 
@@ -136,7 +138,7 @@ The configuration may vary depending on the chosen [topic management method](../
             If you need to track changes in multiple tables, fill in the fields as follows:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Specify the `cdc` prefix you used to generate topic names.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
 1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with the following settings:
 
@@ -225,7 +227,7 @@ The configuration may vary depending on the chosen [topic management method](../
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 

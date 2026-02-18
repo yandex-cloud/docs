@@ -6,7 +6,7 @@
 
 * [What happens when a new {{ OS }} version is released?](#new-version)
 
-* [How do I get the logs of my activity in the services?](#logs)
+* [How do I get the logs of my activity in the Yandex Cloud services?](#logs)
 
 * [How do I set up an alert that triggers as soon as a certain percentage of disk space is used up?](#disk-space-percentage)
 
@@ -19,5 +19,9 @@
 * [How can I fix the no permission error when attaching a service account to a cluster?](#attach-service-account)
 
 * [Why do I get an error when activating a transfer?](#data-transfer-error)
+
+
+* [How do I make sure that {{ ai-studio-full-name }} AI models can access my {{ mos-name }} cluster for fine-tuning?](#ai-access)
+
 
 * [What is the role of {{ mos-short-name }} in database management and maintenance?](#services)

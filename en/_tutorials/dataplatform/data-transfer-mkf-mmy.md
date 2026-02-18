@@ -27,6 +27,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration. To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.

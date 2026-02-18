@@ -34,7 +34,7 @@ Create a tuning dataset:
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. In the **{{ ui-key.yacloud.common.type }}** field, select the classification type: **{{ ui-key.yacloud.dataset.text-classification-multilabel-key-value }}** or **{{ ui-key.yacloud.dataset.text-classification-multiclass-key-value }}**.
-  1. Delete or add dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Delete or add dataset [labels](../../../resource-manager/concepts/labels.md). You can use them to organize resources into logical groups.
   1. Click **Select file** or drag the JSON file you created earlier to the loading area.
   1. Click **{{ ui-key.yacloud.dataset.create }}**.
 
@@ -135,7 +135,7 @@ Create a tuning dataset:
 
   1. In the **{{ ui-key.yacloud.tuning.task }}** field, select **{{ ui-key.yacloud.tuning.classification }}**.
   1. Select the **{{ ui-key.yacloud.tuning.classification-task }}**: **{{ ui-key.yacloud.dataset.text-classification-multiclass.short-title }}** or **{{ ui-key.yacloud.dataset.text-classification-multilabel.short-title }}**.
-  1. Optionally, add or delete the tuning [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Optionally, add or delete the tuning [labels](../../../resource-manager/concepts/labels.md). You can use them to organize resources into logical groups.
   1. In the **{{ ui-key.yacloud.yagpt.model }}** field, select the model you need.
   1. In the **{{ ui-key.yacloud.dataset.dataset }}** field, click **{{ ui-key.yacloud.common.add }}**.
   1. In the window that opens, go to the **{{ ui-key.yacloud.dataset.select-from-created }}** tab and select the dataset you created earlier.
@@ -245,7 +245,7 @@ Create a tuning dataset:
      grpcurl \
        -H "Authorization: Bearer <IAM_token>" \
        -d '{"operation_id": "<operation_ID>"}' \
-       {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/Get
+       {{ api-host-operation }}:443 yandex.cloud.operation.OperationService/Get
      ```
 
      Where:
@@ -281,7 +281,7 @@ Create a tuning dataset:
      ```bash
      grpcurl \
        -H "Authorization: Bearer <IAM_token>" \
-       -d '{"task_id": "<job_ID>"}' \
+       -d '{"task_id": "<task_ID>"}' \
        {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/GetMetricsUrl
      ```
 

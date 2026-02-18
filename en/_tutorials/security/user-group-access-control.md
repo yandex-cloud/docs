@@ -181,7 +181,7 @@ To grant the required access permissions to the `security` user group:
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
       1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
-      1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+      1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `security` [group](../../organization/concepts/groups.md).
       1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, enter and select the `auditor` [role](../../iam/concepts/access-control/roles.md) in the search bar.
       1. Repeat the previous step to add the `audit-trails.admin` and `container-registry.images.scanner` roles.

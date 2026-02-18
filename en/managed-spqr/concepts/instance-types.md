@@ -45,6 +45,7 @@ Configuration types:
 
   {% endnote %}
 
+
 | Host class name | Number of CPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
 | **Intel Broadwell**                                                                          |

@@ -1,4 +1,4 @@
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. To do so:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -21,6 +21,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
     {% list tabs group=instructions %}
 
     - Manually {#manual}
+
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
         1. [Create a {{ mkf-full-name }} source cluster](../../../managed-kafka/operations/cluster-create.md#create-cluster) of any suitable configuration with publicly accessible hosts.
 
@@ -68,9 +70,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install the following tools:
+1. Install these tools:
 
-    * [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
+    * [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat

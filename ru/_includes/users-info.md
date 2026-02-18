@@ -1,7 +1,7 @@
 1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 1. На панели слева выберите ![icon-users](../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**. На странице отобразится список пользователей организации, содержащий следующие поля:
 
-    * **{{ ui-key.yacloud_org.entity.user.caption.user }}** — полное имя пользователя.
+    * **{{ ui-key.yacloud.common.resource-acl.label_subject }}** — полное имя пользователя.
     * **{{ ui-key.yacloud_org.entity.user.caption.username }}** — логин пользователя.
     * **{{ ui-key.yacloud_org.entity.user.caption.status }}** — текущий статус пользователя:
 

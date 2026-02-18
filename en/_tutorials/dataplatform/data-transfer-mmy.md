@@ -22,6 +22,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration, using the following settings:
 
     * Database: `db1`

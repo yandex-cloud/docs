@@ -82,6 +82,22 @@ The telecom provider is responsible for setting up a connection between the cust
 {% endnote %}
 
 
+### Partner trunk {#partner-link}
+
+Using a **partner trunk** makes connecting to {{ yandex-cloud }} easier thanks to:
+* Shorter CIC setup times.
+* Lower operational cost for cross-connects.
+
+You can use such trunks to set up both [private](./priv-con.md) and [public](./pub-con.md) connections.
+
+{% note info "Tutorials" %}
+
+* To set up a **private connection** over a partner trunk, use [this tutorial](../tutorials/partner-trunk-priv-add.md).
+* To set up a **public connection** over a partner trunk, use [this tutorial](../tutorials/partner-trunk-pub-add.md).
+
+{% endnote %}
+
+
 ## Connection multiplexing (802.1Q) {#mux}
 
 ### VLAN-ID {#vlan-id}
@@ -146,5 +162,8 @@ At the trunk level, {{ yandex-cloud }} equipment uses reception and transmission
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/trunk-priv-add.md)
+* [{#T}](../tutorials/trunk-pub-add.md)
+* [{#T}](../tutorials/partner-trunk-priv-add.md)
+* [{#T}](../tutorials/partner-trunk-pub-add.md)
 * [{#T}](../tutorials/trunk-capacity-change.md)
 * [{#T}](../tutorials/trunk-del.md)

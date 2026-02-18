@@ -35,7 +35,7 @@
 
 - Раздел Сохраненные запросы
 
-   1. Откройте сервис [{{ websql-full-name }}]({{ websql-link }}).
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [{{ websql-full-name }}]({{ websql-link }}).
    1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
    1. В правом верхнем углу раздела нажмите ![image](../../_assets/websql/new-connection.svg).
    1. В открывшемся окне:
@@ -79,6 +79,7 @@
 
 - Раздел Сохраненные запросы
 
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [{{ websql-full-name }}]({{ websql-link }}).
    1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
    1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от нужного запроса и выберите **Использовать запрос** — он отобразится в панели данных.
    1. Нажмите кнопку **Открыть в редакторе**.
@@ -90,6 +91,8 @@
 ## Изменить сохраненный запрос {#alter-template}
 
 Чтобы изменить сохраненный запрос:
+
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 
@@ -117,6 +120,8 @@
 
 Чтобы опубликовать запрос:
 
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [{{ websql-full-name }}]({{ websql-link }}).
+
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от нужного запроса и выберите **Опубликовать запрос**.
@@ -129,6 +134,8 @@
 
 Чтобы настроить [права доступа](../security/index.md):
 
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [{{ websql-full-name }}]({{ websql-link }}).
+
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 
 1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) справа от нужного запроса и выберите **Права доступа**.
@@ -140,6 +147,8 @@
 ## Удалить сохраненный запрос {#remove-template}
 
 Чтобы удалить сохраненный запрос:
+
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [{{ websql-full-name }}]({{ websql-link }}).
 
 1. Перейдите в раздел ![image](../../_assets/console-icons/floppy-disk.svg) **Сохраненные запросы**.
 

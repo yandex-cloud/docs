@@ -1,6 +1,6 @@
 
 
-You can set up a data transfer from a {{ mmy-name }} database to a {{ mpg-name }} database using {{ data-transfer-name }}. To do so:
+You can set up a data transfer from a {{ mmy-name }} database to a {{ mpg-name }} database using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -24,6 +24,8 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Create a {{ mmy-name }} source cluster](../../../managed-mysql/operations/cluster-create.md#create-cluster) in any [availability zone](../../../overview/concepts/geo-scope.md) with publicly available hosts in any suitable configuration and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mmy_db`
@@ -40,7 +42,7 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mpg_user`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`
 
-    1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
+    1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
         * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configuring-security-groups)
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups)
@@ -56,7 +58,7 @@ Set up your infrastructure:
 
         This file describes:
 
-        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
+        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) that will host your clusters.
         * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
         * {{ mmy-name }} source cluster.
         * {{ mpg-name }} target cluster.

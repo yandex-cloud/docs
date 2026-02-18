@@ -183,6 +183,25 @@ Update specified by id resource rule.
       "headers": [
         "string"
       ]
+    },
+    "geo_acl": {
+      "enabled": "bool",
+      "mode": "Mode",
+      "countries": [
+        "string"
+      ]
+    },
+    "referrer_acl": {
+      "enabled": "bool",
+      "mode": "Mode",
+      "referrers": [
+        "string"
+      ]
+    },
+    "static_response": {
+      "enabled": "bool",
+      "code": "int64",
+      "content": "string"
     }
   },
   // Includes only one of the fields `weight`
@@ -316,7 +335,8 @@ The option controls access to content from the specified IP addresses. ||
 || follow_redirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
 
 Manage the state of the Redirection from origin option.
-If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
+This option works only when origin shielding is activated. ||
 || websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
 
 Configuration for WebSocket protocol support. ||
@@ -324,6 +344,15 @@ Configuration for WebSocket protocol support. ||
 
 Configuration for HTTP response header filtering.
 This feature allows controlling which headers from the origin are passed to end users. ||
+|| geo_acl | **[GeoACLOption](#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption)**
+
+Configuration for geographic access control. ||
+|| referrer_acl | **[ReferrerACLOption](#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption)**
+
+Configuration for referrer-based access control. ||
+|| static_response | **[StaticResponseOption](#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption)**
+
+Configuration for serving a static HTTP response instead of fetching from origin. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -484,6 +513,7 @@ Includes only one of the fields `redirect_http_to_https`, `redirect_https_to_htt
 || redirect_https_to_http | **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
 
 Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTP to HTTPS.
+Deprecated: Use of redirect_https_to_http is deprecated.
 
 Includes only one of the fields `redirect_http_to_https`, `redirect_https_to_http`. ||
 |#
@@ -642,6 +672,63 @@ Enables or disables feature. ||
 || headers[] | **string**
 
 Whitelist of headers. ||
+|#
+
+## GeoACLOption {#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables the Geo ACL option. ||
+|| mode | enum **Mode**
+
+Mode of the Geo ACL.
+
+- `MODE_ALLOW`: Allow access to all specified countries.
+- `MODE_DENY`: Deny access to all specified countries. ||
+|| countries[] | **string**
+
+List of country codes (ISO 3166, uppercase). ||
+|#
+
+## ReferrerACLOption {#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|| mode | enum **Mode**
+
+Access mode for the referrer list.
+
+- `MODE_ALLOW`: Allow access to all specified referrers.
+- `MODE_DENY`: Deny access to all specified referrers. ||
+|| referrers[] | **string**
+
+List of referer patterns. Supports three types of values:
+1. Domain without scheme with or without query, e.g. "google.com", "ya.ru/abc"
+2. Wildcard pattern with dot separator, e.g. "*.hello.com", "staging.*"
+Note: dot must be present before or after `*` (so "*abc.com" is NOT valid)
+3. Regular expression starting with `~`, e.g. "~^prod\..*\.company.org/abc" ||
+|#
+
+## StaticResponseOption {#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|| code | **int64**
+
+HTTP status code. ||
+|| content | **string**
+
+A string containing the response content.
+For 3xx - Location header
+For other codes - body ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -829,6 +916,25 @@ Whitelist of headers. ||
         "headers": [
           "string"
         ]
+      },
+      "geo_acl": {
+        "enabled": "bool",
+        "mode": "Mode",
+        "countries": [
+          "string"
+        ]
+      },
+      "referrer_acl": {
+        "enabled": "bool",
+        "mode": "Mode",
+        "referrers": [
+          "string"
+        ]
+      },
+      "static_response": {
+        "enabled": "bool",
+        "code": "int64",
+        "content": "string"
       }
     },
     "weight": "int64"
@@ -1031,7 +1137,8 @@ The option controls access to content from the specified IP addresses. ||
 || follow_redirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption2)**
 
 Manage the state of the Redirection from origin option.
-If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
+This option works only when origin shielding is activated. ||
 || websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption2)**
 
 Configuration for WebSocket protocol support. ||
@@ -1039,6 +1146,15 @@ Configuration for WebSocket protocol support. ||
 
 Configuration for HTTP response header filtering.
 This feature allows controlling which headers from the origin are passed to end users. ||
+|| geo_acl | **[GeoACLOption](#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption2)**
+
+Configuration for geographic access control. ||
+|| referrer_acl | **[ReferrerACLOption](#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption2)**
+
+Configuration for referrer-based access control. ||
+|| static_response | **[StaticResponseOption](#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption2)**
+
+Configuration for serving a static HTTP response instead of fetching from origin. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2}
@@ -1199,6 +1315,7 @@ Includes only one of the fields `redirect_http_to_https`, `redirect_https_to_htt
 || redirect_https_to_http | **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2)**
 
 Using [BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption2). Set up a redirect from HTTP to HTTPS.
+Deprecated: Use of redirect_https_to_http is deprecated.
 
 Includes only one of the fields `redirect_http_to_https`, `redirect_https_to_http`. ||
 |#
@@ -1357,4 +1474,61 @@ Enables or disables feature. ||
 || headers[] | **string**
 
 Whitelist of headers. ||
+|#
+
+## GeoACLOption {#yandex.cloud.cdn.v1.ResourceOptions.GeoACLOption2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables the Geo ACL option. ||
+|| mode | enum **Mode**
+
+Mode of the Geo ACL.
+
+- `MODE_ALLOW`: Allow access to all specified countries.
+- `MODE_DENY`: Deny access to all specified countries. ||
+|| countries[] | **string**
+
+List of country codes (ISO 3166, uppercase). ||
+|#
+
+## ReferrerACLOption {#yandex.cloud.cdn.v1.ResourceOptions.ReferrerACLOption2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|| mode | enum **Mode**
+
+Access mode for the referrer list.
+
+- `MODE_ALLOW`: Allow access to all specified referrers.
+- `MODE_DENY`: Deny access to all specified referrers. ||
+|| referrers[] | **string**
+
+List of referer patterns. Supports three types of values:
+1. Domain without scheme with or without query, e.g. "google.com", "ya.ru/abc"
+2. Wildcard pattern with dot separator, e.g. "*.hello.com", "staging.*"
+Note: dot must be present before or after `*` (so "*abc.com" is NOT valid)
+3. Regular expression starting with `~`, e.g. "~^prod\..*\.company.org/abc" ||
+|#
+
+## StaticResponseOption {#yandex.cloud.cdn.v1.ResourceOptions.StaticResponseOption2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables or disables feature. ||
+|| code | **int64**
+
+HTTP status code. ||
+|| content | **string**
+
+A string containing the response content.
+For 3xx - Location header
+For other codes - body ||
 |#
