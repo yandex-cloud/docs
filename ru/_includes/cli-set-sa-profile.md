@@ -5,7 +5,7 @@
 1. Получите список доступных сервисных аккаунтов в каталоге по умолчанию:
 
     ```bash
-    yc iam service-accounts list
+    yc iam service-account list
     ```
 
     Результат:
