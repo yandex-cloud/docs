@@ -7,18 +7,44 @@ editable: false
 
 # Правила тарификации для {{ objstorage-name }}
 
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=7d6b2f413dcf#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+::: page-constructor
+blocks:
+  - type: 'card-layout-block'
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: 'basic-card'
+        controlPosition: 'footer'
+        border: 'shadow'
+        text: 'Рассчитайте стоимость использования сервиса, исходя из ваших потребностей'
+        buttons:
+          - text: 'Калькулятор цен'
+            theme: 'action'
+            url: 'https://yandex.cloud/ru/prices?state=5487d7401732#calculator'
+            img: 'https://storage.yandexcloud.net/morrowkowka.ru/_assets/console-icons/calculator.svg'
+      - type: 'basic-card'
+        controlPosition: 'footer'
+        border: 'shadow'
+        text: 'Актуальные тарифы на все наши услуги'
+        buttons:
+          - text: 'Прайс-лист'
+            theme: 'action'
+            url: 'https://yandex.cloud/ru/price-list'
+            img: 'https://storage.yandexcloud.net/morrowkowka.ru/_assets/console-icons/circle-ruble.svg'
+      - type: 'basic-card'
+        controlPosition: 'footer'
+        border: 'shadow'
+        text: 'Гранты, специальные условия и программы поддержки'
+        buttons:
+          - text: 'Акции и free tier'
+            theme: 'action'
+            url: 'https://yandex.cloud/ru/all-offers'
+            img: 'https://storage.yandexcloud.net/morrowkowka.ru/_assets/console-icons/flame.svg'
+:::
 
 
 {% include [vat](../_includes/vat.md) %}
