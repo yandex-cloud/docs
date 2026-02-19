@@ -23,7 +23,7 @@ ID of the connection to update. ||
 || `--description` | `string`
 
 New description for the connection. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 New connection labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -42,234 +42,234 @@ Shorthand Syntax:
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = HEALTH_UNKNOWN|ALIVE|DEAD|DEGRADED,
-          host = str,
-          http-port = int,
-          shard-name = str,
-          tcp-port = int
+          host = string,
+          http-port = integer,
+          shard-name = string,
+          tcp-port = integer
         }, ...
       ],
       shard-groups = [
         {
-          name = str,
-          shard-names = str,...
+          name = string,
+          shard-names = string,...
         }, ...
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = str,...,
-    managed-cluster-id = str
+    databases = string,...,
+    managed-cluster-id = string
   } | greenplum={
     auth = {
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       coordinator-hosts = [
         {
           health = ALIVE|DEAD|DEGRADED|UNBALANCED,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           role = MASTER|REPLICA
         }, ...
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = str,...,
-    managed-cluster-id = str
+    databases = string,...,
+    managed-cluster-id = string
   } | kafka={
     auth = {
       security = disabled={} | sasl={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
         supported-mechanisms = [
           PLAIN|SCRAM_SHA256|SCRAM_SHA512, ...
         ],
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED,
-          host = str,
-          port = int
+          host = string,
+          port = integer
         }, ...
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    managed-cluster-id = str
+    managed-cluster-id = string
   } | mongodb={
     auth = {
-      auth-source = str,
+      auth-source = string,
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           role = PRIMARY|SECONDARY,
           type = MONGOD|MONGOS|MONGOINFRA
         }, ...
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = str,...,
-    managed-cluster-id = str
+    databases = string,...,
+    managed-cluster-id = string
   } | mysql={
     auth = {
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED|READONLY,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           role = MASTER|REPLICA
         }, ...
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = str,...,
-    managed-cluster-id = str
+    databases = string,...,
+    managed-cluster-id = string
   } | opensearch={
     auth = {
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED|READONLY,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           roles = [
             DATA|MANAGER, ...
           ]
@@ -277,162 +277,162 @@ Shorthand Syntax:
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    managed-cluster-id = str
+    managed-cluster-id = string
   } | postgresql={
     auth = {
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED|READONLY,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           replica-type = ASYNC|SYNC|QUORUM,
           role = MASTER|REPLICA
         }, ...
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = str,...,
-    managed-cluster-id = str
+    databases = string,...,
+    managed-cluster-id = string
   } | redis={
     auth = {
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           role = MASTER|REPLICA,
-          shard-name = str
+          shard-name = string
         }, ...
       ],
-      sentinel-port = int,
+      sentinel-port = integer,
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = int,...
+    databases = integer,...
   } | storedoc={
     auth = {
-      auth-source = str,
+      auth-source = string,
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           role = PRIMARY|SECONDARY,
           type = MONGOD|MONGOS|MONGOINFRA
         }, ...
       ],
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = str,...,
-    managed-cluster-id = str
+    databases = string,...,
+    managed-cluster-id = string
   } | trino={
     auth = {
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       coordinator = {
-        host = str,
-        port = int
+        host = string,
+        port = integer
       },
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     }
@@ -441,42 +441,42 @@ Shorthand Syntax:
       security = user-password={
         password = {
           password-generation-options = {
-            cookie = str,
+            cookie = string,
             password-generation-options = lockbox-password-generation-options={
-              excluded-punctuation = str,
-              include-digits = bool,
-              include-lowercase = bool,
-              include-punctuation = bool,
-              include-uppercase = bool,
-              included-punctuation = str,
-              length = int
+              excluded-punctuation = string,
+              include-digits = boolean,
+              include-lowercase = boolean,
+              include-punctuation = boolean,
+              include-uppercase = boolean,
+              included-punctuation = string,
+              length = integer
             }
           },
-          raw = str,
-          secret-key = lockbox-secret-key=str
+          raw = string,
+          secret-key = lockbox-secret-key=string
         },
-        user = str
+        user = string
       }
     },
     cluster = {
       hosts = [
         {
           health = ALIVE|DEAD|DEGRADED,
-          host = str,
-          port = int,
+          host = string,
+          port = integer,
           role = MASTER|REPLICA,
-          shard-name = str
+          shard-name = string
         }, ...
       ],
-      sentinel-port = int,
+      sentinel-port = integer,
       tls-params = {
         tls-mode = disabled={} | tls={
-          ca-certificate = str
+          ca-certificate = string
         }
       }
     },
-    databases = int,...,
-    managed-cluster-id = str
+    databases = integer,...,
+    managed-cluster-id = string
   }
 }
 ```
@@ -492,25 +492,25 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -518,17 +518,17 @@ JSON Syntax:
         "hosts": [
           {
             "health": "HEALTH_UNKNOWN|ALIVE|DEAD|DEGRADED",
-            "host": "str",
-            "http-port": "int",
-            "shard-name": "str",
-            "tcp-port": "int"
+            "host": "string",
+            "http-port": "integer",
+            "shard-name": "string",
+            "tcp-port": "integer"
           }, ...
         ],
         "shard-groups": [
           {
-            "name": "str",
+            "name": "string",
             "shard-names": [
-              "str", ...
+              "string", ...
             ]
           }, ...
         ],
@@ -536,15 +536,15 @@ JSON Syntax:
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "str", ...
+        "string", ...
       ],
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "greenplum": {
       "auth": {
@@ -552,25 +552,25 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -578,8 +578,8 @@ JSON Syntax:
         "coordinator-hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED|UNBALANCED",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "role": "MASTER|REPLICA"
           }, ...
         ],
@@ -587,15 +587,15 @@ JSON Syntax:
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "str", ...
+        "string", ...
       ],
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "kafka": {
       "auth": {
@@ -604,28 +604,28 @@ JSON Syntax:
           "sasl": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
             "supported-mechanisms": [
               "PLAIN|SCRAM_SHA256|SCRAM_SHA512", ...
             ],
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -633,47 +633,47 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED",
-            "host": "str",
-            "port": "int"
+            "host": "string",
+            "port": "integer"
           }, ...
         ],
         "tls-params": {
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "mongodb": {
       "auth": {
-        "auth-source": "str",
+        "auth-source": "string",
         "security": {
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -681,8 +681,8 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "role": "PRIMARY|SECONDARY",
             "type": "MONGOD|MONGOS|MONGOINFRA"
           }, ...
@@ -691,15 +691,15 @@ JSON Syntax:
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "str", ...
+        "string", ...
       ],
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "mysql": {
       "auth": {
@@ -707,25 +707,25 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -733,8 +733,8 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED|READONLY",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "role": "MASTER|REPLICA"
           }, ...
         ],
@@ -742,15 +742,15 @@ JSON Syntax:
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "str", ...
+        "string", ...
       ],
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "opensearch": {
       "auth": {
@@ -758,25 +758,25 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -784,8 +784,8 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED|READONLY",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "roles": [
               "DATA|MANAGER", ...
             ]
@@ -795,12 +795,12 @@ JSON Syntax:
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "postgresql": {
       "auth": {
@@ -808,25 +808,25 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -834,8 +834,8 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED|READONLY",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "replica-type": "ASYNC|SYNC|QUORUM",
             "role": "MASTER|REPLICA"
           }, ...
@@ -844,15 +844,15 @@ JSON Syntax:
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "str", ...
+        "string", ...
       ],
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "redis": {
       "auth": {
@@ -860,25 +860,25 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -886,52 +886,52 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "role": "MASTER|REPLICA",
-            "shard-name": "str"
+            "shard-name": "string"
           }, ...
         ],
-        "sentinel-port": "int",
+        "sentinel-port": "integer",
         "tls-params": {
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "int", ...
+        "integer", ...
       ]
     },
     "storedoc": {
       "auth": {
-        "auth-source": "str",
+        "auth-source": "string",
         "security": {
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -939,8 +939,8 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "role": "PRIMARY|SECONDARY",
             "type": "MONGOD|MONGOS|MONGOINFRA"
           }, ...
@@ -949,15 +949,15 @@ JSON Syntax:
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "str", ...
+        "string", ...
       ],
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     },
     "trino": {
       "auth": {
@@ -965,38 +965,38 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
       "cluster": {
         "coordinator": {
-          "host": "str",
-          "port": "int"
+          "host": "string",
+          "port": "integer"
         },
         "tls-params": {
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
@@ -1008,25 +1008,25 @@ JSON Syntax:
           "user-password": {
             "password": {
               "password-generation-options": {
-                "cookie": "str",
+                "cookie": "string",
                 "password-generation-options": {
                   "lockbox-password-generation-options": {
-                    "excluded-punctuation": "str",
-                    "include-digits": "bool",
-                    "include-lowercase": "bool",
-                    "include-punctuation": "bool",
-                    "include-uppercase": "bool",
-                    "included-punctuation": "str",
-                    "length": "int"
+                    "excluded-punctuation": "string",
+                    "include-digits": "boolean",
+                    "include-lowercase": "boolean",
+                    "include-punctuation": "boolean",
+                    "include-uppercase": "boolean",
+                    "included-punctuation": "string",
+                    "length": "integer"
                   }
                 }
               },
-              "raw": "str",
+              "raw": "string",
               "secret-key": {
-                "lockbox-secret-key": "str"
+                "lockbox-secret-key": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
@@ -1034,26 +1034,26 @@ JSON Syntax:
         "hosts": [
           {
             "health": "ALIVE|DEAD|DEGRADED",
-            "host": "str",
-            "port": "int",
+            "host": "string",
+            "port": "integer",
             "role": "MASTER|REPLICA",
-            "shard-name": "str"
+            "shard-name": "string"
           }, ...
         ],
-        "sentinel-port": "int",
+        "sentinel-port": "integer",
         "tls-params": {
           "tls-mode": {
             "disabled": {},
             "tls": {
-              "ca-certificate": "str"
+              "ca-certificate": "string"
             }
           }
         }
       },
       "databases": [
-        "int", ...
+        "integer", ...
       ],
-      "managed-cluster-id": "str"
+      "managed-cluster-id": "string"
     }
   }
 }
@@ -1080,17 +1080,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1104,7 +1104,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         replica-type -> (struct)
         role -> (struct)
       tls-params -> (struct)
@@ -1132,17 +1132,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1156,7 +1156,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         role -> (struct)
       tls-params -> (struct)
         tls-mode -> (oneof<disabled|tls>)
@@ -1184,17 +1184,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1208,7 +1208,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         role -> (struct)
         type -> (struct)
       tls-params -> (struct)
@@ -1236,17 +1236,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1260,10 +1260,10 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        http-port -> (int)
+        http-port -> (integer)
           depends on tls params may vary as http or https
         shard-name -> (string)
-        tcp-port -> (int)
+        tcp-port -> (integer)
       shard-groups -> ([]struct)
         name -> (string)
         shard-names -> ([]string)
@@ -1292,17 +1292,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1318,7 +1318,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
       tls-params -> (struct)
         tls-mode -> (oneof<disabled|tls>)
           Oneof tls-mode field
@@ -1343,17 +1343,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1366,17 +1366,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         role -> (struct)
         shard-name -> (string)
-      sentinel-port -> (int)
+      sentinel-port -> (integer)
       tls-params -> (struct)
         tls-mode -> (oneof<disabled|tls>)
           Oneof tls-mode field
           disabled -> (struct)
           tls -> (struct)
             ca-certificate -> (string)
-    databases -> ([]int)
+    databases -> ([]integer)
   opensearch -> (struct)
     OpenSearch search engine connection parameters.
     auth -> (struct)
@@ -1393,17 +1393,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1417,7 +1417,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         roles -> ([]struct)
       tls-params -> (struct)
         tls-mode -> (oneof<disabled|tls>)
@@ -1443,17 +1443,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1465,7 +1465,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
     cluster -> (struct)
       coordinator -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
       tls-params -> (struct)
         tls-mode -> (oneof<disabled|tls>)
           Oneof tls-mode field
@@ -1488,17 +1488,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1512,17 +1512,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         role -> (struct)
         shard-name -> (string)
-      sentinel-port -> (int)
+      sentinel-port -> (integer)
       tls-params -> (struct)
         tls-mode -> (oneof<disabled|tls>)
           Oneof tls-mode field
           disabled -> (struct)
           tls -> (struct)
             ca-certificate -> (string)
-    databases -> ([]int)
+    databases -> ([]integer)
     managed-cluster-id -> (string)
       When creating/updating Connection, the field "managed_cluster_id" is mutually exclusive with "cluster".
   greenplum -> (struct)
@@ -1541,17 +1541,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1565,7 +1565,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       coordinator-hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         role -> (struct)
       tls-params -> (struct)
         tls-mode -> (oneof<disabled|tls>)
@@ -1593,17 +1593,17 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
                 lockbox-password-generation-options -> (struct)
                   excluded-punctuation -> (string)
                     a string of punctuation characters to exclude from the default
-                  include-digits -> (bool)
+                  include-digits -> (boolean)
                     whether at least one 0..9 character is included in the password, true by default
-                  include-lowercase -> (bool)
+                  include-lowercase -> (boolean)
                     whether at least one a..z character is included in the password, true by default
-                  include-punctuation -> (bool)
+                  include-punctuation -> (boolean)
                     whether at least one punctuation character is included in the password, true by default punctuation characters by default: !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-                  include-uppercase -> (bool)
+                  include-uppercase -> (boolean)
                     whether at least one A..Z character is included in the password, true by default
                   included-punctuation -> (string)
                     If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use
-                  length -> (int)
+                  length -> (integer)
                     password length; by default, a reasonable length will be decided
             raw -> (string)
               When creating/updating Password, the field "raw" is mutually exclusive with "password_generation_options". In order to switch to the "raw" password you have to explicitly clear the "password_generation_options" field.
@@ -1617,7 +1617,7 @@ type -> (oneof<clickhouse|greenplum|kafka|mongodb|mysql|opensearch|postgresql|re
       hosts -> ([]struct)
         health -> (struct)
         host -> (string)
-        port -> (int)
+        port -> (integer)
         role -> (struct)
         type -> (struct)
       tls-params -> (struct)
@@ -1651,16 +1651,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

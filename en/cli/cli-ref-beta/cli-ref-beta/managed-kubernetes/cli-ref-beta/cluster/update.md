@@ -29,11 +29,11 @@ Shorthand Syntax:
 
 ```hcl
 {
-  cluster-ipv4-cidr-block = str,
-  cluster-ipv6-cidr-block = str,
-  node-ipv4-cidr-mask-size = int,
-  service-ipv4-cidr-block = str,
-  service-ipv6-cidr-block = str
+  cluster-ipv4-cidr-block = string,
+  cluster-ipv6-cidr-block = string,
+  node-ipv4-cidr-mask-size = integer,
+  service-ipv4-cidr-block = string,
+  service-ipv6-cidr-block = string
 }
 ```
 
@@ -41,11 +41,11 @@ JSON Syntax:
 
 ```json
 {
-  "cluster-ipv4-cidr-block": "str",
-  "cluster-ipv6-cidr-block": "str",
-  "node-ipv4-cidr-mask-size": "int",
-  "service-ipv4-cidr-block": "str",
-  "service-ipv6-cidr-block": "str"
+  "cluster-ipv4-cidr-block": "string",
+  "cluster-ipv6-cidr-block": "string",
+  "node-ipv4-cidr-mask-size": "integer",
+  "service-ipv4-cidr-block": "string",
+  "service-ipv6-cidr-block": "string"
 }
 ```
 
@@ -56,14 +56,14 @@ cluster-ipv4-cidr-block -> (string)
   CIDR block. IP range for allocating pod addresses. It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.
 cluster-ipv6-cidr-block -> (string)
   IPv6 range for allocating pod IP addresses.
-node-ipv4-cidr-mask-size -> (int)
+node-ipv4-cidr-mask-size -> (integer)
   Size of the masks that are assigned for each node in the cluster. If not specified, 24 is used.
 service-ipv4-cidr-block -> (string)
   CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. It should not overlap with any subnet in the network the Kubernetes cluster located in.
 service-ipv6-cidr-block -> (string)
   IPv6 range for allocating Kubernetes service IP addresses
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set. ||
 || `--master-spec` | `shorthand/json`
@@ -75,16 +75,16 @@ Shorthand Syntax:
 ```hcl
 {
   external-v6-address-spec = {
-    address = str
+    address = string
   },
   locations = [
     {
-      subnet-id = str,
-      zone-id = str
+      subnet-id = string,
+      zone-id = string
     }, ...
   ],
   maintenance-policy = {
-    auto-upgrade = bool,
+    auto-upgrade = boolean,
     maintenance-window = {
       policy = anytime={} | daily-maintenance-window={
         duration = duration,
@@ -103,21 +103,21 @@ Shorthand Syntax:
     }
   },
   master-logging = {
-    audit-enabled = bool,
-    cluster-autoscaler-enabled = bool,
-    destination = folder-id=str | log-group-id=str,
-    enabled = bool,
-    events-enabled = bool,
-    kube-apiserver-enabled = bool
+    audit-enabled = boolean,
+    cluster-autoscaler-enabled = boolean,
+    destination = folder-id=string | log-group-id=string,
+    enabled = boolean,
+    events-enabled = boolean,
+    kube-apiserver-enabled = boolean
   },
   scale-policy = {
     scale-type = auto-scale={
-      min-resource-preset-id = str
+      min-resource-preset-id = string
     }
   },
-  security-group-ids = str,...,
+  security-group-ids = string,...,
   version = {
-    specifier = latest-revision=bool | version=str
+    specifier = latest-revision=boolean | version=string
   }
 }
 ```
@@ -127,16 +127,16 @@ JSON Syntax:
 ```json
 {
   "external-v6-address-spec": {
-    "address": "str"
+    "address": "string"
   },
   "locations": [
     {
-      "subnet-id": "str",
-      "zone-id": "str"
+      "subnet-id": "string",
+      "zone-id": "string"
     }, ...
   ],
   "maintenance-policy": {
-    "auto-upgrade": "bool",
+    "auto-upgrade": "boolean",
     "maintenance-window": {
       "policy": {
         "anytime": {},
@@ -159,30 +159,30 @@ JSON Syntax:
     }
   },
   "master-logging": {
-    "audit-enabled": "bool",
-    "cluster-autoscaler-enabled": "bool",
+    "audit-enabled": "boolean",
+    "cluster-autoscaler-enabled": "boolean",
     "destination": {
-      "folder-id": "str",
-      "log-group-id": "str"
+      "folder-id": "string",
+      "log-group-id": "string"
     },
-    "enabled": "bool",
-    "events-enabled": "bool",
-    "kube-apiserver-enabled": "bool"
+    "enabled": "boolean",
+    "events-enabled": "boolean",
+    "kube-apiserver-enabled": "boolean"
   },
   "scale-policy": {
     "scale-type": {
       "auto-scale": {
-        "min-resource-preset-id": "str"
+        "min-resource-preset-id": "string"
       }
     }
   },
   "security-group-ids": [
-    "str", ...
+    "string", ...
   ],
   "version": {
     "specifier": {
-      "latest-revision": "bool",
-      "version": "str"
+      "latest-revision": "boolean",
+      "version": "string"
     }
   }
 }
@@ -203,7 +203,7 @@ locations -> ([]struct)
     ID of the availability zone where the master resides.
 maintenance-policy -> (struct)
   Maintenance policy of the master.
-  auto-upgrade -> (bool)
+  auto-upgrade -> (boolean)
     If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.
   maintenance-window -> (struct)
     Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC.
@@ -229,15 +229,15 @@ maintenance-policy -> (struct)
             Window start time, in the UTC timezone.
 master-logging -> (struct)
   Cloud Logging for master components.
-  audit-enabled -> (bool)
+  audit-enabled -> (boolean)
     Identifies whether Cloud Logging is enabled for audit logs.
-  cluster-autoscaler-enabled -> (bool)
+  cluster-autoscaler-enabled -> (boolean)
     Identifies whether Cloud Logging is enabled for cluster-autoscaler.
-  enabled -> (bool)
+  enabled -> (boolean)
     Identifies whether Cloud Logging is enabled for master components.
-  events-enabled -> (bool)
+  events-enabled -> (boolean)
     Identifies whether Cloud Logging is enabled for events.
-  kube-apiserver-enabled -> (bool)
+  kube-apiserver-enabled -> (boolean)
     Identifies whether Cloud Logging is enabled for kube-apiserver.
   destination -> (oneof<folder-id|log-group-id>)
     Oneof destination field
@@ -260,7 +260,7 @@ version -> (struct)
     Oneof specifier field
     version -> (string)
       Request update to a newer version of Kubernetes (1.x -> 1.y).
-    latest-revision -> (bool)
+    latest-revision -> (boolean)
       Request update to the latest revision for the current version.
 ``` ||
 || `--name` | `string`
@@ -301,7 +301,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  enabled = bool
+  enabled = boolean
 }
 ```
 
@@ -309,14 +309,14 @@ JSON Syntax:
 
 ```json
 {
-  "enabled": "bool"
+  "enabled": "boolean"
 }
 ```
 
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
   Identifies whether Workload Identity Federation is enabled.
 ``` ||
 || `--gateway-ipv4-address` | `string`
@@ -343,16 +343,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

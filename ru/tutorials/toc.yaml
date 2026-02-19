@@ -252,6 +252,8 @@ items:
             href: security/single-sign-on/saml-opensearch-self-managed.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
+          - name: Selectel
+            href: security/single-sign-on/saml-selectel.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server

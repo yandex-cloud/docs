@@ -40,7 +40,7 @@ Description of the security group. ||
 || `--folder-id` | `string`
 
 ID of the folder for this request to create a security group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as '' key:value '' pairs. ||
 || `--name` | `string`
@@ -58,18 +58,18 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    description = str,
+    description = string,
     direction = INGRESS|EGRESS,
-    labels = {key=str, key=...},
+    labels = {key=string, key=...},
     ports = {
-      from-port = int,
-      to-port = int
+      from-port = integer,
+      to-port = integer
     },
-    protocol = protocol-name=str | protocol-number=int,
+    protocol = protocol-name=string | protocol-number=integer,
     target = cidr-blocks={
-      v4-cidr-blocks = str,...,
-      v6-cidr-blocks = str,...
-    } | predefined-target=str | security-group-id=str
+      v4-cidr-blocks = string,...,
+      v6-cidr-blocks = string,...
+    } | predefined-target=string | security-group-id=string
   }, ...
 ]
 ```
@@ -79,30 +79,30 @@ JSON Syntax:
 ```json
 [
   {
-    "description": "str",
+    "description": "string",
     "direction": "INGRESS|EGRESS",
     "labels": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     },
     "ports": {
-      "from-port": "int",
-      "to-port": "int"
+      "from-port": "integer",
+      "to-port": "integer"
     },
     "protocol": {
-      "protocol-name": "str",
-      "protocol-number": "int"
+      "protocol-name": "string",
+      "protocol-number": "integer"
     },
     "target": {
       "cidr-blocks": {
         "v4-cidr-blocks": [
-          "str", ...
+          "string", ...
         ],
         "v6-cidr-blocks": [
-          "str", ...
+          "string", ...
         ]
       },
-      "predefined-target": "str",
-      "security-group-id": "str"
+      "predefined-target": "string",
+      "security-group-id": "string"
     }
   }, ...
 ]
@@ -119,15 +119,15 @@ labels -> (map[string,string])
   Rule labels as '' key:value '' pairs.
 ports -> (struct)
   The range of ports that allow traffic to pass through. Null value means any port.
-  from-port -> (int)
+  from-port -> (integer)
     The lowest port in the range.
-  to-port -> (int)
+  to-port -> (integer)
     The highest port in the range.
 protocol -> (oneof<protocol-name|protocol-number>)
   Oneof protocol field
   protocol-name -> (string)
     Protocol name.
-  protocol-number -> (int)
+  protocol-number -> (integer)
     Protocol number from IANA protocol numbers.
 target -> (oneof<cidr-blocks|predefined-target|security-group-id>)
   Oneof target field
@@ -163,16 +163,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

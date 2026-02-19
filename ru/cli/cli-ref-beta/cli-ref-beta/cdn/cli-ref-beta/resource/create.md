@@ -42,7 +42,7 @@ CDN endpoint CNAME, must be unique among clients's resources. ||
 || `--folder-id` | `string`
 
 ID of the to bind with new resource. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Labels of the resource. ||
 || `--options` | `shorthand/json`
@@ -54,132 +54,147 @@ Shorthand Syntax:
 ```hcl
 {
   allowed-http-methods = {
-    enabled = bool,
-    value = str,...
+    enabled = boolean,
+    value = string,...
   },
   browser-cache-settings = {
-    enabled = bool,
-    value = int
+    enabled = boolean,
+    value = integer
   },
   cache-http-headers = {
-    enabled = bool,
-    value = str,...
+    enabled = boolean,
+    value = string,...
   },
   compression-options = {
     compression-variant = brotli-compression={
-      enabled = bool,
-      value = str,...
+      enabled = boolean,
+      value = string,...
     } | fetch-compressed={
-      enabled = bool,
-      value = bool
+      enabled = boolean,
+      value = boolean
     } | gzip-on={
-      enabled = bool,
-      value = bool
+      enabled = boolean,
+      value = boolean
     }
   },
   cors = {
-    enabled = bool,
-    value = str,...
+    enabled = boolean,
+    value = string,...
   },
   custom-server-name = {
-    enabled = bool,
-    value = str
+    enabled = boolean,
+    value = string
   },
   disable-cache = {
-    enabled = bool,
-    value = bool
+    enabled = boolean,
+    value = boolean
   },
   disable-proxy-force-ranges = {
-    enabled = bool,
-    value = bool
+    enabled = boolean,
+    value = boolean
   },
   edge-cache-settings = {
-    enabled = bool,
-    values-variant = default-value=int | value={
-      custom-values = {key=int, key=...},
-      simple-value = int
+    enabled = boolean,
+    values-variant = default-value=integer | value={
+      custom-values = {key=integer, key=...},
+      simple-value = integer
     }
   },
   follow-redirects = {
-    codes = int,...,
-    enabled = bool,
-    use-custom-host = bool
+    codes = integer,...,
+    enabled = boolean,
+    use-custom-host = boolean
+  },
+  geo-acl = {
+    countries = string,...,
+    enabled = boolean,
+    mode = MODE_ALLOW|MODE_DENY
   },
   header-filter = {
-    enabled = bool,
-    headers = str,...
+    enabled = boolean,
+    headers = string,...
   },
   host-options = {
     host-variant = forward-host-header={
-      enabled = bool,
-      value = bool
+      enabled = boolean,
+      value = boolean
     } | host={
-      enabled = bool,
-      value = str
+      enabled = boolean,
+      value = string
     }
   },
   ignore-cookie = {
-    enabled = bool,
-    value = bool
+    enabled = boolean,
+    value = boolean
   },
   ip-address-acl = {
-    enabled = bool,
-    excepted-values = str,...,
+    enabled = boolean,
+    excepted-values = string,...,
     policy-type = POLICY_TYPE_ALLOW|POLICY_TYPE_DENY
   },
   proxy-cache-methods-set = {
-    enabled = bool,
-    value = bool
+    enabled = boolean,
+    value = boolean
   },
   query-params-options = {
     query-params-variant = ignore-query-string={
-      enabled = bool,
-      value = bool
+      enabled = boolean,
+      value = boolean
     } | query-params-blacklist={
-      enabled = bool,
-      value = str,...
+      enabled = boolean,
+      value = string,...
     } | query-params-whitelist={
-      enabled = bool,
-      value = str,...
+      enabled = boolean,
+      value = string,...
     }
   },
   redirect-options = {
     redirect-variant = redirect-http-to-https={
-      enabled = bool,
-      value = bool
+      enabled = boolean,
+      value = boolean
     } | redirect-https-to-http={
-      enabled = bool,
-      value = bool
+      enabled = boolean,
+      value = boolean
     }
   },
+  referrer-acl = {
+    enabled = boolean,
+    mode = MODE_ALLOW|MODE_DENY,
+    referrers = string,...
+  },
   rewrite = {
-    body = str,
-    enabled = bool,
+    body = string,
+    enabled = boolean,
     flag = LAST|BREAK|REDIRECT|PERMANENT
   },
   secure-key = {
-    enabled = bool,
-    key = str,
+    enabled = boolean,
+    key = string,
     type = ENABLE_IP_SIGNING|DISABLE_IP_SIGNING
   },
   slice = {
-    enabled = bool,
-    value = bool
+    enabled = boolean,
+    value = boolean
   },
   stale = {
-    enabled = bool,
-    value = str,...
+    enabled = boolean,
+    value = string,...
   },
   static-headers = {
-    enabled = bool,
-    value = {key=str, key=...}
+    enabled = boolean,
+    value = {key=string, key=...}
   },
   static-request-headers = {
-    enabled = bool,
-    value = {key=str, key=...}
+    enabled = boolean,
+    value = {key=string, key=...}
+  },
+  static-response = {
+    code = integer,
+    content = string,
+    enabled = boolean
   },
   websockets = {
-    enabled = bool
+    enabled = boolean
   }
 }
 ```
@@ -189,125 +204,132 @@ JSON Syntax:
 ```json
 {
   "allowed-http-methods": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "value": [
-      "str", ...
+      "string", ...
     ]
   },
   "browser-cache-settings": {
-    "enabled": "bool",
-    "value": "int"
+    "enabled": "boolean",
+    "value": "integer"
   },
   "cache-http-headers": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "value": [
-      "str", ...
+      "string", ...
     ]
   },
   "compression-options": {
     "compression-variant": {
       "brotli-compression": {
-        "enabled": "bool",
+        "enabled": "boolean",
         "value": [
-          "str", ...
+          "string", ...
         ]
       },
       "fetch-compressed": {
-        "enabled": "bool",
-        "value": "bool"
+        "enabled": "boolean",
+        "value": "boolean"
       },
       "gzip-on": {
-        "enabled": "bool",
-        "value": "bool"
+        "enabled": "boolean",
+        "value": "boolean"
       }
     }
   },
   "cors": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "value": [
-      "str", ...
+      "string", ...
     ]
   },
   "custom-server-name": {
-    "enabled": "bool",
-    "value": "str"
+    "enabled": "boolean",
+    "value": "string"
   },
   "disable-cache": {
-    "enabled": "bool",
-    "value": "bool"
+    "enabled": "boolean",
+    "value": "boolean"
   },
   "disable-proxy-force-ranges": {
-    "enabled": "bool",
-    "value": "bool"
+    "enabled": "boolean",
+    "value": "boolean"
   },
   "edge-cache-settings": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "values-variant": {
-      "default-value": "int",
+      "default-value": "integer",
       "value": {
         "custom-values": {
-          "<key>": "int", ...
+          "<key>": "integer", ...
         },
-        "simple-value": "int"
+        "simple-value": "integer"
       }
     }
   },
   "follow-redirects": {
     "codes": [
-      "int", ...
+      "integer", ...
     ],
-    "enabled": "bool",
-    "use-custom-host": "bool"
+    "enabled": "boolean",
+    "use-custom-host": "boolean"
+  },
+  "geo-acl": {
+    "countries": [
+      "string", ...
+    ],
+    "enabled": "boolean",
+    "mode": "MODE_ALLOW|MODE_DENY"
   },
   "header-filter": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "headers": [
-      "str", ...
+      "string", ...
     ]
   },
   "host-options": {
     "host-variant": {
       "forward-host-header": {
-        "enabled": "bool",
-        "value": "bool"
+        "enabled": "boolean",
+        "value": "boolean"
       },
       "host": {
-        "enabled": "bool",
-        "value": "str"
+        "enabled": "boolean",
+        "value": "string"
       }
     }
   },
   "ignore-cookie": {
-    "enabled": "bool",
-    "value": "bool"
+    "enabled": "boolean",
+    "value": "boolean"
   },
   "ip-address-acl": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "excepted-values": [
-      "str", ...
+      "string", ...
     ],
     "policy-type": "POLICY_TYPE_ALLOW|POLICY_TYPE_DENY"
   },
   "proxy-cache-methods-set": {
-    "enabled": "bool",
-    "value": "bool"
+    "enabled": "boolean",
+    "value": "boolean"
   },
   "query-params-options": {
     "query-params-variant": {
       "ignore-query-string": {
-        "enabled": "bool",
-        "value": "bool"
+        "enabled": "boolean",
+        "value": "boolean"
       },
       "query-params-blacklist": {
-        "enabled": "bool",
+        "enabled": "boolean",
         "value": [
-          "str", ...
+          "string", ...
         ]
       },
       "query-params-whitelist": {
-        "enabled": "bool",
+        "enabled": "boolean",
         "value": [
-          "str", ...
+          "string", ...
         ]
       }
     }
@@ -315,49 +337,61 @@ JSON Syntax:
   "redirect-options": {
     "redirect-variant": {
       "redirect-http-to-https": {
-        "enabled": "bool",
-        "value": "bool"
+        "enabled": "boolean",
+        "value": "boolean"
       },
       "redirect-https-to-http": {
-        "enabled": "bool",
-        "value": "bool"
+        "enabled": "boolean",
+        "value": "boolean"
       }
     }
   },
+  "referrer-acl": {
+    "enabled": "boolean",
+    "mode": "MODE_ALLOW|MODE_DENY",
+    "referrers": [
+      "string", ...
+    ]
+  },
   "rewrite": {
-    "body": "str",
-    "enabled": "bool",
+    "body": "string",
+    "enabled": "boolean",
     "flag": "LAST|BREAK|REDIRECT|PERMANENT"
   },
   "secure-key": {
-    "enabled": "bool",
-    "key": "str",
+    "enabled": "boolean",
+    "key": "string",
     "type": "ENABLE_IP_SIGNING|DISABLE_IP_SIGNING"
   },
   "slice": {
-    "enabled": "bool",
-    "value": "bool"
+    "enabled": "boolean",
+    "value": "boolean"
   },
   "stale": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "value": [
-      "str", ...
+      "string", ...
     ]
   },
   "static-headers": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "value": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     }
   },
   "static-request-headers": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "value": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     }
   },
+  "static-response": {
+    "code": "integer",
+    "content": "string",
+    "enabled": "boolean"
+  },
   "websockets": {
-    "enabled": "bool"
+    "enabled": "boolean"
   }
 }
 ```
@@ -367,19 +401,19 @@ Fields:
 ```
 allowed-http-methods -> (struct)
   HTTP methods for your CDN content. By default the following methods are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS. In case some methods are not allowed to the user, they will get the 405 (Method Not Allowed) response. If the method is not supported, the user gets the 501 (Not Implemented) response.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> ([]string)
     Value of the option.
 browser-cache-settings -> (struct)
   Using [Int64Option]. Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-  value -> (int)
+  value -> (integer)
     Value of the option.
 cache-http-headers -> (struct)
   List HTTP headers that must be included in responses to clients.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> ([]string)
     Value of the option.
@@ -389,71 +423,79 @@ compression-options -> (struct)
     Oneof compression-variant field
     fetch-compressed -> (struct)
       The Fetch compressed option helps you to reduce the bandwidth between origin and CDN servers. Also, content delivery speed becomes higher because of reducing the time for compressing files in a CDN.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-      value -> (bool)
+      value -> (boolean)
         Value of the option.
     gzip-on -> (struct)
       Using [BoolOption]. GZip compression at CDN servers reduces file size by 70% and can be as high as 90%.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-      value -> (bool)
+      value -> (boolean)
         Value of the option.
     brotli-compression -> (struct)
       The option allows to compress content with brotli on the CDN's end. Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled. Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
       value -> ([]string)
         Value of the option.
 cors -> (struct)
   Parameter that lets browsers get access to selected resources from a domain different to a domain from which the request is received. documentation.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> ([]string)
     Value of the option.
 custom-server-name -> (struct)
   Wildcard additional CNAME. If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> (string)
     Value of the option.
 disable-cache -> (struct)
   Set up a cache status.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-  value -> (bool)
+  value -> (boolean)
     Value of the option.
 disable-proxy-force-ranges -> (struct)
   Disabling proxy force ranges.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-  value -> (bool)
+  value -> (boolean)
     Value of the option.
 edge-cache-settings -> (struct)
   Set up [EdgeCacheSettings].
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its 'values_variant' is applied to the resource. False - the option is disabled and its default value is used for the resource.
   values-variant -> (oneof<default-value|value>)
     Oneof values-variant field
     value -> (struct)
       Value of the option.
-      custom-values -> (map[string,int])
+      custom-values -> (map[string,integer])
         Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code ('304', '404' for example). Use 'any' to specify caching time for all response codes. Caching time in seconds ('0s', '600s' for example). Use '0s' to disable caching for a specific response code.
-      simple-value -> (int)
+      simple-value -> (integer)
         Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use '0s' disable to caching. Use [custom_values] field to specify a custom caching time for a response with specific codes.
-    default-value -> (int)
+    default-value -> (integer)
       Content will be cached according to origin cache settings. The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308 if an origin server does not have caching HTTP headers. Responses with other codes will not be cached.
 follow-redirects -> (struct)
-  Manage the state of the Redirection from origin option. If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect.
-  codes -> ([]int)
+  Manage the state of the Redirection from origin option. If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. This option works only when origin shielding is activated.
+  codes -> ([]integer)
     Add the redirect HTTP status codes that the source returns.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource.
-  use-custom-host -> (bool)
+  use-custom-host -> (boolean)
     Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option.
+geo-acl -> (struct)
+  Configuration for geographic access control.
+  countries -> ([]string)
+    List of country codes (ISO 3166, uppercase).
+  enabled -> (boolean)
+    Enables or disables the Geo ACL option.
+  mode -> (struct)
+    Mode of the Geo ACL.
 header-filter -> (struct)
   Configuration for HTTP response header filtering. This feature allows controlling which headers from the origin are passed to end users.
-  enabled -> (bool)
+  enabled -> (boolean)
     Enables or disables feature.
   headers -> ([]string)
     Whitelist of headers.
@@ -463,25 +505,25 @@ host-options -> (struct)
     Oneof host-variant field
     host -> (struct)
       Custom value for the Host header. Your server must be able to process requests with the chosen header. Default value (if [StringOption.enabled] is 'false') is [Resource.cname].
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
       value -> (string)
         Value of the option.
     forward-host-header -> (struct)
       Using [BoolOption]. Choose the Forward Host header option if is important to send in the request to the Origin the same Host header as was sent in the request to CDN server.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-      value -> (bool)
+      value -> (boolean)
         Value of the option.
 ignore-cookie -> (struct)
   Using [BoolOption] for ignoring cookie.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-  value -> (bool)
+  value -> (boolean)
     Value of the option.
 ip-address-acl -> (struct)
   Manage the state of the IP access policy option. The option controls access to content from the specified IP addresses.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource.
   excepted-values -> ([]string)
     The list of IP addresses to be allowed or denied.
@@ -489,9 +531,9 @@ ip-address-acl -> (struct)
     The policy type. One of allow or deny value.
 proxy-cache-methods-set -> (struct)
   Allows caching for GET, HEAD and POST requests.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-  value -> (bool)
+  value -> (boolean)
     Value of the option.
 query-params-options -> (struct)
   Set up [QueryParamsOptions].
@@ -499,19 +541,19 @@ query-params-options -> (struct)
     Oneof query-params-variant field
     ignore-query-string -> (struct)
       Using [BoolOption]. Selected by default. Files with different query parameters are cached as objects with the same key regardless of the parameter value.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-      value -> (bool)
+      value -> (boolean)
         Value of the option.
     query-params-whitelist -> (struct)
       Ignore All Except. Files with the specified query parameters are cached as objects with different keys, files with other parameters are cached as objects with the same key.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
       value -> ([]string)
         Value of the option.
     query-params-blacklist -> (struct)
       Ignore only. Files with the specified query parameters are cached as objects with the same key, files with other parameters are cached as objects with different keys.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
       value -> ([]string)
         Value of the option.
@@ -521,27 +563,35 @@ redirect-options -> (struct)
     Oneof redirect-variant field
     redirect-http-to-https -> (struct)
       Using [BoolOption]. Set up a redirect from HTTPS to HTTP.
-      enabled -> (bool)
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-      value -> (bool)
+      value -> (boolean)
         Value of the option.
     redirect-https-to-http -> (struct)
-      Using [BoolOption]. Set up a redirect from HTTP to HTTPS.
-      enabled -> (bool)
+      Using [BoolOption]. Set up a redirect from HTTP to HTTPS. Deprecated: Use of redirect_https_to_http is deprecated.
+      enabled -> (boolean)
         True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-      value -> (bool)
+      value -> (boolean)
         Value of the option.
+referrer-acl -> (struct)
+  Configuration for referrer-based access control.
+  enabled -> (boolean)
+    Enables or disables feature.
+  mode -> (struct)
+    Access mode for the referrer list.
+  referrers -> ([]string)
+    List of referer patterns. Supports three types of values: 1. Domain without scheme with or without query, e.g. "google.com", "ya.ru/abc" 2. Wildcard pattern with dot separator, e.g. "*.hello.com", "staging.*" Note: dot must be present before or after '*' (so "*abc.com" is NOT valid) 3. Regular expression starting with '~', e.g. "~^prod\..*\.company.org/abc"
 rewrite -> (struct)
   Changing or redirecting query paths.
   body -> (string)
     Pattern for rewrite. The value must have the following format: '<source path> <destination path>', where both paths are regular expressions which use at least one group. E.g., '/foo/(.*) /bar/$1'.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource.
   flag -> (struct)
     Break flag is applied to the option by default. It is not shown in the field.
 secure-key -> (struct)
   Secure token to protect contect and limit access by IP addresses and time limits.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [flag] is applied to the resource. False - the option is disabled and its default value of the [flag] is used for the resource.
   key -> (string)
     The key for the URL signing.
@@ -549,31 +599,39 @@ secure-key -> (struct)
     The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
 slice -> (struct)
   Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. The origin must support HTTP Range requests. By default the option is disabled.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
-  value -> (bool)
+  value -> (boolean)
     Value of the option.
 stale -> (struct)
   List of errors which instruct CDN servers to serve stale content to clients. Possible values: 'error', 'http_403', 'http_404', 'http_429', 'http_500', 'http_502', 'http_503', 'http_504', 'invalid_header', 'timeout', 'updating'.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> ([]string)
     Value of the option.
 static-headers -> (struct)
   Set up static headers that CDN servers send in responses to clients.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> (map[string,string])
     Value of the option.
 static-request-headers -> (struct)
   Set up custom headers that CDN servers send in requests to origins. The Header name field can contain letters (A-Z, a-z), numbers (0-9), dashes (-) and underscores (_). The Value field can contain letters (A-Z, a-z), numbers (0-9), dashes (-), underscores (_), slashes (/), colons (:), equal (=), dots (.), and spaces.
-  enabled -> (bool)
+  enabled -> (boolean)
     True - the option is enabled and its [value] is applied to the resource. False - the option is disabled and its default value is used for the resource.
   value -> (map[string,string])
     Value of the option.
+static-response -> (struct)
+  Configuration for serving a static HTTP response instead of fetching from origin.
+  code -> (integer)
+    HTTP status code.
+  content -> (string)
+    A string containing the response content. For 3xx - Location header For other codes - body
+  enabled -> (boolean)
+    Enables or disables feature.
 websockets -> (struct)
   Configuration for WebSocket protocol support.
-  enabled -> (bool)
+  enabled -> (boolean)
     Enables or disables feature.
 ``` ||
 || `--origin` | `shorthand/json`
@@ -584,19 +642,19 @@ Shorthand Syntax:
 
 ```hcl
 {
-  origin-variant = origin-group-id=int | origin-source=str | origin-source-params={
+  origin-variant = origin-group-id=integer | origin-source=string | origin-source-params={
     meta = {
       origin-meta-variant = balancer={
-        id = str
+        id = string
       } | bucket={
-        name = str
+        name = string
       } | common={
-        name = str
+        name = string
       } | website={
-        name = str
+        name = string
       }
     },
-    source = str
+    source = string
   }
 }
 ```
@@ -606,26 +664,26 @@ JSON Syntax:
 ```json
 {
   "origin-variant": {
-    "origin-group-id": "int",
-    "origin-source": "str",
+    "origin-group-id": "integer",
+    "origin-source": "string",
     "origin-source-params": {
       "meta": {
         "origin-meta-variant": {
           "balancer": {
-            "id": "str"
+            "id": "string"
           },
           "bucket": {
-            "name": "str"
+            "name": "string"
           },
           "common": {
-            "name": "str"
+            "name": "string"
           },
           "website": {
-            "name": "str"
+            "name": "string"
           }
         }
       },
-      "source": "str"
+      "source": "string"
     }
   }
 }
@@ -636,7 +694,7 @@ Fields:
 ```
 origin-variant -> (oneof<origin-group-id|origin-source|origin-source-params>)
   Oneof origin-variant field
-  origin-group-id -> (int)
+  origin-group-id -> (integer)
     ID of pre-created origin group.
   origin-source -> (string)
     Create new Origins group with single source, it's id will be returned in result.
@@ -679,7 +737,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  values = str,...
+  values = string,...
 }
 ```
 
@@ -688,7 +746,7 @@ JSON Syntax:
 ```json
 {
   "values": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -709,7 +767,7 @@ Shorthand Syntax:
 {
   data = {
     ssl-certificate-data-variant = cm={
-      id = str
+      id = string
     }
   },
   type = DONT_USE|LETS_ENCRYPT_GCORE|CM
@@ -723,7 +781,7 @@ JSON Syntax:
   "data": {
     "ssl-certificate-data-variant": {
       "cm": {
-        "id": "str"
+        "id": "string"
       }
     }
   },
@@ -766,16 +824,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

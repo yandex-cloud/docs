@@ -31,7 +31,7 @@ ID of the federation to update. To get the federation ID, make a [FederationServ
 || `--issuer` | `string`
 
 ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as '' key:value '' pairs. ||
 || `--name` | `string`
@@ -45,8 +45,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  encrypted-assertions = bool,
-  force-authn = bool
+  encrypted-assertions = boolean,
+  force-authn = boolean
 }
 ```
 
@@ -54,17 +54,17 @@ JSON Syntax:
 
 ```json
 {
-  "encrypted-assertions": "bool",
-  "force-authn": "bool"
+  "encrypted-assertions": "boolean",
+  "force-authn": "boolean"
 }
 ```
 
 Fields:
 
 ```
-encrypted-assertions -> (bool)
+encrypted-assertions -> (boolean)
   Enable encrypted assertions.
-force-authn -> (bool)
+force-authn -> (boolean)
   Value parameter ForceAuthn in SAMLRequest.
 ``` ||
 || `--sso-binding` | `enum`
@@ -94,16 +94,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

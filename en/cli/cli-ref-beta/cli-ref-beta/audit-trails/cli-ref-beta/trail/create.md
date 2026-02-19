@@ -46,16 +46,16 @@ Shorthand Syntax:
 ```hcl
 {
   destination = cloud-logging={
-    destination = log-group-id=str
+    destination = log-group-id=string
   } | data-stream={
     codec = RAW|GZIP|ZSTD,
-    database-id = str,
-    stream-name = str
+    database-id = string,
+    stream-name = string
   } | eventrouter={
-    eventrouter-connector-id = str
+    eventrouter-connector-id = string
   } | object-storage={
-    bucket-id = str,
-    object-prefix = str
+    bucket-id = string,
+    object-prefix = string
   }
 }
 ```
@@ -67,20 +67,20 @@ JSON Syntax:
   "destination": {
     "cloud-logging": {
       "destination": {
-        "log-group-id": "str"
+        "log-group-id": "string"
       }
     },
     "data-stream": {
       "codec": "RAW|GZIP|ZSTD",
-      "database-id": "str",
-      "stream-name": "str"
+      "database-id": "string",
+      "stream-name": "string"
     },
     "eventrouter": {
-      "eventrouter-connector-id": "str"
+      "eventrouter-connector-id": "string"
     },
     "object-storage": {
-      "bucket-id": "str",
-      "object-prefix": "str"
+      "bucket-id": "string",
+      "object-prefix": "string"
     }
   }
 }
@@ -137,21 +137,21 @@ Shorthand Syntax:
           root = {
             element = any-filter={
               resource = {
-                id = str,
-                type = str
+                id = string,
+                type = string
               }
             } | some-filter={
               filters = [
                 <PathFilterElement>, ...
               ],
               resource = {
-                id = str,
-                type = str
+                id = string,
+                type = string
               }
             }
           }
         },
-        service = str
+        service = string
       }, ...
     ]
   },
@@ -159,16 +159,16 @@ Shorthand Syntax:
     root = {
       element = any-filter={
         resource = {
-          id = str,
-          type = str
+          id = string,
+          type = string
         }
       } | some-filter={
         filters = [
           <PathFilterElement>, ...
         ],
         resource = {
-          id = str,
-          type = str
+          id = string,
+          type = string
         }
       }
     }
@@ -194,8 +194,8 @@ JSON Syntax:
             "element": {
               "any-filter": {
                 "resource": {
-                  "id": "str",
-                  "type": "str"
+                  "id": "string",
+                  "type": "string"
                 }
               },
               "some-filter": {
@@ -203,14 +203,14 @@ JSON Syntax:
                   "<PathFilterElement>", ...
                 ],
                 "resource": {
-                  "id": "str",
-                  "type": "str"
+                  "id": "string",
+                  "type": "string"
                 }
               }
             }
           }
         },
-        "service": "str"
+        "service": "string"
       }, ...
     ]
   },
@@ -219,8 +219,8 @@ JSON Syntax:
       "element": {
         "any-filter": {
           "resource": {
-            "id": "str",
-            "type": "str"
+            "id": "string",
+            "type": "string"
           }
         },
         "some-filter": {
@@ -228,8 +228,8 @@ JSON Syntax:
             "<PathFilterElement>", ...
           ],
           "resource": {
-            "id": "str",
-            "type": "str"
+            "id": "string",
+            "type": "string"
           }
         }
       }
@@ -313,27 +313,27 @@ Shorthand Syntax:
   data-events-filters = [
     {
       additional-rules = excluded-events={
-        event-types = str,...
+        event-types = string,...
       } | included-events={
-        event-types = str,...
+        event-types = string,...
       },
       resource-scopes = [
         {
-          id = str,
-          type = str
+          id = string,
+          type = string
         }, ...
       ],
-      service = str,
+      service = string,
       service-specific-rules = dns-filter={
-        include-nonrecursive-queries = bool
+        include-nonrecursive-queries = boolean
       }
     }, ...
   ],
   management-events-filter = {
     resource-scopes = [
       {
-        id = str,
-        type = str
+        id = string,
+        type = string
       }, ...
     ]
   }
@@ -349,25 +349,25 @@ JSON Syntax:
       "additional-rules": {
         "excluded-events": {
           "event-types": [
-            "str", ...
+            "string", ...
           ]
         },
         "included-events": {
           "event-types": [
-            "str", ...
+            "string", ...
           ]
         }
       },
       "resource-scopes": [
         {
-          "id": "str",
-          "type": "str"
+          "id": "string",
+          "type": "string"
         }, ...
       ],
-      "service": "str",
+      "service": "string",
       "service-specific-rules": {
         "dns-filter": {
-          "include-nonrecursive-queries": "bool"
+          "include-nonrecursive-queries": "boolean"
         }
       }
     }, ...
@@ -375,8 +375,8 @@ JSON Syntax:
   "management-events-filter": {
     "resource-scopes": [
       {
-        "id": "str",
-        "type": "str"
+        "id": "string",
+        "type": "string"
       }, ...
     ]
   }
@@ -408,7 +408,7 @@ data-events-filters -> ([]struct)
     Oneof service-specific-rules field
     dns-filter -> (struct)
       Filter is allowed only if service = dns
-      include-nonrecursive-queries -> (bool)
+      include-nonrecursive-queries -> (boolean)
         Not only recursive queries will be delivered
 management-events-filter -> (struct)
   Singular filter describing gathering management events
@@ -422,7 +422,7 @@ management-events-filter -> (struct)
 || `--folder-id` | `string`
 
 ID of the folder to create a trail in. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Custom labels for the secret as 'key:value' pairs. Maximum 64 per key. For example, '"type": "critical"' or '"source": "dictionary"'. ||
 || `--name` | `string`
@@ -452,16 +452,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

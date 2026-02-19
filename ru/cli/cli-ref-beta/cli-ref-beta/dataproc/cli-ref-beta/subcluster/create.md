@@ -42,11 +42,11 @@ Shorthand Syntax:
 
 ```hcl
 {
-  cpu-utilization-target = double,
-  decommission-timeout = int,
-  max-hosts-count = int,
+  cpu-utilization-target = float64,
+  decommission-timeout = integer,
+  max-hosts-count = integer,
   measurement-duration = duration,
-  preemptible = bool,
+  preemptible = boolean,
   stabilization-duration = duration,
   warmup-duration = duration
 }
@@ -56,11 +56,11 @@ JSON Syntax:
 
 ```json
 {
-  "cpu-utilization-target": "double",
-  "decommission-timeout": "int",
-  "max-hosts-count": "int",
+  "cpu-utilization-target": "float64",
+  "decommission-timeout": "integer",
+  "max-hosts-count": "integer",
   "measurement-duration": "duration",
-  "preemptible": "bool",
+  "preemptible": "boolean",
   "stabilization-duration": "duration",
   "warmup-duration": "duration"
 }
@@ -69,15 +69,15 @@ JSON Syntax:
 Fields:
 
 ```
-cpu-utilization-target -> (double)
+cpu-utilization-target -> (float64)
   Defines an autoscaling rule based on the average CPU utilization of the instance group.
-decommission-timeout -> (int)
+decommission-timeout -> (integer)
   Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
-max-hosts-count -> (int)
+max-hosts-count -> (integer)
   Upper limit for total instance subcluster count.
 measurement-duration -> (duration)
   Time in seconds allotted for averaging metrics.
-preemptible -> (bool)
+preemptible -> (boolean)
   Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see documentation.
 stabilization-duration -> (duration)
   Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.
@@ -101,9 +101,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  disk-size = int,
-  disk-type-id = str,
-  resource-preset-id = str
+  disk-size = integer,
+  disk-type-id = string,
+  resource-preset-id = string
 }
 ```
 
@@ -111,16 +111,16 @@ JSON Syntax:
 
 ```json
 {
-  "disk-size": "int",
-  "disk-type-id": "str",
-  "resource-preset-id": "str"
+  "disk-size": "integer",
+  "disk-type-id": "string",
+  "resource-preset-id": "string"
 }
 ```
 
 Fields:
 
 ```
-disk-size -> (int)
+disk-size -> (integer)
   Volume of the storage available to a host, in bytes.
 disk-type-id -> (string)
   Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive.
@@ -154,16 +154,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -27,40 +27,40 @@ Shorthand Syntax:
 ```hcl
 {
   dependencies = {
-    deb-packages = str,...,
-    pip-packages = str,...
+    deb-packages = string,...,
+    pip-packages = string,...
   },
   history-server = {
-    enabled = bool
+    enabled = boolean
   },
   metastore = {
-    cluster-id = str
+    cluster-id = string
   },
   resource-pools = {
     driver = {
-      resource-preset-id = str,
+      resource-preset-id = string,
       scale-policy = {
         scale-type = auto-scale={
-          max-size = int,
-          min-size = int
+          max-size = integer,
+          min-size = integer
         } | fixed-scale={
-          size = int
+          size = integer
         }
       }
     },
     executor = {
-      resource-preset-id = str,
+      resource-preset-id = string,
       scale-policy = {
         scale-type = auto-scale={
-          max-size = int,
-          min-size = int
+          max-size = integer,
+          min-size = integer
         } | fixed-scale={
-          size = int
+          size = integer
         }
       }
     }
   },
-  spark-version = str
+  spark-version = string
 }
 ```
 
@@ -70,49 +70,49 @@ JSON Syntax:
 {
   "dependencies": {
     "deb-packages": [
-      "str", ...
+      "string", ...
     ],
     "pip-packages": [
-      "str", ...
+      "string", ...
     ]
   },
   "history-server": {
-    "enabled": "bool"
+    "enabled": "boolean"
   },
   "metastore": {
-    "cluster-id": "str"
+    "cluster-id": "string"
   },
   "resource-pools": {
     "driver": {
-      "resource-preset-id": "str",
+      "resource-preset-id": "string",
       "scale-policy": {
         "scale-type": {
           "auto-scale": {
-            "max-size": "int",
-            "min-size": "int"
+            "max-size": "integer",
+            "min-size": "integer"
           },
           "fixed-scale": {
-            "size": "int"
+            "size": "integer"
           }
         }
       }
     },
     "executor": {
-      "resource-preset-id": "str",
+      "resource-preset-id": "string",
       "scale-policy": {
         "scale-type": {
           "auto-scale": {
-            "max-size": "int",
-            "min-size": "int"
+            "max-size": "integer",
+            "min-size": "integer"
           },
           "fixed-scale": {
-            "size": "int"
+            "size": "integer"
           }
         }
       }
     }
   },
-  "spark-version": "str"
+  "spark-version": "string"
 }
 ```
 
@@ -125,7 +125,7 @@ dependencies -> (struct)
   pip-packages -> ([]string)
 history-server -> (struct)
   Configuration for HistoryServer
-  enabled -> (bool)
+  enabled -> (boolean)
 metastore -> (struct)
   Metastore Cluster
   cluster-id -> (string)
@@ -137,10 +137,10 @@ resource-pools -> (struct)
       scale-type -> (oneof<auto-scale|fixed-scale>)
         Oneof scale-type field
         fixed-scale -> (struct)
-          size -> (int)
+          size -> (integer)
         auto-scale -> (struct)
-          max-size -> (int)
-          min-size -> (int)
+          max-size -> (integer)
+          min-size -> (integer)
   executor -> (struct)
     resource-preset-id -> (string)
       ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
@@ -148,10 +148,10 @@ resource-pools -> (struct)
       scale-type -> (oneof<auto-scale|fixed-scale>)
         Oneof scale-type field
         fixed-scale -> (struct)
-          size -> (int)
+          size -> (integer)
         auto-scale -> (struct)
-          max-size -> (int)
-          min-size -> (int)
+          max-size -> (integer)
+          min-size -> (integer)
 spark-version -> (string)
   Spark version. Format: "Major.Minor"
 ``` ||
@@ -159,7 +159,7 @@ spark-version -> (string)
 || `--description` | `string`
 
 Description of the Spark cluster. 0-256 characters long. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
  ||
 || `--logging` | `shorthand/json`
@@ -170,8 +170,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  destination = folder-id=str | log-group-id=str,
-  enabled = bool
+  destination = folder-id=string | log-group-id=string,
+  enabled = boolean
 }
 ```
 
@@ -180,17 +180,17 @@ JSON Syntax:
 ```json
 {
   "destination": {
-    "folder-id": "str",
-    "log-group-id": "str"
+    "folder-id": "string",
+    "log-group-id": "string"
   },
-  "enabled": "bool"
+  "enabled": "boolean"
 }
 ```
 
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
 destination -> (oneof<folder-id|log-group-id>)
   Oneof destination field
   folder-id -> (string)
@@ -206,7 +206,7 @@ Shorthand Syntax:
 {
   policy = anytime={} | weekly-maintenance-window={
     day = MON|TUE|WED|THU|FRI|SAT|SUN,
-    hour = int
+    hour = integer
   }
 }
 ```
@@ -219,7 +219,7 @@ JSON Syntax:
     "anytime": {},
     "weekly-maintenance-window": {
       "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
-      "hour": "int"
+      "hour": "integer"
     }
   }
 }
@@ -233,7 +233,7 @@ policy -> (oneof<anytime|weekly-maintenance-window>)
   anytime -> (struct)
   weekly-maintenance-window -> (struct)
     day -> (struct)
-    hour -> (int)
+    hour -> (integer)
       Hour of the day in UTC.
 ``` ||
 || `--name` | `string`
@@ -245,7 +245,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  security-group-ids = str,...
+  security-group-ids = string,...
 }
 ```
 
@@ -254,7 +254,7 @@ JSON Syntax:
 ```json
 {
   "security-group-ids": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -289,16 +289,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

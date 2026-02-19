@@ -1,9 +1,13 @@
-Роль `smart-web-security.viewer` позволяет просматривать информацию о профилях безопасности Smart Web Security, а также об облаке и каталоге.
+Роль `smart-web-security.viewer` позволяет просматривать информацию о ресурсах сервиса Smart Web Security, а также об облаке и каталоге.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [профилях безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security;
-* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к профилям безопасности;
-* просматривать список [виртуальных хостов](../../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика Yandex Application Load Balancer, к которым подключен профиль безопасности;
+* просматривать информацию о [профилях безопасности](../../smartwebsecurity/concepts/profiles.md);
+* просматривать список [ресурсов](../../smartwebsecurity/operations/host-connect.md), к которым подключен профиль безопасности;
+* просматривать информацию о [профилях WAF](../../smartwebsecurity/concepts/waf.md);
+* просматривать информацию о [профилях ARL](../../smartwebsecurity/concepts/arl.md);
+* просматривать информацию о [прокси-серверах](../../smartwebsecurity/concepts/domain-protect.md#proxy);
+* просматривать информацию о [списках](../../smartwebsecurity/concepts/lists.md);
+* просматривать информацию о [шаблонах страниц ответов](../../smartwebsecurity/concepts/response-templates.md);
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

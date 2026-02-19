@@ -7,7 +7,7 @@ noIndex: true
 
 Method with strict control for changing zone state. Returns error when:
 1. Deleted record is not found.
-2. Found record with matched type and name but different TTL or value.
+2. Found record with matched type and name but different TTL, value, or description.
 3. Attempted to add record with existing name and type.
 Deletions happen first. If a record with the same name and type exists in both lists,
 then the existing record will be deleted, and a new one added.
@@ -48,10 +48,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    data = str,...,
-    name = str,
-    ttl = int,
-    type = str
+    data = string,...,
+    description = string,
+    name = string,
+    ttl = integer,
+    type = string
   }, ...
 ]
 ```
@@ -62,11 +63,12 @@ JSON Syntax:
 [
   {
     "data": [
-      "str", ...
+      "string", ...
     ],
-    "name": "str",
-    "ttl": "int",
-    "type": "str"
+    "description": "string",
+    "name": "string",
+    "ttl": "integer",
+    "type": "string"
   }, ...
 ]
 ```
@@ -76,9 +78,11 @@ Fields:
 ```
 data -> ([]string)
   Data of the record set.
+description -> (string)
+  Description of the record set.
 name -> (string)
   Domain name.
-ttl -> (int)
+ttl -> (integer)
   Time to live in seconds.
 type -> (string)
   Record type.
@@ -92,10 +96,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    data = str,...,
-    name = str,
-    ttl = int,
-    type = str
+    data = string,...,
+    description = string,
+    name = string,
+    ttl = integer,
+    type = string
   }, ...
 ]
 ```
@@ -106,11 +111,12 @@ JSON Syntax:
 [
   {
     "data": [
-      "str", ...
+      "string", ...
     ],
-    "name": "str",
-    "ttl": "int",
-    "type": "str"
+    "description": "string",
+    "name": "string",
+    "ttl": "integer",
+    "type": "string"
   }, ...
 ]
 ```
@@ -120,9 +126,11 @@ Fields:
 ```
 data -> ([]string)
   Data of the record set.
+description -> (string)
+  Description of the record set.
 name -> (string)
   Domain name.
-ttl -> (int)
+ttl -> (integer)
   Time to live in seconds.
 type -> (string)
   Record type.
@@ -151,16 +159,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

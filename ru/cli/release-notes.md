@@ -7,6 +7,18 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.194.0 (19.02.26) {#version0.194.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.194.0}
+
+##### {{ compute-name }} {#compute-0.194.0}
+
+В параметр `--attach-local-disk` команд для создания ВМ на выделенных хостах добавлены опции `kms-key-id` и `kms-key-name` для подключения к ВМ зашифрованных локальных дисков:
+* `yc compute instance create --attach-local-disk kms-key-id=<идентификатор_ключа_KMS>`;
+* `yc compute instance create-with-container --attach-local-disk kms-key-name=<имя_ключа_KMS>`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.193.0 (16.02.26) {#version0.193.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.193.0}
@@ -40,8 +52,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ mgp-full-name }} {#mgp-0.192.0}
 
 Исправлена проблема с дублированием вывода в команде `yc managed-greenplum connect`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.192.0 (12.02.26) {#version0.192.0}
 

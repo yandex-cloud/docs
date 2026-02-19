@@ -46,7 +46,7 @@ ID of the folder to create server in. To get the folder ID, use a [yandex.cloud.
 || `--hardware-pool-id` | `string`
 
 ID of the hardware pool that the server belongs to. To get the hardware pool ID, use a [HardwarePoolService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -61,11 +61,32 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    id = str,
+    id = string,
+    interface = private-interface={
+      ip-address = string,
+      mac-limit = integer,
+      native-subnet-id = string,
+      vlan-subinterfaces = [
+        {
+          ip-address = string,
+          mac-limit = integer,
+          tagged-subnet-id = string
+        }, ...
+      ]
+    } | public-interface={
+      ip-address = string,
+      mac-limit = integer,
+      native-subnet-config = native-subnet={
+        subnet-id = string
+      } | new-native-subnet={
+        addressing-type = DHCP|STATIC
+      },
+      native-subnet-id = string
+    },
     subnet = private-subnet={
-      private-subnet-id = str
+      private-subnet-id = string
     } | public-subnet={
-      public-subnet-id = str
+      public-subnet-id = string
     }
   }, ...
 ]
@@ -76,13 +97,40 @@ JSON Syntax:
 ```json
 [
   {
-    "id": "str",
+    "id": "string",
+    "interface": {
+      "private-interface": {
+        "ip-address": "string",
+        "mac-limit": "integer",
+        "native-subnet-id": "string",
+        "vlan-subinterfaces": [
+          {
+            "ip-address": "string",
+            "mac-limit": "integer",
+            "tagged-subnet-id": "string"
+          }, ...
+        ]
+      },
+      "public-interface": {
+        "ip-address": "string",
+        "mac-limit": "integer",
+        "native-subnet-config": {
+          "native-subnet": {
+            "subnet-id": "string"
+          },
+          "new-native-subnet": {
+            "addressing-type": "DHCP|STATIC"
+          }
+        },
+        "native-subnet-id": "string"
+      }
+    },
     "subnet": {
       "private-subnet": {
-        "private-subnet-id": "str"
+        "private-subnet-id": "string"
       },
       "public-subnet": {
-        "public-subnet-id": "str"
+        "public-subnet-id": "string"
       }
     }
   }, ...
@@ -94,14 +142,50 @@ Fields:
 ```
 id -> (string)
   ID of the network interface. Should not be specified when creating a server.
+interface -> (oneof<private-interface|public-interface>)
+  Oneof interface field
+  private-interface -> (struct)
+    Private interface.
+    ip-address -> (string)
+      IPv4 address that is assigned to the server for this network interface. Read only field.
+    mac-limit -> (integer)
+      Limit of MAC addresses in the native subnet. Read only field.
+    native-subnet-id -> (string)
+      ID of the private subnet which is used as native subnet for interface.
+    vlan-subinterfaces -> ([]struct)
+      Array of VLAN subinterfaces. Additional tagged subnets for the interface.
+      ip-address -> (string)
+        IPv4 address that is assigned to the VLAN subinterface. Read only field.
+      mac-limit -> (integer)
+        Limit of MAC addresses in the tagged subnet. Read only field.
+      tagged-subnet-id -> (string)
+        ID of the private subnet which is used as tagged subnet for interface.
+  public-interface -> (struct)
+    Public interface.
+    ip-address -> (string)
+      IPv4 address that is assigned to the server for this network interface. Read only field.
+    mac-limit -> (integer)
+      Limit of MAC addresses in the native subnet. Read only field.
+    native-subnet-id -> (string)
+      ID of the public subnet which is used as native subnet for interface. Read only field.
+    native-subnet-config -> (oneof<native-subnet|new-native-subnet>)
+      Oneof native-subnet-config field
+      native-subnet -> (struct)
+        Use existing native subnet. Input only field.
+        subnet-id -> (string)
+          ID of the existing public subnet.
+      new-native-subnet -> (struct)
+        Create new native subnet. Input only field.
+        addressing-type -> (struct)
+          Addressing type (DHCP | Static).
 subnet -> (oneof<private-subnet|public-subnet>)
   Oneof subnet field
   private-subnet -> (struct)
-    Private subnet.
+    @deprecated Private subnet.
     private-subnet-id -> (string)
       ID of the private subnet.
   public-subnet -> (struct)
-    Public subnet.
+    @deprecated Public subnet.
     public-subnet-id -> (string)
       ID of the public subnet. A new ephemeral public subnet will be created if not specified.
 ``` ||
@@ -113,31 +197,31 @@ Shorthand Syntax:
 
 ```hcl
 {
-  image-id = str,
+  image-id = string,
   password = password-lockbox-secret={
-    key = str,
-    secret-id = str,
-    version-id = str
-  } | password-plain-text=str,
-  ssh-key = ssh-public-key=str | user-ssh-id=str,
+    key = string,
+    secret-id = string,
+    version-id = string
+  } | password-plain-text=string,
+  ssh-key = ssh-public-key=string | user-ssh-id=string,
   storages = [
     {
       partitions = [
         {
-          mount-point = str,
-          size-gib = int,
+          mount-point = string,
+          size-gib = integer,
           type = EXT4|SWAP|EXT3|XFS
         }, ...
       ],
       storage-type = disk={
-        id = str,
-        size-gib = int,
+        id = string,
+        size-gib = integer,
         type = HDD|SSD|NVME
       } | raid={
         disks = [
           {
-            id = str,
-            size-gib = int,
+            id = string,
+            size-gib = integer,
             type = HDD|SSD|NVME
           }, ...
         ],
@@ -152,39 +236,39 @@ JSON Syntax:
 
 ```json
 {
-  "image-id": "str",
+  "image-id": "string",
   "password": {
     "password-lockbox-secret": {
-      "key": "str",
-      "secret-id": "str",
-      "version-id": "str"
+      "key": "string",
+      "secret-id": "string",
+      "version-id": "string"
     },
-    "password-plain-text": "str"
+    "password-plain-text": "string"
   },
   "ssh-key": {
-    "ssh-public-key": "str",
-    "user-ssh-id": "str"
+    "ssh-public-key": "string",
+    "user-ssh-id": "string"
   },
   "storages": [
     {
       "partitions": [
         {
-          "mount-point": "str",
-          "size-gib": "int",
+          "mount-point": "string",
+          "size-gib": "integer",
           "type": "EXT4|SWAP|EXT3|XFS"
         }, ...
       ],
       "storage-type": {
         "disk": {
-          "id": "str",
-          "size-gib": "int",
+          "id": "string",
+          "size-gib": "integer",
           "type": "HDD|SSD|NVME"
         },
         "raid": {
           "disks": [
             {
-              "id": "str",
-              "size-gib": "int",
+              "id": "string",
+              "size-gib": "integer",
               "type": "HDD|SSD|NVME"
             }, ...
           ],
@@ -207,7 +291,7 @@ storages -> ([]struct)
     Array of partitions created on the storage.
     mount-point -> (string)
       Storage mount point.
-    size-gib -> (int)
+    size-gib -> (integer)
       Size of the storage partition in gibibytes (2^30 bytes).
     type -> (struct)
       Partition type.
@@ -217,7 +301,7 @@ storages -> ([]struct)
       Disk storage.
       id -> (string)
         ID of the disk.
-      size-gib -> (int)
+      size-gib -> (integer)
         Size of the disk in gibibytes (2^30 bytes).
       type -> (struct)
         Type of the disk drive.
@@ -227,7 +311,7 @@ storages -> ([]struct)
         Array of disks in the RAID configuration.
         id -> (string)
           ID of the disk.
-        size-gib -> (int)
+        size-gib -> (integer)
           Size of the disk in gibibytes (2^30 bytes).
         type -> (struct)
           Type of the disk drive.
@@ -276,16 +360,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

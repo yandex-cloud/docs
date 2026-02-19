@@ -37,7 +37,7 @@ Usage example:
 || `--cluster-id` | `string`
 
 ID of the Redis cluster to start failover on. ||
-|| `--host-names` | `strings`
+|| `--host-names` | `[]string`
 
 List of hostnames which should not be masters. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -61,16 +61,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

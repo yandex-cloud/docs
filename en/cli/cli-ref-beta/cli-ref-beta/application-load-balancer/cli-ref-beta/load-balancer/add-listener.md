@@ -47,69 +47,69 @@ Shorthand Syntax:
       address-specs = [
         {
           address-spec = external-ipv4-address-spec={
-            address = str
+            address = string
           } | external-ipv6-address-spec={
-            address = str
+            address = string
           } | internal-ipv4-address-spec={
-            address = str,
-            subnet-id = str
+            address = string,
+            subnet-id = string
           }
         }, ...
       ],
-      ports = int,...
+      ports = integer,...
     }, ...
   ],
   listener = http={
     handler = {
-      http-router-id = str,
-      protocol-settings = allow-http10=bool | http2-options={
-        max-concurrent-streams = int
+      http-router-id = string,
+      protocol-settings = allow-http10=boolean | http2-options={
+        max-concurrent-streams = integer
       },
-      rewrite-request-id = bool
+      rewrite-request-id = boolean
     },
     redirects = {
-      http-to-https = bool
+      http-to-https = boolean
     }
   } | stream={
     handler = {
-      backend-group-id = str,
+      backend-group-id = string,
       idle-timeout = duration
     }
   } | tls={
     default-handler = {
-      certificate-ids = str,...,
+      certificate-ids = string,...,
       handler = http-handler={
-        http-router-id = str,
-        protocol-settings = allow-http10=bool | http2-options={
-          max-concurrent-streams = int
+        http-router-id = string,
+        protocol-settings = allow-http10=boolean | http2-options={
+          max-concurrent-streams = integer
         },
-        rewrite-request-id = bool
+        rewrite-request-id = boolean
       } | stream-handler={
-        backend-group-id = str,
+        backend-group-id = string,
         idle-timeout = duration
       }
     },
     sni-handlers = [
       {
         handler = {
-          certificate-ids = str,...,
+          certificate-ids = string,...,
           handler = http-handler={
-            http-router-id = str,
-            protocol-settings = allow-http10=bool | http2-options={
-              max-concurrent-streams = int
+            http-router-id = string,
+            protocol-settings = allow-http10=boolean | http2-options={
+              max-concurrent-streams = integer
             },
-            rewrite-request-id = bool
+            rewrite-request-id = boolean
           } | stream-handler={
-            backend-group-id = str,
+            backend-group-id = string,
             idle-timeout = duration
           }
         },
-        name = str,
-        server-names = str,...
+        name = string,
+        server-names = string,...
       }, ...
     ]
   },
-  name = str
+  name = string
 }
 ```
 
@@ -123,63 +123,63 @@ JSON Syntax:
         {
           "address-spec": {
             "external-ipv4-address-spec": {
-              "address": "str"
+              "address": "string"
             },
             "external-ipv6-address-spec": {
-              "address": "str"
+              "address": "string"
             },
             "internal-ipv4-address-spec": {
-              "address": "str",
-              "subnet-id": "str"
+              "address": "string",
+              "subnet-id": "string"
             }
           }
         }, ...
       ],
       "ports": [
-        "int", ...
+        "integer", ...
       ]
     }, ...
   ],
   "listener": {
     "http": {
       "handler": {
-        "http-router-id": "str",
+        "http-router-id": "string",
         "protocol-settings": {
-          "allow-http10": "bool",
+          "allow-http10": "boolean",
           "http2-options": {
-            "max-concurrent-streams": "int"
+            "max-concurrent-streams": "integer"
           }
         },
-        "rewrite-request-id": "bool"
+        "rewrite-request-id": "boolean"
       },
       "redirects": {
-        "http-to-https": "bool"
+        "http-to-https": "boolean"
       }
     },
     "stream": {
       "handler": {
-        "backend-group-id": "str",
+        "backend-group-id": "string",
         "idle-timeout": "duration"
       }
     },
     "tls": {
       "default-handler": {
         "certificate-ids": [
-          "str", ...
+          "string", ...
         ],
         "handler": {
           "http-handler": {
-            "http-router-id": "str",
+            "http-router-id": "string",
             "protocol-settings": {
-              "allow-http10": "bool",
+              "allow-http10": "boolean",
               "http2-options": {
-                "max-concurrent-streams": "int"
+                "max-concurrent-streams": "integer"
               }
             },
-            "rewrite-request-id": "bool"
+            "rewrite-request-id": "boolean"
           },
           "stream-handler": {
-            "backend-group-id": "str",
+            "backend-group-id": "string",
             "idle-timeout": "duration"
           }
         }
@@ -188,34 +188,34 @@ JSON Syntax:
         {
           "handler": {
             "certificate-ids": [
-              "str", ...
+              "string", ...
             ],
             "handler": {
               "http-handler": {
-                "http-router-id": "str",
+                "http-router-id": "string",
                 "protocol-settings": {
-                  "allow-http10": "bool",
+                  "allow-http10": "boolean",
                   "http2-options": {
-                    "max-concurrent-streams": "int"
+                    "max-concurrent-streams": "integer"
                   }
                 },
-                "rewrite-request-id": "bool"
+                "rewrite-request-id": "boolean"
               },
               "stream-handler": {
-                "backend-group-id": "str",
+                "backend-group-id": "string",
                 "idle-timeout": "duration"
               }
             }
           },
-          "name": "str",
+          "name": "string",
           "server-names": [
-            "str", ...
+            "string", ...
           ]
         }, ...
       ]
     }
   },
-  "name": "str"
+  "name": "string"
 }
 ```
 
@@ -242,7 +242,7 @@ endpoint-specs -> ([]struct)
         Public IPv6 endpoint address.
         address -> (string)
           IPv6 address.
-  ports -> ([]int)
+  ports -> ([]integer)
     Endpoint ports.
 name -> (string)
   Name of the listener. The name is unique within the application load balancer.
@@ -254,19 +254,19 @@ listener -> (oneof<http|stream|tls>)
       Settings for handling HTTP requests. Only one of 'handler' and [redirects] can be specified.
       http-router-id -> (string)
         ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.
-      rewrite-request-id -> (bool)
+      rewrite-request-id -> (boolean)
         When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
       protocol-settings -> (oneof<allow-http10|http2-options>)
         Oneof protocol-settings field
         http2-options -> (struct)
           HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.
-          max-concurrent-streams -> (int)
+          max-concurrent-streams -> (integer)
             Maximum number of concurrent HTTP/2 streams in a connection.
-        allow-http10 -> (bool)
+        allow-http10 -> (boolean)
           Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
     redirects -> (struct)
       Redirects settings. Only one of 'redirects' and [handler] can be specified.
-      http-to-https -> (bool)
+      http-to-https -> (boolean)
         Redirects all unencrypted HTTP requests to the same URI with scheme changed to 'https'. The setting has the same effect as a single, catch-all [HttpRoute] with [RedirectAction.replace_scheme] set to 'https'.
   tls -> (struct)
     TLS-encrypted HTTP or TCP stream listener settings. All handlers within a listener ([TlsListener.default_handler] and [TlsListener.sni_handlers]) must be of one type, [HttpHandler] or [StreamHandler]. Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not supported.
@@ -280,15 +280,15 @@ listener -> (oneof<http|stream|tls>)
           HTTP handler.
           http-router-id -> (string)
             ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.
-          rewrite-request-id -> (bool)
+          rewrite-request-id -> (boolean)
             When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
           protocol-settings -> (oneof<allow-http10|http2-options>)
             Oneof protocol-settings field
             http2-options -> (struct)
               HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.
-              max-concurrent-streams -> (int)
+              max-concurrent-streams -> (integer)
                 Maximum number of concurrent HTTP/2 streams in a connection.
-            allow-http10 -> (bool)
+            allow-http10 -> (boolean)
               Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
         stream-handler -> (struct)
           Stream (TCP) handler.
@@ -308,15 +308,15 @@ listener -> (oneof<http|stream|tls>)
             HTTP handler.
             http-router-id -> (string)
               ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.
-            rewrite-request-id -> (bool)
+            rewrite-request-id -> (boolean)
               When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
             protocol-settings -> (oneof<allow-http10|http2-options>)
               Oneof protocol-settings field
               http2-options -> (struct)
                 HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.
-                max-concurrent-streams -> (int)
+                max-concurrent-streams -> (integer)
                   Maximum number of concurrent HTTP/2 streams in a connection.
-              allow-http10 -> (bool)
+              allow-http10 -> (boolean)
                 Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
           stream-handler -> (struct)
             Stream (TCP) handler.
@@ -361,16 +361,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

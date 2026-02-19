@@ -45,16 +45,20 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Автоматизация работы с помощью {{ maf-full-name }}
-        href: tutorials/airflow-automation.md
-      - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
-        href: tutorials/spark-simple-rw-job.md
-      - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
+      - name: >-
+          Работа с {{ objstorage-full-name }} с использованием локального
+          каталога Hive
+        href: tutorials/spark-objstorage-integration.md
+      - name: >-
+          Работа с {{ objstorage-full-name }} с использованием кластера {{
+          metastore-full-name }}
         href: tutorials/metastore-and-spark.md
+      - name: Работа с таблицей формата {{ IBRG }} из PySpark-задания
+        href: tutorials/spark-simple-rw-job.md
       - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
         href: tutorials/airflow-spark-min.md
-      - name: Использование {{ objstorage-full-name }} в {{ msp-name }}
-        href: tutorials/spark-objstorage-integration.md
+      - name: Автоматизация работы с помощью {{ maf-full-name }}
+        href: tutorials/airflow-automation.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

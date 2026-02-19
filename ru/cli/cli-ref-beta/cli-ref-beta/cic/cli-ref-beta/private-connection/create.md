@@ -49,12 +49,12 @@ Shorthand Syntax:
 
 ```hcl
 {
-  cloud-bgp-asn = int,
-  cloud-ip = str,
-  peer-bgp-asn = int,
-  peer-bgp-md5-key = str,
-  peer-ip = str,
-  peering-subnet = str
+  cloud-bgp-asn = integer,
+  cloud-ip = string,
+  peer-bgp-asn = integer,
+  peer-bgp-md5-key = string,
+  peer-ip = string,
+  peering-subnet = string
 }
 ```
 
@@ -62,23 +62,23 @@ JSON Syntax:
 
 ```json
 {
-  "cloud-bgp-asn": "int",
-  "cloud-ip": "str",
-  "peer-bgp-asn": "int",
-  "peer-bgp-md5-key": "str",
-  "peer-ip": "str",
-  "peering-subnet": "str"
+  "cloud-bgp-asn": "integer",
+  "cloud-ip": "string",
+  "peer-bgp-asn": "integer",
+  "peer-bgp-md5-key": "string",
+  "peer-ip": "string",
+  "peering-subnet": "string"
 }
 ```
 
 Fields:
 
 ```
-cloud-bgp-asn -> (int)
+cloud-bgp-asn -> (integer)
   CloudBgpAsn.
 cloud-ip -> (string)
   CloudIp. It's an ip with just an ipAddress format without mask.
-peer-bgp-asn -> (int)
+peer-bgp-asn -> (integer)
   PeerBgpAsn. PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).
 peer-bgp-md5-key -> (string)
   PeerBgpMd5Key. Optional.
@@ -96,7 +96,7 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    prefix = str
+    prefix = string
   }, ...
 ]
 ```
@@ -106,7 +106,7 @@ JSON Syntax:
 ```json
 [
   {
-    "prefix": "str"
+    "prefix": "string"
   }, ...
 ]
 ```
@@ -117,7 +117,7 @@ Fields:
 prefix -> (string)
   Prefix. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'. ||
 || `--name` | `string`
@@ -153,16 +153,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

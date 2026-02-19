@@ -5,6 +5,6 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/metastore-and-spark'
 noIndex: true
 ---
 
-# Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
+# Работа с {{ objstorage-full-name }} из PySpark-задания с использованием кластера {{ metastore-full-name }}
 
 {% include notitle [metastore-and-spark](../../_tutorials/dataplatform/spark/metastore-and-spark.md) %}

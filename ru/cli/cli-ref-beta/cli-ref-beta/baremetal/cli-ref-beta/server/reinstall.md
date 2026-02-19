@@ -5,6 +5,8 @@ noIndex: true
 
 # yc beta baremetal server reinstall
 
+(-- api-linter: yc::1702::method-verb-prefix=disabled
+Required for backward compatibility with old clients. --)
 Reinstalls the specified server.
 
 #### Command Usage
@@ -42,31 +44,31 @@ Shorthand Syntax:
 
 ```hcl
 {
-  image-id = str,
+  image-id = string,
   password = password-lockbox-secret={
-    key = str,
-    secret-id = str,
-    version-id = str
-  } | password-plain-text=str,
-  ssh-key = ssh-public-key=str | user-ssh-id=str,
+    key = string,
+    secret-id = string,
+    version-id = string
+  } | password-plain-text=string,
+  ssh-key = ssh-public-key=string | user-ssh-id=string,
   storages = [
     {
       partitions = [
         {
-          mount-point = str,
-          size-gib = int,
+          mount-point = string,
+          size-gib = integer,
           type = EXT4|SWAP|EXT3|XFS
         }, ...
       ],
       storage-type = disk={
-        id = str,
-        size-gib = int,
+        id = string,
+        size-gib = integer,
         type = HDD|SSD|NVME
       } | raid={
         disks = [
           {
-            id = str,
-            size-gib = int,
+            id = string,
+            size-gib = integer,
             type = HDD|SSD|NVME
           }, ...
         ],
@@ -81,39 +83,39 @@ JSON Syntax:
 
 ```json
 {
-  "image-id": "str",
+  "image-id": "string",
   "password": {
     "password-lockbox-secret": {
-      "key": "str",
-      "secret-id": "str",
-      "version-id": "str"
+      "key": "string",
+      "secret-id": "string",
+      "version-id": "string"
     },
-    "password-plain-text": "str"
+    "password-plain-text": "string"
   },
   "ssh-key": {
-    "ssh-public-key": "str",
-    "user-ssh-id": "str"
+    "ssh-public-key": "string",
+    "user-ssh-id": "string"
   },
   "storages": [
     {
       "partitions": [
         {
-          "mount-point": "str",
-          "size-gib": "int",
+          "mount-point": "string",
+          "size-gib": "integer",
           "type": "EXT4|SWAP|EXT3|XFS"
         }, ...
       ],
       "storage-type": {
         "disk": {
-          "id": "str",
-          "size-gib": "int",
+          "id": "string",
+          "size-gib": "integer",
           "type": "HDD|SSD|NVME"
         },
         "raid": {
           "disks": [
             {
-              "id": "str",
-              "size-gib": "int",
+              "id": "string",
+              "size-gib": "integer",
               "type": "HDD|SSD|NVME"
             }, ...
           ],
@@ -136,7 +138,7 @@ storages -> ([]struct)
     Array of partitions created on the storage.
     mount-point -> (string)
       Storage mount point.
-    size-gib -> (int)
+    size-gib -> (integer)
       Size of the storage partition in gibibytes (2^30 bytes).
     type -> (struct)
       Partition type.
@@ -146,7 +148,7 @@ storages -> ([]struct)
       Disk storage.
       id -> (string)
         ID of the disk.
-      size-gib -> (int)
+      size-gib -> (integer)
         Size of the disk in gibibytes (2^30 bytes).
       type -> (struct)
         Type of the disk drive.
@@ -156,7 +158,7 @@ storages -> ([]struct)
         Array of disks in the RAID configuration.
         id -> (string)
           ID of the disk.
-        size-gib -> (int)
+        size-gib -> (integer)
           Size of the disk in gibibytes (2^30 bytes).
         type -> (struct)
           Type of the disk drive.
@@ -205,16 +207,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

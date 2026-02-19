@@ -6,3 +6,4 @@
 
 При реализации сценариев (сетевых топологий) можно использовать ресурсы сервиса [{{ interconnect-name }}](../../interconnect/concepts/index.md).
 
+{% include [cross-org-networking](../../_includes/interconnect/cross-org-networking.md) %}

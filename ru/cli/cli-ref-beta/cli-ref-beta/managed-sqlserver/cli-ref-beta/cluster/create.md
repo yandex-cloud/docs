@@ -43,54 +43,54 @@ Shorthand Syntax:
 ```hcl
 {
   access = {
-    data-lens = bool,
-    web-sql = bool
+    data-lens = boolean,
+    web-sql = boolean
   },
   backup-window-start = timeofday,
   resources = {
-    disk-size = int,
-    disk-type-id = str,
-    resource-preset-id = str
+    disk-size = integer,
+    disk-type-id = string,
+    resource-preset-id = string
   },
   secondary-connections = SECONDARY_CONNECTIONS_OFF|SECONDARY_CONNECTIONS_READ_ONLY,
   sqlserver-config = sqlserver-config-2016sp2ent={
-    audit-level = int,
-    cost-threshold-for-parallelism = int,
-    fill-factor-percent = int,
-    max-degree-of-parallelism = int,
-    optimize-for-ad-hoc-workloads = bool
+    audit-level = integer,
+    cost-threshold-for-parallelism = integer,
+    fill-factor-percent = integer,
+    max-degree-of-parallelism = integer,
+    optimize-for-ad-hoc-workloads = boolean
   } | sqlserver-config-2016sp2std={
-    audit-level = int,
-    cost-threshold-for-parallelism = int,
-    fill-factor-percent = int,
-    max-degree-of-parallelism = int,
-    optimize-for-ad-hoc-workloads = bool
+    audit-level = integer,
+    cost-threshold-for-parallelism = integer,
+    fill-factor-percent = integer,
+    max-degree-of-parallelism = integer,
+    optimize-for-ad-hoc-workloads = boolean
   } | sqlserver-config-2017ent={
-    audit-level = int,
-    cost-threshold-for-parallelism = int,
-    fill-factor-percent = int,
-    max-degree-of-parallelism = int,
-    optimize-for-ad-hoc-workloads = bool
+    audit-level = integer,
+    cost-threshold-for-parallelism = integer,
+    fill-factor-percent = integer,
+    max-degree-of-parallelism = integer,
+    optimize-for-ad-hoc-workloads = boolean
   } | sqlserver-config-2017std={
-    audit-level = int,
-    cost-threshold-for-parallelism = int,
-    fill-factor-percent = int,
-    max-degree-of-parallelism = int,
-    optimize-for-ad-hoc-workloads = bool
+    audit-level = integer,
+    cost-threshold-for-parallelism = integer,
+    fill-factor-percent = integer,
+    max-degree-of-parallelism = integer,
+    optimize-for-ad-hoc-workloads = boolean
   } | sqlserver-config-2019ent={
-    audit-level = int,
-    cost-threshold-for-parallelism = int,
-    fill-factor-percent = int,
-    max-degree-of-parallelism = int,
-    optimize-for-ad-hoc-workloads = bool
+    audit-level = integer,
+    cost-threshold-for-parallelism = integer,
+    fill-factor-percent = integer,
+    max-degree-of-parallelism = integer,
+    optimize-for-ad-hoc-workloads = boolean
   } | sqlserver-config-2019std={
-    audit-level = int,
-    cost-threshold-for-parallelism = int,
-    fill-factor-percent = int,
-    max-degree-of-parallelism = int,
-    optimize-for-ad-hoc-workloads = bool
+    audit-level = integer,
+    cost-threshold-for-parallelism = integer,
+    fill-factor-percent = integer,
+    max-degree-of-parallelism = integer,
+    optimize-for-ad-hoc-workloads = boolean
   },
-  version = str
+  version = string
 }
 ```
 
@@ -99,61 +99,61 @@ JSON Syntax:
 ```json
 {
   "access": {
-    "data-lens": "bool",
-    "web-sql": "bool"
+    "data-lens": "boolean",
+    "web-sql": "boolean"
   },
   "backup-window-start": "timeofday",
   "resources": {
-    "disk-size": "int",
-    "disk-type-id": "str",
-    "resource-preset-id": "str"
+    "disk-size": "integer",
+    "disk-type-id": "string",
+    "resource-preset-id": "string"
   },
   "secondary-connections": "SECONDARY_CONNECTIONS_OFF|SECONDARY_CONNECTIONS_READ_ONLY",
   "sqlserver-config": {
     "sqlserver-config-2016sp2ent": {
-      "audit-level": "int",
-      "cost-threshold-for-parallelism": "int",
-      "fill-factor-percent": "int",
-      "max-degree-of-parallelism": "int",
-      "optimize-for-ad-hoc-workloads": "bool"
+      "audit-level": "integer",
+      "cost-threshold-for-parallelism": "integer",
+      "fill-factor-percent": "integer",
+      "max-degree-of-parallelism": "integer",
+      "optimize-for-ad-hoc-workloads": "boolean"
     },
     "sqlserver-config-2016sp2std": {
-      "audit-level": "int",
-      "cost-threshold-for-parallelism": "int",
-      "fill-factor-percent": "int",
-      "max-degree-of-parallelism": "int",
-      "optimize-for-ad-hoc-workloads": "bool"
+      "audit-level": "integer",
+      "cost-threshold-for-parallelism": "integer",
+      "fill-factor-percent": "integer",
+      "max-degree-of-parallelism": "integer",
+      "optimize-for-ad-hoc-workloads": "boolean"
     },
     "sqlserver-config-2017ent": {
-      "audit-level": "int",
-      "cost-threshold-for-parallelism": "int",
-      "fill-factor-percent": "int",
-      "max-degree-of-parallelism": "int",
-      "optimize-for-ad-hoc-workloads": "bool"
+      "audit-level": "integer",
+      "cost-threshold-for-parallelism": "integer",
+      "fill-factor-percent": "integer",
+      "max-degree-of-parallelism": "integer",
+      "optimize-for-ad-hoc-workloads": "boolean"
     },
     "sqlserver-config-2017std": {
-      "audit-level": "int",
-      "cost-threshold-for-parallelism": "int",
-      "fill-factor-percent": "int",
-      "max-degree-of-parallelism": "int",
-      "optimize-for-ad-hoc-workloads": "bool"
+      "audit-level": "integer",
+      "cost-threshold-for-parallelism": "integer",
+      "fill-factor-percent": "integer",
+      "max-degree-of-parallelism": "integer",
+      "optimize-for-ad-hoc-workloads": "boolean"
     },
     "sqlserver-config-2019ent": {
-      "audit-level": "int",
-      "cost-threshold-for-parallelism": "int",
-      "fill-factor-percent": "int",
-      "max-degree-of-parallelism": "int",
-      "optimize-for-ad-hoc-workloads": "bool"
+      "audit-level": "integer",
+      "cost-threshold-for-parallelism": "integer",
+      "fill-factor-percent": "integer",
+      "max-degree-of-parallelism": "integer",
+      "optimize-for-ad-hoc-workloads": "boolean"
     },
     "sqlserver-config-2019std": {
-      "audit-level": "int",
-      "cost-threshold-for-parallelism": "int",
-      "fill-factor-percent": "int",
-      "max-degree-of-parallelism": "int",
-      "optimize-for-ad-hoc-workloads": "bool"
+      "audit-level": "integer",
+      "cost-threshold-for-parallelism": "integer",
+      "fill-factor-percent": "integer",
+      "max-degree-of-parallelism": "integer",
+      "optimize-for-ad-hoc-workloads": "boolean"
     }
   },
-  "version": "str"
+  "version": "string"
 }
 ```
 
@@ -162,15 +162,15 @@ Fields:
 ```
 access -> (struct)
   Database access policy.
-  data-lens -> (bool)
+  data-lens -> (boolean)
     Allows access for DataLens.
-  web-sql -> (bool)
+  web-sql -> (boolean)
     Allows access for Web SQL.
 backup-window-start -> (timeofday)
   Start time for the daily backup in UTC timezone.
 resources -> (struct)
   Resources allocated to SQL Server hosts.
-  disk-size -> (int)
+  disk-size -> (integer)
     Volume of the storage available to a host.
   disk-type-id -> (string)
     Type of the storage environment for the host. Possible values: * 'network-hdd' - network HDD drive; * 'network-ssd' - network SSD drive; * 'local-ssd' - local SSD storage.
@@ -184,75 +184,75 @@ sqlserver-config -> (oneof<sqlserver-config-2016sp2ent|sqlserver-config-2016sp2s
   Oneof sqlserver-config field
   sqlserver-config-2016sp2std -> (struct)
     Configuration for an SQL Server 2016 SP2 Standard edition cluster.
-    audit-level -> (int)
+    audit-level -> (integer)
       Describes how to configure login auditing to monitor SQL Server Database Engine login activity. Possible values: * 0 - do not log login attempts; * 1 - log only failed login attempts; * 2 - log only successful login attempts (not recommended); * 3 - log all login attempts (not recommended). See in-depth description in SQL Server documentation.
-    cost-threshold-for-parallelism -> (int)
+    cost-threshold-for-parallelism -> (integer)
       Specifies the threshold at which SQL Server creates and runs parallel plans for queries. SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option. See in-depth description in SQL Server documentation.
-    fill-factor-percent -> (int)
+    fill-factor-percent -> (integer)
       Manages the fill factor server configuration option. When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth. Values 0 and 100 mean full page usage (no space reserved). See in-depth description in SQL Server documentation.
-    max-degree-of-parallelism -> (int)
+    max-degree-of-parallelism -> (integer)
       Limits the number of processors to use in parallel plan execution per task. See in-depth description in SQL Server documentation.
-    optimize-for-ad-hoc-workloads -> (bool)
+    optimize-for-ad-hoc-workloads -> (boolean)
       Determines whether plans should be cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans. See in-depth description in SQL Server documentation.
   sqlserver-config-2016sp2ent -> (struct)
     Configuration for an SQL Server 2016 SP2 Enterprise edition cluster.
-    audit-level -> (int)
+    audit-level -> (integer)
       Describes how to configure login auditing to monitor SQL Server Database Engine login activity. Possible values: * 0 - do not log login attempts; * 1 - log only failed login attempts; * 2 - log only successful login attempts (not recommended); * 3 - log all login attempts (not recommended). See in-depth description in SQL Server documentation.
-    cost-threshold-for-parallelism -> (int)
+    cost-threshold-for-parallelism -> (integer)
       Specifies the threshold at which SQL Server creates and runs parallel plans for queries. SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option. See in-depth description in SQL Server documentation.
-    fill-factor-percent -> (int)
+    fill-factor-percent -> (integer)
       Manages the fill factor server configuration option. When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth. Values 0 and 100 mean full page usage (no space reserved). See in-depth description in SQL Server documentation.
-    max-degree-of-parallelism -> (int)
+    max-degree-of-parallelism -> (integer)
       Limits the number of processors to use in parallel plan execution per task. See in-depth description in SQL Server documentation.
-    optimize-for-ad-hoc-workloads -> (bool)
+    optimize-for-ad-hoc-workloads -> (boolean)
       Determines whether plans should be cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans. See in-depth description in SQL Server documentation.
   sqlserver-config-2017std -> (struct)
     Configuration for an SQL Server 2017 Standard edition cluster.
-    audit-level -> (int)
+    audit-level -> (integer)
       Describes how to configure login auditing to monitor SQL Server Database Engine login activity. Possible values: * 0 - do not log login attempts; * 1 - log only failed login attempts; * 2 - log only successful login attempts (not recommended); * 3 - log all login attempts (not recommended). See in-depth description in SQL Server documentation.
-    cost-threshold-for-parallelism -> (int)
+    cost-threshold-for-parallelism -> (integer)
       Specifies the threshold at which SQL Server creates and runs parallel plans for queries. SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option. See in-depth description in SQL Server documentation.
-    fill-factor-percent -> (int)
+    fill-factor-percent -> (integer)
       Manages the fill factor server configuration option. When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth. Values 0 and 100 mean full page usage (no space reserved). See in-depth description in SQL Server documentation.
-    max-degree-of-parallelism -> (int)
+    max-degree-of-parallelism -> (integer)
       Limits the number of processors to use in parallel plan execution per task. See in-depth description in SQL Server documentation.
-    optimize-for-ad-hoc-workloads -> (bool)
+    optimize-for-ad-hoc-workloads -> (boolean)
       Determines whether plans should be cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans. See in-depth description in SQL Server documentation.
   sqlserver-config-2017ent -> (struct)
     Configuration for an SQL Server 2017 Enterprise edition cluster.
-    audit-level -> (int)
+    audit-level -> (integer)
       Describes how to configure login auditing to monitor SQL Server Database Engine login activity. Possible values: * 0 - do not log login attempts; * 1 - log only failed login attempts; * 2 - log only successful login attempts (not recommended); * 3 - log all login attempts (not recommended). See in-depth description in SQL Server documentation.
-    cost-threshold-for-parallelism -> (int)
+    cost-threshold-for-parallelism -> (integer)
       Specifies the threshold at which SQL Server creates and runs parallel plans for queries. SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option. See in-depth description in SQL Server documentation.
-    fill-factor-percent -> (int)
+    fill-factor-percent -> (integer)
       Manages the fill factor server configuration option. When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth. Values 0 and 100 mean full page usage (no space reserved). See in-depth description in SQL Server documentation.
-    max-degree-of-parallelism -> (int)
+    max-degree-of-parallelism -> (integer)
       Limits the number of processors to use in parallel plan execution per task. See in-depth description in SQL Server documentation.
-    optimize-for-ad-hoc-workloads -> (bool)
+    optimize-for-ad-hoc-workloads -> (boolean)
       Determines whether plans should be cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans. See in-depth description in SQL Server documentation.
   sqlserver-config-2019std -> (struct)
     Configuration for an SQL Server 2019 Standard edition cluster.
-    audit-level -> (int)
+    audit-level -> (integer)
       Describes how to configure login auditing to monitor SQL Server Database Engine login activity. Possible values: * 0 - do not log login attempts; * 1 - log only failed login attempts; * 2 - log only successful login attempts (not recommended); * 3 - log all login attempts (not recommended). See in-depth description in SQL Server documentation.
-    cost-threshold-for-parallelism -> (int)
+    cost-threshold-for-parallelism -> (integer)
       Specifies the threshold at which SQL Server creates and runs parallel plans for queries. SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option. See in-depth description in SQL Server documentation.
-    fill-factor-percent -> (int)
+    fill-factor-percent -> (integer)
       Manages the fill factor server configuration option. When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth. Values 0 and 100 mean full page usage (no space reserved). See in-depth description in SQL Server documentation.
-    max-degree-of-parallelism -> (int)
+    max-degree-of-parallelism -> (integer)
       Limits the number of processors to use in parallel plan execution per task. See in-depth description in SQL Server documentation.
-    optimize-for-ad-hoc-workloads -> (bool)
+    optimize-for-ad-hoc-workloads -> (boolean)
       Determines whether plans should be cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans. See in-depth description in SQL Server documentation.
   sqlserver-config-2019ent -> (struct)
     Configuration for an SQL Server 2019 Enterprise edition cluster.
-    audit-level -> (int)
+    audit-level -> (integer)
       Describes how to configure login auditing to monitor SQL Server Database Engine login activity. Possible values: * 0 - do not log login attempts; * 1 - log only failed login attempts; * 2 - log only successful login attempts (not recommended); * 3 - log all login attempts (not recommended). See in-depth description in SQL Server documentation.
-    cost-threshold-for-parallelism -> (int)
+    cost-threshold-for-parallelism -> (integer)
       Specifies the threshold at which SQL Server creates and runs parallel plans for queries. SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option. See in-depth description in SQL Server documentation.
-    fill-factor-percent -> (int)
+    fill-factor-percent -> (integer)
       Manages the fill factor server configuration option. When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth. Values 0 and 100 mean full page usage (no space reserved). See in-depth description in SQL Server documentation.
-    max-degree-of-parallelism -> (int)
+    max-degree-of-parallelism -> (integer)
       Limits the number of processors to use in parallel plan execution per task. See in-depth description in SQL Server documentation.
-    optimize-for-ad-hoc-workloads -> (bool)
+    optimize-for-ad-hoc-workloads -> (boolean)
       Determines whether plans should be cached only after second execution. Allows to avoid SQL cache bloat because of single-use plans. See in-depth description in SQL Server documentation.
 ``` ||
 || `--database-specs` | `shorthand/json`
@@ -264,7 +264,7 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    name = str
+    name = string
   }, ...
 ]
 ```
@@ -274,7 +274,7 @@ JSON Syntax:
 ```json
 [
   {
-    "name": "str"
+    "name": "string"
   }, ...
 ]
 ```
@@ -295,7 +295,7 @@ Deployment environment of the SQL Server cluster. Possible Values: 'production',
 || `--folder-id` | `string`
 
 ID of the folder to create the SQL Server cluster in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--host-group-ids` | `strings`
+|| `--host-group-ids` | `[]string`
 
 Host groups hosting VMs of the cluster. ||
 || `--host-specs` | `shorthand/json`
@@ -307,9 +307,9 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    subnet-id = str,
-    zone-id = str
+    assign-public-ip = boolean,
+    subnet-id = string,
+    zone-id = string
   }, ...
 ]
 ```
@@ -319,9 +319,9 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "subnet-id": "str",
-    "zone-id": "str"
+    "assign-public-ip": "boolean",
+    "subnet-id": "string",
+    "zone-id": "string"
   }, ...
 ]
 ```
@@ -329,14 +329,14 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Determines whether the host gets a public IP address on creation. After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assign_public_ip] set as needed. Possible values: * 'false' - do not assign a public IP to the host; * 'true' - assign a public IP to the host.
 subnet-id -> (string)
   ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id].
 zone-id -> (string)
   ID of the availability zone where the host resides. To get the list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Custom labels for the SQL Server cluster as 'key:value' pairs. For example, "project":"mvp" or "source":"dictionary". ||
 || `--name` | `string`
@@ -345,7 +345,7 @@ Name of the SQL Server cluster. The name must be unique within the folder. ||
 || `--network-id` | `string`
 
 ID of the network to create the SQL Server cluster in. ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 User security groups. ||
 || `--service-account-id` | `string`
@@ -363,11 +363,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    name = str,
-    password = str,
+    name = string,
+    password = string,
     permissions = [
       {
-        database-name = str,
+        database-name = string,
         roles = [
           DB_OWNER|DB_SECURITYADMIN|DB_ACCESSADMIN|DB_BACKUPOPERATOR|DB_DDLADMIN|DB_DATAWRITER|DB_DATAREADER|DB_DENYDATAWRITER|DB_DENYDATAREADER, ...
         ]
@@ -385,11 +385,11 @@ JSON Syntax:
 ```json
 [
   {
-    "name": "str",
-    "password": "str",
+    "name": "string",
+    "password": "string",
     "permissions": [
       {
-        "database-name": "str",
+        "database-name": "string",
         "roles": [
           "DB_OWNER|DB_SECURITYADMIN|DB_ACCESSADMIN|DB_BACKUPOPERATOR|DB_DDLADMIN|DB_DATAWRITER|DB_DATAREADER|DB_DENYDATAWRITER|DB_DENYDATAREADER", ...
         ]
@@ -439,16 +439,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

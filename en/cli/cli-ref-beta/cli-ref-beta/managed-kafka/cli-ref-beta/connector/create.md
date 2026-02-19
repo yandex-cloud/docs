@@ -46,47 +46,47 @@ Shorthand Syntax:
 ```hcl
 {
   connector-config = connector-config-mirrormaker={
-    replication-factor = int,
+    replication-factor = integer,
     source-cluster = {
-      alias = str,
+      alias = string,
       cluster-connection = external-cluster={
-        bootstrap-servers = str,
-        sasl-mechanism = str,
-        sasl-password = str,
-        sasl-username = str,
-        security-protocol = str,
-        ssl-truststore-certificates = str
+        bootstrap-servers = string,
+        sasl-mechanism = string,
+        sasl-password = string,
+        sasl-username = string,
+        security-protocol = string,
+        ssl-truststore-certificates = string
       } | this-cluster={}
     },
     target-cluster = {
-      alias = str,
+      alias = string,
       cluster-connection = external-cluster={
-        bootstrap-servers = str,
-        sasl-mechanism = str,
-        sasl-password = str,
-        sasl-username = str,
-        security-protocol = str,
-        ssl-truststore-certificates = str
+        bootstrap-servers = string,
+        sasl-mechanism = string,
+        sasl-password = string,
+        sasl-username = string,
+        security-protocol = string,
+        ssl-truststore-certificates = string
       } | this-cluster={}
     },
-    topics = str
+    topics = string
   } | connector-config-s3-sink={
-    file-compression-type = str,
-    file-max-records = int,
+    file-compression-type = string,
+    file-max-records = integer,
     s3-connection = {
-      bucket-name = str,
+      bucket-name = string,
       storage = external-s3={
-        access-key-id = str,
-        endpoint = str,
-        region = str,
-        secret-access-key = str
+        access-key-id = string,
+        endpoint = string,
+        region = string,
+        secret-access-key = string
       }
     },
-    topics = str
+    topics = string
   },
-  name = str,
-  properties = {key=str, key=...},
-  tasks-max = int
+  name = string,
+  properties = {key=string, key=...},
+  tasks-max = integer
 }
 ```
 
@@ -96,59 +96,59 @@ JSON Syntax:
 {
   "connector-config": {
     "connector-config-mirrormaker": {
-      "replication-factor": "int",
+      "replication-factor": "integer",
       "source-cluster": {
-        "alias": "str",
+        "alias": "string",
         "cluster-connection": {
           "external-cluster": {
-            "bootstrap-servers": "str",
-            "sasl-mechanism": "str",
-            "sasl-password": "str",
-            "sasl-username": "str",
-            "security-protocol": "str",
-            "ssl-truststore-certificates": "str"
+            "bootstrap-servers": "string",
+            "sasl-mechanism": "string",
+            "sasl-password": "string",
+            "sasl-username": "string",
+            "security-protocol": "string",
+            "ssl-truststore-certificates": "string"
           },
           "this-cluster": {}
         }
       },
       "target-cluster": {
-        "alias": "str",
+        "alias": "string",
         "cluster-connection": {
           "external-cluster": {
-            "bootstrap-servers": "str",
-            "sasl-mechanism": "str",
-            "sasl-password": "str",
-            "sasl-username": "str",
-            "security-protocol": "str",
-            "ssl-truststore-certificates": "str"
+            "bootstrap-servers": "string",
+            "sasl-mechanism": "string",
+            "sasl-password": "string",
+            "sasl-username": "string",
+            "security-protocol": "string",
+            "ssl-truststore-certificates": "string"
           },
           "this-cluster": {}
         }
       },
-      "topics": "str"
+      "topics": "string"
     },
     "connector-config-s3-sink": {
-      "file-compression-type": "str",
-      "file-max-records": "int",
+      "file-compression-type": "string",
+      "file-max-records": "integer",
       "s3-connection": {
-        "bucket-name": "str",
+        "bucket-name": "string",
         "storage": {
           "external-s3": {
-            "access-key-id": "str",
-            "endpoint": "str",
-            "region": "str",
-            "secret-access-key": "str"
+            "access-key-id": "string",
+            "endpoint": "string",
+            "region": "string",
+            "secret-access-key": "string"
           }
         }
       },
-      "topics": "str"
+      "topics": "string"
     }
   },
-  "name": "str",
+  "name": "string",
   "properties": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
-  "tasks-max": "int"
+  "tasks-max": "integer"
 }
 ```
 
@@ -159,13 +159,13 @@ name -> (string)
   Name of the connector.
 properties -> (map[string,string])
   A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: 'sync.topics.config.enabled: true'.
-tasks-max -> (int)
+tasks-max -> (integer)
   Maximum number of connector tasks. Default value is the number of brokers.
 connector-config -> (oneof<connector-config-mirrormaker|connector-config-s3-sink>)
   Oneof connector-config field
   connector-config-mirrormaker -> (struct)
     Configuration of the MirrorMaker connector.
-    replication-factor -> (int)
+    replication-factor -> (integer)
       Replication factor for automatically created topics.
     source-cluster -> (struct)
       Source cluster configuration for the MirrorMaker connector.
@@ -217,7 +217,7 @@ connector-config -> (oneof<connector-config-mirrormaker|connector-config-s3-sink
     Configuration of S3-Sink connector.
     file-compression-type -> (string)
       The compression type used for files put on GCS. The supported values are: 'gzip', 'snappy', 'zstd', 'none'. Optional, the default is 'none'.
-    file-max-records -> (int)
+    file-max-records -> (integer)
       Max records per file.
     s3-connection -> (struct)
       Credentials for connecting to S3 storage.
@@ -254,16 +254,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

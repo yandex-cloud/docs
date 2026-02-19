@@ -17,7 +17,7 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--allowed-sites` | `strings`
+|| `--allowed-sites` | `[]string`
 
 List of allowed host names, see documentation. ||
 || `--captcha-id` | `string`
@@ -34,7 +34,7 @@ Complexity of the captcha. Possible Values: 'easy', 'medium', 'hard', 'force-har
 
 Optional description of the captcha. ||
 || `--disallow-data-processing` | If true, Yandex team won't be able to read internal data. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -51,9 +51,9 @@ Shorthand Syntax:
   {
     challenge-type = IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE,
     complexity = EASY|MEDIUM|HARD|FORCE_HARD,
-    description = str,
+    description = string,
     pre-check-type = CHECKBOX|SLIDER,
-    uuid = str
+    uuid = string
   }, ...
 ]
 ```
@@ -65,9 +65,9 @@ JSON Syntax:
   {
     "challenge-type": "IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE",
     "complexity": "EASY|MEDIUM|HARD|FORCE_HARD",
-    "description": "str",
+    "description": "string",
     "pre-check-type": "CHECKBOX|SLIDER",
-    "uuid": "str"
+    "uuid": "string"
   }, ...
 ]
 ```
@@ -101,51 +101,51 @@ Shorthand Syntax:
     condition = {
       headers = [
         {
-          name = str,
+          name = string,
           value = {
-            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
           }
         }, ...
       ],
       host = {
         hosts = [
           {
-            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
           }, ...
         ]
       },
       source-ip = {
         geo-ip-match = {
-          locations = str,...
+          locations = string,...
         },
         geo-ip-not-match = {
-          locations = str,...
+          locations = string,...
         },
         ip-ranges-match = {
-          ip-ranges = str,...
+          ip-ranges = string,...
         },
         ip-ranges-not-match = {
-          ip-ranges = str,...
+          ip-ranges = string,...
         }
       },
       uri = {
         path = {
-          match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+          match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
         },
         queries = [
           {
-            key = str,
+            key = string,
             value = {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }
           }, ...
         ]
       }
     },
-    description = str,
-    name = str,
-    override-variant-uuid = str,
-    priority = int
+    description = string,
+    name = string,
+    override-variant-uuid = string,
+    priority = integer
   }, ...
 ]
 ```
@@ -158,15 +158,15 @@ JSON Syntax:
     "condition": {
       "headers": [
         {
-          "name": "str",
+          "name": "string",
           "value": {
             "match": {
-              "exact-match": "str",
-              "exact-not-match": "str",
-              "pire-regex-match": "str",
-              "pire-regex-not-match": "str",
-              "prefix-match": "str",
-              "prefix-not-match": "str"
+              "exact-match": "string",
+              "exact-not-match": "string",
+              "pire-regex-match": "string",
+              "pire-regex-not-match": "string",
+              "prefix-match": "string",
+              "prefix-not-match": "string"
             }
           }
         }, ...
@@ -175,12 +175,12 @@ JSON Syntax:
         "hosts": [
           {
             "match": {
-              "exact-match": "str",
-              "exact-not-match": "str",
-              "pire-regex-match": "str",
-              "pire-regex-not-match": "str",
-              "prefix-match": "str",
-              "prefix-not-match": "str"
+              "exact-match": "string",
+              "exact-not-match": "string",
+              "pire-regex-match": "string",
+              "pire-regex-not-match": "string",
+              "prefix-match": "string",
+              "prefix-not-match": "string"
             }
           }, ...
         ]
@@ -188,57 +188,57 @@ JSON Syntax:
       "source-ip": {
         "geo-ip-match": {
           "locations": [
-            "str", ...
+            "string", ...
           ]
         },
         "geo-ip-not-match": {
           "locations": [
-            "str", ...
+            "string", ...
           ]
         },
         "ip-ranges-match": {
           "ip-ranges": [
-            "str", ...
+            "string", ...
           ]
         },
         "ip-ranges-not-match": {
           "ip-ranges": [
-            "str", ...
+            "string", ...
           ]
         }
       },
       "uri": {
         "path": {
           "match": {
-            "exact-match": "str",
-            "exact-not-match": "str",
-            "pire-regex-match": "str",
-            "pire-regex-not-match": "str",
-            "prefix-match": "str",
-            "prefix-not-match": "str"
+            "exact-match": "string",
+            "exact-not-match": "string",
+            "pire-regex-match": "string",
+            "pire-regex-not-match": "string",
+            "prefix-match": "string",
+            "prefix-not-match": "string"
           }
         },
         "queries": [
           {
-            "key": "str",
+            "key": "string",
             "value": {
               "match": {
-                "exact-match": "str",
-                "exact-not-match": "str",
-                "pire-regex-match": "str",
-                "pire-regex-not-match": "str",
-                "prefix-match": "str",
-                "prefix-not-match": "str"
+                "exact-match": "string",
+                "exact-not-match": "string",
+                "pire-regex-match": "string",
+                "pire-regex-not-match": "string",
+                "prefix-match": "string",
+                "prefix-not-match": "string"
               }
             }
           }, ...
         ]
       }
     },
-    "description": "str",
-    "name": "str",
-    "override-variant-uuid": "str",
-    "priority": "int"
+    "description": "string",
+    "name": "string",
+    "override-variant-uuid": "string",
+    "priority": "integer"
   }, ...
 ]
 ```
@@ -320,7 +320,7 @@ name -> (string)
   Name of the rule. The name is unique within the captcha. 1-50 characters long.
 override-variant-uuid -> (string)
   Variant UUID to show in case of match the rule. Keep empty to use defaults.
-priority -> (int)
+priority -> (integer)
   Priority of the rule. Lower value means higher priority.
 ``` ||
 || `--style-json` | `string`
@@ -348,16 +348,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -54,20 +54,20 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    backup = bool,
-    enabled = bool,
+    backup = boolean,
+    enabled = boolean,
     meta = {
       origin-meta-variant = balancer={
-        id = str
+        id = string
       } | bucket={
-        name = str
+        name = string
       } | common={
-        name = str
+        name = string
       } | website={
-        name = str
+        name = string
       }
     },
-    source = str
+    source = string
   }, ...
 ]
 ```
@@ -77,25 +77,25 @@ JSON Syntax:
 ```json
 [
   {
-    "backup": "bool",
-    "enabled": "bool",
+    "backup": "boolean",
+    "enabled": "boolean",
     "meta": {
       "origin-meta-variant": {
         "balancer": {
-          "id": "str"
+          "id": "string"
         },
         "bucket": {
-          "name": "str"
+          "name": "string"
         },
         "common": {
-          "name": "str"
+          "name": "string"
         },
         "website": {
-          "name": "str"
+          "name": "string"
         }
       }
     },
-    "source": "str"
+    "source": "string"
   }, ...
 ]
 ```
@@ -103,9 +103,9 @@ JSON Syntax:
 Fields:
 
 ```
-backup -> (bool)
+backup -> (boolean)
   backup option has two possible values: True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled.
-enabled -> (bool)
+enabled -> (boolean)
   The setting allows to enable or disable an Origin source in the Origins group. It has two possible values: True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content.
 meta -> (struct)
   Set up origin of the content.
@@ -152,16 +152,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

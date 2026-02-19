@@ -44,7 +44,7 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    cic-private-connection-id = str
+    cic-private-connection-id = string
   }, ...
 ]
 ```
@@ -54,7 +54,7 @@ JSON Syntax:
 ```json
 [
   {
-    "cic-private-connection-id": "str"
+    "cic-private-connection-id": "string"
   }, ...
 ]
 ```
@@ -71,7 +71,7 @@ Optional description of the RoutingInstance. 0-256 characters long. ||
 || `--folder-id` | `string`
 
 ID of the folder that the RoutingInstance belongs to. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'. ||
 || `--name` | `string`
@@ -92,12 +92,12 @@ Shorthand Syntax:
     az-infos = [
       {
         manual-info = {
-          az-id = str,
-          prefixes = str,...
+          az-id = string,
+          prefixes = string,...
         }
       }, ...
     ],
-    vpc-network-id = str
+    vpc-network-id = string
   }, ...
 ]
 ```
@@ -110,14 +110,14 @@ JSON Syntax:
     "az-infos": [
       {
         "manual-info": {
-          "az-id": "str",
+          "az-id": "string",
           "prefixes": [
-            "str", ...
+            "string", ...
           ]
         }
       }, ...
     ],
-    "vpc-network-id": "str"
+    "vpc-network-id": "string"
   }, ...
 ]
 ```
@@ -157,16 +157,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

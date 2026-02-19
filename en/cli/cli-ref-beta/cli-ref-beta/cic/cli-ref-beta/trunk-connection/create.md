@@ -45,7 +45,7 @@ Optional description of the trunkConnection. 0-256 characters long. ||
 || `--folder-id` | `string`
 
 ID of the folder that the trunkConnection belongs to. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'. ||
 || `--name` | `string`
@@ -58,6 +58,8 @@ ID of pointOfPresence that the trunkConnection is deployed on. Optional. If is n
 
 ID of the region that the trunkConnection belongs to. ||
 || `--single-port-direct-joint` | `shorthand/json`
+
+Single port trunkConnection config
 
 Shorthand Syntax:
 
@@ -83,12 +85,14 @@ transceiver-type -> (struct)
 ``` ||
 || `--lag-direct-joint` | `shorthand/json`
 
+LAG trunkConnection config
+
 Shorthand Syntax:
 
 ```hcl
 {
   lag-allocation-settings = {
-    lag = lag-size=int
+    lag = lag-size=integer
   },
   transceiver-type = TRANSCEIVER_TYPE_1000BASE_LX|TRANSCEIVER_TYPE_10GBASE_LR|TRANSCEIVER_TYPE_10GBASE_ER|TRANSCEIVER_TYPE_100GBASE_LR4|TRANSCEIVER_TYPE_100GBASE_ER4
 }
@@ -100,7 +104,7 @@ JSON Syntax:
 {
   "lag-allocation-settings": {
     "lag": {
-      "lag-size": "int"
+      "lag-size": "integer"
     }
   },
   "transceiver-type": "TRANSCEIVER_TYPE_1000BASE_LX|TRANSCEIVER_TYPE_10GBASE_LR|TRANSCEIVER_TYPE_10GBASE_ER|TRANSCEIVER_TYPE_100GBASE_LR4|TRANSCEIVER_TYPE_100GBASE_ER4"
@@ -114,18 +118,20 @@ lag-allocation-settings -> (struct)
   LAG allocation settings that the trunkConnection is deployed on.
   lag -> (oneof<lag-size>)
     Oneof lag field
-    lag-size -> (int)
+    lag-size -> (integer)
       Size of LAG. Must be from 1 to 10 inclusively.
 transceiver-type -> (struct)
   Type of transceiver that the trunkConnection is deployed on.
 ``` ||
 || `--partner-joint-info` | `shorthand/json`
 
+PartnerJoint trunkConnection config
+
 Shorthand Syntax:
 
 ```hcl
 {
-  partner-id = str
+  partner-id = string
 }
 ```
 
@@ -133,14 +139,14 @@ JSON Syntax:
 
 ```json
 {
-  "partner-id": "str"
+  "partner-id": "string"
 }
 ```
 
 Fields:
 
 ```
-partner-id -> (str)
+partner-id -> (string)
   ID of partner that the trunkConnection is deployed on. Optional. If is not set scheduler selects it by himself.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -164,16 +170,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

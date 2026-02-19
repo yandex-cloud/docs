@@ -44,143 +44,143 @@ Shorthand Syntax:
 {
   connector = {
     type = clickhouse={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       connection = {
         type = connection-manager={
-          connection-id = str,
-          connection-properties = {key=str, key=...},
-          database = str
+          connection-id = string,
+          connection-properties = {key=string, key=...},
+          database = string
         } | on-premise={
-          connection-url = str,
-          password = str,
-          user-name = str
+          connection-url = string,
+          password = string,
+          user-name = string
         }
       }
     } | delta-lake={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       filesystem = {
         type = external-s3={
-          aws-access-key = str,
-          aws-endpoint = str,
-          aws-region = str,
-          aws-secret-key = str
+          aws-access-key = string,
+          aws-endpoint = string,
+          aws-region = string,
+          aws-secret-key = string
         } | s3={}
       },
       metastore = {
         type = hive={
-          connection = uri=str
+          connection = uri=string
         }
       }
     } | greenplum={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       connection = {
         type = connection-manager={
-          connection-id = str,
-          connection-properties = {key=str, key=...},
-          database = str
+          connection-id = string,
+          connection-properties = {key=string, key=...},
+          database = string
         } | on-premise={
-          connection-url = str,
-          password = str,
-          user-name = str
+          connection-url = string,
+          password = string,
+          user-name = string
         }
       }
     } | hive={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       filesystem = {
         type = external-s3={
-          aws-access-key = str,
-          aws-endpoint = str,
-          aws-region = str,
-          aws-secret-key = str
+          aws-access-key = string,
+          aws-endpoint = string,
+          aws-region = string,
+          aws-secret-key = string
         } | s3={}
       },
       metastore = {
         type = hive={
-          connection = uri=str
+          connection = uri=string
         }
       }
     } | hudi={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       filesystem = {
         type = external-s3={
-          aws-access-key = str,
-          aws-endpoint = str,
-          aws-region = str,
-          aws-secret-key = str
+          aws-access-key = string,
+          aws-endpoint = string,
+          aws-region = string,
+          aws-secret-key = string
         } | s3={}
       },
       metastore = {
         type = hive={
-          connection = uri=str
+          connection = uri=string
         }
       }
     } | iceberg={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       filesystem = {
         type = external-s3={
-          aws-access-key = str,
-          aws-endpoint = str,
-          aws-region = str,
-          aws-secret-key = str
+          aws-access-key = string,
+          aws-endpoint = string,
+          aws-region = string,
+          aws-secret-key = string
         } | s3={}
       },
       metastore = {
         type = hive={
-          connection = uri=str
+          connection = uri=string
         }
       }
     } | mysql={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       connection = {
         type = connection-manager={
-          connection-id = str,
-          connection-properties = {key=str, key=...}
+          connection-id = string,
+          connection-properties = {key=string, key=...}
         } | on-premise={
-          connection-url = str,
-          password = str,
-          user-name = str
+          connection-url = string,
+          password = string,
+          user-name = string
         }
       }
     } | oracle={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       connection = {
         type = on-premise={
-          connection-url = str,
-          password = str,
-          user-name = str
+          connection-url = string,
+          password = string,
+          user-name = string
         }
       }
     } | postgresql={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       connection = {
         type = connection-manager={
-          connection-id = str,
-          connection-properties = {key=str, key=...},
-          database = str
+          connection-id = string,
+          connection-properties = {key=string, key=...},
+          database = string
         } | on-premise={
-          connection-url = str,
-          password = str,
-          user-name = str
+          connection-url = string,
+          password = string,
+          user-name = string
         }
       }
     } | sqlserver={
-      additional-properties = {key=str, key=...},
+      additional-properties = {key=string, key=...},
       connection = {
         type = on-premise={
-          connection-url = str,
-          password = str,
-          user-name = str
+          connection-url = string,
+          password = string,
+          user-name = string
         }
       }
     } | tpcds={
-      additional-properties = {key=str, key=...}
+      additional-properties = {key=string, key=...}
     } | tpch={
-      additional-properties = {key=str, key=...}
+      additional-properties = {key=string, key=...}
     }
   },
-  description = str,
-  labels = {key=str, key=...},
-  name = str
+  description = string,
+  labels = {key=string, key=...},
+  name = string
 }
 ```
 
@@ -192,36 +192,36 @@ JSON Syntax:
     "type": {
       "clickhouse": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "connection": {
           "type": {
             "connection-manager": {
-              "connection-id": "str",
+              "connection-id": "string",
               "connection-properties": {
-                "<key>": "str", ...
+                "<key>": "string", ...
               },
-              "database": "str"
+              "database": "string"
             },
             "on-premise": {
-              "connection-url": "str",
-              "password": "str",
-              "user-name": "str"
+              "connection-url": "string",
+              "password": "string",
+              "user-name": "string"
             }
           }
         }
       },
       "delta-lake": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "filesystem": {
           "type": {
             "external-s3": {
-              "aws-access-key": "str",
-              "aws-endpoint": "str",
-              "aws-region": "str",
-              "aws-secret-key": "str"
+              "aws-access-key": "string",
+              "aws-endpoint": "string",
+              "aws-region": "string",
+              "aws-secret-key": "string"
             },
             "s3": {}
           }
@@ -230,7 +230,7 @@ JSON Syntax:
           "type": {
             "hive": {
               "connection": {
-                "uri": "str"
+                "uri": "string"
               }
             }
           }
@@ -238,36 +238,36 @@ JSON Syntax:
       },
       "greenplum": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "connection": {
           "type": {
             "connection-manager": {
-              "connection-id": "str",
+              "connection-id": "string",
               "connection-properties": {
-                "<key>": "str", ...
+                "<key>": "string", ...
               },
-              "database": "str"
+              "database": "string"
             },
             "on-premise": {
-              "connection-url": "str",
-              "password": "str",
-              "user-name": "str"
+              "connection-url": "string",
+              "password": "string",
+              "user-name": "string"
             }
           }
         }
       },
       "hive": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "filesystem": {
           "type": {
             "external-s3": {
-              "aws-access-key": "str",
-              "aws-endpoint": "str",
-              "aws-region": "str",
-              "aws-secret-key": "str"
+              "aws-access-key": "string",
+              "aws-endpoint": "string",
+              "aws-region": "string",
+              "aws-secret-key": "string"
             },
             "s3": {}
           }
@@ -276,7 +276,7 @@ JSON Syntax:
           "type": {
             "hive": {
               "connection": {
-                "uri": "str"
+                "uri": "string"
               }
             }
           }
@@ -284,15 +284,15 @@ JSON Syntax:
       },
       "hudi": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "filesystem": {
           "type": {
             "external-s3": {
-              "aws-access-key": "str",
-              "aws-endpoint": "str",
-              "aws-region": "str",
-              "aws-secret-key": "str"
+              "aws-access-key": "string",
+              "aws-endpoint": "string",
+              "aws-region": "string",
+              "aws-secret-key": "string"
             },
             "s3": {}
           }
@@ -301,7 +301,7 @@ JSON Syntax:
           "type": {
             "hive": {
               "connection": {
-                "uri": "str"
+                "uri": "string"
               }
             }
           }
@@ -309,15 +309,15 @@ JSON Syntax:
       },
       "iceberg": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "filesystem": {
           "type": {
             "external-s3": {
-              "aws-access-key": "str",
-              "aws-endpoint": "str",
-              "aws-region": "str",
-              "aws-secret-key": "str"
+              "aws-access-key": "string",
+              "aws-endpoint": "string",
+              "aws-region": "string",
+              "aws-secret-key": "string"
             },
             "s3": {}
           }
@@ -326,7 +326,7 @@ JSON Syntax:
           "type": {
             "hive": {
               "connection": {
-                "uri": "str"
+                "uri": "string"
               }
             }
           }
@@ -334,90 +334,90 @@ JSON Syntax:
       },
       "mysql": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "connection": {
           "type": {
             "connection-manager": {
-              "connection-id": "str",
+              "connection-id": "string",
               "connection-properties": {
-                "<key>": "str", ...
+                "<key>": "string", ...
               }
             },
             "on-premise": {
-              "connection-url": "str",
-              "password": "str",
-              "user-name": "str"
+              "connection-url": "string",
+              "password": "string",
+              "user-name": "string"
             }
           }
         }
       },
       "oracle": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "connection": {
           "type": {
             "on-premise": {
-              "connection-url": "str",
-              "password": "str",
-              "user-name": "str"
+              "connection-url": "string",
+              "password": "string",
+              "user-name": "string"
             }
           }
         }
       },
       "postgresql": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "connection": {
           "type": {
             "connection-manager": {
-              "connection-id": "str",
+              "connection-id": "string",
               "connection-properties": {
-                "<key>": "str", ...
+                "<key>": "string", ...
               },
-              "database": "str"
+              "database": "string"
             },
             "on-premise": {
-              "connection-url": "str",
-              "password": "str",
-              "user-name": "str"
+              "connection-url": "string",
+              "password": "string",
+              "user-name": "string"
             }
           }
         }
       },
       "sqlserver": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
         "connection": {
           "type": {
             "on-premise": {
-              "connection-url": "str",
-              "password": "str",
-              "user-name": "str"
+              "connection-url": "string",
+              "password": "string",
+              "user-name": "string"
             }
           }
         }
       },
       "tpcds": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         }
       },
       "tpch": {
         "additional-properties": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         }
       }
     }
   },
-  "description": "str",
+  "description": "string",
   "labels": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
-  "name": "str"
+  "name": "string"
 }
 ```
 
@@ -713,16 +713,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

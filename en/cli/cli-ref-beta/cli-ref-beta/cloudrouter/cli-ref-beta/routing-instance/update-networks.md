@@ -46,11 +46,11 @@ Shorthand Syntax:
   {
     vpc-az-info-prefixes = [
       {
-        az-id = str,
-        prefixes = str,...
+        az-id = string,
+        prefixes = string,...
       }, ...
     ],
-    vpc-network-id = str
+    vpc-network-id = string
   }, ...
 ]
 ```
@@ -62,13 +62,13 @@ JSON Syntax:
   {
     "vpc-az-info-prefixes": [
       {
-        "az-id": "str",
+        "az-id": "string",
         "prefixes": [
-          "str", ...
+          "string", ...
         ]
       }, ...
     ],
-    "vpc-network-id": "str"
+    "vpc-network-id": "string"
   }, ...
 ]
 ```
@@ -85,7 +85,7 @@ vpc-az-info-prefixes -> ([]struct)
 vpc-network-id -> (string)
   ID of the vpcNetwork that is attached to the routingInstance.
 ``` ||
-|| `--deleted-vpc-network-ids` | `strings`
+|| `--deleted-vpc-network-ids` | `[]string`
 
 List of VPC ids to remove from the routing instance. ||
 || `--routing-instance-id` | `string`
@@ -103,11 +103,11 @@ Shorthand Syntax:
   {
     vpc-az-info-prefixes = [
       {
-        az-id = str,
-        prefixes = str,...
+        az-id = string,
+        prefixes = string,...
       }, ...
     ],
-    vpc-network-id = str
+    vpc-network-id = string
   }, ...
 ]
 ```
@@ -119,13 +119,13 @@ JSON Syntax:
   {
     "vpc-az-info-prefixes": [
       {
-        "az-id": "str",
+        "az-id": "string",
         "prefixes": [
-          "str", ...
+          "string", ...
         ]
       }, ...
     ],
-    "vpc-network-id": "str"
+    "vpc-network-id": "string"
   }, ...
 ]
 ```
@@ -163,16 +163,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

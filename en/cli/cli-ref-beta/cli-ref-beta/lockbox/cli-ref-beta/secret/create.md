@@ -45,7 +45,7 @@ ID of the folder to create a secret in. ||
 || `--kms-key-id` | `string`
 
 Optional ID of the KMS key will be used to encrypt and decrypt the secret. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Custom labels for the secret as 'key:value' pairs. Maximum 64 per key. For example, '"project": "mvp"' or '"source": "dictionary"'. ||
 || `--name` | `string`
@@ -63,8 +63,8 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    key = str,
-    value = binary-value=uint,... | text-value=str
+    key = string,
+    value = binary-value=uint,... | text-value=string
   }, ...
 ]
 ```
@@ -74,12 +74,12 @@ JSON Syntax:
 ```json
 [
   {
-    "key": "str",
+    "key": "string",
     "value": {
       "binary-value": [
         "uint", ...
       ],
-      "text-value": "str"
+      "text-value": "string"
     }
   }, ...
 ]
@@ -103,14 +103,14 @@ Shorthand Syntax:
 
 ```hcl
 {
-  excluded-punctuation = str,
-  include-digits = bool,
-  include-lowercase = bool,
-  include-punctuation = bool,
-  include-uppercase = bool,
-  included-punctuation = str,
-  length = int,
-  password-key = str
+  excluded-punctuation = string,
+  include-digits = boolean,
+  include-lowercase = boolean,
+  include-punctuation = boolean,
+  include-uppercase = boolean,
+  included-punctuation = string,
+  length = integer,
+  password-key = string
 }
 ```
 
@@ -118,14 +118,14 @@ JSON Syntax:
 
 ```json
 {
-  "excluded-punctuation": "str",
-  "include-digits": "bool",
-  "include-lowercase": "bool",
-  "include-punctuation": "bool",
-  "include-uppercase": "bool",
-  "included-punctuation": "str",
-  "length": "int",
-  "password-key": "str"
+  "excluded-punctuation": "string",
+  "include-digits": "boolean",
+  "include-lowercase": "boolean",
+  "include-punctuation": "boolean",
+  "include-uppercase": "boolean",
+  "included-punctuation": "string",
+  "length": "integer",
+  "password-key": "string"
 }
 ```
 
@@ -134,17 +134,17 @@ Fields:
 ```
 excluded-punctuation -> (string)
   a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32)
-include-digits -> (bool)
+include-digits -> (boolean)
   whether at least one 0..9 character is included in the password, true by default
-include-lowercase -> (bool)
+include-lowercase -> (boolean)
   whether at least one a..z character is included in the password, true by default
-include-punctuation -> (bool)
+include-punctuation -> (boolean)
   whether at least one punctuation character is included in the password, true by default punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_'{|}~ to customize the punctuation characters, see included_punctuation and excluded_punctuation below
-include-uppercase -> (bool)
+include-uppercase -> (boolean)
   whether at least one A..Z character is included in the password, true by default
 included-punctuation -> (string)
   If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation: a string of specific punctuation characters to use (at most, all the 32)
-length -> (int)
+length -> (integer)
   password length; by default, a reasonable length will be decided
 password-key -> (string)
   key of the entry to store generated password value
@@ -170,16 +170,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

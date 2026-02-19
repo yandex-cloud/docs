@@ -44,8 +44,8 @@ Shorthand Syntax:
 {
   locations = [
     {
-      subnet-id = str,
-      zone-id = str
+      subnet-id = string,
+      zone-id = string
     }, ...
   ]
 }
@@ -57,8 +57,8 @@ JSON Syntax:
 {
   "locations": [
     {
-      "subnet-id": "str",
-      "zone-id": "str"
+      "subnet-id": "string",
+      "zone-id": "string"
     }, ...
   ]
 }
@@ -74,7 +74,7 @@ locations -> ([]struct)
   zone-id -> (string)
     ID of the availability zone where the nodes may reside.
 ``` ||
-|| `--allowed-unsafe-sysctls` | `strings`
+|| `--allowed-unsafe-sysctls` | `[]string`
 
 Support for unsafe sysctl parameters. For more details see documentation. ||
 || `--cluster-id` | `string`
@@ -88,8 +88,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  max-expansion = int,
-  max-unavailable = int
+  max-expansion = integer,
+  max-unavailable = integer
 }
 ```
 
@@ -97,23 +97,23 @@ JSON Syntax:
 
 ```json
 {
-  "max-expansion": "int",
-  "max-unavailable": "int"
+  "max-expansion": "integer",
+  "max-unavailable": "integer"
 }
 ```
 
 Fields:
 
 ```
-max-expansion -> (int)
+max-expansion -> (integer)
   The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If [max_unavailable] is not specified or set to zero, [max_expansion] must be set to a non-zero value.
-max-unavailable -> (int)
+max-unavailable -> (integer)
   The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If [max_expansion] is not specified or set to zero, [max_unavailable] must be set to a non-zero value.
 ``` ||
 || `--description` | `string`
 
 Description of the node group. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--maintenance-policy` | `shorthand/json`
@@ -124,8 +124,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  auto-repair = bool,
-  auto-upgrade = bool,
+  auto-repair = boolean,
+  auto-upgrade = boolean,
   maintenance-window = {
     policy = anytime={} | daily-maintenance-window={
       duration = duration,
@@ -149,8 +149,8 @@ JSON Syntax:
 
 ```json
 {
-  "auto-repair": "bool",
-  "auto-upgrade": "bool",
+  "auto-repair": "boolean",
+  "auto-upgrade": "boolean",
   "maintenance-window": {
     "policy": {
       "anytime": {},
@@ -177,9 +177,9 @@ JSON Syntax:
 Fields:
 
 ```
-auto-repair -> (bool)
+auto-repair -> (boolean)
   If set to true, automatic repairs are enabled. Default value is false.
-auto-upgrade -> (bool)
+auto-upgrade -> (boolean)
   If set to true, automatic updates are installed in the specified period of time with no interaction from the user. If set to false, automatic upgrades are disabled.
 maintenance-window -> (struct)
   Maintenance window settings. Update will start at the specified time and last no more than the specified duration. The time is set in UTC.
@@ -207,7 +207,7 @@ maintenance-window -> (struct)
 || `--name` | `string`
 
 Name of the node group. The name must be unique within the folder. ||
-|| `--node-labels` | `stringToString`
+|| `--node-labels` | `map<string><string>`
 
 Labels that are assigned to the nodes of the node group at creation time. ||
 || `--node-taints` | `shorthand/json`
@@ -220,8 +220,8 @@ Shorthand Syntax:
 [
   {
     effect = NO_SCHEDULE|PREFER_NO_SCHEDULE|NO_EXECUTE,
-    key = str,
-    value = str
+    key = string,
+    value = string
   }, ...
 ]
 ```
@@ -232,8 +232,8 @@ JSON Syntax:
 [
   {
     "effect": "NO_SCHEDULE|PREFER_NO_SCHEDULE|NO_EXECUTE",
-    "key": "str",
-    "value": "str"
+    "key": "string",
+    "value": "string"
   }, ...
 ]
 ```
@@ -257,31 +257,31 @@ Shorthand Syntax:
 ```hcl
 {
   boot-disk-spec = {
-    disk-size = int,
-    disk-type-id = str
+    disk-size = integer,
+    disk-type-id = string
   },
   container-network-settings = {
-    pod-mtu = int
+    pod-mtu = integer
   },
   container-runtime-settings = {
     type = DOCKER|CONTAINERD
   },
   gpu-settings = {
-    gpu-cluster-id = str,
+    gpu-cluster-id = string,
     gpu-environment = RUNC_DRIVERS_CUDA|RUNC
   },
-  labels = {key=str, key=...},
-  metadata = {key=str, key=...},
-  name = str,
+  labels = {key=string, key=...},
+  metadata = {key=string, key=...},
+  name = string,
   network-interface-specs = [
     {
       primary-v4-address-spec = {
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         one-to-one-nat-spec = {
@@ -291,43 +291,43 @@ Shorthand Syntax:
       primary-v6-address-spec = {
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         one-to-one-nat-spec = {
           ip-version = IPV4|IPV6
         }
       },
-      security-group-ids = str,...,
-      subnet-ids = str,...
+      security-group-ids = string,...,
+      subnet-ids = string,...
     }, ...
   ],
   network-settings = {
     type = STANDARD|SOFTWARE_ACCELERATED
   },
   placement-policy = {
-    placement-group-id = str
+    placement-group-id = string
   },
-  platform-id = str,
+  platform-id = string,
   resources-spec = {
-    core-fraction = int,
-    cores = int,
-    gpus = int,
-    memory = int
+    core-fraction = integer,
+    cores = integer,
+    gpus = integer,
+    memory = integer
   },
   scheduling-policy = {
-    preemptible = bool
+    preemptible = boolean
   },
   v4-address-spec = {
     dns-record-specs = [
       {
-        dns-zone-id = str,
-        fqdn = str,
-        ptr = bool,
-        ttl = int
+        dns-zone-id = string,
+        fqdn = string,
+        ptr = boolean,
+        ttl = integer
       }, ...
     ],
     one-to-one-nat-spec = {
@@ -342,35 +342,35 @@ JSON Syntax:
 ```json
 {
   "boot-disk-spec": {
-    "disk-size": "int",
-    "disk-type-id": "str"
+    "disk-size": "integer",
+    "disk-type-id": "string"
   },
   "container-network-settings": {
-    "pod-mtu": "int"
+    "pod-mtu": "integer"
   },
   "container-runtime-settings": {
     "type": "DOCKER|CONTAINERD"
   },
   "gpu-settings": {
-    "gpu-cluster-id": "str",
+    "gpu-cluster-id": "string",
     "gpu-environment": "RUNC_DRIVERS_CUDA|RUNC"
   },
   "labels": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "metadata": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
-  "name": "str",
+  "name": "string",
   "network-interface-specs": [
     {
       "primary-v4-address-spec": {
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "one-to-one-nat-spec": {
@@ -380,10 +380,10 @@ JSON Syntax:
       "primary-v6-address-spec": {
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "one-to-one-nat-spec": {
@@ -391,10 +391,10 @@ JSON Syntax:
         }
       },
       "security-group-ids": [
-        "str", ...
+        "string", ...
       ],
       "subnet-ids": [
-        "str", ...
+        "string", ...
       ]
     }, ...
   ],
@@ -402,25 +402,25 @@ JSON Syntax:
     "type": "STANDARD|SOFTWARE_ACCELERATED"
   },
   "placement-policy": {
-    "placement-group-id": "str"
+    "placement-group-id": "string"
   },
-  "platform-id": "str",
+  "platform-id": "string",
   "resources-spec": {
-    "core-fraction": "int",
-    "cores": "int",
-    "gpus": "int",
-    "memory": "int"
+    "core-fraction": "integer",
+    "cores": "integer",
+    "gpus": "integer",
+    "memory": "integer"
   },
   "scheduling-policy": {
-    "preemptible": "bool"
+    "preemptible": "boolean"
   },
   "v4-address-spec": {
     "dns-record-specs": [
       {
-        "dns-zone-id": "str",
-        "fqdn": "str",
-        "ptr": "bool",
-        "ttl": "int"
+        "dns-zone-id": "string",
+        "fqdn": "string",
+        "ptr": "boolean",
+        "ttl": "integer"
       }, ...
     ],
     "one-to-one-nat-spec": {
@@ -435,13 +435,13 @@ Fields:
 ```
 boot-disk-spec -> (struct)
   Specification for the boot disk that will be attached to the node.
-  disk-size -> (int)
+  disk-size -> (integer)
     Size of the disk, specified in bytes.
   disk-type-id -> (string)
     ID of the disk type.
 container-network-settings -> (struct)
   Container network settings for the node template.
-  pod-mtu -> (int)
+  pod-mtu -> (integer)
     MTU (Maximum Transmission Unit) size for pod network interfaces.
 container-runtime-settings -> (struct)
   Container runtime settings for the node template.
@@ -469,9 +469,9 @@ network-interface-specs -> ([]struct)
         DNS zone id (optional, if not set, private zone is used).
       fqdn -> (string)
         FQDN (required).
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional).
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional).
     one-to-one-nat-spec -> (struct)
       One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.
@@ -485,9 +485,9 @@ network-interface-specs -> ([]struct)
         DNS zone id (optional, if not set, private zone is used).
       fqdn -> (string)
         FQDN (required).
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional).
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional).
     one-to-one-nat-spec -> (struct)
       One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.
@@ -509,17 +509,17 @@ platform-id -> (string)
   ID of the hardware platform configuration for the node.
 resources-spec -> (struct)
   Computing resources of the node such as the amount of memory and number of cores.
-  core-fraction -> (int)
+  core-fraction -> (integer)
     Baseline level of CPU performance with the possibility to burst performance above that baseline level. This field sets baseline performance for each core.
-  cores -> (int)
+  cores -> (integer)
     Number of cores available to the node.
-  gpus -> (int)
+  gpus -> (integer)
     Number of GPUs available to the node.
-  memory -> (int)
+  memory -> (integer)
     Amount of memory available to the node, specified in bytes.
 scheduling-policy -> (struct)
   Scheduling policy configuration.
-  preemptible -> (bool)
+  preemptible -> (boolean)
     True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see documentation.
 v4-address-spec -> (struct)
   Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs.
@@ -529,9 +529,9 @@ v4-address-spec -> (struct)
       DNS zone id (optional, if not set, private zone is used).
     fqdn -> (string)
       FQDN (required).
-    ptr -> (bool)
+    ptr -> (boolean)
       When set to true, also create PTR DNS record (optional).
-    ttl -> (int)
+    ttl -> (integer)
       DNS record ttl, values in 0-86400 (optional).
   one-to-one-nat-spec -> (struct)
     One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.
@@ -547,11 +547,11 @@ Shorthand Syntax:
 ```hcl
 {
   scale-type = auto-scale={
-    initial-size = int,
-    max-size = int,
-    min-size = int
+    initial-size = integer,
+    max-size = integer,
+    min-size = integer
   } | fixed-scale={
-    size = int
+    size = integer
   }
 }
 ```
@@ -562,12 +562,12 @@ JSON Syntax:
 {
   "scale-type": {
     "auto-scale": {
-      "initial-size": "int",
-      "max-size": "int",
-      "min-size": "int"
+      "initial-size": "integer",
+      "max-size": "integer",
+      "min-size": "integer"
     },
     "fixed-scale": {
-      "size": "int"
+      "size": "integer"
     }
   }
 }
@@ -580,15 +580,15 @@ scale-type -> (oneof<auto-scale|fixed-scale>)
   Oneof scale-type field
   fixed-scale -> (struct)
     Fixed scale policy of the node group.
-    size -> (int)
+    size -> (integer)
       Number of nodes in the node group.
   auto-scale -> (struct)
     Auto scale policy of the node group.
-    initial-size -> (int)
+    initial-size -> (integer)
       Initial number of nodes in the node group.
-    max-size -> (int)
+    max-size -> (integer)
       Maximum number of nodes in the node group.
-    min-size -> (int)
+    min-size -> (integer)
       Minimum number of nodes in the node group.
 ``` ||
 || `--version` | `string`
@@ -602,7 +602,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  enabled = bool
+  enabled = boolean
 }
 ```
 
@@ -610,14 +610,14 @@ JSON Syntax:
 
 ```json
 {
-  "enabled": "bool"
+  "enabled": "boolean"
 }
 ```
 
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
   Identifies whether Workload Identity Federation is enabled.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -641,16 +641,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

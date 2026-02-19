@@ -47,11 +47,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    shard-name = str,
-    subnet-id = str,
+    assign-public-ip = boolean,
+    shard-name = string,
+    subnet-id = string,
     type = CLICKHOUSE|ZOOKEEPER|KEEPER,
-    zone-id = str
+    zone-id = string
   }, ...
 ]
 ```
@@ -61,11 +61,11 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "shard-name": "str",
-    "subnet-id": "str",
+    "assign-public-ip": "boolean",
+    "shard-name": "string",
+    "subnet-id": "string",
     "type": "CLICKHOUSE|ZOOKEEPER|KEEPER",
-    "zone-id": "str"
+    "zone-id": "string"
   }, ...
 ]
 ```
@@ -73,7 +73,7 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Whether the host should get a public IP address on creation. After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assign_public_ip] set as needed. Possible values: * false - don't assign a public IP to the host. * true - the host should have a public IP address.
 shard-name -> (string)
   Name of the shard that the host is assigned to.
@@ -92,9 +92,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  disk-size = int,
-  disk-type-id = str,
-  resource-preset-id = str
+  disk-size = integer,
+  disk-type-id = string,
+  resource-preset-id = string
 }
 ```
 
@@ -102,16 +102,16 @@ JSON Syntax:
 
 ```json
 {
-  "disk-size": "int",
-  "disk-type-id": "str",
-  "resource-preset-id": "str"
+  "disk-size": "integer",
+  "disk-type-id": "string",
+  "resource-preset-id": "string"
 }
 ```
 
 Fields:
 
 ```
-disk-size -> (int)
+disk-size -> (integer)
   Volume of the storage available to a host, in bytes.
 disk-type-id -> (string)
   Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive, * local-ssd - local SSD storage.
@@ -139,16 +139,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

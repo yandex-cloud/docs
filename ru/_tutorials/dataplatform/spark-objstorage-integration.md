@@ -3,13 +3,25 @@
 
 В бакетах {{ objstorage-full-name }} можно хранить как файлы, необходимые для выполнения заданий в кластере {{ msp-full-name }}, так и результаты выполнения заданий.
 
-Для использования {{ objstorage-name }} в сервисе {{ msp-name }}:
+Кластеры {{ msp-full-name }} уже сконфигурированы для работы с S3-хранилищами. Чтобы использовать бакет {{ objstorage-name }} в PySpark-задании:
+* Предоставьте сервисному аккаунту кластера {{ msp-full-name }} разрешение на доступ к бакету {{ objstorage-name }}.
+* Укажите путь к каталогу в бакете {{ objstorage-name }} в аргументах задания.
+
+В этом руководстве показан пример работы с таблицей в бакете {{ objstorage-name }} из PySpark-задания с использованием встроенного локального каталога Hive.
+
+Чтобы реализовать описанный пример:
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте PySpark-задание](#prepare-a-job).
 1. [Проверьте результат](#check-out).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+{% note info %}
+
+Локальный каталог Hive позволяет обращаться к таблицам по имени без указания пути и использовать базовые возможности Hive, не подключая кластер {{ metastore-name }}. Хранящиеся в локальном каталоге метаданные остаются недоступными другим кластерам. Пример использования глобального каталога см. в руководстве [{#T}](../../managed-spark/tutorials/metastore-and-spark.md).
+
+{% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
@@ -26,7 +38,7 @@
 
 - Консоль управления {#console}
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `spark-agent` для кластера {{ SPRK }} с ролью [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ SPRK }} мог взаимодействовать с другими ресурсами.
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `spark-agent` для кластера {{ msp-full-name }} с ролью [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ msp-full-name }} мог взаимодействовать с другими ресурсами.
 
     1. [Создайте бакеты](../../storage/operations/buckets/create.md):
 
@@ -42,7 +54,7 @@
 
         Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
 
-    1. [Создайте кластер {{ msp-name }}](../../managed-spark/operations/cluster-create.md) с параметрами:
+    1. [Создайте кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-create.md) с параметрами:
 
         * **Сервисный аккаунт** — `spark-agent`.
         * **Сеть** — `spark-network`.
@@ -52,7 +64,9 @@
 
 ## Подготовьте PySpark-задание {#prepare-a-job}
 
-Для PySpark-задания будет использован Python-скрипт, который хранится в бакете {{ objstorage-name }} и создает таблицу `table_1` в БД `database_1`. Подготовьте файл скрипта:
+Для PySpark-задания используется Python-скрипт, который создает таблицу `table_1` в БД `database_1`. В аргументах PySpark-задания указан путь к каталогу, в котором будет создана БД. Для подключения встроенного каталога Hive в скрипте указывается параметр конфигурации Spark-сессии `spark.sql.catalogImplementation=hive`. Скрипт будет храниться в бакете {{ objstorage-name }}.
+
+Подготовьте файл скрипта:
 
 {% list tabs group=instructions %}
 
@@ -70,7 +84,7 @@
     1. [Создайте задание](../../managed-spark/operations/jobs-pyspark.md) с параметрами:
         * **Тип задания** — **PySpark**.
         * **Main python файл** – `s3a://<бакет_для_исходного_кода_PySpark_задания>/scripts/job_save_table.py`.
-        * **Аргументы** — `s3a://<бакет_для_выходных_данных_PySpark_задания>/warehouse`
+        * **Аргументы** — `s3a://<бакет_для_выходных_данных_PySpark_задания>/warehouse`.
 
 {% endlist %}
 
@@ -96,6 +110,6 @@
 - Консоль управления {#console}
 
     1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    1. [Кластер {{ SPRK }}](../../managed-spark/operations/cluster-delete.md).
+    1. [Кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-delete.md).
 
 {% endlist %}

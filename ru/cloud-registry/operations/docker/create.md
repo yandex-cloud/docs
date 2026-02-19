@@ -5,7 +5,7 @@ description: В инструкции описано, как создать Docke
 
 # Создать Docker-образ в {{ cloud-registry-name }}
 
-В инструкции описано, как создать [Docker-образ](../../concepts/docker-image.md) на основе Dockerfile и собрать его.
+В инструкции описано, как создать [Docker-образ](../../concepts/artifacts/docker.md) на основе Dockerfile и собрать его.
 
 Чтобы работать с Docker-образами, [установите и настройте](installation.md) Docker.
 

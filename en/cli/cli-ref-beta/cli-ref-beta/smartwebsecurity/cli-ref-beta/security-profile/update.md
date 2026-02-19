@@ -28,7 +28,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  size-limit = int,
+  size-limit = integer,
   size-limit-action = IGNORE|DENY
 }
 ```
@@ -37,7 +37,7 @@ JSON Syntax:
 
 ```json
 {
-  "size-limit": "int",
+  "size-limit": "integer",
   "size-limit-action": "IGNORE|DENY"
 }
 ```
@@ -45,7 +45,7 @@ JSON Syntax:
 Fields:
 
 ```
-size-limit -> (int)
+size-limit -> (integer)
   Maximum size of body to pass to analyzer. In kilobytes.
 size-limit-action -> (struct)
   Action to perform if maximum size of body exceeded.
@@ -59,7 +59,7 @@ Action to perform if none of rules matched. Possible Values: 'allow', 'deny' ||
 || `--description` | `string`
 
 Optional description of the security profile. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Labels as '' key:value '' pairs. Maximum of 64 per resource. ||
 || `--name` | `string`
@@ -77,60 +77,60 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    description = str,
-    dry-run = bool,
-    name = str,
-    priority = int,
+    description = string,
+    dry-run = boolean,
+    name = string,
+    priority = integer,
     rule-specifier = rule-condition={
       action = ALLOW|DENY,
       condition = {
         authority = {
           authorities = [
             {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }, ...
           ]
         },
         headers = [
           {
-            name = str,
+            name = string,
             value = {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }
           }, ...
         ],
         http-method = {
           http-methods = [
             {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }, ...
           ]
         },
         request-uri = {
           path = {
-            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
           },
           queries = [
             {
-              key = str,
+              key = string,
               value = {
-                match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+                match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
               }
             }, ...
           ]
         },
         source-ip = {
           geo-ip-match = {
-            locations = str,...
+            locations = string,...
           },
           geo-ip-not-match = {
-            locations = str,...
+            locations = string,...
           },
           ip-ranges-match = {
-            ip-ranges = str,...
+            ip-ranges = string,...
           },
           ip-ranges-not-match = {
-            ip-ranges = str,...
+            ip-ranges = string,...
           }
         }
       }
@@ -139,50 +139,50 @@ Shorthand Syntax:
         authority = {
           authorities = [
             {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }, ...
           ]
         },
         headers = [
           {
-            name = str,
+            name = string,
             value = {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }
           }, ...
         ],
         http-method = {
           http-methods = [
             {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }, ...
           ]
         },
         request-uri = {
           path = {
-            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
           },
           queries = [
             {
-              key = str,
+              key = string,
               value = {
-                match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+                match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
               }
             }, ...
           ]
         },
         source-ip = {
           geo-ip-match = {
-            locations = str,...
+            locations = string,...
           },
           geo-ip-not-match = {
-            locations = str,...
+            locations = string,...
           },
           ip-ranges-match = {
-            ip-ranges = str,...
+            ip-ranges = string,...
           },
           ip-ranges-not-match = {
-            ip-ranges = str,...
+            ip-ranges = string,...
           }
         }
       },
@@ -192,55 +192,55 @@ Shorthand Syntax:
         authority = {
           authorities = [
             {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }, ...
           ]
         },
         headers = [
           {
-            name = str,
+            name = string,
             value = {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }
           }, ...
         ],
         http-method = {
           http-methods = [
             {
-              match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
             }, ...
           ]
         },
         request-uri = {
           path = {
-            match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+            match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
           },
           queries = [
             {
-              key = str,
+              key = string,
               value = {
-                match = exact-match=str | exact-not-match=str | pire-regex-match=str | pire-regex-not-match=str | prefix-match=str | prefix-not-match=str
+                match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
               }
             }, ...
           ]
         },
         source-ip = {
           geo-ip-match = {
-            locations = str,...
+            locations = string,...
           },
           geo-ip-not-match = {
-            locations = str,...
+            locations = string,...
           },
           ip-ranges-match = {
-            ip-ranges = str,...
+            ip-ranges = string,...
           },
           ip-ranges-not-match = {
-            ip-ranges = str,...
+            ip-ranges = string,...
           }
         }
       },
       mode = FULL|API,
-      waf-profile-id = str
+      waf-profile-id = string
     }
   }, ...
 ]
@@ -251,10 +251,10 @@ JSON Syntax:
 ```json
 [
   {
-    "description": "str",
-    "dry-run": "bool",
-    "name": "str",
-    "priority": "int",
+    "description": "string",
+    "dry-run": "boolean",
+    "name": "string",
+    "priority": "integer",
     "rule-specifier": {
       "rule-condition": {
         "action": "ALLOW|DENY",
@@ -263,27 +263,27 @@ JSON Syntax:
             "authorities": [
               {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }, ...
             ]
           },
           "headers": [
             {
-              "name": "str",
+              "name": "string",
               "value": {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }
             }, ...
@@ -292,12 +292,12 @@ JSON Syntax:
             "http-methods": [
               {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }, ...
             ]
@@ -305,25 +305,25 @@ JSON Syntax:
           "request-uri": {
             "path": {
               "match": {
-                "exact-match": "str",
-                "exact-not-match": "str",
-                "pire-regex-match": "str",
-                "pire-regex-not-match": "str",
-                "prefix-match": "str",
-                "prefix-not-match": "str"
+                "exact-match": "string",
+                "exact-not-match": "string",
+                "pire-regex-match": "string",
+                "pire-regex-not-match": "string",
+                "prefix-match": "string",
+                "prefix-not-match": "string"
               }
             },
             "queries": [
               {
-                "key": "str",
+                "key": "string",
                 "value": {
                   "match": {
-                    "exact-match": "str",
-                    "exact-not-match": "str",
-                    "pire-regex-match": "str",
-                    "pire-regex-not-match": "str",
-                    "prefix-match": "str",
-                    "prefix-not-match": "str"
+                    "exact-match": "string",
+                    "exact-not-match": "string",
+                    "pire-regex-match": "string",
+                    "pire-regex-not-match": "string",
+                    "prefix-match": "string",
+                    "prefix-not-match": "string"
                   }
                 }
               }, ...
@@ -332,22 +332,22 @@ JSON Syntax:
           "source-ip": {
             "geo-ip-match": {
               "locations": [
-                "str", ...
+                "string", ...
               ]
             },
             "geo-ip-not-match": {
               "locations": [
-                "str", ...
+                "string", ...
               ]
             },
             "ip-ranges-match": {
               "ip-ranges": [
-                "str", ...
+                "string", ...
               ]
             },
             "ip-ranges-not-match": {
               "ip-ranges": [
-                "str", ...
+                "string", ...
               ]
             }
           }
@@ -359,27 +359,27 @@ JSON Syntax:
             "authorities": [
               {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }, ...
             ]
           },
           "headers": [
             {
-              "name": "str",
+              "name": "string",
               "value": {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }
             }, ...
@@ -388,12 +388,12 @@ JSON Syntax:
             "http-methods": [
               {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }, ...
             ]
@@ -401,25 +401,25 @@ JSON Syntax:
           "request-uri": {
             "path": {
               "match": {
-                "exact-match": "str",
-                "exact-not-match": "str",
-                "pire-regex-match": "str",
-                "pire-regex-not-match": "str",
-                "prefix-match": "str",
-                "prefix-not-match": "str"
+                "exact-match": "string",
+                "exact-not-match": "string",
+                "pire-regex-match": "string",
+                "pire-regex-not-match": "string",
+                "prefix-match": "string",
+                "prefix-not-match": "string"
               }
             },
             "queries": [
               {
-                "key": "str",
+                "key": "string",
                 "value": {
                   "match": {
-                    "exact-match": "str",
-                    "exact-not-match": "str",
-                    "pire-regex-match": "str",
-                    "pire-regex-not-match": "str",
-                    "prefix-match": "str",
-                    "prefix-not-match": "str"
+                    "exact-match": "string",
+                    "exact-not-match": "string",
+                    "pire-regex-match": "string",
+                    "pire-regex-not-match": "string",
+                    "prefix-match": "string",
+                    "prefix-not-match": "string"
                   }
                 }
               }, ...
@@ -428,22 +428,22 @@ JSON Syntax:
           "source-ip": {
             "geo-ip-match": {
               "locations": [
-                "str", ...
+                "string", ...
               ]
             },
             "geo-ip-not-match": {
               "locations": [
-                "str", ...
+                "string", ...
               ]
             },
             "ip-ranges-match": {
               "ip-ranges": [
-                "str", ...
+                "string", ...
               ]
             },
             "ip-ranges-not-match": {
               "ip-ranges": [
-                "str", ...
+                "string", ...
               ]
             }
           }
@@ -456,27 +456,27 @@ JSON Syntax:
             "authorities": [
               {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }, ...
             ]
           },
           "headers": [
             {
-              "name": "str",
+              "name": "string",
               "value": {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }
             }, ...
@@ -485,12 +485,12 @@ JSON Syntax:
             "http-methods": [
               {
                 "match": {
-                  "exact-match": "str",
-                  "exact-not-match": "str",
-                  "pire-regex-match": "str",
-                  "pire-regex-not-match": "str",
-                  "prefix-match": "str",
-                  "prefix-not-match": "str"
+                  "exact-match": "string",
+                  "exact-not-match": "string",
+                  "pire-regex-match": "string",
+                  "pire-regex-not-match": "string",
+                  "prefix-match": "string",
+                  "prefix-not-match": "string"
                 }
               }, ...
             ]
@@ -498,25 +498,25 @@ JSON Syntax:
           "request-uri": {
             "path": {
               "match": {
-                "exact-match": "str",
-                "exact-not-match": "str",
-                "pire-regex-match": "str",
-                "pire-regex-not-match": "str",
-                "prefix-match": "str",
-                "prefix-not-match": "str"
+                "exact-match": "string",
+                "exact-not-match": "string",
+                "pire-regex-match": "string",
+                "pire-regex-not-match": "string",
+                "prefix-match": "string",
+                "prefix-not-match": "string"
               }
             },
             "queries": [
               {
-                "key": "str",
+                "key": "string",
                 "value": {
                   "match": {
-                    "exact-match": "str",
-                    "exact-not-match": "str",
-                    "pire-regex-match": "str",
-                    "pire-regex-not-match": "str",
-                    "prefix-match": "str",
-                    "prefix-not-match": "str"
+                    "exact-match": "string",
+                    "exact-not-match": "string",
+                    "pire-regex-match": "string",
+                    "pire-regex-not-match": "string",
+                    "prefix-match": "string",
+                    "prefix-not-match": "string"
                   }
                 }
               }, ...
@@ -525,28 +525,28 @@ JSON Syntax:
           "source-ip": {
             "geo-ip-match": {
               "locations": [
-                "str", ...
+                "string", ...
               ]
             },
             "geo-ip-not-match": {
               "locations": [
-                "str", ...
+                "string", ...
               ]
             },
             "ip-ranges-match": {
               "ip-ranges": [
-                "str", ...
+                "string", ...
               ]
             },
             "ip-ranges-not-match": {
               "ip-ranges": [
-                "str", ...
+                "string", ...
               ]
             }
           }
         },
         "mode": "FULL|API",
-        "waf-profile-id": "str"
+        "waf-profile-id": "string"
       }
     }
   }, ...
@@ -558,11 +558,11 @@ Fields:
 ```
 description -> (string)
   Optional description of the rule. 0-512 characters long.
-dry-run -> (bool)
+dry-run -> (boolean)
   This mode allows you to test your security profile or a single rule. For example, you can have the number of alarms for a specific rule displayed. Note: if this option is true, no real action affecting your traffic regarding this rule will be taken.
 name -> (string)
   Name of the rule. The name is unique within the security profile. 1-50 characters long.
-priority -> (int)
+priority -> (integer)
   Determines the priority for checking the incoming traffic. Enter an integer within the range of 1 and 999999. The rule priority must be unique within the entire security profile. A lower numeric value means a higher priority. The default_action has the lowest priority.
 rule-specifier -> (oneof<rule-condition|smart-protection|waf>)
   Oneof rule-specifier field
@@ -842,16 +842,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

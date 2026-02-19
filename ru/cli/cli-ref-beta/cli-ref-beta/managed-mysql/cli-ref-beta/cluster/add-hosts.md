@@ -46,12 +46,12 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    backup-priority = int,
-    priority = int,
-    replication-source = str,
-    subnet-id = str,
-    zone-id = str
+    assign-public-ip = boolean,
+    backup-priority = integer,
+    priority = integer,
+    replication-source = string,
+    subnet-id = string,
+    zone-id = string
   }, ...
 ]
 ```
@@ -61,12 +61,12 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "backup-priority": "int",
-    "priority": "int",
-    "replication-source": "str",
-    "subnet-id": "str",
-    "zone-id": "str"
+    "assign-public-ip": "boolean",
+    "backup-priority": "integer",
+    "priority": "integer",
+    "replication-source": "string",
+    "subnet-id": "string",
+    "zone-id": "string"
   }, ...
 ]
 ```
@@ -74,11 +74,11 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Option that enables public IP address for the host so that the host can be accessed from the internet. After a host has been created, this setting cannot be changed. To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate [assign_public_ip] value set. Possible values: * 'false' - don't assign a public IP address to the host. * 'true' - assign a public IP address to the host.
-backup-priority -> (int)
+backup-priority -> (integer)
   Host backup priority
-priority -> (int)
+priority -> (integer)
   Host master promotion priority
 replication-source -> (string)
   [Host.name] of the host to be used as the replication source (for cascading replication).
@@ -108,16 +108,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

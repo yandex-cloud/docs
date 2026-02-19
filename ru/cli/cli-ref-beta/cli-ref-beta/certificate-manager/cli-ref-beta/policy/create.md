@@ -50,17 +50,17 @@ Shorthand Syntax:
 
 ```hcl
 {
-  directory-name = str,
-  dns-name = str,
+  directory-name = string,
+  dns-name = string,
   edi-party-name = {
-    name-assigner = str,
-    party-name = str
+    name-assigner = string,
+    party-name = string
   },
-  ip-address = str,
-  other-name-oid = str,
-  registered-id = str,
-  rfc-822-name = str,
-  uniform-resource-identifier = str
+  ip-address = string,
+  other-name-oid = string,
+  registered-id = string,
+  rfc-822-name = string,
+  uniform-resource-identifier = string
 }
 ```
 
@@ -68,17 +68,17 @@ JSON Syntax:
 
 ```json
 {
-  "directory-name": "str",
-  "dns-name": "str",
+  "directory-name": "string",
+  "dns-name": "string",
   "edi-party-name": {
-    "name-assigner": "str",
-    "party-name": "str"
+    "name-assigner": "string",
+    "party-name": "string"
   },
-  "ip-address": "str",
-  "other-name-oid": "str",
-  "registered-id": "str",
-  "rfc-822-name": "str",
-  "uniform-resource-identifier": "str"
+  "ip-address": "string",
+  "other-name-oid": "string",
+  "registered-id": "string",
+  "rfc-822-name": "string",
+  "uniform-resource-identifier": "string"
 }
 ```
 
@@ -114,20 +114,20 @@ Shorthand Syntax:
 
 ```hcl
 {
-  common-name = str,
-  country = str,
-  distinguished-name-qualifier = str,
-  email-address = str,
-  generation-qualifier = str,
-  given-name = str,
-  initials = str,
-  locality = str,
-  organization = str,
-  organizational-unit = str,
-  serial-number = str,
-  state-or-province = str,
-  surname = str,
-  title = str
+  common-name = string,
+  country = string,
+  distinguished-name-qualifier = string,
+  email-address = string,
+  generation-qualifier = string,
+  given-name = string,
+  initials = string,
+  locality = string,
+  organization = string,
+  organizational-unit = string,
+  serial-number = string,
+  state-or-province = string,
+  surname = string,
+  title = string
 }
 ```
 
@@ -135,20 +135,20 @@ JSON Syntax:
 
 ```json
 {
-  "common-name": "str",
-  "country": "str",
-  "distinguished-name-qualifier": "str",
-  "email-address": "str",
-  "generation-qualifier": "str",
-  "given-name": "str",
-  "initials": "str",
-  "locality": "str",
-  "organization": "str",
-  "organizational-unit": "str",
-  "serial-number": "str",
-  "state-or-province": "str",
-  "surname": "str",
-  "title": "str"
+  "common-name": "string",
+  "country": "string",
+  "distinguished-name-qualifier": "string",
+  "email-address": "string",
+  "generation-qualifier": "string",
+  "given-name": "string",
+  "initials": "string",
+  "locality": "string",
+  "organization": "string",
+  "organizational-unit": "string",
+  "serial-number": "string",
+  "state-or-province": "string",
+  "surname": "string",
+  "title": "string"
 }
 ```
 
@@ -252,7 +252,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  extension-oid = str,...
+  extension-oid = string,...
 }
 ```
 
@@ -261,7 +261,7 @@ JSON Syntax:
 ```json
 {
   "extension-oid": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -280,7 +280,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  extension-oid = str,...
+  extension-oid = string,...
 }
 ```
 
@@ -289,7 +289,7 @@ JSON Syntax:
 ```json
 {
   "extension-oid": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -381,16 +381,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -236,7 +236,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
 
      ```bash
      yc organization-manager idp application oauth application list --organization-id <идентификатор_организации>
@@ -366,7 +366,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Проверить изменения ресурсов и их настройки можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+     Проверить изменения ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
 
      ```bash
      yc iam oauth-client get <идентификатор_OAuth-клиента>

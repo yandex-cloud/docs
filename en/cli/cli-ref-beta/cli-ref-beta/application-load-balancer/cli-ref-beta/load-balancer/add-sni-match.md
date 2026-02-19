@@ -43,15 +43,15 @@ Shorthand Syntax:
 
 ```hcl
 {
-  certificate-ids = str,...,
+  certificate-ids = string,...,
   handler = http-handler={
-    http-router-id = str,
-    protocol-settings = allow-http10=bool | http2-options={
-      max-concurrent-streams = int
+    http-router-id = string,
+    protocol-settings = allow-http10=boolean | http2-options={
+      max-concurrent-streams = integer
     },
-    rewrite-request-id = bool
+    rewrite-request-id = boolean
   } | stream-handler={
-    backend-group-id = str,
+    backend-group-id = string,
     idle-timeout = duration
   }
 }
@@ -62,21 +62,21 @@ JSON Syntax:
 ```json
 {
   "certificate-ids": [
-    "str", ...
+    "string", ...
   ],
   "handler": {
     "http-handler": {
-      "http-router-id": "str",
+      "http-router-id": "string",
       "protocol-settings": {
-        "allow-http10": "bool",
+        "allow-http10": "boolean",
         "http2-options": {
-          "max-concurrent-streams": "int"
+          "max-concurrent-streams": "integer"
         }
       },
-      "rewrite-request-id": "bool"
+      "rewrite-request-id": "boolean"
     },
     "stream-handler": {
-      "backend-group-id": "str",
+      "backend-group-id": "string",
       "idle-timeout": "duration"
     }
   }
@@ -94,15 +94,15 @@ handler -> (oneof<http-handler|stream-handler>)
     HTTP handler.
     http-router-id -> (string)
       ID of the HTTP router processing requests. For details about the concept, see documentation. To get the list of all available HTTP routers, make a [HttpRouterService.List] request.
-    rewrite-request-id -> (bool)
+    rewrite-request-id -> (boolean)
       When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value.
     protocol-settings -> (oneof<allow-http10|http2-options>)
       Oneof protocol-settings field
       http2-options -> (struct)
         HTTP/2 settings. If specified, incoming HTTP/2 requests are supported by the listener.
-        max-concurrent-streams -> (int)
+        max-concurrent-streams -> (integer)
           Maximum number of concurrent HTTP/2 streams in a connection.
-      allow-http10 -> (bool)
+      allow-http10 -> (boolean)
         Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
   stream-handler -> (struct)
     Stream (TCP) handler.
@@ -120,7 +120,7 @@ ID of the application load balancer to add a SNI handler to. ||
 || `--name` | `string`
 
 Name of the SNI handler to add. ||
-|| `--server-names` | `strings`
+|| `--server-names` | `[]string`
 
 Server names that are matched by the SNI handler. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -144,16 +144,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -20,7 +20,7 @@ Syntax:
 || `--description` | `string`
 
 Updated description of the MCP Gateway. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Updated MCP Gateway labels as 'key:value' pairs. ||
 || `--log-options` | `shorthand/json`
@@ -31,8 +31,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  destination = folder-id=str | log-group-id=str,
-  disabled = bool,
+  destination = folder-id=string | log-group-id=string,
+  disabled = boolean,
   min-level = TRACE|DEBUG|INFO|WARN|ERROR|FATAL
 }
 ```
@@ -42,10 +42,10 @@ JSON Syntax:
 ```json
 {
   "destination": {
-    "folder-id": "str",
-    "log-group-id": "str"
+    "folder-id": "string",
+    "log-group-id": "string"
   },
-  "disabled": "bool",
+  "disabled": "boolean",
   "min-level": "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
 }
 ```
@@ -53,7 +53,7 @@ JSON Syntax:
 Fields:
 
 ```
-disabled -> (bool)
+disabled -> (boolean)
   Is logging from MCP Gateway disabled.
 min-level -> (struct)
   Minimum logs level. See [LogLevel.Level] for details.
@@ -88,65 +88,65 @@ Shorthand Syntax:
   {
     action = {
       action = container-call={
-        body = str,
-        container-id = str,
+        body = string,
+        container-id = string,
         forward-headers = {
-          headers = str,...,
+          headers = string,...,
           mode = WHITE_LIST|BLACK_LIST
         },
-        headers = {key=str, key=...},
+        headers = {key=string, key=...},
         method = OPTIONS|GET|HEAD|POST|PUT|PATCH|DELETE|TRACE|CONNECT,
-        path = str,
-        query = {key=str, key=...}
+        path = string,
+        query = {key=string, key=...}
       } | function-call={
-        function-id = str,
-        tag = str
+        function-id = string,
+        tag = string
       } | grpc-call={
-        body = str,
-        endpoint = str,
+        body = string,
+        endpoint = string,
         forward-headers = {
-          headers = str,...,
+          headers = string,...,
           mode = WHITE_LIST|BLACK_LIST
         },
-        headers = {key=str, key=...},
-        method = str,
-        use-service-account = bool
+        headers = {key=string, key=...},
+        method = string,
+        use-service-account = boolean
       } | http-call={
-        body = str,
+        body = string,
         forward-headers = {
-          headers = str,...,
+          headers = string,...,
           mode = WHITE_LIST|BLACK_LIST
         },
-        headers = {key=str, key=...},
+        headers = {key=string, key=...},
         method = OPTIONS|GET|HEAD|POST|PUT|PATCH|DELETE|TRACE|CONNECT,
-        query = {key=str, key=...},
-        url = str,
-        use-service-account = bool
+        query = {key=string, key=...},
+        url = string,
+        use-service-account = boolean
       } | mcp-call={
         action = tool-call={
-          parameters-json = str,
-          tool-name = str
+          parameters-json = string,
+          tool-name = string
         },
         authorization = header={
-          header-name = str,
-          header-value = str
+          header-name = string,
+          header-value = string
         } | service-account={} | unauthorized={},
-        forward-headers = {key=str, key=...},
+        forward-headers = {key=string, key=...},
         transfer-headers = {
-          headers = str,...,
+          headers = string,...,
           mode = WHITE_LIST|BLACK_LIST
         },
         transport = SSE|STREAMABLE,
-        url = str
+        url = string
       } | start-workflow={
-        input-json = str,
+        input-json = string,
         mode = SYNC|ASYNC,
-        workflow-id = str
+        workflow-id = string
       }
     },
-    description = str,
-    input-json-schema = str,
-    name = str
+    description = string,
+    input-json-schema = string,
+    name = string
   }, ...
 ]
 ```
@@ -159,97 +159,97 @@ JSON Syntax:
     "action": {
       "action": {
         "container-call": {
-          "body": "str",
-          "container-id": "str",
+          "body": "string",
+          "container-id": "string",
           "forward-headers": {
             "headers": [
-              "str", ...
+              "string", ...
             ],
             "mode": "WHITE_LIST|BLACK_LIST"
           },
           "headers": {
-            "<key>": "str", ...
+            "<key>": "string", ...
           },
           "method": "OPTIONS|GET|HEAD|POST|PUT|PATCH|DELETE|TRACE|CONNECT",
-          "path": "str",
+          "path": "string",
           "query": {
-            "<key>": "str", ...
+            "<key>": "string", ...
           }
         },
         "function-call": {
-          "function-id": "str",
-          "tag": "str"
+          "function-id": "string",
+          "tag": "string"
         },
         "grpc-call": {
-          "body": "str",
-          "endpoint": "str",
+          "body": "string",
+          "endpoint": "string",
           "forward-headers": {
             "headers": [
-              "str", ...
+              "string", ...
             ],
             "mode": "WHITE_LIST|BLACK_LIST"
           },
           "headers": {
-            "<key>": "str", ...
+            "<key>": "string", ...
           },
-          "method": "str",
-          "use-service-account": "bool"
+          "method": "string",
+          "use-service-account": "boolean"
         },
         "http-call": {
-          "body": "str",
+          "body": "string",
           "forward-headers": {
             "headers": [
-              "str", ...
+              "string", ...
             ],
             "mode": "WHITE_LIST|BLACK_LIST"
           },
           "headers": {
-            "<key>": "str", ...
+            "<key>": "string", ...
           },
           "method": "OPTIONS|GET|HEAD|POST|PUT|PATCH|DELETE|TRACE|CONNECT",
           "query": {
-            "<key>": "str", ...
+            "<key>": "string", ...
           },
-          "url": "str",
-          "use-service-account": "bool"
+          "url": "string",
+          "use-service-account": "boolean"
         },
         "mcp-call": {
           "action": {
             "tool-call": {
-              "parameters-json": "str",
-              "tool-name": "str"
+              "parameters-json": "string",
+              "tool-name": "string"
             }
           },
           "authorization": {
             "header": {
-              "header-name": "str",
-              "header-value": "str"
+              "header-name": "string",
+              "header-value": "string"
             },
             "service-account": {},
             "unauthorized": {}
           },
           "forward-headers": {
-            "<key>": "str", ...
+            "<key>": "string", ...
           },
           "transfer-headers": {
             "headers": [
-              "str", ...
+              "string", ...
             ],
             "mode": "WHITE_LIST|BLACK_LIST"
           },
           "transport": "SSE|STREAMABLE",
-          "url": "str"
+          "url": "string"
         },
         "start-workflow": {
-          "input-json": "str",
+          "input-json": "string",
           "mode": "SYNC|ASYNC",
-          "workflow-id": "str"
+          "workflow-id": "string"
         }
       }
     },
-    "description": "str",
-    "input-json-schema": "str",
-    "name": "str"
+    "description": "string",
+    "input-json-schema": "string",
+    "name": "string"
   }, ...
 ]
 ```
@@ -305,7 +305,7 @@ action -> (struct)
         Query string parameters to include.
       url -> (string)
         Absolute URL to send the request to. (required)
-      use-service-account -> (bool)
+      use-service-account -> (boolean)
         Use MCP Gateway service account credentials for the request.
     mcp-call -> (struct)
       Call MCP Gateway.
@@ -357,7 +357,7 @@ action -> (struct)
         gRPC/HTTP headers to include with the call.
       method -> (string)
         Fully qualified gRPC method name, e.g., package.Service/Method. (required)
-      use-service-account -> (bool)
+      use-service-account -> (boolean)
         Use MCP Gateway service account for authentication.
     start-workflow -> (struct)
       Start Workflow.
@@ -395,16 +395,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

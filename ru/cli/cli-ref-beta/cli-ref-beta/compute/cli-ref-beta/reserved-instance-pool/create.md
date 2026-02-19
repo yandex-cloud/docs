@@ -44,9 +44,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  boot-source = disk-id=str | image-id=str | product-ids={
-    product-ids = str,...
-  } | snapshot-id=str
+  boot-source = disk-id=string | image-id=string | product-ids={
+    product-ids = string,...
+  } | snapshot-id=string
 }
 ```
 
@@ -55,14 +55,14 @@ JSON Syntax:
 ```json
 {
   "boot-source": {
-    "disk-id": "str",
-    "image-id": "str",
+    "disk-id": "string",
+    "image-id": "string",
     "product-ids": {
       "product-ids": [
-        "str", ...
+        "string", ...
       ]
     },
-    "snapshot-id": "str"
+    "snapshot-id": "string"
   }
 }
 ```
@@ -97,7 +97,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  gpu-cluster-id = str
+  gpu-cluster-id = string
 }
 ```
 
@@ -105,7 +105,7 @@ JSON Syntax:
 
 ```json
 {
-  "gpu-cluster-id": "str"
+  "gpu-cluster-id": "string"
 }
 ```
 
@@ -115,7 +115,7 @@ Fields:
 gpu-cluster-id -> (string)
   Attach instance to specified GPU cluster.
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -158,10 +158,10 @@ Shorthand Syntax:
 
 ```hcl
 {
-  core-fraction = int,
-  cores = int,
-  gpus = int,
-  memory = int
+  core-fraction = integer,
+  cores = integer,
+  gpus = integer,
+  memory = integer
 }
 ```
 
@@ -169,23 +169,23 @@ JSON Syntax:
 
 ```json
 {
-  "core-fraction": "int",
-  "cores": "int",
-  "gpus": "int",
-  "memory": "int"
+  "core-fraction": "integer",
+  "cores": "integer",
+  "gpus": "integer",
+  "memory": "integer"
 }
 ```
 
 Fields:
 
 ```
-core-fraction -> (int)
+core-fraction -> (integer)
   Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.
-cores -> (int)
+cores -> (integer)
   The number of cores available to the instance.
-gpus -> (int)
+gpus -> (integer)
   The number of GPUs available to the instance.
-memory -> (int)
+memory -> (integer)
   The amount of memory available to the instance, specified in bytes.
 ``` ||
 || `--size` | `int`
@@ -215,16 +215,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

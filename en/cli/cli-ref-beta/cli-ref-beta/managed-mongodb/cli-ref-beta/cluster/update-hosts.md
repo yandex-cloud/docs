@@ -46,12 +46,12 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    hidden = bool,
-    host-name = str,
-    priority = double,
-    secondary-delay-secs = int,
-    tags = {key=str, key=...}
+    assign-public-ip = boolean,
+    hidden = boolean,
+    host-name = string,
+    priority = float64,
+    secondary-delay-secs = integer,
+    tags = {key=string, key=...}
   }, ...
 ]
 ```
@@ -61,13 +61,13 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "hidden": "bool",
-    "host-name": "str",
-    "priority": "double",
-    "secondary-delay-secs": "int",
+    "assign-public-ip": "boolean",
+    "hidden": "boolean",
+    "host-name": "string",
+    "priority": "float64",
+    "secondary-delay-secs": "integer",
     "tags": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     }
   }, ...
 ]
@@ -76,15 +76,15 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Determines whether the host should get a public IP address after the update.
-hidden -> (bool)
+hidden -> (boolean)
   Determines if the host is a hidden replica set member. Such members cannot become primary in a replica set, and they are invisible to client applications. However, hidden members can participate in elections of the primary host. For more information, see the MongoDB documentation.
 host-name -> (string)
   Host to be updated. Specify the host FQDN.
-priority -> (double)
+priority -> (float64)
   Priority of the host to be elected as the primary in the replica set. The minimum value is '0' if the Managed Service for MongoDB cluster contains three or more secondary hosts. Otherwise, the minimum value is '1'.
-secondary-delay-secs -> (int)
+secondary-delay-secs -> (integer)
   The time, in seconds, by which the given replica set member lags behind the primary host.
 tags -> (map[string,string])
   Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the MongoDB documentation.
@@ -110,16 +110,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

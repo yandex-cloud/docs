@@ -47,87 +47,87 @@ Shorthand Syntax:
 ```hcl
 {
   boot-disk-spec = {
-    auto-delete = bool,
-    device-name = str,
-    disk = disk-id=str | disk-spec={
-      block-size = int,
-      description = str,
+    auto-delete = boolean,
+    device-name = string,
+    disk = disk-id=string | disk-spec={
+      block-size = integer,
+      description = string,
       disk-placement-policy = {
-        placement-group-id = str,
-        placement-group-partition = int
+        placement-group-id = string,
+        placement-group-partition = integer
       },
-      kms-key-id = str,
-      name = str,
-      size = int,
-      source = image-id=str | snapshot-id=str,
-      type-id = str
+      kms-key-id = string,
+      name = string,
+      size = integer,
+      source = image-id=string | snapshot-id=string,
+      type-id = string
     },
     mode = READ_ONLY|READ_WRITE
   },
-  labels = {key=str, key=...},
-  metadata = {key=str, key=...},
+  labels = {key=string, key=...},
+  metadata = {key=string, key=...},
   network-interface-specs = [
     {
-      index = str,
+      index = string,
       primary-v4-address-spec = {
-        address = str,
+        address = string,
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         one-to-one-nat-spec = {
-          address = str,
+          address = string,
           dns-record-specs = [
             {
-              dns-zone-id = str,
-              fqdn = str,
-              ptr = bool,
-              ttl = int
+              dns-zone-id = string,
+              fqdn = string,
+              ptr = boolean,
+              ttl = integer
             }, ...
           ],
           ip-version = IPV4|IPV6
         }
       },
       primary-v6-address-spec = {
-        address = str,
+        address = string,
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         one-to-one-nat-spec = {
-          address = str,
+          address = string,
           dns-record-specs = [
             {
-              dns-zone-id = str,
-              fqdn = str,
-              ptr = bool,
-              ttl = int
+              dns-zone-id = string,
+              fqdn = string,
+              ptr = boolean,
+              ttl = integer
             }, ...
           ],
           ip-version = IPV4|IPV6
         }
       },
-      security-group-ids = str,...,
-      subnet-id = str
+      security-group-ids = string,...,
+      subnet-id = string
     }, ...
   ],
-  platform-id = str,
+  platform-id = string,
   resources-spec = {
-    core-fraction = int,
-    cores = int,
-    gpus = int,
-    memory = int
+    core-fraction = integer,
+    cores = integer,
+    gpus = integer,
+    memory = integer
   },
-  service-account-id = str,
-  zone-id = str
+  service-account-id = string,
+  zone-id = string
 }
 ```
 
@@ -136,99 +136,99 @@ JSON Syntax:
 ```json
 {
   "boot-disk-spec": {
-    "auto-delete": "bool",
-    "device-name": "str",
+    "auto-delete": "boolean",
+    "device-name": "string",
     "disk": {
-      "disk-id": "str",
+      "disk-id": "string",
       "disk-spec": {
-        "block-size": "int",
-        "description": "str",
+        "block-size": "integer",
+        "description": "string",
         "disk-placement-policy": {
-          "placement-group-id": "str",
-          "placement-group-partition": "int"
+          "placement-group-id": "string",
+          "placement-group-partition": "integer"
         },
-        "kms-key-id": "str",
-        "name": "str",
-        "size": "int",
+        "kms-key-id": "string",
+        "name": "string",
+        "size": "integer",
         "source": {
-          "image-id": "str",
-          "snapshot-id": "str"
+          "image-id": "string",
+          "snapshot-id": "string"
         },
-        "type-id": "str"
+        "type-id": "string"
       }
     },
     "mode": "READ_ONLY|READ_WRITE"
   },
   "labels": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "metadata": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "network-interface-specs": [
     {
-      "index": "str",
+      "index": "string",
       "primary-v4-address-spec": {
-        "address": "str",
+        "address": "string",
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "one-to-one-nat-spec": {
-          "address": "str",
+          "address": "string",
           "dns-record-specs": [
             {
-              "dns-zone-id": "str",
-              "fqdn": "str",
-              "ptr": "bool",
-              "ttl": "int"
+              "dns-zone-id": "string",
+              "fqdn": "string",
+              "ptr": "boolean",
+              "ttl": "integer"
             }, ...
           ],
           "ip-version": "IPV4|IPV6"
         }
       },
       "primary-v6-address-spec": {
-        "address": "str",
+        "address": "string",
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "one-to-one-nat-spec": {
-          "address": "str",
+          "address": "string",
           "dns-record-specs": [
             {
-              "dns-zone-id": "str",
-              "fqdn": "str",
-              "ptr": "bool",
-              "ttl": "int"
+              "dns-zone-id": "string",
+              "fqdn": "string",
+              "ptr": "boolean",
+              "ttl": "integer"
             }, ...
           ],
           "ip-version": "IPV4|IPV6"
         }
       },
       "security-group-ids": [
-        "str", ...
+        "string", ...
       ],
-      "subnet-id": "str"
+      "subnet-id": "string"
     }, ...
   ],
-  "platform-id": "str",
+  "platform-id": "string",
   "resources-spec": {
-    "core-fraction": "int",
-    "cores": "int",
-    "gpus": "int",
-    "memory": "int"
+    "core-fraction": "integer",
+    "cores": "integer",
+    "gpus": "integer",
+    "memory": "integer"
   },
-  "service-account-id": "str",
-  "zone-id": "str"
+  "service-account-id": "string",
+  "zone-id": "string"
 }
 ```
 
@@ -237,7 +237,7 @@ Fields:
 ```
 boot-disk-spec -> (struct)
   Boot disk to attach to the instance.
-  auto-delete -> (bool)
+  auto-delete -> (boolean)
     Specifies whether the disk will be auto-deleted when the instance is deleted.
   device-name -> (string)
     Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.
@@ -247,7 +247,7 @@ boot-disk-spec -> (struct)
     Oneof disk field
     disk-spec -> (struct)
       Disk specification.
-      block-size -> (int)
+      block-size -> (integer)
         Block size of the disk, specified in bytes. The default is 4096.
       description -> (string)
         Description of the disk.
@@ -255,12 +255,12 @@ boot-disk-spec -> (struct)
         Placement policy configuration.
         placement-group-id -> (string)
           Placement group ID.
-        placement-group-partition -> (int)
+        placement-group-partition -> (integer)
       kms-key-id -> (string)
         ID of KMS key for disk encryption
       name -> (string)
         Name of the disk.
-      size -> (int)
+      size -> (integer)
         Size of the disk, specified in bytes.
       type-id -> (string)
         ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.
@@ -290,9 +290,9 @@ network-interface-specs -> ([]struct)
         DNS zone id (optional, if not set, private zone used)
       fqdn -> (string)
         FQDN (required)
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional)
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional)
     one-to-one-nat-spec -> (struct)
       An external IP address configuration. If not specified, then this instance will have no external internet access.
@@ -303,9 +303,9 @@ network-interface-specs -> ([]struct)
           DNS zone id (optional, if not set, private zone used)
         fqdn -> (string)
           FQDN (required)
-        ptr -> (bool)
+        ptr -> (boolean)
           When set to true, also create PTR DNS record (optional)
-        ttl -> (int)
+        ttl -> (integer)
           DNS record ttl, values in 0-86400 (optional)
       ip-version -> (struct)
         External IP address version.
@@ -319,9 +319,9 @@ network-interface-specs -> ([]struct)
         DNS zone id (optional, if not set, private zone used)
       fqdn -> (string)
         FQDN (required)
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional)
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional)
     one-to-one-nat-spec -> (struct)
       An external IP address configuration. If not specified, then this instance will have no external internet access.
@@ -332,9 +332,9 @@ network-interface-specs -> ([]struct)
           DNS zone id (optional, if not set, private zone used)
         fqdn -> (string)
           FQDN (required)
-        ptr -> (bool)
+        ptr -> (boolean)
           When set to true, also create PTR DNS record (optional)
-        ttl -> (int)
+        ttl -> (integer)
           DNS record ttl, values in 0-86400 (optional)
       ip-version -> (struct)
         External IP address version.
@@ -346,13 +346,13 @@ platform-id -> (string)
   ID of the documentation on which the agent will be created. Default value: "standard-v2"
 resources-spec -> (struct)
   Computing resources of the instance, such as the amount of memory and number of cores. To get a list of available values, see documentation.
-  core-fraction -> (int)
+  core-fraction -> (integer)
     Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.
-  cores -> (int)
+  cores -> (integer)
     The number of cores available to the instance.
-  gpus -> (int)
+  gpus -> (integer)
     The number of GPUs available to the instance.
-  memory -> (int)
+  memory -> (integer)
     The amount of memory available to the instance, specified in bytes.
 service-account-id -> (string)
   ID of the service account to use for documentation. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.
@@ -365,7 +365,7 @@ Description of the agent. A created compute instance will have the same descript
 || `--folder-id` | `string`
 
 ID of the folder to create an agent in. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Agent labels as 'key:value' pairs. ||
 || `--log-settings` | `shorthand/json`
@@ -376,7 +376,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  cloud-log-group-id = str
+  cloud-log-group-id = string
 }
 ```
 
@@ -384,7 +384,7 @@ JSON Syntax:
 
 ```json
 {
-  "cloud-log-group-id": "str"
+  "cloud-log-group-id": "string"
 }
 ```
 
@@ -418,16 +418,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

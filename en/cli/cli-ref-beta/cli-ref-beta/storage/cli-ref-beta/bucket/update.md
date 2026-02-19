@@ -30,7 +30,7 @@ Shorthand Syntax:
   grants = [
     {
       grant-type = GRANT_TYPE_ACCOUNT|GRANT_TYPE_ALL_AUTHENTICATED_USERS|GRANT_TYPE_ALL_USERS,
-      grantee-id = str,
+      grantee-id = string,
       permission = PERMISSION_FULL_CONTROL|PERMISSION_WRITE|PERMISSION_WRITE_ACP|PERMISSION_READ|PERMISSION_READ_ACP
     }, ...
   ]
@@ -44,7 +44,7 @@ JSON Syntax:
   "grants": [
     {
       "grant-type": "GRANT_TYPE_ACCOUNT|GRANT_TYPE_ALL_AUTHENTICATED_USERS|GRANT_TYPE_ALL_USERS",
-      "grantee-id": "str",
+      "grantee-id": "string",
       "permission": "PERMISSION_FULL_CONTROL|PERMISSION_WRITE|PERMISSION_WRITE_ACP|PERMISSION_READ|PERMISSION_READ_ACP"
     }, ...
   ]
@@ -71,9 +71,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  enabled = bool,
-  force-cloud-console-access = bool,
-  private-endpoints = str,...
+  enabled = boolean,
+  force-cloud-console-access = boolean,
+  private-endpoints = string,...
 }
 ```
 
@@ -81,10 +81,10 @@ JSON Syntax:
 
 ```json
 {
-  "enabled": "bool",
-  "force-cloud-console-access": "bool",
+  "enabled": "boolean",
+  "force-cloud-console-access": "boolean",
   "private-endpoints": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -92,9 +92,9 @@ JSON Syntax:
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
   if true, private endpoints white list check is enabled even if private_endpoints list is empty
-force-cloud-console-access -> (bool)
+force-cloud-console-access -> (boolean)
   if true, cloud console will be able to access a bucket regardless of private_endpoints list
 private-endpoints -> ([]string)
   white list of private endpoints bucket accessible from
@@ -107,9 +107,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  config-read = bool,
-  list = bool,
-  read = bool
+  config-read = boolean,
+  list = boolean,
+  read = boolean
 }
 ```
 
@@ -117,20 +117,20 @@ JSON Syntax:
 
 ```json
 {
-  "config-read": "bool",
-  "list": "bool",
-  "read": "bool"
+  "config-read": "boolean",
+  "list": "boolean",
+  "read": "boolean"
 }
 ```
 
 Fields:
 
 ```
-config-read -> (bool)
+config-read -> (boolean)
   Specifies whether public (anonymous) access to read documentation, documentation, and documentation settings of the bucket is enabled.
-list -> (bool)
+list -> (boolean)
   Specifies whether public (anonymous) access to the list of objects in the bucket is enabled.
-read -> (bool)
+read -> (boolean)
   Specifies whether public (anonymous) access to read objects in the bucket is enabled.
 ``` ||
 || `--cors` | `shorthand/json`
@@ -142,14 +142,14 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    allowed-headers = str,...,
+    allowed-headers = string,...,
     allowed-methods = [
       METHOD_GET|METHOD_HEAD|METHOD_POST|METHOD_PUT|METHOD_DELETE, ...
     ],
-    allowed-origins = str,...,
-    expose-headers = str,...,
-    id = str,
-    max-age-seconds = int
+    allowed-origins = string,...,
+    expose-headers = string,...,
+    id = string,
+    max-age-seconds = integer
   }, ...
 ]
 ```
@@ -160,19 +160,19 @@ JSON Syntax:
 [
   {
     "allowed-headers": [
-      "str", ...
+      "string", ...
     ],
     "allowed-methods": [
       "METHOD_GET|METHOD_HEAD|METHOD_POST|METHOD_PUT|METHOD_DELETE", ...
     ],
     "allowed-origins": [
-      "str", ...
+      "string", ...
     ],
     "expose-headers": [
-      "str", ...
+      "string", ...
     ],
-    "id": "str",
-    "max-age-seconds": "int"
+    "id": "string",
+    "max-age-seconds": "integer"
   }, ...
 ]
 ```
@@ -190,7 +190,7 @@ expose-headers -> ([]string)
   List of headers contained in responses to CORS requests that can be accessed by applications.
 id -> (string)
   ID of the CORS rule.
-max-age-seconds -> (int)
+max-age-seconds -> (integer)
   Time in seconds that a client can cache the response to a CORS-preflight request as identified by the object requested, the HTTP method, and the origin.
 ``` ||
 || `--default-storage-class` | `string`
@@ -207,8 +207,8 @@ Shorthand Syntax:
 {
   rules = [
     {
-      kms-master-key-id = str,
-      sse-algorithm = str
+      kms-master-key-id = string,
+      sse-algorithm = string
     }, ...
   ]
 }
@@ -220,8 +220,8 @@ JSON Syntax:
 {
   "rules": [
     {
-      "kms-master-key-id": "str",
-      "sse-algorithm": "str"
+      "kms-master-key-id": "string",
+      "sse-algorithm": "string"
     }, ...
   ]
 }
@@ -247,52 +247,52 @@ Shorthand Syntax:
 [
   {
     abort-incomplete-multipart-upload = {
-      days-after-expiration = int
+      days-after-expiration = integer
     },
-    enabled = bool,
+    enabled = boolean,
     expiration = {
       date = timestamp,
-      days = int,
-      expired-object-delete-marker = bool
+      days = integer,
+      expired-object-delete-marker = boolean
     },
     filter = {
       and-operator = {
-        object-size-greater-than = int,
-        object-size-less-than = int,
-        prefix = str,
+        object-size-greater-than = integer,
+        object-size-less-than = integer,
+        prefix = string,
         tag = [
           {
-            key = str,
-            value = str
+            key = string,
+            value = string
           }, ...
         ]
       },
-      object-size-greater-than = int,
-      object-size-less-than = int,
-      prefix = str,
+      object-size-greater-than = integer,
+      object-size-less-than = integer,
+      prefix = string,
       tag = {
-        key = str,
-        value = str
+        key = string,
+        value = string
       }
     },
-    id = str,
+    id = string,
     noncurrent-delete-markers = {
-      noncurrent-days = int
+      noncurrent-days = integer
     },
     noncurrent-expiration = {
-      noncurrent-days = int
+      noncurrent-days = integer
     },
     noncurrent-transitions = [
       {
-        noncurrent-days = int,
-        storage-class = str
+        noncurrent-days = integer,
+        storage-class = string
       }, ...
     ],
     transitions = [
       {
         date = timestamp,
-        days = int,
-        storage-class = str
+        days = integer,
+        storage-class = string
       }, ...
     ]
   }, ...
@@ -305,52 +305,52 @@ JSON Syntax:
 [
   {
     "abort-incomplete-multipart-upload": {
-      "days-after-expiration": "int"
+      "days-after-expiration": "integer"
     },
-    "enabled": "bool",
+    "enabled": "boolean",
     "expiration": {
       "date": "timestamp",
-      "days": "int",
-      "expired-object-delete-marker": "bool"
+      "days": "integer",
+      "expired-object-delete-marker": "boolean"
     },
     "filter": {
       "and-operator": {
-        "object-size-greater-than": "int",
-        "object-size-less-than": "int",
-        "prefix": "str",
+        "object-size-greater-than": "integer",
+        "object-size-less-than": "integer",
+        "prefix": "string",
         "tag": [
           {
-            "key": "str",
-            "value": "str"
+            "key": "string",
+            "value": "string"
           }, ...
         ]
       },
-      "object-size-greater-than": "int",
-      "object-size-less-than": "int",
-      "prefix": "str",
+      "object-size-greater-than": "integer",
+      "object-size-less-than": "integer",
+      "prefix": "string",
       "tag": {
-        "key": "str",
-        "value": "str"
+        "key": "string",
+        "value": "string"
       }
     },
-    "id": "str",
+    "id": "string",
     "noncurrent-delete-markers": {
-      "noncurrent-days": "int"
+      "noncurrent-days": "integer"
     },
     "noncurrent-expiration": {
-      "noncurrent-days": "int"
+      "noncurrent-days": "integer"
     },
     "noncurrent-transitions": [
       {
-        "noncurrent-days": "int",
-        "storage-class": "str"
+        "noncurrent-days": "integer",
+        "storage-class": "string"
       }, ...
     ],
     "transitions": [
       {
         "date": "timestamp",
-        "days": "int",
-        "storage-class": "str"
+        "days": "integer",
+        "storage-class": "string"
       }, ...
     ]
   }, ...
@@ -362,25 +362,25 @@ Fields:
 ```
 abort-incomplete-multipart-upload -> (struct)
   Configuration for aborting incomplete documentation.
-  days-after-expiration -> (int)
+  days-after-expiration -> (integer)
     Time period, in number of days from the start of the multipart upload, after which the incomplete upload is aborted.
-enabled -> (bool)
+enabled -> (boolean)
   Indicates whether the rule is in effect.
 expiration -> (struct)
   Expiration rule. The expiration of an object is described as follows. For the unversioned bucket ([Bucket.versioning] is 'VERSIONING_DISABLED'), the object is deleted and cannot be recovered. For the bucket with versioning enabled ([Bucket.versioning] is 'VERSIONING_ENABLED'), the current version of the object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes the current version of the object. For the bucket with versioning suspended ([Bucket.versioning] is 'VERSIONING_SUSPENDED'), the current version of the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a delete marker becomes the current version of the object.
   date -> (timestamp)
     Specific date of object expiration. The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire immediately. Exactly one of [date], [days], and [expired_object_delete_marker] fields can be specified.
-  days -> (int)
+  days -> (integer)
     Time period, in number of days from the creation or modification of the object, after which an object expires. Exactly one of [days], [date], and [expired_object_delete_marker] fields can be specified.
-  expired-object-delete-marker -> (bool)
+  expired-object-delete-marker -> (boolean)
     Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object delete marker) is removed at the object's expiration. Exactly one of [expired_object_delete_marker], [date], and [days] fields can be specified.
 filter -> (struct)
   Filter that identifies the objects to which the rule applies. If not specified, the rule applies to all objects in the bucket.
   and-operator -> (struct)
     Apply a logical AND to all of the predicates configured inside the And operator.
-    object-size-greater-than -> (int)
+    object-size-greater-than -> (integer)
       Size that the object must be greater.
-    object-size-less-than -> (int)
+    object-size-less-than -> (integer)
       Size that the object must be less than.
     prefix -> (string)
       Key prefix that the object must have in order for the rule to apply.
@@ -390,9 +390,9 @@ filter -> (struct)
         Key of the bucket tag.
       value -> (string)
         Value of the bucket tag.
-  object-size-greater-than -> (int)
+  object-size-greater-than -> (integer)
     Size that the object must be greater.
-  object-size-less-than -> (int)
+  object-size-less-than -> (integer)
     Size that the object must be less t.
   prefix -> (string)
     Key prefix that the object must have in order for the rule to apply.
@@ -402,19 +402,19 @@ filter -> (struct)
       Key of the bucket tag.
     value -> (string)
       Value of the bucket tag.
-id -> (str)
+id -> (string)
   ID of the rule. Provided by the client or generated at creation time.
 noncurrent-delete-markers -> (struct)
   Expiration rule for non-current delete markers of an objects in a bucket with versioning enabled ([Bucket.versioning] is 'VERSIONING_ENABLED') or suspended ('VERSIONING_SUSPENDED'). Works in the same way as noncurrent_expiration rule, but only for delete markers. At expiration, the non-current delete marker of the object is deleted and cannot be recovered.
-  noncurrent-days -> (int)
+  noncurrent-days -> (integer)
     Time period, in number of days since the version of a delete marker was classified as non-current, after which the delete marker expires.
 noncurrent-expiration -> (struct)
   Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning] is 'VERSIONING_ENABLED') or suspended ('VERSIONING_SUSPENDED'). At expiration, the non-current version of the object is deleted and cannot be recovered.
-  noncurrent-days -> (int)
+  noncurrent-days -> (integer)
     Time period, in number of days since the version of an object was classified as non-current, after which the version expires.
 noncurrent-transitions -> ([]struct)
   List of transition rules for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning] is 'VERSIONING_ENABLED') or suspended ('VERSIONING_SUSPENDED'). At transition, the non-current version of the object is transitioned to the specified storage class.
-  noncurrent-days -> (int)
+  noncurrent-days -> (integer)
     Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned.
   storage-class -> (string)
     Storage class to which a non-current version of an object is transitioned from standard storage. The only supported class is cold storage ('COLD', 'STANDARD_IA', 'NEARLINE' all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed.
@@ -422,7 +422,7 @@ transitions -> ([]struct)
   List of transition rules. The transition of an object is described as follows. For the unversioned bucket ([Bucket.versioning] is 'VERSIONING_DISABLED'), the object is transitioned to the specified storage class. For the bucket with versioning enabled ([Bucket.versioning] is 'VERSIONING_ENABLED') or suspended ('VERSIONING_SUSPENDED'), the current version of the object is transitioned to the specified storage class.
   date -> (timestamp)
     Specific date of object transition. The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are transitioned immediately. At most one of [date] and [days] fields can be specified.
-  days -> (int)
+  days -> (integer)
     Time period, in number of days from the creation or modification of the object, after which an object is transitioned. At most one of [days] and [date] fields can be specified.
   storage-class -> (string)
     Storage class to which an object is transitioned from standard storage. The only supported class is cold storage ('COLD', 'STANDARD_IA', 'NEARLINE' all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed.
@@ -443,7 +443,7 @@ Shorthand Syntax:
 {
   default-retention = {
     mode = MODE_GOVERNANCE|MODE_COMPLIANCE,
-    period = days=int | years=int
+    period = days=integer | years=integer
   },
   status = OBJECT_LOCK_STATUS_DISABLED|OBJECT_LOCK_STATUS_ENABLED
 }
@@ -456,8 +456,8 @@ JSON Syntax:
   "default-retention": {
     "mode": "MODE_GOVERNANCE|MODE_COMPLIANCE",
     "period": {
-      "days": "int",
-      "years": "int"
+      "days": "integer",
+      "years": "integer"
     }
   },
   "status": "OBJECT_LOCK_STATUS_DISABLED|OBJECT_LOCK_STATUS_ENABLED"
@@ -473,9 +473,9 @@ default-retention -> (struct)
     Mode
   period -> (oneof<days|years>)
     Oneof period field
-    days -> (int)
+    days -> (integer)
       Number of days for locking
-    years -> (int)
+    years -> (integer)
       Number of years for locking
 status -> (struct)
   Status
@@ -504,8 +504,8 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    key = str,
-    value = str
+    key = string,
+    value = string
   }, ...
 ]
 ```
@@ -515,8 +515,8 @@ JSON Syntax:
 ```json
 [
   {
-    "key": "str",
-    "value": "str"
+    "key": "string",
+    "value": "string"
   }, ...
 ]
 ```
@@ -540,24 +540,24 @@ Shorthand Syntax:
 
 ```hcl
 {
-  error = str,
-  index = str,
+  error = string,
+  index = string,
   redirect-all-requests = {
-    hostname = str,
+    hostname = string,
     protocol = PROTOCOL_HTTP|PROTOCOL_HTTPS
   },
   routing-rules = [
     {
       condition = {
-        http-error-code-returned-equals = str,
-        key-prefix-equals = str
+        http-error-code-returned-equals = string,
+        key-prefix-equals = string
       },
       redirect = {
-        hostname = str,
-        http-redirect-code = str,
+        hostname = string,
+        http-redirect-code = string,
         protocol = PROTOCOL_HTTP|PROTOCOL_HTTPS,
-        replace-key-prefix-with = str,
-        replace-key-with = str
+        replace-key-prefix-with = string,
+        replace-key-with = string
       }
     }, ...
   ]
@@ -568,24 +568,24 @@ JSON Syntax:
 
 ```json
 {
-  "error": "str",
-  "index": "str",
+  "error": "string",
+  "index": "string",
   "redirect-all-requests": {
-    "hostname": "str",
+    "hostname": "string",
     "protocol": "PROTOCOL_HTTP|PROTOCOL_HTTPS"
   },
   "routing-rules": [
     {
       "condition": {
-        "http-error-code-returned-equals": "str",
-        "key-prefix-equals": "str"
+        "http-error-code-returned-equals": "string",
+        "key-prefix-equals": "string"
       },
       "redirect": {
-        "hostname": "str",
-        "http-redirect-code": "str",
+        "hostname": "string",
+        "http-redirect-code": "string",
         "protocol": "PROTOCOL_HTTP|PROTOCOL_HTTPS",
-        "replace-key-prefix-with": "str",
-        "replace-key-with": "str"
+        "replace-key-prefix-with": "string",
+        "replace-key-with": "string"
       }
     }, ...
   ]
@@ -647,16 +647,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

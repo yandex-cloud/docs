@@ -29,7 +29,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  condition = jq-filter=str
+  condition = jq-filter=string
 }
 ```
 
@@ -38,7 +38,7 @@ JSON Syntax:
 ```json
 {
   "condition": {
-    "jq-filter": "str"
+    "jq-filter": "string"
   }
 }
 ```
@@ -51,7 +51,7 @@ condition -> (oneof<jq-filter>)
   jq-filter -> (string)
     JQ filter for matching events.
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 New labels for the rule. ||
 || `--name` | `string`
@@ -70,63 +70,63 @@ Shorthand Syntax:
 [
   {
     dead-letter = dead-letter-queue={
-      queue-arn = str,
-      service-account-id = str
+      queue-arn = string,
+      service-account-id = string
     },
     retry-settings = {
       maximum-age = duration,
-      retry-attempts = int
+      retry-attempts = integer
     },
     status = ENABLED|DISABLED|RESOURCE_NOT_FOUND|PERMISSION_DENIED|SUBJECT_NOT_FOUND,
     target = container={
       batch-settings = {
         cutoff = duration,
-        max-bytes = int,
-        max-count = int
+        max-bytes = integer,
+        max-count = integer
       },
-      container-id = str,
-      container-revision-id = str,
-      path = str,
-      service-account-id = str
+      container-id = string,
+      container-revision-id = string,
+      path = string,
+      service-account-id = string
     } | function={
       batch-settings = {
         cutoff = duration,
-        max-bytes = int,
-        max-count = int
+        max-bytes = integer,
+        max-count = integer
       },
-      function-id = str,
-      function-tag = str,
-      service-account-id = str
+      function-id = string,
+      function-tag = string,
+      service-account-id = string
     } | gateway-ws-broadcast={
       batch-settings = {
         cutoff = duration,
-        max-bytes = int,
-        max-count = int
+        max-bytes = integer,
+        max-count = integer
       },
-      gateway-id = str,
-      path = str,
-      service-account-id = str
+      gateway-id = string,
+      path = string,
+      service-account-id = string
     } | logging={
-      destination = folder-id=str | log-group-id=str,
-      service-account-id = str
+      destination = folder-id=string | log-group-id=string,
+      service-account-id = string
     } | workflow={
       batch-settings = {
         cutoff = duration,
-        max-bytes = int,
-        max-count = int
+        max-bytes = integer,
+        max-count = integer
       },
-      service-account-id = str,
-      workflow-id = str
+      service-account-id = string,
+      workflow-id = string
     } | yds={
-      database = str,
-      service-account-id = str,
-      stream-name = str
+      database = string,
+      service-account-id = string,
+      stream-name = string
     } | ymq={
-      queue-arn = str,
-      service-account-id = str
+      queue-arn = string,
+      service-account-id = string
     },
     transformer = {
-      transformer = jq-transformer=str
+      transformer = jq-transformer=string
     }
   }, ...
 ]
@@ -139,76 +139,76 @@ JSON Syntax:
   {
     "dead-letter": {
       "dead-letter-queue": {
-        "queue-arn": "str",
-        "service-account-id": "str"
+        "queue-arn": "string",
+        "service-account-id": "string"
       }
     },
     "retry-settings": {
       "maximum-age": "duration",
-      "retry-attempts": "int"
+      "retry-attempts": "integer"
     },
     "status": "ENABLED|DISABLED|RESOURCE_NOT_FOUND|PERMISSION_DENIED|SUBJECT_NOT_FOUND",
     "target": {
       "container": {
         "batch-settings": {
           "cutoff": "duration",
-          "max-bytes": "int",
-          "max-count": "int"
+          "max-bytes": "integer",
+          "max-count": "integer"
         },
-        "container-id": "str",
-        "container-revision-id": "str",
-        "path": "str",
-        "service-account-id": "str"
+        "container-id": "string",
+        "container-revision-id": "string",
+        "path": "string",
+        "service-account-id": "string"
       },
       "function": {
         "batch-settings": {
           "cutoff": "duration",
-          "max-bytes": "int",
-          "max-count": "int"
+          "max-bytes": "integer",
+          "max-count": "integer"
         },
-        "function-id": "str",
-        "function-tag": "str",
-        "service-account-id": "str"
+        "function-id": "string",
+        "function-tag": "string",
+        "service-account-id": "string"
       },
       "gateway-ws-broadcast": {
         "batch-settings": {
           "cutoff": "duration",
-          "max-bytes": "int",
-          "max-count": "int"
+          "max-bytes": "integer",
+          "max-count": "integer"
         },
-        "gateway-id": "str",
-        "path": "str",
-        "service-account-id": "str"
+        "gateway-id": "string",
+        "path": "string",
+        "service-account-id": "string"
       },
       "logging": {
         "destination": {
-          "folder-id": "str",
-          "log-group-id": "str"
+          "folder-id": "string",
+          "log-group-id": "string"
         },
-        "service-account-id": "str"
+        "service-account-id": "string"
       },
       "workflow": {
         "batch-settings": {
           "cutoff": "duration",
-          "max-bytes": "int",
-          "max-count": "int"
+          "max-bytes": "integer",
+          "max-count": "integer"
         },
-        "service-account-id": "str",
-        "workflow-id": "str"
+        "service-account-id": "string",
+        "workflow-id": "string"
       },
       "yds": {
-        "database": "str",
-        "service-account-id": "str",
-        "stream-name": "str"
+        "database": "string",
+        "service-account-id": "string",
+        "stream-name": "string"
       },
       "ymq": {
-        "queue-arn": "str",
-        "service-account-id": "str"
+        "queue-arn": "string",
+        "service-account-id": "string"
       }
     },
     "transformer": {
       "transformer": {
-        "jq-transformer": "str"
+        "jq-transformer": "string"
       }
     }
   }, ...
@@ -222,7 +222,7 @@ retry-settings -> (struct)
   Retry settings of the target.
   maximum-age -> (duration)
     Event goes to dlq when its age exceeds this value. Default is 24h.
-  retry-attempts -> (int)
+  retry-attempts -> (integer)
     Maximum number of retries (extra calls) before an action fails.
 status -> (struct)
   Status of the target.
@@ -259,9 +259,9 @@ target -> (oneof<container|function|gateway-ws-broadcast|logging|workflow|yds|ym
       Batch settings.
       cutoff -> (duration)
         Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
-      max-bytes -> (int)
+      max-bytes -> (integer)
         Maximum batch size: trigger will send a batch if total size of events exceeds this value.
-      max-count -> (int)
+      max-count -> (integer)
         Maximum batch size: trigger will send a batch if number of events exceeds this value.
     function-id -> (string)
       Function ID.
@@ -274,9 +274,9 @@ target -> (oneof<container|function|gateway-ws-broadcast|logging|workflow|yds|ym
       Batch settings.
       cutoff -> (duration)
         Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
-      max-bytes -> (int)
+      max-bytes -> (integer)
         Maximum batch size: trigger will send a batch if total size of events exceeds this value.
-      max-count -> (int)
+      max-count -> (integer)
         Maximum batch size: trigger will send a batch if number of events exceeds this value.
     container-id -> (string)
       Container ID.
@@ -291,9 +291,9 @@ target -> (oneof<container|function|gateway-ws-broadcast|logging|workflow|yds|ym
       Batch settings.
       cutoff -> (duration)
         Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
-      max-bytes -> (int)
+      max-bytes -> (integer)
         Maximum batch size: trigger will send a batch if total size of events exceeds this value.
-      max-count -> (int)
+      max-count -> (integer)
         Maximum batch size: trigger will send a batch if number of events exceeds this value.
     gateway-id -> (string)
       Gateway ID.
@@ -313,9 +313,9 @@ target -> (oneof<container|function|gateway-ws-broadcast|logging|workflow|yds|ym
       Batch settings.
       cutoff -> (duration)
         Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
-      max-bytes -> (int)
+      max-bytes -> (integer)
         Maximum batch size: trigger will send a batch if total size of events exceeds this value.
-      max-count -> (int)
+      max-count -> (integer)
         Maximum batch size: trigger will send a batch if number of events exceeds this value.
     service-account-id -> (string)
       SA which should be used to start workflow.
@@ -343,16 +343,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

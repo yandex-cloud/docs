@@ -26,19 +26,19 @@ Shorthand Syntax:
 ```hcl
 {
   cloudbackup = {
-    backup-id = str,
-    enabled = bool,
-    initial-policy-ids = str,...,
-    instance-registration-id = str,
-    recovery-from-backup = bool
+    backup-id = string,
+    enabled = boolean,
+    initial-policy-ids = string,...,
+    instance-registration-id = string,
+    recovery-from-backup = boolean
   },
   container = container-solution={
-    environment = {key=str, key=...},
-    product-id = str,
+    environment = {key=string, key=...},
+    product-id = string,
     secrets = {key={
-      id = str,
-      key = str,
-      version-id = str
+      id = string,
+      key = string,
+      version-id = string
     }, key=...}
   }
 }
@@ -49,25 +49,25 @@ JSON Syntax:
 ```json
 {
   "cloudbackup": {
-    "backup-id": "str",
-    "enabled": "bool",
+    "backup-id": "string",
+    "enabled": "boolean",
     "initial-policy-ids": [
-      "str", ...
+      "string", ...
     ],
-    "instance-registration-id": "str",
-    "recovery-from-backup": "bool"
+    "instance-registration-id": "string",
+    "recovery-from-backup": "boolean"
   },
   "container": {
     "container-solution": {
       "environment": {
-        "<key>": "str", ...
+        "<key>": "string", ...
       },
-      "product-id": "str",
+      "product-id": "string",
       "secrets": {
         "<key>": {
-          "id": "str",
-          "key": "str",
-          "version-id": "str"
+          "id": "string",
+          "key": "string",
+          "version-id": "string"
         }, ...
       }
     }
@@ -82,13 +82,13 @@ cloudbackup -> (struct)
   Backup settings.
   backup-id -> (string)
     ID of the backup to recover from.
-  enabled -> (bool)
+  enabled -> (boolean)
     If true, backup is enabled.
   initial-policy-ids -> ([]string)
     A list of policy IDs to apply after resource registration.
   instance-registration-id -> (string)
     ID of the instance registration for cloud backup agent installation.
-  recovery-from-backup -> (bool)
+  recovery-from-backup -> (boolean)
     If true, recovery from backup starts on instance.
 container -> (oneof<container-solution>)
   Oneof container field
@@ -113,7 +113,7 @@ Description of the instance. ||
 || `--instance-id` | `string`
 
 ID of the Instance resource to update. To get the instance ID, use a [InstanceService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set. ||
 || `--maintenance-grace-period` | `duration`
@@ -122,7 +122,7 @@ Time between notification via metadata service and maintenance (duration, e.g. 3
 || `--maintenance-policy` | `enum`
 
 Behaviour on maintenance events Possible Values: 'restart', 'migrate' ||
-|| `--metadata` | `stringToString`
+|| `--metadata` | `map<string><string>`
 
 The metadata 'key:value' pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. Existing set of 'metadata' is completely replaced by the provided set. Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see documentation. ||
 || `--metadata-options` | `shorthand/json`
@@ -202,13 +202,13 @@ Shorthand Syntax:
 {
   host-affinity-rules = [
     {
-      key = str,
+      key = string,
       op = IN|NOT_IN,
-      values = str,...
+      values = string,...
     }, ...
   ],
-  placement-group-id = str,
-  placement-group-partition = int
+  placement-group-id = string,
+  placement-group-partition = integer
 }
 ```
 
@@ -218,15 +218,15 @@ JSON Syntax:
 {
   "host-affinity-rules": [
     {
-      "key": "str",
+      "key": "string",
       "op": "IN|NOT_IN",
       "values": [
-        "str", ...
+        "string", ...
       ]
     }, ...
   ],
-  "placement-group-id": "str",
-  "placement-group-partition": "int"
+  "placement-group-id": "string",
+  "placement-group-partition": "integer"
 }
 ```
 
@@ -243,7 +243,7 @@ host-affinity-rules -> ([]struct)
     Affinity value or host ID or host group ID
 placement-group-id -> (string)
   Placement group ID.
-placement-group-partition -> (int)
+placement-group-partition -> (integer)
   Placement group partition
 ``` ||
 || `--platform-id` | `string`
@@ -260,10 +260,10 @@ Shorthand Syntax:
 
 ```hcl
 {
-  core-fraction = int,
-  cores = int,
-  gpus = int,
-  memory = int
+  core-fraction = integer,
+  cores = integer,
+  gpus = integer,
+  memory = integer
 }
 ```
 
@@ -271,23 +271,23 @@ JSON Syntax:
 
 ```json
 {
-  "core-fraction": "int",
-  "cores": "int",
-  "gpus": "int",
-  "memory": "int"
+  "core-fraction": "integer",
+  "cores": "integer",
+  "gpus": "integer",
+  "memory": "integer"
 }
 ```
 
 Fields:
 
 ```
-core-fraction -> (int)
+core-fraction -> (integer)
   Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.
-cores -> (int)
+cores -> (integer)
   The number of cores available to the instance.
-gpus -> (int)
+gpus -> (integer)
   The number of GPUs available to the instance.
-memory -> (int)
+memory -> (integer)
   The amount of memory available to the instance, specified in bytes.
 ``` ||
 || `--scheduling-policy` | `shorthand/json`
@@ -298,7 +298,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  preemptible = bool
+  preemptible = boolean
 }
 ```
 
@@ -306,14 +306,14 @@ JSON Syntax:
 
 ```json
 {
-  "preemptible": "bool"
+  "preemptible": "boolean"
 }
 ```
 
 Fields:
 
 ```
-preemptible -> (bool)
+preemptible -> (boolean)
   True for short-lived compute instances. For more information, see documentation.
 ``` ||
 || `--serial-port-settings` | `shorthand/json`
@@ -366,16 +366,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

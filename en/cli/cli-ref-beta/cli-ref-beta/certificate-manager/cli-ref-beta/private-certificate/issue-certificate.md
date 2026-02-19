@@ -97,22 +97,22 @@ Shorthand Syntax:
 ```hcl
 {
   additional-rdn = {
-    generation-qualifier = str,
-    given-name = str,
-    initials = str,
-    locality = str,
-    serial-number = str,
-    surname = str,
-    title = str
+    generation-qualifier = string,
+    given-name = string,
+    initials = string,
+    locality = string,
+    serial-number = string,
+    surname = string,
+    title = string
   },
   base-rdn = {
-    common-name = str,
-    country = str,
-    distinguished-name-qualifier = str,
-    email-address = str,
-    organization = str,
-    organizational-unit = str,
-    state-or-province = str
+    common-name = string,
+    country = string,
+    distinguished-name-qualifier = string,
+    email-address = string,
+    organization = string,
+    organizational-unit = string,
+    state-or-province = string
   }
 }
 ```
@@ -122,22 +122,22 @@ JSON Syntax:
 ```json
 {
   "additional-rdn": {
-    "generation-qualifier": "str",
-    "given-name": "str",
-    "initials": "str",
-    "locality": "str",
-    "serial-number": "str",
-    "surname": "str",
-    "title": "str"
+    "generation-qualifier": "string",
+    "given-name": "string",
+    "initials": "string",
+    "locality": "string",
+    "serial-number": "string",
+    "surname": "string",
+    "title": "string"
   },
   "base-rdn": {
-    "common-name": "str",
-    "country": "str",
-    "distinguished-name-qualifier": "str",
-    "email-address": "str",
-    "organization": "str",
-    "organizational-unit": "str",
-    "state-or-province": "str"
+    "common-name": "string",
+    "country": "string",
+    "distinguished-name-qualifier": "string",
+    "email-address": "string",
+    "organization": "string",
+    "organizational-unit": "string",
+    "state-or-province": "string"
   }
 }
 ```
@@ -187,13 +187,13 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    san = directory-name=str | dns-name=str | edi-party-name={
-      name-assigner = str,
-      party-name = str
-    } | ip-address=str | other-name={
-      name = str,
-      type-oid = str
-    } | registered-id=str | rfc-822-name=str | uniform-resource-identifier=str | x-400-name=str
+    san = directory-name=string | dns-name=string | edi-party-name={
+      name-assigner = string,
+      party-name = string
+    } | ip-address=string | other-name={
+      name = string,
+      type-oid = string
+    } | registered-id=string | rfc-822-name=string | uniform-resource-identifier=string | x-400-name=string
   }, ...
 ]
 ```
@@ -204,21 +204,21 @@ JSON Syntax:
 [
   {
     "san": {
-      "directory-name": "str",
-      "dns-name": "str",
+      "directory-name": "string",
+      "dns-name": "string",
       "edi-party-name": {
-        "name-assigner": "str",
-        "party-name": "str"
+        "name-assigner": "string",
+        "party-name": "string"
       },
-      "ip-address": "str",
+      "ip-address": "string",
       "other-name": {
-        "name": "str",
-        "type-oid": "str"
+        "name": "string",
+        "type-oid": "string"
       },
-      "registered-id": "str",
-      "rfc-822-name": "str",
-      "uniform-resource-identifier": "str",
-      "x-400-name": "str"
+      "registered-id": "string",
+      "rfc-822-name": "string",
+      "uniform-resource-identifier": "string",
+      "x-400-name": "string"
     }
   }, ...
 ]
@@ -280,16 +280,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
