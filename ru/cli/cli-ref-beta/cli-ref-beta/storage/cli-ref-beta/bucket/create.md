@@ -45,7 +45,7 @@ Shorthand Syntax:
   grants = [
     {
       grant-type = GRANT_TYPE_ACCOUNT|GRANT_TYPE_ALL_AUTHENTICATED_USERS|GRANT_TYPE_ALL_USERS,
-      grantee-id = str,
+      grantee-id = string,
       permission = PERMISSION_FULL_CONTROL|PERMISSION_WRITE|PERMISSION_WRITE_ACP|PERMISSION_READ|PERMISSION_READ_ACP
     }, ...
   ]
@@ -59,7 +59,7 @@ JSON Syntax:
   "grants": [
     {
       "grant-type": "GRANT_TYPE_ACCOUNT|GRANT_TYPE_ALL_AUTHENTICATED_USERS|GRANT_TYPE_ALL_USERS",
-      "grantee-id": "str",
+      "grantee-id": "string",
       "permission": "PERMISSION_FULL_CONTROL|PERMISSION_WRITE|PERMISSION_WRITE_ACP|PERMISSION_READ|PERMISSION_READ_ACP"
     }, ...
   ]
@@ -86,9 +86,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  enabled = bool,
-  force-cloud-console-access = bool,
-  private-endpoints = str,...
+  enabled = boolean,
+  force-cloud-console-access = boolean,
+  private-endpoints = string,...
 }
 ```
 
@@ -96,10 +96,10 @@ JSON Syntax:
 
 ```json
 {
-  "enabled": "bool",
-  "force-cloud-console-access": "bool",
+  "enabled": "boolean",
+  "force-cloud-console-access": "boolean",
   "private-endpoints": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -107,9 +107,9 @@ JSON Syntax:
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
   if true, private endpoints white list check is enabled even if private_endpoints list is empty
-force-cloud-console-access -> (bool)
+force-cloud-console-access -> (boolean)
   if true, cloud console will be able to access a bucket regardless of private_endpoints list
 private-endpoints -> ([]string)
   white list of private endpoints bucket accessible from
@@ -122,9 +122,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  config-read = bool,
-  list = bool,
-  read = bool
+  config-read = boolean,
+  list = boolean,
+  read = boolean
 }
 ```
 
@@ -132,20 +132,20 @@ JSON Syntax:
 
 ```json
 {
-  "config-read": "bool",
-  "list": "bool",
-  "read": "bool"
+  "config-read": "boolean",
+  "list": "boolean",
+  "read": "boolean"
 }
 ```
 
 Fields:
 
 ```
-config-read -> (bool)
+config-read -> (boolean)
   Specifies whether public (anonymous) access to read documentation, documentation, and documentation settings of the bucket is enabled.
-list -> (bool)
+list -> (boolean)
   Specifies whether public (anonymous) access to the list of objects in the bucket is enabled.
-read -> (bool)
+read -> (boolean)
   Specifies whether public (anonymous) access to read objects in the bucket is enabled.
 ``` ||
 || `--default-storage-class` | `string`
@@ -162,8 +162,8 @@ Shorthand Syntax:
 {
   rules = [
     {
-      kms-master-key-id = str,
-      sse-algorithm = str
+      kms-master-key-id = string,
+      sse-algorithm = string
     }, ...
   ]
 }
@@ -175,8 +175,8 @@ JSON Syntax:
 {
   "rules": [
     {
-      "kms-master-key-id": "str",
-      "sse-algorithm": "str"
+      "kms-master-key-id": "string",
+      "sse-algorithm": "string"
     }, ...
   ]
 }
@@ -210,8 +210,8 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    key = str,
-    value = str
+    key = string,
+    value = string
   }, ...
 ]
 ```
@@ -221,8 +221,8 @@ JSON Syntax:
 ```json
 [
   {
-    "key": "str",
-    "value": "str"
+    "key": "string",
+    "value": "string"
   }, ...
 ]
 ```
@@ -259,16 +259,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

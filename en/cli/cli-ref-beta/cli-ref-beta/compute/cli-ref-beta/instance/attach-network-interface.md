@@ -51,23 +51,23 @@ Shorthand Syntax:
 
 ```hcl
 {
-  address = str,
+  address = string,
   dns-record-specs = [
     {
-      dns-zone-id = str,
-      fqdn = str,
-      ptr = bool,
-      ttl = int
+      dns-zone-id = string,
+      fqdn = string,
+      ptr = boolean,
+      ttl = integer
     }, ...
   ],
   one-to-one-nat-spec = {
-    address = str,
+    address = string,
     dns-record-specs = [
       {
-        dns-zone-id = str,
-        fqdn = str,
-        ptr = bool,
-        ttl = int
+        dns-zone-id = string,
+        fqdn = string,
+        ptr = boolean,
+        ttl = integer
       }, ...
     ],
     ip-version = IPV4|IPV6
@@ -79,23 +79,23 @@ JSON Syntax:
 
 ```json
 {
-  "address": "str",
+  "address": "string",
   "dns-record-specs": [
     {
-      "dns-zone-id": "str",
-      "fqdn": "str",
-      "ptr": "bool",
-      "ttl": "int"
+      "dns-zone-id": "string",
+      "fqdn": "string",
+      "ptr": "boolean",
+      "ttl": "integer"
     }, ...
   ],
   "one-to-one-nat-spec": {
-    "address": "str",
+    "address": "string",
     "dns-record-specs": [
       {
-        "dns-zone-id": "str",
-        "fqdn": "str",
-        "ptr": "bool",
-        "ttl": "int"
+        "dns-zone-id": "string",
+        "fqdn": "string",
+        "ptr": "boolean",
+        "ttl": "integer"
       }, ...
     ],
     "ip-version": "IPV4|IPV6"
@@ -114,9 +114,9 @@ dns-record-specs -> ([]struct)
     DNS zone id (optional, if not set, private zone used)
   fqdn -> (string)
     FQDN (required)
-  ptr -> (bool)
+  ptr -> (boolean)
     When set to true, also create PTR DNS record (optional)
-  ttl -> (int)
+  ttl -> (integer)
     DNS record ttl, values in 0-86400 (optional)
 one-to-one-nat-spec -> (struct)
   An external IP address configuration. If not specified, then this instance will have no external internet access.
@@ -127,14 +127,14 @@ one-to-one-nat-spec -> (struct)
       DNS zone id (optional, if not set, private zone used)
     fqdn -> (string)
       FQDN (required)
-    ptr -> (bool)
+    ptr -> (boolean)
       When set to true, also create PTR DNS record (optional)
-    ttl -> (int)
+    ttl -> (integer)
       DNS record ttl, values in 0-86400 (optional)
   ip-version -> (struct)
     External IP address version.
 ``` ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 ID's of security groups attached to the interface. ||
 || `--subnet-id` | `string`
@@ -161,16 +161,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

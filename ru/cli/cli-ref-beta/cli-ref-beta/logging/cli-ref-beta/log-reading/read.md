@@ -45,17 +45,17 @@ Shorthand Syntax:
 
 ```hcl
 {
-  filter = str,
+  filter = string,
   levels = [
     TRACE|DEBUG|INFO|WARN|ERROR|FATAL, ...
   ],
-  log-group-id = str,
-  max-response-size = int,
-  page-size = int,
-  resource-ids = str,...,
-  resource-types = str,...,
+  log-group-id = string,
+  max-response-size = integer,
+  page-size = integer,
+  resource-ids = string,...,
+  resource-types = string,...,
   since = timestamp,
-  stream-names = str,...,
+  stream-names = string,...,
   until = timestamp
 }
 ```
@@ -64,22 +64,22 @@ JSON Syntax:
 
 ```json
 {
-  "filter": "str",
+  "filter": "string",
   "levels": [
     "TRACE|DEBUG|INFO|WARN|ERROR|FATAL", ...
   ],
-  "log-group-id": "str",
-  "max-response-size": "int",
-  "page-size": "int",
+  "log-group-id": "string",
+  "max-response-size": "integer",
+  "page-size": "integer",
   "resource-ids": [
-    "str", ...
+    "string", ...
   ],
   "resource-types": [
-    "str", ...
+    "string", ...
   ],
   "since": "timestamp",
   "stream-names": [
-    "str", ...
+    "string", ...
   ],
   "until": "timestamp"
 }
@@ -94,9 +94,9 @@ levels -> ([]struct)
   List of log levels to limit log entries to. Empty list disables filter.
 log-group-id -> (string)
   ID of the log group to return. To get a log group ID make a [LogGroupService.List] request.
-max-response-size -> (int)
+max-response-size -> (integer)
   Limits response to maximum size in bytes. Prevents gRPC resource exhaustion. Default value for max response size is 3.5 MiB
-page-size -> (int)
+page-size -> (integer)
   The maximum number of results per page to return.
 resource-ids -> ([]string)
   List of resource IDs to limit log entries to. Empty list disables filter.
@@ -129,16 +129,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

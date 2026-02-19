@@ -23,7 +23,7 @@ ID of the backend group to update. To get the backend group ID, make a [BackendG
 || `--description` | `string`
 
 New description of the backend group. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Backend group labels as 'key:value' pairs. For details about the concept, see documentation. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [BackendGroupService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field. ||
 || `--name` | `string`
@@ -40,67 +40,67 @@ Shorthand Syntax:
   backends = [
     {
       backend-type = storage-bucket={
-        bucket = str
+        bucket = string
       } | target-groups={
-        target-group-ids = str,...
+        target-group-ids = string,...
       },
-      backend-weight = int,
+      backend-weight = integer,
       healthchecks = [
         {
           healthcheck = grpc={
-            service-name = str
+            service-name = string
           } | http={
-            expected-statuses = int,...,
-            host = str,
-            path = str,
-            use-http2 = bool
+            expected-statuses = integer,...,
+            host = string,
+            path = string,
+            use-http2 = boolean
           } | stream={
             receive = {
-              payload = text=str
+              payload = text=string
             },
             send = {
-              payload = text=str
+              payload = text=string
             }
           },
-          healthcheck-port = int,
-          healthy-threshold = int,
+          healthcheck-port = integer,
+          healthy-threshold = integer,
           interval = duration,
-          interval-jitter-percent = double,
+          interval-jitter-percent = float64,
           timeout = duration,
           transport-settings = plaintext={} | tls={
-            sni = str,
+            sni = string,
             validation-context = {
-              trusted-ca = trusted-ca-bytes=str | trusted-ca-id=str
+              trusted-ca = trusted-ca-bytes=string | trusted-ca-id=string
             }
           },
-          unhealthy-threshold = int
+          unhealthy-threshold = integer
         }, ...
       ],
       load-balancing-config = {
-        locality-aware-routing-percent = int,
+        locality-aware-routing-percent = integer,
         mode = ROUND_ROBIN|RANDOM|LEAST_REQUEST|MAGLEV_HASH,
-        panic-threshold = int,
-        strict-locality = bool
+        panic-threshold = integer,
+        strict-locality = boolean
       },
-      name = str,
-      port = int,
+      name = string,
+      port = integer,
       tls = {
-        sni = str,
+        sni = string,
         validation-context = {
-          trusted-ca = trusted-ca-bytes=str | trusted-ca-id=str
+          trusted-ca = trusted-ca-bytes=string | trusted-ca-id=string
         }
       },
-      use-http2 = bool
+      use-http2 = boolean
     }, ...
   ],
   session-affinity = connection={
-    source-ip = bool
+    source-ip = boolean
   } | cookie={
-    name = str,
-    path = str,
+    name = string,
+    path = string,
     ttl = duration
   } | header={
-    header-name = str
+    header-name = string
   }
 }
 ```
@@ -113,93 +113,93 @@ JSON Syntax:
     {
       "backend-type": {
         "storage-bucket": {
-          "bucket": "str"
+          "bucket": "string"
         },
         "target-groups": {
           "target-group-ids": [
-            "str", ...
+            "string", ...
           ]
         }
       },
-      "backend-weight": "int",
+      "backend-weight": "integer",
       "healthchecks": [
         {
           "healthcheck": {
             "grpc": {
-              "service-name": "str"
+              "service-name": "string"
             },
             "http": {
               "expected-statuses": [
-                "int", ...
+                "integer", ...
               ],
-              "host": "str",
-              "path": "str",
-              "use-http2": "bool"
+              "host": "string",
+              "path": "string",
+              "use-http2": "boolean"
             },
             "stream": {
               "receive": {
                 "payload": {
-                  "text": "str"
+                  "text": "string"
                 }
               },
               "send": {
                 "payload": {
-                  "text": "str"
+                  "text": "string"
                 }
               }
             }
           },
-          "healthcheck-port": "int",
-          "healthy-threshold": "int",
+          "healthcheck-port": "integer",
+          "healthy-threshold": "integer",
           "interval": "duration",
-          "interval-jitter-percent": "double",
+          "interval-jitter-percent": "float64",
           "timeout": "duration",
           "transport-settings": {
             "plaintext": {},
             "tls": {
-              "sni": "str",
+              "sni": "string",
               "validation-context": {
                 "trusted-ca": {
-                  "trusted-ca-bytes": "str",
-                  "trusted-ca-id": "str"
+                  "trusted-ca-bytes": "string",
+                  "trusted-ca-id": "string"
                 }
               }
             }
           },
-          "unhealthy-threshold": "int"
+          "unhealthy-threshold": "integer"
         }, ...
       ],
       "load-balancing-config": {
-        "locality-aware-routing-percent": "int",
+        "locality-aware-routing-percent": "integer",
         "mode": "ROUND_ROBIN|RANDOM|LEAST_REQUEST|MAGLEV_HASH",
-        "panic-threshold": "int",
-        "strict-locality": "bool"
+        "panic-threshold": "integer",
+        "strict-locality": "boolean"
       },
-      "name": "str",
-      "port": "int",
+      "name": "string",
+      "port": "integer",
       "tls": {
-        "sni": "str",
+        "sni": "string",
         "validation-context": {
           "trusted-ca": {
-            "trusted-ca-bytes": "str",
-            "trusted-ca-id": "str"
+            "trusted-ca-bytes": "string",
+            "trusted-ca-id": "string"
           }
         }
       },
-      "use-http2": "bool"
+      "use-http2": "boolean"
     }, ...
   ],
   "session-affinity": {
     "connection": {
-      "source-ip": "bool"
+      "source-ip": "boolean"
     },
     "cookie": {
-      "name": "str",
-      "path": "str",
+      "name": "string",
+      "path": "string",
       "ttl": "duration"
     },
     "header": {
-      "header-name": "str"
+      "header-name": "string"
     }
   }
 }
@@ -210,20 +210,20 @@ Fields:
 ```
 backends -> ([]struct)
   List of HTTP backends.
-  backend-weight -> (int)
+  backend-weight -> (integer)
     Backend weight. Traffic is distributed between backends of a backend group according to their weights. Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. If the weight is non-positive, traffic is not sent to the backend.
   healthchecks -> ([]struct)
     Health checks to perform on targets from target groups. For details about health checking, see documentation. If no health checks are specified, active health checking is not performed.
-    healthcheck-port -> (int)
+    healthcheck-port -> (integer)
       Port used for health checks. If not specified, the backend port ([HttpBackend.port] or [GrpcBackend.port]) is used for health checks.
-    healthy-threshold -> (int)
+    healthy-threshold -> (integer)
       Number of consecutive successful health checks required to mark an unhealthy target as healthy. Both '0' and '1' values amount to one successful check required. The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. Default value: '0'.
     interval -> (duration)
       Base interval between consecutive health checks.
-    interval-jitter-percent -> (double)
+    interval-jitter-percent -> (float64)
     timeout -> (duration)
       Health check timeout. The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed.
-    unhealthy-threshold -> (int)
+    unhealthy-threshold -> (integer)
       Number of consecutive failed health checks required to mark a healthy target as unhealthy. Both '0' and '1' values amount to one unsuccessful check required. The value is ignored if a health check is failed due to an HTTP '503 Service Unavailable' response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. Default value: '0'.
     healthcheck -> (oneof<grpc|http|stream>)
       Oneof healthcheck field
@@ -243,13 +243,13 @@ backends -> ([]struct)
               Payload text.
       http -> (struct)
         HTTP health check settings.
-        expected-statuses -> ([]int)
+        expected-statuses -> ([]integer)
           A list of HTTP response statuses considered healthy. By default only 200 HTTP status code considered healthy.
         host -> (string)
           Value for the HTTP/1.1 'Host' header or the HTTP/2 ':authority' pseudo-header used in requests to targets.
         path -> (string)
           HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 ':path' pseudo-header.
-        use-http2 -> (bool)
+        use-http2 -> (boolean)
           Enables HTTP/2 usage in health checks. Default value: 'false', HTTP/1.1 is used.
       grpc -> (struct)
         gRPC health check settings.
@@ -270,17 +270,17 @@ backends -> ([]struct)
               X.509 certificate contents in PEM format.
   load-balancing-config -> (struct)
     Load balancing configuration for the backend.
-    locality-aware-routing-percent -> (int)
+    locality-aware-routing-percent -> (integer)
       Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see documentation. If there are no healthy backends in an availability zone, all the traffic is divided between other zones. If [strict_locality] is 'true', the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. Default value: '0'.
     mode -> (struct)
       Load balancing mode for the backend. For details about load balancing modes, see documentation.
-    panic-threshold -> (int)
+    panic-threshold -> (integer)
       Threshold for panic mode. If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see documentation. If the value is '0', panic mode will never be activated and traffic is routed only to healthy backends at all times. Default value: '0'.
-    strict-locality -> (bool)
+    strict-locality -> (boolean)
       Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. If set to 'true' and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see documentation. If 'strict_locality' is 'true', the value specified in [locality_aware_routing_percent] is ignored. Default value: 'false'.
   name -> (string)
     Name of the backend.
-  port -> (int)
+  port -> (integer)
     Port used by all targets to receive traffic.
   tls -> (struct)
     Settings for TLS connections between load balancer nodes and backend targets. If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context]. If not specified, the load balancer establishes unencrypted HTTP connections with targets.
@@ -293,7 +293,7 @@ backends -> ([]struct)
         trusted-ca-id -> (string)
         trusted-ca-bytes -> (string)
           X.509 certificate contents in PEM format.
-  use-http2 -> (bool)
+  use-http2 -> (boolean)
     Enables HTTP/2 usage in connections between load balancer nodes and backend targets. Default value: 'false', HTTP/1.1 is used.
   backend-type -> (oneof<storage-bucket|target-groups>)
     Oneof backend-type field
@@ -309,7 +309,7 @@ session-affinity -> (oneof<connection|cookie|header>)
   Oneof session-affinity field
   connection -> (struct)
     Connection-based session affinity configuration. For now, a connection is defined only by an IP address of the client.
-    source-ip -> (bool)
+    source-ip -> (boolean)
       Specifies whether an IP address of the client is used to define a connection for session affinity.
   header -> (struct)
     HTTP-header-field-based session affinity configuration.
@@ -335,64 +335,64 @@ Shorthand Syntax:
   backends = [
     {
       backend-type = target-groups={
-        target-group-ids = str,...
+        target-group-ids = string,...
       },
-      backend-weight = int,
+      backend-weight = integer,
       healthchecks = [
         {
           healthcheck = grpc={
-            service-name = str
+            service-name = string
           } | http={
-            expected-statuses = int,...,
-            host = str,
-            path = str,
-            use-http2 = bool
+            expected-statuses = integer,...,
+            host = string,
+            path = string,
+            use-http2 = boolean
           } | stream={
             receive = {
-              payload = text=str
+              payload = text=string
             },
             send = {
-              payload = text=str
+              payload = text=string
             }
           },
-          healthcheck-port = int,
-          healthy-threshold = int,
+          healthcheck-port = integer,
+          healthy-threshold = integer,
           interval = duration,
-          interval-jitter-percent = double,
+          interval-jitter-percent = float64,
           timeout = duration,
           transport-settings = plaintext={} | tls={
-            sni = str,
+            sni = string,
             validation-context = {
-              trusted-ca = trusted-ca-bytes=str | trusted-ca-id=str
+              trusted-ca = trusted-ca-bytes=string | trusted-ca-id=string
             }
           },
-          unhealthy-threshold = int
+          unhealthy-threshold = integer
         }, ...
       ],
       load-balancing-config = {
-        locality-aware-routing-percent = int,
+        locality-aware-routing-percent = integer,
         mode = ROUND_ROBIN|RANDOM|LEAST_REQUEST|MAGLEV_HASH,
-        panic-threshold = int,
-        strict-locality = bool
+        panic-threshold = integer,
+        strict-locality = boolean
       },
-      name = str,
-      port = int,
+      name = string,
+      port = integer,
       tls = {
-        sni = str,
+        sni = string,
         validation-context = {
-          trusted-ca = trusted-ca-bytes=str | trusted-ca-id=str
+          trusted-ca = trusted-ca-bytes=string | trusted-ca-id=string
         }
       }
     }, ...
   ],
   session-affinity = connection={
-    source-ip = bool
+    source-ip = boolean
   } | cookie={
-    name = str,
-    path = str,
+    name = string,
+    path = string,
     ttl = duration
   } | header={
-    header-name = str
+    header-name = string
   }
 }
 ```
@@ -406,72 +406,72 @@ JSON Syntax:
       "backend-type": {
         "target-groups": {
           "target-group-ids": [
-            "str", ...
+            "string", ...
           ]
         }
       },
-      "backend-weight": "int",
+      "backend-weight": "integer",
       "healthchecks": [
         {
           "healthcheck": {
             "grpc": {
-              "service-name": "str"
+              "service-name": "string"
             },
             "http": {
               "expected-statuses": [
-                "int", ...
+                "integer", ...
               ],
-              "host": "str",
-              "path": "str",
-              "use-http2": "bool"
+              "host": "string",
+              "path": "string",
+              "use-http2": "boolean"
             },
             "stream": {
               "receive": {
                 "payload": {
-                  "text": "str"
+                  "text": "string"
                 }
               },
               "send": {
                 "payload": {
-                  "text": "str"
+                  "text": "string"
                 }
               }
             }
           },
-          "healthcheck-port": "int",
-          "healthy-threshold": "int",
+          "healthcheck-port": "integer",
+          "healthy-threshold": "integer",
           "interval": "duration",
-          "interval-jitter-percent": "double",
+          "interval-jitter-percent": "float64",
           "timeout": "duration",
           "transport-settings": {
             "plaintext": {},
             "tls": {
-              "sni": "str",
+              "sni": "string",
               "validation-context": {
                 "trusted-ca": {
-                  "trusted-ca-bytes": "str",
-                  "trusted-ca-id": "str"
+                  "trusted-ca-bytes": "string",
+                  "trusted-ca-id": "string"
                 }
               }
             }
           },
-          "unhealthy-threshold": "int"
+          "unhealthy-threshold": "integer"
         }, ...
       ],
       "load-balancing-config": {
-        "locality-aware-routing-percent": "int",
+        "locality-aware-routing-percent": "integer",
         "mode": "ROUND_ROBIN|RANDOM|LEAST_REQUEST|MAGLEV_HASH",
-        "panic-threshold": "int",
-        "strict-locality": "bool"
+        "panic-threshold": "integer",
+        "strict-locality": "boolean"
       },
-      "name": "str",
-      "port": "int",
+      "name": "string",
+      "port": "integer",
       "tls": {
-        "sni": "str",
+        "sni": "string",
         "validation-context": {
           "trusted-ca": {
-            "trusted-ca-bytes": "str",
-            "trusted-ca-id": "str"
+            "trusted-ca-bytes": "string",
+            "trusted-ca-id": "string"
           }
         }
       }
@@ -479,15 +479,15 @@ JSON Syntax:
   ],
   "session-affinity": {
     "connection": {
-      "source-ip": "bool"
+      "source-ip": "boolean"
     },
     "cookie": {
-      "name": "str",
-      "path": "str",
+      "name": "string",
+      "path": "string",
       "ttl": "duration"
     },
     "header": {
-      "header-name": "str"
+      "header-name": "string"
     }
   }
 }
@@ -498,20 +498,20 @@ Fields:
 ```
 backends -> ([]struct)
   List of gRPC backends.
-  backend-weight -> (int)
+  backend-weight -> (integer)
     Backend weight. Traffic is distributed between backends of a backend group according to their weights. Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. If the weight is non-positive, traffic is not sent to the backend.
   healthchecks -> ([]struct)
     Health checks to perform on targets from target groups. For details about health checking, see documentation. If no health checks are specified, active health checking is not performed.
-    healthcheck-port -> (int)
+    healthcheck-port -> (integer)
       Port used for health checks. If not specified, the backend port ([HttpBackend.port] or [GrpcBackend.port]) is used for health checks.
-    healthy-threshold -> (int)
+    healthy-threshold -> (integer)
       Number of consecutive successful health checks required to mark an unhealthy target as healthy. Both '0' and '1' values amount to one successful check required. The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. Default value: '0'.
     interval -> (duration)
       Base interval between consecutive health checks.
-    interval-jitter-percent -> (double)
+    interval-jitter-percent -> (float64)
     timeout -> (duration)
       Health check timeout. The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed.
-    unhealthy-threshold -> (int)
+    unhealthy-threshold -> (integer)
       Number of consecutive failed health checks required to mark a healthy target as unhealthy. Both '0' and '1' values amount to one unsuccessful check required. The value is ignored if a health check is failed due to an HTTP '503 Service Unavailable' response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. Default value: '0'.
     healthcheck -> (oneof<grpc|http|stream>)
       Oneof healthcheck field
@@ -531,13 +531,13 @@ backends -> ([]struct)
               Payload text.
       http -> (struct)
         HTTP health check settings.
-        expected-statuses -> ([]int)
+        expected-statuses -> ([]integer)
           A list of HTTP response statuses considered healthy. By default only 200 HTTP status code considered healthy.
         host -> (string)
           Value for the HTTP/1.1 'Host' header or the HTTP/2 ':authority' pseudo-header used in requests to targets.
         path -> (string)
           HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 ':path' pseudo-header.
-        use-http2 -> (bool)
+        use-http2 -> (boolean)
           Enables HTTP/2 usage in health checks. Default value: 'false', HTTP/1.1 is used.
       grpc -> (struct)
         gRPC health check settings.
@@ -558,17 +558,17 @@ backends -> ([]struct)
               X.509 certificate contents in PEM format.
   load-balancing-config -> (struct)
     Load balancing configuration for the backend.
-    locality-aware-routing-percent -> (int)
+    locality-aware-routing-percent -> (integer)
       Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see documentation. If there are no healthy backends in an availability zone, all the traffic is divided between other zones. If [strict_locality] is 'true', the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. Default value: '0'.
     mode -> (struct)
       Load balancing mode for the backend. For details about load balancing modes, see documentation.
-    panic-threshold -> (int)
+    panic-threshold -> (integer)
       Threshold for panic mode. If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see documentation. If the value is '0', panic mode will never be activated and traffic is routed only to healthy backends at all times. Default value: '0'.
-    strict-locality -> (bool)
+    strict-locality -> (boolean)
       Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. If set to 'true' and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see documentation. If 'strict_locality' is 'true', the value specified in [locality_aware_routing_percent] is ignored. Default value: 'false'.
   name -> (string)
     Name of the backend.
-  port -> (int)
+  port -> (integer)
     Port used by all targets to receive traffic.
   tls -> (struct)
     Settings for TLS connections between load balancer nodes and backend targets. If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context]. If not specified, the load balancer establishes unencrypted HTTP connections with targets.
@@ -591,7 +591,7 @@ session-affinity -> (oneof<connection|cookie|header>)
   Oneof session-affinity field
   connection -> (struct)
     Connection-based session affinity configuration. For now, a connection is defined only by an IP address of the client.
-    source-ip -> (bool)
+    source-ip -> (boolean)
       Specifies whether an IP address of the client is used to define a connection for session affinity.
   header -> (struct)
     HTTP-header-field-based session affinity configuration.
@@ -617,60 +617,60 @@ Shorthand Syntax:
   backends = [
     {
       backend-type = target-groups={
-        target-group-ids = str,...
+        target-group-ids = string,...
       },
-      backend-weight = int,
-      enable-proxy-protocol = bool,
+      backend-weight = integer,
+      enable-proxy-protocol = boolean,
       healthchecks = [
         {
           healthcheck = grpc={
-            service-name = str
+            service-name = string
           } | http={
-            expected-statuses = int,...,
-            host = str,
-            path = str,
-            use-http2 = bool
+            expected-statuses = integer,...,
+            host = string,
+            path = string,
+            use-http2 = boolean
           } | stream={
             receive = {
-              payload = text=str
+              payload = text=string
             },
             send = {
-              payload = text=str
+              payload = text=string
             }
           },
-          healthcheck-port = int,
-          healthy-threshold = int,
+          healthcheck-port = integer,
+          healthy-threshold = integer,
           interval = duration,
-          interval-jitter-percent = double,
+          interval-jitter-percent = float64,
           timeout = duration,
           transport-settings = plaintext={} | tls={
-            sni = str,
+            sni = string,
             validation-context = {
-              trusted-ca = trusted-ca-bytes=str | trusted-ca-id=str
+              trusted-ca = trusted-ca-bytes=string | trusted-ca-id=string
             }
           },
-          unhealthy-threshold = int
+          unhealthy-threshold = integer
         }, ...
       ],
-      keep-connections-on-host-health-failure = bool,
+      keep-connections-on-host-health-failure = boolean,
       load-balancing-config = {
-        locality-aware-routing-percent = int,
+        locality-aware-routing-percent = integer,
         mode = ROUND_ROBIN|RANDOM|LEAST_REQUEST|MAGLEV_HASH,
-        panic-threshold = int,
-        strict-locality = bool
+        panic-threshold = integer,
+        strict-locality = boolean
       },
-      name = str,
-      port = int,
+      name = string,
+      port = integer,
       tls = {
-        sni = str,
+        sni = string,
         validation-context = {
-          trusted-ca = trusted-ca-bytes=str | trusted-ca-id=str
+          trusted-ca = trusted-ca-bytes=string | trusted-ca-id=string
         }
       }
     }, ...
   ],
   session-affinity = connection={
-    source-ip = bool
+    source-ip = boolean
   }
 }
 ```
@@ -684,74 +684,74 @@ JSON Syntax:
       "backend-type": {
         "target-groups": {
           "target-group-ids": [
-            "str", ...
+            "string", ...
           ]
         }
       },
-      "backend-weight": "int",
-      "enable-proxy-protocol": "bool",
+      "backend-weight": "integer",
+      "enable-proxy-protocol": "boolean",
       "healthchecks": [
         {
           "healthcheck": {
             "grpc": {
-              "service-name": "str"
+              "service-name": "string"
             },
             "http": {
               "expected-statuses": [
-                "int", ...
+                "integer", ...
               ],
-              "host": "str",
-              "path": "str",
-              "use-http2": "bool"
+              "host": "string",
+              "path": "string",
+              "use-http2": "boolean"
             },
             "stream": {
               "receive": {
                 "payload": {
-                  "text": "str"
+                  "text": "string"
                 }
               },
               "send": {
                 "payload": {
-                  "text": "str"
+                  "text": "string"
                 }
               }
             }
           },
-          "healthcheck-port": "int",
-          "healthy-threshold": "int",
+          "healthcheck-port": "integer",
+          "healthy-threshold": "integer",
           "interval": "duration",
-          "interval-jitter-percent": "double",
+          "interval-jitter-percent": "float64",
           "timeout": "duration",
           "transport-settings": {
             "plaintext": {},
             "tls": {
-              "sni": "str",
+              "sni": "string",
               "validation-context": {
                 "trusted-ca": {
-                  "trusted-ca-bytes": "str",
-                  "trusted-ca-id": "str"
+                  "trusted-ca-bytes": "string",
+                  "trusted-ca-id": "string"
                 }
               }
             }
           },
-          "unhealthy-threshold": "int"
+          "unhealthy-threshold": "integer"
         }, ...
       ],
-      "keep-connections-on-host-health-failure": "bool",
+      "keep-connections-on-host-health-failure": "boolean",
       "load-balancing-config": {
-        "locality-aware-routing-percent": "int",
+        "locality-aware-routing-percent": "integer",
         "mode": "ROUND_ROBIN|RANDOM|LEAST_REQUEST|MAGLEV_HASH",
-        "panic-threshold": "int",
-        "strict-locality": "bool"
+        "panic-threshold": "integer",
+        "strict-locality": "boolean"
       },
-      "name": "str",
-      "port": "int",
+      "name": "string",
+      "port": "integer",
       "tls": {
-        "sni": "str",
+        "sni": "string",
         "validation-context": {
           "trusted-ca": {
-            "trusted-ca-bytes": "str",
-            "trusted-ca-id": "str"
+            "trusted-ca-bytes": "string",
+            "trusted-ca-id": "string"
           }
         }
       }
@@ -759,7 +759,7 @@ JSON Syntax:
   ],
   "session-affinity": {
     "connection": {
-      "source-ip": "bool"
+      "source-ip": "boolean"
     }
   }
 }
@@ -770,22 +770,22 @@ Fields:
 ```
 backends -> ([]struct)
   List of stream (TCP) backends.
-  backend-weight -> (int)
+  backend-weight -> (integer)
     Backend weight. Traffic is distributed between backends of a backend group according to their weights. Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. If the weight is non-positive, traffic is not sent to the backend.
-  enable-proxy-protocol -> (bool)
+  enable-proxy-protocol -> (boolean)
     If set, proxy protocol will be enabled for this backend.
   healthchecks -> ([]struct)
     Health checks to perform on targets from target groups. For details about health checking, see documentation. If no health checks are specified, active health checking is not performed.
-    healthcheck-port -> (int)
+    healthcheck-port -> (integer)
       Port used for health checks. If not specified, the backend port ([HttpBackend.port] or [GrpcBackend.port]) is used for health checks.
-    healthy-threshold -> (int)
+    healthy-threshold -> (integer)
       Number of consecutive successful health checks required to mark an unhealthy target as healthy. Both '0' and '1' values amount to one successful check required. The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. Default value: '0'.
     interval -> (duration)
       Base interval between consecutive health checks.
-    interval-jitter-percent -> (double)
+    interval-jitter-percent -> (float64)
     timeout -> (duration)
       Health check timeout. The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed.
-    unhealthy-threshold -> (int)
+    unhealthy-threshold -> (integer)
       Number of consecutive failed health checks required to mark a healthy target as unhealthy. Both '0' and '1' values amount to one unsuccessful check required. The value is ignored if a health check is failed due to an HTTP '503 Service Unavailable' response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. Default value: '0'.
     healthcheck -> (oneof<grpc|http|stream>)
       Oneof healthcheck field
@@ -805,13 +805,13 @@ backends -> ([]struct)
               Payload text.
       http -> (struct)
         HTTP health check settings.
-        expected-statuses -> ([]int)
+        expected-statuses -> ([]integer)
           A list of HTTP response statuses considered healthy. By default only 200 HTTP status code considered healthy.
         host -> (string)
           Value for the HTTP/1.1 'Host' header or the HTTP/2 ':authority' pseudo-header used in requests to targets.
         path -> (string)
           HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 ':path' pseudo-header.
-        use-http2 -> (bool)
+        use-http2 -> (boolean)
           Enables HTTP/2 usage in health checks. Default value: 'false', HTTP/1.1 is used.
       grpc -> (struct)
         gRPC health check settings.
@@ -830,21 +830,21 @@ backends -> ([]struct)
             trusted-ca-id -> (string)
             trusted-ca-bytes -> (string)
               X.509 certificate contents in PEM format.
-  keep-connections-on-host-health-failure -> (bool)
+  keep-connections-on-host-health-failure -> (boolean)
     If a backend host becomes unhealthy (as determined by the configured health checks), keep connections to the failed host.
   load-balancing-config -> (struct)
     Load balancing configuration for the backend.
-    locality-aware-routing-percent -> (int)
+    locality-aware-routing-percent -> (integer)
       Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see documentation. If there are no healthy backends in an availability zone, all the traffic is divided between other zones. If [strict_locality] is 'true', the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. Default value: '0'.
     mode -> (struct)
       Load balancing mode for the backend. For details about load balancing modes, see documentation.
-    panic-threshold -> (int)
+    panic-threshold -> (integer)
       Threshold for panic mode. If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see documentation. If the value is '0', panic mode will never be activated and traffic is routed only to healthy backends at all times. Default value: '0'.
-    strict-locality -> (bool)
+    strict-locality -> (boolean)
       Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. If set to 'true' and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see documentation. If 'strict_locality' is 'true', the value specified in [locality_aware_routing_percent] is ignored. Default value: 'false'.
   name -> (string)
     Name of the backend.
-  port -> (int)
+  port -> (integer)
     Port used by all targets to receive traffic.
   tls -> (struct)
     Settings for TLS connections between load balancer nodes and backend targets. If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context]. If not specified, the load balancer establishes unencrypted TCP connections with targets.
@@ -867,7 +867,7 @@ session-affinity -> (oneof<connection>)
   Oneof session-affinity field
   connection -> (struct)
     Connection-based session affinity configuration. For now, a connection is defined only by an IP address of the client.
-    source-ip -> (bool)
+    source-ip -> (boolean)
       Specifies whether an IP address of the client is used to define a connection for session affinity.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -891,16 +891,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -25,7 +25,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  v4-cidr-blocks = str,...
+  v4-cidr-blocks = string,...
 }
 ```
 
@@ -34,7 +34,7 @@ JSON Syntax:
 ```json
 {
   "v4-cidr-blocks": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -51,13 +51,13 @@ ID of the cluster to update. ||
 || `--description` | `string`
 
 New description for the cluster. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Cluster labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [ClusterService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field. ||
 || `--name` | `string`
 
 New name for the cluster. The name must be unique within the folder. ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 New security groups for the cluster. ||
 || `--spec` | `shorthand/json`
@@ -69,38 +69,41 @@ Shorthand Syntax:
 ```hcl
 {
   client-logging = {
-    audit-logs-enabled = bool,
-    destination = folder-id=str | log-group-id=str,
-    service-account-id = str
+    audit-logs-enabled = boolean,
+    destination = folder-id=string | log-group-id=string,
+    service-account-id = string
   },
   compute = [
     {
       disks = [
         {
-          locations = str,...,
-          size-gb = int,
-          type = str
+          locations = string,...,
+          size-gb = integer,
+          type = string
         }, ...
       ],
-      name = str,
-      preset = str,
+      name = string,
+      preset = string,
       scale-policy = {
         policy = auto={
-          max-size = int,
-          min-size = int
+          max-size = integer,
+          min-size = integer
         } | fixed={
-          size = int
+          size = integer
         }
       }
     }, ...
   ],
   cron = {
     clear-tmp = {
-      account-usage-ratio-save-per-owner = double,
-      account-usage-ratio-save-total = double,
+      account-usage-ratio-save-per-owner = float64,
+      account-usage-ratio-save-total = float64,
       interval = duration,
-      max-dir-node-count = int
+      max-dir-node-count = integer
     }
+  },
+  excel = {
+    enabled = boolean
   },
   flavor = DEMO,
   odin = {
@@ -108,29 +111,32 @@ Shorthand Syntax:
   },
   proxy = {
     http = {
-      count = int
+      count = integer
     },
     rpc = {
-      count = int
+      count = integer
+    },
+    task = {
+      count = integer
     }
   },
   storage = {
     hdd = {
-      count = int,
-      size-gb = int
+      count = integer,
+      size-gb = integer
     },
     ssd = {
       changelogs = {
-        size-gb = int
+        size-gb = integer
       },
-      count = int,
-      size-gb = int,
-      type = str
+      count = integer,
+      size-gb = integer,
+      type = string
     }
   },
   tablet = {
-    count = int,
-    preset = str
+    count = integer,
+    preset = string
   }
 }
 ```
@@ -140,34 +146,34 @@ JSON Syntax:
 ```json
 {
   "client-logging": {
-    "audit-logs-enabled": "bool",
+    "audit-logs-enabled": "boolean",
     "destination": {
-      "folder-id": "str",
-      "log-group-id": "str"
+      "folder-id": "string",
+      "log-group-id": "string"
     },
-    "service-account-id": "str"
+    "service-account-id": "string"
   },
   "compute": [
     {
       "disks": [
         {
           "locations": [
-            "str", ...
+            "string", ...
           ],
-          "size-gb": "int",
-          "type": "str"
+          "size-gb": "integer",
+          "type": "string"
         }, ...
       ],
-      "name": "str",
-      "preset": "str",
+      "name": "string",
+      "preset": "string",
       "scale-policy": {
         "policy": {
           "auto": {
-            "max-size": "int",
-            "min-size": "int"
+            "max-size": "integer",
+            "min-size": "integer"
           },
           "fixed": {
-            "size": "int"
+            "size": "integer"
           }
         }
       }
@@ -175,11 +181,14 @@ JSON Syntax:
   ],
   "cron": {
     "clear-tmp": {
-      "account-usage-ratio-save-per-owner": "double",
-      "account-usage-ratio-save-total": "double",
+      "account-usage-ratio-save-per-owner": "float64",
+      "account-usage-ratio-save-total": "float64",
       "interval": "duration",
-      "max-dir-node-count": "int"
+      "max-dir-node-count": "integer"
     }
+  },
+  "excel": {
+    "enabled": "boolean"
   },
   "flavor": "DEMO",
   "odin": {
@@ -187,29 +196,32 @@ JSON Syntax:
   },
   "proxy": {
     "http": {
-      "count": "int"
+      "count": "integer"
     },
     "rpc": {
-      "count": "int"
+      "count": "integer"
+    },
+    "task": {
+      "count": "integer"
     }
   },
   "storage": {
     "hdd": {
-      "count": "int",
-      "size-gb": "int"
+      "count": "integer",
+      "size-gb": "integer"
     },
     "ssd": {
       "changelogs": {
-        "size-gb": "int"
+        "size-gb": "integer"
       },
-      "count": "int",
-      "size-gb": "int",
-      "type": "str"
+      "count": "integer",
+      "size-gb": "integer",
+      "type": "string"
     }
   },
   "tablet": {
-    "count": "int",
-    "preset": "str"
+    "count": "integer",
+    "preset": "string"
   }
 }
 ```
@@ -219,7 +231,7 @@ Fields:
 ```
 client-logging -> (struct)
   Client Cloud logging configuration.
-  audit-logs-enabled -> (bool)
+  audit-logs-enabled -> (boolean)
     Enable audit logs.
   service-account-id -> (string)
     ID of Service account used for write logs.
@@ -235,7 +247,7 @@ compute -> ([]struct)
     Configuration of exec node strorage.
     locations -> ([]string)
       Locations on a disk.
-    size-gb -> (int)
+    size-gb -> (integer)
       Size of a single disk in GB.
     type -> (string)
       Type of a disk.
@@ -249,26 +261,30 @@ compute -> ([]struct)
       Oneof policy field
       fixed -> (struct)
         Scale policy that doesn't change number of running exec nodes over time.
-        size -> (int)
+        size -> (integer)
           Amount of exec nodes.
       auto -> (struct)
         Scale policy that can adjust number of running exec nodes within specified range based on some criteria.
-        max-size -> (int)
+        max-size -> (integer)
           Maximum amount of exec nodes.
-        min-size -> (int)
+        min-size -> (integer)
           Minimal amount of exec nodes.
 cron -> (struct)
   Cluster regular processing settings.
   clear-tmp -> (struct)
     Cluster regular tmp-account cleaning settings.
-    account-usage-ratio-save-per-owner -> (double)
+    account-usage-ratio-save-per-owner -> (float64)
       Per account max space usage ratio.
-    account-usage-ratio-save-total -> (double)
+    account-usage-ratio-save-total -> (float64)
       Total max space usage ratio.
     interval -> (duration)
       Script starting interval.
-    max-dir-node-count -> (int)
+    max-dir-node-count -> (integer)
       Max nodes in every directory.
+excel -> (struct)
+  Cluster Excel configuration.
+  enabled -> (boolean)
+    Enable Excel.
 flavor -> (struct)
   Cluster flavor (type).
 odin -> (struct)
@@ -279,35 +295,39 @@ proxy -> (struct)
   Cluster proxies configuration.
   http -> (struct)
     Configuration of HTTP proxies.
-    count -> (int)
+    count -> (integer)
       Total amount of HTTP proxies.
   rpc -> (struct)
     Configuration of rpc proxies.
-    count -> (int)
+    count -> (integer)
       Total amount of RPC proxies.
+  task -> (struct)
+    Configuration of task proxies.
+    count -> (integer)
+      Total amount of task proxies.
 storage -> (struct)
   Cluster storage configuration.
   hdd -> (struct)
     Configuration of cluster HDD strorage.
-    count -> (int)
+    count -> (integer)
       Total amount of HDD disks.
-    size-gb -> (int)
+    size-gb -> (integer)
       Size of a single HDD disk in GB.
   ssd -> (struct)
     Configuration of cluster SSD strorage
     changelogs -> (struct)
       Configuration of dynamic table changelogs.
-      size-gb -> (int)
+      size-gb -> (integer)
         Size of changelogs disk in GB.
-    count -> (int)
+    count -> (integer)
       Total amount of SSD disks.
-    size-gb -> (int)
+    size-gb -> (integer)
       Size of a single SSD disk in GB.
     type -> (string)
       Type of a SSD disk.
 tablet -> (struct)
   Cluster tablet nodes configuration.
-  count -> (int)
+  count -> (integer)
     Total amount of tablet nodes.
   preset -> (string)
     VM configuration preset name.
@@ -336,16 +356,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

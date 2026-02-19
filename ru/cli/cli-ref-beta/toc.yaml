@@ -3526,8 +3526,6 @@ items:
                 href: cli-ref-beta/managed-mysql/cli-ref-beta/database/get.md
               - name: list
                 href: cli-ref-beta/managed-mysql/cli-ref-beta/database/list.md
-              - name: update
-                href: cli-ref-beta/managed-mysql/cli-ref-beta/database/update.md
           - name: resource-preset
             items:
               - name: Overview

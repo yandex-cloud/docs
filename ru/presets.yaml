@@ -4038,6 +4038,8 @@ default:
         button_delete: Удалить
         button_save: Сохранить
         label_delete-now: Удалить сейчас
+      fileinput:
+        button_attach-file: Прикрепить файл
       forms:
         label_value: Значение
       helpfeedbackdialog:
@@ -4436,6 +4438,7 @@ default:
           saml_field_login: Login URL
           saml_field_logout: Logout URL
           saml_field_metadata: Metadata URL
+          saml_field_request_signing_enabled: Принимать только подписанные запросы
           secret_section_add_new_secret_action: Добавить секрет
           secret_section_title: Секреты приложения
       attributes:

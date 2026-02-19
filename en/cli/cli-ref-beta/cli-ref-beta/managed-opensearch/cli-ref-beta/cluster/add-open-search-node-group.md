@@ -45,24 +45,24 @@ Shorthand Syntax:
 
 ```hcl
 {
-  assign-public-ip = bool,
+  assign-public-ip = boolean,
   disk-size-autoscaling = {
-    disk-size-limit = int,
-    emergency-usage-threshold = int,
-    planned-usage-threshold = int
+    disk-size-limit = integer,
+    emergency-usage-threshold = integer,
+    planned-usage-threshold = integer
   },
-  hosts-count = int,
-  name = str,
+  hosts-count = integer,
+  name = string,
   resources = {
-    disk-size = int,
-    disk-type-id = str,
-    resource-preset-id = str
+    disk-size = integer,
+    disk-type-id = string,
+    resource-preset-id = string
   },
   roles = [
     DATA|MANAGER, ...
   ],
-  subnet-ids = str,...,
-  zone-ids = str,...
+  subnet-ids = string,...,
+  zone-ids = string,...
 }
 ```
 
@@ -70,27 +70,27 @@ JSON Syntax:
 
 ```json
 {
-  "assign-public-ip": "bool",
+  "assign-public-ip": "boolean",
   "disk-size-autoscaling": {
-    "disk-size-limit": "int",
-    "emergency-usage-threshold": "int",
-    "planned-usage-threshold": "int"
+    "disk-size-limit": "integer",
+    "emergency-usage-threshold": "integer",
+    "planned-usage-threshold": "integer"
   },
-  "hosts-count": "int",
-  "name": "str",
+  "hosts-count": "integer",
+  "name": "string",
   "resources": {
-    "disk-size": "int",
-    "disk-type-id": "str",
-    "resource-preset-id": "str"
+    "disk-size": "integer",
+    "disk-type-id": "string",
+    "resource-preset-id": "string"
   },
   "roles": [
     "DATA|MANAGER", ...
   ],
   "subnet-ids": [
-    "str", ...
+    "string", ...
   ],
   "zone-ids": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -98,23 +98,23 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Determines whether a public IP is assigned to the hosts in the group.
 disk-size-autoscaling -> (struct)
   Disk size autoscaling settings
-  disk-size-limit -> (int)
+  disk-size-limit -> (integer)
     Limit on how large the storage for database instances can automatically grow, in bytes.
-  emergency-usage-threshold -> (int)
+  emergency-usage-threshold -> (integer)
     Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
-  planned-usage-threshold -> (int)
+  planned-usage-threshold -> (integer)
     Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
-hosts-count -> (int)
+hosts-count -> (integer)
   Number of hosts in the group.
 name -> (string)
   Name of the group.
 resources -> (struct)
   Resources allocated to the hosts.
-  disk-size -> (int)
+  disk-size -> (integer)
     Volume of the storage used by the host, in bytes.
   disk-type-id -> (string)
     Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.
@@ -148,16 +148,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

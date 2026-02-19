@@ -44,19 +44,19 @@ Shorthand Syntax:
 ```hcl
 {
   cloudbackup = {
-    backup-id = str,
-    enabled = bool,
-    initial-policy-ids = str,...,
-    instance-registration-id = str,
-    recovery-from-backup = bool
+    backup-id = string,
+    enabled = boolean,
+    initial-policy-ids = string,...,
+    instance-registration-id = string,
+    recovery-from-backup = boolean
   },
   container = container-solution={
-    environment = {key=str, key=...},
-    product-id = str,
+    environment = {key=string, key=...},
+    product-id = string,
     secrets = {key={
-      id = str,
-      key = str,
-      version-id = str
+      id = string,
+      key = string,
+      version-id = string
     }, key=...}
   }
 }
@@ -67,25 +67,25 @@ JSON Syntax:
 ```json
 {
   "cloudbackup": {
-    "backup-id": "str",
-    "enabled": "bool",
+    "backup-id": "string",
+    "enabled": "boolean",
     "initial-policy-ids": [
-      "str", ...
+      "string", ...
     ],
-    "instance-registration-id": "str",
-    "recovery-from-backup": "bool"
+    "instance-registration-id": "string",
+    "recovery-from-backup": "boolean"
   },
   "container": {
     "container-solution": {
       "environment": {
-        "<key>": "str", ...
+        "<key>": "string", ...
       },
-      "product-id": "str",
+      "product-id": "string",
       "secrets": {
         "<key>": {
-          "id": "str",
-          "key": "str",
-          "version-id": "str"
+          "id": "string",
+          "key": "string",
+          "version-id": "string"
         }, ...
       }
     }
@@ -100,13 +100,13 @@ cloudbackup -> (struct)
   Backup settings.
   backup-id -> (string)
     ID of the backup to recover from.
-  enabled -> (bool)
+  enabled -> (boolean)
     If true, backup is enabled.
   initial-policy-ids -> ([]string)
     A list of policy IDs to apply after resource registration.
   instance-registration-id -> (string)
     ID of the instance registration for cloud backup agent installation.
-  recovery-from-backup -> (bool)
+  recovery-from-backup -> (boolean)
     If true, recovery from backup starts on instance.
 container -> (oneof<container-solution>)
   Oneof container field
@@ -133,20 +133,20 @@ Shorthand Syntax:
 
 ```hcl
 {
-  auto-delete = bool,
-  device-name = str,
-  disk = disk-id=str | disk-spec={
-    block-size = int,
-    description = str,
+  auto-delete = boolean,
+  device-name = string,
+  disk = disk-id=string | disk-spec={
+    block-size = integer,
+    description = string,
     disk-placement-policy = {
-      placement-group-id = str,
-      placement-group-partition = int
+      placement-group-id = string,
+      placement-group-partition = integer
     },
-    kms-key-id = str,
-    name = str,
-    size = int,
-    source = image-id=str | snapshot-id=str,
-    type-id = str
+    kms-key-id = string,
+    name = string,
+    size = integer,
+    source = image-id=string | snapshot-id=string,
+    type-id = string
   },
   mode = READ_ONLY|READ_WRITE
 }
@@ -156,25 +156,25 @@ JSON Syntax:
 
 ```json
 {
-  "auto-delete": "bool",
-  "device-name": "str",
+  "auto-delete": "boolean",
+  "device-name": "string",
   "disk": {
-    "disk-id": "str",
+    "disk-id": "string",
     "disk-spec": {
-      "block-size": "int",
-      "description": "str",
+      "block-size": "integer",
+      "description": "string",
       "disk-placement-policy": {
-        "placement-group-id": "str",
-        "placement-group-partition": "int"
+        "placement-group-id": "string",
+        "placement-group-partition": "integer"
       },
-      "kms-key-id": "str",
-      "name": "str",
-      "size": "int",
+      "kms-key-id": "string",
+      "name": "string",
+      "size": "integer",
       "source": {
-        "image-id": "str",
-        "snapshot-id": "str"
+        "image-id": "string",
+        "snapshot-id": "string"
       },
-      "type-id": "str"
+      "type-id": "string"
     }
   },
   "mode": "READ_ONLY|READ_WRITE"
@@ -184,7 +184,7 @@ JSON Syntax:
 Fields:
 
 ```
-auto-delete -> (bool)
+auto-delete -> (boolean)
   Specifies whether the disk will be auto-deleted when the instance is deleted.
 device-name -> (string)
   Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.
@@ -194,7 +194,7 @@ disk -> (oneof<disk-id|disk-spec>)
   Oneof disk field
   disk-spec -> (struct)
     Disk specification.
-    block-size -> (int)
+    block-size -> (integer)
       Block size of the disk, specified in bytes. The default is 4096.
     description -> (string)
       Description of the disk.
@@ -202,12 +202,12 @@ disk -> (oneof<disk-id|disk-spec>)
       Placement policy configuration.
       placement-group-id -> (string)
         Placement group ID.
-      placement-group-partition -> (int)
+      placement-group-partition -> (integer)
     kms-key-id -> (string)
       ID of KMS key for disk encryption
     name -> (string)
       Name of the disk.
-    size -> (int)
+    size -> (integer)
       Size of the disk, specified in bytes.
     type-id -> (string)
       ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.
@@ -232,8 +232,8 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    device-name = str,
-    filesystem-id = str,
+    device-name = string,
+    filesystem-id = string,
     mode = READ_ONLY|READ_WRITE
   }, ...
 ]
@@ -244,8 +244,8 @@ JSON Syntax:
 ```json
 [
   {
-    "device-name": "str",
-    "filesystem-id": "str",
+    "device-name": "string",
+    "filesystem-id": "string",
     "mode": "READ_ONLY|READ_WRITE"
   }, ...
 ]
@@ -272,7 +272,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  gpu-cluster-id = str
+  gpu-cluster-id = string
 }
 ```
 
@@ -280,7 +280,7 @@ JSON Syntax:
 
 ```json
 {
-  "gpu-cluster-id": "str"
+  "gpu-cluster-id": "string"
 }
 ```
 
@@ -293,7 +293,7 @@ gpu-cluster-id -> (string)
 || `--hostname` | `string`
 
 Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn] value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id] of the instance and FQDN will be '&lt;id&gt;.auto.internal'. Otherwise FQDN will be '&lt;hostname&gt;.&lt;region_id&gt;.internal'. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--local-disk-specs` | `shorthand/json`
@@ -305,7 +305,10 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    size = int
+    size = integer,
+    type = physical-local-disk={
+      kms-key-id = string
+    }
   }, ...
 ]
 ```
@@ -315,7 +318,12 @@ JSON Syntax:
 ```json
 [
   {
-    "size": "int"
+    "size": "integer",
+    "type": {
+      "physical-local-disk": {
+        "kms-key-id": "string"
+      }
+    }
   }, ...
 ]
 ```
@@ -323,8 +331,14 @@ JSON Syntax:
 Fields:
 
 ```
-size -> (int)
+size -> (integer)
   Size of the disk, specified in bytes.
+type -> (oneof<physical-local-disk>)
+  Oneof type field
+  physical-local-disk -> (struct)
+    Local disk configuration
+    kms-key-id -> (string)
+      ID of KMS key for disk encryption
 ``` ||
 || `--maintenance-grace-period` | `duration`
 
@@ -332,7 +346,7 @@ Time between notification via metadata service and maintenance (duration, e.g. 3
 || `--maintenance-policy` | `enum`
 
 Behaviour on maintenance events Possible Values: 'restart', 'migrate' ||
-|| `--metadata` | `stringToString`
+|| `--metadata` | `map<string><string>`
 
 The metadata 'key:value' pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see documentation. ||
 || `--metadata-options` | `shorthand/json`
@@ -385,55 +399,55 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    index = str,
+    index = string,
     primary-v4-address-spec = {
-      address = str,
+      address = string,
       dns-record-specs = [
         {
-          dns-zone-id = str,
-          fqdn = str,
-          ptr = bool,
-          ttl = int
+          dns-zone-id = string,
+          fqdn = string,
+          ptr = boolean,
+          ttl = integer
         }, ...
       ],
       one-to-one-nat-spec = {
-        address = str,
+        address = string,
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         ip-version = IPV4|IPV6
       }
     },
     primary-v6-address-spec = {
-      address = str,
+      address = string,
       dns-record-specs = [
         {
-          dns-zone-id = str,
-          fqdn = str,
-          ptr = bool,
-          ttl = int
+          dns-zone-id = string,
+          fqdn = string,
+          ptr = boolean,
+          ttl = integer
         }, ...
       ],
       one-to-one-nat-spec = {
-        address = str,
+        address = string,
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         ip-version = IPV4|IPV6
       }
     },
-    security-group-ids = str,...,
-    subnet-id = str
+    security-group-ids = string,...,
+    subnet-id = string
   }, ...
 ]
 ```
@@ -443,57 +457,57 @@ JSON Syntax:
 ```json
 [
   {
-    "index": "str",
+    "index": "string",
     "primary-v4-address-spec": {
-      "address": "str",
+      "address": "string",
       "dns-record-specs": [
         {
-          "dns-zone-id": "str",
-          "fqdn": "str",
-          "ptr": "bool",
-          "ttl": "int"
+          "dns-zone-id": "string",
+          "fqdn": "string",
+          "ptr": "boolean",
+          "ttl": "integer"
         }, ...
       ],
       "one-to-one-nat-spec": {
-        "address": "str",
+        "address": "string",
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "ip-version": "IPV4|IPV6"
       }
     },
     "primary-v6-address-spec": {
-      "address": "str",
+      "address": "string",
       "dns-record-specs": [
         {
-          "dns-zone-id": "str",
-          "fqdn": "str",
-          "ptr": "bool",
-          "ttl": "int"
+          "dns-zone-id": "string",
+          "fqdn": "string",
+          "ptr": "boolean",
+          "ttl": "integer"
         }, ...
       ],
       "one-to-one-nat-spec": {
-        "address": "str",
+        "address": "string",
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "ip-version": "IPV4|IPV6"
       }
     },
     "security-group-ids": [
-      "str", ...
+      "string", ...
     ],
-    "subnet-id": "str"
+    "subnet-id": "string"
   }, ...
 ]
 ```
@@ -513,9 +527,9 @@ primary-v4-address-spec -> (struct)
       DNS zone id (optional, if not set, private zone used)
     fqdn -> (string)
       FQDN (required)
-    ptr -> (bool)
+    ptr -> (boolean)
       When set to true, also create PTR DNS record (optional)
-    ttl -> (int)
+    ttl -> (integer)
       DNS record ttl, values in 0-86400 (optional)
   one-to-one-nat-spec -> (struct)
     An external IP address configuration. If not specified, then this instance will have no external internet access.
@@ -526,9 +540,9 @@ primary-v4-address-spec -> (struct)
         DNS zone id (optional, if not set, private zone used)
       fqdn -> (string)
         FQDN (required)
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional)
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional)
     ip-version -> (struct)
       External IP address version.
@@ -542,9 +556,9 @@ primary-v6-address-spec -> (struct)
       DNS zone id (optional, if not set, private zone used)
     fqdn -> (string)
       FQDN (required)
-    ptr -> (bool)
+    ptr -> (boolean)
       When set to true, also create PTR DNS record (optional)
-    ttl -> (int)
+    ttl -> (integer)
       DNS record ttl, values in 0-86400 (optional)
   one-to-one-nat-spec -> (struct)
     An external IP address configuration. If not specified, then this instance will have no external internet access.
@@ -555,9 +569,9 @@ primary-v6-address-spec -> (struct)
         DNS zone id (optional, if not set, private zone used)
       fqdn -> (string)
         FQDN (required)
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional)
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional)
     ip-version -> (struct)
       External IP address version.
@@ -602,13 +616,13 @@ Shorthand Syntax:
 {
   host-affinity-rules = [
     {
-      key = str,
+      key = string,
       op = IN|NOT_IN,
-      values = str,...
+      values = string,...
     }, ...
   ],
-  placement-group-id = str,
-  placement-group-partition = int
+  placement-group-id = string,
+  placement-group-partition = integer
 }
 ```
 
@@ -618,15 +632,15 @@ JSON Syntax:
 {
   "host-affinity-rules": [
     {
-      "key": "str",
+      "key": "string",
       "op": "IN|NOT_IN",
       "values": [
-        "str", ...
+        "string", ...
       ]
     }, ...
   ],
-  "placement-group-id": "str",
-  "placement-group-partition": "int"
+  "placement-group-id": "string",
+  "placement-group-partition": "integer"
 }
 ```
 
@@ -643,7 +657,7 @@ host-affinity-rules -> ([]struct)
     Affinity value or host ID or host group ID
 placement-group-id -> (string)
   Placement group ID.
-placement-group-partition -> (int)
+placement-group-partition -> (integer)
   Placement group partition
 ``` ||
 || `--platform-id` | `string`
@@ -660,10 +674,10 @@ Shorthand Syntax:
 
 ```hcl
 {
-  core-fraction = int,
-  cores = int,
-  gpus = int,
-  memory = int
+  core-fraction = integer,
+  cores = integer,
+  gpus = integer,
+  memory = integer
 }
 ```
 
@@ -671,23 +685,23 @@ JSON Syntax:
 
 ```json
 {
-  "core-fraction": "int",
-  "cores": "int",
-  "gpus": "int",
-  "memory": "int"
+  "core-fraction": "integer",
+  "cores": "integer",
+  "gpus": "integer",
+  "memory": "integer"
 }
 ```
 
 Fields:
 
 ```
-core-fraction -> (int)
+core-fraction -> (integer)
   Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see documentation.
-cores -> (int)
+cores -> (integer)
   The number of cores available to the instance.
-gpus -> (int)
+gpus -> (integer)
   The number of GPUs available to the instance.
-memory -> (int)
+memory -> (integer)
   The amount of memory available to the instance, specified in bytes.
 ``` ||
 || `--scheduling-policy` | `shorthand/json`
@@ -698,7 +712,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  preemptible = bool
+  preemptible = boolean
 }
 ```
 
@@ -706,14 +720,14 @@ JSON Syntax:
 
 ```json
 {
-  "preemptible": "bool"
+  "preemptible": "boolean"
 }
 ```
 
 Fields:
 
 ```
-preemptible -> (bool)
+preemptible -> (boolean)
   True for short-lived compute instances. For more information, see documentation.
 ``` ||
 || `--secondary-disk-specs` | `shorthand/json`
@@ -725,20 +739,20 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    auto-delete = bool,
-    device-name = str,
-    disk = disk-id=str | disk-spec={
-      block-size = int,
-      description = str,
+    auto-delete = boolean,
+    device-name = string,
+    disk = disk-id=string | disk-spec={
+      block-size = integer,
+      description = string,
       disk-placement-policy = {
-        placement-group-id = str,
-        placement-group-partition = int
+        placement-group-id = string,
+        placement-group-partition = integer
       },
-      kms-key-id = str,
-      name = str,
-      size = int,
-      source = image-id=str | snapshot-id=str,
-      type-id = str
+      kms-key-id = string,
+      name = string,
+      size = integer,
+      source = image-id=string | snapshot-id=string,
+      type-id = string
     },
     mode = READ_ONLY|READ_WRITE
   }, ...
@@ -750,25 +764,25 @@ JSON Syntax:
 ```json
 [
   {
-    "auto-delete": "bool",
-    "device-name": "str",
+    "auto-delete": "boolean",
+    "device-name": "string",
     "disk": {
-      "disk-id": "str",
+      "disk-id": "string",
       "disk-spec": {
-        "block-size": "int",
-        "description": "str",
+        "block-size": "integer",
+        "description": "string",
         "disk-placement-policy": {
-          "placement-group-id": "str",
-          "placement-group-partition": "int"
+          "placement-group-id": "string",
+          "placement-group-partition": "integer"
         },
-        "kms-key-id": "str",
-        "name": "str",
-        "size": "int",
+        "kms-key-id": "string",
+        "name": "string",
+        "size": "integer",
         "source": {
-          "image-id": "str",
-          "snapshot-id": "str"
+          "image-id": "string",
+          "snapshot-id": "string"
         },
-        "type-id": "str"
+        "type-id": "string"
       }
     },
     "mode": "READ_ONLY|READ_WRITE"
@@ -779,7 +793,7 @@ JSON Syntax:
 Fields:
 
 ```
-auto-delete -> (bool)
+auto-delete -> (boolean)
   Specifies whether the disk will be auto-deleted when the instance is deleted.
 device-name -> (string)
   Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.
@@ -789,7 +803,7 @@ disk -> (oneof<disk-id|disk-spec>)
   Oneof disk field
   disk-spec -> (struct)
     Disk specification.
-    block-size -> (int)
+    block-size -> (integer)
       Block size of the disk, specified in bytes. The default is 4096.
     description -> (string)
       Description of the disk.
@@ -797,12 +811,12 @@ disk -> (oneof<disk-id|disk-spec>)
       Placement policy configuration.
       placement-group-id -> (string)
         Placement group ID.
-      placement-group-partition -> (int)
+      placement-group-partition -> (integer)
     kms-key-id -> (string)
       ID of KMS key for disk encryption
     name -> (string)
       Name of the disk.
-    size -> (int)
+    size -> (integer)
       Size of the disk, specified in bytes.
     type-id -> (string)
       ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.
@@ -868,16 +882,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -79,8 +79,6 @@ Syntax:
 
   - [yc beta managed-mysql database list](database/list.md) — Retrieves the list of databases in a cluster.
 
-  - [yc beta managed-mysql database update](database/update.md) — Updates the specified database.
-
 - [yc beta managed-mysql resource-preset](resource-preset/index.md) — A set of methods for managing MySQL resource presets.
 
   - [yc beta managed-mysql resource-preset get](resource-preset/get.md) — Retrieves information about a resource preset.
@@ -121,16 +119,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

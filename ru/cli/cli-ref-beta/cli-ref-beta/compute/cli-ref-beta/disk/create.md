@@ -50,8 +50,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  placement-group-id = str,
-  placement-group-partition = int
+  placement-group-id = string,
+  placement-group-partition = integer
 }
 ```
 
@@ -59,8 +59,8 @@ JSON Syntax:
 
 ```json
 {
-  "placement-group-id": "str",
-  "placement-group-partition": "int"
+  "placement-group-id": "string",
+  "placement-group-partition": "integer"
 }
 ```
 
@@ -69,7 +69,7 @@ Fields:
 ```
 placement-group-id -> (string)
   Placement group ID.
-placement-group-partition -> (int)
+placement-group-partition -> (integer)
 ``` ||
 || `--folder-id` | `string`
 
@@ -113,7 +113,7 @@ features -> (oneof<generation2-features|legacy-features>)
 || `--kms-key-id` | `string`
 
 ID of KMS key for disk encryption. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -122,7 +122,7 @@ Name of the disk. ||
 || `--size` | `int`
 
 Size of the disk, specified in bytes. If the disk was created from a image, this value should be more than the [yandex.cloud.compute.v1.Image.min_disk_size] value. ||
-|| `--snapshot-schedule-ids` | `strings`
+|| `--snapshot-schedule-ids` | `[]string`
 
 List of IDs of the snapshot schedules to attach the disk to. ||
 || `--type-id` | `string`
@@ -158,16 +158,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

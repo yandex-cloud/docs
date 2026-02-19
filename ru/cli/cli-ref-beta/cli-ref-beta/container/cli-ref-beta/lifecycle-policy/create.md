@@ -52,11 +52,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    description = str,
+    description = string,
     expire-period = duration,
-    retained-top = int,
-    tag-regexp = str,
-    untagged = bool
+    retained-top = integer,
+    tag-regexp = string,
+    untagged = boolean
   }, ...
 ]
 ```
@@ -66,11 +66,11 @@ JSON Syntax:
 ```json
 [
   {
-    "description": "str",
+    "description": "string",
     "expire-period": "duration",
-    "retained-top": "int",
-    "tag-regexp": "str",
-    "untagged": "bool"
+    "retained-top": "integer",
+    "tag-regexp": "string",
+    "untagged": "boolean"
   }, ...
 ]
 ```
@@ -82,11 +82,11 @@ description -> (string)
   Description of the lifecycle policy rule.
 expire-period -> (duration)
   Period of time for automatic deletion. Period must be a multiple of 24 hours.
-retained-top -> (int)
+retained-top -> (integer)
   Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
 tag-regexp -> (string)
   Tag for specifying a filter in the form of a regular expression.
-untagged -> (bool)
+untagged -> (boolean)
   Tag for applying the rule to Docker images without tags.
 ``` ||
 || `--status` | `enum`
@@ -113,16 +113,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

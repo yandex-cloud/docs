@@ -46,12 +46,12 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    as-attachment = bool,
-    expires = int,
-    headers = {key=str, key=...},
-    method = str,
-    name = str,
-    version-id = str
+    as-attachment = boolean,
+    expires = integer,
+    headers = {key=string, key=...},
+    method = string,
+    name = string,
+    version-id = string
   }, ...
 ]
 ```
@@ -61,14 +61,14 @@ JSON Syntax:
 ```json
 [
   {
-    "as-attachment": "bool",
-    "expires": "int",
+    "as-attachment": "boolean",
+    "expires": "integer",
     "headers": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     },
-    "method": "str",
-    "name": "str",
-    "version-id": "str"
+    "method": "string",
+    "name": "string",
+    "version-id": "string"
   }, ...
 ]
 ```
@@ -76,9 +76,9 @@ JSON Syntax:
 Fields:
 
 ```
-as-attachment -> (bool)
+as-attachment -> (boolean)
   Whether to force download as attachment
-expires -> (int)
+expires -> (integer)
   Expiration time in seconds
 headers -> (map[string,string])
   Additional HTTP headers
@@ -112,16 +112,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -109,8 +109,6 @@ items:
         href: vpn.md
       - name: Полное доменное имя (FQDN)
         href: fqdn.md
-      - name: Протокол SSH
-        href: ssh-keygen.md
       - name: URL
         href: url.md
       - name: DHCP
@@ -121,6 +119,8 @@ items:
         href: tcp-ip.md
       - name: Вебхук
         href: webhook.md
+      - name: OpenAPI
+        href: openapi.md
   - name: Безопасность
     items:
       - name: Control Plane и Data Plane
@@ -141,4 +141,6 @@ items:
         href: jwt.md
       - name: Технология единого входа (SSO)
         href: sso.md
+      - name: Протокол SSH
+        href: ssh-keygen.md
 path: ru/glossary/toc.yaml

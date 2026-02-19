@@ -1,27 +1,14 @@
-# Работа с таблицей в {{ objstorage-name }} из PySpark-задания с использованием {{ metastore-full-name }} и {{ IBRG }}
+# Работа с таблицей формата {{ IBRG }} из PySpark-задания
 
 
-Интеграция {{ msp-full-name }} с [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) и {{ IBRG }} дает ряд возможностей и преимуществ при работе с данными в {{ objstorage-name }} через SQL-таблицы.
+В сервис {{ msp-full-name }} интегрирована библиотека {{ IBRG }}. Чтобы использовать в PySpark-задании возможности {{ IBRG }}, подключите к кластеру {{ msp-full-name }} сервер {{ metastore-name }}.
 
-{{ metastore-name }} обеспечивает:
-* Централизованное хранение метаданных о базах, таблицах и партициях.
-* Упрощенный доступ к данным без указания путей и схем вручную.
-* Хранение статистик таблиц и колонок для оптимизации запросов.
-
-{{ IBRG }} обеспечивает:
+Формат {{ IBRG }} обеспечивает:
 * Версионирование данных и хранение снимков состояний.
 * ACID-транзакции, которые поддерживают операции `UPDATE`, `DELETE`, `MERGE`, а также эволюцию таблиц и способа партиционирования.
 * Масштабируемость с сохранением высокой производительности операций.
 
-В этом руководстве показано, как использовать следующие возможности {{ metastore-name }} и {{ IBRG }} при работе с S3-хранилищем из PySpark-задания:
-
-* Обращение к таблице по имени.
-
-  {{ metastore-name }} использует глобальный каталог метаданных для всех кластеров. Сохраненные метаданные затем может использовать любое приложение из любого кластера {{ SPRK }}, подключенного к этому кластеру {{ metastore-name }}.
-
-* Создание и чтение снимков метаданных.
-
-  {{ IBRG }} фиксирует каждую запись в таблицу как новый снимок метаданных. В дальнейшем к этим снимкам можно обращаться, указав момент времени или идентификатор снимка.
+В этом руководстве показан пример использования формата таблиц {{ IBRG }} для создания и чтения снимков метаданных. Таблица {{ IBRG }} создается в S3-хранилище {{ objstorage-name }}. Кластер {{ msp-full-name }}, в котором запускается PySpark-задание, использует глобальный каталог {{ metastore-name }}. Подробнее о подключении глобального каталога см. в руководстве [{#T}](../../../managed-spark/tutorials/metastore-and-spark.md).
 
 Чтобы реализовать описанный пример:
 
@@ -66,9 +53,9 @@
 
     Вместе с ней автоматически создадутся три подсети в разных зонах доступности.
 
-1. Для кластера {{ SPRK }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
+1. Для кластера {{ msp-full-name }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
 
-    * Для исходящего трафика, чтобы разрешить подключение кластера {{ SPRK }} к {{ metastore-name }}:
+    * Для исходящего трафика, чтобы разрешить подключение кластера {{ msp-full-name }} к {{ metastore-name }}:
 
         * Диапазон портов — `{{ port-metastore }}`.
         * Протокол — `Любой` (`Any`).
@@ -98,7 +85,7 @@
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `integration-network-{{ region-id }}-a`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `metastore-sg`.
 
-1. [Создайте кластер {{ SPRK }}](../../../managed-spark/operations/cluster-create.md) с параметрами:
+1. [Создайте кластер {{ msp-full-name }}](../../../managed-spark/operations/cluster-create.md) с параметрами:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `spark-agent`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `integration-network`.
@@ -186,4 +173,4 @@
 
 1. [Бакеты {{ objstorage-name }}](../../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите из них все объекты](../../../storage/operations/objects/delete.md).
 1. [Кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
-1. [Кластер {{ SPRK }}](../../../managed-spark/operations/cluster-delete.md).
+1. [Кластер {{ msp-full-name }}](../../../managed-spark/operations/cluster-delete.md).

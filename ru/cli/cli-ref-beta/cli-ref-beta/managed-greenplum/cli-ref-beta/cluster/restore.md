@@ -46,15 +46,15 @@ Shorthand Syntax:
 ```hcl
 {
   access = {
-    data-lens = bool,
-    data-transfer = bool,
-    web-sql = bool,
-    yandex-query = bool
+    data-lens = boolean,
+    data-transfer = boolean,
+    web-sql = boolean,
+    yandex-query = boolean
   },
-  assign-public-ip = bool,
+  assign-public-ip = boolean,
   backup-window-start = timeofday,
-  subnet-id = str,
-  zone-id = str
+  subnet-id = string,
+  zone-id = string
 }
 ```
 
@@ -63,15 +63,15 @@ JSON Syntax:
 ```json
 {
   "access": {
-    "data-lens": "bool",
-    "data-transfer": "bool",
-    "web-sql": "bool",
-    "yandex-query": "bool"
+    "data-lens": "boolean",
+    "data-transfer": "boolean",
+    "web-sql": "boolean",
+    "yandex-query": "boolean"
   },
-  "assign-public-ip": "bool",
+  "assign-public-ip": "boolean",
   "backup-window-start": "timeofday",
-  "subnet-id": "str",
-  "zone-id": "str"
+  "subnet-id": "string",
+  "zone-id": "string"
 }
 ```
 
@@ -80,15 +80,15 @@ Fields:
 ```
 access -> (struct)
   Access policy for external services.
-  data-lens -> (bool)
+  data-lens -> (boolean)
     Allows data export from the cluster to DataLens.
-  data-transfer -> (bool)
+  data-transfer -> (boolean)
     Allows access for DataTransfer.
-  web-sql -> (bool)
+  web-sql -> (boolean)
     Allows SQL queries to the cluster databases from the management console.
-  yandex-query -> (bool)
+  yandex-query -> (boolean)
     Allow access for YandexQuery.
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Determines whether the host should get a public IP address on creation. After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assign_public_ip] set as needed. Possible values: * 'false' - do not assign a public IP to the master host. * 'true' - assign a public IP to the master host.
 backup-window-start -> (timeofday)
   Time to start the daily backup, in the UTC timezone.
@@ -107,10 +107,10 @@ Deployment environment of the Greenplum® cluster. Possible Values: 'production'
 || `--folder-id` | `string`
 
 ID of the folder to create the Greenplum® cluster in. ||
-|| `--host-group-ids` | `strings`
+|| `--host-group-ids` | `[]string`
 
 Host groups to place VMs of cluster on. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Custom labels for the Greenplum® cluster as 'key:value' pairs. For example, "project":"mvp" or "source":"dictionary". ||
 || `--maintenance-window` | `shorthand/json`
@@ -123,7 +123,7 @@ Shorthand Syntax:
 {
   policy = anytime={} | weekly-maintenance-window={
     day = MON|TUE|WED|THU|FRI|SAT|SUN,
-    hour = int
+    hour = integer
   }
 }
 ```
@@ -136,7 +136,7 @@ JSON Syntax:
     "anytime": {},
     "weekly-maintenance-window": {
       "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
-      "hour": "int"
+      "hour": "integer"
     }
   }
 }
@@ -153,10 +153,10 @@ policy -> (oneof<anytime|weekly-maintenance-window>)
     A weekly maintenance window.
     day -> (struct)
       Day of the week.
-    hour -> (int)
+    hour -> (integer)
       Hour of the day in the UTC timezone.
 ``` ||
-|| `--master-host-group-ids` | `strings`
+|| `--master-host-group-ids` | `[]string`
 
 Host groups hosting VMs of the master subcluster. ||
 || `--master-resources` | `shorthand/json`
@@ -167,9 +167,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  disk-size = int,
-  disk-type-id = str,
-  resource-preset-id = str
+  disk-size = integer,
+  disk-type-id = string,
+  resource-preset-id = string
 }
 ```
 
@@ -177,16 +177,16 @@ JSON Syntax:
 
 ```json
 {
-  "disk-size": "int",
-  "disk-type-id": "str",
-  "resource-preset-id": "str"
+  "disk-size": "integer",
+  "disk-type-id": "string",
+  "resource-preset-id": "string"
 }
 ```
 
 Fields:
 
 ```
-disk-size -> (int)
+disk-size -> (integer)
   Volume of the storage used by the host, in bytes.
 disk-type-id -> (string)
   Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.
@@ -199,16 +199,16 @@ Name of the Greenplum® cluster. The name must be unique within the folder. ||
 || `--network-id` | `string`
 
 ID of the network to create the cluster in. ||
-|| `--restore-only` | `strings`
+|| `--restore-only` | `[]string`
 
 List of databases and tables to restore ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 User security groups. ||
 || `--segment-host-count` | `int`
 
 Number of segment hosts ||
-|| `--segment-host-group-ids` | `strings`
+|| `--segment-host-group-ids` | `[]string`
 
 Host groups hosting VMs of the segment subcluster. ||
 || `--segment-in-host` | `int`
@@ -222,9 +222,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  disk-size = int,
-  disk-type-id = str,
-  resource-preset-id = str
+  disk-size = integer,
+  disk-type-id = string,
+  resource-preset-id = string
 }
 ```
 
@@ -232,16 +232,16 @@ JSON Syntax:
 
 ```json
 {
-  "disk-size": "int",
-  "disk-type-id": "str",
-  "resource-preset-id": "str"
+  "disk-size": "integer",
+  "disk-type-id": "string",
+  "resource-preset-id": "string"
 }
 ```
 
 Fields:
 
 ```
-disk-size -> (int)
+disk-size -> (integer)
   Volume of the storage used by the host, in bytes.
 disk-type-id -> (string)
   Type of the storage used by the host: 'network-hdd', 'network-ssd' or 'local-ssd'.
@@ -275,16 +275,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

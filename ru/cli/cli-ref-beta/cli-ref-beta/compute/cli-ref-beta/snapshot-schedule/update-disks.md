@@ -35,10 +35,10 @@ Usage example:
 1. Generate template: yc beta compute instance create --example-yaml > request.yaml
 2. Edit the template: vim request.yaml
 3. Run with template: yc beta compute instance create -r request.yaml ||
-|| `--add` | `strings`
+|| `--add` | `[]string`
 
 List of IDs of the disks to attach to the specified schedule. To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List] request. ||
-|| `--remove` | `strings`
+|| `--remove` | `[]string`
 
 List of IDs of the disks to detach from the specified schedule. To get an ID of a disk attached to the schedule, make a [SnapshotScheduleService.ListDisks] request. ||
 || `--snapshot-schedule-id` | `string`
@@ -65,16 +65,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -23,7 +23,7 @@
 
 {% cut "На партнерском портале Yandex Cloud пользователи с этой ролью могут:" %}
 
-* [создавать](../../../partner/program/var-pin-client.md#client-entry) записи о клиентах ([сабаккаунты](../../../partner/terms.md#sub-account));
+* [создавать](../../../partner/operations/pin-client.md#client-entry) записи о клиентах ([сабаккаунты](../../../partner/terms.md#sub-account));
 * просматривать список и данные сабаккаунтов;
 * активировать сабаккаунты;
 * приостанавливать работу сабаккаунтов;

@@ -5,7 +5,7 @@ description: Инструкция описывает, как загрузить 
 
 # Загрузить Docker-образ в реестр {{ cloud-registry-name }}
 
-Инструкция описывает, как загрузить локальный [Docker-образ](../../concepts/docker-image.md) в реестр.
+Инструкция описывает, как загрузить локальный [Docker-образ](../../concepts/artifacts/docker.md) в реестр.
 
 {% note info %}
 
@@ -19,7 +19,7 @@ description: Инструкция описывает, как загрузить 
 
 - CLI {#cli}
 
-  1. Посмотрите список доступных для загрузки [Docker-образов](../../concepts/docker-image.md):
+  1. Посмотрите список доступных для загрузки [Docker-образов](../../concepts/artifacts/docker.md):
 
      ```bash
      docker image list

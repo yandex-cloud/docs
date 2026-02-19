@@ -51,42 +51,42 @@ Shorthand Syntax:
   hadoop = {
     initialization-actions = [
       {
-        args = str,...,
-        timeout = int,
-        uri = str
+        args = string,...,
+        timeout = integer,
+        uri = string
       }, ...
     ],
-    oslogin-enabled = bool,
-    properties = {key=str, key=...},
+    oslogin-enabled = boolean,
+    properties = {key=string, key=...},
     services = [
       HDFS|YARN|MAPREDUCE|HIVE|TEZ|ZOOKEEPER|HBASE|SQOOP|FLUME|SPARK|ZEPPELIN|OOZIE|LIVY, ...
     ],
-    ssh-public-keys = str,...
+    ssh-public-keys = string,...
   },
   subclusters-spec = [
     {
-      assign-public-ip = bool,
+      assign-public-ip = boolean,
       autoscaling-config = {
-        cpu-utilization-target = double,
-        decommission-timeout = int,
-        max-hosts-count = int,
+        cpu-utilization-target = float64,
+        decommission-timeout = integer,
+        max-hosts-count = integer,
         measurement-duration = duration,
-        preemptible = bool,
+        preemptible = boolean,
         stabilization-duration = duration,
         warmup-duration = duration
       },
-      hosts-count = int,
-      name = str,
+      hosts-count = integer,
+      name = string,
       resources = {
-        disk-size = int,
-        disk-type-id = str,
-        resource-preset-id = str
+        disk-size = integer,
+        disk-type-id = string,
+        resource-preset-id = string
       },
       role = MASTERNODE|DATANODE|COMPUTENODE,
-      subnet-id = str
+      subnet-id = string
     }, ...
   ],
-  version-id = str
+  version-id = string
 }
 ```
 
@@ -98,47 +98,47 @@ JSON Syntax:
     "initialization-actions": [
       {
         "args": [
-          "str", ...
+          "string", ...
         ],
-        "timeout": "int",
-        "uri": "str"
+        "timeout": "integer",
+        "uri": "string"
       }, ...
     ],
-    "oslogin-enabled": "bool",
+    "oslogin-enabled": "boolean",
     "properties": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     },
     "services": [
       "HDFS|YARN|MAPREDUCE|HIVE|TEZ|ZOOKEEPER|HBASE|SQOOP|FLUME|SPARK|ZEPPELIN|OOZIE|LIVY", ...
     ],
     "ssh-public-keys": [
-      "str", ...
+      "string", ...
     ]
   },
   "subclusters-spec": [
     {
-      "assign-public-ip": "bool",
+      "assign-public-ip": "boolean",
       "autoscaling-config": {
-        "cpu-utilization-target": "double",
-        "decommission-timeout": "int",
-        "max-hosts-count": "int",
+        "cpu-utilization-target": "float64",
+        "decommission-timeout": "integer",
+        "max-hosts-count": "integer",
         "measurement-duration": "duration",
-        "preemptible": "bool",
+        "preemptible": "boolean",
         "stabilization-duration": "duration",
         "warmup-duration": "duration"
       },
-      "hosts-count": "int",
-      "name": "str",
+      "hosts-count": "integer",
+      "name": "string",
       "resources": {
-        "disk-size": "int",
-        "disk-type-id": "str",
-        "resource-preset-id": "str"
+        "disk-size": "integer",
+        "disk-type-id": "string",
+        "resource-preset-id": "string"
       },
       "role": "MASTERNODE|DATANODE|COMPUTENODE",
-      "subnet-id": "str"
+      "subnet-id": "string"
     }, ...
   ],
-  "version-id": "str"
+  "version-id": "string"
 }
 ```
 
@@ -151,11 +151,11 @@ hadoop -> (struct)
     Set of init-actions
     args -> ([]string)
       Arguments to the initialization action
-    timeout -> (int)
+    timeout -> (integer)
       Execution timeout
     uri -> (string)
       URI of the executable file
-  oslogin-enabled -> (bool)
+  oslogin-enabled -> (boolean)
     Oslogin enable on cluster nodes
   properties -> (map[string,string])
     Properties set for all hosts in '*-site.xml' configurations. The key should indicate the service and the property. For example, use the key 'hdfs:dfs.replication' to set the 'dfs.replication' property in the file '/etc/hadoop/conf/hdfs-site.xml'.
@@ -165,31 +165,31 @@ hadoop -> (struct)
     List of public SSH keys to access to cluster hosts.
 subclusters-spec -> ([]struct)
   Specification for creating subclusters.
-  assign-public-ip -> (bool)
+  assign-public-ip -> (boolean)
     Assign public ip addresses for all hosts in subcluter.
   autoscaling-config -> (struct)
     Configuration for instance group based subclusters
-    cpu-utilization-target -> (double)
+    cpu-utilization-target -> (float64)
       Defines an autoscaling rule based on the average CPU utilization of the instance group.
-    decommission-timeout -> (int)
+    decommission-timeout -> (integer)
       Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
-    max-hosts-count -> (int)
+    max-hosts-count -> (integer)
       Upper limit for total instance subcluster count.
     measurement-duration -> (duration)
       Time in seconds allotted for averaging metrics.
-    preemptible -> (bool)
+    preemptible -> (boolean)
       Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see documentation.
     stabilization-duration -> (duration)
       Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.
     warmup-duration -> (duration)
       The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.
-  hosts-count -> (int)
+  hosts-count -> (integer)
     Number of hosts in the subcluster.
   name -> (string)
     Name of the subcluster.
   resources -> (struct)
     Resource configuration for hosts in the subcluster.
-    disk-size -> (int)
+    disk-size -> (integer)
       Volume of the storage available to a host, in bytes.
     disk-type-id -> (string)
       Type of the storage environment for the host. Possible values: * network-hdd - network HDD drive, * network-ssd - network SSD drive.
@@ -212,10 +212,10 @@ Environment of the cluster Possible Values: 'production', 'prestable' ||
 || `--folder-id` | `string`
 
 ID of the folder to create a cluster in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--host-group-ids` | `strings`
+|| `--host-group-ids` | `[]string`
 
 Host groups to place VMs of cluster on. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Cluster labels as 'key:value' pairs. ||
 || `--log-group-id` | `string`
@@ -224,7 +224,7 @@ ID of the cloud logging log group to write logs. If not set, logs will not be se
 || `--name` | `string`
 
 Name of the cluster. The name must be unique within the folder. The name can't be changed after the Yandex Data Processing cluster is created. ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 User security groups. ||
 || `--service-account-id` | `string`
@@ -255,16 +255,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -106,7 +106,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} удалит все требуемые ресурсы. Проверить наличие ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+     {{ TF }} удалит все требуемые ресурсы. Проверить наличие ресурсов можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../cli/):
 
       ```bash
       yc organization-manager user-ssh-key list \

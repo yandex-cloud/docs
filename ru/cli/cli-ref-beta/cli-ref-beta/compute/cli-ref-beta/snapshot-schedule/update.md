@@ -21,7 +21,7 @@ Syntax:
 || `--description` | `string`
 
 New description of the snapshot schedule. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Snapshot schedule labels as 'key:value' pairs. Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: 1. Get the current set of labels with a [SnapshotScheduleService.Get] request. 2. Add or remove a label in this set. 3. Send the new set in this field. ||
 || `--name` | `string`
@@ -35,7 +35,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  expression = str,
+  expression = string,
   start-at = timestamp
 }
 ```
@@ -44,7 +44,7 @@ JSON Syntax:
 
 ```json
 {
-  "expression": "str",
+  "expression": "string",
   "start-at": "timestamp"
 }
 ```
@@ -68,8 +68,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  description = str,
-  labels = {key=str, key=...}
+  description = string,
+  labels = {key=string, key=...}
 }
 ```
 
@@ -77,9 +77,9 @@ JSON Syntax:
 
 ```json
 {
-  "description": "str",
+  "description": "string",
   "labels": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   }
 }
 ```
@@ -119,16 +119,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

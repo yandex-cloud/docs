@@ -70,19 +70,19 @@ items:
       - name: Артефакты
         items:
           - name: Обзор
-            href: concepts/artifacts.md
+            href: concepts/artifacts/index.md
           - name: Docker-образ
-            href: concepts/docker-image.md
+            href: concepts/artifacts/docker.md
           - name: Java-артефакт
-            href: concepts/art-java.md
+            href: concepts/artifacts/java.md
           - name: Node.js-артефакт
-            href: concepts/art-nodejs.md
+            href: concepts/artifacts/nodejs.md
           - name: NuGet-артефакт
-            href: concepts/art-nuget.md
+            href: concepts/artifacts/nuget.md
           - name: Python-артефакт
-            href: concepts/art-python.md
+            href: concepts/artifacts/python.md
           - name: Binary-артефакт
-            href: concepts/art-binary.md
+            href: concepts/artifacts/binary.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

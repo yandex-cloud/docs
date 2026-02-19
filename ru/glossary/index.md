@@ -63,24 +63,40 @@
 
 ## Сети и доставка контента {#networks}
 
+### Сетевые протоколы и технологии передачи данных {#network-protocols}
+
 * [{#T}](cdn.md)
-* [{#T}](cli.md)
-* [{#T}](cookie.md)
-* [{#T}](cors.md)
 * [{#T}](dhcp.md)
 * [{#T}](dns.md)
 * [{#T}](fqdn.md)
-* [{#T}](grpc.md)
-* [{#T}](observability.md)
+* [{#T}](tcp-ip.md)
+* [{#T}](vpn.md)
+
+### Веб‑протоколы и API {#web-protocols-api}
+
 * [{#T}](rest-api.md)
 * [{#T}](soap.md)
-* [{#T}](ssh-keygen.md)
+* [{#T}](grpc.md)
+* [{#T}](cors.md)
+* [{#T}](openapi.md)
+
+### Идентификация и адресация в сети {#identity-addressing}
+
 * [{#T}](url.md)
-* [{#T}](vpn.md)
-* [{#T}](dhcp.md)
-* [{#T}](soap.md)
-* [{#T}](tcp-ip.md)
+* [{#T}](fqdn.md)
+
+### Механизмы взаимодействия и обмена данными {#interaction-mechanisms}
+
 * [{#T}](webhook.md)
+* [{#T}](cookie.md)
+
+### Инструменты и среды работы {#tools-environments}
+
+* [{#T}](cli.md)
+
+### Мониторинг и наблюдаемость систем {#monitoring-observability}
+
+* [{#T}](observability.md)
 
 ## Безопасность {#security}
 
@@ -93,3 +109,4 @@
 * [{#T}](ddos.md)
 * [{#T}](jwt.md)
 * [{#T}](sso.md)
+* [{#T}](ssh-keygen.md)

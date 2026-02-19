@@ -37,13 +37,13 @@ Usage example:
 || `--description` | `string`
 
 Description of the snapshot schedule. ||
-|| `--disk-ids` | `strings`
+|| `--disk-ids` | `[]string`
 
 List of IDs of the disks attached to the snapshot schedule. To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List] request. ||
 || `--folder-id` | `string`
 
 ID of the folder to create a snapshot schedule in. Snapshots are created in the same folder as the schedule, even if disks from other folders are attached to the schedule. To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Snapshot schedule labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -57,7 +57,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  expression = str,
+  expression = string,
   start-at = timestamp
 }
 ```
@@ -66,7 +66,7 @@ JSON Syntax:
 
 ```json
 {
-  "expression": "str",
+  "expression": "string",
   "start-at": "timestamp"
 }
 ```
@@ -87,8 +87,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  description = str,
-  labels = {key=str, key=...}
+  description = string,
+  labels = {key=string, key=...}
 }
 ```
 
@@ -96,9 +96,9 @@ JSON Syntax:
 
 ```json
 {
-  "description": "str",
+  "description": "string",
   "labels": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   }
 }
 ```
@@ -138,16 +138,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

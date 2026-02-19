@@ -48,144 +48,144 @@ Shorthand Syntax:
 ```hcl
 {
   access = {
-    data-lens = bool,
-    web-sql = bool
+    data-lens = boolean,
+    web-sql = boolean
   },
-  backup-retain-period-days = int,
+  backup-retain-period-days = integer,
   backup-window-start = timeofday,
   disk-size-autoscaling = {
-    disk-size-limit = int,
-    emergency-usage-threshold = int,
-    planned-usage-threshold = int
+    disk-size-limit = integer,
+    emergency-usage-threshold = integer,
+    planned-usage-threshold = integer
   },
   modules = {
     valkey-bloom = {
-      enabled = bool
+      enabled = boolean
     },
     valkey-json = {
-      enabled = bool
+      enabled = boolean
     },
     valkey-search = {
-      enabled = bool,
-      reader-threads = int,
-      writer-threads = int
+      enabled = boolean,
+      reader-threads = integer,
+      writer-threads = integer
     }
   },
   redis = {
-    activedefrag = bool,
-    allow-data-loss = bool,
-    aof-max-size-percent = int,
+    activedefrag = boolean,
+    allow-data-loss = boolean,
+    aof-max-size-percent = integer,
     client-output-buffer-limit-normal = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
     client-output-buffer-limit-pubsub = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
-    cluster-allow-pubsubshard-when-down = bool,
-    cluster-allow-reads-when-down = bool,
-    cluster-require-full-coverage = bool,
-    databases = int,
-    io-threads-allowed = bool,
-    lfu-decay-time = int,
-    lfu-log-factor = int,
-    lua-time-limit = int,
-    maxmemory-percent = int,
+    cluster-allow-pubsubshard-when-down = boolean,
+    cluster-allow-reads-when-down = boolean,
+    cluster-require-full-coverage = boolean,
+    databases = integer,
+    io-threads-allowed = boolean,
+    lfu-decay-time = integer,
+    lfu-log-factor = integer,
+    lua-time-limit = integer,
+    maxmemory-percent = integer,
     maxmemory-policy = VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION,
-    notify-keyspace-events = str,
-    password = str,
-    repl-backlog-size-percent = int,
-    slowlog-log-slower-than = int,
-    slowlog-max-len = int,
-    timeout = int,
-    turn-before-switchover = bool,
-    use-luajit = bool,
-    zset-max-listpack-entries = int
+    notify-keyspace-events = string,
+    password = string,
+    repl-backlog-size-percent = integer,
+    slowlog-log-slower-than = integer,
+    slowlog-max-len = integer,
+    timeout = integer,
+    turn-before-switchover = boolean,
+    use-luajit = boolean,
+    zset-max-listpack-entries = integer
   },
   redis-spec = redis-config-5-0={
     client-output-buffer-limit-normal = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
     client-output-buffer-limit-pubsub = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
-    databases = int,
+    databases = integer,
     maxmemory-policy = VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION,
-    notify-keyspace-events = str,
-    password = str,
-    slowlog-log-slower-than = int,
-    slowlog-max-len = int,
-    timeout = int
+    notify-keyspace-events = string,
+    password = string,
+    slowlog-log-slower-than = integer,
+    slowlog-max-len = integer,
+    timeout = integer
   } | redis-config-6-0={
     client-output-buffer-limit-normal = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
     client-output-buffer-limit-pubsub = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
-    databases = int,
+    databases = integer,
     maxmemory-policy = VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION,
-    notify-keyspace-events = str,
-    password = str,
-    slowlog-log-slower-than = int,
-    slowlog-max-len = int,
-    timeout = int
+    notify-keyspace-events = string,
+    password = string,
+    slowlog-log-slower-than = integer,
+    slowlog-max-len = integer,
+    timeout = integer
   } | redis-config-6-2={
     client-output-buffer-limit-normal = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
     client-output-buffer-limit-pubsub = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
-    databases = int,
-    maxmemory-percent = int,
+    databases = integer,
+    maxmemory-percent = integer,
     maxmemory-policy = VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION,
-    notify-keyspace-events = str,
-    password = str,
-    slowlog-log-slower-than = int,
-    slowlog-max-len = int,
-    timeout = int
+    notify-keyspace-events = string,
+    password = string,
+    slowlog-log-slower-than = integer,
+    slowlog-max-len = integer,
+    timeout = integer
   } | redis-config-7-0={
     client-output-buffer-limit-normal = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
     client-output-buffer-limit-pubsub = {
-      hard-limit = int,
-      soft-limit = int,
-      soft-seconds = int
+      hard-limit = integer,
+      soft-limit = integer,
+      soft-seconds = integer
     },
-    databases = int,
-    maxmemory-percent = int,
+    databases = integer,
+    maxmemory-percent = integer,
     maxmemory-policy = VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION,
-    notify-keyspace-events = str,
-    password = str,
-    slowlog-log-slower-than = int,
-    slowlog-max-len = int,
-    timeout = int
+    notify-keyspace-events = string,
+    password = string,
+    slowlog-log-slower-than = integer,
+    slowlog-max-len = integer,
+    timeout = integer
   },
   resources = {
-    disk-size = int,
-    disk-type-id = str,
-    resource-preset-id = str
+    disk-size = integer,
+    disk-type-id = string,
+    resource-preset-id = string
   },
-  version = str
+  version = string
 }
 ```
 
@@ -194,149 +194,149 @@ JSON Syntax:
 ```json
 {
   "access": {
-    "data-lens": "bool",
-    "web-sql": "bool"
+    "data-lens": "boolean",
+    "web-sql": "boolean"
   },
-  "backup-retain-period-days": "int",
+  "backup-retain-period-days": "integer",
   "backup-window-start": "timeofday",
   "disk-size-autoscaling": {
-    "disk-size-limit": "int",
-    "emergency-usage-threshold": "int",
-    "planned-usage-threshold": "int"
+    "disk-size-limit": "integer",
+    "emergency-usage-threshold": "integer",
+    "planned-usage-threshold": "integer"
   },
   "modules": {
     "valkey-bloom": {
-      "enabled": "bool"
+      "enabled": "boolean"
     },
     "valkey-json": {
-      "enabled": "bool"
+      "enabled": "boolean"
     },
     "valkey-search": {
-      "enabled": "bool",
-      "reader-threads": "int",
-      "writer-threads": "int"
+      "enabled": "boolean",
+      "reader-threads": "integer",
+      "writer-threads": "integer"
     }
   },
   "redis": {
-    "activedefrag": "bool",
-    "allow-data-loss": "bool",
-    "aof-max-size-percent": "int",
+    "activedefrag": "boolean",
+    "allow-data-loss": "boolean",
+    "aof-max-size-percent": "integer",
     "client-output-buffer-limit-normal": {
-      "hard-limit": "int",
-      "soft-limit": "int",
-      "soft-seconds": "int"
+      "hard-limit": "integer",
+      "soft-limit": "integer",
+      "soft-seconds": "integer"
     },
     "client-output-buffer-limit-pubsub": {
-      "hard-limit": "int",
-      "soft-limit": "int",
-      "soft-seconds": "int"
+      "hard-limit": "integer",
+      "soft-limit": "integer",
+      "soft-seconds": "integer"
     },
-    "cluster-allow-pubsubshard-when-down": "bool",
-    "cluster-allow-reads-when-down": "bool",
-    "cluster-require-full-coverage": "bool",
-    "databases": "int",
-    "io-threads-allowed": "bool",
-    "lfu-decay-time": "int",
-    "lfu-log-factor": "int",
-    "lua-time-limit": "int",
-    "maxmemory-percent": "int",
+    "cluster-allow-pubsubshard-when-down": "boolean",
+    "cluster-allow-reads-when-down": "boolean",
+    "cluster-require-full-coverage": "boolean",
+    "databases": "integer",
+    "io-threads-allowed": "boolean",
+    "lfu-decay-time": "integer",
+    "lfu-log-factor": "integer",
+    "lua-time-limit": "integer",
+    "maxmemory-percent": "integer",
     "maxmemory-policy": "VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION",
-    "notify-keyspace-events": "str",
-    "password": "str",
-    "repl-backlog-size-percent": "int",
-    "slowlog-log-slower-than": "int",
-    "slowlog-max-len": "int",
-    "timeout": "int",
-    "turn-before-switchover": "bool",
-    "use-luajit": "bool",
-    "zset-max-listpack-entries": "int"
+    "notify-keyspace-events": "string",
+    "password": "string",
+    "repl-backlog-size-percent": "integer",
+    "slowlog-log-slower-than": "integer",
+    "slowlog-max-len": "integer",
+    "timeout": "integer",
+    "turn-before-switchover": "boolean",
+    "use-luajit": "boolean",
+    "zset-max-listpack-entries": "integer"
   },
   "redis-spec": {
     "redis-config-5-0": {
       "client-output-buffer-limit-normal": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
       "client-output-buffer-limit-pubsub": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
-      "databases": "int",
+      "databases": "integer",
       "maxmemory-policy": "VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION",
-      "notify-keyspace-events": "str",
-      "password": "str",
-      "slowlog-log-slower-than": "int",
-      "slowlog-max-len": "int",
-      "timeout": "int"
+      "notify-keyspace-events": "string",
+      "password": "string",
+      "slowlog-log-slower-than": "integer",
+      "slowlog-max-len": "integer",
+      "timeout": "integer"
     },
     "redis-config-6-0": {
       "client-output-buffer-limit-normal": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
       "client-output-buffer-limit-pubsub": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
-      "databases": "int",
+      "databases": "integer",
       "maxmemory-policy": "VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION",
-      "notify-keyspace-events": "str",
-      "password": "str",
-      "slowlog-log-slower-than": "int",
-      "slowlog-max-len": "int",
-      "timeout": "int"
+      "notify-keyspace-events": "string",
+      "password": "string",
+      "slowlog-log-slower-than": "integer",
+      "slowlog-max-len": "integer",
+      "timeout": "integer"
     },
     "redis-config-6-2": {
       "client-output-buffer-limit-normal": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
       "client-output-buffer-limit-pubsub": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
-      "databases": "int",
-      "maxmemory-percent": "int",
+      "databases": "integer",
+      "maxmemory-percent": "integer",
       "maxmemory-policy": "VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION",
-      "notify-keyspace-events": "str",
-      "password": "str",
-      "slowlog-log-slower-than": "int",
-      "slowlog-max-len": "int",
-      "timeout": "int"
+      "notify-keyspace-events": "string",
+      "password": "string",
+      "slowlog-log-slower-than": "integer",
+      "slowlog-max-len": "integer",
+      "timeout": "integer"
     },
     "redis-config-7-0": {
       "client-output-buffer-limit-normal": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
       "client-output-buffer-limit-pubsub": {
-        "hard-limit": "int",
-        "soft-limit": "int",
-        "soft-seconds": "int"
+        "hard-limit": "integer",
+        "soft-limit": "integer",
+        "soft-seconds": "integer"
       },
-      "databases": "int",
-      "maxmemory-percent": "int",
+      "databases": "integer",
+      "maxmemory-percent": "integer",
       "maxmemory-policy": "VOLATILE_LRU|ALLKEYS_LRU|VOLATILE_LFU|ALLKEYS_LFU|VOLATILE_RANDOM|ALLKEYS_RANDOM|VOLATILE_TTL|NOEVICTION",
-      "notify-keyspace-events": "str",
-      "password": "str",
-      "slowlog-log-slower-than": "int",
-      "slowlog-max-len": "int",
-      "timeout": "int"
+      "notify-keyspace-events": "string",
+      "password": "string",
+      "slowlog-log-slower-than": "integer",
+      "slowlog-max-len": "integer",
+      "timeout": "integer"
     }
   },
   "resources": {
-    "disk-size": "int",
-    "disk-type-id": "str",
-    "resource-preset-id": "str"
+    "disk-size": "integer",
+    "disk-type-id": "string",
+    "resource-preset-id": "string"
   },
-  "version": "str"
+  "version": "string"
 }
 ```
 
@@ -345,81 +345,81 @@ Fields:
 ```
 access -> (struct)
   Access policy to DB
-  data-lens -> (bool)
+  data-lens -> (boolean)
     Allow access for DataLens
-  web-sql -> (bool)
+  web-sql -> (boolean)
     Allow access for Web SQL.
-backup-retain-period-days -> (int)
+backup-retain-period-days -> (integer)
   Retain period of automatically created backup in days
 backup-window-start -> (timeofday)
   Time to start the daily backup, in the UTC timezone.
 disk-size-autoscaling -> (struct)
   Disk size autoscaling settings
-  disk-size-limit -> (int)
+  disk-size-limit -> (integer)
     Limit on how large the storage for database instances can automatically grow, in bytes.
-  emergency-usage-threshold -> (int)
+  emergency-usage-threshold -> (integer)
     Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
-  planned-usage-threshold -> (int)
+  planned-usage-threshold -> (integer)
     Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
 modules -> (struct)
   Valkey modules settings
   valkey-bloom -> (struct)
     valkey-bloom module settings
-    enabled -> (bool)
+    enabled -> (boolean)
       Enable valkey-bloom module
   valkey-json -> (struct)
     valkey-json module settings
-    enabled -> (bool)
+    enabled -> (boolean)
       Enable valkey-json module
   valkey-search -> (struct)
     valkey-search module settings
-    enabled -> (bool)
+    enabled -> (boolean)
       Enable valkey-search module
-    reader-threads -> (int)
+    reader-threads -> (integer)
       Controls the amount of threads executing queries
-    writer-threads -> (int)
+    writer-threads -> (integer)
       Controls the amount of threads processing index mutations
 redis -> (struct)
   Unified configuration of a Redis cluster
-  activedefrag -> (bool)
+  activedefrag -> (boolean)
     Enable active (online) memory defragmentation
-  allow-data-loss -> (bool)
+  allow-data-loss -> (boolean)
     Allows some data to be lost in favor of faster switchover/restart
-  aof-max-size-percent -> (int)
+  aof-max-size-percent -> (integer)
     AOF maximum size as a percentage of disk available
   client-output-buffer-limit-normal -> (struct)
     Redis connection output buffers limits for clients.
-    hard-limit -> (int)
+    hard-limit -> (integer)
       Total limit in bytes.
-    soft-limit -> (int)
+    soft-limit -> (integer)
       Limit in bytes during certain time period.
-    soft-seconds -> (int)
+    soft-seconds -> (integer)
       Seconds for soft limit.
   client-output-buffer-limit-pubsub -> (struct)
     Redis connection output buffers limits for pubsub operations.
-    hard-limit -> (int)
+    hard-limit -> (integer)
       Total limit in bytes.
-    soft-limit -> (int)
+    soft-limit -> (integer)
       Limit in bytes during certain time period.
-    soft-seconds -> (int)
+    soft-seconds -> (integer)
       Seconds for soft limit.
-  cluster-allow-pubsubshard-when-down -> (bool)
+  cluster-allow-pubsubshard-when-down -> (boolean)
     Permits Pub/Sub shard operations when cluster is down
-  cluster-allow-reads-when-down -> (bool)
+  cluster-allow-reads-when-down -> (boolean)
     Allows read operations when cluster is down
-  cluster-require-full-coverage -> (bool)
+  cluster-require-full-coverage -> (boolean)
     Controls whether all hash slots must be covered by nodes
-  databases -> (int)
+  databases -> (integer)
     Number of database buckets on a single redis-server process.
-  io-threads-allowed -> (bool)
+  io-threads-allowed -> (boolean)
     Allow redis to use io-threads
-  lfu-decay-time -> (int)
+  lfu-decay-time -> (integer)
     The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
-  lfu-log-factor -> (int)
+  lfu-log-factor -> (integer)
     Determines how the frequency counter represents key hits.
-  lua-time-limit -> (int)
+  lua-time-limit -> (integer)
     Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
-  maxmemory-percent -> (int)
+  maxmemory-percent -> (integer)
     Redis maxmemory percent
   maxmemory-policy -> (struct)
     Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis documentation. All policies are described in detail in Redis documentation.
@@ -427,23 +427,23 @@ redis -> (struct)
     String setting for pub\sub functionality.
   password -> (string)
     Authentication password.
-  repl-backlog-size-percent -> (int)
+  repl-backlog-size-percent -> (integer)
     Replication backlog size as a percentage of flavor maxmemory
-  slowlog-log-slower-than -> (int)
+  slowlog-log-slower-than -> (integer)
     Threshold for logging slow requests to server in microseconds (log only slower than it).
-  slowlog-max-len -> (int)
+  slowlog-max-len -> (integer)
     Max slow requests number to log.
-  timeout -> (int)
+  timeout -> (integer)
     Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.
-  turn-before-switchover -> (bool)
+  turn-before-switchover -> (boolean)
     Allows to turn before switchover in RDSync
-  use-luajit -> (bool)
+  use-luajit -> (boolean)
     Use JIT for lua scripts and functions
-  zset-max-listpack-entries -> (int)
+  zset-max-listpack-entries -> (integer)
     Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist
 resources -> (struct)
   Resources allocated to Redis hosts.
-  disk-size -> (int)
+  disk-size -> (integer)
     Volume of the storage available to a host, in bytes.
   disk-type-id -> (string)
     Type of the storage environment for the host. Possible values: * network-ssd - network SSD drive, * local-ssd - local SSD storage.
@@ -456,21 +456,21 @@ redis-spec -> (oneof<redis-config-5-0|redis-config-6-0|redis-config-6-2|redis-co
   redis-config-5-0 -> (struct)
     client-output-buffer-limit-normal -> (struct)
       Redis connection output buffers limits for clients.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
     client-output-buffer-limit-pubsub -> (struct)
       Redis connection output buffers limits for pubsub operations.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
-    databases -> (int)
+    databases -> (integer)
       Number of database buckets on a single redis-server process.
     maxmemory-policy -> (struct)
       Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis documentation. All policies are described in detail in Redis documentation.
@@ -478,30 +478,30 @@ redis-spec -> (oneof<redis-config-5-0|redis-config-6-0|redis-config-6-2|redis-co
       String setting for pub\sub functionality.
     password -> (string)
       Authentication password.
-    slowlog-log-slower-than -> (int)
+    slowlog-log-slower-than -> (integer)
       Threshold for logging slow requests to server in microseconds (log only slower than it).
-    slowlog-max-len -> (int)
+    slowlog-max-len -> (integer)
       Max slow requests number to log.
-    timeout -> (int)
+    timeout -> (integer)
       Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.
   redis-config-6-0 -> (struct)
     client-output-buffer-limit-normal -> (struct)
       Redis connection output buffers limits for clients.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
     client-output-buffer-limit-pubsub -> (struct)
       Redis connection output buffers limits for pubsub operations.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
-    databases -> (int)
+    databases -> (integer)
       Number of database buckets on a single redis-server process.
     maxmemory-policy -> (struct)
       Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis documentation. All policies are described in detail in Redis documentation.
@@ -509,32 +509,32 @@ redis-spec -> (oneof<redis-config-5-0|redis-config-6-0|redis-config-6-2|redis-co
       String setting for pub\sub functionality.
     password -> (string)
       Authentication password.
-    slowlog-log-slower-than -> (int)
+    slowlog-log-slower-than -> (integer)
       Threshold for logging slow requests to server in microseconds (log only slower than it).
-    slowlog-max-len -> (int)
+    slowlog-max-len -> (integer)
       Max slow requests number to log.
-    timeout -> (int)
+    timeout -> (integer)
       Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.
   redis-config-6-2 -> (struct)
     client-output-buffer-limit-normal -> (struct)
       Redis connection output buffers limits for clients.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
     client-output-buffer-limit-pubsub -> (struct)
       Redis connection output buffers limits for pubsub operations.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
-    databases -> (int)
+    databases -> (integer)
       Number of database buckets on a single redis-server process.
-    maxmemory-percent -> (int)
+    maxmemory-percent -> (integer)
       Redis maxmemory percent
     maxmemory-policy -> (struct)
       Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis documentation. All policies are described in detail in Redis documentation.
@@ -542,32 +542,32 @@ redis-spec -> (oneof<redis-config-5-0|redis-config-6-0|redis-config-6-2|redis-co
       String setting for pub\sub functionality.
     password -> (string)
       Authentication password.
-    slowlog-log-slower-than -> (int)
+    slowlog-log-slower-than -> (integer)
       Threshold for logging slow requests to server in microseconds (log only slower than it).
-    slowlog-max-len -> (int)
+    slowlog-max-len -> (integer)
       Max slow requests number to log.
-    timeout -> (int)
+    timeout -> (integer)
       Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.
   redis-config-7-0 -> (struct)
     client-output-buffer-limit-normal -> (struct)
       Redis connection output buffers limits for clients.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
     client-output-buffer-limit-pubsub -> (struct)
       Redis connection output buffers limits for pubsub operations.
-      hard-limit -> (int)
+      hard-limit -> (integer)
         Total limit in bytes.
-      soft-limit -> (int)
+      soft-limit -> (integer)
         Limit in bytes during certain time period.
-      soft-seconds -> (int)
+      soft-seconds -> (integer)
         Seconds for soft limit.
-    databases -> (int)
+    databases -> (integer)
       Number of database buckets on a single redis-server process.
-    maxmemory-percent -> (int)
+    maxmemory-percent -> (integer)
       Redis maxmemory percent
     maxmemory-policy -> (struct)
       Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis documentation. All policies are described in detail in Redis documentation.
@@ -575,11 +575,11 @@ redis-spec -> (oneof<redis-config-5-0|redis-config-6-0|redis-config-6-2|redis-co
       String setting for pub\sub functionality.
     password -> (string)
       Authentication password.
-    slowlog-log-slower-than -> (int)
+    slowlog-log-slower-than -> (integer)
       Threshold for logging slow requests to server in microseconds (log only slower than it).
-    slowlog-max-len -> (int)
+    slowlog-max-len -> (integer)
       Max slow requests number to log.
-    timeout -> (int)
+    timeout -> (integer)
       Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.
 ``` ||
 || `--deletion-protection` | Deletion Protection inhibits deletion of the cluster ||
@@ -604,11 +604,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    replica-priority = int,
-    shard-name = str,
-    subnet-id = str,
-    zone-id = str
+    assign-public-ip = boolean,
+    replica-priority = integer,
+    shard-name = string,
+    subnet-id = string,
+    zone-id = string
   }, ...
 ]
 ```
@@ -618,11 +618,11 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "replica-priority": "int",
-    "shard-name": "str",
-    "subnet-id": "str",
-    "zone-id": "str"
+    "assign-public-ip": "boolean",
+    "replica-priority": "integer",
+    "shard-name": "string",
+    "subnet-id": "string",
+    "zone-id": "string"
   }, ...
 ]
 ```
@@ -630,9 +630,9 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Whether the host should get a public IP address on creation. Possible values: * false - don't assign a public IP to the host. * true - the host should have a public IP address.
-replica-priority -> (int)
+replica-priority -> (integer)
   A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100.
 shard-name -> (string)
   ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards] request.
@@ -641,7 +641,7 @@ subnet-id -> (string)
 zone-id -> (string)
   ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Custom labels for the Redis cluster as '' key:value '' pairs. Maximum 64 per cluster. For example, "project": "mvp" or "source": "dictionary". ||
 || `--maintenance-window` | `shorthand/json`
@@ -654,7 +654,7 @@ Shorthand Syntax:
 {
   policy = anytime={} | weekly-maintenance-window={
     day = MON|TUE|WED|THU|FRI|SAT|SUN,
-    hour = int
+    hour = integer
   }
 }
 ```
@@ -667,7 +667,7 @@ JSON Syntax:
     "anytime": {},
     "weekly-maintenance-window": {
       "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
-      "hour": "int"
+      "hour": "integer"
     }
   }
 }
@@ -684,7 +684,7 @@ policy -> (oneof<anytime|weekly-maintenance-window>)
     Maintenance operation can be scheduled on a weekly basis.
     day -> (struct)
       Day of the week (in 'DDD' format).
-    hour -> (int)
+    hour -> (integer)
       Hour of the day in UTC (in 'HH' format).
 ``` ||
 || `--name` | `string`
@@ -696,7 +696,7 @@ ID of the network to create the Redis cluster in. ||
 || `--persistence-mode` | `enum`
 
 Persistence mode Possible Values: 'on', 'off', 'on-replicas' ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 User security groups ||
 || `--sharded` | Redis cluster mode on/off. ||
@@ -710,15 +710,15 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    enabled = bool,
-    name = str,
-    passwords = str,...,
+    enabled = boolean,
+    name = string,
+    passwords = string,...,
     permissions = {
-      categories = str,
-      commands = str,
-      patterns = str,
-      pub-sub-channels = str,
-      sanitize-payload = str
+      categories = string,
+      commands = string,
+      patterns = string,
+      pub-sub-channels = string,
+      sanitize-payload = string
     }
   }, ...
 ]
@@ -729,17 +729,17 @@ JSON Syntax:
 ```json
 [
   {
-    "enabled": "bool",
-    "name": "str",
+    "enabled": "boolean",
+    "name": "string",
     "passwords": [
-      "str", ...
+      "string", ...
     ],
     "permissions": {
-      "categories": "str",
-      "commands": "str",
-      "patterns": "str",
-      "pub-sub-channels": "str",
-      "sanitize-payload": "str"
+      "categories": "string",
+      "commands": "string",
+      "patterns": "string",
+      "pub-sub-channels": "string",
+      "sanitize-payload": "string"
     }
   }, ...
 ]
@@ -748,7 +748,7 @@ JSON Syntax:
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
   Is Redis user enabled
 name -> (string)
   Name of the Redis user.
@@ -756,15 +756,15 @@ passwords -> ([]string)
   Password of the Redis user.
 permissions -> (struct)
   Set of permissions to grant to the user.
-  categories -> (str)
+  categories -> (string)
     Command categories user has permissions to.
-  commands -> (str)
+  commands -> (string)
     Commands user can execute.
-  patterns -> (str)
+  patterns -> (string)
     Keys patterns user has permission to.
-  pub-sub-channels -> (str)
+  pub-sub-channels -> (string)
     Channel patterns user has permissions to.
-  sanitize-payload -> (str)
+  sanitize-payload -> (string)
     SanitizePayload parameter.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -788,16 +788,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

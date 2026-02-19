@@ -44,9 +44,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  domain-name = str,
-  domain-name-servers = str,...,
-  ntp-servers = str,...
+  domain-name = string,
+  domain-name-servers = string,...,
+  ntp-servers = string,...
 }
 ```
 
@@ -54,12 +54,12 @@ JSON Syntax:
 
 ```json
 {
-  "domain-name": "str",
+  "domain-name": "string",
   "domain-name-servers": [
-    "str", ...
+    "string", ...
   ],
   "ntp-servers": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -77,7 +77,7 @@ ntp-servers -> ([]string)
 || `--folder-id` | `string`
 
 ID of the folder to create a subnet in. To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels, '' key:value '' pairs. ||
 || `--name` | `string`
@@ -89,7 +89,7 @@ ID of the network to create subnet in. ||
 || `--route-table-id` | `string`
 
 ID of route table the subnet is linked to. ||
-|| `--v4-cidr-blocks` | `strings`
+|| `--v4-cidr-blocks` | `[]string`
 
 CIDR block. The range of internal addresses that are defined for this subnet. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. ||
 || `--zone-id` | `string`
@@ -116,16 +116,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

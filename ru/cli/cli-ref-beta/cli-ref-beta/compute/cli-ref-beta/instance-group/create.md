@@ -45,8 +45,8 @@ Shorthand Syntax:
 {
   zones = [
     {
-      instance-tags-pool = str,...,
-      zone-id = str
+      instance-tags-pool = string,...,
+      zone-id = string
     }, ...
   ]
 }
@@ -59,9 +59,9 @@ JSON Syntax:
   "zones": [
     {
       "instance-tags-pool": [
-        "str", ...
+        "string", ...
       ],
-      "zone-id": "str"
+      "zone-id": "string"
     }, ...
   ]
 }
@@ -85,12 +85,12 @@ Shorthand Syntax:
 
 ```hcl
 {
-  ignore-health-checks = bool,
+  ignore-health-checks = boolean,
   max-opening-traffic-duration = duration,
   target-group-spec = {
-    description = str,
-    labels = {key=str, key=...},
-    name = str
+    description = string,
+    labels = {key=string, key=...},
+    name = string
   }
 }
 ```
@@ -99,14 +99,14 @@ JSON Syntax:
 
 ```json
 {
-  "ignore-health-checks": "bool",
+  "ignore-health-checks": "boolean",
   "max-opening-traffic-duration": "duration",
   "target-group-spec": {
-    "description": "str",
+    "description": "string",
     "labels": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     },
-    "name": "str"
+    "name": "string"
   }
 }
 ```
@@ -114,7 +114,7 @@ JSON Syntax:
 Fields:
 
 ```
-ignore-health-checks -> (bool)
+ignore-health-checks -> (boolean)
   Do not wait load balancer health checks.
 max-opening-traffic-duration -> (duration)
   Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.
@@ -162,10 +162,10 @@ Shorthand Syntax:
 
 ```hcl
 {
-  max-creating = int,
-  max-deleting = int,
-  max-expansion = int,
-  max-unavailable = int,
+  max-creating = integer,
+  max-deleting = integer,
+  max-expansion = integer,
+  max-unavailable = integer,
   minimal-action = LIVE_UPDATE|RESTART|RECREATE,
   startup-duration = duration,
   strategy = PROACTIVE|OPPORTUNISTIC
@@ -176,10 +176,10 @@ JSON Syntax:
 
 ```json
 {
-  "max-creating": "int",
-  "max-deleting": "int",
-  "max-expansion": "int",
-  "max-unavailable": "int",
+  "max-creating": "integer",
+  "max-deleting": "integer",
+  "max-expansion": "integer",
+  "max-unavailable": "integer",
   "minimal-action": "LIVE_UPDATE|RESTART|RECREATE",
   "startup-duration": "duration",
   "strategy": "PROACTIVE|OPPORTUNISTIC"
@@ -189,13 +189,13 @@ JSON Syntax:
 Fields:
 
 ```
-max-creating -> (int)
+max-creating -> (integer)
   The maximum number of instances that can be created at the same time. The value 0 is any number of virtual machines within the allowed values.
-max-deleting -> (int)
+max-deleting -> (integer)
   The maximum number of instances that can be deleted at the same time. The value 0 is any number of virtual machines within the allowed values.
-max-expansion -> (int)
+max-expansion -> (integer)
   The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If [max_unavailable] is not specified or set to zero, [max_expansion] must be set to a non-zero value.
-max-unavailable -> (int)
+max-unavailable -> (integer)
   The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If [max_expansion] is not specified or set to zero, [max_unavailable] must be set to a non-zero value.
 minimal-action -> (struct)
   If instance update requires a less disruptive action than [minimal_action], Instance Groups performs [minimal_action] to execute the update
@@ -221,15 +221,15 @@ Shorthand Syntax:
   health-check-specs = [
     {
       health-check-options = http-options={
-        path = str,
-        port = int
+        path = string,
+        port = integer
       } | tcp-options={
-        port = int
+        port = integer
       },
-      healthy-threshold = int,
+      healthy-threshold = integer,
       interval = duration,
       timeout = duration,
-      unhealthy-threshold = int
+      unhealthy-threshold = integer
     }, ...
   ],
   max-checking-health-duration = duration
@@ -244,17 +244,17 @@ JSON Syntax:
     {
       "health-check-options": {
         "http-options": {
-          "path": "str",
-          "port": "int"
+          "path": "string",
+          "port": "integer"
         },
         "tcp-options": {
-          "port": "int"
+          "port": "integer"
         }
       },
-      "healthy-threshold": "int",
+      "healthy-threshold": "integer",
       "interval": "duration",
       "timeout": "duration",
-      "unhealthy-threshold": "int"
+      "unhealthy-threshold": "integer"
     }, ...
   ],
   "max-checking-health-duration": "duration"
@@ -266,25 +266,25 @@ Fields:
 ```
 health-check-specs -> ([]struct)
   Health checking specification. For more information, see documentation.
-  healthy-threshold -> (int)
+  healthy-threshold -> (integer)
     The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2.
   interval -> (duration)
     The interval between health checks. The default is 2 seconds.
   timeout -> (duration)
     Timeout for the managed instance to return a response for the health check. The default is 1 second.
-  unhealthy-threshold -> (int)
+  unhealthy-threshold -> (integer)
     The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2.
   health-check-options -> (oneof<http-options|tcp-options>)
     Oneof health-check-options field
     tcp-options -> (struct)
       Configuration options for a TCP health check.
-      port -> (int)
+      port -> (integer)
         Port to use for TCP health checks.
     http-options -> (struct)
       Configuration options for an HTTP health check.
       path -> (string)
         URL path to set for health checking requests.
-      port -> (int)
+      port -> (integer)
         Port to use for HTTP health checks.
 max-checking-health-duration -> (duration)
   Timeout for waiting for the VM to become healthy. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.
@@ -298,87 +298,87 @@ Shorthand Syntax:
 ```hcl
 {
   boot-disk-spec = {
-    device-name = str,
-    disk-id = str,
+    device-name = string,
+    disk-id = string,
     disk-spec = {
-      description = str,
-      preserve-after-instance-delete = bool,
-      size = int,
-      source-oneof = image-id=str | snapshot-id=str,
-      type-id = str
+      description = string,
+      preserve-after-instance-delete = boolean,
+      size = integer,
+      source-oneof = image-id=string | snapshot-id=string,
+      type-id = string
     },
     mode = READ_ONLY|READ_WRITE,
-    name = str
+    name = string
   },
-  description = str,
+  description = string,
   filesystem-specs = [
     {
-      device-name = str,
-      filesystem-id = str,
+      device-name = string,
+      filesystem-id = string,
       mode = READ_ONLY|READ_WRITE
     }, ...
   ],
-  hostname = str,
-  labels = {key=str, key=...},
-  metadata = {key=str, key=...},
+  hostname = string,
+  labels = {key=string, key=...},
+  metadata = {key=string, key=...},
   metadata-options = {
     aws-v1-http-endpoint = ENABLED|DISABLED,
     aws-v1-http-token = ENABLED|DISABLED,
     gce-http-endpoint = ENABLED|DISABLED,
     gce-http-token = ENABLED|DISABLED
   },
-  name = str,
+  name = string,
   network-interface-specs = [
     {
-      network-id = str,
+      network-id = string,
       primary-v4-address-spec = {
-        address = str,
+        address = string,
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         one-to-one-nat-spec = {
-          address = str,
+          address = string,
           dns-record-specs = [
             {
-              dns-zone-id = str,
-              fqdn = str,
-              ptr = bool,
-              ttl = int
+              dns-zone-id = string,
+              fqdn = string,
+              ptr = boolean,
+              ttl = integer
             }, ...
           ],
           ip-version = IPV4|IPV6
         }
       },
       primary-v6-address-spec = {
-        address = str,
+        address = string,
         dns-record-specs = [
           {
-            dns-zone-id = str,
-            fqdn = str,
-            ptr = bool,
-            ttl = int
+            dns-zone-id = string,
+            fqdn = string,
+            ptr = boolean,
+            ttl = integer
           }, ...
         ],
         one-to-one-nat-spec = {
-          address = str,
+          address = string,
           dns-record-specs = [
             {
-              dns-zone-id = str,
-              fqdn = str,
-              ptr = bool,
-              ttl = int
+              dns-zone-id = string,
+              fqdn = string,
+              ptr = boolean,
+              ttl = integer
             }, ...
           ],
           ip-version = IPV4|IPV6
         }
       },
-      security-group-ids = str,...,
-      subnet-ids = str,...
+      security-group-ids = string,...,
+      subnet-ids = string,...
     }, ...
   ],
   network-settings = {
@@ -387,40 +387,40 @@ Shorthand Syntax:
   placement-policy = {
     host-affinity-rules = [
       {
-        key = str,
+        key = string,
         op = IN|NOT_IN,
-        values = str,...
+        values = string,...
       }, ...
     ],
-    placement-group-id = str
+    placement-group-id = string
   },
-  platform-id = str,
-  reserved-instance-pool-id = str,
+  platform-id = string,
+  reserved-instance-pool-id = string,
   resources-spec = {
-    core-fraction = int,
-    cores = int,
-    gpus = int,
-    memory = int
+    core-fraction = integer,
+    cores = integer,
+    gpus = integer,
+    memory = integer
   },
   scheduling-policy = {
-    preemptible = bool
+    preemptible = boolean
   },
   secondary-disk-specs = [
     {
-      device-name = str,
-      disk-id = str,
+      device-name = string,
+      disk-id = string,
       disk-spec = {
-        description = str,
-        preserve-after-instance-delete = bool,
-        size = int,
-        source-oneof = image-id=str | snapshot-id=str,
-        type-id = str
+        description = string,
+        preserve-after-instance-delete = boolean,
+        size = integer,
+        source-oneof = image-id=string | snapshot-id=string,
+        type-id = string
       },
       mode = READ_ONLY|READ_WRITE,
-      name = str
+      name = string
     }, ...
   ],
-  service-account-id = str
+  service-account-id = string
 }
 ```
 
@@ -429,35 +429,35 @@ JSON Syntax:
 ```json
 {
   "boot-disk-spec": {
-    "device-name": "str",
-    "disk-id": "str",
+    "device-name": "string",
+    "disk-id": "string",
     "disk-spec": {
-      "description": "str",
-      "preserve-after-instance-delete": "bool",
-      "size": "int",
+      "description": "string",
+      "preserve-after-instance-delete": "boolean",
+      "size": "integer",
       "source-oneof": {
-        "image-id": "str",
-        "snapshot-id": "str"
+        "image-id": "string",
+        "snapshot-id": "string"
       },
-      "type-id": "str"
+      "type-id": "string"
     },
     "mode": "READ_ONLY|READ_WRITE",
-    "name": "str"
+    "name": "string"
   },
-  "description": "str",
+  "description": "string",
   "filesystem-specs": [
     {
-      "device-name": "str",
-      "filesystem-id": "str",
+      "device-name": "string",
+      "filesystem-id": "string",
       "mode": "READ_ONLY|READ_WRITE"
     }, ...
   ],
-  "hostname": "str",
+  "hostname": "string",
   "labels": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "metadata": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "metadata-options": {
     "aws-v1-http-endpoint": "ENABLED|DISABLED",
@@ -465,61 +465,61 @@ JSON Syntax:
     "gce-http-endpoint": "ENABLED|DISABLED",
     "gce-http-token": "ENABLED|DISABLED"
   },
-  "name": "str",
+  "name": "string",
   "network-interface-specs": [
     {
-      "network-id": "str",
+      "network-id": "string",
       "primary-v4-address-spec": {
-        "address": "str",
+        "address": "string",
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "one-to-one-nat-spec": {
-          "address": "str",
+          "address": "string",
           "dns-record-specs": [
             {
-              "dns-zone-id": "str",
-              "fqdn": "str",
-              "ptr": "bool",
-              "ttl": "int"
+              "dns-zone-id": "string",
+              "fqdn": "string",
+              "ptr": "boolean",
+              "ttl": "integer"
             }, ...
           ],
           "ip-version": "IPV4|IPV6"
         }
       },
       "primary-v6-address-spec": {
-        "address": "str",
+        "address": "string",
         "dns-record-specs": [
           {
-            "dns-zone-id": "str",
-            "fqdn": "str",
-            "ptr": "bool",
-            "ttl": "int"
+            "dns-zone-id": "string",
+            "fqdn": "string",
+            "ptr": "boolean",
+            "ttl": "integer"
           }, ...
         ],
         "one-to-one-nat-spec": {
-          "address": "str",
+          "address": "string",
           "dns-record-specs": [
             {
-              "dns-zone-id": "str",
-              "fqdn": "str",
-              "ptr": "bool",
-              "ttl": "int"
+              "dns-zone-id": "string",
+              "fqdn": "string",
+              "ptr": "boolean",
+              "ttl": "integer"
             }, ...
           ],
           "ip-version": "IPV4|IPV6"
         }
       },
       "security-group-ids": [
-        "str", ...
+        "string", ...
       ],
       "subnet-ids": [
-        "str", ...
+        "string", ...
       ]
     }, ...
   ],
@@ -529,45 +529,45 @@ JSON Syntax:
   "placement-policy": {
     "host-affinity-rules": [
       {
-        "key": "str",
+        "key": "string",
         "op": "IN|NOT_IN",
         "values": [
-          "str", ...
+          "string", ...
         ]
       }, ...
     ],
-    "placement-group-id": "str"
+    "placement-group-id": "string"
   },
-  "platform-id": "str",
-  "reserved-instance-pool-id": "str",
+  "platform-id": "string",
+  "reserved-instance-pool-id": "string",
   "resources-spec": {
-    "core-fraction": "int",
-    "cores": "int",
-    "gpus": "int",
-    "memory": "int"
+    "core-fraction": "integer",
+    "cores": "integer",
+    "gpus": "integer",
+    "memory": "integer"
   },
   "scheduling-policy": {
-    "preemptible": "bool"
+    "preemptible": "boolean"
   },
   "secondary-disk-specs": [
     {
-      "device-name": "str",
-      "disk-id": "str",
+      "device-name": "string",
+      "disk-id": "string",
       "disk-spec": {
-        "description": "str",
-        "preserve-after-instance-delete": "bool",
-        "size": "int",
+        "description": "string",
+        "preserve-after-instance-delete": "boolean",
+        "size": "integer",
         "source-oneof": {
-          "image-id": "str",
-          "snapshot-id": "str"
+          "image-id": "string",
+          "snapshot-id": "string"
         },
-        "type-id": "str"
+        "type-id": "string"
       },
       "mode": "READ_ONLY|READ_WRITE",
-      "name": "str"
+      "name": "string"
     }, ...
   ],
-  "service-account-id": "str"
+  "service-account-id": "string"
 }
 ```
 
@@ -584,9 +584,9 @@ boot-disk-spec -> (struct)
     oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see documentation.
     description -> (string)
       Description of the disk.
-    preserve-after-instance-delete -> (bool)
+    preserve-after-instance-delete -> (boolean)
       When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.
-    size -> (int)
+    size -> (integer)
       Size of the disk, specified in bytes.
     type-id -> (string)
       ID of the disk type.
@@ -642,9 +642,9 @@ network-interface-specs -> ([]struct)
         DNS zone id (optional, if not set, private zone used)
       fqdn -> (string)
         FQDN (required)
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional)
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional)
     one-to-one-nat-spec -> (struct)
       An external IP address configuration. If not specified, then this managed instance will have no external internet access.
@@ -656,9 +656,9 @@ network-interface-specs -> ([]struct)
           DNS zone id (optional, if not set, private zone used)
         fqdn -> (string)
           FQDN (required)
-        ptr -> (bool)
+        ptr -> (boolean)
           When set to true, also create PTR DNS record (optional)
-        ttl -> (int)
+        ttl -> (integer)
           DNS record ttl, values in 0-86400 (optional)
       ip-version -> (struct)
         IP version for the public IP address.
@@ -672,9 +672,9 @@ network-interface-specs -> ([]struct)
         DNS zone id (optional, if not set, private zone used)
       fqdn -> (string)
         FQDN (required)
-      ptr -> (bool)
+      ptr -> (boolean)
         When set to true, also create PTR DNS record (optional)
-      ttl -> (int)
+      ttl -> (integer)
         DNS record ttl, values in 0-86400 (optional)
     one-to-one-nat-spec -> (struct)
       An external IP address configuration. If not specified, then this managed instance will have no external internet access.
@@ -686,9 +686,9 @@ network-interface-specs -> ([]struct)
           DNS zone id (optional, if not set, private zone used)
         fqdn -> (string)
           FQDN (required)
-        ptr -> (bool)
+        ptr -> (boolean)
           When set to true, also create PTR DNS record (optional)
-        ttl -> (int)
+        ttl -> (integer)
           DNS record ttl, values in 0-86400 (optional)
       ip-version -> (struct)
         IP version for the public IP address.
@@ -718,17 +718,17 @@ reserved-instance-pool-id -> (string)
   ID of the reserved instance pool that the instance should belong to. Attaching/detaching running instance will increase/decrease the size of the reserved instance pool. Attaching/detaching stopped instance will leave the size of the reserved instance pool unchanged. Starting such attached instance will use resources from the reserved instance pool. Reserved instance pool resource configuration must match the resource configuration of the instance.
 resources-spec -> (struct)
   Computing resources of the instance such as the amount of memory and number of cores.
-  core-fraction -> (int)
+  core-fraction -> (integer)
     Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.
-  cores -> (int)
+  cores -> (integer)
     The number of cores available to the instance.
-  gpus -> (int)
+  gpus -> (integer)
     The number of GPUs available to the instance.
-  memory -> (int)
+  memory -> (integer)
     The amount of memory available to the instance, specified in bytes.
 scheduling-policy -> (struct)
   Scheduling policy for the instance.
-  preemptible -> (bool)
+  preemptible -> (boolean)
     Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see documentation.
 secondary-disk-specs -> ([]struct)
   Array of secondary disks that will be attached to the instance.
@@ -740,9 +740,9 @@ secondary-disk-specs -> ([]struct)
     oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see documentation.
     description -> (string)
       Description of the disk.
-    preserve-after-instance-delete -> (bool)
+    preserve-after-instance-delete -> (boolean)
       When set to true, disk will not be deleted even after managed instance is deleted. It will be a user's responsibility to delete such disks.
-    size -> (int)
+    size -> (integer)
       Size of the disk, specified in bytes.
     type-id -> (string)
       ID of the disk type.
@@ -759,7 +759,7 @@ secondary-disk-specs -> ([]struct)
 service-account-id -> (string)
   Service account ID for the instance.
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--load-balancer-spec` | `shorthand/json`
@@ -770,12 +770,12 @@ Shorthand Syntax:
 
 ```hcl
 {
-  ignore-health-checks = bool,
+  ignore-health-checks = boolean,
   max-opening-traffic-duration = duration,
   target-group-spec = {
-    description = str,
-    labels = {key=str, key=...},
-    name = str
+    description = string,
+    labels = {key=string, key=...},
+    name = string
   }
 }
 ```
@@ -784,14 +784,14 @@ JSON Syntax:
 
 ```json
 {
-  "ignore-health-checks": "bool",
+  "ignore-health-checks": "boolean",
   "max-opening-traffic-duration": "duration",
   "target-group-spec": {
-    "description": "str",
+    "description": "string",
     "labels": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     },
-    "name": "str"
+    "name": "string"
   }
 }
 ```
@@ -799,7 +799,7 @@ JSON Syntax:
 Fields:
 
 ```
-ignore-health-checks -> (bool)
+ignore-health-checks -> (boolean)
   Do not wait load balancer health checks.
 max-opening-traffic-duration -> (duration)
   Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.
@@ -826,48 +826,48 @@ Shorthand Syntax:
   scale-type = auto-scale={
     auto-scale-type = ZONAL|REGIONAL,
     cpu-utilization-rule = {
-      utilization-target = double
+      utilization-target = float64
     },
     custom-rules = [
       {
-        folder-id = str,
-        labels = {key=str, key=...},
-        metric-name = str,
+        folder-id = string,
+        labels = {key=string, key=...},
+        metric-name = string,
         metric-type = GAUGE|COUNTER,
         rule-type = UTILIZATION|WORKLOAD,
-        service = str,
-        target = double
+        service = string,
+        target = float64
       }, ...
     ],
-    initial-size = int,
-    max-size = int,
+    initial-size = integer,
+    max-size = integer,
     measurement-duration = duration,
-    min-zone-size = int,
+    min-zone-size = integer,
     stabilization-duration = duration,
     warmup-duration = duration
   } | fixed-scale={
-    size = int
+    size = integer
   },
   test-auto-scale = {
     auto-scale-type = ZONAL|REGIONAL,
     cpu-utilization-rule = {
-      utilization-target = double
+      utilization-target = float64
     },
     custom-rules = [
       {
-        folder-id = str,
-        labels = {key=str, key=...},
-        metric-name = str,
+        folder-id = string,
+        labels = {key=string, key=...},
+        metric-name = string,
         metric-type = GAUGE|COUNTER,
         rule-type = UTILIZATION|WORKLOAD,
-        service = str,
-        target = double
+        service = string,
+        target = float64
       }, ...
     ],
-    initial-size = int,
-    max-size = int,
+    initial-size = integer,
+    max-size = integer,
     measurement-duration = duration,
-    min-zone-size = int,
+    min-zone-size = integer,
     stabilization-duration = duration,
     warmup-duration = duration
   }
@@ -882,54 +882,54 @@ JSON Syntax:
     "auto-scale": {
       "auto-scale-type": "ZONAL|REGIONAL",
       "cpu-utilization-rule": {
-        "utilization-target": "double"
+        "utilization-target": "float64"
       },
       "custom-rules": [
         {
-          "folder-id": "str",
+          "folder-id": "string",
           "labels": {
-            "<key>": "str", ...
+            "<key>": "string", ...
           },
-          "metric-name": "str",
+          "metric-name": "string",
           "metric-type": "GAUGE|COUNTER",
           "rule-type": "UTILIZATION|WORKLOAD",
-          "service": "str",
-          "target": "double"
+          "service": "string",
+          "target": "float64"
         }, ...
       ],
-      "initial-size": "int",
-      "max-size": "int",
+      "initial-size": "integer",
+      "max-size": "integer",
       "measurement-duration": "duration",
-      "min-zone-size": "int",
+      "min-zone-size": "integer",
       "stabilization-duration": "duration",
       "warmup-duration": "duration"
     },
     "fixed-scale": {
-      "size": "int"
+      "size": "integer"
     }
   },
   "test-auto-scale": {
     "auto-scale-type": "ZONAL|REGIONAL",
     "cpu-utilization-rule": {
-      "utilization-target": "double"
+      "utilization-target": "float64"
     },
     "custom-rules": [
       {
-        "folder-id": "str",
+        "folder-id": "string",
         "labels": {
-          "<key>": "str", ...
+          "<key>": "string", ...
         },
-        "metric-name": "str",
+        "metric-name": "string",
         "metric-type": "GAUGE|COUNTER",
         "rule-type": "UTILIZATION|WORKLOAD",
-        "service": "str",
-        "target": "double"
+        "service": "string",
+        "target": "float64"
       }, ...
     ],
-    "initial-size": "int",
-    "max-size": "int",
+    "initial-size": "integer",
+    "max-size": "integer",
     "measurement-duration": "duration",
-    "min-zone-size": "int",
+    "min-zone-size": "integer",
     "stabilization-duration": "duration",
     "warmup-duration": "duration"
   }
@@ -945,7 +945,7 @@ test-auto-scale -> (struct)
     Autoscaling type.
   cpu-utilization-rule -> (struct)
     Defines an autoscaling rule based on the average CPU utilization of the instance group. If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics ([custom_rules]), the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
-    utilization-target -> (double)
+    utilization-target -> (float64)
       Target CPU utilization level. Instance Groups maintains this level for each availability zone.
   custom-rules -> ([]struct)
     Defines an autoscaling rule based on a documentation from Monitoring. If more than one rule is specified, e.g. CPU utilization ([cpu_utilization_rule]) and one or more Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
@@ -961,15 +961,15 @@ test-auto-scale -> (struct)
       Custom metric rule type. This field affects which label from the custom metric should be used: 'zone_id' or 'instance_id'.
     service -> (string)
       Service of custom metric in Monitoring that should be used for scaling.
-    target -> (double)
+    target -> (float64)
       Target value for the custom metric. Instance Groups maintains this level for each availability zone.
-  initial-size -> (int)
+  initial-size -> (integer)
     Target group size.
-  max-size -> (int)
+  max-size -> (integer)
     Upper limit for total instance count (across all zones). 0 means maximum limit = 100.
   measurement-duration -> (duration)
     Time in seconds allotted for averaging metrics. 1 minute by default.
-  min-zone-size -> (int)
+  min-zone-size -> (integer)
     Lower limit for instance count in each zone.
   stabilization-duration -> (duration)
     Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.
@@ -979,7 +979,7 @@ scale-type -> (oneof<auto-scale|fixed-scale>)
   Oneof scale-type field
   fixed-scale -> (struct)
     documentation of the instance group.
-    size -> (int)
+    size -> (integer)
       Number of instances in the instance group.
   auto-scale -> (struct)
     documentation of the instance group.
@@ -987,7 +987,7 @@ scale-type -> (oneof<auto-scale|fixed-scale>)
       Autoscaling type.
     cpu-utilization-rule -> (struct)
       Defines an autoscaling rule based on the average CPU utilization of the instance group. If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics ([custom_rules]), the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
-      utilization-target -> (double)
+      utilization-target -> (float64)
         Target CPU utilization level. Instance Groups maintains this level for each availability zone.
     custom-rules -> ([]struct)
       Defines an autoscaling rule based on a documentation from Monitoring. If more than one rule is specified, e.g. CPU utilization ([cpu_utilization_rule]) and one or more Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
@@ -1003,15 +1003,15 @@ scale-type -> (oneof<auto-scale|fixed-scale>)
         Custom metric rule type. This field affects which label from the custom metric should be used: 'zone_id' or 'instance_id'.
       service -> (string)
         Service of custom metric in Monitoring that should be used for scaling.
-      target -> (double)
+      target -> (float64)
         Target value for the custom metric. Instance Groups maintains this level for each availability zone.
-    initial-size -> (int)
+    initial-size -> (integer)
       Target group size.
-    max-size -> (int)
+    max-size -> (integer)
       Upper limit for total instance count (across all zones). 0 means maximum limit = 100.
     measurement-duration -> (duration)
       Time in seconds allotted for averaging metrics. 1 minute by default.
-    min-zone-size -> (int)
+    min-zone-size -> (integer)
       Lower limit for instance count in each zone.
     stabilization-duration -> (duration)
       Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.
@@ -1028,8 +1028,8 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    key = str,
-    value = str
+    key = string,
+    value = string
   }, ...
 ]
 ```
@@ -1039,8 +1039,8 @@ JSON Syntax:
 ```json
 [
   {
-    "key": "str",
-    "value": "str"
+    "key": "string",
+    "value": "string"
   }, ...
 ]
 ```
@@ -1072,16 +1072,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -29,318 +29,318 @@ Shorthand Syntax:
 ```hcl
 {
   access = {
-    data-lens = bool,
-    data-transfer = bool,
-    web-sql = bool,
-    yandex-query = bool
+    data-lens = boolean,
+    data-transfer = boolean,
+    web-sql = boolean,
+    yandex-query = boolean
   },
-  backup-retain-period-days = int,
+  backup-retain-period-days = integer,
   backup-window-start = timeofday,
   disk-size-autoscaling = {
-    disk-size-limit = int,
-    emergency-usage-threshold = int,
-    planned-usage-threshold = int
+    disk-size-limit = integer,
+    emergency-usage-threshold = integer,
+    planned-usage-threshold = integer
   },
   mysql-config = mysql-config-5-7={
-    audit-log = bool,
+    audit-log = boolean,
     audit-log-policy = ALL|LOGINS|QUERIES|NONE,
-    auto-increment-increment = int,
-    auto-increment-offset = int,
-    autocommit = bool,
-    binlog-cache-size = int,
-    binlog-group-commit-sync-delay = int,
+    auto-increment-increment = integer,
+    auto-increment-offset = integer,
+    autocommit = boolean,
+    binlog-cache-size = integer,
+    binlog-group-commit-sync-delay = integer,
     binlog-row-image = FULL|MINIMAL|NOBLOB,
-    binlog-rows-query-log-events = bool,
+    binlog-rows-query-log-events = boolean,
     binlog-transaction-dependency-tracking = COMMIT_ORDER|WRITESET|WRITESET_SESSION,
-    character-set-server = str,
-    collation-server = str,
+    character-set-server = string,
+    collation-server = string,
     default-authentication-plugin = MYSQL_NATIVE_PASSWORD|CACHING_SHA2_PASSWORD|SHA256_PASSWORD|MYSQL_NO_LOGIN|MDB_IAMPROXY_AUTH,
-    default-time-zone = str,
-    explicit-defaults-for-timestamp = bool,
-    general-log = bool,
-    group-concat-max-len = int,
-    innodb-adaptive-hash-index = bool,
-    innodb-buffer-pool-size = int,
+    default-time-zone = string,
+    explicit-defaults-for-timestamp = boolean,
+    general-log = boolean,
+    group-concat-max-len = integer,
+    innodb-adaptive-hash-index = boolean,
+    innodb-buffer-pool-size = integer,
     innodb-change-buffering = INNODB_CHANGE_BUFFERING_NONE|INNODB_CHANGE_BUFFERING_INSERTS|INNODB_CHANGE_BUFFERING_DELETES|INNODB_CHANGE_BUFFERING_CHANGES|INNODB_CHANGE_BUFFERING_PURGES|INNODB_CHANGE_BUFFERING_ALL,
-    innodb-compression-level = int,
-    innodb-flush-log-at-trx-commit = int,
-    innodb-ft-max-token-size = int,
-    innodb-ft-min-token-size = int,
-    innodb-io-capacity = int,
-    innodb-io-capacity-max = int,
-    innodb-lock-wait-timeout = int,
-    innodb-log-buffer-size = int,
-    innodb-log-file-size = int,
-    innodb-lru-scan-depth = int,
-    innodb-numa-interleave = bool,
-    innodb-online-alter-log-max-size = int,
-    innodb-page-size = int,
-    innodb-print-all-deadlocks = bool,
-    innodb-print-lock-wait-timeout-info = bool,
-    innodb-purge-threads = int,
-    innodb-read-io-threads = int,
-    innodb-status-output = bool,
-    innodb-strict-mode = bool,
-    innodb-temp-data-file-max-size = int,
-    innodb-thread-concurrency = int,
-    innodb-write-io-threads = int,
-    interactive-timeout = int,
-    join-buffer-size = int,
-    lock-wait-timeout = int,
-    log-error-verbosity = int,
+    innodb-compression-level = integer,
+    innodb-flush-log-at-trx-commit = integer,
+    innodb-ft-max-token-size = integer,
+    innodb-ft-min-token-size = integer,
+    innodb-io-capacity = integer,
+    innodb-io-capacity-max = integer,
+    innodb-lock-wait-timeout = integer,
+    innodb-log-buffer-size = integer,
+    innodb-log-file-size = integer,
+    innodb-lru-scan-depth = integer,
+    innodb-numa-interleave = boolean,
+    innodb-online-alter-log-max-size = integer,
+    innodb-page-size = integer,
+    innodb-print-all-deadlocks = boolean,
+    innodb-print-lock-wait-timeout-info = boolean,
+    innodb-purge-threads = integer,
+    innodb-read-io-threads = integer,
+    innodb-status-output = boolean,
+    innodb-strict-mode = boolean,
+    innodb-temp-data-file-max-size = integer,
+    innodb-thread-concurrency = integer,
+    innodb-write-io-threads = integer,
+    interactive-timeout = integer,
+    join-buffer-size = integer,
+    lock-wait-timeout = integer,
+    log-error-verbosity = integer,
     log-slow-filter = [
       FULL_SCAN|FULL_JOIN|TMP_TABLE|TMP_TABLE_ON_DISK|FILESORT|FILESORT_ON_DISK, ...
     ],
-    log-slow-rate-limit = int,
+    log-slow-rate-limit = integer,
     log-slow-rate-type = SESSION|QUERY,
-    log-slow-sp-statements = bool,
-    long-query-time = double,
-    lower-case-table-names = int,
-    max-allowed-packet = int,
-    max-connections = int,
-    max-digest-length = int,
-    max-execution-time = int,
-    max-heap-table-size = int,
-    max-prepared-stmt-count = int,
-    max-sp-recursion-depth = int,
-    max-write-lock-count = int,
-    mdb-force-ssl = bool,
-    mdb-offline-mode-disable-lag = int,
-    mdb-offline-mode-enable-lag = int,
-    mdb-preserve-binlog-bytes = int,
-    mdb-priority-choice-max-lag = int,
-    net-read-timeout = int,
-    net-write-timeout = int,
-    optimizer-search-depth = int,
-    optimizer-switch = str,
-    query-cache-limit = int,
-    query-cache-size = int,
-    query-cache-type = int,
-    query-response-time-stats = bool,
-    range-optimizer-max-mem-size = int,
-    rpl-semi-sync-master-wait-for-slave-count = int,
-    show-compatibility-56 = bool,
+    log-slow-sp-statements = boolean,
+    long-query-time = float64,
+    lower-case-table-names = integer,
+    max-allowed-packet = integer,
+    max-connections = integer,
+    max-digest-length = integer,
+    max-execution-time = integer,
+    max-heap-table-size = integer,
+    max-prepared-stmt-count = integer,
+    max-sp-recursion-depth = integer,
+    max-write-lock-count = integer,
+    mdb-force-ssl = boolean,
+    mdb-offline-mode-disable-lag = integer,
+    mdb-offline-mode-enable-lag = integer,
+    mdb-preserve-binlog-bytes = integer,
+    mdb-priority-choice-max-lag = integer,
+    net-read-timeout = integer,
+    net-write-timeout = integer,
+    optimizer-search-depth = integer,
+    optimizer-switch = string,
+    query-cache-limit = integer,
+    query-cache-size = integer,
+    query-cache-type = integer,
+    query-response-time-stats = boolean,
+    range-optimizer-max-mem-size = integer,
+    rpl-semi-sync-master-wait-for-slave-count = integer,
+    show-compatibility-56 = boolean,
     slave-parallel-type = DATABASE|LOGICAL_CLOCK,
-    slave-parallel-workers = int,
-    slow-query-log = bool,
-    slow-query-log-always-write-time = double,
-    sort-buffer-size = int,
+    slave-parallel-workers = integer,
+    slow-query-log = boolean,
+    slow-query-log-always-write-time = float64,
+    sort-buffer-size = integer,
     sql-mode = [
       ALLOW_INVALID_DATES|ANSI_QUOTES|ERROR_FOR_DIVISION_BY_ZERO|HIGH_NOT_PRECEDENCE|IGNORE_SPACE|NO_AUTO_VALUE_ON_ZERO|NO_BACKSLASH_ESCAPES|NO_ENGINE_SUBSTITUTION|NO_UNSIGNED_SUBTRACTION|NO_ZERO_DATE|NO_ZERO_IN_DATE|NO_FIELD_OPTIONS|NO_KEY_OPTIONS|NO_TABLE_OPTIONS|ONLY_FULL_GROUP_BY|PAD_CHAR_TO_FULL_LENGTH|PIPES_AS_CONCAT|REAL_AS_FLOAT|STRICT_ALL_TABLES|STRICT_TRANS_TABLES|ANSI|TRADITIONAL|DB2|MAXDB|MSSQL|MYSQL323|MYSQL40|ORACLE|POSTGRESQL|NO_AUTO_CREATE_USER|NO_DIR_IN_CREATE, ...
     ],
-    sync-binlog = int,
-    table-definition-cache = int,
-    table-open-cache = int,
-    table-open-cache-instances = int,
-    thread-cache-size = int,
-    thread-stack = int,
-    tmp-table-size = int,
+    sync-binlog = integer,
+    table-definition-cache = integer,
+    table-open-cache = integer,
+    table-open-cache-instances = integer,
+    thread-cache-size = integer,
+    thread-stack = integer,
+    tmp-table-size = integer,
     transaction-isolation = READ_COMMITTED|REPEATABLE_READ|SERIALIZABLE,
-    userstat = bool,
-    wait-timeout = int
+    userstat = boolean,
+    wait-timeout = integer
   } | mysql-config-8-0={
-    audit-log = bool,
+    audit-log = boolean,
     audit-log-policy = ALL|LOGINS|QUERIES|NONE,
-    auto-increment-increment = int,
-    auto-increment-offset = int,
-    autocommit = bool,
-    binlog-cache-size = int,
-    binlog-group-commit-sync-delay = int,
+    auto-increment-increment = integer,
+    auto-increment-offset = integer,
+    autocommit = boolean,
+    binlog-cache-size = integer,
+    binlog-group-commit-sync-delay = integer,
     binlog-row-image = FULL|MINIMAL|NOBLOB,
-    binlog-rows-query-log-events = bool,
+    binlog-rows-query-log-events = boolean,
     binlog-transaction-dependency-tracking = COMMIT_ORDER|WRITESET|WRITESET_SESSION,
-    character-set-server = str,
-    collation-server = str,
+    character-set-server = string,
+    collation-server = string,
     default-authentication-plugin = MYSQL_NATIVE_PASSWORD|CACHING_SHA2_PASSWORD|SHA256_PASSWORD|MYSQL_NO_LOGIN|MDB_IAMPROXY_AUTH,
-    default-time-zone = str,
-    explicit-defaults-for-timestamp = bool,
-    general-log = bool,
-    group-concat-max-len = int,
-    innodb-adaptive-hash-index = bool,
-    innodb-buffer-pool-size = int,
+    default-time-zone = string,
+    explicit-defaults-for-timestamp = boolean,
+    general-log = boolean,
+    group-concat-max-len = integer,
+    innodb-adaptive-hash-index = boolean,
+    innodb-buffer-pool-size = integer,
     innodb-change-buffering = INNODB_CHANGE_BUFFERING_NONE|INNODB_CHANGE_BUFFERING_INSERTS|INNODB_CHANGE_BUFFERING_DELETES|INNODB_CHANGE_BUFFERING_CHANGES|INNODB_CHANGE_BUFFERING_PURGES|INNODB_CHANGE_BUFFERING_ALL,
-    innodb-compression-level = int,
-    innodb-flush-log-at-trx-commit = int,
-    innodb-ft-max-token-size = int,
-    innodb-ft-min-token-size = int,
-    innodb-io-capacity = int,
-    innodb-io-capacity-max = int,
-    innodb-lock-wait-timeout = int,
-    innodb-log-buffer-size = int,
-    innodb-log-file-size = int,
-    innodb-lru-scan-depth = int,
-    innodb-numa-interleave = bool,
-    innodb-online-alter-log-max-size = int,
-    innodb-page-size = int,
-    innodb-print-all-deadlocks = bool,
-    innodb-print-lock-wait-timeout-info = bool,
-    innodb-purge-threads = int,
-    innodb-read-io-threads = int,
-    innodb-status-output = bool,
-    innodb-strict-mode = bool,
-    innodb-temp-data-file-max-size = int,
-    innodb-thread-concurrency = int,
-    innodb-write-io-threads = int,
-    interactive-timeout = int,
-    join-buffer-size = int,
-    lock-wait-timeout = int,
-    log-error-verbosity = int,
+    innodb-compression-level = integer,
+    innodb-flush-log-at-trx-commit = integer,
+    innodb-ft-max-token-size = integer,
+    innodb-ft-min-token-size = integer,
+    innodb-io-capacity = integer,
+    innodb-io-capacity-max = integer,
+    innodb-lock-wait-timeout = integer,
+    innodb-log-buffer-size = integer,
+    innodb-log-file-size = integer,
+    innodb-lru-scan-depth = integer,
+    innodb-numa-interleave = boolean,
+    innodb-online-alter-log-max-size = integer,
+    innodb-page-size = integer,
+    innodb-print-all-deadlocks = boolean,
+    innodb-print-lock-wait-timeout-info = boolean,
+    innodb-purge-threads = integer,
+    innodb-read-io-threads = integer,
+    innodb-status-output = boolean,
+    innodb-strict-mode = boolean,
+    innodb-temp-data-file-max-size = integer,
+    innodb-thread-concurrency = integer,
+    innodb-write-io-threads = integer,
+    interactive-timeout = integer,
+    join-buffer-size = integer,
+    lock-wait-timeout = integer,
+    log-error-verbosity = integer,
     log-slow-filter = [
       FULL_SCAN|FULL_JOIN|TMP_TABLE|TMP_TABLE_ON_DISK|FILESORT|FILESORT_ON_DISK, ...
     ],
-    log-slow-rate-limit = int,
+    log-slow-rate-limit = integer,
     log-slow-rate-type = SESSION|QUERY,
-    log-slow-sp-statements = bool,
-    long-query-time = double,
-    lower-case-table-names = int,
-    max-allowed-packet = int,
-    max-connections = int,
-    max-digest-length = int,
-    max-execution-time = int,
-    max-heap-table-size = int,
-    max-prepared-stmt-count = int,
-    max-sp-recursion-depth = int,
-    max-write-lock-count = int,
-    mdb-force-ssl = bool,
-    mdb-offline-mode-disable-lag = int,
-    mdb-offline-mode-enable-lag = int,
-    mdb-preserve-binlog-bytes = int,
-    mdb-priority-choice-max-lag = int,
-    net-read-timeout = int,
-    net-write-timeout = int,
-    optimizer-search-depth = int,
-    optimizer-switch = str,
-    range-optimizer-max-mem-size = int,
-    regexp-time-limit = int,
-    replication-optimize-for-static-plugin-config = bool,
-    replication-sender-observe-commit-only = bool,
-    rpl-semi-sync-master-wait-for-slave-count = int,
+    log-slow-sp-statements = boolean,
+    long-query-time = float64,
+    lower-case-table-names = integer,
+    max-allowed-packet = integer,
+    max-connections = integer,
+    max-digest-length = integer,
+    max-execution-time = integer,
+    max-heap-table-size = integer,
+    max-prepared-stmt-count = integer,
+    max-sp-recursion-depth = integer,
+    max-write-lock-count = integer,
+    mdb-force-ssl = boolean,
+    mdb-offline-mode-disable-lag = integer,
+    mdb-offline-mode-enable-lag = integer,
+    mdb-preserve-binlog-bytes = integer,
+    mdb-priority-choice-max-lag = integer,
+    net-read-timeout = integer,
+    net-write-timeout = integer,
+    optimizer-search-depth = integer,
+    optimizer-switch = string,
+    range-optimizer-max-mem-size = integer,
+    regexp-time-limit = integer,
+    replication-optimize-for-static-plugin-config = boolean,
+    replication-sender-observe-commit-only = boolean,
+    rpl-semi-sync-master-wait-for-slave-count = integer,
     slave-parallel-type = DATABASE|LOGICAL_CLOCK,
-    slave-parallel-workers = int,
-    slow-query-log = bool,
-    slow-query-log-always-write-time = double,
-    sort-buffer-size = int,
+    slave-parallel-workers = integer,
+    slow-query-log = boolean,
+    slow-query-log-always-write-time = float64,
+    sort-buffer-size = integer,
     sql-mode = [
       ALLOW_INVALID_DATES|ANSI_QUOTES|ERROR_FOR_DIVISION_BY_ZERO|HIGH_NOT_PRECEDENCE|IGNORE_SPACE|NO_AUTO_VALUE_ON_ZERO|NO_BACKSLASH_ESCAPES|NO_ENGINE_SUBSTITUTION|NO_UNSIGNED_SUBTRACTION|NO_ZERO_DATE|NO_ZERO_IN_DATE|ONLY_FULL_GROUP_BY|PAD_CHAR_TO_FULL_LENGTH|PIPES_AS_CONCAT|REAL_AS_FLOAT|STRICT_ALL_TABLES|STRICT_TRANS_TABLES|TIME_TRUNCATE_FRACTIONAL|ANSI|TRADITIONAL|NO_DIR_IN_CREATE, ...
     ],
-    sql-require-primary-key = bool,
-    sync-binlog = int,
-    table-definition-cache = int,
-    table-open-cache = int,
-    table-open-cache-instances = int,
-    thread-cache-size = int,
-    thread-stack = int,
-    tmp-table-size = int,
+    sql-require-primary-key = boolean,
+    sync-binlog = integer,
+    table-definition-cache = integer,
+    table-open-cache = integer,
+    table-open-cache-instances = integer,
+    thread-cache-size = integer,
+    thread-stack = integer,
+    tmp-table-size = integer,
     transaction-isolation = READ_COMMITTED|REPEATABLE_READ|SERIALIZABLE,
-    userstat = bool,
-    wait-timeout = int
+    userstat = boolean,
+    wait-timeout = integer
   } | mysql-config-8-4={
-    audit-log = bool,
+    audit-log = boolean,
     audit-log-policy = ALL|LOGINS|QUERIES|NONE,
-    auto-increment-increment = int,
-    auto-increment-offset = int,
-    autocommit = bool,
-    binlog-cache-size = int,
-    binlog-group-commit-sync-delay = int,
+    auto-increment-increment = integer,
+    auto-increment-offset = integer,
+    autocommit = boolean,
+    binlog-cache-size = integer,
+    binlog-group-commit-sync-delay = integer,
     binlog-row-image = FULL|MINIMAL|NOBLOB,
-    binlog-rows-query-log-events = bool,
-    character-set-server = str,
-    collation-server = str,
-    default-time-zone = str,
-    explicit-defaults-for-timestamp = bool,
-    group-concat-max-len = int,
-    innodb-adaptive-hash-index = bool,
-    innodb-buffer-pool-size = int,
+    binlog-rows-query-log-events = boolean,
+    character-set-server = string,
+    collation-server = string,
+    default-time-zone = string,
+    explicit-defaults-for-timestamp = boolean,
+    group-concat-max-len = integer,
+    innodb-adaptive-hash-index = boolean,
+    innodb-buffer-pool-size = integer,
     innodb-change-buffering = INNODB_CHANGE_BUFFERING_NONE|INNODB_CHANGE_BUFFERING_INSERTS|INNODB_CHANGE_BUFFERING_DELETES|INNODB_CHANGE_BUFFERING_CHANGES|INNODB_CHANGE_BUFFERING_PURGES|INNODB_CHANGE_BUFFERING_ALL,
-    innodb-compression-level = int,
-    innodb-flush-log-at-trx-commit = int,
-    innodb-ft-max-token-size = int,
-    innodb-ft-min-token-size = int,
-    innodb-io-capacity = int,
-    innodb-io-capacity-max = int,
-    innodb-lock-wait-timeout = int,
-    innodb-log-buffer-size = int,
-    innodb-log-file-size = int,
-    innodb-lru-scan-depth = int,
-    innodb-numa-interleave = bool,
-    innodb-online-alter-log-max-size = int,
-    innodb-page-size = int,
-    innodb-print-all-deadlocks = bool,
-    innodb-print-lock-wait-timeout-info = bool,
-    innodb-purge-threads = int,
-    innodb-read-io-threads = int,
-    innodb-status-output = bool,
-    innodb-strict-mode = bool,
-    innodb-temp-data-file-max-size = int,
-    innodb-thread-concurrency = int,
-    innodb-write-io-threads = int,
-    interactive-timeout = int,
-    join-buffer-size = int,
-    lock-wait-timeout = int,
-    log-error-verbosity = int,
+    innodb-compression-level = integer,
+    innodb-flush-log-at-trx-commit = integer,
+    innodb-ft-max-token-size = integer,
+    innodb-ft-min-token-size = integer,
+    innodb-io-capacity = integer,
+    innodb-io-capacity-max = integer,
+    innodb-lock-wait-timeout = integer,
+    innodb-log-buffer-size = integer,
+    innodb-log-file-size = integer,
+    innodb-lru-scan-depth = integer,
+    innodb-numa-interleave = boolean,
+    innodb-online-alter-log-max-size = integer,
+    innodb-page-size = integer,
+    innodb-print-all-deadlocks = boolean,
+    innodb-print-lock-wait-timeout-info = boolean,
+    innodb-purge-threads = integer,
+    innodb-read-io-threads = integer,
+    innodb-status-output = boolean,
+    innodb-strict-mode = boolean,
+    innodb-temp-data-file-max-size = integer,
+    innodb-thread-concurrency = integer,
+    innodb-write-io-threads = integer,
+    interactive-timeout = integer,
+    join-buffer-size = integer,
+    lock-wait-timeout = integer,
+    log-error-verbosity = integer,
     log-slow-filter = [
       FULL_SCAN|FULL_JOIN|TMP_TABLE|TMP_TABLE_ON_DISK|FILESORT|FILESORT_ON_DISK, ...
     ],
-    log-slow-rate-limit = int,
+    log-slow-rate-limit = integer,
     log-slow-rate-type = SESSION|QUERY,
-    log-slow-sp-statements = bool,
-    long-query-time = double,
-    lower-case-table-names = int,
-    max-allowed-packet = int,
-    max-connections = int,
-    max-digest-length = int,
-    max-execution-time = int,
-    max-heap-table-size = int,
-    max-prepared-stmt-count = int,
-    max-sp-recursion-depth = int,
-    max-write-lock-count = int,
-    mdb-async-allowed-lag = int,
-    mdb-force-ssl = bool,
-    mdb-offline-mode-disable-lag = int,
-    mdb-offline-mode-enable-lag = int,
-    mdb-preserve-binlog-bytes = int,
-    mdb-priority-choice-max-lag = int,
-    mdb-use-async-replication = bool,
-    net-read-timeout = int,
-    net-write-timeout = int,
-    optimizer-search-depth = int,
-    optimizer-switch = str,
-    range-optimizer-max-mem-size = int,
-    regexp-time-limit = int,
-    replication-optimize-for-static-plugin-config = bool,
-    replication-sender-observe-commit-only = bool,
-    rpl-semi-sync-master-wait-for-slave-count = int,
+    log-slow-sp-statements = boolean,
+    long-query-time = float64,
+    lower-case-table-names = integer,
+    max-allowed-packet = integer,
+    max-connections = integer,
+    max-digest-length = integer,
+    max-execution-time = integer,
+    max-heap-table-size = integer,
+    max-prepared-stmt-count = integer,
+    max-sp-recursion-depth = integer,
+    max-write-lock-count = integer,
+    mdb-async-allowed-lag = integer,
+    mdb-force-ssl = boolean,
+    mdb-offline-mode-disable-lag = integer,
+    mdb-offline-mode-enable-lag = integer,
+    mdb-preserve-binlog-bytes = integer,
+    mdb-priority-choice-max-lag = integer,
+    mdb-use-async-replication = boolean,
+    net-read-timeout = integer,
+    net-write-timeout = integer,
+    optimizer-search-depth = integer,
+    optimizer-switch = string,
+    range-optimizer-max-mem-size = integer,
+    regexp-time-limit = integer,
+    replication-optimize-for-static-plugin-config = boolean,
+    replication-sender-observe-commit-only = boolean,
+    rpl-semi-sync-master-wait-for-slave-count = integer,
     slave-parallel-type = DATABASE|LOGICAL_CLOCK,
-    slave-parallel-workers = int,
-    slow-query-log = bool,
-    slow-query-log-always-write-time = double,
-    sort-buffer-size = int,
+    slave-parallel-workers = integer,
+    slow-query-log = boolean,
+    slow-query-log-always-write-time = float64,
+    sort-buffer-size = integer,
     sql-mode = [
       ALLOW_INVALID_DATES|ANSI_QUOTES|ERROR_FOR_DIVISION_BY_ZERO|HIGH_NOT_PRECEDENCE|IGNORE_SPACE|NO_AUTO_VALUE_ON_ZERO|NO_BACKSLASH_ESCAPES|NO_ENGINE_SUBSTITUTION|NO_UNSIGNED_SUBTRACTION|NO_ZERO_DATE|NO_ZERO_IN_DATE|ONLY_FULL_GROUP_BY|PAD_CHAR_TO_FULL_LENGTH|PIPES_AS_CONCAT|REAL_AS_FLOAT|STRICT_ALL_TABLES|STRICT_TRANS_TABLES|TIME_TRUNCATE_FRACTIONAL|ANSI|TRADITIONAL|NO_DIR_IN_CREATE, ...
     ],
-    sql-require-primary-key = bool,
-    sync-binlog = int,
-    table-definition-cache = int,
-    table-open-cache = int,
-    table-open-cache-instances = int,
-    thread-cache-size = int,
-    thread-stack = int,
-    tmp-table-size = int,
+    sql-require-primary-key = boolean,
+    sync-binlog = integer,
+    table-definition-cache = integer,
+    table-open-cache = integer,
+    table-open-cache-instances = integer,
+    thread-cache-size = integer,
+    thread-stack = integer,
+    tmp-table-size = integer,
     transaction-isolation = READ_COMMITTED|REPEATABLE_READ|SERIALIZABLE,
-    userstat = bool,
-    wait-timeout = int
+    userstat = boolean,
+    wait-timeout = integer
   },
   performance-diagnostics = {
-    enabled = bool,
-    sessions-sampling-interval = int,
-    statements-sampling-interval = int
+    enabled = boolean,
+    sessions-sampling-interval = integer,
+    statements-sampling-interval = integer
   },
   resources = {
-    disk-size = int,
-    disk-type-id = str,
-    resource-preset-id = str
+    disk-size = integer,
+    disk-type-id = string,
+    resource-preset-id = string
   },
-  version = str
+  version = string
 }
 ```
 
@@ -349,322 +349,322 @@ JSON Syntax:
 ```json
 {
   "access": {
-    "data-lens": "bool",
-    "data-transfer": "bool",
-    "web-sql": "bool",
-    "yandex-query": "bool"
+    "data-lens": "boolean",
+    "data-transfer": "boolean",
+    "web-sql": "boolean",
+    "yandex-query": "boolean"
   },
-  "backup-retain-period-days": "int",
+  "backup-retain-period-days": "integer",
   "backup-window-start": "timeofday",
   "disk-size-autoscaling": {
-    "disk-size-limit": "int",
-    "emergency-usage-threshold": "int",
-    "planned-usage-threshold": "int"
+    "disk-size-limit": "integer",
+    "emergency-usage-threshold": "integer",
+    "planned-usage-threshold": "integer"
   },
   "mysql-config": {
     "mysql-config-5-7": {
-      "audit-log": "bool",
+      "audit-log": "boolean",
       "audit-log-policy": "ALL|LOGINS|QUERIES|NONE",
-      "auto-increment-increment": "int",
-      "auto-increment-offset": "int",
-      "autocommit": "bool",
-      "binlog-cache-size": "int",
-      "binlog-group-commit-sync-delay": "int",
+      "auto-increment-increment": "integer",
+      "auto-increment-offset": "integer",
+      "autocommit": "boolean",
+      "binlog-cache-size": "integer",
+      "binlog-group-commit-sync-delay": "integer",
       "binlog-row-image": "FULL|MINIMAL|NOBLOB",
-      "binlog-rows-query-log-events": "bool",
+      "binlog-rows-query-log-events": "boolean",
       "binlog-transaction-dependency-tracking": "COMMIT_ORDER|WRITESET|WRITESET_SESSION",
-      "character-set-server": "str",
-      "collation-server": "str",
+      "character-set-server": "string",
+      "collation-server": "string",
       "default-authentication-plugin": "MYSQL_NATIVE_PASSWORD|CACHING_SHA2_PASSWORD|SHA256_PASSWORD|MYSQL_NO_LOGIN|MDB_IAMPROXY_AUTH",
-      "default-time-zone": "str",
-      "explicit-defaults-for-timestamp": "bool",
-      "general-log": "bool",
-      "group-concat-max-len": "int",
-      "innodb-adaptive-hash-index": "bool",
-      "innodb-buffer-pool-size": "int",
+      "default-time-zone": "string",
+      "explicit-defaults-for-timestamp": "boolean",
+      "general-log": "boolean",
+      "group-concat-max-len": "integer",
+      "innodb-adaptive-hash-index": "boolean",
+      "innodb-buffer-pool-size": "integer",
       "innodb-change-buffering": "INNODB_CHANGE_BUFFERING_NONE|INNODB_CHANGE_BUFFERING_INSERTS|INNODB_CHANGE_BUFFERING_DELETES|INNODB_CHANGE_BUFFERING_CHANGES|INNODB_CHANGE_BUFFERING_PURGES|INNODB_CHANGE_BUFFERING_ALL",
-      "innodb-compression-level": "int",
-      "innodb-flush-log-at-trx-commit": "int",
-      "innodb-ft-max-token-size": "int",
-      "innodb-ft-min-token-size": "int",
-      "innodb-io-capacity": "int",
-      "innodb-io-capacity-max": "int",
-      "innodb-lock-wait-timeout": "int",
-      "innodb-log-buffer-size": "int",
-      "innodb-log-file-size": "int",
-      "innodb-lru-scan-depth": "int",
-      "innodb-numa-interleave": "bool",
-      "innodb-online-alter-log-max-size": "int",
-      "innodb-page-size": "int",
-      "innodb-print-all-deadlocks": "bool",
-      "innodb-print-lock-wait-timeout-info": "bool",
-      "innodb-purge-threads": "int",
-      "innodb-read-io-threads": "int",
-      "innodb-status-output": "bool",
-      "innodb-strict-mode": "bool",
-      "innodb-temp-data-file-max-size": "int",
-      "innodb-thread-concurrency": "int",
-      "innodb-write-io-threads": "int",
-      "interactive-timeout": "int",
-      "join-buffer-size": "int",
-      "lock-wait-timeout": "int",
-      "log-error-verbosity": "int",
+      "innodb-compression-level": "integer",
+      "innodb-flush-log-at-trx-commit": "integer",
+      "innodb-ft-max-token-size": "integer",
+      "innodb-ft-min-token-size": "integer",
+      "innodb-io-capacity": "integer",
+      "innodb-io-capacity-max": "integer",
+      "innodb-lock-wait-timeout": "integer",
+      "innodb-log-buffer-size": "integer",
+      "innodb-log-file-size": "integer",
+      "innodb-lru-scan-depth": "integer",
+      "innodb-numa-interleave": "boolean",
+      "innodb-online-alter-log-max-size": "integer",
+      "innodb-page-size": "integer",
+      "innodb-print-all-deadlocks": "boolean",
+      "innodb-print-lock-wait-timeout-info": "boolean",
+      "innodb-purge-threads": "integer",
+      "innodb-read-io-threads": "integer",
+      "innodb-status-output": "boolean",
+      "innodb-strict-mode": "boolean",
+      "innodb-temp-data-file-max-size": "integer",
+      "innodb-thread-concurrency": "integer",
+      "innodb-write-io-threads": "integer",
+      "interactive-timeout": "integer",
+      "join-buffer-size": "integer",
+      "lock-wait-timeout": "integer",
+      "log-error-verbosity": "integer",
       "log-slow-filter": [
         "FULL_SCAN|FULL_JOIN|TMP_TABLE|TMP_TABLE_ON_DISK|FILESORT|FILESORT_ON_DISK", ...
       ],
-      "log-slow-rate-limit": "int",
+      "log-slow-rate-limit": "integer",
       "log-slow-rate-type": "SESSION|QUERY",
-      "log-slow-sp-statements": "bool",
-      "long-query-time": "double",
-      "lower-case-table-names": "int",
-      "max-allowed-packet": "int",
-      "max-connections": "int",
-      "max-digest-length": "int",
-      "max-execution-time": "int",
-      "max-heap-table-size": "int",
-      "max-prepared-stmt-count": "int",
-      "max-sp-recursion-depth": "int",
-      "max-write-lock-count": "int",
-      "mdb-force-ssl": "bool",
-      "mdb-offline-mode-disable-lag": "int",
-      "mdb-offline-mode-enable-lag": "int",
-      "mdb-preserve-binlog-bytes": "int",
-      "mdb-priority-choice-max-lag": "int",
-      "net-read-timeout": "int",
-      "net-write-timeout": "int",
-      "optimizer-search-depth": "int",
-      "optimizer-switch": "str",
-      "query-cache-limit": "int",
-      "query-cache-size": "int",
-      "query-cache-type": "int",
-      "query-response-time-stats": "bool",
-      "range-optimizer-max-mem-size": "int",
-      "rpl-semi-sync-master-wait-for-slave-count": "int",
-      "show-compatibility-56": "bool",
+      "log-slow-sp-statements": "boolean",
+      "long-query-time": "float64",
+      "lower-case-table-names": "integer",
+      "max-allowed-packet": "integer",
+      "max-connections": "integer",
+      "max-digest-length": "integer",
+      "max-execution-time": "integer",
+      "max-heap-table-size": "integer",
+      "max-prepared-stmt-count": "integer",
+      "max-sp-recursion-depth": "integer",
+      "max-write-lock-count": "integer",
+      "mdb-force-ssl": "boolean",
+      "mdb-offline-mode-disable-lag": "integer",
+      "mdb-offline-mode-enable-lag": "integer",
+      "mdb-preserve-binlog-bytes": "integer",
+      "mdb-priority-choice-max-lag": "integer",
+      "net-read-timeout": "integer",
+      "net-write-timeout": "integer",
+      "optimizer-search-depth": "integer",
+      "optimizer-switch": "string",
+      "query-cache-limit": "integer",
+      "query-cache-size": "integer",
+      "query-cache-type": "integer",
+      "query-response-time-stats": "boolean",
+      "range-optimizer-max-mem-size": "integer",
+      "rpl-semi-sync-master-wait-for-slave-count": "integer",
+      "show-compatibility-56": "boolean",
       "slave-parallel-type": "DATABASE|LOGICAL_CLOCK",
-      "slave-parallel-workers": "int",
-      "slow-query-log": "bool",
-      "slow-query-log-always-write-time": "double",
-      "sort-buffer-size": "int",
+      "slave-parallel-workers": "integer",
+      "slow-query-log": "boolean",
+      "slow-query-log-always-write-time": "float64",
+      "sort-buffer-size": "integer",
       "sql-mode": [
         "ALLOW_INVALID_DATES|ANSI_QUOTES|ERROR_FOR_DIVISION_BY_ZERO|HIGH_NOT_PRECEDENCE|IGNORE_SPACE|NO_AUTO_VALUE_ON_ZERO|NO_BACKSLASH_ESCAPES|NO_ENGINE_SUBSTITUTION|NO_UNSIGNED_SUBTRACTION|NO_ZERO_DATE|NO_ZERO_IN_DATE|NO_FIELD_OPTIONS|NO_KEY_OPTIONS|NO_TABLE_OPTIONS|ONLY_FULL_GROUP_BY|PAD_CHAR_TO_FULL_LENGTH|PIPES_AS_CONCAT|REAL_AS_FLOAT|STRICT_ALL_TABLES|STRICT_TRANS_TABLES|ANSI|TRADITIONAL|DB2|MAXDB|MSSQL|MYSQL323|MYSQL40|ORACLE|POSTGRESQL|NO_AUTO_CREATE_USER|NO_DIR_IN_CREATE", ...
       ],
-      "sync-binlog": "int",
-      "table-definition-cache": "int",
-      "table-open-cache": "int",
-      "table-open-cache-instances": "int",
-      "thread-cache-size": "int",
-      "thread-stack": "int",
-      "tmp-table-size": "int",
+      "sync-binlog": "integer",
+      "table-definition-cache": "integer",
+      "table-open-cache": "integer",
+      "table-open-cache-instances": "integer",
+      "thread-cache-size": "integer",
+      "thread-stack": "integer",
+      "tmp-table-size": "integer",
       "transaction-isolation": "READ_COMMITTED|REPEATABLE_READ|SERIALIZABLE",
-      "userstat": "bool",
-      "wait-timeout": "int"
+      "userstat": "boolean",
+      "wait-timeout": "integer"
     },
     "mysql-config-8-0": {
-      "audit-log": "bool",
+      "audit-log": "boolean",
       "audit-log-policy": "ALL|LOGINS|QUERIES|NONE",
-      "auto-increment-increment": "int",
-      "auto-increment-offset": "int",
-      "autocommit": "bool",
-      "binlog-cache-size": "int",
-      "binlog-group-commit-sync-delay": "int",
+      "auto-increment-increment": "integer",
+      "auto-increment-offset": "integer",
+      "autocommit": "boolean",
+      "binlog-cache-size": "integer",
+      "binlog-group-commit-sync-delay": "integer",
       "binlog-row-image": "FULL|MINIMAL|NOBLOB",
-      "binlog-rows-query-log-events": "bool",
+      "binlog-rows-query-log-events": "boolean",
       "binlog-transaction-dependency-tracking": "COMMIT_ORDER|WRITESET|WRITESET_SESSION",
-      "character-set-server": "str",
-      "collation-server": "str",
+      "character-set-server": "string",
+      "collation-server": "string",
       "default-authentication-plugin": "MYSQL_NATIVE_PASSWORD|CACHING_SHA2_PASSWORD|SHA256_PASSWORD|MYSQL_NO_LOGIN|MDB_IAMPROXY_AUTH",
-      "default-time-zone": "str",
-      "explicit-defaults-for-timestamp": "bool",
-      "general-log": "bool",
-      "group-concat-max-len": "int",
-      "innodb-adaptive-hash-index": "bool",
-      "innodb-buffer-pool-size": "int",
+      "default-time-zone": "string",
+      "explicit-defaults-for-timestamp": "boolean",
+      "general-log": "boolean",
+      "group-concat-max-len": "integer",
+      "innodb-adaptive-hash-index": "boolean",
+      "innodb-buffer-pool-size": "integer",
       "innodb-change-buffering": "INNODB_CHANGE_BUFFERING_NONE|INNODB_CHANGE_BUFFERING_INSERTS|INNODB_CHANGE_BUFFERING_DELETES|INNODB_CHANGE_BUFFERING_CHANGES|INNODB_CHANGE_BUFFERING_PURGES|INNODB_CHANGE_BUFFERING_ALL",
-      "innodb-compression-level": "int",
-      "innodb-flush-log-at-trx-commit": "int",
-      "innodb-ft-max-token-size": "int",
-      "innodb-ft-min-token-size": "int",
-      "innodb-io-capacity": "int",
-      "innodb-io-capacity-max": "int",
-      "innodb-lock-wait-timeout": "int",
-      "innodb-log-buffer-size": "int",
-      "innodb-log-file-size": "int",
-      "innodb-lru-scan-depth": "int",
-      "innodb-numa-interleave": "bool",
-      "innodb-online-alter-log-max-size": "int",
-      "innodb-page-size": "int",
-      "innodb-print-all-deadlocks": "bool",
-      "innodb-print-lock-wait-timeout-info": "bool",
-      "innodb-purge-threads": "int",
-      "innodb-read-io-threads": "int",
-      "innodb-status-output": "bool",
-      "innodb-strict-mode": "bool",
-      "innodb-temp-data-file-max-size": "int",
-      "innodb-thread-concurrency": "int",
-      "innodb-write-io-threads": "int",
-      "interactive-timeout": "int",
-      "join-buffer-size": "int",
-      "lock-wait-timeout": "int",
-      "log-error-verbosity": "int",
+      "innodb-compression-level": "integer",
+      "innodb-flush-log-at-trx-commit": "integer",
+      "innodb-ft-max-token-size": "integer",
+      "innodb-ft-min-token-size": "integer",
+      "innodb-io-capacity": "integer",
+      "innodb-io-capacity-max": "integer",
+      "innodb-lock-wait-timeout": "integer",
+      "innodb-log-buffer-size": "integer",
+      "innodb-log-file-size": "integer",
+      "innodb-lru-scan-depth": "integer",
+      "innodb-numa-interleave": "boolean",
+      "innodb-online-alter-log-max-size": "integer",
+      "innodb-page-size": "integer",
+      "innodb-print-all-deadlocks": "boolean",
+      "innodb-print-lock-wait-timeout-info": "boolean",
+      "innodb-purge-threads": "integer",
+      "innodb-read-io-threads": "integer",
+      "innodb-status-output": "boolean",
+      "innodb-strict-mode": "boolean",
+      "innodb-temp-data-file-max-size": "integer",
+      "innodb-thread-concurrency": "integer",
+      "innodb-write-io-threads": "integer",
+      "interactive-timeout": "integer",
+      "join-buffer-size": "integer",
+      "lock-wait-timeout": "integer",
+      "log-error-verbosity": "integer",
       "log-slow-filter": [
         "FULL_SCAN|FULL_JOIN|TMP_TABLE|TMP_TABLE_ON_DISK|FILESORT|FILESORT_ON_DISK", ...
       ],
-      "log-slow-rate-limit": "int",
+      "log-slow-rate-limit": "integer",
       "log-slow-rate-type": "SESSION|QUERY",
-      "log-slow-sp-statements": "bool",
-      "long-query-time": "double",
-      "lower-case-table-names": "int",
-      "max-allowed-packet": "int",
-      "max-connections": "int",
-      "max-digest-length": "int",
-      "max-execution-time": "int",
-      "max-heap-table-size": "int",
-      "max-prepared-stmt-count": "int",
-      "max-sp-recursion-depth": "int",
-      "max-write-lock-count": "int",
-      "mdb-force-ssl": "bool",
-      "mdb-offline-mode-disable-lag": "int",
-      "mdb-offline-mode-enable-lag": "int",
-      "mdb-preserve-binlog-bytes": "int",
-      "mdb-priority-choice-max-lag": "int",
-      "net-read-timeout": "int",
-      "net-write-timeout": "int",
-      "optimizer-search-depth": "int",
-      "optimizer-switch": "str",
-      "range-optimizer-max-mem-size": "int",
-      "regexp-time-limit": "int",
-      "replication-optimize-for-static-plugin-config": "bool",
-      "replication-sender-observe-commit-only": "bool",
-      "rpl-semi-sync-master-wait-for-slave-count": "int",
+      "log-slow-sp-statements": "boolean",
+      "long-query-time": "float64",
+      "lower-case-table-names": "integer",
+      "max-allowed-packet": "integer",
+      "max-connections": "integer",
+      "max-digest-length": "integer",
+      "max-execution-time": "integer",
+      "max-heap-table-size": "integer",
+      "max-prepared-stmt-count": "integer",
+      "max-sp-recursion-depth": "integer",
+      "max-write-lock-count": "integer",
+      "mdb-force-ssl": "boolean",
+      "mdb-offline-mode-disable-lag": "integer",
+      "mdb-offline-mode-enable-lag": "integer",
+      "mdb-preserve-binlog-bytes": "integer",
+      "mdb-priority-choice-max-lag": "integer",
+      "net-read-timeout": "integer",
+      "net-write-timeout": "integer",
+      "optimizer-search-depth": "integer",
+      "optimizer-switch": "string",
+      "range-optimizer-max-mem-size": "integer",
+      "regexp-time-limit": "integer",
+      "replication-optimize-for-static-plugin-config": "boolean",
+      "replication-sender-observe-commit-only": "boolean",
+      "rpl-semi-sync-master-wait-for-slave-count": "integer",
       "slave-parallel-type": "DATABASE|LOGICAL_CLOCK",
-      "slave-parallel-workers": "int",
-      "slow-query-log": "bool",
-      "slow-query-log-always-write-time": "double",
-      "sort-buffer-size": "int",
+      "slave-parallel-workers": "integer",
+      "slow-query-log": "boolean",
+      "slow-query-log-always-write-time": "float64",
+      "sort-buffer-size": "integer",
       "sql-mode": [
         "ALLOW_INVALID_DATES|ANSI_QUOTES|ERROR_FOR_DIVISION_BY_ZERO|HIGH_NOT_PRECEDENCE|IGNORE_SPACE|NO_AUTO_VALUE_ON_ZERO|NO_BACKSLASH_ESCAPES|NO_ENGINE_SUBSTITUTION|NO_UNSIGNED_SUBTRACTION|NO_ZERO_DATE|NO_ZERO_IN_DATE|ONLY_FULL_GROUP_BY|PAD_CHAR_TO_FULL_LENGTH|PIPES_AS_CONCAT|REAL_AS_FLOAT|STRICT_ALL_TABLES|STRICT_TRANS_TABLES|TIME_TRUNCATE_FRACTIONAL|ANSI|TRADITIONAL|NO_DIR_IN_CREATE", ...
       ],
-      "sql-require-primary-key": "bool",
-      "sync-binlog": "int",
-      "table-definition-cache": "int",
-      "table-open-cache": "int",
-      "table-open-cache-instances": "int",
-      "thread-cache-size": "int",
-      "thread-stack": "int",
-      "tmp-table-size": "int",
+      "sql-require-primary-key": "boolean",
+      "sync-binlog": "integer",
+      "table-definition-cache": "integer",
+      "table-open-cache": "integer",
+      "table-open-cache-instances": "integer",
+      "thread-cache-size": "integer",
+      "thread-stack": "integer",
+      "tmp-table-size": "integer",
       "transaction-isolation": "READ_COMMITTED|REPEATABLE_READ|SERIALIZABLE",
-      "userstat": "bool",
-      "wait-timeout": "int"
+      "userstat": "boolean",
+      "wait-timeout": "integer"
     },
     "mysql-config-8-4": {
-      "audit-log": "bool",
+      "audit-log": "boolean",
       "audit-log-policy": "ALL|LOGINS|QUERIES|NONE",
-      "auto-increment-increment": "int",
-      "auto-increment-offset": "int",
-      "autocommit": "bool",
-      "binlog-cache-size": "int",
-      "binlog-group-commit-sync-delay": "int",
+      "auto-increment-increment": "integer",
+      "auto-increment-offset": "integer",
+      "autocommit": "boolean",
+      "binlog-cache-size": "integer",
+      "binlog-group-commit-sync-delay": "integer",
       "binlog-row-image": "FULL|MINIMAL|NOBLOB",
-      "binlog-rows-query-log-events": "bool",
-      "character-set-server": "str",
-      "collation-server": "str",
-      "default-time-zone": "str",
-      "explicit-defaults-for-timestamp": "bool",
-      "group-concat-max-len": "int",
-      "innodb-adaptive-hash-index": "bool",
-      "innodb-buffer-pool-size": "int",
+      "binlog-rows-query-log-events": "boolean",
+      "character-set-server": "string",
+      "collation-server": "string",
+      "default-time-zone": "string",
+      "explicit-defaults-for-timestamp": "boolean",
+      "group-concat-max-len": "integer",
+      "innodb-adaptive-hash-index": "boolean",
+      "innodb-buffer-pool-size": "integer",
       "innodb-change-buffering": "INNODB_CHANGE_BUFFERING_NONE|INNODB_CHANGE_BUFFERING_INSERTS|INNODB_CHANGE_BUFFERING_DELETES|INNODB_CHANGE_BUFFERING_CHANGES|INNODB_CHANGE_BUFFERING_PURGES|INNODB_CHANGE_BUFFERING_ALL",
-      "innodb-compression-level": "int",
-      "innodb-flush-log-at-trx-commit": "int",
-      "innodb-ft-max-token-size": "int",
-      "innodb-ft-min-token-size": "int",
-      "innodb-io-capacity": "int",
-      "innodb-io-capacity-max": "int",
-      "innodb-lock-wait-timeout": "int",
-      "innodb-log-buffer-size": "int",
-      "innodb-log-file-size": "int",
-      "innodb-lru-scan-depth": "int",
-      "innodb-numa-interleave": "bool",
-      "innodb-online-alter-log-max-size": "int",
-      "innodb-page-size": "int",
-      "innodb-print-all-deadlocks": "bool",
-      "innodb-print-lock-wait-timeout-info": "bool",
-      "innodb-purge-threads": "int",
-      "innodb-read-io-threads": "int",
-      "innodb-status-output": "bool",
-      "innodb-strict-mode": "bool",
-      "innodb-temp-data-file-max-size": "int",
-      "innodb-thread-concurrency": "int",
-      "innodb-write-io-threads": "int",
-      "interactive-timeout": "int",
-      "join-buffer-size": "int",
-      "lock-wait-timeout": "int",
-      "log-error-verbosity": "int",
+      "innodb-compression-level": "integer",
+      "innodb-flush-log-at-trx-commit": "integer",
+      "innodb-ft-max-token-size": "integer",
+      "innodb-ft-min-token-size": "integer",
+      "innodb-io-capacity": "integer",
+      "innodb-io-capacity-max": "integer",
+      "innodb-lock-wait-timeout": "integer",
+      "innodb-log-buffer-size": "integer",
+      "innodb-log-file-size": "integer",
+      "innodb-lru-scan-depth": "integer",
+      "innodb-numa-interleave": "boolean",
+      "innodb-online-alter-log-max-size": "integer",
+      "innodb-page-size": "integer",
+      "innodb-print-all-deadlocks": "boolean",
+      "innodb-print-lock-wait-timeout-info": "boolean",
+      "innodb-purge-threads": "integer",
+      "innodb-read-io-threads": "integer",
+      "innodb-status-output": "boolean",
+      "innodb-strict-mode": "boolean",
+      "innodb-temp-data-file-max-size": "integer",
+      "innodb-thread-concurrency": "integer",
+      "innodb-write-io-threads": "integer",
+      "interactive-timeout": "integer",
+      "join-buffer-size": "integer",
+      "lock-wait-timeout": "integer",
+      "log-error-verbosity": "integer",
       "log-slow-filter": [
         "FULL_SCAN|FULL_JOIN|TMP_TABLE|TMP_TABLE_ON_DISK|FILESORT|FILESORT_ON_DISK", ...
       ],
-      "log-slow-rate-limit": "int",
+      "log-slow-rate-limit": "integer",
       "log-slow-rate-type": "SESSION|QUERY",
-      "log-slow-sp-statements": "bool",
-      "long-query-time": "double",
-      "lower-case-table-names": "int",
-      "max-allowed-packet": "int",
-      "max-connections": "int",
-      "max-digest-length": "int",
-      "max-execution-time": "int",
-      "max-heap-table-size": "int",
-      "max-prepared-stmt-count": "int",
-      "max-sp-recursion-depth": "int",
-      "max-write-lock-count": "int",
-      "mdb-async-allowed-lag": "int",
-      "mdb-force-ssl": "bool",
-      "mdb-offline-mode-disable-lag": "int",
-      "mdb-offline-mode-enable-lag": "int",
-      "mdb-preserve-binlog-bytes": "int",
-      "mdb-priority-choice-max-lag": "int",
-      "mdb-use-async-replication": "bool",
-      "net-read-timeout": "int",
-      "net-write-timeout": "int",
-      "optimizer-search-depth": "int",
-      "optimizer-switch": "str",
-      "range-optimizer-max-mem-size": "int",
-      "regexp-time-limit": "int",
-      "replication-optimize-for-static-plugin-config": "bool",
-      "replication-sender-observe-commit-only": "bool",
-      "rpl-semi-sync-master-wait-for-slave-count": "int",
+      "log-slow-sp-statements": "boolean",
+      "long-query-time": "float64",
+      "lower-case-table-names": "integer",
+      "max-allowed-packet": "integer",
+      "max-connections": "integer",
+      "max-digest-length": "integer",
+      "max-execution-time": "integer",
+      "max-heap-table-size": "integer",
+      "max-prepared-stmt-count": "integer",
+      "max-sp-recursion-depth": "integer",
+      "max-write-lock-count": "integer",
+      "mdb-async-allowed-lag": "integer",
+      "mdb-force-ssl": "boolean",
+      "mdb-offline-mode-disable-lag": "integer",
+      "mdb-offline-mode-enable-lag": "integer",
+      "mdb-preserve-binlog-bytes": "integer",
+      "mdb-priority-choice-max-lag": "integer",
+      "mdb-use-async-replication": "boolean",
+      "net-read-timeout": "integer",
+      "net-write-timeout": "integer",
+      "optimizer-search-depth": "integer",
+      "optimizer-switch": "string",
+      "range-optimizer-max-mem-size": "integer",
+      "regexp-time-limit": "integer",
+      "replication-optimize-for-static-plugin-config": "boolean",
+      "replication-sender-observe-commit-only": "boolean",
+      "rpl-semi-sync-master-wait-for-slave-count": "integer",
       "slave-parallel-type": "DATABASE|LOGICAL_CLOCK",
-      "slave-parallel-workers": "int",
-      "slow-query-log": "bool",
-      "slow-query-log-always-write-time": "double",
-      "sort-buffer-size": "int",
+      "slave-parallel-workers": "integer",
+      "slow-query-log": "boolean",
+      "slow-query-log-always-write-time": "float64",
+      "sort-buffer-size": "integer",
       "sql-mode": [
         "ALLOW_INVALID_DATES|ANSI_QUOTES|ERROR_FOR_DIVISION_BY_ZERO|HIGH_NOT_PRECEDENCE|IGNORE_SPACE|NO_AUTO_VALUE_ON_ZERO|NO_BACKSLASH_ESCAPES|NO_ENGINE_SUBSTITUTION|NO_UNSIGNED_SUBTRACTION|NO_ZERO_DATE|NO_ZERO_IN_DATE|ONLY_FULL_GROUP_BY|PAD_CHAR_TO_FULL_LENGTH|PIPES_AS_CONCAT|REAL_AS_FLOAT|STRICT_ALL_TABLES|STRICT_TRANS_TABLES|TIME_TRUNCATE_FRACTIONAL|ANSI|TRADITIONAL|NO_DIR_IN_CREATE", ...
       ],
-      "sql-require-primary-key": "bool",
-      "sync-binlog": "int",
-      "table-definition-cache": "int",
-      "table-open-cache": "int",
-      "table-open-cache-instances": "int",
-      "thread-cache-size": "int",
-      "thread-stack": "int",
-      "tmp-table-size": "int",
+      "sql-require-primary-key": "boolean",
+      "sync-binlog": "integer",
+      "table-definition-cache": "integer",
+      "table-open-cache": "integer",
+      "table-open-cache-instances": "integer",
+      "thread-cache-size": "integer",
+      "thread-stack": "integer",
+      "tmp-table-size": "integer",
       "transaction-isolation": "READ_COMMITTED|REPEATABLE_READ|SERIALIZABLE",
-      "userstat": "bool",
-      "wait-timeout": "int"
+      "userstat": "boolean",
+      "wait-timeout": "integer"
     }
   },
   "performance-diagnostics": {
-    "enabled": "bool",
-    "sessions-sampling-interval": "int",
-    "statements-sampling-interval": "int"
+    "enabled": "boolean",
+    "sessions-sampling-interval": "integer",
+    "statements-sampling-interval": "integer"
   },
   "resources": {
-    "disk-size": "int",
-    "disk-type-id": "str",
-    "resource-preset-id": "str"
+    "disk-size": "integer",
+    "disk-type-id": "string",
+    "resource-preset-id": "string"
   },
-  "version": "str"
+  "version": "string"
 }
 ```
 
@@ -673,37 +673,37 @@ Fields:
 ```
 access -> (struct)
   Access policy for external services. If the specific services need to access the cluster, then set the necessary values in this policy.
-  data-lens -> (bool)
+  data-lens -> (boolean)
     Allows access from DataLens. See documentation for details.
-  data-transfer -> (bool)
+  data-transfer -> (boolean)
     Allow access for DataTransfer.
-  web-sql -> (bool)
+  web-sql -> (boolean)
     Allows SQL queries to the cluster databases from management console. See documentation for details.
-  yandex-query -> (bool)
+  yandex-query -> (boolean)
     Allow access for YandexQuery.
-backup-retain-period-days -> (int)
+backup-retain-period-days -> (integer)
   Retention policy of automated backups.
 backup-window-start -> (timeofday)
   Time to start the daily backup, in the UTC timezone.
 disk-size-autoscaling -> (struct)
   Disk size autoscaling
-  disk-size-limit -> (int)
+  disk-size-limit -> (integer)
     Limit on how large the storage for database instances can automatically grow, in bytes.
-  emergency-usage-threshold -> (int)
+  emergency-usage-threshold -> (integer)
     Amount of used storage for immediately automatic disk scaling, 0 means disabled, in percent.
-  planned-usage-threshold -> (int)
+  planned-usage-threshold -> (integer)
     Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
 performance-diagnostics -> (struct)
   Configuration of the performance diagnostics service.
-  enabled -> (bool)
+  enabled -> (boolean)
     Flag that shows if performance statistics gathering is enabled for the cluster.
-  sessions-sampling-interval -> (int)
+  sessions-sampling-interval -> (integer)
     Interval (in seconds) for 'my_session' sampling.
-  statements-sampling-interval -> (int)
+  statements-sampling-interval -> (integer)
     Interval (in seconds) for 'my_statements' sampling.
 resources -> (struct)
   Resource preset for the cluster hosts.
-  disk-size -> (int)
+  disk-size -> (integer)
     Volume of the storage (for each cluster host, in bytes).
   disk-type-id -> (string)
     Type of the storage. Possible values: * 'network-hdd' - standard network storage * 'network-ssd' - fast network storage * 'network-ssd-nonreplicated' - fast network nonreplicated storage * 'local-ssd' - fast local storage. See documentation for details.
@@ -715,23 +715,23 @@ mysql-config -> (oneof<mysql-config-5-7|mysql-config-8-0|mysql-config-8-4>)
   Oneof mysql-config field
   mysql-config-5-7 -> (struct)
     Configuration for a MySQL 5.7 cluster.
-    audit-log -> (bool)
+    audit-log -> (boolean)
       Enable writing of audit log of MySQL. See MySQL documentation for details.
     audit-log-policy -> (struct)
       The policy controlling how the audit log plugin writes events to its log file For details, see MySQL documentation for the variable
-    auto-increment-increment -> (int)
+    auto-increment-increment -> (integer)
       Can be used to control the operation of AUTO_INCREMENT columns. See MySQL documentation for details.
-    auto-increment-offset -> (int)
+    auto-increment-offset -> (integer)
       Can be used to control the operation of AUTO_INCREMENT columns. See MySQL documentation for details.
-    autocommit -> (bool)
+    autocommit -> (boolean)
       Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it. For details, see MySQL documentation for the variable.
-    binlog-cache-size -> (int)
+    binlog-cache-size -> (integer)
       The size of the cache to hold changes to the binary log during a transaction. See MySQL documentation for details.
-    binlog-group-commit-sync-delay -> (int)
+    binlog-group-commit-sync-delay -> (integer)
       Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk. See MySQL documentation for the variable for details.
     binlog-row-image -> (struct)
       For MySQL row-based replication, this variable determines how row images are written to the binary log. See MySQL documentation for details.
-    binlog-rows-query-log-events -> (bool)
+    binlog-rows-query-log-events -> (boolean)
       When enabled, it causes the server to write informational log events such as row query log events into its binary log. See MySQL documentation for details.
     binlog-transaction-dependency-tracking -> (struct)
       Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel. For details, see MySQL documentation for the variable.
@@ -743,181 +743,181 @@ mysql-config -> (oneof<mysql-config-5-7|mysql-config-8-0|mysql-config-8-4>)
       Authentication plugin used in the managed MySQL cluster. See MySQL documentation for details.
     default-time-zone -> (string)
       The servers default time zone. See MySQL documentation for details.
-    explicit-defaults-for-timestamp -> (bool)
+    explicit-defaults-for-timestamp -> (boolean)
       Determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns. See MySQL documentation for details.
-    general-log -> (bool)
+    general-log -> (boolean)
       Enable writing of general query log of MySQL. See MySQL documentation for details.
-    group-concat-max-len -> (int)
+    group-concat-max-len -> (integer)
       The maximum permitted result length in bytes for the GROUP_CONCAT() function. See MySQL documentation for details.
-    innodb-adaptive-hash-index -> (bool)
+    innodb-adaptive-hash-index -> (boolean)
       Enables InnoDB adaptive hash index. See MySQL documentation for details.
-    innodb-buffer-pool-size -> (int)
+    innodb-buffer-pool-size -> (integer)
       Size of the InnoDB buffer pool used for caching table and index data. See MySQL documentation for details.
     innodb-change-buffering -> (struct)
       An optimization for change buffering For details, see MySQL documentation for the variable.
-    innodb-compression-level -> (int)
+    innodb-compression-level -> (integer)
       The level of zlib compression to use for InnoDB compressed tables and indexes. For details, see MySQL documentation for the variable.
-    innodb-flush-log-at-trx-commit -> (int)
+    innodb-flush-log-at-trx-commit -> (integer)
       Transaction log flush behaviour. See MySQL documentation for details.
-    innodb-ft-max-token-size -> (int)
+    innodb-ft-max-token-size -> (integer)
       Maximum length of words that are stored in an InnoDB FULLTEXT index For details, see MySQL documentation for the variable.
-    innodb-ft-min-token-size -> (int)
+    innodb-ft-min-token-size -> (integer)
       Minimum length of words that are stored in an InnoDB FULLTEXT index For details, see MySQL documentation for the variable.
-    innodb-io-capacity -> (int)
+    innodb-io-capacity -> (integer)
       Limits IO available for InnoDB background tasks. See MySQL documentation for details.
-    innodb-io-capacity-max -> (int)
+    innodb-io-capacity-max -> (integer)
       Limits IO available for InnoDB background tasks. See MySQL documentation for details.
-    innodb-lock-wait-timeout -> (int)
+    innodb-lock-wait-timeout -> (integer)
       Max time in seconds for a transaction to wait for a row lock. See MySQL documentation for details.
-    innodb-log-buffer-size -> (int)
+    innodb-log-buffer-size -> (integer)
       The size in bytes of the buffer that InnoDB uses to write to the log files on disk. See MySQL documentation for details.
-    innodb-log-file-size -> (int)
+    innodb-log-file-size -> (integer)
       The size in bytes of the single InnoDB Redo log file. See MySQL documentation for details.
-    innodb-lru-scan-depth -> (int)
+    innodb-lru-scan-depth -> (integer)
       A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool For details, see MySQL documentation for the variable
-    innodb-numa-interleave -> (bool)
+    innodb-numa-interleave -> (boolean)
       Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool. See MySQL documentation for details.
-    innodb-online-alter-log-max-size -> (int)
+    innodb-online-alter-log-max-size -> (integer)
       The limit in bytes on the size of the temporary log files used during online DDL operations For details, see MySQL documentation for the variable.
-    innodb-page-size -> (int)
+    innodb-page-size -> (integer)
       Specifies the page size for InnoDB tablespaces. For details, see MySQL documentation for the variable.
-    innodb-print-all-deadlocks -> (bool)
+    innodb-print-all-deadlocks -> (boolean)
       Print information about deadlocks in error log. See MySQL documentation for details.
-    innodb-print-lock-wait-timeout-info -> (bool)
+    innodb-print-lock-wait-timeout-info -> (boolean)
       Makes InnoDB to write information about all lock wait timeout errors into the log file. For details, see Percona documentation for the variable.
-    innodb-purge-threads -> (int)
+    innodb-purge-threads -> (integer)
       The number of background threads devoted to the InnoDB purge operation. See MySQL documentation for details.
-    innodb-read-io-threads -> (int)
+    innodb-read-io-threads -> (integer)
       The number of I/O threads for read operations in InnoDB. See MySQL documentation for details.
-    innodb-status-output -> (bool)
+    innodb-status-output -> (boolean)
       Enables or disables periodic output for the standard InnoDB Monitor. For details, see MySQL documentation for the variable.
-    innodb-strict-mode -> (bool)
+    innodb-strict-mode -> (boolean)
       When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options. For details, see MySQL documentation for the variable.
-    innodb-temp-data-file-max-size -> (int)
+    innodb-temp-data-file-max-size -> (integer)
       Limits the max size of InnoDB temp tablespace. See MySQL documentation for details.
-    innodb-thread-concurrency -> (int)
+    innodb-thread-concurrency -> (integer)
       Defines the maximum number of threads permitted inside of InnoDB. See MySQL documentation for details.
-    innodb-write-io-threads -> (int)
+    innodb-write-io-threads -> (integer)
       The number of I/O threads for write operations in InnoDB. See MySQL documentation for details.
-    interactive-timeout -> (int)
+    interactive-timeout -> (integer)
       The number of seconds the server waits for activity on an interactive connection before closing it. See MySQL documentation for details.
-    join-buffer-size -> (int)
+    join-buffer-size -> (integer)
       The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans. See MySQL documentation for details.
-    lock-wait-timeout -> (int)
+    lock-wait-timeout -> (integer)
       // This variable specifies the timeout in seconds for attempts to acquire metadata locks For details, see MySQL documentation for the variable.
-    log-error-verbosity -> (int)
+    log-error-verbosity -> (integer)
       System variable specifies the verbosity for handling events intended for the error log For details, see MySQL documentation for the variable.
     log-slow-filter -> ([]struct)
       Filters the slow log by the query's execution plan. See Percona documentation for details.
-    log-slow-rate-limit -> (int)
+    log-slow-rate-limit -> (integer)
       Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query. See Percona documentation for details.
     log-slow-rate-type -> (struct)
       Specifies slow log granularity for 'log_slow_rate_limit' values QUERY or SESSION. See Percona documentation for details.
-    log-slow-sp-statements -> (bool)
+    log-slow-sp-statements -> (boolean)
       When TRUE, statements executed by stored procedures are logged to the slow log. See Percona documentation for details.
-    long-query-time -> (double)
+    long-query-time -> (float64)
       Time that it takes to process a query before it is considered slow. See MySQL documentation for details.
-    lower-case-table-names -> (int)
+    lower-case-table-names -> (integer)
       Table names storage and comparison strategy For details, see MySQL documentation for the variable.
-    max-allowed-packet -> (int)
+    max-allowed-packet -> (integer)
       The maximum size in bytes of one packet. See MySQL documentation for details.
-    max-connections -> (int)
+    max-connections -> (integer)
       The maximum permitted number of simultaneous client connections. See MySQL documentation for details.
-    max-digest-length -> (int)
+    max-digest-length -> (integer)
       The maximum number of bytes of memory reserved per session for computation of normalized statement digests. For details, see MySQL documentation for the variable.
-    max-execution-time -> (int)
+    max-execution-time -> (integer)
       The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled. For details, see MySQL documentation for the variable
-    max-heap-table-size -> (int)
+    max-heap-table-size -> (integer)
       This variable sets the maximum size to which user-created MEMORY tables are permitted to grow. See MySQL documentation for details.
-    max-prepared-stmt-count -> (int)
+    max-prepared-stmt-count -> (integer)
       This variable limits the total number of prepared statements in the server. For details, see MySQL documentation for the variable.
-    max-sp-recursion-depth -> (int)
+    max-sp-recursion-depth -> (integer)
       The number of times that any given stored procedure may be called recursively. For details, see MySQL documentation for the variable.
-    max-write-lock-count -> (int)
+    max-write-lock-count -> (integer)
       Permit some pending read lock requests interval P.S. Should be UInt64, but java fails to handle UInt64 limits For details, see Percona documentation for the variable.
-    mdb-force-ssl -> (bool)
+    mdb-force-ssl -> (boolean)
       Force ssl on all hosts (require_secure_transport)
-    mdb-offline-mode-disable-lag -> (int)
+    mdb-offline-mode-disable-lag -> (integer)
       Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag value.
-    mdb-offline-mode-enable-lag -> (int)
+    mdb-offline-mode-enable-lag -> (integer)
       Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-    mdb-preserve-binlog-bytes -> (int)
+    mdb-preserve-binlog-bytes -> (integer)
       The size of the binary log to hold.
-    mdb-priority-choice-max-lag -> (int)
+    mdb-priority-choice-max-lag -> (integer)
       Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from". Should be less than mdb_offline_mode_disable_lag.
-    net-read-timeout -> (int)
+    net-read-timeout -> (integer)
       The number of seconds to wait for more data from a connection before aborting the read. See MySQL documentation for details.
-    net-write-timeout -> (int)
+    net-write-timeout -> (integer)
       The number of seconds to wait for a block to be written to a connection before aborting the write. See MySQL documentation for details.
-    optimizer-search-depth -> (int)
+    optimizer-search-depth -> (integer)
       The maximum depth of search performed by the query optimizer For details, see MySQL documentation for the variable
     optimizer-switch -> (string)
       The system variable enables control over optimizer behavior. For details, see MySQL documentation for the variable https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
-    query-cache-limit -> (int)
+    query-cache-limit -> (integer)
       Do not cache results that are larger than this number of bytes. For details, see MySQL documentation for the variable.
-    query-cache-size -> (int)
+    query-cache-size -> (integer)
       The amount of memory allocated for caching query results. For details, see MySQL documentation for the variable.
-    query-cache-type -> (int)
+    query-cache-type -> (integer)
       Set the query cache type. For details, see MySQL documentation for the variable.
-    query-response-time-stats -> (bool)
+    query-response-time-stats -> (boolean)
       Enables and disables collection of query times For details, see Percona documentation for the variable.
-    range-optimizer-max-mem-size -> (int)
+    range-optimizer-max-mem-size -> (integer)
       The limit on memory consumption for the range optimizer. See MySQL documentation for details.
-    rpl-semi-sync-master-wait-for-slave-count -> (int)
+    rpl-semi-sync-master-wait-for-slave-count -> (integer)
       The number of replica acknowledgments the source must receive per transaction before proceeding. See MySQL documentation for details.
-    show-compatibility-56 -> (bool)
+    show-compatibility-56 -> (boolean)
       Manages MySQL 5.6 compatibility For details, see MySQL documentation for the variable.
     slave-parallel-type -> (struct)
       When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica. See MySQL documentation for details.
-    slave-parallel-workers -> (int)
+    slave-parallel-workers -> (integer)
       Sets the number of applier threads for executing replication transactions in parallel. See MySQL documentation for details.
-    slow-query-log -> (bool)
+    slow-query-log -> (boolean)
       Manages slow query log. See MySQL documentation for details.
-    slow-query-log-always-write-time -> (double)
+    slow-query-log-always-write-time -> (float64)
       Query execution time, after which query to be logged unconditionally, that is, 'log_slow_rate_limit'' will not apply to it. See Percona documentation for details.
-    sort-buffer-size -> (int)
+    sort-buffer-size -> (integer)
       Each session that must perform a sort allocates a buffer of this size. See MySQL documentation for details.
     sql-mode -> ([]struct)
       Server SQL mode of MySQL. See MySQL documentation for details.
-    sync-binlog -> (int)
+    sync-binlog -> (integer)
       Controls how often the MySQL server synchronizes the binary log to disk. See MySQL documentation for details.
-    table-definition-cache -> (int)
+    table-definition-cache -> (integer)
       The number of table definitions that can be stored in the definition cache. See MySQL documentation for details.
-    table-open-cache -> (int)
+    table-open-cache -> (integer)
       The number of open tables for all threads. See MySQL documentation for details.
-    table-open-cache-instances -> (int)
+    table-open-cache-instances -> (integer)
       The number of open tables cache instances. See MySQL documentation for details.
-    thread-cache-size -> (int)
+    thread-cache-size -> (integer)
       A number of threads the server should cache for reuse. See MySQL documentation for details.
-    thread-stack -> (int)
+    thread-stack -> (integer)
       The stack size for each thread. The default is large enough for normal operation. See MySQL documentation for details.
-    tmp-table-size -> (int)
+    tmp-table-size -> (integer)
       The maximum size of internal in-memory temporary tables. See MySQL documentation for details.
     transaction-isolation -> (struct)
       Default transaction isolation level. See MySQL documentation for details.
-    userstat -> (bool)
+    userstat -> (boolean)
       Enables or disables collection of statistics For details, see Percona documentation for the variable.
-    wait-timeout -> (int)
+    wait-timeout -> (integer)
       The number of seconds the server waits for activity on a noninteractive connection before closing it. See MySQL documentation for details.
   mysql-config-8-0 -> (struct)
     Configuration for a MySQL 8.0 cluster.
-    audit-log -> (bool)
+    audit-log -> (boolean)
       Enable writing of audit log of MySQL. See MySQL documentation for details.
     audit-log-policy -> (struct)
       The policy controlling how the audit log plugin writes events to its log file For details, see MySQL documentation for the variable
-    auto-increment-increment -> (int)
+    auto-increment-increment -> (integer)
       Can be used to control the operation of AUTO_INCREMENT columns. See MySQL documentation for details.
-    auto-increment-offset -> (int)
+    auto-increment-offset -> (integer)
       Can be used to control the operation of AUTO_INCREMENT columns. See MySQL documentation for details.
-    autocommit -> (bool)
+    autocommit -> (boolean)
       Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it. For details, see MySQL documentation for the variable.
-    binlog-cache-size -> (int)
+    binlog-cache-size -> (integer)
       The size of the cache to hold changes to the binary log during a transaction. See MySQL documentation for details.
-    binlog-group-commit-sync-delay -> (int)
+    binlog-group-commit-sync-delay -> (integer)
       Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk. See MySQL documentation for details.
     binlog-row-image -> (struct)
       For MySQL row-based replication, this variable determines how row images are written to the binary log. See MySQL documentation for details.
-    binlog-rows-query-log-events -> (bool)
+    binlog-rows-query-log-events -> (boolean)
       When enabled, it causes the server to write informational log events such as row query log events into its binary log. See MySQL documentation for details.
     binlog-transaction-dependency-tracking -> (struct)
       Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel. For details, see MySQL documentation for the variable.
@@ -929,179 +929,179 @@ mysql-config -> (oneof<mysql-config-5-7|mysql-config-8-0|mysql-config-8-4>)
       Authentication plugin used in the managed MySQL cluster. See MySQL documentation for details.
     default-time-zone -> (string)
       The servers default time zone. See MySQL documentation for details.
-    explicit-defaults-for-timestamp -> (bool)
+    explicit-defaults-for-timestamp -> (boolean)
       Determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns. See MySQL documentation for details.
-    general-log -> (bool)
+    general-log -> (boolean)
       Enable writing of general query log of MySQL. See MySQL documentation for details.
-    group-concat-max-len -> (int)
+    group-concat-max-len -> (integer)
       The maximum permitted result length in bytes for the GROUP_CONCAT() function. See MySQL documentation for details.
-    innodb-adaptive-hash-index -> (bool)
+    innodb-adaptive-hash-index -> (boolean)
       Enables InnoDB adaptive hash index. See MySQL documentation for details.
-    innodb-buffer-pool-size -> (int)
+    innodb-buffer-pool-size -> (integer)
       Size of the InnoDB buffer pool used for caching table and index data. See MySQL documentation for details.
     innodb-change-buffering -> (struct)
       An optimization for change buffering For details, see MySQL documentation for the variable.
-    innodb-compression-level -> (int)
+    innodb-compression-level -> (integer)
       The level of zlib compression to use for InnoDB compressed tables and indexes. For details, see MySQL documentation for the variable.
-    innodb-flush-log-at-trx-commit -> (int)
+    innodb-flush-log-at-trx-commit -> (integer)
       Transaction log flush behaviour. See MySQL documentation for details.
-    innodb-ft-max-token-size -> (int)
+    innodb-ft-max-token-size -> (integer)
       Maximum length of words that are stored in an InnoDB FULLTEXT index See MySQL documentation for the variable for details.
-    innodb-ft-min-token-size -> (int)
+    innodb-ft-min-token-size -> (integer)
       Minimum length of words that are stored in an InnoDB FULLTEXT index See MySQL documentation for the variable for details.
-    innodb-io-capacity -> (int)
+    innodb-io-capacity -> (integer)
       Limits IO available for InnoDB background tasks. See MySQL documentation for details.
-    innodb-io-capacity-max -> (int)
+    innodb-io-capacity-max -> (integer)
       Limits IO available for InnoDB background tasks. See MySQL documentation for details.
-    innodb-lock-wait-timeout -> (int)
+    innodb-lock-wait-timeout -> (integer)
       Max time in seconds for a transaction to wait for a row lock. See MySQL documentation for details.
-    innodb-log-buffer-size -> (int)
+    innodb-log-buffer-size -> (integer)
       The size in bytes of the buffer that InnoDB uses to write to the log files on disk. See MySQL documentation for details.
-    innodb-log-file-size -> (int)
+    innodb-log-file-size -> (integer)
       The size in bytes of the single InnoDB Redo log file. See MySQL documentation for details.
-    innodb-lru-scan-depth -> (int)
+    innodb-lru-scan-depth -> (integer)
       A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool For details, see MySQL documentation for the variable
-    innodb-numa-interleave -> (bool)
+    innodb-numa-interleave -> (boolean)
       Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool. See MySQL documentation for details.
-    innodb-online-alter-log-max-size -> (int)
+    innodb-online-alter-log-max-size -> (integer)
       The limit in bytes on the size of the temporary log files used during online DDL operations See MySQL documentation for the variable for details.
-    innodb-page-size -> (int)
+    innodb-page-size -> (integer)
       Specifies the page size for InnoDB tablespaces. For details, see MySQL documentation for the variable.
-    innodb-print-all-deadlocks -> (bool)
+    innodb-print-all-deadlocks -> (boolean)
       Print information about deadlocks in error log. See MySQL documentation for details.
-    innodb-print-lock-wait-timeout-info -> (bool)
+    innodb-print-lock-wait-timeout-info -> (boolean)
       Makes InnoDB to write information about all lock wait timeout errors into the log file. For details, see Percona documentation for the variable.
-    innodb-purge-threads -> (int)
+    innodb-purge-threads -> (integer)
       The number of background threads devoted to the InnoDB purge operation. See MySQL documentation for details.
-    innodb-read-io-threads -> (int)
+    innodb-read-io-threads -> (integer)
       The number of I/O threads for read operations in InnoDB. See MySQL documentation for details.
-    innodb-status-output -> (bool)
+    innodb-status-output -> (boolean)
       Enables or disables periodic output for the standard InnoDB Monitor. For details, see MySQL documentation for the variable.
-    innodb-strict-mode -> (bool)
+    innodb-strict-mode -> (boolean)
       When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options. For details, see MySQL documentation for the variable.
-    innodb-temp-data-file-max-size -> (int)
+    innodb-temp-data-file-max-size -> (integer)
       Limits the max size of InnoDB temp tablespace. See MySQL documentation for details.
-    innodb-thread-concurrency -> (int)
+    innodb-thread-concurrency -> (integer)
       Defines the maximum number of threads permitted inside of InnoDB. See MySQL documentation for details.
-    innodb-write-io-threads -> (int)
+    innodb-write-io-threads -> (integer)
       The number of I/O threads for write operations in InnoDB. See MySQL documentation for details.
-    interactive-timeout -> (int)
+    interactive-timeout -> (integer)
       The number of seconds the server waits for activity on an interactive connection before closing it. See MySQL documentation for details.
-    join-buffer-size -> (int)
+    join-buffer-size -> (integer)
       The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans. See MySQL documentation for details.
-    lock-wait-timeout -> (int)
+    lock-wait-timeout -> (integer)
       This variable specifies the timeout in seconds for attempts to acquire metadata locks For details, see MySQL documentation for the variable.
-    log-error-verbosity -> (int)
+    log-error-verbosity -> (integer)
       System variable specifies the verbosity for handling events intended for the error log For details, see MySQL documentation for the variable.
     log-slow-filter -> ([]struct)
       Filters the slow log by the query's execution plan. See Percona documentation for details.
-    log-slow-rate-limit -> (int)
+    log-slow-rate-limit -> (integer)
       Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query. See Percona documentation for details.
     log-slow-rate-type -> (struct)
       Specifies slow log granularity for 'log_slow_rate_limit' QUERY or SESSION value. See Percona documentation for details.
-    log-slow-sp-statements -> (bool)
+    log-slow-sp-statements -> (boolean)
       When TRUE, statements executed by stored procedures are logged to the slow log. See Percona documentation for details.
-    long-query-time -> (double)
+    long-query-time -> (float64)
       Time that it takes to process a query before it is considered slow. See MySQL documentation for details.
-    lower-case-table-names -> (int)
+    lower-case-table-names -> (integer)
       Table names storage and comparison strategy See MySQL documentation for the variable for details.
-    max-allowed-packet -> (int)
+    max-allowed-packet -> (integer)
       The maximum size in bytes of one packet. See MySQL documentation for details.
-    max-connections -> (int)
+    max-connections -> (integer)
       The maximum permitted number of simultaneous client connections. See MySQL documentation for details.
-    max-digest-length -> (int)
+    max-digest-length -> (integer)
       The maximum number of bytes of memory reserved per session for computation of normalized statement digests. For details, see MySQL documentation for the variable.
-    max-execution-time -> (int)
+    max-execution-time -> (integer)
       The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled. For details, see MySQL documentation for the variable
-    max-heap-table-size -> (int)
+    max-heap-table-size -> (integer)
       This variable sets the maximum size to which user-created MEMORY tables are permitted to grow. See MySQL documentation for details.
-    max-prepared-stmt-count -> (int)
+    max-prepared-stmt-count -> (integer)
       This variable limits the total number of prepared statements in the server. For details, see MySQL documentation for the variable.
-    max-sp-recursion-depth -> (int)
+    max-sp-recursion-depth -> (integer)
       The number of times that any given stored procedure may be called recursively. For details, see MySQL documentation for the variable.
-    max-write-lock-count -> (int)
+    max-write-lock-count -> (integer)
       Permit some pending read lock requests interval P.S. Should be UInt64, but java fails to handle UInt64 limits For details, see Percona documentation for the variable.
-    mdb-force-ssl -> (bool)
+    mdb-force-ssl -> (boolean)
       Force ssl on all hosts (require_secure_transport)
-    mdb-offline-mode-disable-lag -> (int)
+    mdb-offline-mode-disable-lag -> (integer)
       Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.
-    mdb-offline-mode-enable-lag -> (int)
+    mdb-offline-mode-enable-lag -> (integer)
       Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-    mdb-preserve-binlog-bytes -> (int)
+    mdb-preserve-binlog-bytes -> (integer)
       The size of the binary log to hold.
-    mdb-priority-choice-max-lag -> (int)
+    mdb-priority-choice-max-lag -> (integer)
       Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from". Should be less than mdb_offline_mode_disable_lag.
-    net-read-timeout -> (int)
+    net-read-timeout -> (integer)
       The number of seconds to wait for more data from a connection before aborting the read. See MySQL documentation for details.
-    net-write-timeout -> (int)
+    net-write-timeout -> (integer)
       The number of seconds to wait for a block to be written to a connection before aborting the write. See MySQL documentation for details.
-    optimizer-search-depth -> (int)
+    optimizer-search-depth -> (integer)
       The maximum depth of search performed by the query optimizer For details, see MySQL documentation for the variable
     optimizer-switch -> (string)
       The system variable enables control over optimizer behavior. For details, see MySQL documentation for the variable https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html
-    range-optimizer-max-mem-size -> (int)
+    range-optimizer-max-mem-size -> (integer)
       The limit on memory consumption for the range optimizer. See MySQL documentation for details.
-    regexp-time-limit -> (int)
+    regexp-time-limit -> (integer)
       The time limit for regular expression matching operations performed by REGEXP_LIKE and similar functions. See MySQL documentation for details.
-    replication-optimize-for-static-plugin-config -> (bool)
+    replication-optimize-for-static-plugin-config -> (boolean)
       Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication For details, see MySQL documentation for the variable.
-    replication-sender-observe-commit-only -> (bool)
+    replication-sender-observe-commit-only -> (boolean)
       Limit callbacks to improve performance for semisynchronous replication For details, see MySQL documentation for the variable.
-    rpl-semi-sync-master-wait-for-slave-count -> (int)
+    rpl-semi-sync-master-wait-for-slave-count -> (integer)
       The number of replica acknowledgments the source must receive per transaction before proceeding. See MySQL documentation for details.
     slave-parallel-type -> (struct)
       When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica. See MySQL documentation for details.
-    slave-parallel-workers -> (int)
+    slave-parallel-workers -> (integer)
       Sets the number of applier threads for executing replication transactions in parallel. See MySQL documentation for details.
-    slow-query-log -> (bool)
+    slow-query-log -> (boolean)
       Manages slow query log. See MySQL documentation for details.
-    slow-query-log-always-write-time -> (double)
+    slow-query-log-always-write-time -> (float64)
       Query execution time, after which query to be logged unconditionally, that is, 'log_slow_rate_limit' will not apply to it. See Percona documentation for details.
-    sort-buffer-size -> (int)
+    sort-buffer-size -> (integer)
       Each session that must perform a sort allocates a buffer of this size. See MySQL documentation for details.
     sql-mode -> ([]struct)
       Server SQL mode of MySQL. See MySQL documentation for details.
-    sql-require-primary-key -> (bool)
+    sql-require-primary-key -> (boolean)
       Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key For details, see MySQL documentation for the variable.
-    sync-binlog -> (int)
+    sync-binlog -> (integer)
       Controls how often the MySQL server synchronizes the binary log to disk. See MySQL documentation for details.
-    table-definition-cache -> (int)
+    table-definition-cache -> (integer)
       The number of table definitions that can be stored in the definition cache. See MySQL documentation for details.
-    table-open-cache -> (int)
+    table-open-cache -> (integer)
       The number of open tables for all threads. See MySQL documentation for details.
-    table-open-cache-instances -> (int)
+    table-open-cache-instances -> (integer)
       The number of open tables cache instances. See MySQL documentation for details.
-    thread-cache-size -> (int)
+    thread-cache-size -> (integer)
       How many threads the server should cache for reuse. See MySQL documentation for details.
-    thread-stack -> (int)
+    thread-stack -> (integer)
       The stack size for each thread. The default is large enough for normal operation. See MySQL documentation for details.
-    tmp-table-size -> (int)
+    tmp-table-size -> (integer)
       The maximum size of internal in-memory temporary tables. See MySQL documentation for details.
     transaction-isolation -> (struct)
       Default transaction isolation level. See MySQL documentation for details.
-    userstat -> (bool)
+    userstat -> (boolean)
       Enables or disables collection of statistics For details, see Percona documentation for the variable.
-    wait-timeout -> (int)
+    wait-timeout -> (integer)
       The number of seconds the server waits for activity on a noninteractive connection before closing it. See MySQL documentation for details.
   mysql-config-8-4 -> (struct)
     Configuration for a MySQL 8.4 cluster.
-    audit-log -> (bool)
+    audit-log -> (boolean)
       Enable writing of audit log of MySQL. For details, see MySQL documentation for the variable.
     audit-log-policy -> (struct)
       The policy controlling how the audit log plugin writes events to its log file For details, see MySQL documentation for the variable
-    auto-increment-increment -> (int)
+    auto-increment-increment -> (integer)
       Can be used to control the operation of AUTO_INCREMENT columns. For details, see MySQL documentation for the variable.
-    auto-increment-offset -> (int)
+    auto-increment-offset -> (integer)
       Can be used to control the operation of AUTO_INCREMENT columns. For details, see MySQL documentation for the variable.
-    autocommit -> (bool)
+    autocommit -> (boolean)
       Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it. For details, see MySQL documentation for the variable.
-    binlog-cache-size -> (int)
+    binlog-cache-size -> (integer)
       The size of the cache to hold changes to the binary log during a transaction. For details, see MySQL documentation for the variable.
-    binlog-group-commit-sync-delay -> (int)
+    binlog-group-commit-sync-delay -> (integer)
       Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk. For details, see MySQL documentation for the variable.
     binlog-row-image -> (struct)
       For MySQL row-based replication, this variable determines how row images are written to the binary log. For details, see MySQL documentation for the variable.
-    binlog-rows-query-log-events -> (bool)
+    binlog-rows-query-log-events -> (boolean)
       When enabled, it causes the server to write informational log events such as row query log events into its binary log. For details, see MySQL documentation for the variable.
     character-set-server -> (string)
       The servers default character set. For details, see MySQL documentation for the variable
@@ -1109,168 +1109,168 @@ mysql-config -> (oneof<mysql-config-5-7|mysql-config-8-0|mysql-config-8-4>)
       Set the default server collation. For details, see MySQL documentation for the variable
     default-time-zone -> (string)
       The servers default time zone. For details, see MySQL documentation for the variable
-    explicit-defaults-for-timestamp -> (bool)
+    explicit-defaults-for-timestamp -> (boolean)
       This system variable determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns. For details, see MySQL documentation for the variable.
-    group-concat-max-len -> (int)
+    group-concat-max-len -> (integer)
       The maximum permitted result length in bytes for the GROUP_CONCAT() function. For details, see MySQL documentation for the variable
-    innodb-adaptive-hash-index -> (bool)
+    innodb-adaptive-hash-index -> (boolean)
       Enables Innodb adaptive hash index For details, see MySQL documentation for the variable
-    innodb-buffer-pool-size -> (int)
+    innodb-buffer-pool-size -> (integer)
       Size of the InnoDB buffer pool used for caching table and index data. For details, see MySQL documentation for the parameter.
     innodb-change-buffering -> (struct)
       An optimization for change buffering For details, see Percona documentation for the variable.
-    innodb-compression-level -> (int)
+    innodb-compression-level -> (integer)
       The level of zlib compression to use for InnoDB compressed tables and indexes. For details, see MySQL documentation for the variable.
-    innodb-flush-log-at-trx-commit -> (int)
+    innodb-flush-log-at-trx-commit -> (integer)
       Transaction log flush behaviour. For details, see MySQL documentation for the variable
-    innodb-ft-max-token-size -> (int)
+    innodb-ft-max-token-size -> (integer)
       Maximum length of words that are stored in an InnoDB FULLTEXT index For details, see MySQL documentation for the variable.
-    innodb-ft-min-token-size -> (int)
+    innodb-ft-min-token-size -> (integer)
       Minimum length of words that are stored in an InnoDB FULLTEXT index For details, see MySQL documentation for the variable.
-    innodb-io-capacity -> (int)
+    innodb-io-capacity -> (integer)
       Limits IO available for InnoDB background tasks For details, see MySQL documentation for the variable
-    innodb-io-capacity-max -> (int)
+    innodb-io-capacity-max -> (integer)
       Limits IO available for InnoDB background tasks For details, see MySQL documentation for the variable
-    innodb-lock-wait-timeout -> (int)
+    innodb-lock-wait-timeout -> (integer)
       Max time in seconds for a transaction to wait for a row lock For details, see MySQL documentation for the variable
-    innodb-log-buffer-size -> (int)
+    innodb-log-buffer-size -> (integer)
       The size in bytes of the buffer that InnoDB uses to write to the log files on disk. For details, see MySQL documentation for the variable
-    innodb-log-file-size -> (int)
+    innodb-log-file-size -> (integer)
       The size in bytes of the single Innodb Redo log file. For details, see MySQL documentation for the variable
-    innodb-lru-scan-depth -> (int)
+    innodb-lru-scan-depth -> (integer)
       A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool For details, see MySQL documentation for the variable
-    innodb-numa-interleave -> (bool)
+    innodb-numa-interleave -> (boolean)
       Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool. For details, see MySQL documentation for the variable
-    innodb-online-alter-log-max-size -> (int)
+    innodb-online-alter-log-max-size -> (integer)
       The limit in bytes on the size of the temporary log files used during online DDL operations For details, see MySQL documentation for the variable.
-    innodb-page-size -> (int)
+    innodb-page-size -> (integer)
       Specifies the page size for InnoDB tablespaces. For details, see MySQL documentation for the variable.
-    innodb-print-all-deadlocks -> (bool)
+    innodb-print-all-deadlocks -> (boolean)
       Print information about deadlocks in error log For details, see MySQL documentation for the variable
-    innodb-print-lock-wait-timeout-info -> (bool)
+    innodb-print-lock-wait-timeout-info -> (boolean)
       Makes InnoDB to write information about all lock wait timeout errors into the log file. For details, see Percona documentation for the variable.
-    innodb-purge-threads -> (int)
+    innodb-purge-threads -> (integer)
       The number of background threads devoted to the InnoDB purge operation. For details, see MySQL documentation for the variable
-    innodb-read-io-threads -> (int)
+    innodb-read-io-threads -> (integer)
       The number of I/O threads for read operations in InnoDB. For details, see MySQL documentation for the variable
-    innodb-status-output -> (bool)
+    innodb-status-output -> (boolean)
       Enables or disables periodic output for the standard InnoDB Monitor. For details, see MySQL documentation for the variable.
-    innodb-strict-mode -> (bool)
+    innodb-strict-mode -> (boolean)
       When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options. For details, see MySQL documentation for the variable.
-    innodb-temp-data-file-max-size -> (int)
+    innodb-temp-data-file-max-size -> (integer)
       Limits the max size of InnoDB temp tablespace For details, see MySQL documentation for the variable
-    innodb-thread-concurrency -> (int)
+    innodb-thread-concurrency -> (integer)
       Defines the maximum number of threads permitted inside of InnoDB. For details, see MySQL documentation for the variable
-    innodb-write-io-threads -> (int)
+    innodb-write-io-threads -> (integer)
       The number of I/O threads for write operations in InnoDB. For details, see MySQL documentation for the variable
-    interactive-timeout -> (int)
+    interactive-timeout -> (integer)
       The number of seconds the server waits for activity on an interactive connection before closing it. For details, see MySQL documentation for the variable.
-    join-buffer-size -> (int)
+    join-buffer-size -> (integer)
       The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans. For details, see MySQL documentation for the variable.
-    lock-wait-timeout -> (int)
+    lock-wait-timeout -> (integer)
       This variable specifies the timeout in seconds for attempts to acquire metadata locks For details, see MySQL documentation for the variable.
-    log-error-verbosity -> (int)
+    log-error-verbosity -> (integer)
       System variable specifies the verbosity for handling events intended for the error log For details, see MySQL documentation for the variable.
     log-slow-filter -> ([]struct)
       Filters the slow log by the query's execution plan For details, see Percona documentation for the variable.
-    log-slow-rate-limit -> (int)
+    log-slow-rate-limit -> (integer)
       Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query. For details, see Percona documentation for the variable.
     log-slow-rate-type -> (struct)
       Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION For details, see Percona documentation for the variable.
-    log-slow-sp-statements -> (bool)
+    log-slow-sp-statements -> (boolean)
       When TRUE, statements executed by stored procedures are logged to the slow log For details, see Percona documentation for the variable.
-    long-query-time -> (double)
+    long-query-time -> (float64)
       Time that it takes to process a query before it is considered slow. For details, see MySQL documentation for the variable.
-    lower-case-table-names -> (int)
+    lower-case-table-names -> (integer)
       Table names storage and comparison strategy For details, see MySQL documentation for the variable.
-    max-allowed-packet -> (int)
+    max-allowed-packet -> (integer)
       The maximum size in bytes of one packet. For details, see MySQL documentation for the variable.
-    max-connections -> (int)
+    max-connections -> (integer)
       The maximum permitted number of simultaneous client connections. For details, see MySQL documentation for the variable.
-    max-digest-length -> (int)
+    max-digest-length -> (integer)
       The maximum number of bytes of memory reserved per session for computation of normalized statement digests. For details, see MySQL documentation for the variable.
-    max-execution-time -> (int)
+    max-execution-time -> (integer)
       The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled. For details, see MySQL documentation for the variable
-    max-heap-table-size -> (int)
+    max-heap-table-size -> (integer)
       This variable sets the maximum size to which user-created MEMORY tables are permitted to grow. For details, see MySQL documentation for the variable
-    max-prepared-stmt-count -> (int)
+    max-prepared-stmt-count -> (integer)
       This variable limits the total number of prepared statements in the server. For details, see MySQL documentation for the variable.
-    max-sp-recursion-depth -> (int)
+    max-sp-recursion-depth -> (integer)
       The number of times that any given stored procedure may be called recursively. For details, see MySQL documentation for the variable.
-    max-write-lock-count -> (int)
+    max-write-lock-count -> (integer)
       Permit some pending read lock requests interval P.S. Should be UInt64, but java fails to handle UInt64 limits For details, see Percona documentation for the variable.
-    mdb-async-allowed-lag -> (int)
+    mdb-async-allowed-lag -> (integer)
       Async replication allowed lag (seconds)
-    mdb-force-ssl -> (bool)
+    mdb-force-ssl -> (boolean)
       Force ssl on all hosts (require_secure_transport)
-    mdb-offline-mode-disable-lag -> (int)
+    mdb-offline-mode-disable-lag -> (integer)
       Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.
-    mdb-offline-mode-enable-lag -> (int)
+    mdb-offline-mode-enable-lag -> (integer)
       Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-    mdb-preserve-binlog-bytes -> (int)
+    mdb-preserve-binlog-bytes -> (integer)
       The size of the binary log to hold.
-    mdb-priority-choice-max-lag -> (int)
+    mdb-priority-choice-max-lag -> (integer)
       Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from". Should be less than mdb_offline_mode_disable_lag.
-    mdb-use-async-replication -> (bool)
+    mdb-use-async-replication -> (boolean)
       Enable async replication
-    net-read-timeout -> (int)
+    net-read-timeout -> (integer)
       The number of seconds to wait for more data from a connection before aborting the read. For details, see MySQL documentation for the variable
-    net-write-timeout -> (int)
+    net-write-timeout -> (integer)
       The number of seconds to wait for a block to be written to a connection before aborting the write. For details, see MySQL documentation for the variable
-    optimizer-search-depth -> (int)
+    optimizer-search-depth -> (integer)
       The maximum depth of search performed by the query optimizer For details, see MySQL documentation for the variable
     optimizer-switch -> (string)
       The system variable enables control over optimizer behavior. For details, see [MySQL documentation for the variable] https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_optimizer_switch https://dev.mysql.com/doc/refman/8.4/en/switchable-optimizations.html
-    range-optimizer-max-mem-size -> (int)
+    range-optimizer-max-mem-size -> (integer)
       The limit on memory consumption for the range optimizer. For details, see MySQL documentation for the variable.
-    regexp-time-limit -> (int)
+    regexp-time-limit -> (integer)
       The time limit for regular expression matching operations performed by REGEXP_LIKE and similar functions For details, see MySQL documentation for the variable.
-    replication-optimize-for-static-plugin-config -> (bool)
+    replication-optimize-for-static-plugin-config -> (boolean)
       Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication For details, see Percona documentation for the variable.
-    replication-sender-observe-commit-only -> (bool)
+    replication-sender-observe-commit-only -> (boolean)
       Limit callbacks to improve performance for semisynchronous replication For details, see Percona documentation for the variable.
-    rpl-semi-sync-master-wait-for-slave-count -> (int)
+    rpl-semi-sync-master-wait-for-slave-count -> (integer)
       The number of replica acknowledgments the source must receive per transaction before proceeding. For details, see MySQL documentation for the variable.
     slave-parallel-type -> (struct)
       When using a multithreaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica. For details, see MySQL documentation for the variable.
-    slave-parallel-workers -> (int)
+    slave-parallel-workers -> (integer)
       Sets the number of applier threads for executing replication transactions in parallel. For details, see MySQL documentation for the variable.
-    slow-query-log -> (bool)
+    slow-query-log -> (boolean)
       Manages slow query log For details, see MySQL documentation for the variable.
-    slow-query-log-always-write-time -> (double)
+    slow-query-log-always-write-time -> (float64)
       Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it For details, see Percona documentation for the variable.
-    sort-buffer-size -> (int)
+    sort-buffer-size -> (integer)
       Each session that must perform a sort allocates a buffer of this size. For details, see MySQL documentation for the variable.
     sql-mode -> ([]struct)
       Server SQL mode of MySQL. For details, see MySQL documentation for the variable.
-    sql-require-primary-key -> (bool)
+    sql-require-primary-key -> (boolean)
       Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key For details, see Percona documentation for the variable.
-    sync-binlog -> (int)
+    sync-binlog -> (integer)
       Controls how often the MySQL server synchronizes the binary log to disk. For details, see MySQL documentation for the variable.
-    table-definition-cache -> (int)
+    table-definition-cache -> (integer)
       The number of table definitions that can be stored in the definition cache. For details, see MySQL documentation for the variable.
-    table-open-cache -> (int)
+    table-open-cache -> (integer)
       The number of open tables for all threads. For details, see MySQL documentation for the variable.
-    table-open-cache-instances -> (int)
+    table-open-cache-instances -> (integer)
       The number of open tables cache instances. For details, see MySQL documentation for the variable.
-    thread-cache-size -> (int)
+    thread-cache-size -> (integer)
       How many threads the server should cache for reuse. For details, see MySQL documentation for the variable.
-    thread-stack -> (int)
+    thread-stack -> (integer)
       The stack size for each thread. The default is large enough for normal operation. For details, see MySQL documentation for the variable.
-    tmp-table-size -> (int)
+    tmp-table-size -> (integer)
       The maximum size of internal in-memory temporary tables. For details, see MySQL documentation for the variable
     transaction-isolation -> (struct)
       Default transaction isolation level. For details, see MySQL documentation for the variable
-    userstat -> (bool)
+    userstat -> (boolean)
       Enables or disables collection of statistics For details, see Percona documentation for the variable.
-    wait-timeout -> (int)
+    wait-timeout -> (integer)
       The number of seconds the server waits for activity on a noninteractive connection before closing it. For details, see MySQL documentation for the variable.
 ``` ||
 || `--deletion-protection` | This option prevents unintended deletion of the cluster. ||
 || `--description` | `string`
 
 New description of the cluster. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 New set of custom labels for the cluster as 'key:value' pairs. This set will completely replace the current one. To add a label, request the current label set with the [ClusterService.Get] request, then send an [ClusterService.Update] request with the new label added to the current set. ||
 || `--maintenance-window` | `shorthand/json`
@@ -1283,7 +1283,7 @@ Shorthand Syntax:
 {
   policy = anytime={} | weekly-maintenance-window={
     day = MON|TUE|WED|THU|FRI|SAT|SUN,
-    hour = int
+    hour = integer
   }
 }
 ```
@@ -1296,7 +1296,7 @@ JSON Syntax:
     "anytime": {},
     "weekly-maintenance-window": {
       "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
-      "hour": "int"
+      "hour": "integer"
     }
   }
 }
@@ -1313,7 +1313,7 @@ policy -> (oneof<anytime|weekly-maintenance-window>)
     Maintenance operation can be scheduled on a weekly basis.
     day -> (struct)
       Day of the week (in 'DDD' format).
-    hour -> (int)
+    hour -> (integer)
       Hour of the day in UTC (in 'HH' format).
 ``` ||
 || `--name` | `string`
@@ -1322,7 +1322,7 @@ New name of the cluster. ||
 || `--network-id` | `string`
 
 ID of the network to move the cluster to. ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 New list of security group IDs to apply to the cluster. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -1346,16 +1346,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -5,51 +5,58 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Партнерские программы
-    expanded: true
     items:
       - name: Программа прямого партнерства
         items:
           - name: Обзор
             href: program/var.md
-          - name: Добавление клиента
-            href: program/var-pin-client.md
           - name: Инструменты
             href: program/var-tools.md
+      - name: Специализации
+        items:
+          - name: Обзор
+            href: specializations/index.md
+          - name: Условия получения
+            href: specializations/conditions.md
       - name: Реферальная программа
         href: program/referral.md
-  - name: Специализации
-    expanded: true
+  - name: Партнерский портал
     items:
       - name: Обзор
-        href: specializations/index.md
-      - name: Условия получения
-        href: specializations/conditions.md
-  - name: Партнерский портал
-    href: portal.md
-  - name: Пошаговые инструкции
-    items:
-      - name: Создать аккаунт клиента
-        href: operations/create-account.md
-      - name: Предоставить доступ к партнерскому аккаунту
-        href: operations/access/partners-account.md
-      - name: Посмотреть детализацию сабаккаунтов
-        href: operations/get-client-stat.md
-      - name: Приостановить оказание услуг клиенту
-        href: operations/stop-client-services.md
-      - name: Привязать облако к сабаккаунту
-        href: operations/pin-cloud.md
-      - name: Добавить пользователя в сабаккаунт
-        href: operations/add-user-sub-account.md
-      - name: Настроить квоты для клиентов
-        href: operations/manage-quotas.md
-  - name: Управление доступом
-    href: security/index.md
+        href: portal.md
+      - name: Пошаговые инструкции
+        items:
+          - name: Создать аккаунт клиента
+            href: operations/create-account.md
+          - name: Добавить сабаккаунт клиента
+            href: operations/pin-client.md
+          - name: Предоставить доступ к партнерскому аккаунту
+            href: operations/access/partners-account.md
+          - name: Посмотреть детализацию сабаккаунтов
+            href: operations/get-client-stat.md
+          - name: Приостановить оказание услуг клиенту
+            href: operations/stop-client-services.md
+          - name: Привязать облако к сабаккаунту
+            href: operations/pin-cloud.md
+          - name: Добавить пользователя в сабаккаунт
+            href: operations/add-user-sub-account.md
+          - name: Настроить квоты для клиентов
+            href: operations/manage-quotas.md
+          - name: Зарегистрировать сделку
+            href: operations/deal-registration.md
+          - name: Зарегистрировать проект
+            href: operations/project-registration.md
+          - name: Запросить пресейл
+            href: operations/presale-request.md
+          - name: Получить вознаграждение
+            href: operations/get-bonus.md
+      - name: Управление доступом
+        href: security/index.md
+      - name: История изменений
+        href: release-notes/index.md
   - name: Термины и определения
     href: terms.md
-  - name: История изменений
-    href: release-notes/index.md
   - name: Вопросы и ответы
-    expanded: true
     items:
       - name: Общие вопросы
         href: qa/general.md

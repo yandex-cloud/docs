@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы скачает
 # Скачать binary-артефакт из реестра
 
 1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. Скачайте [binary-артефакт](../../concepts/art-binary.md) с помощью [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP)-запроса методом GET:
+1. Скачайте [binary-артефакт](../../concepts/artifacts/binary.md) с помощью [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP)-запроса методом GET:
 
     ```bash
     curl \

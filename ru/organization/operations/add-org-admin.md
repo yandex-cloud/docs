@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      
-  После этого указанному пользователю будет назначена роль администратора организации. Проверить появление роли можно в [консоли управления]({{ link-console-main }}).
+  После этого указанному пользователю будет назначена роль администратора организации. Проверить появление роли можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

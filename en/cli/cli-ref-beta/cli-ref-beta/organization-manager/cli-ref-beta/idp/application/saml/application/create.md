@@ -44,8 +44,8 @@ Shorthand Syntax:
 {
   attributes = [
     {
-      name = str,
-      value = str
+      name = string,
+      value = string
     }, ...
   ],
   name-id = {
@@ -60,8 +60,8 @@ JSON Syntax:
 {
   "attributes": [
     {
-      "name": "str",
-      "value": "str"
+      "name": "string",
+      "value": "string"
     }, ...
   ],
   "name-id": {
@@ -95,7 +95,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  group-attribute-name = str,
+  group-attribute-name = string,
   group-distribution-type = NONE|ASSIGNED_GROUPS|ALL_GROUPS
 }
 ```
@@ -104,7 +104,7 @@ JSON Syntax:
 
 ```json
 {
-  "group-attribute-name": "str",
+  "group-attribute-name": "string",
   "group-distribution-type": "NONE|ASSIGNED_GROUPS|ALL_GROUPS"
 }
 ```
@@ -117,7 +117,7 @@ group-attribute-name -> (string)
 group-distribution-type -> (struct)
   Distribution type for group claims.
 ``` ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as '' key:value '' pairs. ||
 || `--name` | `string`
@@ -162,16 +162,16 @@ Shorthand Syntax:
 {
   acs-urls = [
     {
-      index = int,
-      url = str
+      index = integer,
+      url = string
     }, ...
   ],
-  entity-id = str,
+  entity-id = string,
   slo-urls = [
     {
       protocol-binding = HTTP_POST|HTTP_REDIRECT,
-      response-url = str,
-      url = str
+      response-url = string,
+      url = string
     }, ...
   ]
 }
@@ -183,16 +183,16 @@ JSON Syntax:
 {
   "acs-urls": [
     {
-      "index": "int",
-      "url": "str"
+      "index": "integer",
+      "url": "string"
     }, ...
   ],
-  "entity-id": "str",
+  "entity-id": "string",
   "slo-urls": [
     {
       "protocol-binding": "HTTP_POST|HTTP_REDIRECT",
-      "response-url": "str",
-      "url": "str"
+      "response-url": "string",
+      "url": "string"
     }, ...
   ]
 }
@@ -203,7 +203,7 @@ Fields:
 ```
 acs-urls -> ([]struct)
   Assertion Consumer Service URLs.
-  index -> (int)
+  index -> (integer)
     Optional index for the assertion consumer service.
   url -> (string)
     The URL where SAML responses are sent.
@@ -239,16 +239,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -43,7 +43,7 @@ Description of the new shard group. 0-256 characters long. ||
 || `--shard-group-name` | `string`
 
 Name for the new shard group. ||
-|| `--shard-names` | `strings`
+|| `--shard-names` | `[]string`
 
 List of shard names that should be put into the new group. To get the list, make a [ClusterService.ListShardGroups] request. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -67,16 +67,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

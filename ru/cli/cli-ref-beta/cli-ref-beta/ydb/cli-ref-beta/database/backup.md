@@ -47,7 +47,7 @@ Shorthand Syntax:
     policy = daily-backup-schedule={
       execute-time = timeofday
     } | recurring-backup-schedule={
-      recurrence = str,
+      recurrence = string,
       start-time = timestamp
     } | weekly-backup-schedule={
       days-of-week = [
@@ -61,10 +61,10 @@ Shorthand Syntax:
     }
   },
   backup-time-to-live = duration,
-  description = str,
-  name = str,
-  source-paths = str,...,
-  source-paths-to-exclude = str,...,
+  description = string,
+  name = string,
+  source-paths = string,...,
+  source-paths-to-exclude = string,...,
   storage-class = STANDARD|REDUCED_REDUNDANCY|STANDARD_IA|ONEZONE_IA|INTELLIGENT_TIERING|GLACIER|DEEP_ARCHIVE|OUTPOSTS,
   type = SYSTEM|USER
 }
@@ -81,7 +81,7 @@ JSON Syntax:
         "execute-time": "timeofday"
       },
       "recurring-backup-schedule": {
-        "recurrence": "str",
+        "recurrence": "string",
         "start-time": "timestamp"
       },
       "weekly-backup-schedule": {
@@ -97,13 +97,13 @@ JSON Syntax:
     }
   },
   "backup-time-to-live": "duration",
-  "description": "str",
-  "name": "str",
+  "description": "string",
+  "name": "string",
   "source-paths": [
-    "str", ...
+    "string", ...
   ],
   "source-paths-to-exclude": [
-    "str", ...
+    "string", ...
   ],
   "storage-class": "STANDARD|REDUCED_REDUNDANCY|STANDARD_IA|ONEZONE_IA|INTELLIGENT_TIERING|GLACIER|DEEP_ARCHIVE|OUTPOSTS",
   "type": "SYSTEM|USER"
@@ -167,16 +167,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

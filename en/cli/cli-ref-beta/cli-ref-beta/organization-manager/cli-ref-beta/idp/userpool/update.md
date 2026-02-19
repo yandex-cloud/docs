@@ -25,7 +25,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  attempts = int,
+  attempts = integer,
   block = duration,
   window = duration
 }
@@ -35,7 +35,7 @@ JSON Syntax:
 
 ```json
 {
-  "attempts": "int",
+  "attempts": "integer",
   "block": "duration",
   "window": "duration"
 }
@@ -44,7 +44,7 @@ JSON Syntax:
 Fields:
 
 ```
-attempts -> (int)
+attempts -> (integer)
   Number of failed attempts allowed within the window before blocking.
 block -> (duration)
   Duration of the block after too many failed attempts.
@@ -54,7 +54,7 @@ window -> (duration)
 || `--description` | `string`
 
 Description of the userpool. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as key:value pairs. ||
 || `--name` | `string`
@@ -68,8 +68,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  max-days-count = int,
-  min-days-count = int
+  max-days-count = integer,
+  min-days-count = integer
 }
 ```
 
@@ -77,17 +77,17 @@ JSON Syntax:
 
 ```json
 {
-  "max-days-count": "int",
-  "min-days-count": "int"
+  "max-days-count": "integer",
+  "min-days-count": "integer"
 }
 ```
 
 Fields:
 
 ```
-max-days-count -> (int)
+max-days-count -> (integer)
   Maximum number of days a password remains valid. Zero means passwords never expire.
-min-days-count -> (int)
+min-days-count -> (integer)
   Minimum number of days before a password can be changed.
 ``` ||
 || `--password-quality-policy` | `shorthand/json`
@@ -98,32 +98,32 @@ Shorthand Syntax:
 
 ```hcl
 {
-  allow-similar = bool,
+  allow-similar = boolean,
   complexity-policy = fixed={
-    digits-required = bool,
-    lowers-required = bool,
-    min-length = int,
-    specials-required = bool,
-    uppers-required = bool
+    digits-required = boolean,
+    lowers-required = boolean,
+    min-length = integer,
+    specials-required = boolean,
+    uppers-required = boolean
   } | smart={
-    four-classes = int,
-    one-class = int,
-    three-classes = int,
-    two-classes = int
+    four-classes = integer,
+    one-class = integer,
+    three-classes = integer,
+    two-classes = integer
   },
-  match-length = int,
-  max-length = int,
-  min-length = int,
+  match-length = integer,
+  max-length = integer,
+  min-length = integer,
   min-length-by-class-settings = {
-    one = int,
-    three = int,
-    two = int
+    one = integer,
+    three = integer,
+    two = integer
   },
   required-classes = {
-    digits = bool,
-    lowers = bool,
-    specials = bool,
-    uppers = bool
+    digits = boolean,
+    lowers = boolean,
+    specials = boolean,
+    uppers = boolean
   }
 }
 ```
@@ -132,35 +132,35 @@ JSON Syntax:
 
 ```json
 {
-  "allow-similar": "bool",
+  "allow-similar": "boolean",
   "complexity-policy": {
     "fixed": {
-      "digits-required": "bool",
-      "lowers-required": "bool",
-      "min-length": "int",
-      "specials-required": "bool",
-      "uppers-required": "bool"
+      "digits-required": "boolean",
+      "lowers-required": "boolean",
+      "min-length": "integer",
+      "specials-required": "boolean",
+      "uppers-required": "boolean"
     },
     "smart": {
-      "four-classes": "int",
-      "one-class": "int",
-      "three-classes": "int",
-      "two-classes": "int"
+      "four-classes": "integer",
+      "one-class": "integer",
+      "three-classes": "integer",
+      "two-classes": "integer"
     }
   },
-  "match-length": "int",
-  "max-length": "int",
-  "min-length": "int",
+  "match-length": "integer",
+  "max-length": "integer",
+  "min-length": "integer",
   "min-length-by-class-settings": {
-    "one": "int",
-    "three": "int",
-    "two": "int"
+    "one": "integer",
+    "three": "integer",
+    "two": "integer"
   },
   "required-classes": {
-    "digits": "bool",
-    "lowers": "bool",
-    "specials": "bool",
-    "uppers": "bool"
+    "digits": "boolean",
+    "lowers": "boolean",
+    "specials": "boolean",
+    "uppers": "boolean"
   }
 }
 ```
@@ -168,55 +168,55 @@ JSON Syntax:
 Fields:
 
 ```
-allow-similar -> (bool)
+allow-similar -> (boolean)
   Whether passwords similar to previous ones are allowed.
-match-length -> (int)
+match-length -> (integer)
   Minimum length of substrings to check for similarity to vulnerable sequences.
-max-length -> (int)
+max-length -> (integer)
   Maximum password length. Zero means no maximum length is enforced.
-min-length -> (int)
+min-length -> (integer)
   Deprecated. Use Fixed instead.
 min-length-by-class-settings -> (struct)
   Deprecated. Use Smart instead.
-  one -> (int)
+  one -> (integer)
     Minimum length for passwords with one character class.
-  three -> (int)
+  three -> (integer)
     Minimum length for passwords with three character classes.
-  two -> (int)
+  two -> (integer)
     Minimum length for passwords with two character classes.
 required-classes -> (struct)
   Deprecated. Use Fixed instead.
-  digits -> (bool)
+  digits -> (boolean)
     Whether digits are required.
-  lowers -> (bool)
+  lowers -> (boolean)
     Whether lowercase letters are required.
-  specials -> (bool)
+  specials -> (boolean)
     Whether special characters are required.
-  uppers -> (bool)
+  uppers -> (boolean)
     Whether uppercase letters are required.
 complexity-policy -> (oneof<fixed|smart>)
   Oneof complexity-policy field
   fixed -> (struct)
     Fixed complexity requirements. Exactly one of complexity requirements must be specified.
-    digits-required -> (bool)
+    digits-required -> (boolean)
       Whether digits are required in the password.
-    lowers-required -> (bool)
+    lowers-required -> (boolean)
       Whether lowercase letters are required in the password.
-    min-length -> (int)
+    min-length -> (integer)
       Minimum length required for all passwords.
-    specials-required -> (bool)
+    specials-required -> (boolean)
       Whether special characters are required in the password.
-    uppers-required -> (bool)
+    uppers-required -> (boolean)
       Whether uppercase letters are required in the password.
   smart -> (struct)
     Smart complexity requirements. Exactly one of complexity requirements must be specified.
-    four-classes -> (int)
+    four-classes -> (integer)
       For passwords with all four classes of characters
-    one-class -> (int)
+    one-class -> (integer)
       For passwords with one class of characters
-    three-classes -> (int)
+    three-classes -> (integer)
       For passwords with three classes of characters
-    two-classes -> (int)
+    two-classes -> (integer)
       For passwords with two classes of characters
 ``` ||
 || `--user-settings` | `shorthand/json`
@@ -227,10 +227,10 @@ Shorthand Syntax:
 
 ```hcl
 {
-  allow-edit-self-contacts = bool,
-  allow-edit-self-info = bool,
-  allow-edit-self-login = bool,
-  allow-edit-self-password = bool
+  allow-edit-self-contacts = boolean,
+  allow-edit-self-info = boolean,
+  allow-edit-self-login = boolean,
+  allow-edit-self-password = boolean
 }
 ```
 
@@ -238,23 +238,23 @@ JSON Syntax:
 
 ```json
 {
-  "allow-edit-self-contacts": "bool",
-  "allow-edit-self-info": "bool",
-  "allow-edit-self-login": "bool",
-  "allow-edit-self-password": "bool"
+  "allow-edit-self-contacts": "boolean",
+  "allow-edit-self-info": "boolean",
+  "allow-edit-self-login": "boolean",
+  "allow-edit-self-password": "boolean"
 }
 ```
 
 Fields:
 
 ```
-allow-edit-self-contacts -> (bool)
+allow-edit-self-contacts -> (boolean)
   Whether users can edit their own contact information.
-allow-edit-self-info -> (bool)
+allow-edit-self-info -> (boolean)
   Whether users can edit their own profile information.
-allow-edit-self-login -> (bool)
+allow-edit-self-login -> (boolean)
   Whether users can edit their own login information.
-allow-edit-self-password -> (bool)
+allow-edit-self-password -> (boolean)
   Whether users can change their own passwords.
 ``` ||
 || `--userpool-id` | `string`
@@ -281,16 +281,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

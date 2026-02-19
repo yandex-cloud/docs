@@ -46,11 +46,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    replica-priority = int,
-    shard-name = str,
-    subnet-id = str,
-    zone-id = str
+    assign-public-ip = boolean,
+    replica-priority = integer,
+    shard-name = string,
+    subnet-id = string,
+    zone-id = string
   }, ...
 ]
 ```
@@ -60,11 +60,11 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "replica-priority": "int",
-    "shard-name": "str",
-    "subnet-id": "str",
-    "zone-id": "str"
+    "assign-public-ip": "boolean",
+    "replica-priority": "integer",
+    "shard-name": "string",
+    "subnet-id": "string",
+    "zone-id": "string"
   }, ...
 ]
 ```
@@ -72,9 +72,9 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Whether the host should get a public IP address on creation. Possible values: * false - don't assign a public IP to the host. * true - the host should have a public IP address.
-replica-priority -> (int)
+replica-priority -> (integer)
   A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100.
 shard-name -> (string)
   ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards] request.
@@ -104,16 +104,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

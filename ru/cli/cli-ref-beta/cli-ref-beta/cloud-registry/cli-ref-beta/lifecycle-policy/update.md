@@ -41,17 +41,18 @@ Shorthand Syntax:
       version-type = VERSION_TYPE_ANY|RELEASE|SNAPSHOT
     },
     kind = delete={
-      condition = always=bool | older-than-days=int | version-condition={
-        versions-count-greater-than = int
+      condition = always=boolean | older-than-days=integer | version-condition={
+        versions-count-greater-than = integer
       },
-      cooldown-period-days = int,
+      cooldown-period-days = integer,
       type = HARD_DELETE|SOFT_DELETE
     } | keep-by-age={
-      younger-than-days = int
+      younger-than-days = integer
     } | keep-by-version={
-      keep-versions-count = int
+      keep-versions-count = integer
     },
-    path-prefix = str
+    path-prefix = string,
+    version-regexp = string
   }, ...
 ]
 ```
@@ -72,23 +73,24 @@ JSON Syntax:
     "kind": {
       "delete": {
         "condition": {
-          "always": "bool",
-          "older-than-days": "int",
+          "always": "boolean",
+          "older-than-days": "integer",
           "version-condition": {
-            "versions-count-greater-than": "int"
+            "versions-count-greater-than": "integer"
           }
         },
-        "cooldown-period-days": "int",
+        "cooldown-period-days": "integer",
         "type": "HARD_DELETE|SOFT_DELETE"
       },
       "keep-by-age": {
-        "younger-than-days": "int"
+        "younger-than-days": "integer"
       },
       "keep-by-version": {
-        "keep-versions-count": "int"
+        "keep-versions-count": "integer"
       }
     },
-    "path-prefix": "str"
+    "path-prefix": "string",
+    "version-regexp": "string"
   }, ...
 ]
 ```
@@ -98,6 +100,8 @@ Fields:
 ```
 path-prefix -> (string)
   Path prefix to which the rule applies.
+version-regexp -> (string)
+  Regular expression pattern to match package version or docker tag.
 filter -> (oneof<docker-filters|maven-filters>)
   Oneof filter field
   docker-filters -> (struct)
@@ -112,27 +116,27 @@ kind -> (oneof<delete|keep-by-age|keep-by-version>)
   Oneof kind field
   keep-by-age -> (struct)
     Rule that keeps artifacts by age.
-    younger-than-days -> (int)
+    younger-than-days -> (integer)
       Keep artifacts younger than this number of days.
   keep-by-version -> (struct)
     Rule that keeps artifacts by version count.
-    keep-versions-count -> (int)
+    keep-versions-count -> (integer)
       Number of versions to keep.
   delete -> (struct)
     Rule that deletes artifacts.
-    cooldown-period-days -> (int)
+    cooldown-period-days -> (integer)
       Cooldown period in days before deletion.
     type -> (struct)
       Type of deletion.
     condition -> (oneof<always|older-than-days|version-condition>)
       Oneof condition field
-      older-than-days -> (int)
+      older-than-days -> (integer)
         Delete artifacts older than specified days.
       version-condition -> (struct)
         Delete artifacts by version count condition.
-        versions-count-greater-than -> (int)
+        versions-count-greater-than -> (integer)
           Delete when version count exceeds this number.
-      always -> (bool)
+      always -> (boolean)
         Always delete (use with caution).
 ``` ||
 || `--state` | `enum`
@@ -159,16 +163,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
