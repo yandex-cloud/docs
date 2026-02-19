@@ -42,15 +42,6 @@ Set the region. ||
 || `--pager` | `string`
 
 Set the custom pager. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

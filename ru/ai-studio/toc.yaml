@@ -1138,6 +1138,8 @@ items:
     items:
       - name: О {{ ml-sdk-full-name }}
         href: sdk/index.md
+      - name: Переход с Yandex Cloud ML SDK на {{ ml-sdk-full-name }}
+        href: operations/sdk-migration.md
       - name: Справочник SDK (англ.)
         items:
           - name: Overview

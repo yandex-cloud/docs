@@ -1,6 +1,6 @@
 # Удалить Helm-чарт из реестра
 
-Вы можете удалить [Helm-чарт](https://helm.sh/docs/topics/charts/) из [реестра](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/docker-image.md).
+Вы можете удалить [Helm-чарт](https://helm.sh/docs/topics/charts/) из [реестра](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).
 
 ## Удалить Helm-чарт локально {#helm-delete-local}
 

@@ -43,9 +43,9 @@ Shorthand Syntax:
 ```hcl
 {
   variables = {key={
-    variable-value = bool-value=bool | double-value=double | int-value=int | string-value=str
+    variable-value = bool-value=boolean | double-value=float64 | int-value=integer | string-value=string
   }, key=...},
-  weight = int
+  weight = integer
 }
 ```
 
@@ -56,14 +56,14 @@ JSON Syntax:
   "variables": {
     "<key>": {
       "variable-value": {
-        "bool-value": "bool",
-        "double-value": "double",
-        "int-value": "int",
-        "string-value": "str"
+        "bool-value": "boolean",
+        "double-value": "float64",
+        "int-value": "integer",
+        "string-value": "string"
       }
     }, ...
   },
-  "weight": "int"
+  "weight": "integer"
 }
 ```
 
@@ -75,10 +75,10 @@ variables -> (map[string,struct])
   variable-value -> (oneof<bool-value|double-value|int-value|string-value>)
     Oneof variable-value field
     string-value -> (string)
-    int-value -> (int)
-    double-value -> (double)
-    bool-value -> (bool)
-weight -> (int)
+    int-value -> (integer)
+    double-value -> (float64)
+    bool-value -> (boolean)
+weight -> (integer)
   It describes percentage of requests, which will be processed by canary.
 ``` ||
 || `--connectivity` | `shorthand/json`
@@ -89,8 +89,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  network-id = str,
-  subnet-id = str,...
+  network-id = string,
+  subnet-id = string,...
 }
 ```
 
@@ -98,9 +98,9 @@ JSON Syntax:
 
 ```json
 {
-  "network-id": "str",
+  "network-id": "string",
   "subnet-id": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -122,7 +122,7 @@ Timeout for gateway call execution (duration, e.g. 30s, 5m10s) ||
 || `--folder-id` | `string`
 
 ID of the folder to create an API gateway in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--log-options` | `shorthand/json`
@@ -133,8 +133,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  destination = folder-id=str | log-group-id=str,
-  disabled = bool,
+  destination = folder-id=string | log-group-id=string,
+  disabled = boolean,
   min-level = TRACE|DEBUG|INFO|WARN|ERROR|FATAL
 }
 ```
@@ -144,10 +144,10 @@ JSON Syntax:
 ```json
 {
   "destination": {
-    "folder-id": "str",
-    "log-group-id": "str"
+    "folder-id": "string",
+    "log-group-id": "string"
   },
-  "disabled": "bool",
+  "disabled": "boolean",
   "min-level": "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
 }
 ```
@@ -155,7 +155,7 @@ JSON Syntax:
 Fields:
 
 ```
-disabled -> (bool)
+disabled -> (boolean)
   Is logging from API gateway disabled.
 min-level -> (struct)
   Minimum log entry level. See [LogLevel.Level] for details.
@@ -177,7 +177,7 @@ Shorthand Syntax:
 
 ```hcl
 {key={
-  variable-value = bool-value=bool | double-value=double | int-value=int | string-value=str
+  variable-value = bool-value=boolean | double-value=float64 | int-value=integer | string-value=string
 }, key=...}
 ```
 
@@ -187,10 +187,10 @@ JSON Syntax:
 {
   "<key>": {
     "variable-value": {
-      "bool-value": "bool",
-      "double-value": "double",
-      "int-value": "int",
-      "string-value": "str"
+      "bool-value": "boolean",
+      "double-value": "float64",
+      "int-value": "integer",
+      "string-value": "string"
     }
   }, ...
 }
@@ -202,9 +202,9 @@ Fields:
 variable-value -> (oneof<bool-value|double-value|int-value|string-value>)
   Oneof variable-value field
   string-value -> (string)
-  int-value -> (int)
-  double-value -> (double)
-  bool-value -> (bool)
+  int-value -> (integer)
+  double-value -> (float64)
+  bool-value -> (boolean)
 ``` ||
 || `--openapi-spec` | `string`
 
@@ -230,16 +230,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

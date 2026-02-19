@@ -47,17 +47,17 @@ Shorthand Syntax:
 {
   destination = {
     bucket-destination = {
-      bucket = str,
+      bucket = string,
       format = CSV,
-      prefix = str
+      prefix = string
     }
   },
   filter = {
-    prefix = str
+    prefix = string
   },
-  id = str,
+  id = string,
   included-object-versions = ALL|CURRENT,
-  is-enabled = bool,
+  is-enabled = boolean,
   optional-fields = [
     SIZE|LAST_MODIFIED_DATE|STORAGE_CLASS|ETAG|IS_MULTIPART_UPLOADED|ENCRYPTION_STATUS|OBJECT_LOCK_RETAIN_UNTIL_DATE|OBJECT_LOCK_MODE|OBJECT_LOCK_LEGAL_HOLD_STATUS|CHECKSUM_ALGORITHM|OBJECT_ACCESS_CONTROL_LIST|OBJECT_OWNER, ...
   ],
@@ -73,17 +73,17 @@ JSON Syntax:
 {
   "destination": {
     "bucket-destination": {
-      "bucket": "str",
+      "bucket": "string",
       "format": "CSV",
-      "prefix": "str"
+      "prefix": "string"
     }
   },
   "filter": {
-    "prefix": "str"
+    "prefix": "string"
   },
-  "id": "str",
+  "id": "string",
   "included-object-versions": "ALL|CURRENT",
-  "is-enabled": "bool",
+  "is-enabled": "boolean",
   "optional-fields": [
     "SIZE|LAST_MODIFIED_DATE|STORAGE_CLASS|ETAG|IS_MULTIPART_UPLOADED|ENCRYPTION_STATUS|OBJECT_LOCK_RETAIN_UNTIL_DATE|OBJECT_LOCK_MODE|OBJECT_LOCK_LEGAL_HOLD_STATUS|CHECKSUM_ALGORITHM|OBJECT_ACCESS_CONTROL_LIST|OBJECT_OWNER", ...
   ],
@@ -104,7 +104,7 @@ destination -> (struct)
       Bucket where inventory results will be published.
     format -> (struct)
       Specifies the output format of the inventory results.
-    prefix -> (str)
+    prefix -> (string)
       The prefix that is prepended to all inventory results.
 filter -> (struct)
   Specifies the filter for objects to include in the inventory.
@@ -114,7 +114,7 @@ id -> (string)
   The ID used to identify the inventory configuration.
 included-object-versions -> (struct)
   Object versions to include in the inventory list.
-is-enabled -> (bool)
+is-enabled -> (boolean)
   Specifies whether the inventory is enabled.
 optional-fields -> ([]struct)
   Contains the optional fields that are included in the inventory results.
@@ -147,16 +147,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

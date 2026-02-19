@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы загрузи
 # Загрузить binary-артефакт в реестр
 
 1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. Загрузите [binary-артефакт](../../concepts/art-binary.md) с помощью [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP)-запроса методом POST:
+1. Загрузите [binary-артефакт](../../concepts/artifacts/binary.md) с помощью [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP)-запроса методом POST:
 
     ```bash
     curl \

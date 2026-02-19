@@ -3,17 +3,14 @@
 
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
 
-В сервисе {{ maf-full-name }} можно создать DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md), который позволит автоматизировать работу с [сервисом {{ msp-full-name }}](../../../managed-spark/index.yaml). Ниже рассматривается DAG, который включает в себя несколько задач:
+С помощью кластера {{ maf-full-name }} можно автоматизировать работу с [сервисом {{ msp-full-name }}](../../../managed-spark/index.yaml), включая создание кластеров {{ msp-full-name }}, запуск заданий и другие операции. Для этого создайте DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md) (DAG). Используя DAG, кластер {{ AF }} автоматически выполнит все необходимые действия по работе с {{ msp-full-name }}.
 
-1. Создать кластер {{ SPRK }}.
-1. Запустить задание PySpark.
-1. Удалить кластер {{ SPRK }}.
+В этом руководстве показан пример использования DAG, включающего в себя:
+1. Создание кластера {{ msp-full-name }}, подключенного к [{{ objstorage-name }}](../../../storage/concepts/index.md) и [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md).
+1. Запуск PySpark-задания: создание таблицы в бакете {{ objstorage-name }}.
+1. Удаление кластера {{ msp-full-name }}.
 
-При таком DAG кластер существует непродолжительное время. В кластере можно задействовать ресурсы повышенной мощности и быстро обработать большее количество данных.
-
-В этом DAG создается кластер {{ SPRK }}. Для хранения табличных метаданных в примере ниже используется [кластер {{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md). Сохраненные метаданные затем может использовать другой кластер {{ SPRK }}.
-
-Для использования {{ msp-full-name }} в сервисе {{ maf-full-name }}:
+Чтобы реализовать описанный пример:
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте PySpark-задание](#prepare-a-job).
@@ -21,6 +18,12 @@
 1. [Проверьте результат](#check-out).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+{% note info %}
+
+В отличие от простого примера из руководства [{#T}](../../../managed-spark/tutorials/airflow-spark-min.md), создаваемый кластер {{ msp-full-name }} интегрирован с бакетом {{ objstorage-name }} и глобальным каталогом {{ metastore-name }}. Такой подход позволяет строить переносимые и масштабируемые конвейеры: {{ maf-name }} отвечает за оркестрацию, {{ msp-full-name }} является вычислительным слоем, {{ objstorage-name }} хранит данные, а {{ metastore-name }} — метаданные.
+
+{% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
@@ -61,8 +64,8 @@
      || **Сервисный аккаунт** | **Его роли** ||
      || `airflow-agent` для кластера {{ AF }}. |
      * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider) — чтобы кластер {{ AF }} мог [взаимодействовать с другими ресурсами](../../../managed-airflow/concepts/impersonation.md).
-     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor) — чтобы управлять кластером {{ SPRK }} из DAG.
-     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) — чтобы указать сервисный аккаунт `spark-agent` при создании кластера {{ SPRK }}.
+     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor) — чтобы управлять кластером {{ msp-full-name }} из DAG.
+     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) — чтобы указать сервисный аккаунт `spark-agent` при создании кластера {{ msp-full-name }}.
      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user) — чтобы в кластере {{ AF }} использовать [подсеть {{ vpc-full-name }}](../../../vpc/concepts/network.md#subnet).
      * [logging.editor](../../../iam/roles-reference.md#logging-editor) — чтобы работать с лог-группами.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader) — чтобы читать логи.
@@ -70,8 +73,8 @@
      * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах {{ metastore-name }}. ||
      || `metastore-agent` для кластера {{ metastore-name }}. |
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) — чтобы кластер {{ metastore-name }} мог [взаимодействовать с другими ресурсами](../../../metadata-hub/concepts/metastore-impersonation.md). ||
-     || `spark-agent` для кластера {{ SPRK }}. |
-     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ SPRK }} мог взаимодействовать с другими ресурсами. ||
+     || `spark-agent` для кластера {{ msp-full-name }}. |
+     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ msp-full-name }} мог взаимодействовать с другими ресурсами. ||
      |#
 
   1. [Создайте бакеты](../../../storage/operations/buckets/create.md):
@@ -116,9 +119,9 @@
         * Назначение — `CIDR`.
         * CIDR блоки — `0.0.0.0/0`.
 
-  1. Для кластера {{ SPRK }} создайте группу безопасности `spark-sg` в сети `datalake-network`. Добавьте в группу следующее правило:
+  1. Для кластера {{ msp-full-name }} создайте группу безопасности `spark-sg` в сети `datalake-network`. Добавьте в группу следующее правило:
 
-     * Для исходящего трафика, чтобы разрешить подключение кластера {{ SPRK }} к {{ metastore-name }}:
+     * Для исходящего трафика, чтобы разрешить подключение кластера {{ msp-full-name }} к {{ metastore-name }}:
 
         * Диапазон портов — `{{ port-metastore }}`.
         * Протокол — `Любой` (`Any`).
@@ -155,15 +158,15 @@
   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `integration-agent` со следующими ролями:
 
      * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider) — чтобы кластер {{ AF }} мог [взаимодействовать с другими ресурсами](../../../managed-airflow/concepts/impersonation.md).
-     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor) — чтобы управлять кластером {{ SPRK }} из DAG.
-     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) — чтобы указать сервисный аккаунт `spark-agent` при создании кластера {{ SPRK }}.
+     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor) — чтобы управлять кластером {{ msp-full-name }} из DAG.
+     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) — чтобы указать сервисный аккаунт `spark-agent` при создании кластера {{ msp-full-name }}.
      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user) — чтобы в кластере {{ AF }} использовать [подсеть {{ vpc-full-name }}](../../../vpc/concepts/network.md#subnet).
      * [logging.editor](../../../iam/roles-reference.md#logging-editor) — чтобы работать с лог-группами.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader) — чтобы читать логи.
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer) — чтобы получать статусы операций.
      * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах {{ metastore-name }}.
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) — чтобы кластер {{ metastore-name }} мог [взаимодействовать с другими ресурсами](../../../metadata-hub/concepts/metastore-impersonation.md).
-     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ SPRK }} мог взаимодействовать с другими ресурсами. 
+     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ msp-full-name }} мог взаимодействовать с другими ресурсами. 
 
   1. [Создайте бакет](../../../storage/operations/buckets/create.md) `<бакет_для_заданий_и_данных>` и [предоставьте разрешение](../../../storage/operations/buckets/edit-acl.md) `READ и WRITE` для сервисного аккаунта `integration-agent`.
 
@@ -231,9 +234,9 @@
 
 DAG будет состоять из нескольких вершин, которые формируют цепочку последовательных действий:
 
-1. {{ maf-full-name }} создает временный кластер {{ SPRK }} с настройками, заданными в DAG. Этот кластер автоматически подключается к созданному ранее кластеру {{ metastore-name }}.
-1. Когда кластер {{ SPRK }} готов, запускается задание PySpark.
-1. После выполнения задания временный кластер {{ SPRK }} удаляется.
+1. {{ maf-full-name }} создает временный кластер {{ msp-full-name }} с настройками, заданными в DAG. Этот кластер автоматически подключается к созданному ранее кластеру {{ metastore-name }}.
+1. Когда кластер {{ msp-full-name }} готов, запускается задание PySpark.
+1. После выполнения задания временный кластер {{ msp-full-name }} удаляется.
 
 Чтобы подготовить DAG:
 
@@ -274,7 +277,7 @@ DAG будет состоять из нескольких вершин, кото
 
 
      @task
-     # 1 этап: создание кластера {{ SPRK }}
+     # 1 этап: создание кластера {{ msp-full-name }}
      def create_cluster(yc_hook, cluster_spec):
          spark_client = yc_hook.sdk.wrappers.Spark()
          try:
@@ -307,7 +310,7 @@ DAG будет состоять из нескольких вершин, кото
 
 
      @task(trigger_rule="all_done")
-     # 3 этап: удаление кластера {{ SPRK }}
+     # 3 этап: удаление кластера {{ msp-full-name }}
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -351,17 +354,17 @@ DAG будет состоять из нескольких вершин, кото
      Где:
 
      * `YANDEX_CONN_ID` — идентификатор подключения.
-     * `FOLDER_ID` — идентификатор каталога, в котором будет создан кластер {{ SPRK }}.
-     * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта, который будет использоваться для создания кластера {{ SPRK }}.
+     * `FOLDER_ID` — идентификатор каталога, в котором будет создан кластер {{ msp-full-name }}.
+     * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта, который будет использоваться для создания кластера {{ msp-full-name }}.
      * `SUBNET_IDS` — идентификатор подсети.
 
         {% note info %}
       
-        Подсеть для {{ SPRK }} и {{ metastore-name }} должна совпадать.
+        Подсеть для {{ msp-full-name }} и {{ metastore-name }} должна совпадать.
       
         {% endnote %}
 
-     * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера {{ SPRK }}.
+     * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера {{ msp-full-name }}.
      * `METASTORE_CLUSTER_ID` — идентификатор кластера {{ metastore-name }}.
      * `JOB_NAME` — имя задания PySpark.
      * `JOB_SCRIPT` — путь к файлу с заданием PySpark.
@@ -413,7 +416,7 @@ DAG будет состоять из нескольких вершин, кото
 
 
      @task
-     # 1 этап: создание кластера {{ SPRK }}
+     # 1 этап: создание кластера {{ msp-full-name }}
      def create_cluster(yc_hook, cluster_spec):
          spark_client = yc_hook.sdk.wrappers.Spark()
          try:
@@ -446,7 +449,7 @@ DAG будет состоять из нескольких вершин, кото
 
 
      @task(trigger_rule="all_done")
-     # 3 этап: удаление кластера {{ SPRK }}
+     # 3 этап: удаление кластера {{ msp-full-name }}
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -490,17 +493,17 @@ DAG будет состоять из нескольких вершин, кото
      Где:
 
      * `YANDEX_CONN_ID` — идентификатор подключения.
-     * `FOLDER_ID` — идентификатор каталога, в котором будет создан кластер {{ SPRK }}.
-     * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта, который будет использоваться для создания кластера {{ SPRK }}.
+     * `FOLDER_ID` — идентификатор каталога, в котором будет создан кластер {{ msp-full-name }}.
+     * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта, который будет использоваться для создания кластера {{ msp-full-name }}.
      * `SUBNET_IDS` — идентификатор подсети.
 
         {% note info %}
       
-        Подсеть для {{ SPRK }} и {{ metastore-name }} должна совпадать.
+        Подсеть для {{ msp-full-name }} и {{ metastore-name }} должна совпадать.
       
         {% endnote %}
 
-     * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера {{ SPRK }}.
+     * `SECURITY_GROUP_IDS` — идентификатор группы безопасности для кластера {{ msp-full-name }}.
      * `METASTORE_CLUSTER_ID` — идентификатор кластера {{ metastore-name }}.
      * `JOB_NAME` — имя задания PySpark.
      * `JOB_SCRIPT` — путь к файлу с заданием PySpark.
@@ -526,13 +529,13 @@ DAG будет состоять из нескольких вершин, кото
 * Высокий уровень безопасности
 
   1. Чтобы отслеживать результаты выполнения задач, нажмите на название DAG.
-  1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**. Параллельно вы можете проверить, что в [консоли управления]({{ link-console-main }}) создается кластер {{ SPRK }}, выполняется задание PySpark и удаляется тот же кластер.
+  1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**. Параллельно вы можете проверить, что в [консоли управления]({{ link-console-main }}) создается кластер {{ msp-full-name }}, выполняется задание PySpark и удаляется тот же кластер.
   1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете {{ objstorage-name }}, а метаинформация о ней — в кластере {{ metastore-name }}.
 
 * Упрощенная настройка
 
   1. Чтобы отслеживать результаты выполнения задач, нажмите на название DAG.
-  1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**. Параллельно вы можете проверить, что в [консоли управления]({{ link-console-main }}) создается кластер {{ SPRK }}, выполняется задание PySpark и удаляется тот же кластер.
+  1. Дождитесь, когда все три задачи в DAG перейдут в статус **Success**. Параллельно вы можете проверить, что в [консоли управления]({{ link-console-main }}) создается кластер {{ msp-full-name }}, выполняется задание PySpark и удаляется тот же кластер.
   1. Убедитесь, что в бакете `<бакет_для_заданий_и_данных>` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете {{ objstorage-name }}, а метаинформация о ней — в кластере {{ metastore-name }}.
 
 {% endlist %}

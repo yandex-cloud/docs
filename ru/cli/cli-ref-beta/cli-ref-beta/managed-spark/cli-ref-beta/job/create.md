@@ -49,16 +49,16 @@ Shorthand Syntax:
 
 ```hcl
 {
-  archive-uris = str,...,
-  args = str,...,
-  exclude-packages = str,...,
-  file-uris = str,...,
-  jar-file-uris = str,...,
-  main-class = str,
-  main-jar-file-uri = str,
-  packages = str,...,
-  properties = {key=str, key=...},
-  repositories = str,...
+  archive-uris = string,...,
+  args = string,...,
+  exclude-packages = string,...,
+  file-uris = string,...,
+  jar-file-uris = string,...,
+  main-class = string,
+  main-jar-file-uri = string,
+  packages = string,...,
+  properties = {key=string, key=...},
+  repositories = string,...
 }
 ```
 
@@ -67,30 +67,30 @@ JSON Syntax:
 ```json
 {
   "archive-uris": [
-    "str", ...
+    "string", ...
   ],
   "args": [
-    "str", ...
+    "string", ...
   ],
   "exclude-packages": [
-    "str", ...
+    "string", ...
   ],
   "file-uris": [
-    "str", ...
+    "string", ...
   ],
   "jar-file-uris": [
-    "str", ...
+    "string", ...
   ],
-  "main-class": "str",
-  "main-jar-file-uri": "str",
+  "main-class": "string",
+  "main-jar-file-uri": "string",
   "packages": [
-    "str", ...
+    "string", ...
   ],
   "properties": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "repositories": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -125,16 +125,16 @@ Shorthand Syntax:
 
 ```hcl
 {
-  archive-uris = str,...,
-  args = str,...,
-  exclude-packages = str,...,
-  file-uris = str,...,
-  jar-file-uris = str,...,
-  main-python-file-uri = str,
-  packages = str,...,
-  properties = {key=str, key=...},
-  python-file-uris = str,...,
-  repositories = str,...
+  archive-uris = string,...,
+  args = string,...,
+  exclude-packages = string,...,
+  file-uris = string,...,
+  jar-file-uris = string,...,
+  main-python-file-uri = string,
+  packages = string,...,
+  properties = {key=string, key=...},
+  python-file-uris = string,...,
+  repositories = string,...
 }
 ```
 
@@ -143,32 +143,32 @@ JSON Syntax:
 ```json
 {
   "archive-uris": [
-    "str", ...
+    "string", ...
   ],
   "args": [
-    "str", ...
+    "string", ...
   ],
   "exclude-packages": [
-    "str", ...
+    "string", ...
   ],
   "file-uris": [
-    "str", ...
+    "string", ...
   ],
   "jar-file-uris": [
-    "str", ...
+    "string", ...
   ],
-  "main-python-file-uri": "str",
+  "main-python-file-uri": "string",
   "packages": [
-    "str", ...
+    "string", ...
   ],
   "properties": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "python-file-uris": [
-    "str", ...
+    "string", ...
   ],
   "repositories": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -203,13 +203,13 @@ Shorthand Syntax:
 
 ```hcl
 {
-  archive-uris = str,...,
-  exclude-packages = str,...,
-  file-uris = str,...,
-  jar-file-uris = str,...,
-  packages = str,...,
-  properties = {key=str, key=...},
-  repositories = str,...
+  archive-uris = string,...,
+  exclude-packages = string,...,
+  file-uris = string,...,
+  jar-file-uris = string,...,
+  packages = string,...,
+  properties = {key=string, key=...},
+  repositories = string,...
 }
 ```
 
@@ -218,25 +218,25 @@ JSON Syntax:
 ```json
 {
   "archive-uris": [
-    "str", ...
+    "string", ...
   ],
   "exclude-packages": [
-    "str", ...
+    "string", ...
   ],
   "file-uris": [
-    "str", ...
+    "string", ...
   ],
   "jar-file-uris": [
-    "str", ...
+    "string", ...
   ],
   "packages": [
-    "str", ...
+    "string", ...
   ],
   "properties": {
-    "<key>": "str", ...
+    "<key>": "string", ...
   },
   "repositories": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -280,16 +280,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

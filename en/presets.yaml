@@ -4035,6 +4035,8 @@ default:
         button_delete: Delete
         button_save: Save
         label_delete-now: Delete now
+      fileinput:
+        button_attach-file: Attach file
       forms:
         label_value: Value
       helpfeedbackdialog:
@@ -4433,6 +4435,7 @@ default:
           saml_field_login: Login URL
           saml_field_logout: Logout URL
           saml_field_metadata: Metadata URL
+          saml_field_request_signing_enabled: Only accept signed requests
           secret_section_add_new_secret_action: Add secret
           secret_section_title: App secrets
       attributes:

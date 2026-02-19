@@ -40,7 +40,7 @@ Description of the target group. ||
 || `--folder-id` | `string`
 
 ID of the folder to create a target group in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Target group labels as 'key:value' pairs. For details about the concept, see documentation. ||
 || `--name` | `string`
@@ -55,9 +55,9 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    address-type = ip-address=str,
-    private-ipv4-address = bool,
-    subnet-id = str
+    address-type = ip-address=string,
+    private-ipv4-address = boolean,
+    subnet-id = string
   }, ...
 ]
 ```
@@ -68,10 +68,10 @@ JSON Syntax:
 [
   {
     "address-type": {
-      "ip-address": "str"
+      "ip-address": "string"
     },
-    "private-ipv4-address": "bool",
-    "subnet-id": "str"
+    "private-ipv4-address": "boolean",
+    "subnet-id": "string"
   }, ...
 ]
 ```
@@ -79,7 +79,7 @@ JSON Syntax:
 Fields:
 
 ```
-private-ipv4-address -> (bool)
+private-ipv4-address -> (boolean)
   If set, will not require 'subnet_id' to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of 'subnet_id' or 'private_ipv4_address' should be set.
 subnet-id -> (string)
   ID of the subnet that the target is connected to.
@@ -109,16 +109,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

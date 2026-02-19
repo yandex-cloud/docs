@@ -34,7 +34,7 @@ Usage example:
 1. Generate template: yc beta compute instance create --example-yaml > request.yaml
 2. Edit the template: vim request.yaml
 3. Run with template: yc beta compute instance create -r request.yaml ||
-|| `--authority` | `strings`
+|| `--authority` | `[]string`
 
 List of domains that are attributed to the virtual host. The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 'Host' header or the HTTP/2 ':authority' pseudo-header matches a domain specified in the host. A wildcard asterisk character ('*') matches 0 or more characters. If not specified, all domains are attributed to the host, which is the same as specifying a '*' value. An HTTP router must not contain more than one virtual host to which all domains are attributed. ||
 || `--http-router-id` | `string`
@@ -49,8 +49,8 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    name = str,
-    operation = append=str | remove=bool | rename=str | replace=str
+    name = string,
+    operation = append=string | remove=boolean | rename=string | replace=string
   }, ...
 ]
 ```
@@ -60,12 +60,12 @@ JSON Syntax:
 ```json
 [
   {
-    "name": "str",
+    "name": "string",
     "operation": {
-      "append": "str",
-      "remove": "bool",
-      "rename": "str",
-      "replace": "str"
+      "append": "string",
+      "remove": "boolean",
+      "rename": "string",
+      "replace": "string"
     }
   }, ...
 ]
@@ -82,7 +82,7 @@ operation -> (oneof<append|remove|rename|replace>)
     Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
   replace -> (string)
     Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
-  remove -> (bool)
+  remove -> (boolean)
     Removes the header.
   rename -> (string)
     Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
@@ -96,8 +96,8 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    name = str,
-    operation = append=str | remove=bool | rename=str | replace=str
+    name = string,
+    operation = append=string | remove=boolean | rename=string | replace=string
   }, ...
 ]
 ```
@@ -107,12 +107,12 @@ JSON Syntax:
 ```json
 [
   {
-    "name": "str",
+    "name": "string",
     "operation": {
-      "append": "str",
-      "remove": "bool",
-      "rename": "str",
-      "replace": "str"
+      "append": "string",
+      "remove": "boolean",
+      "rename": "string",
+      "replace": "string"
     }
   }, ...
 ]
@@ -129,7 +129,7 @@ operation -> (oneof<append|remove|rename|replace>)
     Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
   replace -> (string)
     Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
-  remove -> (bool)
+  remove -> (boolean)
     Removes the header.
   rename -> (string)
     Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
@@ -146,10 +146,10 @@ Shorthand Syntax:
 ```hcl
 {
   all-requests = {
-    rate = per-minute=int | per-second=int
+    rate = per-minute=integer | per-second=integer
   },
   requests-per-ip = {
-    rate = per-minute=int | per-second=int
+    rate = per-minute=integer | per-second=integer
   }
 }
 ```
@@ -160,14 +160,14 @@ JSON Syntax:
 {
   "all-requests": {
     "rate": {
-      "per-minute": "int",
-      "per-second": "int"
+      "per-minute": "integer",
+      "per-second": "integer"
     }
   },
   "requests-per-ip": {
     "rate": {
-      "per-minute": "int",
-      "per-second": "int"
+      "per-minute": "integer",
+      "per-second": "integer"
     }
   }
 }
@@ -180,17 +180,17 @@ all-requests -> (struct)
   AllRequests is a rate limit configuration applied to all incoming requests.
   rate -> (oneof<per-minute|per-second>)
     Oneof rate field
-    per-second -> (int)
+    per-second -> (integer)
       PerSecond is a limit value specified with per second time unit.
-    per-minute -> (int)
+    per-minute -> (integer)
       PerMinute is a limit value specified with per minute time unit.
 requests-per-ip -> (struct)
   RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.
   rate -> (oneof<per-minute|per-second>)
     Oneof rate field
-    per-second -> (int)
+    per-second -> (integer)
       PerSecond is a limit value specified with per second time unit.
-    per-minute -> (int)
+    per-minute -> (integer)
       PerMinute is a limit value specified with per minute time unit.
 ``` ||
 || `--route-options` | `shorthand/json`
@@ -203,14 +203,14 @@ Shorthand Syntax:
 {
   modify-request-headers = [
     {
-      name = str,
-      operation = append=str | remove=bool | rename=str | replace=str
+      name = string,
+      operation = append=string | remove=boolean | rename=string | replace=string
     }, ...
   ],
   modify-response-headers = [
     {
-      name = str,
-      operation = append=str | remove=bool | rename=str | replace=str
+      name = string,
+      operation = append=string | remove=boolean | rename=string | replace=string
     }, ...
   ],
   rbac = {
@@ -219,18 +219,18 @@ Shorthand Syntax:
       {
         and-principals = [
           {
-            identifier = any=bool | header={
-              name = str,
+            identifier = any=boolean | header={
+              name = string,
               value = {
-                match = exact-match=str | prefix-match=str | regex-match=str
+                match = exact-match=string | prefix-match=string | regex-match=string
               }
-            } | remote-ip=str
+            } | remote-ip=string
           }, ...
         ]
       }, ...
     ]
   },
-  security-profile-id = str
+  security-profile-id = string
 }
 ```
 
@@ -240,23 +240,23 @@ JSON Syntax:
 {
   "modify-request-headers": [
     {
-      "name": "str",
+      "name": "string",
       "operation": {
-        "append": "str",
-        "remove": "bool",
-        "rename": "str",
-        "replace": "str"
+        "append": "string",
+        "remove": "boolean",
+        "rename": "string",
+        "replace": "string"
       }
     }, ...
   ],
   "modify-response-headers": [
     {
-      "name": "str",
+      "name": "string",
       "operation": {
-        "append": "str",
-        "remove": "bool",
-        "rename": "str",
-        "replace": "str"
+        "append": "string",
+        "remove": "boolean",
+        "rename": "string",
+        "replace": "string"
       }
     }, ...
   ],
@@ -267,25 +267,25 @@ JSON Syntax:
         "and-principals": [
           {
             "identifier": {
-              "any": "bool",
+              "any": "boolean",
               "header": {
-                "name": "str",
+                "name": "string",
                 "value": {
                   "match": {
-                    "exact-match": "str",
-                    "prefix-match": "str",
-                    "regex-match": "str"
+                    "exact-match": "string",
+                    "prefix-match": "string",
+                    "regex-match": "string"
                   }
                 }
               },
-              "remote-ip": "str"
+              "remote-ip": "string"
             }
           }, ...
         ]
       }, ...
     ]
   },
-  "security-profile-id": "str"
+  "security-profile-id": "string"
 }
 ```
 
@@ -302,7 +302,7 @@ modify-request-headers -> ([]struct)
       Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
     replace -> (string)
       Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
-    remove -> (bool)
+    remove -> (boolean)
       Removes the header.
     rename -> (string)
       Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
@@ -316,7 +316,7 @@ modify-response-headers -> ([]struct)
       Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
     replace -> (string)
       Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
-    remove -> (bool)
+    remove -> (boolean)
       Removes the header.
     rename -> (string)
       Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
@@ -345,7 +345,7 @@ rbac -> (struct)
                 Regular expression match string.
         remote-ip -> (string)
           A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .
-        any -> (bool)
+        any -> (boolean)
           When any is set, it matches any request.
 security-profile-id -> (string)
   Security profile that will take effect to all requests routed via particular virtual host.
@@ -359,20 +359,20 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    disable-security-profile = bool,
-    name = str,
+    disable-security-profile = boolean,
+    name = string,
     route = grpc={
       action = route={
-        backend-group-id = str,
-        host-rewrite-specifier = auto-host-rewrite=bool | host-rewrite=str,
+        backend-group-id = string,
+        host-rewrite-specifier = auto-host-rewrite=boolean | host-rewrite=string,
         idle-timeout = duration,
         max-timeout = duration,
         rate-limit = {
           all-requests = {
-            rate = per-minute=int | per-second=int
+            rate = per-minute=integer | per-second=integer
           },
           requests-per-ip = {
-            rate = per-minute=int | per-second=int
+            rate = per-minute=integer | per-second=integer
           }
         }
       } | status-response={
@@ -380,60 +380,60 @@ Shorthand Syntax:
       },
       match = {
         fqmn = {
-          match = exact-match=str | prefix-match=str | regex-match=str
+          match = exact-match=string | prefix-match=string | regex-match=string
         }
       }
     } | http={
       action = direct-response={
         body = {
-          payload = text=str
+          payload = text=string
         },
-        status = int
+        status = integer
       } | redirect={
-        path = replace-path=str | replace-prefix=str,
-        remove-query = bool,
-        replace-host = str,
-        replace-port = int,
-        replace-scheme = str,
+        path = replace-path=string | replace-prefix=string,
+        remove-query = boolean,
+        replace-host = string,
+        replace-port = integer,
+        replace-scheme = string,
         response-code = MOVED_PERMANENTLY|FOUND|SEE_OTHER|TEMPORARY_REDIRECT|PERMANENT_REDIRECT
       } | route={
-        backend-group-id = str,
-        host-rewrite-specifier = auto-host-rewrite=bool | host-rewrite=str,
+        backend-group-id = string,
+        host-rewrite-specifier = auto-host-rewrite=boolean | host-rewrite=string,
         idle-timeout = duration,
-        prefix-rewrite = str,
+        prefix-rewrite = string,
         rate-limit = {
           all-requests = {
-            rate = per-minute=int | per-second=int
+            rate = per-minute=integer | per-second=integer
           },
           requests-per-ip = {
-            rate = per-minute=int | per-second=int
+            rate = per-minute=integer | per-second=integer
           }
         },
         regex-rewrite = {
-          regex = str,
-          substitute = str
+          regex = string,
+          substitute = string
         },
         timeout = duration,
-        upgrade-types = str,...
+        upgrade-types = string,...
       },
       match = {
         headers = [
           {
-            name = str,
+            name = string,
             value = {
-              match = exact-match=str | prefix-match=str | regex-match=str
+              match = exact-match=string | prefix-match=string | regex-match=string
             }
           }, ...
         ],
-        http-method = str,...,
+        http-method = string,...,
         path = {
-          match = exact-match=str | prefix-match=str | regex-match=str
+          match = exact-match=string | prefix-match=string | regex-match=string
         },
         query-parameters = [
           {
-            name = str,
+            name = string,
             value = {
-              match = exact-match=str | prefix-match=str | regex-match=str
+              match = exact-match=string | prefix-match=string | regex-match=string
             }
           }, ...
         ]
@@ -442,14 +442,14 @@ Shorthand Syntax:
     route-options = {
       modify-request-headers = [
         {
-          name = str,
-          operation = append=str | remove=bool | rename=str | replace=str
+          name = string,
+          operation = append=string | remove=boolean | rename=string | replace=string
         }, ...
       ],
       modify-response-headers = [
         {
-          name = str,
-          operation = append=str | remove=bool | rename=str | replace=str
+          name = string,
+          operation = append=string | remove=boolean | rename=string | replace=string
         }, ...
       ],
       rbac = {
@@ -458,18 +458,18 @@ Shorthand Syntax:
           {
             and-principals = [
               {
-                identifier = any=bool | header={
-                  name = str,
+                identifier = any=boolean | header={
+                  name = string,
                   value = {
-                    match = exact-match=str | prefix-match=str | regex-match=str
+                    match = exact-match=string | prefix-match=string | regex-match=string
                   }
-                } | remote-ip=str
+                } | remote-ip=string
               }, ...
             ]
           }, ...
         ]
       },
-      security-profile-id = str
+      security-profile-id = string
     }
   }, ...
 ]
@@ -480,30 +480,30 @@ JSON Syntax:
 ```json
 [
   {
-    "disable-security-profile": "bool",
-    "name": "str",
+    "disable-security-profile": "boolean",
+    "name": "string",
     "route": {
       "grpc": {
         "action": {
           "route": {
-            "backend-group-id": "str",
+            "backend-group-id": "string",
             "host-rewrite-specifier": {
-              "auto-host-rewrite": "bool",
-              "host-rewrite": "str"
+              "auto-host-rewrite": "boolean",
+              "host-rewrite": "string"
             },
             "idle-timeout": "duration",
             "max-timeout": "duration",
             "rate-limit": {
               "all-requests": {
                 "rate": {
-                  "per-minute": "int",
-                  "per-second": "int"
+                  "per-minute": "integer",
+                  "per-second": "integer"
                 }
               },
               "requests-per-ip": {
                 "rate": {
-                  "per-minute": "int",
-                  "per-second": "int"
+                  "per-minute": "integer",
+                  "per-second": "integer"
                 }
               }
             }
@@ -515,9 +515,9 @@ JSON Syntax:
         "match": {
           "fqmn": {
             "match": {
-              "exact-match": "str",
-              "prefix-match": "str",
-              "regex-match": "str"
+              "exact-match": "string",
+              "prefix-match": "string",
+              "regex-match": "string"
             }
           }
         }
@@ -527,85 +527,85 @@ JSON Syntax:
           "direct-response": {
             "body": {
               "payload": {
-                "text": "str"
+                "text": "string"
               }
             },
-            "status": "int"
+            "status": "integer"
           },
           "redirect": {
             "path": {
-              "replace-path": "str",
-              "replace-prefix": "str"
+              "replace-path": "string",
+              "replace-prefix": "string"
             },
-            "remove-query": "bool",
-            "replace-host": "str",
-            "replace-port": "int",
-            "replace-scheme": "str",
+            "remove-query": "boolean",
+            "replace-host": "string",
+            "replace-port": "integer",
+            "replace-scheme": "string",
             "response-code": "MOVED_PERMANENTLY|FOUND|SEE_OTHER|TEMPORARY_REDIRECT|PERMANENT_REDIRECT"
           },
           "route": {
-            "backend-group-id": "str",
+            "backend-group-id": "string",
             "host-rewrite-specifier": {
-              "auto-host-rewrite": "bool",
-              "host-rewrite": "str"
+              "auto-host-rewrite": "boolean",
+              "host-rewrite": "string"
             },
             "idle-timeout": "duration",
-            "prefix-rewrite": "str",
+            "prefix-rewrite": "string",
             "rate-limit": {
               "all-requests": {
                 "rate": {
-                  "per-minute": "int",
-                  "per-second": "int"
+                  "per-minute": "integer",
+                  "per-second": "integer"
                 }
               },
               "requests-per-ip": {
                 "rate": {
-                  "per-minute": "int",
-                  "per-second": "int"
+                  "per-minute": "integer",
+                  "per-second": "integer"
                 }
               }
             },
             "regex-rewrite": {
-              "regex": "str",
-              "substitute": "str"
+              "regex": "string",
+              "substitute": "string"
             },
             "timeout": "duration",
             "upgrade-types": [
-              "str", ...
+              "string", ...
             ]
           }
         },
         "match": {
           "headers": [
             {
-              "name": "str",
+              "name": "string",
               "value": {
                 "match": {
-                  "exact-match": "str",
-                  "prefix-match": "str",
-                  "regex-match": "str"
+                  "exact-match": "string",
+                  "prefix-match": "string",
+                  "regex-match": "string"
                 }
               }
             }, ...
           ],
           "http-method": [
-            "str", ...
+            "string", ...
           ],
           "path": {
             "match": {
-              "exact-match": "str",
-              "prefix-match": "str",
-              "regex-match": "str"
+              "exact-match": "string",
+              "prefix-match": "string",
+              "regex-match": "string"
             }
           },
           "query-parameters": [
             {
-              "name": "str",
+              "name": "string",
               "value": {
                 "match": {
-                  "exact-match": "str",
-                  "prefix-match": "str",
-                  "regex-match": "str"
+                  "exact-match": "string",
+                  "prefix-match": "string",
+                  "regex-match": "string"
                 }
               }
             }, ...
@@ -616,23 +616,23 @@ JSON Syntax:
     "route-options": {
       "modify-request-headers": [
         {
-          "name": "str",
+          "name": "string",
           "operation": {
-            "append": "str",
-            "remove": "bool",
-            "rename": "str",
-            "replace": "str"
+            "append": "string",
+            "remove": "boolean",
+            "rename": "string",
+            "replace": "string"
           }
         }, ...
       ],
       "modify-response-headers": [
         {
-          "name": "str",
+          "name": "string",
           "operation": {
-            "append": "str",
-            "remove": "bool",
-            "rename": "str",
-            "replace": "str"
+            "append": "string",
+            "remove": "boolean",
+            "rename": "string",
+            "replace": "string"
           }
         }, ...
       ],
@@ -643,25 +643,25 @@ JSON Syntax:
             "and-principals": [
               {
                 "identifier": {
-                  "any": "bool",
+                  "any": "boolean",
                   "header": {
-                    "name": "str",
+                    "name": "string",
                     "value": {
                       "match": {
-                        "exact-match": "str",
-                        "prefix-match": "str",
-                        "regex-match": "str"
+                        "exact-match": "string",
+                        "prefix-match": "string",
+                        "regex-match": "string"
                       }
                     }
                   },
-                  "remote-ip": "str"
+                  "remote-ip": "string"
                 }
               }, ...
             ]
           }, ...
         ]
       },
-      "security-profile-id": "str"
+      "security-profile-id": "string"
     }
   }, ...
 ]
@@ -670,7 +670,7 @@ JSON Syntax:
 Fields:
 
 ```
-disable-security-profile -> (bool)
+disable-security-profile -> (boolean)
   Whether set to 'true' disables security profile for the route.
 name -> (string)
   Name of the route.
@@ -685,7 +685,7 @@ route-options -> (struct)
         Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
       replace -> (string)
         Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
-      remove -> (bool)
+      remove -> (boolean)
         Removes the header.
       rename -> (string)
         Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
@@ -699,7 +699,7 @@ route-options -> (struct)
         Appends the specified string to the header value. Variables defined for Envoy proxy are supported.
       replace -> (string)
         Replaces the value of the header with the specified string. Variables defined for Envoy proxy are supported.
-      remove -> (bool)
+      remove -> (boolean)
         Removes the header.
       rename -> (string)
         Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.
@@ -728,7 +728,7 @@ route-options -> (struct)
                   Regular expression match string.
           remote-ip -> (string)
             A CIDR block or IP that describes the request remote/origin address, e.g. ''192.0.0.0/24'' or''192.0.0.4'' .
-          any -> (bool)
+          any -> (boolean)
             When any is set, it matches any request.
   security-profile-id -> (string)
     Security profile that will take effect to all requests routed via particular virtual host.
@@ -794,17 +794,17 @@ route -> (oneof<grpc|http>)
             AllRequests is a rate limit configuration applied to all incoming requests.
             rate -> (oneof<per-minute|per-second>)
               Oneof rate field
-              per-second -> (int)
+              per-second -> (integer)
                 PerSecond is a limit value specified with per second time unit.
-              per-minute -> (int)
+              per-minute -> (integer)
                 PerMinute is a limit value specified with per minute time unit.
           requests-per-ip -> (struct)
             RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.
             rate -> (oneof<per-minute|per-second>)
               Oneof rate field
-              per-second -> (int)
+              per-second -> (integer)
                 PerSecond is a limit value specified with per second time unit.
-              per-minute -> (int)
+              per-minute -> (integer)
                 PerMinute is a limit value specified with per minute time unit.
         regex-rewrite -> (struct)
           Replacement for portions of the path that match the pattern should be rewritten, even allowing the substitution of capture groups from the pattern into the new path as specified by the rewrite substitution string. Only one of regex_rewrite, or prefix_rewrite may be specified. Examples of using: - The path pattern ^/service/([^/]+)(/.*)$ paired with a substitution string of \2/instance/\1 would transform /service/foo/v1/api into /v1/api/instance/foo. - The pattern one paired with a substitution string of two would transform /xxx/one/yyy/one/zzz into /xxx/two/yyy/two/zzz. - The pattern ^(.*?)one(.*)$ paired with a substitution string of \1two\2 would replace only the first occurrence of one, transforming path /xxx/one/yyy/one/zzz into /xxx/two/yyy/one/zzz. - The pattern (?i)/xxx/ paired with a substitution string of /yyy/ would do a case-insensitive match and transform path /aaa/XxX/bbb to /aaa/yyy/bbb.
@@ -820,15 +820,15 @@ route -> (oneof<grpc|http>)
           Oneof host-rewrite-specifier field
           host-rewrite -> (string)
             Host replacement.
-          auto-host-rewrite -> (bool)
+          auto-host-rewrite -> (boolean)
             Automatically replaces the host with that of the target.
       redirect -> (struct)
         Redirects the request as configured.
-        remove-query -> (bool)
+        remove-query -> (boolean)
           Removes URI query.
         replace-host -> (string)
           URI host replacement. If not specified, the original host is used.
-        replace-port -> (int)
+        replace-port -> (integer)
           URI host replacement. If not specified, the original host is used.
         replace-scheme -> (string)
           URI scheme replacement. If 'http' or 'https' scheme is to be replaced and '80' or '443' port is specified in the original URI, the port is also removed. If not specified, the original scheme and port are used.
@@ -848,7 +848,7 @@ route -> (oneof<grpc|http>)
             Oneof payload field
             text -> (string)
               Payload text.
-        status -> (int)
+        status -> (integer)
           HTTP status code to use in responses.
   grpc -> (struct)
     gRPC route configuration.
@@ -880,23 +880,23 @@ route -> (oneof<grpc|http>)
             AllRequests is a rate limit configuration applied to all incoming requests.
             rate -> (oneof<per-minute|per-second>)
               Oneof rate field
-              per-second -> (int)
+              per-second -> (integer)
                 PerSecond is a limit value specified with per second time unit.
-              per-minute -> (int)
+              per-minute -> (integer)
                 PerMinute is a limit value specified with per minute time unit.
           requests-per-ip -> (struct)
             RequestsPerIp is a rate limit configuration applied separately for each set of requests grouped by client IP address.
             rate -> (oneof<per-minute|per-second>)
               Oneof rate field
-              per-second -> (int)
+              per-second -> (integer)
                 PerSecond is a limit value specified with per second time unit.
-              per-minute -> (int)
+              per-minute -> (integer)
                 PerMinute is a limit value specified with per minute time unit.
         host-rewrite-specifier -> (oneof<auto-host-rewrite|host-rewrite>)
           Oneof host-rewrite-specifier field
           host-rewrite -> (string)
             Host replacement.
-          auto-host-rewrite -> (bool)
+          auto-host-rewrite -> (boolean)
             Automatically replaces the host with that of the target.
       status-response -> (struct)
         Instructs the load balancer to respond directly with a specified status.
@@ -924,16 +924,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

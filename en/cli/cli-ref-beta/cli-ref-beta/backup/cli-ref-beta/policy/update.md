@@ -44,53 +44,53 @@ Shorthand Syntax:
 ```hcl
 {
   archive = {
-    name = str
+    name = string
   },
   cbt = USE_IF_ENABLED|ENABLE_AND_USE|DO_NOT_USE,
   compression = NORMAL|HIGH|MAX|OFF,
-  fast-backup-enabled = bool,
+  fast-backup-enabled = boolean,
   file-filters = {
-    exclusion-masks = str,...,
-    inclusion-masks = str,...
+    exclusion-masks = string,...,
+    inclusion-masks = string,...
   },
   format = VERSION_11|VERSION_12|AUTO,
-  lvm-snapshotting-enabled = bool,
-  multi-volume-snapshotting-enabled = bool,
+  lvm-snapshotting-enabled = boolean,
+  multi-volume-snapshotting-enabled = boolean,
   performance-window = {
-    enabled = bool
+    enabled = boolean
   },
   pre-post-commands = [
     {
-      args = str,
-      cmd = str,
-      enabled = bool,
-      stop-on-error = bool,
+      args = string,
+      cmd = string,
+      enabled = boolean,
+      stop-on-error = boolean,
       type = PRE_COMMAND|POST_COMMAND|PRE_DATA_COMMAND|POST_DATA_COMMAND,
-      wait = bool,
-      workdir = str
+      wait = boolean,
+      workdir = string
     }, ...
   ],
-  preserve-file-security-settings = bool,
-  quiesce-snapshotting-enabled = bool,
+  preserve-file-security-settings = boolean,
+  quiesce-snapshotting-enabled = boolean,
   reattempts = {
-    enabled = bool,
+    enabled = boolean,
     interval = {
-      count = int,
+      count = integer,
       type = SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS
     },
-    max-attempts = int
+    max-attempts = integer
   },
   retention = {
-    before-backup = bool,
+    before-backup = boolean,
     rules = [
       {
         backup-set = [
           HOURLY|DAILY|WEEKLY|MONTHLY, ...
         ],
         condition = max-age={
-          count = int,
+          count = integer,
           type = SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS
-        } | max-count=int
+        } | max-count=integer
       }, ...
     ]
   },
@@ -99,31 +99,31 @@ Shorthand Syntax:
       {
         setting = since-last-exec-time={
           delay = {
-            count = int,
+            count = integer,
             type = SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS
           }
         } | time={
-          include-last-day-of-month = bool,
-          monthdays = int,...,
-          months = int,...,
+          include-last-day-of-month = boolean,
+          monthdays = integer,...,
+          months = integer,...,
           repeat-at = [
             {
-              hour = int,
-              minute = int
+              hour = integer,
+              minute = integer
             }, ...
           ],
           repeat-every = {
-            count = int,
+            count = integer,
             type = SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS
           },
-          run-later = bool,
+          run-later = boolean,
           time-from = {
-            hour = int,
-            minute = int
+            hour = integer,
+            minute = integer
           },
           time-to = {
-            hour = int,
-            minute = int
+            hour = integer,
+            minute = integer
           },
           type = HOURLY|DAILY|WEEKLY|MONTHLY,
           weekdays = [
@@ -133,39 +133,39 @@ Shorthand Syntax:
         type = TYPE_AUTO|TYPE_FULL|TYPE_INCREMENTAL|TYPE_DIFFERENTIAL
       }, ...
     ],
-    enabled = bool,
-    max-parallel-backups = int,
+    enabled = boolean,
+    max-parallel-backups = integer,
     rand-max-delay = {
-      count = int,
+      count = integer,
       type = SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS
     },
     scheme = SIMPLE|ALWAYS_FULL|ALWAYS_INCREMENTAL|WEEKLY_INCREMENTAL|WEEKLY_FULL_DAILY_INCREMENTAL|CUSTOM|CDP,
     task-failure = {
-      enabled = bool,
+      enabled = boolean,
       interval = {
-        count = int,
+        count = integer,
         type = SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS
       },
-      max-attempts = int
+      max-attempts = integer
     },
     weekly-backup-day = MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY
   },
-  sector-by-sector = bool,
-  silent-mode-enabled = bool,
+  sector-by-sector = boolean,
+  silent-mode-enabled = boolean,
   splitting = {
-    size = int
+    size = integer
   },
-  validation-enabled = bool,
+  validation-enabled = boolean,
   vm-snapshot-reattempts = {
-    enabled = bool,
+    enabled = boolean,
     interval = {
-      count = int,
+      count = integer,
       type = SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS
     },
-    max-attempts = int
+    max-attempts = integer
   },
   vss = {
-    enabled = bool,
+    enabled = boolean,
     provider = NATIVE|TARGET_SYSTEM_DEFINED
   }
 }
@@ -176,48 +176,48 @@ JSON Syntax:
 ```json
 {
   "archive": {
-    "name": "str"
+    "name": "string"
   },
   "cbt": "USE_IF_ENABLED|ENABLE_AND_USE|DO_NOT_USE",
   "compression": "NORMAL|HIGH|MAX|OFF",
-  "fast-backup-enabled": "bool",
+  "fast-backup-enabled": "boolean",
   "file-filters": {
     "exclusion-masks": [
-      "str", ...
+      "string", ...
     ],
     "inclusion-masks": [
-      "str", ...
+      "string", ...
     ]
   },
   "format": "VERSION_11|VERSION_12|AUTO",
-  "lvm-snapshotting-enabled": "bool",
-  "multi-volume-snapshotting-enabled": "bool",
+  "lvm-snapshotting-enabled": "boolean",
+  "multi-volume-snapshotting-enabled": "boolean",
   "performance-window": {
-    "enabled": "bool"
+    "enabled": "boolean"
   },
   "pre-post-commands": [
     {
-      "args": "str",
-      "cmd": "str",
-      "enabled": "bool",
-      "stop-on-error": "bool",
+      "args": "string",
+      "cmd": "string",
+      "enabled": "boolean",
+      "stop-on-error": "boolean",
       "type": "PRE_COMMAND|POST_COMMAND|PRE_DATA_COMMAND|POST_DATA_COMMAND",
-      "wait": "bool",
-      "workdir": "str"
+      "wait": "boolean",
+      "workdir": "string"
     }, ...
   ],
-  "preserve-file-security-settings": "bool",
-  "quiesce-snapshotting-enabled": "bool",
+  "preserve-file-security-settings": "boolean",
+  "quiesce-snapshotting-enabled": "boolean",
   "reattempts": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "interval": {
-      "count": "int",
+      "count": "integer",
       "type": "SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS"
     },
-    "max-attempts": "int"
+    "max-attempts": "integer"
   },
   "retention": {
-    "before-backup": "bool",
+    "before-backup": "boolean",
     "rules": [
       {
         "backup-set": [
@@ -225,10 +225,10 @@ JSON Syntax:
         ],
         "condition": {
           "max-age": {
-            "count": "int",
+            "count": "integer",
             "type": "SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS"
           },
-          "max-count": "int"
+          "max-count": "integer"
         }
       }, ...
     ]
@@ -239,36 +239,36 @@ JSON Syntax:
         "setting": {
           "since-last-exec-time": {
             "delay": {
-              "count": "int",
+              "count": "integer",
               "type": "SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS"
             }
           },
           "time": {
-            "include-last-day-of-month": "bool",
+            "include-last-day-of-month": "boolean",
             "monthdays": [
-              "int", ...
+              "integer", ...
             ],
             "months": [
-              "int", ...
+              "integer", ...
             ],
             "repeat-at": [
               {
-                "hour": "int",
-                "minute": "int"
+                "hour": "integer",
+                "minute": "integer"
               }, ...
             ],
             "repeat-every": {
-              "count": "int",
+              "count": "integer",
               "type": "SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS"
             },
-            "run-later": "bool",
+            "run-later": "boolean",
             "time-from": {
-              "hour": "int",
-              "minute": "int"
+              "hour": "integer",
+              "minute": "integer"
             },
             "time-to": {
-              "hour": "int",
-              "minute": "int"
+              "hour": "integer",
+              "minute": "integer"
             },
             "type": "HOURLY|DAILY|WEEKLY|MONTHLY",
             "weekdays": [
@@ -279,39 +279,39 @@ JSON Syntax:
         "type": "TYPE_AUTO|TYPE_FULL|TYPE_INCREMENTAL|TYPE_DIFFERENTIAL"
       }, ...
     ],
-    "enabled": "bool",
-    "max-parallel-backups": "int",
+    "enabled": "boolean",
+    "max-parallel-backups": "integer",
     "rand-max-delay": {
-      "count": "int",
+      "count": "integer",
       "type": "SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS"
     },
     "scheme": "SIMPLE|ALWAYS_FULL|ALWAYS_INCREMENTAL|WEEKLY_INCREMENTAL|WEEKLY_FULL_DAILY_INCREMENTAL|CUSTOM|CDP",
     "task-failure": {
-      "enabled": "bool",
+      "enabled": "boolean",
       "interval": {
-        "count": "int",
+        "count": "integer",
         "type": "SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS"
       },
-      "max-attempts": "int"
+      "max-attempts": "integer"
     },
     "weekly-backup-day": "MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY"
   },
-  "sector-by-sector": "bool",
-  "silent-mode-enabled": "bool",
+  "sector-by-sector": "boolean",
+  "silent-mode-enabled": "boolean",
   "splitting": {
-    "size": "int"
+    "size": "integer"
   },
-  "validation-enabled": "bool",
+  "validation-enabled": "boolean",
   "vm-snapshot-reattempts": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "interval": {
-      "count": "int",
+      "count": "integer",
       "type": "SECONDS|MINUTES|HOURS|DAYS|WEEKS|MONTHS"
     },
-    "max-attempts": "int"
+    "max-attempts": "integer"
   },
   "vss": {
-    "enabled": "bool",
+    "enabled": "boolean",
     "provider": "NATIVE|TARGET_SYSTEM_DEFINED"
   }
 }
@@ -328,7 +328,7 @@ cbt -> (struct)
   A configuration of Changed Block Tracking (CBT).
 compression -> (struct)
   Archive compression level.
-fast-backup-enabled -> (bool)
+fast-backup-enabled -> (boolean)
   If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup.
 file-filters -> (struct)
   File filters to specify masks of files to backup or to exclude of backuping
@@ -338,13 +338,13 @@ file-filters -> (struct)
     Backup only files that match the following criteria
 format -> (struct)
   Format of the Acronis backup archive.
-lvm-snapshotting-enabled -> (bool)
+lvm-snapshotting-enabled -> (boolean)
   LVM will be used to create the volume snapshot. If LVM fails to create a snapshot (for example, because there is not enough free space), the software will create the snapshot itself.
-multi-volume-snapshotting-enabled -> (bool)
+multi-volume-snapshotting-enabled -> (boolean)
   If true, snapshots of multiple volumes will be taken simultaneously.
 performance-window -> (struct)
   Time windows for performance limitations of backup and storage maintenance operations.
-  enabled -> (bool)
+  enabled -> (boolean)
     If true, the time windows will be enabled.
 pre-post-commands -> ([]struct)
   Commands to launch before or after backup execution
@@ -352,35 +352,35 @@ pre-post-commands -> ([]struct)
     Command args
   cmd -> (string)
     Command to execute
-  enabled -> (bool)
+  enabled -> (boolean)
     Is command enabled
-  stop-on-error -> (bool)
+  stop-on-error -> (boolean)
     Stop backup execution on error
   type -> (struct)
     Type of command: pre or post
-  wait -> (bool)
+  wait -> (boolean)
     Wait command finish before launching backup
   workdir -> (string)
     Workdir for command execution
-preserve-file-security-settings -> (bool)
+preserve-file-security-settings -> (boolean)
   If true, the file security settings will be preserved. Deprecated.
-quiesce-snapshotting-enabled -> (bool)
+quiesce-snapshotting-enabled -> (boolean)
   If true, a quiesced snapshot of the virtual machine will be taken. Deprecated.
 reattempts -> (struct)
   Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set.
-  enabled -> (bool)
+  enabled -> (boolean)
     If true, enables retry on errors.
   interval -> (struct)
     An interval between retry attempts.
-    count -> (int)
+    count -> (integer)
       The amount of value specified in 'Interval.Type'.
     type -> (struct)
       A type of the interval.
-  max-attempts -> (int)
+  max-attempts -> (integer)
     Max number of retry attempts. Operation will be considered as failed when max number of retry attempts is reached.
 retention -> (struct)
   Configuration of backup retention rules.
-  before-backup -> (bool)
+  before-backup -> (boolean)
     If true, retention rules will be applied before backup is finished.
   rules -> ([]struct)
     A list of retention rules.
@@ -389,11 +389,11 @@ retention -> (struct)
     condition -> (oneof<max-age|max-count>)
       Oneof condition field
       max-age -> (struct)
-        count -> (int)
+        count -> (integer)
           The amount of value specified in 'Interval.Type'.
         type -> (struct)
           A type of the interval.
-      max-count -> (int)
+      max-count -> (integer)
 scheduling -> (struct)
   Configuration of the backup schedule.
   backup-sets -> ([]struct)
@@ -403,37 +403,37 @@ scheduling -> (struct)
     setting -> (oneof<since-last-exec-time|time>)
       Oneof setting field
       time -> (struct)
-        include-last-day-of-month -> (bool)
+        include-last-day-of-month -> (boolean)
           If set to true, last day of month will activate the policy.
-        monthdays -> ([]int)
+        monthdays -> ([]integer)
           Days in a month to perform a backup. Allowed values are from 1 to 31.
-        months -> ([]int)
+        months -> ([]integer)
           Set of values. Allowed values form 1 to 12.
         repeat-at -> ([]struct)
           Time to repeat the backup.
-          hour -> (int)
+          hour -> (integer)
             Hours.
-          minute -> (int)
+          minute -> (integer)
             Minutes.
         repeat-every -> (struct)
           Frequency of backup repetition.
-          count -> (int)
+          count -> (integer)
             The amount of value specified in 'Interval.Type'.
           type -> (struct)
             A type of the interval.
-        run-later -> (bool)
+        run-later -> (boolean)
           If the machine is off, launch missed tasks on boot up.
         time-from -> (struct)
           The start time of the backup time interval.
-          hour -> (int)
+          hour -> (integer)
             Hours.
-          minute -> (int)
+          minute -> (integer)
             Minutes.
         time-to -> (struct)
           The end time of the backup time interval.
-          hour -> (int)
+          hour -> (integer)
             Hours.
-          minute -> (int)
+          minute -> (integer)
             Minutes.
         type -> (struct)
           Possible types: 'REPEATE_PERIOD_UNSPECIFIED', 'HOURLY', 'DAILY', 'WEEKLY', 'MONTHLY'.
@@ -442,17 +442,17 @@ scheduling -> (struct)
       since-last-exec-time -> (struct)
         delay -> (struct)
           The interval between backups.
-          count -> (int)
+          count -> (integer)
             The amount of value specified in 'Interval.Type'.
           type -> (struct)
             A type of the interval.
-  enabled -> (bool)
+  enabled -> (boolean)
     If true, the backup schedule will be enabled.
-  max-parallel-backups -> (int)
+  max-parallel-backups -> (integer)
     Max number of backup processes allowed to run in parallel. Unlimited if not set.
   rand-max-delay -> (struct)
     Configuration of the random delay between the execution of parallel tasks.
-    count -> (int)
+    count -> (integer)
       The amount of value specified in 'Interval.Type'.
     type -> (struct)
       A type of the interval.
@@ -460,43 +460,43 @@ scheduling -> (struct)
     A backup scheme. Available values: 'simple', 'always_full', 'always_incremental', 'weekly_incremental', 'weekly_full_daily_incremental', 'custom', 'cdp'.
   task-failure -> (struct)
     Task failure settings in case of failure of scheduled task, not applicable to manually launched tasks
-    enabled -> (bool)
+    enabled -> (boolean)
       If true, enables retry on errors.
     interval -> (struct)
       An interval between retry attempts.
-      count -> (int)
+      count -> (integer)
         The amount of value specified in 'Interval.Type'.
       type -> (struct)
         A type of the interval.
-    max-attempts -> (int)
+    max-attempts -> (integer)
       Max number of retry attempts. Operation will be considered as failed when max number of retry attempts is reached.
   weekly-backup-day -> (struct)
     A day of week to start weekly backups.
-sector-by-sector -> (bool)
+sector-by-sector -> (boolean)
   A sector-by-sector backup of a disk or volume creates a backup copy of all sectors of the disk or volume, including those that do not contain data. Therefore, the size of such a backup copy will be equal to the size of the original disk or volume. This method can be used to back up a disk or volume with an unsupported file system.
-silent-mode-enabled -> (bool)
+silent-mode-enabled -> (boolean)
   If true, a user interaction will be avoided when possible. Equals to false if value is not specified.
 splitting -> (struct)
   Determines the size to split backups on. Splitting is not performed if value is not specified.
-  size -> (int)
+  size -> (integer)
     The size of split backup file in bytes.
-validation-enabled -> (bool)
+validation-enabled -> (boolean)
   Validation is a time-consuming process, even with incremental or differential backups of small amounts of data. This is because not only the data physically contained in the backup copy is verified, but all data restored when it is selected. This option requires access to previously created backup copies.
 vm-snapshot-reattempts -> (struct)
   Configuration of retries on errors during the creation of the virtual machine snapshot. No attempts to fix recoverable errors will be made if retry configuration is not set.
-  enabled -> (bool)
+  enabled -> (boolean)
     If true, enables retry on errors.
   interval -> (struct)
     An interval between retry attempts.
-    count -> (int)
+    count -> (integer)
       The amount of value specified in 'Interval.Type'.
     type -> (struct)
       A type of the interval.
-  max-attempts -> (int)
+  max-attempts -> (integer)
     Max number of retry attempts. Operation will be considered as failed when max number of retry attempts is reached.
 vss -> (struct)
   Settings for the Volume Shadow Copy Service (VSS) provider. If not set, no VSS provider is used.
-  enabled -> (bool)
+  enabled -> (boolean)
     If true, the VSS will be enabled.
   provider -> (struct)
     A type of VSS provider to use in backup.
@@ -522,16 +522,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

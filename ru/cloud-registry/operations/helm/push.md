@@ -1,6 +1,6 @@
 # Загрузить Helm-чарт в реестр
 
-Вы можете загрузить [Helm-чарт](https://helm.sh/docs/topics/charts/) в [реестр](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/docker-image.md).
+Вы можете загрузить [Helm-чарт](https://helm.sh/docs/topics/charts/) в [реестр](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).
 
 {% note info %}
 

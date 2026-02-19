@@ -42,20 +42,20 @@ Shorthand Syntax:
 
 ```hcl
 {
-  auto-delete = bool,
-  device-name = str,
-  disk = disk-id=str | disk-spec={
-    block-size = int,
-    description = str,
+  auto-delete = boolean,
+  device-name = string,
+  disk = disk-id=string | disk-spec={
+    block-size = integer,
+    description = string,
     disk-placement-policy = {
-      placement-group-id = str,
-      placement-group-partition = int
+      placement-group-id = string,
+      placement-group-partition = integer
     },
-    kms-key-id = str,
-    name = str,
-    size = int,
-    source = image-id=str | snapshot-id=str,
-    type-id = str
+    kms-key-id = string,
+    name = string,
+    size = integer,
+    source = image-id=string | snapshot-id=string,
+    type-id = string
   },
   mode = READ_ONLY|READ_WRITE
 }
@@ -65,25 +65,25 @@ JSON Syntax:
 
 ```json
 {
-  "auto-delete": "bool",
-  "device-name": "str",
+  "auto-delete": "boolean",
+  "device-name": "string",
   "disk": {
-    "disk-id": "str",
+    "disk-id": "string",
     "disk-spec": {
-      "block-size": "int",
-      "description": "str",
+      "block-size": "integer",
+      "description": "string",
       "disk-placement-policy": {
-        "placement-group-id": "str",
-        "placement-group-partition": "int"
+        "placement-group-id": "string",
+        "placement-group-partition": "integer"
       },
-      "kms-key-id": "str",
-      "name": "str",
-      "size": "int",
+      "kms-key-id": "string",
+      "name": "string",
+      "size": "integer",
       "source": {
-        "image-id": "str",
-        "snapshot-id": "str"
+        "image-id": "string",
+        "snapshot-id": "string"
       },
-      "type-id": "str"
+      "type-id": "string"
     }
   },
   "mode": "READ_ONLY|READ_WRITE"
@@ -93,7 +93,7 @@ JSON Syntax:
 Fields:
 
 ```
-auto-delete -> (bool)
+auto-delete -> (boolean)
   Specifies whether the disk will be auto-deleted when the instance is deleted.
 device-name -> (string)
   Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated.
@@ -103,7 +103,7 @@ disk -> (oneof<disk-id|disk-spec>)
   Oneof disk field
   disk-spec -> (struct)
     Disk specification.
-    block-size -> (int)
+    block-size -> (integer)
       Block size of the disk, specified in bytes. The default is 4096.
     description -> (string)
       Description of the disk.
@@ -111,12 +111,12 @@ disk -> (oneof<disk-id|disk-spec>)
       Placement policy configuration.
       placement-group-id -> (string)
         Placement group ID.
-      placement-group-partition -> (int)
+      placement-group-partition -> (integer)
     kms-key-id -> (string)
       ID of KMS key for disk encryption
     name -> (string)
       Name of the disk.
-    size -> (int)
+    size -> (integer)
       Size of the disk, specified in bytes.
     type-id -> (string)
       ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List] request.
@@ -153,16 +153,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

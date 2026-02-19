@@ -43,17 +43,17 @@ Shorthand Syntax:
 ```hcl
 {
   address = external-address-spec={
-    address = str,
+    address = string,
     ip-version = IPV4|IPV6
   } | internal-address-spec={
-    address = str,
+    address = string,
     ip-version = IPV4|IPV6,
-    subnet-id = str
+    subnet-id = string
   },
-  name = str,
-  port = int,
+  name = string,
+  port = integer,
   protocol = TCP|UDP,
-  target-port = int
+  target-port = integer
 }
 ```
 
@@ -63,19 +63,19 @@ JSON Syntax:
 {
   "address": {
     "external-address-spec": {
-      "address": "str",
+      "address": "string",
       "ip-version": "IPV4|IPV6"
     },
     "internal-address-spec": {
-      "address": "str",
+      "address": "string",
       "ip-version": "IPV4|IPV6",
-      "subnet-id": "str"
+      "subnet-id": "string"
     }
   },
-  "name": "str",
-  "port": "int",
+  "name": "string",
+  "port": "integer",
   "protocol": "TCP|UDP",
-  "target-port": "int"
+  "target-port": "integer"
 }
 ```
 
@@ -84,11 +84,11 @@ Fields:
 ```
 name -> (string)
   Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
-port -> (int)
+port -> (integer)
   Port for incoming traffic.
 protocol -> (struct)
   Protocol for incoming traffic.
-target-port -> (int)
+target-port -> (integer)
   Port of a target. Acceptable values are 1 to 65535, inclusive.
 address -> (oneof<external-address-spec|internal-address-spec>)
   Oneof address field
@@ -131,16 +131,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

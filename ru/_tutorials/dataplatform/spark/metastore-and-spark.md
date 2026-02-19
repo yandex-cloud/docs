@@ -1,9 +1,14 @@
 # Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
 
 
-К кластеру {{ SPRK }} можно подключить кластер {{ metastore-name }}. В этом случае метаданные, которые появляются в результате выполнения заданий, загружаются в кластер {{ metastore-name }}. Сохраненные метаданные может использовать другой кластер {{ SPRK }}.
+В PySpark-задании можно использовать глобальный каталог Hive. Для этого к кластеру {{ msp-full-name }} нужно подключить кластер {{ metastore-name }}.
 
-Ниже рассматривается пример, в котором с помощью PySpark-задания создаются база данных и таблица в ней, а затем данные из созданной БД загружаются в бакет {{ objstorage-full-name }}. Метаданные о БД сохраняются в кластере {{ metastore-name }}, подключенном к кластеру {{ SPRK }}.
+{{ metastore-name }} обеспечивает:
+* Централизованное хранение метаданных о базах, таблицах и партициях.
+* Упрощенный доступ к данным без указания путей и схем вручную.
+* Хранение статистики таблиц и колонок для оптимизации запросов.
+
+В этом руководстве показан пример работы с таблицей в бакете {{ objstorage-full-name }} из PySpark-задания с использованием глобального каталога Hive. Метаданные о БД сохраняются в кластере {{ metastore-name }}, а затем экспортируются в бакет для выходных данных.
 
 Чтобы реализовать описанный пример:
 
@@ -13,6 +18,12 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+{% note info %}
+
+Интеграция кластера {{ msp-full-name }} с {{ metastore-name }} позволяет использовать в задании Spark формат таблиц {{ IBRG }}. Подробнее см. в руководстве [{#T}](../../../managed-spark/tutorials/spark-simple-rw-job.md).
+
+{% endnote %}
+
 
 ## Необходимые платные ресурсы {#paid-resources}
 
@@ -20,7 +31,7 @@
 
 * Плата за бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 * Плата за сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
-* Плата за вычислительные ресурсы компонентов кластера {{ msp-name }} (см. [тарифы {{ msp-name }}](../../../managed-spark/pricing.md)).
+* Плата за вычислительные ресурсы компонентов кластера {{ msp-full-name }} (см. [тарифы {{ msp-full-name }}](../../../managed-spark/pricing.md)).
 * Плата за вычислительные ресурсы компонентов кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md)).
 
 
@@ -30,7 +41,7 @@
 
 - Консоль управления {#console}
 
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `spark-agent` для кластера {{ SPRK }} с ролью [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ SPRK }} мог взаимодействовать с другими ресурсами.
+    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `spark-agent` для кластера {{ msp-full-name }} с ролью [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ msp-full-name }} мог взаимодействовать с другими ресурсами.
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `metastore-agent` с ролями [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) и [storage.uploader](../../../iam/roles-reference.md#storage-uploader) — чтобы кластер {{ metastore-name }} мог [взаимодействовать с другими ресурсами](../../../metadata-hub/concepts/metastore-impersonation.md) и экспортировать метаданные в бакет {{ objstorage-name }}.
 
@@ -50,9 +61,9 @@
 
         Вместе с ней будут автоматически созданы три подсети в разных зонах доступности.
 
-    1. Для кластера {{ SPRK }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
+    1. Для кластера {{ msp-full-name }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md) `spark-sg` в сети `integration-network`. Добавьте в группу следующее правило:
 
-        * Для исходящего трафика, чтобы разрешить подключение кластера {{ SPRK }} к {{ metastore-name }}:
+        * Для исходящего трафика, чтобы разрешить подключение кластера {{ msp-full-name }} к {{ metastore-name }}:
 
             * Диапазон портов — `{{ port-metastore }}`.
             * Протокол — `Любой` (`Any`).
@@ -82,7 +93,8 @@
         * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `integration-network-{{ region-id }}-a`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `metastore-sg`.
 
-    1. [Создайте кластер {{ msp-name }}](../../../managed-spark/operations/cluster-create.md) с параметрами:
+
+    1. [Создайте кластер {{ msp-full-name }}](../../../managed-spark/operations/cluster-create.md) с параметрами:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `spark-agent`.
         * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `integration-network`.
@@ -94,7 +106,7 @@
 
 ## Подготовьте PySpark-задание {#prepare-job}
 
-Для PySpark-задания будет использован Python-скрипт, который создает БД `database_1` и таблицу `table_1`. Скрипт будет храниться в бакете {{ objstorage-name }}.
+Для PySpark-задания будет использован Python-скрипт, который создает БД `database_1` и таблицу `table_1`. Чтобы кластер {{ msp-full-name }} получил доступ к глобальному каталогу {{ metastore-name }}, в скрипте вызывается метод `enableHiveSupport()`. Скрипт будет храниться в бакете {{ objstorage-name }}.
 
 Подготовьте файл скрипта:
 
@@ -145,7 +157,7 @@
 - Консоль управления {#console}
 
     1. [Кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
-    1. [Кластер {{ SPRK }}](../../../managed-spark/operations/cluster-delete.md).
+    1. [Кластер {{ msp-full-name }}](../../../managed-spark/operations/cluster-delete.md).
     1. [Бакеты {{ objstorage-name }}](../../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите](../../../storage/operations/objects/delete.md) из них все объекты.
 
 {% endlist %}

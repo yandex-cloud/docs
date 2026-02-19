@@ -29,42 +29,42 @@ Shorthand Syntax:
 ```hcl
 {
   access = {
-    data-transfer = bool,
-    serverless = bool
+    data-transfer = boolean,
+    serverless = boolean
   },
-  admin-password = str,
+  admin-password = string,
   dashboards-spec = {},
   opensearch-spec = {
     config = opensearch-config-2={
-      fielddata-cache-size = str,
-      max-clause-count = int,
-      reindex-remote-whitelist = str
+      fielddata-cache-size = string,
+      max-clause-count = integer,
+      reindex-remote-whitelist = string
     },
-    plugins = str,...,
-    remove-keystore-settings = str,...,
+    plugins = string,...,
+    remove-keystore-settings = string,...,
     set-keystore-settings = [
       {
-        name = str,
-        value = str
+        name = string,
+        value = string
       }, ...
     ]
   },
   snapshot-management = {
-    snapshot-max-age-days = int,
+    snapshot-max-age-days = integer,
     snapshot-schedule = {
       schedule = daily-snapshot-schedule={
-        hour = int,
-        minute = int
+        hour = integer,
+        minute = integer
       } | hourly-snapshot-schedule={
-        minute = int
+        minute = integer
       } | weekly-snapshot-schedule={
         day = MON|TUE|WED|THU|FRI|SAT|SUN,
-        hour = int,
-        minute = int
+        hour = integer,
+        minute = integer
       }
     }
   },
-  version = str
+  version = string
 }
 ```
 
@@ -73,52 +73,52 @@ JSON Syntax:
 ```json
 {
   "access": {
-    "data-transfer": "bool",
-    "serverless": "bool"
+    "data-transfer": "boolean",
+    "serverless": "boolean"
   },
-  "admin-password": "str",
+  "admin-password": "string",
   "dashboards-spec": {},
   "opensearch-spec": {
     "config": {
       "opensearch-config-2": {
-        "fielddata-cache-size": "str",
-        "max-clause-count": "int",
-        "reindex-remote-whitelist": "str"
+        "fielddata-cache-size": "string",
+        "max-clause-count": "integer",
+        "reindex-remote-whitelist": "string"
       }
     },
     "plugins": [
-      "str", ...
+      "string", ...
     ],
     "remove-keystore-settings": [
-      "str", ...
+      "string", ...
     ],
     "set-keystore-settings": [
       {
-        "name": "str",
-        "value": "str"
+        "name": "string",
+        "value": "string"
       }, ...
     ]
   },
   "snapshot-management": {
-    "snapshot-max-age-days": "int",
+    "snapshot-max-age-days": "integer",
     "snapshot-schedule": {
       "schedule": {
         "daily-snapshot-schedule": {
-          "hour": "int",
-          "minute": "int"
+          "hour": "integer",
+          "minute": "integer"
         },
         "hourly-snapshot-schedule": {
-          "minute": "int"
+          "minute": "integer"
         },
         "weekly-snapshot-schedule": {
           "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
-          "hour": "int",
-          "minute": "int"
+          "hour": "integer",
+          "minute": "integer"
         }
       }
     }
   },
-  "version": "str"
+  "version": "string"
 }
 ```
 
@@ -127,9 +127,9 @@ Fields:
 ```
 access -> (struct)
   Access policy for external services.
-  data-transfer -> (bool)
+  data-transfer -> (boolean)
     Determines whether the access to Data Transfer is allowed.
-  serverless -> (bool)
+  serverless -> (boolean)
     Determines whether the access to Serverless is allowed.
 admin-password -> (string)
   OpenSearch admin password.
@@ -152,13 +152,13 @@ opensearch-spec -> (struct)
     opensearch-config-2 -> (struct)
       fielddata-cache-size -> (string)
         The maximum size of the field data cache. May be specified as an absolute value (for example, 8GB) or a percentage of the node heap (for example, 50%). This setting is dynamic. If you don't specify this setting, the maximum size is 35%. This value should be smaller than the **indices.breaker.fielddata.limit** Change of the setting is applied with restart. For details, see OpenSearch documentation.
-      max-clause-count -> (int)
+      max-clause-count -> (integer)
         Defines the maximum product of fields and terms that are queryable simultaneously. Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting. Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions. New thread pools use the updated value. Default value: **1024**. Change of the setting is applied with restart. For details, see OpenSearch documentation.
       reindex-remote-whitelist -> (string)
         Allowed remote hosts Change of the setting is applied with restart. For details, see OpenSearch documentation.
 snapshot-management -> (struct)
   Snapshot management configuration
-  snapshot-max-age-days -> (int)
+  snapshot-max-age-days -> (integer)
     Snapshot max age in days
   snapshot-schedule -> (struct)
     Snapshot creation schedule
@@ -166,21 +166,21 @@ snapshot-management -> (struct)
       Oneof schedule field
       hourly-snapshot-schedule -> (struct)
         Hourly based snapshot schedule
-        minute -> (int)
+        minute -> (integer)
           The minute of the hour at which the backup should be created.
       daily-snapshot-schedule -> (struct)
         Daily based snapshot schedule
-        hour -> (int)
+        hour -> (integer)
           The hour of the day in UTC timezone at which the backup should be created.
-        minute -> (int)
+        minute -> (integer)
           The minute of the hour at which the backup should be created.
       weekly-snapshot-schedule -> (struct)
         Weekly based snapshot schedule
         day -> (struct)
           Day of the week
-        hour -> (int)
+        hour -> (integer)
           The hour of the day in UTC timezone at which the backup should be created.
-        minute -> (int)
+        minute -> (integer)
           The minute of the hour at which the backup should be created.
 version -> (string)
   OpenSearch version.
@@ -189,7 +189,7 @@ version -> (string)
 || `--description` | `string`
 
 New description of the OpenSearch cluster. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Custom labels for the OpenSearch cluster as 'key:value' pairs. For example, '"project": "mvp"' or '"source": "dictionary"'. The new set of labels completely replaces the old one. To add a label, request the current set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set. ||
 || `--maintenance-window` | `shorthand/json`
@@ -202,7 +202,7 @@ Shorthand Syntax:
 {
   policy = anytime={} | weekly-maintenance-window={
     day = MON|TUE|WED|THU|FRI|SAT|SUN,
-    hour = int
+    hour = integer
   }
 }
 ```
@@ -215,7 +215,7 @@ JSON Syntax:
     "anytime": {},
     "weekly-maintenance-window": {
       "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
-      "hour": "int"
+      "hour": "integer"
     }
   }
 }
@@ -232,7 +232,7 @@ policy -> (oneof<anytime|weekly-maintenance-window>)
     A weekly maintenance window.
     day -> (struct)
       Day of the week.
-    hour -> (int)
+    hour -> (integer)
       Hour of the day in the UTC timezone.
 ``` ||
 || `--name` | `string`
@@ -241,7 +241,7 @@ New name for the cluster. The name must be unique within the folder. ||
 || `--network-id` | `string`
 
 ID of the network to move the cluster to. ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
 User security groups ||
 || `--service-account-id` | `string`
@@ -268,16 +268,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

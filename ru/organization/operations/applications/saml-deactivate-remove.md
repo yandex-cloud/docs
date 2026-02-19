@@ -171,7 +171,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Проверить удаление ресурсов можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     Проверить удаление ресурсов можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

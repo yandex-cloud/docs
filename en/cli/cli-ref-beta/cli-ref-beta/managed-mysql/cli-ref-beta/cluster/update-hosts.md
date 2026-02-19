@@ -46,11 +46,11 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    backup-priority = int,
-    host-name = str,
-    priority = int,
-    replication-source = str
+    assign-public-ip = boolean,
+    backup-priority = integer,
+    host-name = string,
+    priority = integer,
+    replication-source = string
   }, ...
 ]
 ```
@@ -60,11 +60,11 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "backup-priority": "int",
-    "host-name": "str",
-    "priority": "int",
-    "replication-source": "str"
+    "assign-public-ip": "boolean",
+    "backup-priority": "integer",
+    "host-name": "string",
+    "priority": "integer",
+    "replication-source": "string"
   }, ...
 ]
 ```
@@ -72,13 +72,13 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Whether the host should get a public IP address on creation.
-backup-priority -> (int)
+backup-priority -> (integer)
   Host backup priority.
 host-name -> (string)
   Name of the host to update. To get a MySQL host name, use a [ClusterService.ListHosts] request.
-priority -> (int)
+priority -> (integer)
   Host master promotion priority.
 replication-source -> (string)
   [Host.name] of the host to be used as the replication source (for cascading replication). To get a MySQL host name, use a [ClusterService.ListHosts] request.
@@ -104,16 +104,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

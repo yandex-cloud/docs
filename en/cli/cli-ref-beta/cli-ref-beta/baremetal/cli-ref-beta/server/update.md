@@ -20,7 +20,7 @@ Syntax:
 || `--description` | `string`
 
 Description of the server. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -35,11 +35,32 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    id = str,
+    id = string,
+    interface = private-interface={
+      ip-address = string,
+      mac-limit = integer,
+      native-subnet-id = string,
+      vlan-subinterfaces = [
+        {
+          ip-address = string,
+          mac-limit = integer,
+          tagged-subnet-id = string
+        }, ...
+      ]
+    } | public-interface={
+      ip-address = string,
+      mac-limit = integer,
+      native-subnet-config = native-subnet={
+        subnet-id = string
+      } | new-native-subnet={
+        addressing-type = DHCP|STATIC
+      },
+      native-subnet-id = string
+    },
     subnet = private-subnet={
-      private-subnet-id = str
+      private-subnet-id = string
     } | public-subnet={
-      public-subnet-id = str
+      public-subnet-id = string
     }
   }, ...
 ]
@@ -50,13 +71,40 @@ JSON Syntax:
 ```json
 [
   {
-    "id": "str",
+    "id": "string",
+    "interface": {
+      "private-interface": {
+        "ip-address": "string",
+        "mac-limit": "integer",
+        "native-subnet-id": "string",
+        "vlan-subinterfaces": [
+          {
+            "ip-address": "string",
+            "mac-limit": "integer",
+            "tagged-subnet-id": "string"
+          }, ...
+        ]
+      },
+      "public-interface": {
+        "ip-address": "string",
+        "mac-limit": "integer",
+        "native-subnet-config": {
+          "native-subnet": {
+            "subnet-id": "string"
+          },
+          "new-native-subnet": {
+            "addressing-type": "DHCP|STATIC"
+          }
+        },
+        "native-subnet-id": "string"
+      }
+    },
     "subnet": {
       "private-subnet": {
-        "private-subnet-id": "str"
+        "private-subnet-id": "string"
       },
       "public-subnet": {
-        "public-subnet-id": "str"
+        "public-subnet-id": "string"
       }
     }
   }, ...
@@ -68,14 +116,50 @@ Fields:
 ```
 id -> (string)
   ID of the network interface. Should not be specified when creating a server.
+interface -> (oneof<private-interface|public-interface>)
+  Oneof interface field
+  private-interface -> (struct)
+    Private interface.
+    ip-address -> (string)
+      IPv4 address that is assigned to the server for this network interface. Read only field.
+    mac-limit -> (integer)
+      Limit of MAC addresses in the native subnet. Read only field.
+    native-subnet-id -> (string)
+      ID of the private subnet which is used as native subnet for interface.
+    vlan-subinterfaces -> ([]struct)
+      Array of VLAN subinterfaces. Additional tagged subnets for the interface.
+      ip-address -> (string)
+        IPv4 address that is assigned to the VLAN subinterface. Read only field.
+      mac-limit -> (integer)
+        Limit of MAC addresses in the tagged subnet. Read only field.
+      tagged-subnet-id -> (string)
+        ID of the private subnet which is used as tagged subnet for interface.
+  public-interface -> (struct)
+    Public interface.
+    ip-address -> (string)
+      IPv4 address that is assigned to the server for this network interface. Read only field.
+    mac-limit -> (integer)
+      Limit of MAC addresses in the native subnet. Read only field.
+    native-subnet-id -> (string)
+      ID of the public subnet which is used as native subnet for interface. Read only field.
+    native-subnet-config -> (oneof<native-subnet|new-native-subnet>)
+      Oneof native-subnet-config field
+      native-subnet -> (struct)
+        Use existing native subnet. Input only field.
+        subnet-id -> (string)
+          ID of the existing public subnet.
+      new-native-subnet -> (struct)
+        Create new native subnet. Input only field.
+        addressing-type -> (struct)
+          Addressing type (DHCP | Static).
 subnet -> (oneof<private-subnet|public-subnet>)
   Oneof subnet field
   private-subnet -> (struct)
-    Private subnet.
+    @deprecated Private subnet.
     private-subnet-id -> (string)
       ID of the private subnet.
   public-subnet -> (struct)
-    Public subnet.
+    @deprecated Public subnet.
     public-subnet-id -> (string)
       ID of the public subnet. A new ephemeral public subnet will be created if not specified.
 ``` ||
@@ -103,16 +187,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -49,20 +49,20 @@ Shorthand Syntax:
     kind = imbalance-rps={} | instances={
       agg = AGGREGATION_MIN|AGGREGATION_MAX|AGGREGATION_AVG|AGGREGATION_MEDIAN|AGGREGATION_STD_DEV
     } | network-codes-absolute={
-      codes-patterns = str,...
+      codes-patterns = string,...
     } | network-codes-relative={
-      codes-patterns = str,...
+      codes-patterns = string,...
     } | protocol-codes-absolute={
-      codes-patterns = str,...
+      codes-patterns = string,...
     } | protocol-codes-relative={
-      codes-patterns = str,...
+      codes-patterns = string,...
     } | response-time={
       quantile = QUANTILE_TYPE_50|QUANTILE_TYPE_75|QUANTILE_TYPE_80|QUANTILE_TYPE_85|QUANTILE_TYPE_90|QUANTILE_TYPE_95|QUANTILE_TYPE_98|QUANTILE_TYPE_99|QUANTILE_TYPE_100
     }
   },
   threshold = {
     comparison = COMPARISON_LT|COMPARISON_LTE|COMPARISON_GT|COMPARISON_GTE,
-    value = double
+    value = float64
   }
 }
 ```
@@ -79,22 +79,22 @@ JSON Syntax:
       },
       "network-codes-absolute": {
         "codes-patterns": [
-          "str", ...
+          "string", ...
         ]
       },
       "network-codes-relative": {
         "codes-patterns": [
-          "str", ...
+          "string", ...
         ]
       },
       "protocol-codes-absolute": {
         "codes-patterns": [
-          "str", ...
+          "string", ...
         ]
       },
       "protocol-codes-relative": {
         "codes-patterns": [
-          "str", ...
+          "string", ...
         ]
       },
       "response-time": {
@@ -104,7 +104,7 @@ JSON Syntax:
   },
   "threshold": {
     "comparison": "COMPARISON_LT|COMPARISON_LTE|COMPARISON_GT|COMPARISON_GTE",
-    "value": "double"
+    "value": "float64"
   }
 }
 ```
@@ -146,7 +146,7 @@ threshold -> (struct)
   A condition that should be specified.
   comparison -> (struct)
     Comparison operator for comparing actual with the threshold value. Rule: actual (</<=/>/>=) reference
-  value -> (double)
+  value -> (float64)
     Value for comparison with an actual KPI value.
 ``` ||
 || `--test-case` | `string`
@@ -175,16 +175,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

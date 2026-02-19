@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы настрои
 # Настроить NuGet
 
 1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. Выполните настройки файла конфигурации [NuGet](../../concepts/art-nuget.md):
+1. Выполните настройки файла конфигурации [NuGet](../../concepts/artifacts/nuget.md):
 
     {% list tabs %}
 

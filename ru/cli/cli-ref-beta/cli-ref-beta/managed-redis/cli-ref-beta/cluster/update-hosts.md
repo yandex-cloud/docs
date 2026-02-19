@@ -46,9 +46,9 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    assign-public-ip = bool,
-    host-name = str,
-    replica-priority = int
+    assign-public-ip = boolean,
+    host-name = string,
+    replica-priority = integer
   }, ...
 ]
 ```
@@ -58,9 +58,9 @@ JSON Syntax:
 ```json
 [
   {
-    "assign-public-ip": "bool",
-    "host-name": "str",
-    "replica-priority": "int"
+    "assign-public-ip": "boolean",
+    "host-name": "string",
+    "replica-priority": "integer"
   }, ...
 ]
 ```
@@ -68,11 +68,11 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ip -> (bool)
+assign-public-ip -> (boolean)
   Whether the host should get a public IP address on update.
 host-name -> (string)
   Name of the host to update. To get the Redis host name, use a [ClusterService.ListHosts] request.
-replica-priority -> (int)
+replica-priority -> (integer)
   A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -96,16 +96,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

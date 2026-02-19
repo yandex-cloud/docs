@@ -41,7 +41,7 @@ Description of the route table. ||
 || `--folder-id` | `string`
 
 ID of the folder that the route table belongs to. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels, '' key:value '' pairs. ||
 || `--name` | `string`
@@ -59,9 +59,9 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    destination = destination-prefix=str,
-    labels = {key=str, key=...},
-    next-hop = gateway-id=str | next-hop-address=str
+    destination = destination-prefix=string,
+    labels = {key=string, key=...},
+    next-hop = gateway-id=string | next-hop-address=string
   }, ...
 ]
 ```
@@ -72,14 +72,14 @@ JSON Syntax:
 [
   {
     "destination": {
-      "destination-prefix": "str"
+      "destination-prefix": "string"
     },
     "labels": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     },
     "next-hop": {
-      "gateway-id": "str",
-      "next-hop-address": "str"
+      "gateway-id": "string",
+      "next-hop-address": "string"
     }
   }, ...
 ]
@@ -122,16 +122,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -1,6 +1,6 @@
 # Получить информацию об имеющихся Helm-чартах
 
-Вы можете получить список [Helm-чартов](https://helm.sh/docs/topics/charts/) в [реестре](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/docker-image.md).
+Вы можете получить список [Helm-чартов](https://helm.sh/docs/topics/charts/) в [реестре](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).
 
 ## Получить информацию о локальных Helm-чартах {#helm-list-local}
 
@@ -26,7 +26,7 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Чтобы посмотреть список Helm-чартов, загруженных в {{ cloud-registry-name }}, выполните команду для просмотра списка [Docker-образов](../../concepts/docker-image.md):
+  Чтобы посмотреть список Helm-чартов, загруженных в {{ cloud-registry-name }}, выполните команду для просмотра списка [Docker-образов](../../concepts/artifacts/docker.md):
 
   ```bash
   yc container image list

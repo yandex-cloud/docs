@@ -1,1 +1,1 @@
-Роль `cloud-registry.artifacts.puller` позволяет скачивать [артефакты](../../../cloud-registry/concepts/artifacts.md), а также получать информацию об артефактах и [реестрах](../../../cloud-registry/concepts/registry.md).
+Роль `cloud-registry.artifacts.puller` позволяет скачивать [артефакты](../../../cloud-registry/concepts/artifacts/index.md), а также получать информацию об артефактах и [реестрах](../../../cloud-registry/concepts/registry.md).

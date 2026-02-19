@@ -44,20 +44,20 @@ Shorthand Syntax:
 {
   health-checks = [
     {
-      healthy-threshold = int,
+      healthy-threshold = integer,
       interval = duration,
-      name = str,
+      name = string,
       options = http-options={
-        path = str,
-        port = int
+        path = string,
+        port = integer
       } | tcp-options={
-        port = int
+        port = integer
       },
       timeout = duration,
-      unhealthy-threshold = int
+      unhealthy-threshold = integer
     }, ...
   ],
-  target-group-id = str
+  target-group-id = string
 }
 ```
 
@@ -67,23 +67,23 @@ JSON Syntax:
 {
   "health-checks": [
     {
-      "healthy-threshold": "int",
+      "healthy-threshold": "integer",
       "interval": "duration",
-      "name": "str",
+      "name": "string",
       "options": {
         "http-options": {
-          "path": "str",
-          "port": "int"
+          "path": "string",
+          "port": "integer"
         },
         "tcp-options": {
-          "port": "int"
+          "port": "integer"
         }
       },
       "timeout": "duration",
-      "unhealthy-threshold": "int"
+      "unhealthy-threshold": "integer"
     }, ...
   ],
-  "target-group-id": "str"
+  "target-group-id": "string"
 }
 ```
 
@@ -92,7 +92,7 @@ Fields:
 ```
 health-checks -> ([]struct)
   A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup.
-  healthy-threshold -> (int)
+  healthy-threshold -> (integer)
     Number of successful health checks required in order to set the '' HEALTHY '' status for the target. The default is 2.
   interval -> (duration)
     The interval between health checks. The default is 2 seconds.
@@ -100,19 +100,19 @@ health-checks -> ([]struct)
     Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.
   timeout -> (duration)
     Timeout for a target to return a response for the health check. The default is 1 second.
-  unhealthy-threshold -> (int)
+  unhealthy-threshold -> (integer)
     Number of failed health checks before changing the status to '' UNHEALTHY ''. The default is 2.
   options -> (oneof<http-options|tcp-options>)
     Oneof options field
     tcp-options -> (struct)
       Options for TCP health check.
-      port -> (int)
+      port -> (integer)
         Port to use for TCP health checks.
     http-options -> (struct)
       Options for HTTP health check.
       path -> (string)
         URL path to set for health checking requests for every target in the target group. For example '' /ping ''. The default path is '' / ''.
-      port -> (int)
+      port -> (integer)
         Port to use for HTTP health checks.
 target-group-id -> (string)
   ID of the target group.
@@ -141,16 +141,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

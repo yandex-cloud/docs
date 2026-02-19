@@ -45,15 +45,15 @@ Shorthand Syntax:
 
 ```hcl
 {
-  enabled = bool,
-  name = str,
-  passwords = str,...,
+  enabled = boolean,
+  name = string,
+  passwords = string,...,
   permissions = {
-    categories = str,
-    commands = str,
-    patterns = str,
-    pub-sub-channels = str,
-    sanitize-payload = str
+    categories = string,
+    commands = string,
+    patterns = string,
+    pub-sub-channels = string,
+    sanitize-payload = string
   }
 }
 ```
@@ -62,17 +62,17 @@ JSON Syntax:
 
 ```json
 {
-  "enabled": "bool",
-  "name": "str",
+  "enabled": "boolean",
+  "name": "string",
   "passwords": [
-    "str", ...
+    "string", ...
   ],
   "permissions": {
-    "categories": "str",
-    "commands": "str",
-    "patterns": "str",
-    "pub-sub-channels": "str",
-    "sanitize-payload": "str"
+    "categories": "string",
+    "commands": "string",
+    "patterns": "string",
+    "pub-sub-channels": "string",
+    "sanitize-payload": "string"
   }
 }
 ```
@@ -80,7 +80,7 @@ JSON Syntax:
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
   Is Redis user enabled
 name -> (string)
   Name of the Redis user.
@@ -88,15 +88,15 @@ passwords -> ([]string)
   Password of the Redis user.
 permissions -> (struct)
   Set of permissions to grant to the user.
-  categories -> (str)
+  categories -> (string)
     Command categories user has permissions to.
-  commands -> (str)
+  commands -> (string)
     Commands user can execute.
-  patterns -> (str)
+  patterns -> (string)
     Keys patterns user has permission to.
-  pub-sub-channels -> (str)
+  pub-sub-channels -> (string)
     Channel patterns user has permissions to.
-  sanitize-payload -> (str)
+  sanitize-payload -> (string)
     SanitizePayload parameter.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -120,16 +120,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

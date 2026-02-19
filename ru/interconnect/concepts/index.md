@@ -1,5 +1,7 @@
 # Обзор {{ interconnect-name }}
 
+{% include [cross-org-networking](../../_includes/interconnect/cross-org-networking.md) %}
+
 Услуга {{ interconnect-name }} предназначена для организации сетевой IP-связности между ресурсами в инфраструктуре клиента и облачными ресурсами в {{ yandex-cloud }}.
 
 Пример организации сетевой IP-связности в рамках услуги {{ interconnect-name }}:

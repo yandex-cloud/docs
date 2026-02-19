@@ -47,20 +47,20 @@ Shorthand Syntax:
 {
   authentication-plugin = MYSQL_NATIVE_PASSWORD|CACHING_SHA2_PASSWORD|SHA256_PASSWORD|MYSQL_NO_LOGIN|MDB_IAMPROXY_AUTH,
   connection-limits = {
-    max-connections-per-hour = int,
-    max-questions-per-hour = int,
-    max-updates-per-hour = int,
-    max-user-connections = int
+    max-connections-per-hour = integer,
+    max-questions-per-hour = integer,
+    max-updates-per-hour = integer,
+    max-user-connections = integer
   },
-  generate-password = bool,
+  generate-password = boolean,
   global-permissions = [
     REPLICATION_CLIENT|REPLICATION_SLAVE|PROCESS|FLUSH_OPTIMIZER_COSTS|SHOW_ROUTINE|MDB_ADMIN, ...
   ],
-  name = str,
-  password = str,
+  name = string,
+  password = string,
   permissions = [
     {
-      database-name = str,
+      database-name = string,
       roles = [
         ALL_PRIVILEGES|ALTER|ALTER_ROUTINE|CREATE|CREATE_ROUTINE|CREATE_TEMPORARY_TABLES|CREATE_VIEW|DELETE|DROP|EVENT|EXECUTE|INDEX|INSERT|LOCK_TABLES|SELECT|SHOW_VIEW|TRIGGER|UPDATE|REFERENCES, ...
       ]
@@ -75,20 +75,20 @@ JSON Syntax:
 {
   "authentication-plugin": "MYSQL_NATIVE_PASSWORD|CACHING_SHA2_PASSWORD|SHA256_PASSWORD|MYSQL_NO_LOGIN|MDB_IAMPROXY_AUTH",
   "connection-limits": {
-    "max-connections-per-hour": "int",
-    "max-questions-per-hour": "int",
-    "max-updates-per-hour": "int",
-    "max-user-connections": "int"
+    "max-connections-per-hour": "integer",
+    "max-questions-per-hour": "integer",
+    "max-updates-per-hour": "integer",
+    "max-user-connections": "integer"
   },
-  "generate-password": "bool",
+  "generate-password": "boolean",
   "global-permissions": [
     "REPLICATION_CLIENT|REPLICATION_SLAVE|PROCESS|FLUSH_OPTIMIZER_COSTS|SHOW_ROUTINE|MDB_ADMIN", ...
   ],
-  "name": "str",
-  "password": "str",
+  "name": "string",
+  "password": "string",
   "permissions": [
     {
-      "database-name": "str",
+      "database-name": "string",
       "roles": [
         "ALL_PRIVILEGES|ALTER|ALTER_ROUTINE|CREATE|CREATE_ROUTINE|CREATE_TEMPORARY_TABLES|CREATE_VIEW|DELETE|DROP|EVENT|EXECUTE|INDEX|INSERT|LOCK_TABLES|SELECT|SHOW_VIEW|TRIGGER|UPDATE|REFERENCES", ...
       ]
@@ -104,15 +104,15 @@ authentication-plugin -> (struct)
   User authentication plugin.
 connection-limits -> (struct)
   Set of user connection limits.
-  max-connections-per-hour -> (int)
+  max-connections-per-hour -> (integer)
     The maximum permitted number of simultaneous client connections per hour.
-  max-questions-per-hour -> (int)
+  max-questions-per-hour -> (integer)
     The maximum permitted number of user questions per hour.
-  max-updates-per-hour -> (int)
+  max-updates-per-hour -> (integer)
     The maximum permitted number of user updates per hour.
-  max-user-connections -> (int)
+  max-user-connections -> (integer)
     The maximum number of simultaneous connections permitted to any given MySQL user account.
-generate-password -> (bool)
+generate-password -> (boolean)
   Generate password using Connection Manager.
 global-permissions -> ([]struct)
   Set of global permissions to grant to the user.
@@ -148,16 +148,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

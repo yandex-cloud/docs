@@ -40,7 +40,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  include-objects = str,...
+  include-objects = string,...
 }
 ```
 
@@ -49,7 +49,7 @@ JSON Syntax:
 ```json
 {
   "include-objects": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -65,7 +65,7 @@ Description of the transfer. ||
 || `--folder-id` | `string`
 
 ID of the folder to create the transfer in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Transfer labels as 'key:value' pairs. For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
 || `--name` | `string`
@@ -78,10 +78,10 @@ Shorthand Syntax:
 ```hcl
 {
   runtime = yc-runtime={
-    job-count = int,
+    job-count = integer,
     upload-shard-params = {
-      job-count = int,
-      process-count = int
+      job-count = integer,
+      process-count = integer
     }
   }
 }
@@ -93,10 +93,10 @@ JSON Syntax:
 {
   "runtime": {
     "yc-runtime": {
-      "job-count": "int",
+      "job-count": "integer",
       "upload-shard-params": {
-        "job-count": "int",
-        "process-count": "int"
+        "job-count": "integer",
+        "process-count": "integer"
       }
     }
   }
@@ -109,13 +109,13 @@ Fields:
 runtime -> (oneof<yc-runtime>)
   Oneof runtime field
   yc-runtime -> (struct)
-    job-count -> (int)
+    job-count -> (integer)
       Number of workers in parallel replication.
     upload-shard-params -> (struct)
       Parallel snapshot parameters
-      job-count -> (int)
+      job-count -> (integer)
         Number of workers.
-      process-count -> (int)
+      process-count -> (integer)
         Number of threads.
 ``` ||
 || `--runtime` | `shorthand/json`
@@ -125,10 +125,10 @@ Shorthand Syntax:
 ```hcl
 {
   runtime = yc-runtime={
-    job-count = int,
+    job-count = integer,
     upload-shard-params = {
-      job-count = int,
-      process-count = int
+      job-count = integer,
+      process-count = integer
     }
   }
 }
@@ -140,10 +140,10 @@ JSON Syntax:
 {
   "runtime": {
     "yc-runtime": {
-      "job-count": "int",
+      "job-count": "integer",
       "upload-shard-params": {
-        "job-count": "int",
-        "process-count": "int"
+        "job-count": "integer",
+        "process-count": "integer"
       }
     }
   }
@@ -156,13 +156,13 @@ Fields:
 runtime -> (oneof<yc-runtime>)
   Oneof runtime field
   yc-runtime -> (struct)
-    job-count -> (int)
+    job-count -> (integer)
       Number of workers in parallel replication.
     upload-shard-params -> (struct)
       Parallel snapshot parameters
-      job-count -> (int)
+      job-count -> (integer)
         Number of workers.
-      process-count -> (int)
+      process-count -> (integer)
         Number of threads.
 ``` ||
 || `--source-id` | `string`
@@ -181,75 +181,75 @@ Shorthand Syntax:
     {
       transformer = convert-to-string={
         columns = {
-          exclude-columns = str,...,
-          include-columns = str,...
+          exclude-columns = string,...,
+          include-columns = string,...
         },
         tables = {
-          exclude-tables = str,...,
-          include-tables = str,...
+          exclude-tables = string,...,
+          include-tables = string,...
         }
       } | filter-columns={
         columns = {
-          exclude-columns = str,...,
-          include-columns = str,...
+          exclude-columns = string,...,
+          include-columns = string,...
         },
         tables = {
-          exclude-tables = str,...,
-          include-tables = str,...
+          exclude-tables = string,...,
+          include-tables = string,...
         }
       } | filter-rows={
-        filter = str,
-        filters = str,...,
+        filter = string,
+        filters = string,...,
         tables = {
-          exclude-tables = str,...,
-          include-tables = str,...
+          exclude-tables = string,...,
+          include-tables = string,...
         }
       } | mask-field={
-        columns = str,...,
+        columns = string,...,
         function = {
           mask-function = mask-function-hash={
-            user-defined-salt = str
+            user-defined-salt = string
           }
         },
         tables = {
-          exclude-tables = str,...,
-          include-tables = str,...
+          exclude-tables = string,...,
+          include-tables = string,...
         }
       } | rename-tables={
         rename-tables = [
           {
             new-name = {
-              name = str,
-              name-space = str
+              name = string,
+              name-space = string
             },
             original-name = {
-              name = str,
-              name-space = str
+              name = string,
+              name-space = string
             }
           }, ...
         ]
       } | replace-primary-key={
-        keys = str,...,
+        keys = string,...,
         tables = {
-          exclude-tables = str,...,
-          include-tables = str,...
+          exclude-tables = string,...,
+          include-tables = string,...
         }
       } | sharder-transformer={
         sharder-transformer-type = columns={
-          exclude-columns = str,...,
-          include-columns = str,...
+          exclude-columns = string,...,
+          include-columns = string,...
         } | random={},
-        shards-count = int,
+        shards-count = integer,
         tables = {
-          exclude-tables = str,...,
-          include-tables = str,...
+          exclude-tables = string,...,
+          include-tables = string,...
         }
       } | table-splitter-transformer={
-        columns = str,...,
-        splitter = str,
+        columns = string,...,
+        splitter = string,
         tables = {
-          exclude-tables = str,...,
-          include-tables = str,...
+          exclude-tables = string,...,
+          include-tables = string,...
         }
       }
     }, ...
@@ -267,70 +267,70 @@ JSON Syntax:
         "convert-to-string": {
           "columns": {
             "exclude-columns": [
-              "str", ...
+              "string", ...
             ],
             "include-columns": [
-              "str", ...
+              "string", ...
             ]
           },
           "tables": {
             "exclude-tables": [
-              "str", ...
+              "string", ...
             ],
             "include-tables": [
-              "str", ...
+              "string", ...
             ]
           }
         },
         "filter-columns": {
           "columns": {
             "exclude-columns": [
-              "str", ...
+              "string", ...
             ],
             "include-columns": [
-              "str", ...
+              "string", ...
             ]
           },
           "tables": {
             "exclude-tables": [
-              "str", ...
+              "string", ...
             ],
             "include-tables": [
-              "str", ...
+              "string", ...
             ]
           }
         },
         "filter-rows": {
-          "filter": "str",
+          "filter": "string",
           "filters": [
-            "str", ...
+            "string", ...
           ],
           "tables": {
             "exclude-tables": [
-              "str", ...
+              "string", ...
             ],
             "include-tables": [
-              "str", ...
+              "string", ...
             ]
           }
         },
         "mask-field": {
           "columns": [
-            "str", ...
+            "string", ...
           ],
           "function": {
             "mask-function": {
               "mask-function-hash": {
-                "user-defined-salt": "str"
+                "user-defined-salt": "string"
               }
             }
           },
           "tables": {
             "exclude-tables": [
-              "str", ...
+              "string", ...
             ],
             "include-tables": [
-              "str", ...
+              "string", ...
             ]
           }
         },
@@ -338,26 +338,26 @@ JSON Syntax:
           "rename-tables": [
             {
               "new-name": {
-                "name": "str",
-                "name-space": "str"
+                "name": "string",
+                "name-space": "string"
               },
               "original-name": {
-                "name": "str",
-                "name-space": "str"
+                "name": "string",
+                "name-space": "string"
               }
             }, ...
           ]
         },
         "replace-primary-key": {
           "keys": [
-            "str", ...
+            "string", ...
           ],
           "tables": {
             "exclude-tables": [
-              "str", ...
+              "string", ...
             ],
             "include-tables": [
-              "str", ...
+              "string", ...
             ]
           }
         },
@@ -365,35 +365,35 @@ JSON Syntax:
           "sharder-transformer-type": {
             "columns": {
               "exclude-columns": [
-                "str", ...
+                "string", ...
               ],
               "include-columns": [
-                "str", ...
+                "string", ...
               ]
             },
             "random": {}
           },
-          "shards-count": "int",
+          "shards-count": "integer",
           "tables": {
             "exclude-tables": [
-              "str", ...
+              "string", ...
             ],
             "include-tables": [
-              "str", ...
+              "string", ...
             ]
           }
         },
         "table-splitter-transformer": {
           "columns": [
-            "str", ...
+            "string", ...
           ],
-          "splitter": "str",
+          "splitter": "string",
           "tables": {
             "exclude-tables": [
-              "str", ...
+              "string", ...
             ],
             "include-tables": [
-              "str", ...
+              "string", ...
             ]
           }
         }
@@ -480,7 +480,7 @@ transformers -> ([]struct)
           List of tables that will be included to transfer
     sharder-transformer -> (struct)
       Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard.
-      shards-count -> (int)
+      shards-count -> (integer)
         Number of shards
       tables -> (struct)
         List of included and excluded tables
@@ -546,16 +546,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

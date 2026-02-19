@@ -47,10 +47,10 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    dns-zone-id = str,
-    fqdn = str,
-    ptr = bool,
-    ttl = int
+    dns-zone-id = string,
+    fqdn = string,
+    ptr = boolean,
+    ttl = integer
   }, ...
 ]
 ```
@@ -60,10 +60,10 @@ JSON Syntax:
 ```json
 [
   {
-    "dns-zone-id": "str",
-    "fqdn": "str",
-    "ptr": "bool",
-    "ttl": "int"
+    "dns-zone-id": "string",
+    "fqdn": "string",
+    "ptr": "boolean",
+    "ttl": "integer"
   }, ...
 ]
 ```
@@ -75,15 +75,15 @@ dns-zone-id -> (string)
   Required. ID of the public DNS zone. The maximum string length in characters is 20.
 fqdn -> (string)
   Required. DNS record name (absolute or relative to the DNS zone in use).
-ptr -> (bool)
+ptr -> (boolean)
   Optional. If the PTR record is required, this parameter must be set to "true".
-ttl -> (int)
+ttl -> (integer)
   TTL of record. Acceptable values are 0 to 86400, inclusive.
 ``` ||
 || `--folder-id` | `string`
 
 ID of the folder to create a address in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Address labels as 'key:value' pairs. ||
 || `--name` | `string`
@@ -95,12 +95,12 @@ Shorthand Syntax:
 
 ```hcl
 {
-  address = str,
+  address = string,
   requirements = {
-    ddos-protection-provider = str,
-    outgoing-smtp-capability = str
+    ddos-protection-provider = string,
+    outgoing-smtp-capability = string
   },
-  zone-id = str
+  zone-id = string
 }
 ```
 
@@ -108,12 +108,12 @@ JSON Syntax:
 
 ```json
 {
-  "address": "str",
+  "address": "string",
   "requirements": {
-    "ddos-protection-provider": "str",
-    "outgoing-smtp-capability": "str"
+    "ddos-protection-provider": "string",
+    "outgoing-smtp-capability": "string"
   },
-  "zone-id": "str"
+  "zone-id": "string"
 }
 ```
 
@@ -152,16 +152,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

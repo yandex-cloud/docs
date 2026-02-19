@@ -44,16 +44,16 @@ Shorthand Syntax:
 {
   failure-target = {
     target = empty-target={} | ymq-target={
-      queue-arn = str,
-      service-account-id = str
+      queue-arn = string,
+      service-account-id = string
     }
   },
-  retries-count = int,
-  service-account-id = str,
+  retries-count = integer,
+  service-account-id = string,
   success-target = {
     target = empty-target={} | ymq-target={
-      queue-arn = str,
-      service-account-id = str
+      queue-arn = string,
+      service-account-id = string
     }
   }
 }
@@ -67,19 +67,19 @@ JSON Syntax:
     "target": {
       "empty-target": {},
       "ymq-target": {
-        "queue-arn": "str",
-        "service-account-id": "str"
+        "queue-arn": "string",
+        "service-account-id": "string"
       }
     }
   },
-  "retries-count": "int",
-  "service-account-id": "str",
+  "retries-count": "integer",
+  "service-account-id": "string",
   "success-target": {
     "target": {
       "empty-target": {},
       "ymq-target": {
-        "queue-arn": "str",
-        "service-account-id": "str"
+        "queue-arn": "string",
+        "service-account-id": "string"
       }
     }
   }
@@ -101,7 +101,7 @@ failure-target -> (struct)
         Queue ARN
       service-account-id -> (string)
         Service account which has write permission on the queue.
-retries-count -> (int)
+retries-count -> (integer)
   Number of retries of version invocation
 service-account-id -> (string)
   Service account which can invoke version
@@ -129,8 +129,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  network-id = str,
-  subnet-id = str,...
+  network-id = string,
+  subnet-id = string,...
 }
 ```
 
@@ -138,9 +138,9 @@ JSON Syntax:
 
 ```json
 {
-  "network-id": "str",
+  "network-id": "string",
   "subnet-id": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -159,7 +159,7 @@ Description of the version ||
 || `--entrypoint` | `string`
 
 Entrypoint of the version. ||
-|| `--environment` | `stringToString`
+|| `--environment` | `map<string><string>`
 
 Environment settings for the version. ||
 || `--execution-timeout` | `duration`
@@ -176,8 +176,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  destination = folder-id=str | log-group-id=str,
-  disabled = bool,
+  destination = folder-id=string | log-group-id=string,
+  disabled = boolean,
   min-level = TRACE|DEBUG|INFO|WARN|ERROR|FATAL
 }
 ```
@@ -187,10 +187,10 @@ JSON Syntax:
 ```json
 {
   "destination": {
-    "folder-id": "str",
-    "log-group-id": "str"
+    "folder-id": "string",
+    "log-group-id": "string"
   },
-  "disabled": "bool",
+  "disabled": "boolean",
   "min-level": "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
 }
 ```
@@ -198,7 +198,7 @@ JSON Syntax:
 Fields:
 
 ```
-disabled -> (bool)
+disabled -> (boolean)
   Is logging from function disabled.
 min-level -> (struct)
   Minimum log entry level. See [LogLevel.Level] for details.
@@ -249,13 +249,13 @@ Shorthand Syntax:
 [
   {
     mode = READ_ONLY|READ_WRITE,
-    name = str,
+    name = string,
     target = ephemeral-disk-spec={
-      block-size = int,
-      size = int
+      block-size = integer,
+      size = integer
     } | object-storage={
-      bucket-id = str,
-      prefix = str
+      bucket-id = string,
+      prefix = string
     }
   }, ...
 ]
@@ -267,15 +267,15 @@ JSON Syntax:
 [
   {
     "mode": "READ_ONLY|READ_WRITE",
-    "name": "str",
+    "name": "string",
     "target": {
       "ephemeral-disk-spec": {
-        "block-size": "int",
-        "size": "int"
+        "block-size": "integer",
+        "size": "integer"
       },
       "object-storage": {
-        "bucket-id": "str",
-        "prefix": "str"
+        "bucket-id": "string",
+        "prefix": "string"
       }
     }
   }, ...
@@ -299,12 +299,12 @@ target -> (oneof<ephemeral-disk-spec|object-storage>)
       ObjectStorage bucket prefix for mounting.
   ephemeral-disk-spec -> (struct)
     Working disk (worker-local non-shared read-write NBS disk templates)
-    block-size -> (int)
+    block-size -> (integer)
       Optional block size of disk for mount in bytes
-    size -> (int)
+    size -> (integer)
       The size of disk for mount in bytes
 ``` ||
-|| `--named-service-accounts` | `stringToString`
+|| `--named-service-accounts` | `map<string><string>`
 
 Additional service accounts to be used by the version. ||
 || `--resources` | `shorthand/json`
@@ -315,7 +315,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  memory = int
+  memory = integer
 }
 ```
 
@@ -323,14 +323,14 @@ JSON Syntax:
 
 ```json
 {
-  "memory": "int"
+  "memory": "integer"
 }
 ```
 
 Fields:
 
 ```
-memory -> (int)
+memory -> (integer)
   Amount of memory available to the version, specified in bytes, multiple of 128MB.
 ``` ||
 || `--runtime` | `string`
@@ -345,10 +345,10 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    id = str,
-    key = str,
-    reference = environment-variable=str,
-    version-id = str
+    id = string,
+    key = string,
+    reference = environment-variable=string,
+    version-id = string
   }, ...
 ]
 ```
@@ -358,12 +358,12 @@ JSON Syntax:
 ```json
 [
   {
-    "id": "str",
-    "key": "str",
+    "id": "string",
+    "key": "string",
     "reference": {
-      "environment-variable": "str"
+      "environment-variable": "string"
     },
-    "version-id": "str"
+    "version-id": "string"
   }, ...
 ]
 ```
@@ -394,10 +394,10 @@ Shorthand Syntax:
 ```hcl
 [
   {
-    bucket-id = str,
-    mount-point-name = str,
-    prefix = str,
-    read-only = bool
+    bucket-id = string,
+    mount-point-name = string,
+    prefix = string,
+    read-only = boolean
   }, ...
 ]
 ```
@@ -407,10 +407,10 @@ JSON Syntax:
 ```json
 [
   {
-    "bucket-id": "str",
-    "mount-point-name": "str",
-    "prefix": "str",
-    "read-only": "bool"
+    "bucket-id": "string",
+    "mount-point-name": "string",
+    "prefix": "string",
+    "read-only": "boolean"
   }, ...
 ]
 ```
@@ -424,10 +424,10 @@ mount-point-name -> (string)
   Mount point directory name (not path) for mounting.
 prefix -> (string)
   S3 bucket prefix for mounting.
-read-only -> (bool)
+read-only -> (boolean)
   Is mount read only.
 ``` ||
-|| `--tag` | `strings`
+|| `--tag` | `[]string`
 
 Function version tags. For details, see documentation. ||
 || `--tmpfs-size` | `int`
@@ -441,9 +441,9 @@ Shorthand Syntax:
 
 ```hcl
 {
-  bucket-name = str,
-  object-name = str,
-  sha256 = str
+  bucket-name = string,
+  object-name = string,
+  sha256 = string
 }
 ```
 
@@ -451,9 +451,9 @@ JSON Syntax:
 
 ```json
 {
-  "bucket-name": "str",
-  "object-name": "str",
-  "sha256": "str"
+  "bucket-name": "string",
+  "object-name": "string",
+  "sha256": "string"
 }
 ```
 
@@ -494,16 +494,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

@@ -46,12 +46,12 @@ Shorthand Syntax:
 ```hcl
 {
   source = git-sync={
-    branch = str,
-    repo = str,
-    ssh-key = str,
-    sub-path = str
+    branch = string,
+    repo = string,
+    ssh-key = string,
+    sub-path = string
   } | s3={
-    bucket = str
+    bucket = string
   }
 }
 ```
@@ -62,13 +62,13 @@ JSON Syntax:
 {
   "source": {
     "git-sync": {
-      "branch": "str",
-      "repo": "str",
-      "ssh-key": "str",
-      "sub-path": "str"
+      "branch": "string",
+      "repo": "string",
+      "ssh-key": "string",
+      "sub-path": "string"
     },
     "s3": {
-      "bucket": "str"
+      "bucket": "string"
     }
   }
 }
@@ -101,47 +101,47 @@ Shorthand Syntax:
 ```hcl
 {
   airflow = {
-    config = {key=str, key=...}
+    config = {key=string, key=...}
   },
-  airflow-version = str,
+  airflow-version = string,
   dag-processor = {
-    count = int,
+    count = integer,
     resources = {
-      resource-preset-id = str
+      resource-preset-id = string
     }
   },
   dependencies = {
-    deb-packages = str,...,
-    pip-packages = str,...
+    deb-packages = string,...,
+    pip-packages = string,...
   },
   lockbox = {
-    enabled = bool
+    enabled = boolean
   },
-  python-version = str,
+  python-version = string,
   scheduler = {
-    count = int,
+    count = integer,
     resources = {
-      resource-preset-id = str
+      resource-preset-id = string
     }
   },
   triggerer = {
-    count = int,
+    count = integer,
     resources = {
-      resource-preset-id = str
+      resource-preset-id = string
     }
   },
-  version-id = str,
+  version-id = string,
   webserver = {
-    count = int,
+    count = integer,
     resources = {
-      resource-preset-id = str
+      resource-preset-id = string
     }
   },
   worker = {
-    max-count = int,
-    min-count = int,
+    max-count = integer,
+    min-count = integer,
     resources = {
-      resource-preset-id = str
+      resource-preset-id = string
     }
   }
 }
@@ -153,52 +153,52 @@ JSON Syntax:
 {
   "airflow": {
     "config": {
-      "<key>": "str", ...
+      "<key>": "string", ...
     }
   },
-  "airflow-version": "str",
+  "airflow-version": "string",
   "dag-processor": {
-    "count": "int",
+    "count": "integer",
     "resources": {
-      "resource-preset-id": "str"
+      "resource-preset-id": "string"
     }
   },
   "dependencies": {
     "deb-packages": [
-      "str", ...
+      "string", ...
     ],
     "pip-packages": [
-      "str", ...
+      "string", ...
     ]
   },
   "lockbox": {
-    "enabled": "bool"
+    "enabled": "boolean"
   },
-  "python-version": "str",
+  "python-version": "string",
   "scheduler": {
-    "count": "int",
+    "count": "integer",
     "resources": {
-      "resource-preset-id": "str"
+      "resource-preset-id": "string"
     }
   },
   "triggerer": {
-    "count": "int",
+    "count": "integer",
     "resources": {
-      "resource-preset-id": "str"
+      "resource-preset-id": "string"
     }
   },
-  "version-id": "str",
+  "version-id": "string",
   "webserver": {
-    "count": "int",
+    "count": "integer",
     "resources": {
-      "resource-preset-id": "str"
+      "resource-preset-id": "string"
     }
   },
   "worker": {
-    "max-count": "int",
-    "min-count": "int",
+    "max-count": "integer",
+    "min-count": "integer",
     "resources": {
-      "resource-preset-id": "str"
+      "resource-preset-id": "string"
     }
   }
 }
@@ -215,7 +215,7 @@ airflow-version -> (string)
   Apache Airflow version. Format: "Major.Minor"
 dag-processor -> (struct)
   Configuration of dag-processor instances.
-  count -> (int)
+  count -> (integer)
     The number of dag-processor instances in the cluster.
   resources -> (struct)
     Resources allocated to dag-processor instances.
@@ -229,13 +229,13 @@ dependencies -> (struct)
     Python packages that are installed in the cluster.
 lockbox -> (struct)
   Configuration of Lockbox Secret Backend.
-  enabled -> (bool)
+  enabled -> (boolean)
     The setting allows to enable Lockbox Secret Backend.
 python-version -> (string)
   Python version. Format: "Major.Minor"
 scheduler -> (struct)
   Configuration of scheduler instances.
-  count -> (int)
+  count -> (integer)
     The number of scheduler instances in the cluster.
   resources -> (struct)
     Resources allocated to scheduler instances.
@@ -243,7 +243,7 @@ scheduler -> (struct)
       ID of the preset for computational resources available to an instance (CPU, memory etc.).
 triggerer -> (struct)
   Configuration of triggerer instances.
-  count -> (int)
+  count -> (integer)
     The number of triggerer instances in the cluster.
   resources -> (struct)
     Resources allocated to triggerer instances.
@@ -253,7 +253,7 @@ version-id -> (string)
   Version of Apache Airflow that runs on the cluster. Use 'airflow_version' instead.
 webserver -> (struct)
   Configuration of webserver instances.
-  count -> (int)
+  count -> (integer)
     The number of webserver instances in the cluster.
   resources -> (struct)
     Resources allocated to webserver instances.
@@ -261,9 +261,9 @@ webserver -> (struct)
       ID of the preset for computational resources available to an instance (CPU, memory etc.).
 worker -> (struct)
   Configuration of worker instances.
-  max-count -> (int)
+  max-count -> (integer)
     The maximum number of worker instances in the cluster.
-  min-count -> (int)
+  min-count -> (integer)
     The minimum number of worker instances in the cluster.
   resources -> (struct)
     Resources allocated to worker instances.
@@ -277,7 +277,7 @@ Description of the Apache Airflow cluster. ||
 || `--folder-id` | `string`
 
 ID of the folder to create Apache Airflow cluster in. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Custom labels for the Apache Airflow cluster as '' key:value '' pairs. For example, "env": "prod". ||
 || `--logging` | `shorthand/json`
@@ -288,8 +288,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  destination = folder-id=str | log-group-id=str,
-  enabled = bool,
+  destination = folder-id=string | log-group-id=string,
+  enabled = boolean,
   min-level = TRACE|DEBUG|INFO|WARN|ERROR|FATAL
 }
 ```
@@ -299,10 +299,10 @@ JSON Syntax:
 ```json
 {
   "destination": {
-    "folder-id": "str",
-    "log-group-id": "str"
+    "folder-id": "string",
+    "log-group-id": "string"
   },
-  "enabled": "bool",
+  "enabled": "boolean",
   "min-level": "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
 }
 ```
@@ -310,7 +310,7 @@ JSON Syntax:
 Fields:
 
 ```
-enabled -> (bool)
+enabled -> (boolean)
   Logs generated by the Airflow components are delivered to Cloud Logging.
 min-level -> (struct)
   Minimum log entry level. See [LogLevel.Level] for details.
@@ -331,7 +331,7 @@ Shorthand Syntax:
 {
   policy = anytime={} | weekly-maintenance-window={
     day = MON|TUE|WED|THU|FRI|SAT|SUN,
-    hour = int
+    hour = integer
   }
 }
 ```
@@ -344,7 +344,7 @@ JSON Syntax:
     "anytime": {},
     "weekly-maintenance-window": {
       "day": "MON|TUE|WED|THU|FRI|SAT|SUN",
-      "hour": "int"
+      "hour": "integer"
     }
   }
 }
@@ -358,7 +358,7 @@ policy -> (oneof<anytime|weekly-maintenance-window>)
   anytime -> (struct)
   weekly-maintenance-window -> (struct)
     day -> (struct)
-    hour -> (int)
+    hour -> (integer)
       Hour of the day in UTC.
 ``` ||
 || `--name` | `string`
@@ -372,8 +372,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  security-group-ids = str,...,
-  subnet-ids = str,...
+  security-group-ids = string,...,
+  subnet-ids = string,...
 }
 ```
 
@@ -382,10 +382,10 @@ JSON Syntax:
 ```json
 {
   "security-group-ids": [
-    "str", ...
+    "string", ...
   ],
   "subnet-ids": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -422,16 +422,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

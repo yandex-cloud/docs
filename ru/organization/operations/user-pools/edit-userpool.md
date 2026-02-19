@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+     {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
 
      ```bash
      yc organization-manager idp userpool get <идентификатор_пула>

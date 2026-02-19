@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
       * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
       * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) на каталог с реестром [Docker-образов](../../../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../../../container-registry/concepts/index.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
-        Если вы хотите использовать реестр [Docker-образов](../../../cloud-registry/concepts/docker-image.md) в [{{ cloud-registry-full-name }}](../../../cloud-registry/concepts/index.md), назначьте сервисному аккаунту роль [cloud-registry.artifacts.puller](../../../cloud-registry/security/index.md#cloud-registry-artifacts-puller).
+        Если вы хотите использовать реестр [Docker-образов](../../../cloud-registry/concepts/artifacts/docker.md) в [{{ cloud-registry-full-name }}](../../../cloud-registry/concepts/index.md), назначьте сервисному аккаунту роль [cloud-registry.artifacts.puller](../../../cloud-registry/security/index.md#cloud-registry-artifacts-puller).
 
       Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 

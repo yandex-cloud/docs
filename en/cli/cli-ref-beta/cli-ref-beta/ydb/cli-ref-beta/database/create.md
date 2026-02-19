@@ -48,7 +48,7 @@ Shorthand Syntax:
         policy = daily-backup-schedule={
           execute-time = timeofday
         } | recurring-backup-schedule={
-          recurrence = str,
+          recurrence = string,
           start-time = timestamp
         } | weekly-backup-schedule={
           days-of-week = [
@@ -62,10 +62,10 @@ Shorthand Syntax:
         }
       },
       backup-time-to-live = duration,
-      description = str,
-      name = str,
-      source-paths = str,...,
-      source-paths-to-exclude = str,...,
+      description = string,
+      name = string,
+      source-paths = string,...,
+      source-paths-to-exclude = string,...,
       storage-class = STANDARD|REDUCED_REDUNDANCY|STANDARD_IA|ONEZONE_IA|INTELLIGENT_TIERING|GLACIER|DEEP_ARCHIVE|OUTPOSTS,
       type = SYSTEM|USER
     }, ...
@@ -86,7 +86,7 @@ JSON Syntax:
             "execute-time": "timeofday"
           },
           "recurring-backup-schedule": {
-            "recurrence": "str",
+            "recurrence": "string",
             "start-time": "timestamp"
           },
           "weekly-backup-schedule": {
@@ -102,13 +102,13 @@ JSON Syntax:
         }
       },
       "backup-time-to-live": "duration",
-      "description": "str",
-      "name": "str",
+      "description": "string",
+      "name": "string",
       "source-paths": [
-        "str", ...
+        "string", ...
       ],
       "source-paths-to-exclude": [
-        "str", ...
+        "string", ...
       ],
       "storage-class": "STANDARD|REDUCED_REDUNDANCY|STANDARD_IA|ONEZONE_IA|INTELLIGENT_TIERING|GLACIER|DEEP_ARCHIVE|OUTPOSTS",
       "type": "SYSTEM|USER"
@@ -158,7 +158,7 @@ backup-settings -> ([]struct)
 || `--folder-id` | `string`
 
  ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
  ||
 || `--location-id` | `string`
@@ -172,57 +172,57 @@ Shorthand Syntax:
 {
   alerts = [
     {
-      alert-id = str,
+      alert-id = string,
       alert-parameters = [
         {
           parameter = double-parameter-value={
-            name = str,
-            value = double
+            name = string,
+            value = float64
           } | integer-parameter-value={
-            name = str,
-            value = int
+            name = string,
+            value = integer
           } | label-list-parameter-value={
-            name = str,
-            values = str,...
+            name = string,
+            values = string,...
           } | text-list-parameter-value={
-            name = str,
-            values = str,...
+            name = string,
+            values = string,...
           } | text-parameter-value={
-            name = str,
-            value = str
+            name = string,
+            value = string
           }
         }, ...
       ],
-      alert-template-id = str,
+      alert-template-id = string,
       alert-thresholds = [
         {
           parameter = double-parameter-value={
-            name = str,
-            value = double
+            name = string,
+            value = float64
           } | integer-parameter-value={
-            name = str,
-            value = int
+            name = string,
+            value = integer
           } | label-list-parameter-value={
-            name = str,
-            values = str,...
+            name = string,
+            values = string,...
           } | text-list-parameter-value={
-            name = str,
-            values = str,...
+            name = string,
+            values = string,...
           } | text-parameter-value={
-            name = str,
-            value = str
+            name = string,
+            value = string
           }
         }, ...
       ],
-      description = str,
-      name = str,
+      description = string,
+      name = string,
       notification-channels = [
         {
-          notification-channel-id = str,
+          notification-channel-id = string,
           notify-about-statuses = [
             ALERT_EVALUATION_STATUS_OK|ALERT_EVALUATION_STATUS_NO_DATA|ALERT_EVALUATION_STATUS_ERROR|ALERT_EVALUATION_STATUS_ALARM|ALERT_EVALUATION_STATUS_WARN, ...
           ],
-          repeate-notify-delay-ms = int
+          repeate-notify-delay-ms = integer
         }, ...
       ]
     }, ...
@@ -236,77 +236,77 @@ JSON Syntax:
 {
   "alerts": [
     {
-      "alert-id": "str",
+      "alert-id": "string",
       "alert-parameters": [
         {
           "parameter": {
             "double-parameter-value": {
-              "name": "str",
-              "value": "double"
+              "name": "string",
+              "value": "float64"
             },
             "integer-parameter-value": {
-              "name": "str",
-              "value": "int"
+              "name": "string",
+              "value": "integer"
             },
             "label-list-parameter-value": {
-              "name": "str",
+              "name": "string",
               "values": [
-                "str", ...
+                "string", ...
               ]
             },
             "text-list-parameter-value": {
-              "name": "str",
+              "name": "string",
               "values": [
-                "str", ...
+                "string", ...
               ]
             },
             "text-parameter-value": {
-              "name": "str",
-              "value": "str"
+              "name": "string",
+              "value": "string"
             }
           }
         }, ...
       ],
-      "alert-template-id": "str",
+      "alert-template-id": "string",
       "alert-thresholds": [
         {
           "parameter": {
             "double-parameter-value": {
-              "name": "str",
-              "value": "double"
+              "name": "string",
+              "value": "float64"
             },
             "integer-parameter-value": {
-              "name": "str",
-              "value": "int"
+              "name": "string",
+              "value": "integer"
             },
             "label-list-parameter-value": {
-              "name": "str",
+              "name": "string",
               "values": [
-                "str", ...
+                "string", ...
               ]
             },
             "text-list-parameter-value": {
-              "name": "str",
+              "name": "string",
               "values": [
-                "str", ...
+                "string", ...
               ]
             },
             "text-parameter-value": {
-              "name": "str",
-              "value": "str"
+              "name": "string",
+              "value": "string"
             }
           }
         }, ...
       ],
-      "description": "str",
-      "name": "str",
+      "description": "string",
+      "name": "string",
       "notification-channels": [
         {
-          "notification-channel-id": "str",
+          "notification-channel-id": "string",
           "notify-about-statuses": [
             "ALERT_EVALUATION_STATUS_OK|ALERT_EVALUATION_STATUS_NO_DATA|ALERT_EVALUATION_STATUS_ERROR|ALERT_EVALUATION_STATUS_ALARM|ALERT_EVALUATION_STATUS_WARN", ...
           ],
-          "repeate-notify-delay-ms": "int"
+          "repeate-notify-delay-ms": "integer"
         }, ...
       ]
     }, ...
@@ -327,12 +327,12 @@ alerts -> ([]struct)
       double-parameter-value -> (struct)
         name -> (string)
           Required. Parameter name
-        value -> (double)
+        value -> (float64)
           Required. Parameter value
       integer-parameter-value -> (struct)
         name -> (string)
           Required. Parameter name
-        value -> (int)
+        value -> (integer)
           Required. Parameter value
       text-parameter-value -> (struct)
         name -> (string)
@@ -358,12 +358,12 @@ alerts -> ([]struct)
       double-parameter-value -> (struct)
         name -> (string)
           Required. Parameter name
-        value -> (double)
+        value -> (float64)
           Required. Parameter value
       integer-parameter-value -> (struct)
         name -> (string)
           Required. Parameter name
-        value -> (int)
+        value -> (integer)
           Required. Parameter value
       text-parameter-value -> (struct)
         name -> (string)
@@ -388,7 +388,7 @@ alerts -> ([]struct)
     the notification channels of the alert.
     notification-channel-id -> (string)
     notify-about-statuses -> ([]struct)
-    repeate-notify-delay-ms -> (int)
+    repeate-notify-delay-ms -> (integer)
 ``` ||
 || `--name` | `string`
 
@@ -407,12 +407,12 @@ Shorthand Syntax:
 {
   scale-type = auto-scale={
     auto-scale-type = target-tracking={
-      target = cpu-utilization-percent=int
+      target = cpu-utilization-percent=integer
     },
-    max-size = int,
-    min-size = int
+    max-size = integer,
+    min-size = integer
   } | fixed-scale={
-    size = int
+    size = integer
   }
 }
 ```
@@ -426,15 +426,15 @@ JSON Syntax:
       "auto-scale-type": {
         "target-tracking": {
           "target": {
-            "cpu-utilization-percent": "int"
+            "cpu-utilization-percent": "integer"
           }
         }
       },
-      "max-size": "int",
-      "min-size": "int"
+      "max-size": "integer",
+      "min-size": "integer"
     },
     "fixed-scale": {
-      "size": "int"
+      "size": "integer"
     }
   }
 }
@@ -446,21 +446,21 @@ Fields:
 scale-type -> (oneof<auto-scale|fixed-scale>)
   Oneof scale-type field
   fixed-scale -> (struct)
-    size -> (int)
+    size -> (integer)
   auto-scale -> (struct)
-    max-size -> (int)
+    max-size -> (integer)
       Maximum number of nodes to which autoscaling can scale the database.
-    min-size -> (int)
+    min-size -> (integer)
       Minimum number of nodes to which autoscaling can scale the database.
     auto-scale-type -> (oneof<target-tracking>)
       Oneof auto-scale-type field
       target-tracking -> (struct)
         target -> (oneof<cpu-utilization-percent>)
           Oneof target field
-          cpu-utilization-percent -> (int)
+          cpu-utilization-percent -> (integer)
             A percentage of database nodes average CPU utilization.
 ``` ||
-|| `--security-group-ids` | `strings`
+|| `--security-group-ids` | `[]string`
 
  ||
 || `--storage-config` | `shorthand/json`
@@ -471,11 +471,11 @@ Shorthand Syntax:
 {
   storage-options = [
     {
-      group-count = int,
-      storage-type-id = str
+      group-count = integer,
+      storage-type-id = string
     }, ...
   ],
-  storage-size-limit = int
+  storage-size-limit = integer
 }
 ```
 
@@ -485,11 +485,11 @@ JSON Syntax:
 {
   "storage-options": [
     {
-      "group-count": "int",
-      "storage-type-id": "str"
+      "group-count": "integer",
+      "storage-type-id": "string"
     }, ...
   ],
-  "storage-size-limit": "int"
+  "storage-size-limit": "integer"
 }
 ```
 
@@ -497,12 +497,12 @@ Fields:
 
 ```
 storage-options -> ([]struct)
-  group-count -> (int)
+  group-count -> (integer)
   storage-type-id -> (string)
-storage-size-limit -> (int)
+storage-size-limit -> (integer)
   output only field: storage size limit of dedicated database.
 ``` ||
-|| `--subnet-ids` | `strings`
+|| `--subnet-ids` | `[]string`
 
  ||
 || `--zonal-database` | `shorthand/json`
@@ -513,7 +513,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  zone-id = str
+  zone-id = string
 }
 ```
 
@@ -521,7 +521,7 @@ JSON Syntax:
 
 ```json
 {
-  "zone-id": "str"
+  "zone-id": "string"
 }
 ```
 
@@ -538,7 +538,7 @@ Shorthand Syntax:
 
 ```hcl
 {
-  region-id = str
+  region-id = string
 }
 ```
 
@@ -546,7 +546,7 @@ JSON Syntax:
 
 ```json
 {
-  "region-id": "str"
+  "region-id": "string"
 }
 ```
 
@@ -561,31 +561,31 @@ Shorthand Syntax:
 
 ```hcl
 {
-  assign-public-ips = bool,
-  network-id = str,
-  resource-preset-id = str,
+  assign-public-ips = boolean,
+  network-id = string,
+  resource-preset-id = string,
   scale-policy = {
     scale-type = auto-scale={
       auto-scale-type = target-tracking={
-        target = cpu-utilization-percent=int
+        target = cpu-utilization-percent=integer
       },
-      max-size = int,
-      min-size = int
+      max-size = integer,
+      min-size = integer
     } | fixed-scale={
-      size = int
+      size = integer
     }
   },
-  security-group-ids = str,...,
+  security-group-ids = string,...,
   storage-config = {
     storage-options = [
       {
-        group-count = int,
-        storage-type-id = str
+        group-count = integer,
+        storage-type-id = string
       }, ...
     ],
-    storage-size-limit = int
+    storage-size-limit = integer
   },
-  subnet-ids = str,...
+  subnet-ids = string,...
 }
 ```
 
@@ -593,41 +593,41 @@ JSON Syntax:
 
 ```json
 {
-  "assign-public-ips": "bool",
-  "network-id": "str",
-  "resource-preset-id": "str",
+  "assign-public-ips": "boolean",
+  "network-id": "string",
+  "resource-preset-id": "string",
   "scale-policy": {
     "scale-type": {
       "auto-scale": {
         "auto-scale-type": {
           "target-tracking": {
             "target": {
-              "cpu-utilization-percent": "int"
+              "cpu-utilization-percent": "integer"
             }
           }
         },
-        "max-size": "int",
-        "min-size": "int"
+        "max-size": "integer",
+        "min-size": "integer"
       },
       "fixed-scale": {
-        "size": "int"
+        "size": "integer"
       }
     }
   },
   "security-group-ids": [
-    "str", ...
+    "string", ...
   ],
   "storage-config": {
     "storage-options": [
       {
-        "group-count": "int",
-        "storage-type-id": "str"
+        "group-count": "integer",
+        "storage-type-id": "string"
       }, ...
     ],
-    "storage-size-limit": "int"
+    "storage-size-limit": "integer"
   },
   "subnet-ids": [
-    "str", ...
+    "string", ...
   ]
 }
 ```
@@ -635,32 +635,32 @@ JSON Syntax:
 Fields:
 
 ```
-assign-public-ips -> (bool)
+assign-public-ips -> (boolean)
 network-id -> (string)
 resource-preset-id -> (string)
 scale-policy -> (struct)
   scale-type -> (oneof<auto-scale|fixed-scale>)
     Oneof scale-type field
     fixed-scale -> (struct)
-      size -> (int)
+      size -> (integer)
     auto-scale -> (struct)
-      max-size -> (int)
+      max-size -> (integer)
         Maximum number of nodes to which autoscaling can scale the database.
-      min-size -> (int)
+      min-size -> (integer)
         Minimum number of nodes to which autoscaling can scale the database.
       auto-scale-type -> (oneof<target-tracking>)
         Oneof auto-scale-type field
         target-tracking -> (struct)
           target -> (oneof<cpu-utilization-percent>)
             Oneof target field
-            cpu-utilization-percent -> (int)
+            cpu-utilization-percent -> (integer)
               A percentage of database nodes average CPU utilization.
 security-group-ids -> ([]string)
 storage-config -> (struct)
   storage-options -> ([]struct)
-    group-count -> (int)
+    group-count -> (integer)
     storage-type-id -> (string)
-  storage-size-limit -> (int)
+  storage-size-limit -> (integer)
     output only field: storage size limit of dedicated database.
 subnet-ids -> ([]string)
 ``` ||
@@ -670,11 +670,11 @@ Shorthand Syntax:
 
 ```hcl
 {
-  enable-throttling-rcu-limit = bool,
-  provisioned-rcu-limit = int,
-  storage-size-limit = int,
-  throttling-rcu-limit = int,
-  topic-write-quota = int
+  enable-throttling-rcu-limit = boolean,
+  provisioned-rcu-limit = integer,
+  storage-size-limit = integer,
+  throttling-rcu-limit = integer,
+  topic-write-quota = integer
 }
 ```
 
@@ -682,26 +682,26 @@ JSON Syntax:
 
 ```json
 {
-  "enable-throttling-rcu-limit": "bool",
-  "provisioned-rcu-limit": "int",
-  "storage-size-limit": "int",
-  "throttling-rcu-limit": "int",
-  "topic-write-quota": "int"
+  "enable-throttling-rcu-limit": "boolean",
+  "provisioned-rcu-limit": "integer",
+  "storage-size-limit": "integer",
+  "throttling-rcu-limit": "integer",
+  "topic-write-quota": "integer"
 }
 ```
 
 Fields:
 
 ```
-enable-throttling-rcu-limit -> (bool)
+enable-throttling-rcu-limit -> (boolean)
   If false, the database is throttled by cloud value.
-provisioned-rcu-limit -> (int)
+provisioned-rcu-limit -> (integer)
   Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.
-storage-size-limit -> (int)
+storage-size-limit -> (integer)
   Specify serverless database storage size limit. If zero, default value is applied.
-throttling-rcu-limit -> (int)
+throttling-rcu-limit -> (integer)
   Let's define 1 RU - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If 'enable_throttling_rcu_limit' flag is true, the database will be throttled using 'throttling_rcu_limit' value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set.
-topic-write-quota -> (int)
+topic-write-quota -> (integer)
   write quota for topic service, defined in bytes per second.
 ``` ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
@@ -725,16 +725,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

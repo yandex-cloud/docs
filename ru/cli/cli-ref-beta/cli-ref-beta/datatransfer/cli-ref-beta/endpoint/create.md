@@ -40,7 +40,7 @@ Description of the endpoint. ||
 || `--folder-id` | `string`
 
 ID of the folder to create the endpoint in. To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Endpoint labels as 'key:value' pairs. For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
 || `--name` | `string`
@@ -53,300 +53,300 @@ Shorthand Syntax:
 ```hcl
 {
   settings = clickhouse-source={
-    clickhouse-cluster-name = str,
+    clickhouse-cluster-name = string,
     connection = {
       connection = connection-options={
         address = connection-manager-connection={
-          connection-id = str,
-          subnet-id = str
-        } | mdb-cluster-id=str | on-premise={
-          http-port = int,
-          native-port = int,
+          connection-id = string,
+          subnet-id = string
+        } | mdb-cluster-id=string | on-premise={
+          http-port = integer,
+          native-port = integer,
           shards = [
             {
-              hosts = str,...,
-              name = str
+              hosts = string,...,
+              name = string
             }, ...
           ],
           tls-mode = {
             tls-mode = disabled={} | enabled={
-              ca-certificate = str
+              ca-certificate = string
             }
           }
         },
-        database = str,
+        database = string,
         password = {
-          value = raw=str
+          value = raw=string
         },
-        user = str
+        user = string
       }
     },
-    exclude-tables = str,...,
-    include-tables = str,...,
-    security-groups = str,...,
-    subnet-id = str
+    exclude-tables = string,...,
+    include-tables = string,...,
+    security-groups = string,...,
+    subnet-id = string
   } | clickhouse-target={
     alt-names = [
       {
-        from-name = str,
-        to-name = str
+        from-name = string,
+        to-name = string
       }, ...
     ],
     cleanup-policy = CLICKHOUSE_CLEANUP_POLICY_DISABLED|CLICKHOUSE_CLEANUP_POLICY_DROP|CLICKHOUSE_CLEANUP_POLICY_TRUNCATE,
-    clickhouse-cluster-name = str,
+    clickhouse-cluster-name = string,
     connection = {
       connection = connection-options={
         address = connection-manager-connection={
-          connection-id = str,
-          subnet-id = str
-        } | mdb-cluster-id=str | on-premise={
-          http-port = int,
-          native-port = int,
+          connection-id = string,
+          subnet-id = string
+        } | mdb-cluster-id=string | on-premise={
+          http-port = integer,
+          native-port = integer,
           shards = [
             {
-              hosts = str,...,
-              name = str
+              hosts = string,...,
+              name = string
             }, ...
           ],
           tls-mode = {
             tls-mode = disabled={} | enabled={
-              ca-certificate = str
+              ca-certificate = string
             }
           }
         },
-        database = str,
+        database = string,
         password = {
-          value = raw=str
+          value = raw=string
         },
-        user = str
+        user = string
       }
     },
-    is-schema-migration-disabled = bool,
-    security-groups = str,...,
+    is-schema-migration-disabled = boolean,
+    security-groups = string,...,
     sharding = {
       sharding = column-value-hash={
-        column-name = str
+        column-name = string
       } | custom-mapping={
-        column-name = str,
+        column-name = string,
         mapping = [
           {
             column-value = {
-              value = string-value=str
+              value = string-value=string
             },
-            shard-name = str
+            shard-name = string
           }, ...
         ]
       } | round-robin={} | transfer-id={}
     },
-    subnet-id = str
+    subnet-id = string
   } | kafka-source={
     auth = {
       security = no-auth={} | sasl={
         mechanism = KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512,
         password = {
-          value = raw=str
+          value = raw=string
         },
-        user = str
+        user = string
       }
     },
     connection = {
-      connection = cluster-id=str | connection-manager-connection={
-        connection-id = str,
-        subnet-id = str
+      connection = cluster-id=string | connection-manager-connection={
+        connection-id = string,
+        subnet-id = string
       } | on-premise={
-        broker-urls = str,...,
-        subnet-id = str,
+        broker-urls = string,...,
+        subnet-id = string,
         tls-mode = {
           tls-mode = disabled={} | enabled={
-            ca-certificate = str
+            ca-certificate = string
           }
         }
       }
     },
     parser = {
       parser = audit-trails-v1-parser={} | cloud-logging-parser={} | json-parser={
-        add-rest-column = bool,
+        add-rest-column = boolean,
         data-schema = {
           schema = fields={
             fields = [
               {
-                key = bool,
-                name = str,
-                path = str,
-                required = bool,
+                key = boolean,
+                name = string,
+                path = string,
+                required = boolean,
                 type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
               }, ...
             ]
-          } | json-fields=str
+          } | json-fields=string
         },
-        null-keys-allowed = bool,
-        unescape-string-values = bool
+        null-keys-allowed = boolean,
+        unescape-string-values = boolean
       } | tskv-parser={
-        add-rest-column = bool,
+        add-rest-column = boolean,
         data-schema = {
           schema = fields={
             fields = [
               {
-                key = bool,
-                name = str,
-                path = str,
-                required = bool,
+                key = boolean,
+                name = string,
+                path = string,
+                required = boolean,
                 type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
               }, ...
             ]
-          } | json-fields=str
+          } | json-fields=string
         },
-        null-keys-allowed = bool,
-        unescape-string-values = bool
+        null-keys-allowed = boolean,
+        unescape-string-values = boolean
       }
     },
-    security-groups = str,...,
-    topic-name = str,
-    topic-names = str,...,
+    security-groups = string,...,
+    topic-name = string,
+    topic-names = string,...,
     transformer = {
-      buffer-flush-interval = str,
-      buffer-size = str,
-      cloud-function = str,
-      invocation-timeout = str,
-      number-of-retries = int,
-      service-account-id = str
+      buffer-flush-interval = string,
+      buffer-size = string,
+      cloud-function = string,
+      invocation-timeout = string,
+      number-of-retries = integer,
+      service-account-id = string
     }
   } | kafka-target={
     auth = {
       security = no-auth={} | sasl={
         mechanism = KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512,
         password = {
-          value = raw=str
+          value = raw=string
         },
-        user = str
+        user = string
       }
     },
     connection = {
-      connection = cluster-id=str | connection-manager-connection={
-        connection-id = str,
-        subnet-id = str
+      connection = cluster-id=string | connection-manager-connection={
+        connection-id = string,
+        subnet-id = string
       } | on-premise={
-        broker-urls = str,...,
-        subnet-id = str,
+        broker-urls = string,...,
+        subnet-id = string,
         tls-mode = {
           tls-mode = disabled={} | enabled={
-            ca-certificate = str
+            ca-certificate = string
           }
         }
       }
     },
-    security-groups = str,...,
+    security-groups = string,...,
     serializer = {
       serializer = serializer-auto={} | serializer-debezium={
         serializer-parameters = [
           {
-            key = str,
-            value = str
+            key = string,
+            value = string
           }, ...
         ]
       } | serializer-json={}
     },
     topic-settings = {
       topic-settings = topic={
-        save-tx-order = bool,
-        topic-name = str
-      } | topic-prefix=str
+        save-tx-order = boolean,
+        topic-name = string
+      } | topic-prefix=string
     }
   } | metrika-source={
-    counter-ids = int,...,
+    counter-ids = integer,...,
     streams = [
       {
-        columns = str,...,
+        columns = string,...,
         type = METRIKA_STREAM_TYPE_HITS|METRIKA_STREAM_TYPE_VISITS|METRIKA_STREAM_TYPE_HITS_V2
       }, ...
     ],
     token = {
-      value = raw=str
+      value = raw=string
     }
   } | mongo-source={
     collections = [
       {
-        collection-name = str,
-        database-name = str
+        collection-name = string,
+        database-name = string
       }, ...
     ],
     connection = {
       connection = connection-options={
         address = connection-manager-connection={
-          connection-id = str,
-          replica-set = str
-        } | mdb-cluster-id=str | on-premise={
-          hosts = str,...,
-          port = int,
-          replica-set = str,
+          connection-id = string,
+          replica-set = string
+        } | mdb-cluster-id=string | on-premise={
+          hosts = string,...,
+          port = integer,
+          replica-set = string,
           tls-mode = {
             tls-mode = disabled={} | enabled={
-              ca-certificate = str
+              ca-certificate = string
             }
           }
         },
-        auth-source = str,
+        auth-source = string,
         password = {
-          value = raw=str
+          value = raw=string
         },
-        user = str
+        user = string
       }
     },
     excluded-collections = [
       {
-        collection-name = str,
-        database-name = str
+        collection-name = string,
+        database-name = string
       }, ...
     ],
-    secondary-preferred-mode = bool,
-    security-groups = str,...,
-    subnet-id = str
+    secondary-preferred-mode = boolean,
+    security-groups = string,...,
+    subnet-id = string
   } | mongo-target={
     cleanup-policy = DISABLED|DROP|TRUNCATE,
     connection = {
       connection = connection-options={
         address = connection-manager-connection={
-          connection-id = str,
-          replica-set = str
-        } | mdb-cluster-id=str | on-premise={
-          hosts = str,...,
-          port = int,
-          replica-set = str,
+          connection-id = string,
+          replica-set = string
+        } | mdb-cluster-id=string | on-premise={
+          hosts = string,...,
+          port = integer,
+          replica-set = string,
           tls-mode = {
             tls-mode = disabled={} | enabled={
-              ca-certificate = str
+              ca-certificate = string
             }
           }
         },
-        auth-source = str,
+        auth-source = string,
         password = {
-          value = raw=str
+          value = raw=string
         },
-        user = str
+        user = string
       }
     },
-    database = str,
-    security-groups = str,...,
-    subnet-id = str
+    database = string,
+    security-groups = string,...,
+    subnet-id = string
   } | mysql-source={
     connection = {
       connection = connection-manager-connection={
-        connection-id = str,
-        subnet-id = str
-      } | mdb-cluster-id=str | on-premise={
-        hosts = str,...,
-        port = int,
-        subnet-id = str,
+        connection-id = string,
+        subnet-id = string
+      } | mdb-cluster-id=string | on-premise={
+        hosts = string,...,
+        port = integer,
+        subnet-id = string,
         tls-mode = {
           tls-mode = disabled={} | enabled={
-            ca-certificate = str
+            ca-certificate = string
           }
         }
       }
     },
-    database = str,
-    exclude-tables-regex = str,...,
-    include-tables-regex = str,...,
+    database = string,
+    exclude-tables-regex = string,...,
+    include-tables-regex = string,...,
     object-transfer-settings = {
       routine = BEFORE_DATA|AFTER_DATA|NEVER,
       tables = BEFORE_DATA|AFTER_DATA|NEVER,
@@ -354,59 +354,59 @@ Shorthand Syntax:
       view = BEFORE_DATA|AFTER_DATA|NEVER
     },
     password = {
-      value = raw=str
+      value = raw=string
     },
-    security-groups = str,...,
-    service-database = str,
-    timezone = str,
-    user = str
+    security-groups = string,...,
+    service-database = string,
+    timezone = string,
+    user = string
   } | mysql-target={
     cleanup-policy = DISABLED|DROP|TRUNCATE,
     connection = {
       connection = connection-manager-connection={
-        connection-id = str,
-        subnet-id = str
-      } | mdb-cluster-id=str | on-premise={
-        hosts = str,...,
-        port = int,
-        subnet-id = str,
+        connection-id = string,
+        subnet-id = string
+      } | mdb-cluster-id=string | on-premise={
+        hosts = string,...,
+        port = integer,
+        subnet-id = string,
         tls-mode = {
           tls-mode = disabled={} | enabled={
-            ca-certificate = str
+            ca-certificate = string
           }
         }
       }
     },
-    database = str,
-    is-schema-migration-disabled = bool,
+    database = string,
+    is-schema-migration-disabled = boolean,
     password = {
-      value = raw=str
+      value = raw=string
     },
-    security-groups = str,...,
-    service-database = str,
-    skip-constraint-checks = bool,
-    sql-mode = str,
-    timezone = str,
-    user = str
+    security-groups = string,...,
+    service-database = string,
+    skip-constraint-checks = boolean,
+    sql-mode = string,
+    timezone = string,
+    user = string
   } | postgres-source={
     connection = {
       connection = connection-manager-connection={
-        connection-id = str,
-        subnet-id = str
-      } | mdb-cluster-id=str | on-premise={
-        hosts = str,...,
-        port = int,
-        subnet-id = str,
+        connection-id = string,
+        subnet-id = string
+      } | mdb-cluster-id=string | on-premise={
+        hosts = string,...,
+        port = integer,
+        subnet-id = string,
         tls-mode = {
           tls-mode = disabled={} | enabled={
-            ca-certificate = str
+            ca-certificate = string
           }
         }
       }
     },
-    database = str,
-    exclude-tables = str,...,
-    include-tables = str,...,
+    database = string,
+    exclude-tables = string,...,
+    include-tables = string,...,
     object-transfer-settings = {
       cast = BEFORE_DATA|AFTER_DATA|NEVER,
       collation = BEFORE_DATA|AFTER_DATA|NEVER,
@@ -428,126 +428,126 @@ Shorthand Syntax:
       view = BEFORE_DATA|AFTER_DATA|NEVER
     },
     password = {
-      value = raw=str
+      value = raw=string
     },
-    security-groups = str,...,
-    service-schema = str,
-    slot-byte-lag-limit = int,
-    user = str
+    security-groups = string,...,
+    service-schema = string,
+    slot-byte-lag-limit = integer,
+    user = string
   } | postgres-target={
     cleanup-policy = DISABLED|DROP|TRUNCATE,
     connection = {
       connection = connection-manager-connection={
-        connection-id = str,
-        subnet-id = str
-      } | mdb-cluster-id=str | on-premise={
-        hosts = str,...,
-        port = int,
-        subnet-id = str,
+        connection-id = string,
+        subnet-id = string
+      } | mdb-cluster-id=string | on-premise={
+        hosts = string,...,
+        port = integer,
+        subnet-id = string,
         tls-mode = {
           tls-mode = disabled={} | enabled={
-            ca-certificate = str
+            ca-certificate = string
           }
         }
       }
     },
-    database = str,
-    is-schema-migration-disabled = bool,
+    database = string,
+    is-schema-migration-disabled = boolean,
     password = {
-      value = raw=str
+      value = raw=string
     },
-    security-groups = str,...,
-    user = str
+    security-groups = string,...,
+    user = string
   } | ydb-source={
-    changefeed-custom-consumer-name = str,
-    changefeed-custom-name = str,
-    database = str,
-    instance = str,
-    paths = str,...,
-    sa-key-content = str,
-    security-groups = str,...,
-    service-account-id = str,
-    subnet-id = str
+    changefeed-custom-consumer-name = string,
+    changefeed-custom-name = string,
+    database = string,
+    instance = string,
+    paths = string,...,
+    sa-key-content = string,
+    security-groups = string,...,
+    service-account-id = string,
+    subnet-id = string
   } | ydb-target={
     cleanup-policy = YDB_CLEANUP_POLICY_DISABLED|YDB_CLEANUP_POLICY_DROP,
-    database = str,
+    database = string,
     default-compression = YDB_DEFAULT_COMPRESSION_DISABLED|YDB_DEFAULT_COMPRESSION_LZ4,
-    instance = str,
-    is-schema-migration-disabled = bool,
-    is-table-column-oriented = bool,
-    path = str,
-    sa-key-content = str,
-    security-groups = str,...,
-    service-account-id = str,
-    subnet-id = str
+    instance = string,
+    is-schema-migration-disabled = boolean,
+    is-table-column-oriented = boolean,
+    path = string,
+    sa-key-content = string,
+    security-groups = string,...,
+    service-account-id = string,
+    subnet-id = string
   } | yds-source={
-    allow-ttl-rewind = bool,
-    consumer = str,
-    database = str,
-    endpoint = str,
+    allow-ttl-rewind = boolean,
+    consumer = string,
+    database = string,
+    endpoint = string,
     parser = {
       parser = audit-trails-v1-parser={} | cloud-logging-parser={} | json-parser={
-        add-rest-column = bool,
+        add-rest-column = boolean,
         data-schema = {
           schema = fields={
             fields = [
               {
-                key = bool,
-                name = str,
-                path = str,
-                required = bool,
+                key = boolean,
+                name = string,
+                path = string,
+                required = boolean,
                 type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
               }, ...
             ]
-          } | json-fields=str
+          } | json-fields=string
         },
-        null-keys-allowed = bool,
-        unescape-string-values = bool
+        null-keys-allowed = boolean,
+        unescape-string-values = boolean
       } | tskv-parser={
-        add-rest-column = bool,
+        add-rest-column = boolean,
         data-schema = {
           schema = fields={
             fields = [
               {
-                key = bool,
-                name = str,
-                path = str,
-                required = bool,
+                key = boolean,
+                name = string,
+                path = string,
+                required = boolean,
                 type = INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64
               }, ...
             ]
-          } | json-fields=str
+          } | json-fields=string
         },
-        null-keys-allowed = bool,
-        unescape-string-values = bool
+        null-keys-allowed = boolean,
+        unescape-string-values = boolean
       }
     },
-    security-groups = str,...,
-    service-account-id = str,
-    stream = str,
-    subnet-id = str,
+    security-groups = string,...,
+    service-account-id = string,
+    stream = string,
+    subnet-id = string,
     supported-codecs = [
       YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD, ...
     ]
   } | yds-target={
     compression-codec = YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD,
-    database = str,
-    endpoint = str,
-    save-tx-order = bool,
-    security-groups = str,...,
+    database = string,
+    endpoint = string,
+    save-tx-order = boolean,
+    security-groups = string,...,
     serializer = {
       serializer = serializer-auto={} | serializer-debezium={
         serializer-parameters = [
           {
-            key = str,
-            value = str
+            key = string,
+            value = string
           }, ...
         ]
       } | serializer-json={}
     },
-    service-account-id = str,
-    stream = str,
-    subnet-id = str
+    service-account-id = string,
+    stream = string,
+    subnet-id = string
   }
 }
 ```
@@ -558,126 +558,126 @@ JSON Syntax:
 {
   "settings": {
     "clickhouse-source": {
-      "clickhouse-cluster-name": "str",
+      "clickhouse-cluster-name": "string",
       "connection": {
         "connection": {
           "connection-options": {
             "address": {
               "connection-manager-connection": {
-                "connection-id": "str",
-                "subnet-id": "str"
+                "connection-id": "string",
+                "subnet-id": "string"
               },
-              "mdb-cluster-id": "str",
+              "mdb-cluster-id": "string",
               "on-premise": {
-                "http-port": "int",
-                "native-port": "int",
+                "http-port": "integer",
+                "native-port": "integer",
                 "shards": [
                   {
                     "hosts": [
-                      "str", ...
+                      "string", ...
                     ],
-                    "name": "str"
+                    "name": "string"
                   }, ...
                 ],
                 "tls-mode": {
                   "tls-mode": {
                     "disabled": {},
                     "enabled": {
-                      "ca-certificate": "str"
+                      "ca-certificate": "string"
                     }
                   }
                 }
               }
             },
-            "database": "str",
+            "database": "string",
             "password": {
               "value": {
-                "raw": "str"
+                "raw": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
       "exclude-tables": [
-        "str", ...
+        "string", ...
       ],
       "include-tables": [
-        "str", ...
+        "string", ...
       ],
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "subnet-id": "str"
+      "subnet-id": "string"
     },
     "clickhouse-target": {
       "alt-names": [
         {
-          "from-name": "str",
-          "to-name": "str"
+          "from-name": "string",
+          "to-name": "string"
         }, ...
       ],
       "cleanup-policy": "CLICKHOUSE_CLEANUP_POLICY_DISABLED|CLICKHOUSE_CLEANUP_POLICY_DROP|CLICKHOUSE_CLEANUP_POLICY_TRUNCATE",
-      "clickhouse-cluster-name": "str",
+      "clickhouse-cluster-name": "string",
       "connection": {
         "connection": {
           "connection-options": {
             "address": {
               "connection-manager-connection": {
-                "connection-id": "str",
-                "subnet-id": "str"
+                "connection-id": "string",
+                "subnet-id": "string"
               },
-              "mdb-cluster-id": "str",
+              "mdb-cluster-id": "string",
               "on-premise": {
-                "http-port": "int",
-                "native-port": "int",
+                "http-port": "integer",
+                "native-port": "integer",
                 "shards": [
                   {
                     "hosts": [
-                      "str", ...
+                      "string", ...
                     ],
-                    "name": "str"
+                    "name": "string"
                   }, ...
                 ],
                 "tls-mode": {
                   "tls-mode": {
                     "disabled": {},
                     "enabled": {
-                      "ca-certificate": "str"
+                      "ca-certificate": "string"
                     }
                   }
                 }
               }
             },
-            "database": "str",
+            "database": "string",
             "password": {
               "value": {
-                "raw": "str"
+                "raw": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
-      "is-schema-migration-disabled": "bool",
+      "is-schema-migration-disabled": "boolean",
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
       "sharding": {
         "sharding": {
           "column-value-hash": {
-            "column-name": "str"
+            "column-name": "string"
           },
           "custom-mapping": {
-            "column-name": "str",
+            "column-name": "string",
             "mapping": [
               {
                 "column-value": {
                   "value": {
-                    "string-value": "str"
+                    "string-value": "string"
                   }
                 },
-                "shard-name": "str"
+                "shard-name": "string"
               }, ...
             ]
           },
@@ -685,7 +685,7 @@ JSON Syntax:
           "transfer-id": {}
         }
       },
-      "subnet-id": "str"
+      "subnet-id": "string"
     },
     "kafka-source": {
       "auth": {
@@ -695,30 +695,30 @@ JSON Syntax:
             "mechanism": "KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512",
             "password": {
               "value": {
-                "raw": "str"
+                "raw": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
       "connection": {
         "connection": {
-          "cluster-id": "str",
+          "cluster-id": "string",
           "connection-manager-connection": {
-            "connection-id": "str",
-            "subnet-id": "str"
+            "connection-id": "string",
+            "subnet-id": "string"
           },
           "on-premise": {
             "broker-urls": [
-              "str", ...
+              "string", ...
             ],
-            "subnet-id": "str",
+            "subnet-id": "string",
             "tls-mode": {
               "tls-mode": {
                 "disabled": {},
                 "enabled": {
-                  "ca-certificate": "str"
+                  "ca-certificate": "string"
                 }
               }
             }
@@ -730,63 +730,63 @@ JSON Syntax:
           "audit-trails-v1-parser": {},
           "cloud-logging-parser": {},
           "json-parser": {
-            "add-rest-column": "bool",
+            "add-rest-column": "boolean",
             "data-schema": {
               "schema": {
                 "fields": {
                   "fields": [
                     {
-                      "key": "bool",
-                      "name": "str",
-                      "path": "str",
-                      "required": "bool",
+                      "key": "boolean",
+                      "name": "string",
+                      "path": "string",
+                      "required": "boolean",
                       "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
                     }, ...
                   ]
                 },
-                "json-fields": "str"
+                "json-fields": "string"
               }
             },
-            "null-keys-allowed": "bool",
-            "unescape-string-values": "bool"
+            "null-keys-allowed": "boolean",
+            "unescape-string-values": "boolean"
           },
           "tskv-parser": {
-            "add-rest-column": "bool",
+            "add-rest-column": "boolean",
             "data-schema": {
               "schema": {
                 "fields": {
                   "fields": [
                     {
-                      "key": "bool",
-                      "name": "str",
-                      "path": "str",
-                      "required": "bool",
+                      "key": "boolean",
+                      "name": "string",
+                      "path": "string",
+                      "required": "boolean",
                       "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
                     }, ...
                   ]
                 },
-                "json-fields": "str"
+                "json-fields": "string"
               }
             },
-            "null-keys-allowed": "bool",
-            "unescape-string-values": "bool"
+            "null-keys-allowed": "boolean",
+            "unescape-string-values": "boolean"
           }
         }
       },
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "topic-name": "str",
+      "topic-name": "string",
       "topic-names": [
-        "str", ...
+        "string", ...
       ],
       "transformer": {
-        "buffer-flush-interval": "str",
-        "buffer-size": "str",
-        "cloud-function": "str",
-        "invocation-timeout": "str",
-        "number-of-retries": "int",
-        "service-account-id": "str"
+        "buffer-flush-interval": "string",
+        "buffer-size": "string",
+        "cloud-function": "string",
+        "invocation-timeout": "string",
+        "number-of-retries": "integer",
+        "service-account-id": "string"
       }
     },
     "kafka-target": {
@@ -797,30 +797,30 @@ JSON Syntax:
             "mechanism": "KAFKA_MECHANISM_SHA256|KAFKA_MECHANISM_SHA512",
             "password": {
               "value": {
-                "raw": "str"
+                "raw": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
       "connection": {
         "connection": {
-          "cluster-id": "str",
+          "cluster-id": "string",
           "connection-manager-connection": {
-            "connection-id": "str",
-            "subnet-id": "str"
+            "connection-id": "string",
+            "subnet-id": "string"
           },
           "on-premise": {
             "broker-urls": [
-              "str", ...
+              "string", ...
             ],
-            "subnet-id": "str",
+            "subnet-id": "string",
             "tls-mode": {
               "tls-mode": {
                 "disabled": {},
                 "enabled": {
-                  "ca-certificate": "str"
+                  "ca-certificate": "string"
                 }
               }
             }
@@ -828,7 +828,7 @@ JSON Syntax:
         }
       },
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
       "serializer": {
         "serializer": {
@@ -836,8 +836,8 @@ JSON Syntax:
           "serializer-debezium": {
             "serializer-parameters": [
               {
-                "key": "str",
-                "value": "str"
+                "key": "string",
+                "value": "string"
               }, ...
             ]
           },
@@ -847,36 +847,36 @@ JSON Syntax:
       "topic-settings": {
         "topic-settings": {
           "topic": {
-            "save-tx-order": "bool",
-            "topic-name": "str"
+            "save-tx-order": "boolean",
+            "topic-name": "string"
           },
-          "topic-prefix": "str"
+          "topic-prefix": "string"
         }
       }
     },
     "metrika-source": {
       "counter-ids": [
-        "int", ...
+        "integer", ...
       ],
       "streams": [
         {
           "columns": [
-            "str", ...
+            "string", ...
           ],
           "type": "METRIKA_STREAM_TYPE_HITS|METRIKA_STREAM_TYPE_VISITS|METRIKA_STREAM_TYPE_HITS_V2"
         }, ...
       ],
       "token": {
         "value": {
-          "raw": "str"
+          "raw": "string"
         }
       }
     },
     "mongo-source": {
       "collections": [
         {
-          "collection-name": "str",
-          "database-name": "str"
+          "collection-name": "string",
+          "database-name": "string"
         }, ...
       ],
       "connection": {
@@ -884,47 +884,47 @@ JSON Syntax:
           "connection-options": {
             "address": {
               "connection-manager-connection": {
-                "connection-id": "str",
-                "replica-set": "str"
+                "connection-id": "string",
+                "replica-set": "string"
               },
-              "mdb-cluster-id": "str",
+              "mdb-cluster-id": "string",
               "on-premise": {
                 "hosts": [
-                  "str", ...
+                  "string", ...
                 ],
-                "port": "int",
-                "replica-set": "str",
+                "port": "integer",
+                "replica-set": "string",
                 "tls-mode": {
                   "tls-mode": {
                     "disabled": {},
                     "enabled": {
-                      "ca-certificate": "str"
+                      "ca-certificate": "string"
                     }
                   }
                 }
               }
             },
-            "auth-source": "str",
+            "auth-source": "string",
             "password": {
               "value": {
-                "raw": "str"
+                "raw": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
       "excluded-collections": [
         {
-          "collection-name": "str",
-          "database-name": "str"
+          "collection-name": "string",
+          "database-name": "string"
         }, ...
       ],
-      "secondary-preferred-mode": "bool",
+      "secondary-preferred-mode": "boolean",
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "subnet-id": "str"
+      "subnet-id": "string"
     },
     "mongo-target": {
       "cleanup-policy": "DISABLED|DROP|TRUNCATE",
@@ -933,73 +933,73 @@ JSON Syntax:
           "connection-options": {
             "address": {
               "connection-manager-connection": {
-                "connection-id": "str",
-                "replica-set": "str"
+                "connection-id": "string",
+                "replica-set": "string"
               },
-              "mdb-cluster-id": "str",
+              "mdb-cluster-id": "string",
               "on-premise": {
                 "hosts": [
-                  "str", ...
+                  "string", ...
                 ],
-                "port": "int",
-                "replica-set": "str",
+                "port": "integer",
+                "replica-set": "string",
                 "tls-mode": {
                   "tls-mode": {
                     "disabled": {},
                     "enabled": {
-                      "ca-certificate": "str"
+                      "ca-certificate": "string"
                     }
                   }
                 }
               }
             },
-            "auth-source": "str",
+            "auth-source": "string",
             "password": {
               "value": {
-                "raw": "str"
+                "raw": "string"
               }
             },
-            "user": "str"
+            "user": "string"
           }
         }
       },
-      "database": "str",
+      "database": "string",
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "subnet-id": "str"
+      "subnet-id": "string"
     },
     "mysql-source": {
       "connection": {
         "connection": {
           "connection-manager-connection": {
-            "connection-id": "str",
-            "subnet-id": "str"
+            "connection-id": "string",
+            "subnet-id": "string"
           },
-          "mdb-cluster-id": "str",
+          "mdb-cluster-id": "string",
           "on-premise": {
             "hosts": [
-              "str", ...
+              "string", ...
             ],
-            "port": "int",
-            "subnet-id": "str",
+            "port": "integer",
+            "subnet-id": "string",
             "tls-mode": {
               "tls-mode": {
                 "disabled": {},
                 "enabled": {
-                  "ca-certificate": "str"
+                  "ca-certificate": "string"
                 }
               }
             }
           }
         }
       },
-      "database": "str",
+      "database": "string",
       "exclude-tables-regex": [
-        "str", ...
+        "string", ...
       ],
       "include-tables-regex": [
-        "str", ...
+        "string", ...
       ],
       "object-transfer-settings": {
         "routine": "BEFORE_DATA|AFTER_DATA|NEVER",
@@ -1009,89 +1009,89 @@ JSON Syntax:
       },
       "password": {
         "value": {
-          "raw": "str"
+          "raw": "string"
         }
       },
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "service-database": "str",
-      "timezone": "str",
-      "user": "str"
+      "service-database": "string",
+      "timezone": "string",
+      "user": "string"
     },
     "mysql-target": {
       "cleanup-policy": "DISABLED|DROP|TRUNCATE",
       "connection": {
         "connection": {
           "connection-manager-connection": {
-            "connection-id": "str",
-            "subnet-id": "str"
+            "connection-id": "string",
+            "subnet-id": "string"
           },
-          "mdb-cluster-id": "str",
+          "mdb-cluster-id": "string",
           "on-premise": {
             "hosts": [
-              "str", ...
+              "string", ...
             ],
-            "port": "int",
-            "subnet-id": "str",
+            "port": "integer",
+            "subnet-id": "string",
             "tls-mode": {
               "tls-mode": {
                 "disabled": {},
                 "enabled": {
-                  "ca-certificate": "str"
+                  "ca-certificate": "string"
                 }
               }
             }
           }
         }
       },
-      "database": "str",
-      "is-schema-migration-disabled": "bool",
+      "database": "string",
+      "is-schema-migration-disabled": "boolean",
       "password": {
         "value": {
-          "raw": "str"
+          "raw": "string"
         }
       },
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "service-database": "str",
-      "skip-constraint-checks": "bool",
-      "sql-mode": "str",
-      "timezone": "str",
-      "user": "str"
+      "service-database": "string",
+      "skip-constraint-checks": "boolean",
+      "sql-mode": "string",
+      "timezone": "string",
+      "user": "string"
     },
     "postgres-source": {
       "connection": {
         "connection": {
           "connection-manager-connection": {
-            "connection-id": "str",
-            "subnet-id": "str"
+            "connection-id": "string",
+            "subnet-id": "string"
           },
-          "mdb-cluster-id": "str",
+          "mdb-cluster-id": "string",
           "on-premise": {
             "hosts": [
-              "str", ...
+              "string", ...
             ],
-            "port": "int",
-            "subnet-id": "str",
+            "port": "integer",
+            "subnet-id": "string",
             "tls-mode": {
               "tls-mode": {
                 "disabled": {},
                 "enabled": {
-                  "ca-certificate": "str"
+                  "ca-certificate": "string"
                 }
               }
             }
           }
         }
       },
-      "database": "str",
+      "database": "string",
       "exclude-tables": [
-        "str", ...
+        "string", ...
       ],
       "include-tables": [
-        "str", ...
+        "string", ...
       ],
       "object-transfer-settings": {
         "cast": "BEFORE_DATA|AFTER_DATA|NEVER",
@@ -1115,154 +1115,154 @@ JSON Syntax:
       },
       "password": {
         "value": {
-          "raw": "str"
+          "raw": "string"
         }
       },
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "service-schema": "str",
-      "slot-byte-lag-limit": "int",
-      "user": "str"
+      "service-schema": "string",
+      "slot-byte-lag-limit": "integer",
+      "user": "string"
     },
     "postgres-target": {
       "cleanup-policy": "DISABLED|DROP|TRUNCATE",
       "connection": {
         "connection": {
           "connection-manager-connection": {
-            "connection-id": "str",
-            "subnet-id": "str"
+            "connection-id": "string",
+            "subnet-id": "string"
           },
-          "mdb-cluster-id": "str",
+          "mdb-cluster-id": "string",
           "on-premise": {
             "hosts": [
-              "str", ...
+              "string", ...
             ],
-            "port": "int",
-            "subnet-id": "str",
+            "port": "integer",
+            "subnet-id": "string",
             "tls-mode": {
               "tls-mode": {
                 "disabled": {},
                 "enabled": {
-                  "ca-certificate": "str"
+                  "ca-certificate": "string"
                 }
               }
             }
           }
         }
       },
-      "database": "str",
-      "is-schema-migration-disabled": "bool",
+      "database": "string",
+      "is-schema-migration-disabled": "boolean",
       "password": {
         "value": {
-          "raw": "str"
+          "raw": "string"
         }
       },
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "user": "str"
+      "user": "string"
     },
     "ydb-source": {
-      "changefeed-custom-consumer-name": "str",
-      "changefeed-custom-name": "str",
-      "database": "str",
-      "instance": "str",
+      "changefeed-custom-consumer-name": "string",
+      "changefeed-custom-name": "string",
+      "database": "string",
+      "instance": "string",
       "paths": [
-        "str", ...
+        "string", ...
       ],
-      "sa-key-content": "str",
+      "sa-key-content": "string",
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "service-account-id": "str",
-      "subnet-id": "str"
+      "service-account-id": "string",
+      "subnet-id": "string"
     },
     "ydb-target": {
       "cleanup-policy": "YDB_CLEANUP_POLICY_DISABLED|YDB_CLEANUP_POLICY_DROP",
-      "database": "str",
+      "database": "string",
       "default-compression": "YDB_DEFAULT_COMPRESSION_DISABLED|YDB_DEFAULT_COMPRESSION_LZ4",
-      "instance": "str",
-      "is-schema-migration-disabled": "bool",
-      "is-table-column-oriented": "bool",
-      "path": "str",
-      "sa-key-content": "str",
+      "instance": "string",
+      "is-schema-migration-disabled": "boolean",
+      "is-table-column-oriented": "boolean",
+      "path": "string",
+      "sa-key-content": "string",
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "service-account-id": "str",
-      "subnet-id": "str"
+      "service-account-id": "string",
+      "subnet-id": "string"
     },
     "yds-source": {
-      "allow-ttl-rewind": "bool",
-      "consumer": "str",
-      "database": "str",
-      "endpoint": "str",
+      "allow-ttl-rewind": "boolean",
+      "consumer": "string",
+      "database": "string",
+      "endpoint": "string",
       "parser": {
         "parser": {
           "audit-trails-v1-parser": {},
           "cloud-logging-parser": {},
           "json-parser": {
-            "add-rest-column": "bool",
+            "add-rest-column": "boolean",
             "data-schema": {
               "schema": {
                 "fields": {
                   "fields": [
                     {
-                      "key": "bool",
-                      "name": "str",
-                      "path": "str",
-                      "required": "bool",
+                      "key": "boolean",
+                      "name": "string",
+                      "path": "string",
+                      "required": "boolean",
                       "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
                     }, ...
                   ]
                 },
-                "json-fields": "str"
+                "json-fields": "string"
               }
             },
-            "null-keys-allowed": "bool",
-            "unescape-string-values": "bool"
+            "null-keys-allowed": "boolean",
+            "unescape-string-values": "boolean"
           },
           "tskv-parser": {
-            "add-rest-column": "bool",
+            "add-rest-column": "boolean",
             "data-schema": {
               "schema": {
                 "fields": {
                   "fields": [
                     {
-                      "key": "bool",
-                      "name": "str",
-                      "path": "str",
-                      "required": "bool",
+                      "key": "boolean",
+                      "name": "string",
+                      "path": "string",
+                      "required": "boolean",
                       "type": "INT32|INT16|INT8|UINT64|UINT32|UINT16|UINT8|DOUBLE|BOOLEAN|STRING|UTF8|ANY|DATETIME|INT64"
                     }, ...
                   ]
                 },
-                "json-fields": "str"
+                "json-fields": "string"
               }
             },
-            "null-keys-allowed": "bool",
-            "unescape-string-values": "bool"
+            "null-keys-allowed": "boolean",
+            "unescape-string-values": "boolean"
           }
         }
       },
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
-      "service-account-id": "str",
-      "stream": "str",
-      "subnet-id": "str",
+      "service-account-id": "string",
+      "stream": "string",
+      "subnet-id": "string",
       "supported-codecs": [
         "YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD", ...
       ]
     },
     "yds-target": {
       "compression-codec": "YDS_COMPRESSION_CODEC_RAW|YDS_COMPRESSION_CODEC_GZIP|YDS_COMPRESSION_CODEC_ZSTD",
-      "database": "str",
-      "endpoint": "str",
-      "save-tx-order": "bool",
+      "database": "string",
+      "endpoint": "string",
+      "save-tx-order": "boolean",
       "security-groups": [
-        "str", ...
+        "string", ...
       ],
       "serializer": {
         "serializer": {
@@ -1270,17 +1270,17 @@ JSON Syntax:
           "serializer-debezium": {
             "serializer-parameters": [
               {
-                "key": "str",
-                "value": "str"
+                "key": "string",
+                "value": "string"
               }, ...
             ]
           },
           "serializer-json": {}
         }
       },
-      "service-account-id": "str",
-      "stream": "str",
-      "subnet-id": "str"
+      "service-account-id": "string",
+      "stream": "string",
+      "subnet-id": "string"
     }
   }
 }
@@ -1302,7 +1302,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
           Connection options for on-premise MySQL
           hosts -> ([]string)
             List of host names of the MySQL server. Exactly one host is expected
-          port -> (int)
+          port -> (integer)
             Port for the database connection
           subnet-id -> (string)
             Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
@@ -1362,7 +1362,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
           Connection options for on-premise PostgreSQL
           hosts -> ([]string)
             PG installation hosts
-          port -> (int)
+          port -> (integer)
             PG port. Will be used if the cluster ID is not specified.
           subnet-id -> (string)
             Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
@@ -1435,7 +1435,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
       List of security groups that the transfer associated with this endpoint should use
     service-schema -> (string)
       Name of the database schema in which auxiliary tables needed for the transfer will be created (__consumer_keeper, __data_transfer_mole_finder). Empty 'service_schema' implies schema 'public'
-    slot-byte-lag-limit -> (int)
+    slot-byte-lag-limit -> (integer)
       Maximum WAL size held by the replication slot (API - in bytes, terraform - in gigabytes); Exceeding this limit will result in a replication failure and deletion of the replication slot. Default is 50 gigabytes
     user -> (string)
       User for database access. Required unless Connection Manager connection is used.
@@ -1459,7 +1459,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
     subnet-id -> (string)
       Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
   yds-source -> (struct)
-    allow-ttl-rewind -> (bool)
+    allow-ttl-rewind -> (boolean)
       Should continue working, if consumer read lag exceed TTL of topic False: stop the transfer in error state, if detected lost data. True: continue working with losing part of data
     consumer -> (string)
       Custom consumer - for important streams
@@ -1473,7 +1473,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
         Oneof parser field
         json-parser -> (struct)
           Parse data in json format
-          add-rest-column -> (bool)
+          add-rest-column -> (boolean)
             Will add _rest column for all unknown fields
           data-schema -> (struct)
             Data parsing scheme
@@ -1485,19 +1485,19 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
                 Description of the data schema in the array of 'fields' structure
                 fields -> ([]struct)
                   Description of the column schema in the array of 'fields' structure
-                  key -> (bool)
+                  key -> (boolean)
                     Mark field as Primary Key
                   name -> (string)
                     Field name
                   path -> (string)
                     Path to the field
-                  required -> (bool)
+                  required -> (boolean)
                     Mark field as required
                   type -> (struct)
                     Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
-          null-keys-allowed -> (bool)
+          null-keys-allowed -> (boolean)
             Allow null keys, if no - null keys will be putted to unparsed data
-          unescape-string-values -> (bool)
+          unescape-string-values -> (boolean)
             Unescape string values
         audit-trails-v1-parser -> (struct)
           Parse Audit Trails data. Empty struct
@@ -1505,7 +1505,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
           Parse Cloud Logging data. Empty struct
         tskv-parser -> (struct)
           Parse data in tskv format
-          add-rest-column -> (bool)
+          add-rest-column -> (boolean)
             Will add _rest column for all unknown fields
           data-schema -> (struct)
             Data parsing scheme
@@ -1517,19 +1517,19 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
                 Description of the data schema in the array of 'fields' structure
                 fields -> ([]struct)
                   Description of the column schema in the array of 'fields' structure
-                  key -> (bool)
+                  key -> (boolean)
                     Mark field as Primary Key
                   name -> (string)
                     Field name
                   path -> (string)
                     Path to the field
-                  required -> (bool)
+                  required -> (boolean)
                     Mark field as required
                   type -> (struct)
                     Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
-          null-keys-allowed -> (bool)
+          null-keys-allowed -> (boolean)
             Allow null keys, if no - null keys will be putted to unparsed data
-          unescape-string-values -> (bool)
+          unescape-string-values -> (boolean)
             Unescape string values
     security-groups -> ([]string)
       List of security groups that the transfer associated with this endpoint should use
@@ -1594,7 +1594,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
         Oneof parser field
         json-parser -> (struct)
           Parse data in json format
-          add-rest-column -> (bool)
+          add-rest-column -> (boolean)
             Will add _rest column for all unknown fields
           data-schema -> (struct)
             Data parsing scheme
@@ -1606,19 +1606,19 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
                 Description of the data schema in the array of 'fields' structure
                 fields -> ([]struct)
                   Description of the column schema in the array of 'fields' structure
-                  key -> (bool)
+                  key -> (boolean)
                     Mark field as Primary Key
                   name -> (string)
                     Field name
                   path -> (string)
                     Path to the field
-                  required -> (bool)
+                  required -> (boolean)
                     Mark field as required
                   type -> (struct)
                     Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
-          null-keys-allowed -> (bool)
+          null-keys-allowed -> (boolean)
             Allow null keys, if no - null keys will be putted to unparsed data
-          unescape-string-values -> (bool)
+          unescape-string-values -> (boolean)
             Unescape string values
         audit-trails-v1-parser -> (struct)
           Parse Audit Trails data. Empty struct
@@ -1626,7 +1626,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
           Parse Cloud Logging data. Empty struct
         tskv-parser -> (struct)
           Parse data in tskv format
-          add-rest-column -> (bool)
+          add-rest-column -> (boolean)
             Will add _rest column for all unknown fields
           data-schema -> (struct)
             Data parsing scheme
@@ -1638,19 +1638,19 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
                 Description of the data schema in the array of 'fields' structure
                 fields -> ([]struct)
                   Description of the column schema in the array of 'fields' structure
-                  key -> (bool)
+                  key -> (boolean)
                     Mark field as Primary Key
                   name -> (string)
                     Field name
                   path -> (string)
                     Path to the field
-                  required -> (bool)
+                  required -> (boolean)
                     Mark field as required
                   type -> (struct)
                     Field type, one of: 'INT64', 'INT32', 'INT16', 'INT8', 'UINT64', 'UINT32', 'UINT16', 'UINT8', 'DOUBLE', 'BOOLEAN', 'STRING', 'UTF8', 'ANY', 'DATETIME'.
-          null-keys-allowed -> (bool)
+          null-keys-allowed -> (boolean)
             Allow null keys, if no - null keys will be putted to unparsed data
-          unescape-string-values -> (bool)
+          unescape-string-values -> (boolean)
             Unescape string values
     security-groups -> ([]string)
       List of security groups that the transfer associated with this endpoint should use
@@ -1668,7 +1668,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
         Cloud function
       invocation-timeout -> (string)
         Invocation timeout
-      number-of-retries -> (int)
+      number-of-retries -> (integer)
         Number of retries
       service-account-id -> (string)
         Service account
@@ -1700,7 +1700,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
               Connection settings of the on-premise MongoDB server Use one of: mdb_cluster_id/on_premise/connection_manager_connection
               hosts -> ([]string)
                 Host names of the replica set
-              port -> (int)
+              port -> (integer)
                 TCP Port number
               replica-set -> (string)
                 Replica set name
@@ -1724,7 +1724,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
       List of forbidden collections for replication. Allowed to use * as collection name for forbid all collections of concrete schema.
       collection-name -> (string)
       database-name -> (string)
-    secondary-preferred-mode -> (bool)
+    secondary-preferred-mode -> (boolean)
       Read mode for mongo client: whether the secondary server should be preferred to the primary when copying data
     security-groups -> ([]string)
       List of security groups that the transfer associated with this endpoint should use
@@ -1752,8 +1752,8 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
             Oneof address field
             on-premise -> (struct)
               Connection settings of the on-premise ClickHouse server
-              http-port -> (int)
-              native-port -> (int)
+              http-port -> (integer)
+              native-port -> (integer)
               shards -> ([]struct)
                 hosts -> ([]string)
                 name -> (string)
@@ -1796,7 +1796,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
           Connection options for on-premise MySQL
           hosts -> ([]string)
             List of host names of the MySQL server. Exactly one host is expected
-          port -> (int)
+          port -> (integer)
             Port for the database connection
           subnet-id -> (string)
             Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
@@ -1818,7 +1818,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
             Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
     database -> (string)
       Database name Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table.
-    is-schema-migration-disabled -> (bool)
+    is-schema-migration-disabled -> (boolean)
       Whether can change table schema if schema changed on source
     password -> (struct)
       Password for database access.
@@ -1830,7 +1830,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
       List of security groups that the transfer associated with this endpoint should use
     service-database -> (string)
       Database schema for service table Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
-    skip-constraint-checks -> (bool)
+    skip-constraint-checks -> (boolean)
       Disable constraints checks When 'true', disables foreign key checks and unique checks. 'False' by default. See foreign_key_checks. Recommend to disable for increase replication speed unless schema contains cascading operations
     sql-mode -> (string)
       sql_mode to use when interacting with the server. Defaults to 'NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION'
@@ -1851,7 +1851,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
           Connection options for on-premise PostgreSQL
           hosts -> ([]string)
             PG installation hosts
-          port -> (int)
+          port -> (integer)
             PG port. Will be used if the cluster ID is not specified.
           subnet-id -> (string)
             Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
@@ -1873,7 +1873,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
             Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
     database -> (string)
       Target database name
-    is-schema-migration-disabled -> (bool)
+    is-schema-migration-disabled -> (boolean)
       Whether can change table schema if schema changed on source
     password -> (struct)
       Password for database access.
@@ -1915,8 +1915,8 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
             Oneof address field
             on-premise -> (struct)
               Connection settings of the on-premise ClickHouse server
-              http-port -> (int)
-              native-port -> (int)
+              http-port -> (integer)
+              native-port -> (integer)
               shards -> ([]struct)
                 hosts -> ([]string)
                 name -> (string)
@@ -1938,7 +1938,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
                 Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
             mdb-cluster-id -> (string)
               Identifier of the Managed ClickHouse cluster
-    is-schema-migration-disabled -> (bool)
+    is-schema-migration-disabled -> (boolean)
       Whether can change table schema if schema changed on source
     security-groups -> ([]string)
       List of security groups that the transfer associated with this endpoint should use
@@ -1978,9 +1978,9 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
       Compression that will be used for default columns family on YDB table creation. One of 'YDB_DEFAULT_COMPRESSION_UNSPECIFIED', 'YDB_DEFAULT_COMPRESSION_DISABLED', 'YDB_DEFAULT_COMPRESSION_LZ4'
     instance -> (string)
       Instance of YDB. example: ydb-ru-prestable.yandex.net:2135. If not specified, will be determined by database
-    is-schema-migration-disabled -> (bool)
+    is-schema-migration-disabled -> (boolean)
       Whether can change table schema if schema changed on source
-    is-table-column-oriented -> (bool)
+    is-table-column-oriented -> (boolean)
       Whether a column-oriented (i.e. OLAP) tables should be created. Default is 'false' (create row-oriented OLTP tables)
     path -> (string)
       Path extension for database, each table will be layouted into this path
@@ -2063,7 +2063,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
         Oneof topic-settings field
         topic -> (struct)
           All messages will be sent to one topic
-          save-tx-order -> (bool)
+          save-tx-order -> (boolean)
             Save transactions order Not to split events queue into separate per-table queues.
           topic-name -> (string)
             Full topic name
@@ -2095,7 +2095,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
               Connection settings of the on-premise MongoDB server Use one of: mdb_cluster_id/on_premise/connection_manager_connection
               hosts -> ([]string)
                 Host names of the replica set
-              port -> (int)
+              port -> (integer)
                 TCP Port number
               replica-set -> (string)
                 Replica set name
@@ -2122,7 +2122,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
     subnet-id -> (string)
       Identifier of the Yandex Cloud VPC subnetwork to user for accessing the database. If omitted, the server has to be accessible via Internet
   metrika-source -> (struct)
-    counter-ids -> ([]int)
+    counter-ids -> ([]integer)
       Counter IDs
     streams -> ([]struct)
       Streams
@@ -2143,7 +2143,7 @@ settings -> (oneof<clickhouse-source|clickhouse-target|kafka-source|kafka-target
       Database path in YDB for streams Example: '/ru/transfer_manager/prod/data-transfer'
     endpoint -> (string)
       YDS Endpoint for dedicated db
-    save-tx-order -> (bool)
+    save-tx-order -> (boolean)
       Save transaction order Not to split events queue into separate per-table queues. Incompatible with setting Topic prefix, only with Topic full name.
     security-groups -> ([]string)
       List of security groups that the transfer associated with this endpoint should use
@@ -2191,16 +2191,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

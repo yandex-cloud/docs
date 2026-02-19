@@ -91,6 +91,6 @@
 
           {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-          {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
+          {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
 
     {% endlist %}

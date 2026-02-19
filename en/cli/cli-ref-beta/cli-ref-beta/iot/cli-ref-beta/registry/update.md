@@ -20,7 +20,7 @@ Syntax:
 || `--description` | `string`
 
 Description of the registry. ||
-|| `--labels` | `stringToString`
+|| `--labels` | `map<string><string>`
 
 Resource labels as 'key:value' pairs. Existing set of 'labels' is completely replaced by the provided set. ||
 || `--log-options` | `shorthand/json`
@@ -31,8 +31,8 @@ Shorthand Syntax:
 
 ```hcl
 {
-  destination = folder-id=str | log-group-id=str,
-  disabled = bool,
+  destination = folder-id=string | log-group-id=string,
+  disabled = boolean,
   min-level = TRACE|DEBUG|INFO|WARN|ERROR|FATAL
 }
 ```
@@ -42,10 +42,10 @@ JSON Syntax:
 ```json
 {
   "destination": {
-    "folder-id": "str",
-    "log-group-id": "str"
+    "folder-id": "string",
+    "log-group-id": "string"
   },
-  "disabled": "bool",
+  "disabled": "boolean",
   "min-level": "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
 }
 ```
@@ -53,7 +53,7 @@ JSON Syntax:
 Fields:
 
 ```
-disabled -> (bool)
+disabled -> (boolean)
   Is logging from registry disabled.
 min-level -> (struct)
   Minimum log entry level. See [LogLevel.Level] for details.
@@ -91,16 +91,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

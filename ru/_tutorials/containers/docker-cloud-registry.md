@@ -1,4 +1,4 @@
-В этом руководстве вы развернете [Docker-образ](../../cloud-registry/concepts/docker-image.md) из [реестра](../../cloud-registry/concepts/registry.md) {{ cloud-registry-full-name }} и запустите контейнер на [виртуальной машине](../../compute/concepts/vm.md) {{ compute-full-name }}.
+В этом руководстве вы развернете [Docker-образ](../../cloud-registry/concepts/artifacts/docker.md) из [реестра](../../cloud-registry/concepts/registry.md) {{ cloud-registry-full-name }} и запустите контейнер на [виртуальной машине](../../compute/concepts/vm.md) {{ compute-full-name }}.
 
 Чтобы запустить Docker-образ на виртуальной машине:
 
@@ -538,7 +538,7 @@
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
 1. [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
 1. Удалите [сеть](../../vpc/operations/network-delete.md) и [подсети](../../vpc/operations/subnet-delete.md).
-1. Удалите [Docker-образ](../../cloud-registry/concepts/docker-image.md) из реестра.
+1. Удалите [Docker-образ](../../cloud-registry/concepts/artifacts/docker.md) из реестра.
 1. Удалите [реестр](../../cloud-registry/concepts/registry.md).
 
 

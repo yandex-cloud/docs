@@ -1,6 +1,6 @@
 # Скачать Docker-образ из реестра {{ cloud-registry-name }}
 
-Для скачивания [Docker-образа](../../concepts/docker-image.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.
+Для скачивания [Docker-образа](../../concepts/artifacts/docker.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.
 
 Чтобы работать с Docker-образами, [установите и настройте](installation.md) Docker.
 

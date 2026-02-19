@@ -46,14 +46,14 @@ Shorthand Syntax:
 ```hcl
 {
   saml = {
-    dashboards-url = str,
-    enabled = bool,
-    idp-entity-id = str,
+    dashboards-url = string,
+    enabled = boolean,
+    idp-entity-id = string,
     idp-metadata-file = uint,...,
-    jwt-default-expiration-timeout = int,
-    roles-key = str,
-    sp-entity-id = str,
-    subject-key = str
+    jwt-default-expiration-timeout = integer,
+    roles-key = string,
+    sp-entity-id = string,
+    subject-key = string
   }
 }
 ```
@@ -63,16 +63,16 @@ JSON Syntax:
 ```json
 {
   "saml": {
-    "dashboards-url": "str",
-    "enabled": "bool",
-    "idp-entity-id": "str",
+    "dashboards-url": "string",
+    "enabled": "boolean",
+    "idp-entity-id": "string",
     "idp-metadata-file": [
       "uint", ...
     ],
-    "jwt-default-expiration-timeout": "int",
-    "roles-key": "str",
-    "sp-entity-id": "str",
-    "subject-key": "str"
+    "jwt-default-expiration-timeout": "integer",
+    "roles-key": "string",
+    "sp-entity-id": "string",
+    "subject-key": "string"
   }
 }
 ```
@@ -84,12 +84,12 @@ saml -> (struct)
   SAML settings
   dashboards-url -> (string)
     Required. The OpenSearch Dashboards base URL.
-  enabled -> (bool)
+  enabled -> (boolean)
   idp-entity-id -> (string)
     Required. The entity ID of your IdP.
   idp-metadata-file -> (bytes)
     Required. The SAML 2.0 metadata file of your IdP.
-  jwt-default-expiration-timeout -> (int)
+  jwt-default-expiration-timeout -> (integer)
     default jwt expiration timeout.
   roles-key -> (string)
     Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.
@@ -119,16 +119,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

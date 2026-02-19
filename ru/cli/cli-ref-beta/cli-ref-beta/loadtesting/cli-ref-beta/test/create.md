@@ -44,13 +44,13 @@ Shorthand Syntax:
 [
   {
     agent-selector = {
-      agent = agent-id=str | anonymous-agent=bool | match-by-filter=str
+      agent = agent-id=string | anonymous-agent=boolean | match-by-filter=string
     },
-    config-id = str,
+    config-id = string,
     files = {key={
       file-pointer = object-storage={
-        bucket = str,
-        name = str
+        bucket = string,
+        name = string
       }
     }, key=...}
   }, ...
@@ -64,18 +64,18 @@ JSON Syntax:
   {
     "agent-selector": {
       "agent": {
-        "agent-id": "str",
-        "anonymous-agent": "bool",
-        "match-by-filter": "str"
+        "agent-id": "string",
+        "anonymous-agent": "boolean",
+        "match-by-filter": "string"
       }
     },
-    "config-id": "str",
+    "config-id": "string",
     "files": {
       "<key>": {
         "file-pointer": {
           "object-storage": {
-            "bucket": "str",
-            "name": "str"
+            "bucket": "string",
+            "name": "string"
           }
         }
       }, ...
@@ -95,7 +95,7 @@ agent-selector -> (struct)
       Selection by agent ID.
     match-by-filter -> (string)
       Selection by filter string.
-    anonymous-agent -> (bool)
+    anonymous-agent -> (boolean)
       Select anonymoud (i.e. not registered) agents.
 config-id -> (string)
   ID of the config.
@@ -122,18 +122,18 @@ Shorthand Syntax:
 ```hcl
 {
   artifact-settings = {
-    filter-exclude = str,...,
-    filter-include = str,...,
-    is-archive = bool,
-    upload-to = object-storage-bucket=str
+    filter-exclude = string,...,
+    filter-include = string,...,
+    is-archive = boolean,
+    upload-to = object-storage-bucket=string
   },
-  description = str,
-  logging-log-group-id = str,
-  name = str,
+  description = string,
+  logging-log-group-id = string,
+  name = string,
   tags = [
     {
-      key = str,
-      value = str
+      key = string,
+      value = string
     }, ...
   ]
 }
@@ -145,23 +145,23 @@ JSON Syntax:
 {
   "artifact-settings": {
     "filter-exclude": [
-      "str", ...
+      "string", ...
     ],
     "filter-include": [
-      "str", ...
+      "string", ...
     ],
-    "is-archive": "bool",
+    "is-archive": "boolean",
     "upload-to": {
-      "object-storage-bucket": "str"
+      "object-storage-bucket": "string"
     }
   },
-  "description": "str",
-  "logging-log-group-id": "str",
-  "name": "str",
+  "description": "string",
+  "logging-log-group-id": "string",
+  "name": "string",
   "tags": [
     {
-      "key": "str",
-      "value": "str"
+      "key": "string",
+      "value": "string"
     }, ...
   ]
 }
@@ -176,7 +176,7 @@ artifact-settings -> (struct)
     Filter strings defining which files should be excluded from artifacts. GLOB format. Example: - filter_include=['*'], filter_exclude=['phout.log'] - upload all '.log' files excluding 'phout.log'.
   filter-include -> ([]string)
     Filter strings defining which files should be included to artifacts. GLOB format. Example: - ['*'] - all files will be uploaded. - ['*.log', '*.yaml] - all '.log' and '.yaml' files will be uploaded.
-  is-archive -> (bool)
+  is-archive -> (boolean)
     Setting which defines whether artifact files should be archived prior to uploading.
   upload-to -> (oneof<object-storage-bucket>)
     Oneof upload-to field
@@ -216,16 +216,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.

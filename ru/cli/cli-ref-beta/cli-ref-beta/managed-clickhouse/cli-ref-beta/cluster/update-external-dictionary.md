@@ -29,118 +29,118 @@ Shorthand Syntax:
 ```hcl
 {
   layout = {
-    access-to-key-from-attributes = bool,
-    allow-read-expired-keys = bool,
-    initial-array-size = int,
-    max-array-size = int,
-    max-threads-for-updates = int,
-    max-update-queue-size = int,
-    query-wait-timeout-milliseconds = int,
-    size-in-cells = int,
+    access-to-key-from-attributes = boolean,
+    allow-read-expired-keys = boolean,
+    initial-array-size = integer,
+    max-array-size = integer,
+    max-threads-for-updates = integer,
+    max-update-queue-size = integer,
+    query-wait-timeout-milliseconds = integer,
+    size-in-cells = integer,
     type = FLAT|HASHED|COMPLEX_KEY_HASHED|RANGE_HASHED|CACHE|COMPLEX_KEY_CACHE|SPARSE_HASHED|COMPLEX_KEY_SPARSE_HASHED|COMPLEX_KEY_RANGE_HASHED|DIRECT|COMPLEX_KEY_DIRECT|IP_TRIE,
-    update-queue-push-timeout-milliseconds = int
+    update-queue-push-timeout-milliseconds = integer
   },
-  lifetime = fixed-lifetime=int | lifetime-range={
-    max = int,
-    min = int
+  lifetime = fixed-lifetime=integer | lifetime-range={
+    max = integer,
+    min = integer
   },
-  name = str,
+  name = string,
   source = clickhouse-source={
-    db = str,
-    host = str,
-    password = str,
-    port = int,
-    secure = bool,
-    table = str,
-    user = str,
-    where = str
+    db = string,
+    host = string,
+    password = string,
+    port = integer,
+    secure = boolean,
+    table = string,
+    user = string,
+    where = string
   } | http-source={
-    format = str,
+    format = string,
     headers = [
       {
-        name = str,
-        value = str
+        name = string,
+        value = string
       }, ...
     ],
-    url = str
+    url = string
   } | mongodb-source={
-    collection = str,
-    db = str,
-    host = str,
-    options = str,
-    password = str,
-    port = int,
-    user = str
+    collection = string,
+    db = string,
+    host = string,
+    options = string,
+    password = string,
+    port = integer,
+    user = string
   } | mysql-source={
-    close-connection = bool,
-    db = str,
-    invalidate-query = str,
-    password = str,
-    port = int,
+    close-connection = boolean,
+    db = string,
+    invalidate-query = string,
+    password = string,
+    port = integer,
     replicas = [
       {
-        host = str,
-        password = str,
-        port = int,
-        priority = int,
-        user = str
+        host = string,
+        password = string,
+        port = integer,
+        priority = integer,
+        user = string
       }, ...
     ],
-    share-connection = bool,
-    table = str,
-    user = str,
-    where = str
+    share-connection = boolean,
+    table = string,
+    user = string,
+    where = string
   } | postgresql-source={
-    db = str,
-    hosts = str,...,
-    invalidate-query = str,
-    password = str,
-    port = int,
+    db = string,
+    hosts = string,...,
+    invalidate-query = string,
+    password = string,
+    port = integer,
     ssl-mode = DISABLE|ALLOW|PREFER|VERIFY_CA|VERIFY_FULL,
-    table = str,
-    user = str
+    table = string,
+    user = string
   },
   structure = {
     attributes = [
       {
-        expression = str,
-        hierarchical = bool,
-        injective = bool,
-        name = str,
-        null-value = str,
-        type = str
+        expression = string,
+        hierarchical = boolean,
+        injective = boolean,
+        name = string,
+        null-value = string,
+        type = string
       }, ...
     ],
     id = {
-      name = str
+      name = string
     },
     key = {
       attributes = [
         {
-          expression = str,
-          hierarchical = bool,
-          injective = bool,
-          name = str,
-          null-value = str,
-          type = str
+          expression = string,
+          hierarchical = boolean,
+          injective = boolean,
+          name = string,
+          null-value = string,
+          type = string
         }, ...
       ]
     },
     range-max = {
-      expression = str,
-      hierarchical = bool,
-      injective = bool,
-      name = str,
-      null-value = str,
-      type = str
+      expression = string,
+      hierarchical = boolean,
+      injective = boolean,
+      name = string,
+      null-value = string,
+      type = string
     },
     range-min = {
-      expression = str,
-      hierarchical = bool,
-      injective = bool,
-      name = str,
-      null-value = str,
-      type = str
+      expression = string,
+      hierarchical = boolean,
+      injective = boolean,
+      name = string,
+      null-value = string,
+      type = string
     }
   }
 }
@@ -151,129 +151,129 @@ JSON Syntax:
 ```json
 {
   "layout": {
-    "access-to-key-from-attributes": "bool",
-    "allow-read-expired-keys": "bool",
-    "initial-array-size": "int",
-    "max-array-size": "int",
-    "max-threads-for-updates": "int",
-    "max-update-queue-size": "int",
-    "query-wait-timeout-milliseconds": "int",
-    "size-in-cells": "int",
+    "access-to-key-from-attributes": "boolean",
+    "allow-read-expired-keys": "boolean",
+    "initial-array-size": "integer",
+    "max-array-size": "integer",
+    "max-threads-for-updates": "integer",
+    "max-update-queue-size": "integer",
+    "query-wait-timeout-milliseconds": "integer",
+    "size-in-cells": "integer",
     "type": "FLAT|HASHED|COMPLEX_KEY_HASHED|RANGE_HASHED|CACHE|COMPLEX_KEY_CACHE|SPARSE_HASHED|COMPLEX_KEY_SPARSE_HASHED|COMPLEX_KEY_RANGE_HASHED|DIRECT|COMPLEX_KEY_DIRECT|IP_TRIE",
-    "update-queue-push-timeout-milliseconds": "int"
+    "update-queue-push-timeout-milliseconds": "integer"
   },
   "lifetime": {
-    "fixed-lifetime": "int",
+    "fixed-lifetime": "integer",
     "lifetime-range": {
-      "max": "int",
-      "min": "int"
+      "max": "integer",
+      "min": "integer"
     }
   },
-  "name": "str",
+  "name": "string",
   "source": {
     "clickhouse-source": {
-      "db": "str",
-      "host": "str",
-      "password": "str",
-      "port": "int",
-      "secure": "bool",
-      "table": "str",
-      "user": "str",
-      "where": "str"
+      "db": "string",
+      "host": "string",
+      "password": "string",
+      "port": "integer",
+      "secure": "boolean",
+      "table": "string",
+      "user": "string",
+      "where": "string"
     },
     "http-source": {
-      "format": "str",
+      "format": "string",
       "headers": [
         {
-          "name": "str",
-          "value": "str"
+          "name": "string",
+          "value": "string"
         }, ...
       ],
-      "url": "str"
+      "url": "string"
     },
     "mongodb-source": {
-      "collection": "str",
-      "db": "str",
-      "host": "str",
-      "options": "str",
-      "password": "str",
-      "port": "int",
-      "user": "str"
+      "collection": "string",
+      "db": "string",
+      "host": "string",
+      "options": "string",
+      "password": "string",
+      "port": "integer",
+      "user": "string"
     },
     "mysql-source": {
-      "close-connection": "bool",
-      "db": "str",
-      "invalidate-query": "str",
-      "password": "str",
-      "port": "int",
+      "close-connection": "boolean",
+      "db": "string",
+      "invalidate-query": "string",
+      "password": "string",
+      "port": "integer",
       "replicas": [
         {
-          "host": "str",
-          "password": "str",
-          "port": "int",
-          "priority": "int",
-          "user": "str"
+          "host": "string",
+          "password": "string",
+          "port": "integer",
+          "priority": "integer",
+          "user": "string"
         }, ...
       ],
-      "share-connection": "bool",
-      "table": "str",
-      "user": "str",
-      "where": "str"
+      "share-connection": "boolean",
+      "table": "string",
+      "user": "string",
+      "where": "string"
     },
     "postgresql-source": {
-      "db": "str",
+      "db": "string",
       "hosts": [
-        "str", ...
+        "string", ...
       ],
-      "invalidate-query": "str",
-      "password": "str",
-      "port": "int",
+      "invalidate-query": "string",
+      "password": "string",
+      "port": "integer",
       "ssl-mode": "DISABLE|ALLOW|PREFER|VERIFY_CA|VERIFY_FULL",
-      "table": "str",
-      "user": "str"
+      "table": "string",
+      "user": "string"
     }
   },
   "structure": {
     "attributes": [
       {
-        "expression": "str",
-        "hierarchical": "bool",
-        "injective": "bool",
-        "name": "str",
-        "null-value": "str",
-        "type": "str"
+        "expression": "string",
+        "hierarchical": "boolean",
+        "injective": "boolean",
+        "name": "string",
+        "null-value": "string",
+        "type": "string"
       }, ...
     ],
     "id": {
-      "name": "str"
+      "name": "string"
     },
     "key": {
       "attributes": [
         {
-          "expression": "str",
-          "hierarchical": "bool",
-          "injective": "bool",
-          "name": "str",
-          "null-value": "str",
-          "type": "str"
+          "expression": "string",
+          "hierarchical": "boolean",
+          "injective": "boolean",
+          "name": "string",
+          "null-value": "string",
+          "type": "string"
         }, ...
       ]
     },
     "range-max": {
-      "expression": "str",
-      "hierarchical": "bool",
-      "injective": "bool",
-      "name": "str",
-      "null-value": "str",
-      "type": "str"
+      "expression": "string",
+      "hierarchical": "boolean",
+      "injective": "boolean",
+      "name": "string",
+      "null-value": "string",
+      "type": "string"
     },
     "range-min": {
-      "expression": "str",
-      "hierarchical": "bool",
-      "injective": "bool",
-      "name": "str",
-      "null-value": "str",
-      "type": "str"
+      "expression": "string",
+      "hierarchical": "boolean",
+      "injective": "boolean",
+      "name": "string",
+      "null-value": "string",
+      "type": "string"
     }
   }
 }
@@ -284,25 +284,25 @@ Fields:
 ```
 layout -> (struct)
   Layout determining how to store the dictionary in memory. For details, see https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory.
-  access-to-key-from-attributes -> (bool)
+  access-to-key-from-attributes -> (boolean)
     Allows to retrieve key attribute using **dictGetString** function. Enabling this option increases memory usage. Applicable only for **IP_TRIE** layout type. For details, see ClickHouse documentation.
-  allow-read-expired-keys -> (bool)
+  allow-read-expired-keys -> (boolean)
     Allows to read expired keys. Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types. Default value: **false**. For details, see ClickHouse documentation.
-  initial-array-size -> (int)
+  initial-array-size -> (integer)
     Initial dictionary key size. Applicable only for **FLAT** layout type. Default value: **1024**. For details, see ClickHouse documentation.
-  max-array-size -> (int)
+  max-array-size -> (integer)
     Maximum dictionary key size. Applicable only for **FLAT** layout type. Default value: **500000**. For details, see ClickHouse documentation.
-  max-threads-for-updates -> (int)
+  max-threads-for-updates -> (integer)
     Max threads for cache dictionary update. Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types. Default value: **4**. For details, see ClickHouse documentation.
-  max-update-queue-size -> (int)
+  max-update-queue-size -> (integer)
     Max size of update queue. Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types. Default value: **100000**. For details, see ClickHouse documentation.
-  query-wait-timeout-milliseconds -> (int)
+  query-wait-timeout-milliseconds -> (integer)
     Max wait timeout in milliseconds for update task to complete. Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types. Default value: **60000** (1 minute). For details, see ClickHouse documentation.
-  size-in-cells -> (int)
+  size-in-cells -> (integer)
     Number of cells in the cache. Rounded up to a power of two. Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types. Default value: **1000000000**. For details, see ClickHouse documentation.
   type -> (struct)
     Layout type. For details, see ClickHouse documentation.
-  update-queue-push-timeout-milliseconds -> (int)
+  update-queue-push-timeout-milliseconds -> (integer)
     Max timeout in milliseconds for push update task into queue. Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types. Default value: **10**. For details, see ClickHouse documentation.
 name -> (string)
   Name of the external dictionary.
@@ -312,9 +312,9 @@ structure -> (struct)
     Description of the fields available for database queries. For details, see ClickHouse documentation.
     expression -> (string)
       Expression, describing the attribute, if applicable.
-    hierarchical -> (bool)
+    hierarchical -> (boolean)
       Indication of hierarchy support. Default value: **false**.
-    injective -> (bool)
+    injective -> (boolean)
       Indication of injective mapping "id -> attribute". Default value: **false**.
     name -> (string)
       Name of the column.
@@ -332,9 +332,9 @@ structure -> (struct)
       Attributes of a complex key.
       expression -> (string)
         Expression, describing the attribute, if applicable.
-      hierarchical -> (bool)
+      hierarchical -> (boolean)
         Indication of hierarchy support. Default value: **false**.
-      injective -> (bool)
+      injective -> (boolean)
         Indication of injective mapping "id -> attribute". Default value: **false**.
       name -> (string)
         Name of the column.
@@ -346,9 +346,9 @@ structure -> (struct)
     Field holding the end of the range for dictionaries with **RANGE_HASHED** layout. For details, see ClickHouse documentation.
     expression -> (string)
       Expression, describing the attribute, if applicable.
-    hierarchical -> (bool)
+    hierarchical -> (boolean)
       Indication of hierarchy support. Default value: **false**.
-    injective -> (bool)
+    injective -> (boolean)
       Indication of injective mapping "id -> attribute". Default value: **false**.
     name -> (string)
       Name of the column.
@@ -360,9 +360,9 @@ structure -> (struct)
     Field holding the beginning of the range for dictionaries with **RANGE_HASHED** layout. For details, see ClickHouse documentation.
     expression -> (string)
       Expression, describing the attribute, if applicable.
-    hierarchical -> (bool)
+    hierarchical -> (boolean)
       Indication of hierarchy support. Default value: **false**.
-    injective -> (bool)
+    injective -> (boolean)
       Indication of injective mapping "id -> attribute". Default value: **false**.
     name -> (string)
       Name of the column.
@@ -372,13 +372,13 @@ structure -> (struct)
       Type of the column.
 lifetime -> (oneof<fixed-lifetime|lifetime-range>)
   Oneof lifetime field
-  fixed-lifetime -> (int)
+  fixed-lifetime -> (integer)
     Fixed interval between dictionary updates.
   lifetime-range -> (struct)
     Range of intervals between dictionary updates for ClickHouse to choose from.
-    max -> (int)
+    max -> (integer)
       Maximum dictionary lifetime.
-    min -> (int)
+    min -> (integer)
       Minimum dictionary lifetime.
 source -> (oneof<clickhouse-source|http-source|mongodb-source|mysql-source|postgresql-source>)
   Oneof source field
@@ -396,7 +396,7 @@ source -> (oneof<clickhouse-source|http-source|mongodb-source|mysql-source|postg
       URL of the source dictionary available over HTTP.
   mysql-source -> (struct)
     MySQL source for the dictionary.
-    close-connection -> (bool)
+    close-connection -> (boolean)
       Should a connection be closed after each request.
     db -> (string)
       Database name.
@@ -404,7 +404,7 @@ source -> (oneof<clickhouse-source|http-source|mongodb-source|mysql-source|postg
       Query for checking the dictionary status, to pull only updated data.
     password -> (string)
       Password of the user for replicas of the dictionary source.
-    port -> (int)
+    port -> (integer)
       Port to use when connecting to a replica of the dictionary source.
     replicas -> ([]struct)
       List of MySQL replicas of the database used as dictionary source.
@@ -412,13 +412,13 @@ source -> (oneof<clickhouse-source|http-source|mongodb-source|mysql-source|postg
         MySQL host of the replica.
       password -> (string)
         Password of the MySQL database user. If a password is not specified for a replica, ClickHouse uses the password specified for the source.
-      port -> (int)
+      port -> (integer)
         Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source.
-      priority -> (int)
+      priority -> (integer)
         The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number.
       user -> (string)
         Name of the MySQL database user. If a user is not specified for a replica, ClickHouse uses the user specified for the source.
-    share-connection -> (bool)
+    share-connection -> (boolean)
       Should a connection be shared for some requests.
     table -> (string)
       Table name.
@@ -434,9 +434,9 @@ source -> (oneof<clickhouse-source|http-source|mongodb-source|mysql-source|postg
       ClickHouse host.
     password -> (string)
       Password of the ClickHouse database user.
-    port -> (int)
+    port -> (integer)
       Port to use when connecting to the host.
-    secure -> (bool)
+    secure -> (boolean)
       Determines whether to use TLS for connection.
     table -> (string)
       Table name.
@@ -456,7 +456,7 @@ source -> (oneof<clickhouse-source|http-source|mongodb-source|mysql-source|postg
       Dictionary source options.
     password -> (string)
       Password of the MongoDB database user.
-    port -> (int)
+    port -> (integer)
       Port to use when connecting to the host.
     user -> (string)
       Name of the MongoDB database user.
@@ -470,7 +470,7 @@ source -> (oneof<clickhouse-source|http-source|mongodb-source|mysql-source|postg
       Query for checking the dictionary status, to pull only updated data.
     password -> (string)
       Password of the PostrgreSQL database user.
-    port -> (int)
+    port -> (integer)
       Port to use when connecting to the PostgreSQL hosts.
     ssl-mode -> (struct)
       Mode of SSL TCP/IP connection to the PostgreSQL host.
@@ -500,16 +500,7 @@ Set the region. ||
 Set the custom pager. ||
 || `--format` | `string`
 
-Set the output format: text, yaml, json, table, summary. ||
-|| `--summary` | `strings`
-
-Fields to include in summary output.
-Each value is a dot-separated path to a field.
-Examples:
-  --summary instance.id                  # simple field
-  --summary instance.type                # another simple field
-  --summary instance.disks.size          # collect values from all list elements
-  --summary instance.disks[0].size       # field from a specific list element ||
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
