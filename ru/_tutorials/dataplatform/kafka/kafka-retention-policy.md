@@ -7,7 +7,7 @@
 Потерю сообщений можно отслеживать с помощью [метрик](../../../managed-kafka/metrics.md) сервиса {{ mkf-name }}, поставляемых в [{{ monitoring-name }}](../../../monitoring/concepts/index.md). Если значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений группой потребителей.
 
 В этом руководстве вы:
-* Смоделируете потерю сообщений в топике на тестовом кластере {{ mkf-name }}, используя [инструменты подключения к топику](https://kafka.apache.org/downloads).
+* Смоделируете потерю сообщений в топике на тестовом кластере {{ mkf-name }}, используя [инструменты подключения к топику](https://kafka.apache.org/community/downloads/).
 * Построите график метрик `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset` с помощью сервиса {{ monitoring-full-name }}, а также проследите закономерности, возникающие при потере сообщений.
 
 Чтобы смоделировать и отследить потерю сообщений в топике {{ KF }}:
@@ -66,7 +66,7 @@
        sudo apt update && sudo apt install --yes default-jdk
        ```
 
-    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/downloads) для версии {{ KF }}, которая используется в кластере. Версия Scala не важна.
+    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala не важна.
 
     1. Распакуйте архив.
 
@@ -100,7 +100,7 @@
 
     1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/downloads) для версии {{ KF }}, которая используется в кластере. Версия Scala не важна.
+    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala не важна.
 
     1. Распакуйте архив.
 

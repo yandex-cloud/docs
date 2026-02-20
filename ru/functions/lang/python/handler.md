@@ -40,9 +40,11 @@ _Обработчик запросов_ — это метод, который и
 
 В качестве среды исполнения асинхронных функций поддерживается только библиотека `asyncio`. 
 
+Начиная с Python 3.14, `asyncio.get_event_loop()` не создает [event loop](https://docs.python.org/3/library/asyncio-eventloop.html) автоматически, а вызывает ошибку `RuntimeError`. Используйте `asyncio.get_running_loop()` для управления асинхронными обработчиками. См. [пример](#async-python314-example).
+
 {% endnote %}
 
-Подробнее о разработке с помощью `async/await` читайте в [соответствующем разделе документации](https://docs.python.org/3.7/library/asyncio.html).
+Подробнее о разработке с помощью `async/await` читайте в [соответствующем разделе документации](https://docs.python.org/3.14/library/asyncio.html).
 
 ## Примеры {#examples}
 
@@ -166,3 +168,45 @@ curl \
 }
 ```
 
+### Использование асинхронного обработчика в Python 3.14 {#async-python314-example}
+
+Следующая функция демонстрирует работу с асинхронным обработчиком в Python 3.14 и выше, где требуется явное управление event loop:
+
+```python
+import asyncio
+import json
+
+def handler(event, context):
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    
+    async def async_handler():
+        current_loop = asyncio.get_running_loop()
+        current_time = current_loop.time()
+        
+        return {
+            'statusCode': 200,
+            'body': json.dumps({
+                'message': 'Async handler with explicit loop creation',
+                'loop_time': current_time,
+                'python_version': '3.14',
+            })
+        }
+    
+    return loop.run_until_complete(async_handler())
+```
+
+Пример вызова функции:
+
+```bash
+curl \
+  --data '{"test": "asyncio"}' \
+  --header 'Content-Type: application/json' \
+  https://{{ sf-url }}/<идентификатор_функции>
+```
+
+Результат:
+
+```json
+{"message": "Async handler with explicit loop creation", "loop_time": 3.522407882, "python_version": "3.14"}
+```

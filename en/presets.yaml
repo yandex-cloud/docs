@@ -134,6 +134,7 @@ default:
   cns-host: notifications.yandexcloud.net
   cns-name: Cloud Notification Service
   cns-short-name: CNS
+  code-interpreter: Code Interpreter
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -6670,6 +6671,7 @@ default:
         label_autoscale-section: Autoscale settings
         label_configuration-section: Configuration
         label_instances-title: Instances list
+        runners_popup-confirm_button_delete: Delete
         switch_instances: Instances
         title_backups: Backups
         title_migration: Migration

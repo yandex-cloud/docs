@@ -6,6 +6,38 @@ editable: false
 
 
 
+## 0.188.0 (February 19, 2026)
+##### FEATURES:
+* datalens: add yandex_datalens_connection resource and data source
+* opensearch: add server configs max_clause_count,fielddata_cache_size,reindex_remote_whitelist
+##### BUG FIXES:
+* redis: fix to import timeout
+* CDN: Fix host options (Issue #365)
+##### ENHANCEMENTS:
+* kafka: add support for version 4 in `getSuffixVersion`
+* spark: fixed acc test
+
+## 0.187.0 (February 16, 2026)
+##### FEATURES:
+* airflow: add `yandex_airflow_cluster_iam_binding` resource
+* clickhouse: add `yandex_mdb_clickhouse_cluster_iam_binding` resource
+* dataproc: add `yandex_dataproc_cluster_iam_binding` resource
+* greenplum: add `yandex_mdb_greenplum_cluster_iam_binding` resource
+* kafka: add `yandex_mdb_kafka_cluster_iam_binding` resource
+* metastore: add `yandex_metastore_cluster_iam_binding` resource
+* mongodb: add `yandex_mdb_mongodb_cluster_iam_binding` resource
+* mysql: add `yandex_mdb_mysql_cluster_iam_binding` resource
+* opensearch: add `yandex_mdb_opensearch_cluster_iam_binding` resource
+* postgresql: add `yandex_mdb_postgresql_cluster_iam_binding` resource
+* redis: add `yandex_mdb_redis_cluster_iam_binding` resource
+* sharded_postgresql: add `yandex_mdb_sharded_postgresql_cluster_iam_binding` resource
+* spark: add `yandex_spark_cluster_iam_binding` resource
+* trino: add `yandex_trino_cluster_iam_binding` resource
+* mdb_clickhouse: added support for disk size autoscaling
+##### BUG FIXES:
+* CDN: Fix query params (Issue #368)
+* mdb_clickhouse: allow adding zookeeper hosts with zookeeper.resources in same apply
+
 ## 0.186.0 (February 12, 2026)
 ##### ENHANCEMENTS:
 * mdb_clickhouse: add ConfigValidators to prevent conflicting `clickhouse.resources` and `shards[*].resources` configuration

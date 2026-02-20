@@ -219,6 +219,7 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
         - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-opensearch/concepts).
   - `opensearch` [Block]. Configuration for OpenSearch node groups.
     - `plugins` (Set Of String). A set of requested OpenSearch plugins.
+    - `config` [Block]. OpenSearch server configuration settings.
     - `node_groups` [Block]. A set of named OpenSearch node group configurations.
       - `assign_public_ip` (Bool). Sets whether the hosts should get a public IP address.
       - `disk_size_autoscaling` [Block]. Node group disk size autoscaling settings.

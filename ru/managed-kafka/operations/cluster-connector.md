@@ -532,7 +532,7 @@
     * `key.converter`
     * `value.converter`
 
-    Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#connectconfigs).
+    Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -548,7 +548,7 @@
         * `key.converter`
         * `value.converter`
 
-        Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#connectconfigs).
+        Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * `--replication-factor` — количество копий топика, хранящихся в кластере.
     * `--topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
@@ -577,7 +577,7 @@
         * `key.converter`
         * `value.converter`
 
-      Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#connectconfigs).
+      Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * **topics** — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
     * **replication_factor** — количество копий топика, хранящихся в кластере.
@@ -709,7 +709,7 @@
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#connectconfigs).
+      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -722,7 +722,7 @@
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#connectconfigs).
+      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * `--topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
     * `--file-compression-type` — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
@@ -752,7 +752,7 @@
         * `value.converter.schemas.enable`
         * `format.output.type`
 
-      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#connectconfigs).
+      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * **topics** — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
     * **file_compression_type** — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:

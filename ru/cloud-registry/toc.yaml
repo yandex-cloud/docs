@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Создание реестра
         href: operations/registry/create.md
+      - name: Создание политики жизненного цикла
+        href: operations/lifecycle-policy/create.md
       - name: Управление артефактами
         items:
           - name: Docker-образ
@@ -61,6 +63,8 @@ items:
           Запуск Docker-образа на виртуальной машине с помощью {{
           cloud-registry-name }}
         href: tutorials/docker-cloud-registry.md
+      - name: Настройка политик жизненного цикла
+        href: tutorials/lifecycle-policy-examples.md
   - name: Концепции
     items:
       - name: Обзор
@@ -83,6 +87,10 @@ items:
             href: concepts/artifacts/python.md
           - name: Binary-артефакт
             href: concepts/artifacts/binary.md
+      - name: Политика жизненного цикла
+        href: concepts/lifecycle-policy.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

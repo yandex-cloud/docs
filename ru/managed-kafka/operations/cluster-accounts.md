@@ -636,7 +636,7 @@ description: Следуя данной инструкции, вы сможете
      * `ACCESS_ROLE_CONSUMER`: потребителям, которые используют этого пользователя, будет разрешен доступ к топику.
      * `ACCESS_ROLE_PRODUCER`: производителям, которые используют этого пользователя, будет разрешен доступ к топику.
      * `ACCESS_ROLE_ADMIN`: роль доступна только если выбран доступ к любым топикам.
-     * `ACCESS_ROLE_TOPIC_ADMIN`: роль с максимальными правами на управление топиками через [Admin API {{ KF }}](https://kafka.apache.org/documentation/#adminapi).
+     * `ACCESS_ROLE_TOPIC_ADMIN`: роль с максимальными правами на управление топиками через [Admin API {{ KF }}](https://kafka.apache.org/42/apis/#admin-api).
 
      Вы можете выбрать роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` одновременно — тогда пользователь будет подходить и производителям, и потребителям.
 

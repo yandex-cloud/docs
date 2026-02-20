@@ -79,12 +79,16 @@ items:
         items:
           - name: Управление расширениями
             href: operations/extensions/cluster-extensions.md
+          - name: gp_relaccess_stats
+            href: operations/extensions/gp_relaccess_stats.md
           - name: gp_relsizes_stats
             href: operations/extensions/gp-relsizes-stats.md
           - name: gp_url_tools
             href: operations/extensions/gp-url-tools.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: try_convert
+            href: operations/extensions/try_convert.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
           - name: Yezzey

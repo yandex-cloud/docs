@@ -6,6 +6,7 @@ description: В этом разделе собраны пошаговые инс
 # Пошаговые инструкции для {{ cloud-registry-name }}
 
 * [Создание реестра](registry/create.md)
+* [Создание политики жизненного цикла](lifecycle-policy/create.md)
 
 ## Управление артефактами {#artifact}
 

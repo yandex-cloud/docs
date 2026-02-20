@@ -48,4 +48,4 @@ description: '{{ KF }} — это распределенная система д
 
 {% include [kraft-cluster-topology](../../_includes/mdb/mkf/kraft-cluster-topology.md) %}
 
-Более подробная информация приведена [в документации {{ KF }}](https://kafka.apache.org/intro).
+Более подробная информация приведена [в документации {{ KF }}](https://kafka.apache.org/42/operations/kraft/).

@@ -45,7 +45,7 @@ data "yandex_spark_cluster" "spark_cluster_by_id" {
       - `min_size` (Number). Minimum node count for the executor pool with autoscaling.
       - `resource_preset_id` (**Required**)(String). Resource preset ID for the executor pool.
       - `size` (Number). Node count for the executor pool with fixed size.
-  - `spark_version` (String). Version of Apache Spark. Format: Major.Minor
+  - `spark_version` (String). Version of Apache Spark.
 - `created_at` (*Read-Only*) (String). The timestamp when the cluster was created.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
 - `description` (String). Description of the cluster. 0-256 characters long.

@@ -35,7 +35,7 @@
 * **{{ ui-key.yacloud.kafka.label_replication-factor }}** — `3`.
 * **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}** — `2`.
 
-При этом в конфигурации [производителя](producers-consumers.md) рекомендуется указать параметр `acks=all`. Тогда запись сообщения в топик будет считаться успешной только после того, как {{ KF }} получит подтверждение о записи от количества хостов-брокеров, указанного в параметре **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**. Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#producerconfigs_acks).
+При этом в конфигурации [производителя](producers-consumers.md) рекомендуется указать параметр `acks=all`. Тогда запись сообщения в топик будет считаться успешной только после того, как {{ KF }} получит подтверждение о записи от количества хостов-брокеров, указанного в параметре **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**. Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/producer-configs/#producerconfigs_acks).
 
 ## Доступность кластера при обслуживании {#maintenance}
 
@@ -61,3 +61,4 @@
 ### См. также {#see-also}
 
 * [{#T}](../../architecture/fault-tolerance.md)
+
