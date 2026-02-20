@@ -504,10 +504,14 @@ resource "yandex_vpc_subnet" "baz" {
     - `zookeeper_log_enabled` (Bool). Enable or disable zookeeper_log system table.
     - `zookeeper_log_retention_size` (Number). The maximum size that zookeeper_log can grow to before old data will be removed.
     - `zookeeper_log_retention_time` (Number). The maximum time that zookeeper_log records will be retained before removal.
+  - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
+    - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
+    - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+    - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
   - `resources` [Block]. Resources allocated to hosts.
-    - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
-    - `disk_type_id` (**Required**)(String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
-    - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
+    - `disk_size` (Number). Volume of the storage available to a host, in gigabytes.
+    - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
+    - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
 - `cloud_storage` [Block]. Cloud Storage settings.
   - `data_cache_enabled` (Bool). Enables temporary storage in the cluster repository of data requested from the object repository.
   - `data_cache_max_size` (Number). Defines the maximum amount of memory (in bytes) allocated in the cluster storage for temporary storage of data requested from the object storage.
@@ -537,6 +541,10 @@ resource "yandex_vpc_subnet" "baz" {
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `service_account_id` (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `shards` [Block]. A shards of the ClickHouse cluster.
+  - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
+    - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
+    - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+    - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
   - `resources` [Block]. Resources allocated to hosts.
     - `disk_size` (Number). Volume of the storage available to a host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
@@ -546,10 +554,14 @@ resource "yandex_vpc_subnet" "baz" {
 - `sql_user_management` (Bool). Enables `admin` user with user management permission.
 - `version` (String). Version of the ClickHouse server software.
 - `zookeeper` [Block]. Configuration of the ZooKeeper subcluster.
+  - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
+    - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
+    - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+    - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
   - `resources` [Block]. Resources allocated to hosts.
-    - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
-    - `disk_type_id` (**Required**)(String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
-    - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
+    - `disk_size` (Number). Volume of the storage available to a host, in gigabytes.
+    - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
+    - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
 - `format_schema` [Block]. A set of `protobuf` or `capnproto` format schemas.
   - `name` (**Required**)(String). The name of the format schema.
   - `type` (**Required**)(String). Type of the format schema.

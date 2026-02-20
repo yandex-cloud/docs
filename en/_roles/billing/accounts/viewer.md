@@ -12,13 +12,3 @@ To use the `billing.accounts.viewer` role, you need to assign it for a billing a
 
 {% endcut %}
 
-
-{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
-
-* View assigned [specializations](../../../partner/specializations/index.md).
-* View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
-* View the status of settlements with the [referrer company](../../../partner/terms.md#referral-partner).
-* View the list of referral links.
-
-{% endcut %}
-

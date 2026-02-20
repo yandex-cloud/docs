@@ -60,7 +60,7 @@
         sudo tar xf kafka_2.13-3.0.0.tgz --strip 1 --directory /opt/kafka/
         ```
 
-        Актуальную версию {{ KF }} уточняйте на [странице загрузок проекта](https://kafka.apache.org/downloads).
+        Актуальную версию {{ KF }} уточняйте на [странице загрузок проекта](https://kafka.apache.org/community/downloads/).
 
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 

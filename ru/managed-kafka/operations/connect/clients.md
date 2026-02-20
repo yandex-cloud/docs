@@ -111,7 +111,7 @@ sudo apt update && sudo apt install -y kafkacat
     sudo apt update && sudo apt install --yes default-jdk
     ```
 
-1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/downloads) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
+1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
 
 1. Распакуйте архив.
 
@@ -212,7 +212,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/downloads) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
+1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
 
 1. Распакуйте архив.
 

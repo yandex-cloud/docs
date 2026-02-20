@@ -18,8 +18,8 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Создайте пользователей](../cluster-accounts.md#create-account) для клиентов (производителей и потребителей) с доступами в нужные топики.
 1. Подключите клиентов к кластеру:
-   * производителей с помощью [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi);
-   * потребителей с помощью [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).
+   * производителей с помощью [Kafka Producer API](https://kafka.apache.org/42/apis/#producer-api);
+   * потребителей с помощью [Kafka Consumer API](https://kafka.apache.org/42/apis/#consumer-api).
 
 Для большинства популярных языков программирования существуют готовые реализации API {{ KF }}. Примеры использования приведены в разделе [Примеры кода](code-examples.md).
 

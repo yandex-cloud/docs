@@ -168,7 +168,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 
 {% note info %}
 
-В этом разделе приведены только основные метрики {{ mkf-name }}, поставляемые в {{ monitoring-name }}. Подробнее обо всех метриках {{ mkf-name }} можно посмотреть в [официальной документации](https://kafka.apache.org/documentation.html#monitoring).
+В этом разделе приведены только основные метрики {{ mkf-name }}, поставляемые в {{ monitoring-name }}. Подробнее обо всех метриках {{ mkf-name }} можно посмотреть в [официальной документации](https://kafka.apache.org/42/operations/monitoring/).
 
 {% endnote %}
 

@@ -12,7 +12,7 @@ description: '[_Мой аккаунт_]({{ link-my-account }}) — это лич
 * ![alt](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.groups_pqQRu }}** — просмотр групп пользователя.
 * ![alt](../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.activity_kyqSv }}** — просмотр аудитных [логов](logs.md) пользователя.
 
-Доступность [функциональности](../operations/manage-account.md) портала Мой аккаунт зависит от [типа аккаунта](../../iam/concepts/users/accounts.md).
+Доступность [функциональности](../operations/manage-account.md) портала «Мой аккаунт» зависит от [типа аккаунта](../../iam/concepts/users/accounts.md).
 
 #### См. также {#see-also}
 

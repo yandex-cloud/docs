@@ -1,5 +1,4 @@
-| Service | Price per unit of tariffing, <br>including VAT |
+| **Service** | **Price per unit of tariffing, <br>without VAT** |
 |---------| --- |
 | Incoming audio, per 1 second | {{ sku|USD|foundation_models.realtime_audio.input.v1|string }} |
 | Outgoing audio, per 1 second | {{ sku|USD|foundation_models.realtime_audio.output.v1|string }} |
-| Text generation (input and output tokens), per 1000 tokens | {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ^1^ |

@@ -288,6 +288,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: cloudregistry_lifecycle_policy
+                    href: data-sources/cloudregistry_lifecycle_policy.md
+                    title: ''
                   - name: cloudregistry_registry
                     href: data-sources/cloudregistry_registry.md
                     title: ''
@@ -297,6 +300,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: cloudregistry_lifecycle_policy
+                    href: resources/cloudregistry_lifecycle_policy.md
+                    title: ''
                   - name: cloudregistry_registry
                     href: resources/cloudregistry_registry.md
                     title: ''
@@ -482,6 +488,21 @@ items:
                     title: ''
                   - name: datatransfer_transfer
                     href: resources/datatransfer_transfer.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: DataLens
+            items:
+              - name: Data Sources
+                items:
+                  - name: datalens_connection
+                    href: data-sources/datalens_connection.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: datalens_connection
+                    href: resources/datalens_connection.md
                     title: ''
                 title: ''
             title: ''
@@ -816,6 +837,9 @@ items:
                   - name: airflow_cluster
                     href: resources/airflow_cluster.md
                     title: ''
+                  - name: airflow_cluster_iam_binding
+                    href: resources/airflow_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for Apache Kafka®
@@ -839,6 +863,9 @@ items:
                 items:
                   - name: mdb_kafka_cluster
                     href: resources/mdb_kafka_cluster.md
+                    title: ''
+                  - name: mdb_kafka_cluster_iam_binding
+                    href: resources/mdb_kafka_cluster_iam_binding.md
                     title: ''
                   - name: mdb_kafka_connector
                     href: resources/mdb_kafka_connector.md
@@ -872,6 +899,9 @@ items:
                 items:
                   - name: mdb_clickhouse_cluster
                     href: resources/mdb_clickhouse_cluster.md
+                    title: ''
+                  - name: mdb_clickhouse_cluster_iam_binding
+                    href: resources/mdb_clickhouse_cluster_iam_binding.md
                     title: ''
                   - name: mdb_clickhouse_cluster_v2
                     href: resources/mdb_clickhouse_cluster_v2.md
@@ -921,6 +951,9 @@ items:
                   - name: mdb_greenplum_cluster
                     href: resources/mdb_greenplum_cluster.md
                     title: ''
+                  - name: mdb_greenplum_cluster_iam_binding
+                    href: resources/mdb_greenplum_cluster_iam_binding.md
+                    title: ''
                   - name: mdb_greenplum_cluster_v2
                     href: resources/mdb_greenplum_cluster_v2.md
                     title: ''
@@ -945,6 +978,9 @@ items:
                   - name: metastore_cluster
                     href: resources/metastore_cluster.md
                     title: ''
+                  - name: metastore_cluster_iam_binding
+                    href: resources/metastore_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for MongoDB
@@ -965,6 +1001,9 @@ items:
                 items:
                   - name: mdb_mongodb_cluster
                     href: resources/mdb_mongodb_cluster.md
+                    title: ''
+                  - name: mdb_mongodb_cluster_iam_binding
+                    href: resources/mdb_mongodb_cluster_iam_binding.md
                     title: ''
                   - name: mdb_mongodb_database
                     href: resources/mdb_mongodb_database.md
@@ -993,6 +1032,9 @@ items:
                   - name: mdb_mysql_cluster
                     href: resources/mdb_mysql_cluster.md
                     title: ''
+                  - name: mdb_mysql_cluster_iam_binding
+                    href: resources/mdb_mysql_cluster_iam_binding.md
+                    title: ''
                   - name: mdb_mysql_cluster_v2
                     href: resources/mdb_mysql_cluster_v2.md
                     title: ''
@@ -1017,6 +1059,9 @@ items:
                   - name: mdb_opensearch_cluster
                     href: resources/mdb_opensearch_cluster.md
                     title: ''
+                  - name: mdb_opensearch_cluster_iam_binding
+                    href: resources/mdb_opensearch_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for PostgreSQL
@@ -1038,6 +1083,9 @@ items:
                   - name: mdb_postgresql_cluster
                     href: resources/mdb_postgresql_cluster.md
                     title: ''
+                  - name: mdb_postgresql_cluster_iam_binding
+                    href: resources/mdb_postgresql_cluster_iam_binding.md
+                    title: ''
                   - name: mdb_postgresql_cluster_v2
                     href: resources/mdb_postgresql_cluster_v2.md
                     title: ''
@@ -1055,6 +1103,9 @@ items:
                 items:
                   - name: mdb_sharded_postgresql_cluster
                     href: resources/mdb_sharded_postgresql_cluster.md
+                    title: ''
+                  - name: mdb_sharded_postgresql_cluster_iam_binding
+                    href: resources/mdb_sharded_postgresql_cluster_iam_binding.md
                     title: ''
                   - name: mdb_sharded_postgresql_database
                     href: resources/mdb_sharded_postgresql_database.md
@@ -1092,6 +1143,9 @@ items:
                   - name: trino_cluster
                     href: resources/trino_cluster.md
                     title: ''
+                  - name: trino_cluster_iam_binding
+                    href: resources/trino_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for ValKey
@@ -1112,6 +1166,9 @@ items:
                 items:
                   - name: mdb_redis_cluster
                     href: resources/mdb_redis_cluster.md
+                    title: ''
+                  - name: mdb_redis_cluster_iam_binding
+                    href: resources/mdb_redis_cluster_iam_binding.md
                     title: ''
                   - name: mdb_redis_cluster_v2
                     href: resources/mdb_redis_cluster_v2.md
@@ -1196,6 +1253,9 @@ items:
                 items:
                   - name: spark_cluster
                     href: resources/spark_cluster.md
+                    title: ''
+                  - name: spark_cluster_iam_binding
+                    href: resources/spark_cluster_iam_binding.md
                     title: ''
                 title: ''
             title: ''
@@ -1469,6 +1529,9 @@ items:
                 items:
                   - name: dataproc_cluster
                     href: resources/dataproc_cluster.md
+                    title: ''
+                  - name: dataproc_cluster_iam_binding
+                    href: resources/dataproc_cluster_iam_binding.md
                     title: ''
                 title: ''
             title: ''

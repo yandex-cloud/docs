@@ -200,9 +200,9 @@
     * **Enable ssl certificate verification** — определяет, будет ли проводиться проверка SSL-сертификата. По умолчанию выбрано значение `false`.
     * **Max poll interval ms** — максимальный интервал (в миллисекундах) между вызовами для получения сообщений высокоуровневых потребителей. При превышении интервала пользователь удаляется из группы и запускается перебалансировка. По умолчанию значение не задано (эквивалентно `300000` — 5 минут).
     * **Sasl mechanism** — механизм аутентификации SASL:
-      * `GSSAPI` (по умолчанию) — аутентификация с [использованием Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
-      * `PLAIN` — аутентификация с [использованием пары логин-пароль в виде открытого текста](https://kafka.apache.org/documentation/#security_sasl_plain).
-      * `SCRAM-SHA-256` и `SCRAM-SHA-512` — аутентификация с [использованием механизмов семейства SCRAM](https://kafka.apache.org/documentation/#security_sasl_scram).
+      * `GSSAPI` (по умолчанию) — аутентификация с [использованием Kerberos](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslkerberos).
+      * `PLAIN` — аутентификация с [использованием пары логин-пароль в виде открытого текста](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslplain).
+      * `SCRAM-SHA-256` и `SCRAM-SHA-512` — аутентификация с [использованием механизмов семейства SCRAM](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslscram).
 
       По умолчанию значение не выбрано (эквивалентно `GSSAPI`).
 
