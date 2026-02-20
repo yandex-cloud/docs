@@ -19,7 +19,13 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### {{ model-gallery-name }} {#rules-generating}
+### {{ model-gallery-name }} {#rules-model-gallery}
+
+{% note warning %}
+
+Описанные ниже правила тарификации и цены на модели базового инстанса и пакетную обработку данных действуют до 3 марта 2026 года. С 3 марта будут действовать [новые правила тарификации](#rules-new) и новые цены. 
+
+{% endnote %}
 
 Стоимость работы с моделями {{ model-gallery-name }} зависит от:
 * [режима работы модели](concepts/generation/index.md#working-mode);
@@ -42,7 +48,7 @@ editable: false
 
 
 
-#### Использование моделей базового инстанса {#text-sync-async}
+#### Использование моделей базового инстанса до 3 марта 2026 года {#text-sync-async}
 
 
 {% list tabs group=pricing %}
@@ -111,7 +117,7 @@ editable: false
 
 {% endcut %}
 
-#### Использование моделей в пакетном режиме {#batch}
+#### Использование моделей в пакетном режиме до 3 марта 2026 года {#batch}
 
 При использовании моделей в пакетном режиме минимальная стоимость запуска — 200 000 токенов.
 
@@ -125,6 +131,78 @@ editable: false
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-generating.md](../_pricing/yandexgpt/kzt-generating-batch.md) %}
+
+{% endlist %}
+
+
+
+#### Использование моделей {{ model-gallery-name }} с 3 марта 2026 года {#rules-new}
+
+{% note warning %}
+
+Описанные правила тарификации и цены на модели базового инстанса и пакетный режим работы моделей вступают в силу с 3 марта 2026 года.
+
+{% endnote %}
+
+Стоимость использования моделей зависит от [режима работы](concepts/generation/index.md#working-mode) и количества [токенов](concepts/generation/tokens.md) разных типов потребления:
+
+* входящие токены запроса;
+* исходящие токены ответа модели;
+* кешированные токены, если часть информации используется повторно без дополнительных вычислений, например инструкция для модели;
+* токены инструментов, переданные в модель в результате вызова какого-либо [инструмента](./concepts/agents/index.md#tools).
+
+Кеширование включается автоматически в тех случаях, когда это возможно и применимо. Кеширование не гарантируется и не применяется к исходящим токенам.
+
+К токенам инструментов относятся все некешированные токены, хранящиеся в истории сообщений на момент передачи результатов работы инструмента. Токены инструментов вычисляются только для встроенных инструментов {{ ai-studio-name }} и не распространяются на результаты работы пользовательских функций. [Обращение к инструментам ](#rules-tools) оплачивается отдельно.
+
+##### Синхронный режим работы моделей {#common-instance-sync}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-common-sync](../_pricing/ai-studio/rub-common-instance-sync.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-common-sync](../_pricing/ai-studio/kzt-common-instance-sync.md) %}
+
+{% endlist %}
+
+
+
+##### Асинхронный режим работы моделей {#common-instance-async}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-common-sync](../_pricing/ai-studio/rub-common-instance-async.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-common-sync](../_pricing/ai-studio/kzt-common-instance-async.md) %}
+
+{% endlist %}
+
+
+
+#### Пакетный режим работы моделей {#batch-instance}
+
+При использовании моделей в пакетном режиме минимальная стоимость запуска — 200 000 токенов.
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-generating.md](../_pricing/ai-studio/rub-batch-instance.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-generating.md](../_pricing/ai-studio/kzt-batch-instance.md) %}
 
 {% endlist %}
 
@@ -161,30 +239,18 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Векторизация текста {#rules-embedding}
 
-Стоимость представления текста в виде [векторов](./concepts/embeddings.md) (получения эмбеддингов по тексту) зависит от объема текста, поданного на векторизацию. Создание эмбеддингов [детализируется в {{ billing-name }}](../billing/operations/check-charges.md) в _юнитах векторизации_. 
+Стоимость представления текста в виде [векторов](./concepts/embeddings.md) (получения эмбеддингов по тексту) зависит от объема текста, поданного на векторизацию. Создание эмбеддингов [детализируется в {{ billing-name }}](../billing/operations/check-charges.md) в _юнитах векторизации_. 1 юнит равен 1 токену.
 
 
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
 
-  {% include [rub-embedding-units.md](../_pricing/yandexgpt/rub-embedding_units.md) %}
+  {% include [rub-embedding.md](../_pricing/ai-studio/rub-embedding.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include [kzt-embedding-units.md](../_pricing/yandexgpt/kzt-embedding_units.md) %}
-
-{% endlist %}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-embedding.md](../_pricing/yandexgpt/rub-embedding.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-embedding.md](../_pricing/yandexgpt/kzt-embedding.md) %}
+  {% include [kzt-embedding.md](../_pricing/ai-studio/kzt-embedding.md) %}
 
 {% endlist %}
 
@@ -261,13 +327,14 @@ _{{ price-per-hour-count-per-second }}_
 
 ### {{ agents-atelier-name }} {#rules-agent}
 
-#### Использование ассистентов и текстовых агентов {#rules-assistant}
+#### Голосовые агенты {#rules-voice-agents}
 
-Использование {{ responses-api }}, а также хранение файлов и поисковых индексов не тарифицируется. Потребленные токены оплачиваются по правилам и тарифам [моделей](#rules-generating) {{ model-gallery-name }}. 
+Стоимость использования голосовых агентов складывается из:
 
-#### Использование голосовых агентов {#rules-voice-agents}
-
-Стоимость использования голосовых агентов состоит из стоимости распознавания речи (входящее аудио), стоимости синтеза речи (исходящее аудио) и стоимости генерации текста с помощью модели speech-realtime-250923.
+* стоимости распознавания речи (входящее аудио);
+* стоимости синтеза речи (исходящее аудио);
+* стоимости генерации текста с помощью [модели speech-realtime-250923](#text-sync-async);
+* стоимости [вызова инструментов](#rules-tools).
 
 
 {% list tabs group=pricing %}
@@ -310,22 +377,60 @@ _{{ price-per-hour-count-per-second }}_
 
 {% endcut %}
 
-#### Использование инструментов в агентах {#rules-tools}
+#### Текстовые агенты {#rules-assistant}
 
-Вызовы инструмента [поиска по файлам](concepts/agents/tools/filesearch.md) File Search в текстовых и голосовых агентах не тарифицируются.
+Стоимость использования текстовых агентов складывается из:
 
-Вызовы инструмента [исполнения кода](concepts/agents/tools/code-interpreter.md) {{ code-interpreter }} на стадии [Preview](../overview/concepts/launch-stages.md) не тарифицируются.
+* потребления токенов по правилам и тарифам [моделей {{ model-gallery-name }}](#rules-generating);
+* стоимости [вызова инструментов](#rules-tools).
+
+#### Вызов инструментов в агентах {#rules-tools}
+
+{% note info %}
+
+Стоимость вызовов инструмента поиска по файлам File Search изменится 12 марта 2026 года.
+
+{% endnote %}
 
 
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
 
-  {% include [rub-embedding.md](../_pricing/yandexgpt/rub-tools.md) %}
+  {% include [rub-tools](../_pricing/ai-studio/rub-tools.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include [kzt-embedding.md](../_pricing/yandexgpt/kzt-tools.md) %}
+  {% include [kzt-tools](../_pricing/ai-studio/kzt-tools.md) %}
+
+{% endlist %}
+
+
+
+### {{ ai-search-name }} {#ai-search}
+
+До 12 марта 2026 года хранение поисковых индексов и файлов, загруженных в {{ ai-studio-name }}, не тарифицируется.
+
+{% note info %}
+
+Правила тарификации ниже вступают в силу 12 марта 2026 года.
+
+{% endnote %}
+
+Размер поискового индекса округляется до целого числа ГБ в большую сторону.
+
+
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-index-storage.md](../_pricing/ai-studio/rub-storage.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-index-storage.md](../_pricing/ai-studio/kzt-storage.md) %}
 
 {% endlist %}
 
@@ -335,7 +440,7 @@ _{{ price-per-hour-count-per-second }}_
 
 {% include [note-preview](../_includes/note-preview.md) %}
 
-На стадии Preview [MCP-серверы](./concepts/mcp-hub/index.md#servers) не тарифицируются. При этом может оплачиваться использование инструментов, создаваемых в MCP-серверах. Например, [вызовы функций](../functions/pricing.md#invoke) {{ sf-full-name }}.
+На стадии Preview [MCP-серверы](./concepts/mcp-hub/index.md#servers) не тарифицируются. При этом может оплачиваться использование инструментов, создаваемых в MCP-серверах. Например, [вызовы функций]({{ link-docs }}/functions/pricing.md#invoke) {{ sf-full-name }}.
 
 При работе с внешними API, такими как [Контур.Фокус](./concepts/mcp-hub/templates.md#kontur) или [amoCRM](./concepts/mcp-hub/templates.md#amocrm), оплата использования производится партнеру напрямую.
 

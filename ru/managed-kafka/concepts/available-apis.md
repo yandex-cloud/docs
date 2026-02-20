@@ -92,11 +92,11 @@
 
 Client API — общее название для набора нативных API {{ KF }}:
 
-* [Producer API](https://kafka.apache.org/documentation/#producerapi) — позволяет работать с производителями.
-* [Consumer API](https://kafka.apache.org/documentation/#consumerapi) — позволяет работать с потребителями.
-* [Streams API](https://kafka.apache.org/documentation/#streamsapi) — позволяет работать с потоками данных.
-* [Connect API](https://kafka.apache.org/documentation/#connectapi) — позволяет работать с коннекторами.
-* [Admin API](https://kafka.apache.org/documentation/#adminapi) — позволяет работать с объектами {{ KF }}.
+* [Producer API](https://kafka.apache.org/42/apis/#producer-api) — позволяет работать с производителями.
+* [Consumer API](https://kafka.apache.org/42/apis/#consumer-api) — позволяет работать с потребителями.
+* [Streams API](https://kafka.apache.org/42/apis/#streams-api) — позволяет работать с потоками данных.
+* [Connect API](https://kafka.apache.org/42/apis/#connect-api) — позволяет работать с коннекторами.
+* [Admin API](https://kafka.apache.org/42/apis/#admin-api) — позволяет работать с объектами {{ KF }}.
 
 Эти API позволяют управлять объектами {{ KF }} ([с некоторыми ограничениями](#client-api-limits)).
 
@@ -116,7 +116,7 @@ Client API — общее название для набора нативных 
 
 Доступные операции определяются [ролями пользователя {{ KF }}](../operations/cluster-accounts.md), от имени которого выполняются запросы к Client API.
 
-Описания Client API приведены в [документации {{ KF }}](https://kafka.apache.org/documentation/#api). Пример работы с Producer API и Consumer API см. в разделе [{#T}](../tutorials/managed-schema-registry.md).
+Описания Client API приведены в [документации {{ KF }}](https://kafka.apache.org/42/apis/). Пример работы с Producer API и Consumer API см. в разделе [{#T}](../tutorials/managed-schema-registry.md).
 
 ### Ограничения {#client-api-limits}
 

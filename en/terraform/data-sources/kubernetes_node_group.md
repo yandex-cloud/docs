@@ -58,12 +58,13 @@ output "my_node_group.status" {
   - `labels` (Map Of String). Labels that will be assigned to compute nodes (instances), created by the Node Group.
   - `metadata` (Map Of String). The set of metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys. **Note**: key `user-data` won't be provided into instances. It reserved for internal activity in `kubernetes_node_group` resource.
   - `name` (String). Name template of the instance. In order to be unique it must contain at least one of instance unique placeholders:
-* `{instance.short_id}
-* `{instance.index}`
-* combination of `{instance.zone_id}` and `{instance.index_in_zone}`
+    * `{instance.short_id}`
+    * `{instance.index}`
+    * combination of `{instance.zone_id}` and `{instance.index_in_zone}`
 
-Example: `my-instance-{instance.index}`.
-If not set, default is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see [Compute Instance group metadata doc](https://yandex.cloud/docs/compute/instancegroup/api-ref/grpc/InstanceGroup) for full list.
+    Example: `my-instance-{instance.index}`.
+
+    If not set, default is used: `{instance_group.id}-{instance.short_id}`. It may also contain another placeholders, see [Compute Instance group metadata doc](https://yandex.cloud/docs/compute/instancegroup/api-ref/grpc/InstanceGroup) for full list.
   - `nat` (Bool). Enables NAT for node group compute instances.
   - `network_acceleration_type` (String). Type of network acceleration. Values: `standard`, `software_accelerated`.
   - `network_interface` [Block]. An array with the network interfaces that will be attached to the instance.
@@ -85,7 +86,7 @@ If not set, default is used: `{instance_group.id}-{instance.short_id}`. It may a
   - `placement_policy` [Block]. The placement policy configuration.
     - `placement_group_id` (**Required**)(String). Specifies the id of the Placement Group to assign to the instances.
   - `platform_id` (String). The ID of the hardware platform configuration for the node group compute instances.
-  - `resources` [Block]. 
+  - `resources` [Block]. Instance resource configuration.
     - `core_fraction` (Number). Baseline core performance as a percent.
     - `cores` (Number). Number of CPU cores allocated to the instance.
     - `gpus` (Number). Number of GPU cores allocated to the instance.
@@ -98,13 +99,13 @@ If not set, default is used: `{instance_group.id}-{instance.short_id}`. It may a
   - `auto_upgrade` (**Required**)(Bool). Flag specifies if node group can be upgraded automatically. When omitted, default value is `true`.
   - `maintenance_window` [Block]. Set of day intervals, when maintenance is allowed for this node group. When omitted, it defaults to any time.
 
-To specify time of day interval, for all days, one element should be provided, with two fields set, `start_time` and `duration`.
+    To specify time of day interval, for all days, one element should be provided, with two fields set, `start_time` and `duration`.
 
-To allow maintenance only on specific days of week, please provide list of elements, with all fields set. Only one time interval is allowed for each day of week. Please see `my_node_group` config example.
+    To allow maintenance only on specific days of week, please provide list of elements, with all fields set. Only one time interval is allowed for each day of week. Please see `my_node_group` config example.
 
-    - `day` (String). 
-    - `duration` (**Required**)(String). 
-    - `start_time` (**Required**)(String). 
+    - `day` (String). Day of week, on which maintenance is allowed.
+    - `duration` (**Required**)(String). Duration of maintenance from start_time.
+    - `start_time` (**Required**)(String). Start time of maintenance in day.
 - `name` (String). The resource name.
 - `node_group_id` (String). ID of a specific Kubernetes node group.
 - `node_labels` (Map Of String). A set of key/value label pairs, that are assigned to all the nodes of this Kubernetes node group.
@@ -121,6 +122,8 @@ To allow maintenance only on specific days of week, please provide list of eleme
   - `current_version` . 
   - `new_revision_available` . 
   - `new_revision_summary` . 
-  - `version_deprecated` .
+  - `version_deprecated` . 
+- `workload_identity_federation` [Block]. Workload Identity Federation configuration.
+  - `enabled` (**Required**)(Bool). Identifies whether Workload Identity Federation is enabled.
 
 

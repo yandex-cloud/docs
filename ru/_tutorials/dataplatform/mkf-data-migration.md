@@ -192,7 +192,7 @@
         sudo apt update && sudo apt install --yes default-jdk
         ```
 
-    1. [Скачайте](https://kafka.apache.org/downloads) и распакуйте архив {{ KF }} той же версии, которая установлена на кластере-приемнике. Например, для версии 2.8:
+    1. [Скачайте](https://kafka.apache.org/community/downloads/) и распакуйте архив {{ KF }} той же версии, которая установлена на кластере-приемнике. Например, для версии 2.8:
 
         ```bash
         wget https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz && \
@@ -305,7 +305,7 @@
    * Названия топиков в кластере-приемнике совпадают с их названиями в кластере-источнике.
    * Параметр `<R>` — [фактор репликации служебных топиков](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) MirrorMaker. Значение этого параметра не должно превышать меньшего между количеством брокеров в кластере-источнике и количеством брокеров в кластере-приемнике.
    * Параметр `<M>` — [фактор репликации по умолчанию](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor), установленный для топиков в кластере-приемнике.
-   * Параметр `<T>` — количество одновременно работающих процессов MirrorMaker. Рекомендуется указывать не менее `2` для равномерного распределения нагрузки репликации. Подробнее см. [в документации {{ KF }}](https://kafka.apache.org/documentation/#georeplication-config-syntax).
+   * Параметр `<T>` — количество одновременно работающих процессов MirrorMaker. Рекомендуется указывать не менее `2` для равномерного распределения нагрузки репликации. Подробнее см. [в документации {{ KF }}](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/#configuration-file-syntax).
 
    FQDN брокеров {{ mkf-name }} можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md).
 

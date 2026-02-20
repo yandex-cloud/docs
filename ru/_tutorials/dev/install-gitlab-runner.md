@@ -31,22 +31,9 @@
 
 ## Получите токен {{ GLR }} {#gitlab-token}
 
-Чтобы настроить {{ GLR }} для всего [инстанса {{ GL }}](../../managed-gitlab/concepts/index.md#instance) (требуются права администратора {{ GL }}):
+Токен можно получить при создании {{ GLR }} в {{ GL }}. Этот токен указывается при [развертывании {{ GLR }}](#deploy-glr) на виртуальной машине {{ compute-name }} и используется для аутентификации раннера в {{ GL }}.
 
-  1. Откройте {{ GL }}.
-  1. В левом нижнем углу нажмите кнопку **Admin**. 
-  1. В меню слева выберите **CI/CD** → **Runners**.
-  1. Нажмите кнопку **New instance runner** и создайте новый {{ GLR }}.
-  1. Сохраните значение параметра `Runner authentication token`.
-
-Чтобы настроить {{ GLR }} для проекта:
-
-  1. Откройте {{ GL }}.
-  1. Выберите проект.
-  1. В меню слева выберите **Settings** → **CI/CD**.
-  1. В блоке **Runners** нажмите кнопку **Expand**.
-  1. Нажмите кнопку **New project runner** и создайте новый {{ GLR }}.
-  1. Сохраните значение параметра `Runner authentication token`.
+{% include [get-token](../../_includes/managed-gitlab/get-token.md) %}
 
 ## Разверните {{ GLR }} {#deploy-glr}
 
@@ -106,66 +93,34 @@
 
 {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
+{% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
+
 Создание раннеров с помощью консоли управления доступно только для инстансов {{ mgl-name }}.
 
-1. Выберите инстанс {{ mgl-name }}, [созданный ранее](#infra).
+{% include [runner-create](../../_includes/managed-gitlab/runner-create-console.md) %}
 
-1. Выберите вкладку **{{ ui-key.yacloud.gitlab.title_runners }}**.
+#### Убедитесь, что раннер работает {#view-runner}
 
-1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_runners_empty-create }}**.
+{% list tabs %}
 
-1. Задайте имя раннера:
+- В {{ GL }}
 
-    * длина — от 2 до 63 символов;
-    * может содержать строчные буквы латинского алфавита, цифры и дефисы;
-    * первый символ — буква, последний — не дефис.
+    * Если вы создавали {{ GLR }} для всего инстанса {{ GL }}:
+        1. В левом нижнем углу нажмите кнопку **Admin**.
+        1. В меню слева выберите **CI/CD** → **Runners**.
+        1. Проверьте, что созданный раннер появился в списке.
 
-1. Введите токен {{ GLR }}, [полученный ранее](#gitlab-token).
+    * Если вы создавали {{ GLR }} для проекта:
+        1. Откройте проект.
+        1. В меню слева выберите **Settings** → **CI/CD**.
+        1. В блоке **Runners** нажмите кнопку **Expand**.
+        1. Проверьте, что в блоке **Assigned project runners** появился созданный раннер.
 
-1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Он используется только для создания ВМ и не будет привязан к ней. У сервисного аккаунта должны быть роли `compute.admin`, `vpc.admin` и `iam.serviceAccounts.user`.
+- В {{ compute-name }}
 
-1. (Опционально) Добавьте метки для раннера.
+    Проверьте, что в разделе **{{ ui-key.yacloud.compute.instances.label_title }}** появились новые ВМ с префиксом в имени `runner-`.
 
-1. В блоке **{{ ui-key.yacloud.gitlab.label_autoscale-section }}** укажите:
-
-    * **{{ ui-key.yacloud.gitlab.field_task-minInstances }}** — число воркеров, которые всегда запущены и готовы выполнять задачи. Значение по умолчанию — `1`, минимальное — `0`, максимальное — `10`.
-    * **{{ ui-key.yacloud.gitlab.field_max-workers }}** — максимальное число воркеров, которые могут быть созданы для выполнения задач. Значение по умолчанию — `3`, минимальное — `1`, максимальное — `30`. Максимальное количество воркеров не может быть меньше минимального.
-    * **{{ ui-key.yacloud.gitlab.field_idle-time-minutes }}** — максимальное время простоя, по истечении которого дополнительно созданный воркер будет удален. Значение по умолчанию — `10`, минимальное — `0`.
-    * **{{ ui-key.yacloud.gitlab.field_max-use-count }}** — максимальное количество задач, после выполнения которых воркер будет удален. Значение по умолчанию — `100`, минимальное — `0`.
-    * **{{ ui-key.yacloud.gitlab.field_capacity-per-instance }}** — количество задач, которые выполняются на одном воркере одновременно. Значение по умолчанию — `1`, минимальное — `0`.
-
-    {% note info %}
-
-    Воркеры — это виртуальные машины {{ compute-name }}. Их использование оплачивается согласно [правилам тарификации](../../compute/pricing.md) {{ compute-name }}.
-
-    {% endnote %}
-
-1. (Опционально) Добавьте метки для воркера.
-
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию вычислительных ресурсов.
-
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный диск:
-
-    * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
-    * Задайте размер диска.
-
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-1. Убедитесь, что раннер работает:
-
-    * В {{ GL }}:
-      * Если вы создавали {{ GLR }} для всего инстанса {{ GL }}:
-          1. В левом нижнем углу нажмите кнопку **Admin**. 
-          1. В меню слева выберите **CI/CD** → **Runners**.
-          1. Проверьте, что созданный раннер появился в списке.
-
-      *  Если вы создавали {{ GLR }} для проекта:
-          1. Откройте проект.
-          1. В меню слева выберите **Settings** → **CI/CD**.
-          1. В блоке **Runners** нажмите кнопку **Expand**.
-          1. Проверьте, что в блоке **Assigned project runners** появился созданный раннер.
-
-    * В {{ compute-name }} — проверьте, что появились новые ВМ с префиксом `runner-`.
+{% endlist %}
 
 ## Создайте тестовый сценарий {#example} 
 
@@ -206,3 +161,8 @@
 * [инстанс {{ GL }}](../../managed-gitlab/operations/instance/instance-delete.md);
 * [ВМ с {{ GLR }}](../../compute/operations/vm-control/vm-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
+
+### Смотрите также {#see-also}
+
+* [{#T}](../../managed-gitlab/concepts/index.md#managed-runners)
+* [{#T}](../../managed-gitlab/operations/runner.md)

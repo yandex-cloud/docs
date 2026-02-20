@@ -8,6 +8,7 @@
 || gpt-oss-120b | {% calc [currency=USD] 1,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | {% calc [currency=USD] 1,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | — | — || 
 || gpt-oss-20b | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | — | — || 
 || Gemma3 27B | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ^1^ | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ^1^ | — | — ||
+|| speech-realtime-250923 | {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | — | — ||
 |#
 
 ^1^ The price is based on the current 50% discount.

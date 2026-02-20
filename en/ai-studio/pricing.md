@@ -20,11 +20,17 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### {{ model-gallery-name }} {#rules-generating}
+### {{ model-gallery-name }} {#rules-model-gallery}
+
+{% note warning %}
+
+The pricing provided below for the common instance and batch processing models are effective until March 3, 2026. Starting March 3, the [new pricing policy](#rules-new) will apply. 
+
+{% endnote %}
 
 The cost of using {{ model-gallery-name }} models depends on:
 * [Model's operating mode](concepts/generation/index.md#working-mode).
-* Number of input and output [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count of the same text may vary from one model to the next. An [example calculation](#example-generating) of the cost of processing the same text in synchronous mode using different models.
+* Number of input and output [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count in the same text may vary from one model to another. Here is a [cost calculation example](#example-generating) for processing the same text in synchronous mode using different models.
 
 [{{ billing-name }} breaks down](../billing/operations/check-charges.md) the use of {{ model-gallery-name }} models in _billing units_. The total number of billing units is rounded up to an integer.
 
@@ -33,7 +39,7 @@ The cost of using {{ model-gallery-name }} models depends on:
 {% include [rub-generating-units.md](../_pricing/yandexgpt/usd-generating_units.md) %}
 
 
-#### Using common instance models {#text-sync-async}
+#### Using common instance models until March 3, 2026 {#text-sync-async}
 
 
 
@@ -70,7 +76,7 @@ The cost of using {{ model-gallery-name }} models depends on:
 
 {% endcut %}
 
-#### Using models in batch mode {#batch}
+#### Using models in batch mode until March 3, 2026 {#batch}
 
 With models in batch mode, the minimum cost per run is 200,000 tokens.
 
@@ -79,7 +85,49 @@ With models in batch mode, the minimum cost per run is 200,000 tokens.
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating-batch.md) %}
 
 
-#### Operation of dedicated instances {#rules-dedicated}
+#### Using {{ model-gallery-name }} models starting March 3, 2026 {#rules-new}
+
+{% note warning %}
+
+This pricing for the common instance models and batch processing is effective as of March 3, 2026.
+
+{% endnote %}
+
+The cost of using the models depends on the [operating mode](concepts/generation/index.md#working-mode) and the number of [tokens](concepts/generation/tokens.md) for different consumption types:
+
+* Input query tokens.
+* Output model response tokens.
+* Cached tokens, if certain information is re-used without additional computation, such as instructions for a model.
+* Tool tokens provided to the model as a result of invoking any [tool](./concepts/agents/index.md#tools).
+
+Caching is enabled automatically where possible and applicable. Caching is not guaranteed and does not apply to output tokens.
+
+Tool tokens include all uncached tokens stored in the message history at the time the tool's results were transmitted. Tool tokens are calculated only for {{ ai-studio-name }} built-in tools and do not apply to the results of custom functions. [Use of tools](#rules-tools) is charged separately.
+
+##### Synchronous mode {#common-instance-sync}
+
+
+
+{% include [usd-common-sync](../_pricing/ai-studio/usd-common-instance-sync.md) %}
+
+
+##### Asynchronous mode {#common-instance-async}
+
+
+
+{% include [usd-common-sync](../_pricing/ai-studio/usd-common-instance-async.md) %}
+
+
+#### Batch mode {#batch-instance}
+
+With models in batch mode, the minimum cost per run is 200,000 tokens.
+
+
+
+{% include [usd-generating.md](../_pricing/ai-studio/usd-batch-instance.md) %}
+
+
+#### Dedicated instances {#rules-dedicated}
 
 The cost of operation of a dedicated instance depends on the model and selected configuration. Dedicated instances are charged per second with rounding up to a billing unit. However, there is no charge for hardware maintenance and model deployment time.
 
@@ -100,11 +148,11 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 #### Text vectorization {#rules-embedding}
 
-The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization. [{{ billing-name }} breaks down](../billing/operations/check-charges.md) the creation of embeddings in _vectorization units_. 
+The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization. [{{ billing-name }}](../billing/operations/check-charges.md) breaks down the creation of embeddings in _vectorization units_. One unit equals one token.
 
 
 
-{% include [usd-embedding.md](../_pricing/yandexgpt/usd-embedding.md) %}
+{% include [usd-embedding.md](../_pricing/ai-studio/usd-embedding.md) %}
 
 
 {#price-example-embedding}
@@ -139,7 +187,7 @@ Requests with less than one billing unit are rounded up to the next integer. Lar
 
 #### Image generation {#rules-image-generation}
 
-You are charged for each generation request in {{ yandexart-name }}. Requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
+You are charged for each generation request in {{ yandexart-name }}. Requests are not idempotent; therefore, two requests with the same settings and generation prompt are considered as two separate requests.
 
 
 
@@ -148,13 +196,14 @@ You are charged for each generation request in {{ yandexart-name }}. Requests ar
 
 ### {{ agents-atelier-name }} {#rules-agent}
 
-#### Using assistants and text agents {#rules-assistant}
+#### Voice agents {#rules-voice-agents}
 
-The {{ assistant-api }}, {{ responses-api }}, and the storage of files and search indexes are free of charge. For tokens you pay as per {{ model-gallery-name }} [model](#rules-generating) pricing plans. 
+The cost of using voice agents consists of the following:
 
-#### Using voice agents {#rules-voice-agents}
-
-The cost of using voice agents consists of your fees for speech recognition (input audio), speech synthesis (output audio), and text generation using the speech-realtime-250923.
+* Cost of speech recognition (incoming audio).
+* Cost of speech synthesis (outgoing audio).
+* Cost of text generation using the [speech-realtime-250923 model](#text-sync-async).
+* Cost of [tool invocation](#rules-tools).
 
 
 
@@ -175,24 +224,52 @@ The cost of using voice agents consists of your fees for speech recognition (inp
 
 {% endcut %}
 
-#### Using tools in agents {#rules-tools}
+#### Text-based agents {#rules-assistant}
 
-{{ assistant-api }} tool invocation is free of charge. 
+The cost of using text-based agents consists of the following:
 
-The invocation of the File Search tool in text and voice agents is free of charge.
+* Consumption of tokens as per the pricing plans of the [{{ model-gallery-name }} models](#rules-generating).
+* Cost of [tool invocation](#rules-tools).
+
+#### Invoking tools in agents {#rules-tools}
+
+{% note info %}
+
+The cost of File Search invocations will change on March 12, 2026.
+
+{% endnote %}
 
 
 
-{% include [usd-embedding.md](../_pricing/yandexgpt/usd-tools.md) %}
+{% include [usd-tools](../_pricing/ai-studio/usd-tools.md) %}
+
+
+### {{ ai-search-name }} {#ai-search}
+
+Until March 12, 2026, storing search indexes and files uploaded to {{ ai-studio-name }} will be free or charge.
+
+{% note info %}
+
+The pricing policy below comes into effect on March 12, 2026.
+
+{% endnote %}
+
+The search index size is rounded up to the nearest whole gigabyte.
+
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+
+
+{% include [usd-storage](../_pricing/ai-studio/usd-storage.md) %}
 
 
 ### {{ mcp-hub-name }} {#mcp-hub}
 
 {% include [note-preview](../_includes/note-preview.md) %}
 
-At the Preview stage, [MCP servers](./concepts/mcp-hub/index.md#servers) are free of charge. However, you may still be charged for tools created in MCP servers. For example, [{{ sf-full-name }} function invocations](../functions/pricing.md#invoke).
+At the Preview stage, [MCP servers](./concepts/mcp-hub/index.md#servers) are free of charge. However, you may still be charged for tools created in MCP servers, such as [{{ sf-full-name }} function invocations]({{ link-docs }}/functions/pricing.md#invoke).
 
-When using external APIs, such as [Kontur.Focus](./concepts/mcp-hub/templates.md#kontur), or [amoCRM](./concepts/mcp-hub/templates.md#amocrm), you pay directly to the partner.
+When using external APIs, such as [Kontur.Focus](./concepts/mcp-hub/templates.md#kontur) or [amoCRM](./concepts/mcp-hub/templates.md#amocrm), you are charged directly by our respective partner.
 
 ### Internal server errors {#error-request}
 

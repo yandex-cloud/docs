@@ -6678,6 +6678,7 @@ default:
         label_autoscale-section: Настройки масштабирования
         label_configuration-section: Конфигурация
         label_instances-title: Список инстансов
+        runners_popup-confirm_button_delete: Удалить
         switch_instances: Инстансы
         title_backups: Резервные копии
         title_migration: Миграция

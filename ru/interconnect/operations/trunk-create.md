@@ -165,3 +165,56 @@ description: Следуя этой инструкции, вы сможете с�
 
 {% endlist %}
 
+
+
+## Создать агрегированное (LAG) прямое транковое подключение {#lag}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  1. Посмотрите описание команды CLI для создания [транкового подключения](../concepts/trunk.md):
+
+      ```bash
+      yc cic trunk-connection create --help
+      ```
+
+  1. Создайте агрегированное (LAG) прямое транковое подключение в указанном каталоге:
+
+      ```bash
+      yc cic trunk-connection create --name trunk-m9 \
+        --description "Trunk M9" \
+        --pop ru-msk-m9-0 \
+        --capacity 1-gbps \
+        --trunk-options type=lag,transceiver=10GBASE-LR,size=2 \
+        --folder-id b1gqf**********jiz2w \
+        --async
+      ```
+
+      {% note info %}
+
+      При создании указывается тип трансивера и количество портов в агрегированном транке.
+
+      {% endnote %}
+
+      Ожидаемый результат:
+
+      ```text
+      id: cf3td**********nufvr
+      name: trunk-m9
+      description: Trunk M9
+      cloud_id: b1g7a**********kd23p
+      folder_id: b1gqf**********jiz2w
+      region_id: ru-central1
+      created_at: "2025-03-25T10:54:46Z"
+      lag_direct_joint:
+        lag_id: 15
+        transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
+        port_names: 10GE1/0/1, 10GE1/0/2 
+      point_of_presence_id: ru-msk-m9-0
+      capacity: CAPACITY_1_GBPS
+      status: ACTIVE
+      ```
+
+{% endlist %}
+

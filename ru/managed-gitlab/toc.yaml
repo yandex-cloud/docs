@@ -37,6 +37,8 @@ items:
         href: operations/omniauth.md
       - name: Интеграция с {{ objstorage-name }}
         href: operations/objstorage-integration.md
+      - name: Работа с управляемым раннером
+        href: operations/runner.md
   - name: Практические руководства
     items:
       - name: Все руководства
