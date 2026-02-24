@@ -23,7 +23,7 @@ One channel can be used multiple times for different alerts.
 As soon as a notification channel is created, the following additional parameters become available:
 
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Select the alert statuses that will prompt notification.
-* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Select the time after which {{ monitoring-short-name }} will repeat alert status notifications.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Select the time after which {{ monitoring-short-name }} will repeat alert status notifications. Does not apply for the `OK` status.
 
 ## Notification sending statuses {#dispatch-statuses}
 

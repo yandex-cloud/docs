@@ -49,11 +49,11 @@ items:
         href: tutorials/index.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them with {{ datalens-full-name }}
+          analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: >-
-          Creating a {{ postbox-full-name }} address and verifying domain
-          ownership with {{ TF }}
+          Creating a {{ postbox-full-name }} address and a domain ownership
+          check with {{ TF }}
         href: tutorials/domain-identity-creating.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'
         href: tutorials/postbox-webhook.md
@@ -144,4 +144,6 @@ items:
     href: public-talks.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/index.md
 path: en/postbox/toc.yaml

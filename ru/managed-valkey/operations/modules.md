@@ -10,6 +10,18 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Выберите нужный кластер.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** подключите необходимые модули {{ VLK }}.
+
+        Для модуля **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** настройте параметры **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** и **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -44,6 +56,53 @@
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
         * `enable-valkey-json` — подключить модуль `Valkey-JSON`: `true` или `false`.
         * `enable-valkey-bloom` — подключить модуль `Valkey-Bloom`: `true` или `false`.
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Добавьте в описание кластера {{ mrd-name }} блок `modules`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
+          ...
+          modules = {
+            valkey_bloom = {
+              enabled = <включить_модуль_Valkey-Bloom>
+            }
+            valkey_json = {
+              enabled = <включить_модуль_Valkey-JSON>
+            }
+            valkey_search = {
+              enabled        = <включить_модуль_Valkey-Search>
+              reader_threads = <количество_потоков_обработки_запросов>
+              writer_threads = <количество_потоков_индексации>
+            }
+          }
+        }
+        ```
+
+        Где:
+
+        * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
+        * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
+        * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`.
+        * `valkey_search.reader_threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
+        * `valkey_search.writer_threads` — количество потоков индексации в модуле `Valkey-Search`.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -169,6 +228,21 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Выберите нужный кластер.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** измените необходимые настройки модулей {{ VLK }}.
+
+        Для модуля **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** доступна настройка параметров:
+
+        * **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}**.
+        * **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -197,6 +271,45 @@
      * `--valkey-modules` — параметры [модулей {{ VLK }}](../concepts/modules.md):
         * `valkey-search-reader-threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
         * `valkey-search-writer-threads` — количество потоков индексации в модуле `Valkey-Search`.
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+       О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mrd-name }} значение нужной настройки в блоке `modules.valkey_search`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
+          ...
+          modules = {
+            ...
+            valkey_search = {
+              ...
+              reader_threads = <количество_потоков_обработки_запросов>
+              writer_threads = <количество_потоков_индексации>
+            }
+          }
+        }
+        ```
+
+        Где:
+
+        * `reader_threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
+        * `writer_threads` — количество потоков индексации в модуле `Valkey-Search`.
+
+    1. Проверьте корректность настроек.
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
 

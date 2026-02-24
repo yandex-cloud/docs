@@ -37,6 +37,8 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Accessing a bucket using {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: Accessing a bucket with an ephemeral access key
+            href: operations/buckets/manage-ephemeral-keys.md
           - name: >-
               Accessing a bucket using a service connection from {{
               vpc-short-name }}

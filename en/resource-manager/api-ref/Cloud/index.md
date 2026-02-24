@@ -22,4 +22,5 @@ A set of methods for managing Cloud resources.
 || [ListAccessPolicyBindings](listAccessPolicyBindings.md) | Returns list of access policy bindings for the cloud. ||
 || [BindAccessPolicy](bindAccessPolicy.md) | Binds the access policy template to the cloud. ||
 || [UnbindAccessPolicy](unbindAccessPolicy.md) | Unbinds the access policy template from the cloud. ||
+|| [UpdateAccessPolicyBindingParameters](updateAccessPolicyBindingParameters.md) | Updates the access policy binding parameters for the cloud. ||
 |#

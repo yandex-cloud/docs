@@ -82,7 +82,7 @@ items:
             href: tutorials/data-from-ch-over-yt.md
           - name: >-
               Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
-              and analyzing them with {{ datalens-full-name }}
+              and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
           - name: >-
               Delivering data from {{ forms-full-name }} to {{
@@ -183,7 +183,7 @@ items:
             href: operations/connection/create-bitrix24.md
           - name: Creating a Yandex Music podcast connection
             href: operations/connection/create-podcasts.md
-          - name: Suggest your partner connector
+          - name: Offering a custom partner connector
             href: operations/marketplace/create-connector-for-partners.md
   - name: Datasets
     items:
@@ -933,7 +933,7 @@ items:
         items:
           - name: Access permissions
             href: security/manage-access.md
-          - name: Granting and updating permissions
+          - name: Assigning and changing access permissions
             href: operations/permission/grant.md
           - name: Deleting permissions
             href: operations/permission/revoke.md

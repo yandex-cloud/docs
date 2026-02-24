@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the cluster to list SPQR users in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListUsersResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListUsersResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the cluster to list SPQR users in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.spqr.v1.ListUsersRequest}
@@ -65,11 +70,15 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cl
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListUsersResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListUsersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListUsersResponse) returned by the previous list request. ||
+[ListUsersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListUsersResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.spqr.v1.ListUsersResponse}
@@ -93,7 +102,8 @@ Page token. To get the next page of results, set `pageToken` to the
       },
       "grants": [
         "string"
-      ]
+      ],
+      "deletionProtection": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -134,7 +144,12 @@ Set of permissions granted to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission}

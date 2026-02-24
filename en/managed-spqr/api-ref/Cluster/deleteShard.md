@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster to delete a shard in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         shardName:
           description: |-
             **string**
             Required field. Name of the SPQR shard to delete.
             To get the name of the shard use a [ClusterService.ListShards](/docs/managed-spqr/api-ref/Cluster/listShards#ListShards) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9][a-zA-Z0-9-]*$ `.
           pattern: ^[a-zA-Z0-9][a-zA-Z0-9-]*$
           type: string
       required:
@@ -45,11 +47,15 @@ DELETE https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/shards/{s
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster to delete a shard in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shardName | **string**
 
 Required field. Name of the SPQR shard to delete.
-To get the name of the shard use a [ClusterService.ListShards](/docs/managed-spqr/api-ref/Cluster/listShards#ListShards) request. ||
+To get the name of the shard use a [ClusterService.ListShards](/docs/managed-spqr/api-ref/Cluster/listShards#ListShards) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9][a-zA-Z0-9-]*$ `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

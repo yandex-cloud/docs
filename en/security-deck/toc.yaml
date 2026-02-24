@@ -120,6 +120,12 @@ items:
         href: security/alerts-roles.md
   - name: Pricing policy
     href: pricing.md
+  - name: Rule Reference
+    items:
+      - name: All Rules
+        href: rules-reference/all.md
+      - name: CSPM
+        href: rules-reference/cspm.md
   - name: API reference
     items:
       - name: Authentication

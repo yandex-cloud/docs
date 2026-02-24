@@ -16,9 +16,49 @@
           {% include [no-subnet-overlapping-warn](../../_tutorials/_tutorials_includes/bm-vrf-and-vpc-interconnect/no-subnet-overlapping-warn.md) %}
       1. To create a private connection for the specified CIDR subnets, click **{{ ui-key.yacloud.common.save }}**.
 
-{% endlist %}
+  As a result, the VRF information page will display the newly created connection ID and its status under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**.
 
-As a result, the VRF information page will display the newly created connection ID and its status under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**.
+- API {#api}
+
+  To create a private connection with cloud networks, use the [PrivateCloudConnection.Create](../../baremetal/api-ref/PrivateCloudConnection/create.md) REST API method or the [PrivateCloudConnectionService/Create](../../baremetal/api-ref/grpc/PrivateCloudConnection/create.md) gRPC API call.
+
+  Run this query:
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM_token>" \
+    -d '{
+      "routingInstanceId":"fokrf2in3c7********",
+      "vrfId":"ly5uyq2gbxu2********"
+      }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateCloudConnections"
+  ```
+
+  Where:
+
+  * `routingInstanceId`: [Routing instance](../../cloud-router/concepts/routing-instance.md) ID in {{ cr-name }}.
+  * `vrfId`: ID of the VRF you are connecting to the Routing Instance. To get the VRF ID, use the [VrfService.List](../../baremetal/api-ref/Vrf/list.md) method.
+
+  Result:
+
+  ```json
+  {
+    "done": false,
+    "id": "arpas4mne3********",
+    "description": "Create private cloud connection",
+    "createdAt": "2024-01-01T12:00:00Z",
+    "createdBy": "user-id",
+    "modifiedAt": "2024-01-01T12:00:00Z",
+    "metadata": {
+      "privateCloudConnectionId": "kor4msi1aqq********"
+    }
+  }
+  ```
+
+  The operation of creating a private connection is performed asynchronously. Follow the status of the operation by the `done` field.
+
+{% endlist %}
 
 {% note info %}
 

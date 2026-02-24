@@ -25,7 +25,7 @@
         --service-account-name <имя_сервисного_аккаунта>
       ```
 
-      Где `--service-account-name` — имя сервисного аккаунта с ролью `backup.editor`.
+      Где `--service-account-name` — имя сервисного аккаунта с ролью `backup.user` или выше.
 
       Результат:
 
@@ -45,7 +45,7 @@
 
   {% include [terraform-install](../../terraform-install.md) %}
 
-  1. В конфигурационном файле {{ TF }} в блоке с описанием ресурса `yandex_compute_instance` добавьте параметр `service_account_id` и укажите идентификатор сервисного аккаунта с ролью `backup.editor`:
+  1. В конфигурационном файле {{ TF }} в блоке с описанием ресурса `yandex_compute_instance` добавьте параметр `service_account_id` и укажите идентификатор сервисного аккаунта с ролью `backup.user` или выше:
 
       ```hcl
       resource "yandex_compute_instance" "vm-1" {
@@ -65,7 +65,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../../compute/api-ref/Instance/update.md) для ресурса [Instance](../../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../../compute/api-ref/grpc/Instance/update.md). В запросе укажите идентификатор сервисного аккаунта с ролью `backup.editor`.
+  Воспользуйтесь методом REST API [update](../../../compute/api-ref/Instance/update.md) для ресурса [Instance](../../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Update](../../../compute/api-ref/grpc/Instance/update.md). В запросе укажите идентификатор сервисного аккаунта с ролью `backup.user` или выше.
 
 {% endlist %}
 

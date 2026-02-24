@@ -24,11 +24,15 @@ Deletes the specified shard.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to delete a shard in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shard_name | **string**
 
 Required field. Name of the SPQR shard to delete.
-To get the name of the shard use a [ClusterService.ListShards](/docs/managed-spqr/api-ref/grpc/Cluster/listShards#ListShards) request. ||
+To get the name of the shard use a [ClusterService.ListShards](/docs/managed-spqr/api-ref/grpc/Cluster/listShards#ListShards) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9][a-zA-Z0-9-]*$ `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

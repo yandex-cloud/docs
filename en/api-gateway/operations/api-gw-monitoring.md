@@ -19,7 +19,7 @@ The chart update period is 15 seconds.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway whose monitoring charts you want to view.
     1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
-    1. The following charts will open on the page:
+    1. You will see the following charts:
 
         * **Requests**: Number of API gateway requests. Metrics contain the following labels:
             * **stable**: Events processed by the {{ api-gw-short-name }} current release. 

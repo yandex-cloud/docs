@@ -244,7 +244,8 @@
     ```
 
 1. Убедитесь, что файл попал в бакет:
-   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Нажмите на бакет `pvc-<имя_dynamic-бакета>`. Если при настройке класса хранилища было указано имя бакета, то откройте указанный бакет и каталог `pvc-<имя_dynamic-бакета>` внутри него.
 
 ### Статический PersistentVolume {#create-static-pvc}
@@ -391,5 +392,6 @@
     ```
 
 1. Убедитесь, что файл попал в бакет:
-   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Нажмите на бакет `<имя_static-бакета>`. Если вы указали путь к каталогу в бакете в описании статического `PersistentVolume`, то сначала откройте указанный каталог.

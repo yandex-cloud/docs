@@ -16,7 +16,8 @@ keywords:
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-Using this tutorial, you will create and run a [workflow](../concepts/workflows/workflow.md). During the execution of the workflow, the [{{ sf-full-name }}](../../functions/) functions will be called.
+Using this tutorial, you will create and run a [workflow](../concepts/workflows/workflow.md). During the execution of the workflow, the [{{ sf-full-name }}](../../functions/) [functions](../../functions/concepts/function.md) will be called.
+
 
 ## Getting started {#before-you-begin}
 
@@ -25,20 +26,22 @@ To get started in {{ yandex-cloud }}:
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
+
 ## Create a service account {#create-sa}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your [service account](../../iam/concepts/users/service-accounts.md).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ iam-name }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `sa-for-function`.
-    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-invoker }}` [role](../../iam/concepts/access-control/roles.md).
+    1. Name the [service account](../../iam/concepts/users/service-accounts.md): `sa-for-function`.
+    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`{{ roles-functions-invoker }}`](../../iam/concepts/access-control/roles.md).
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**. 
 
 {% endlist %}
+
 
 ## Create a function to filter data {#create-filter-function}
 
@@ -46,14 +49,15 @@ To get started in {{ yandex-cloud }}:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ sf-name }}**.
     1. Create a function:
         1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Enter the function name: `filter-function`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
     1. Create a function version:
-        1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `Node.js 18`.
-        1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+        1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `Node.js 22`.
+        1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
         1. Create a file named `index.js` and add the following code into it:
             ```js
@@ -72,20 +76,22 @@ To get started in {{ yandex-cloud }}:
 
 {% endlist %}
 
+
 ## Create a function to return email addresses {#create-return-function}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ sf-name }}**.
     1. Create a function:
         1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Enter the function name: `return-function`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
     1. Create a function version:
-        1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `Node.js 18`.
-        1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+        1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `Node.js 22`.
+        1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
         1. Create a file named `index.js` and add the following code into it:
             ```js
@@ -103,18 +109,20 @@ To get started in {{ yandex-cloud }}:
 
 {% endlist %}
 
+
 ## Create a workflow {#create-workflow}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}** from the list of services.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a workflow.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ si-name }}**.
     1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
-    1. In the **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** field, add the specification below. Specify the following in the `functionId` field:
-        * In the `process_user_transform_info` step, the `filter-function` ID.
-        * In the `upload_users` step, the `return-function` ID.
+    1. In the **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** field, add the specification below. In the `functionId` field:
+        * In line 39, step `process_user_transform_info`, specify the `filter-function` ID.
+        * In line 44, step `upload_users`, specify the `return-function` ID.
 
         ```yaml
         yawl: "0.1"
@@ -168,6 +176,7 @@ To get started in {{ yandex-cloud }}:
 
 {% endlist %}
 
+
 ## Run the workflow {#execute-workflow}
 
 {% list tabs group=instructions %}
@@ -175,14 +184,18 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
     1. Select a workflow.
-    1. In the top-right corner, click **Run**.
-    1. Enter input data in JSON format:
+    1. In the top-right corner, click ![triangle-right](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
+    1. Enter input data in JSON format and click **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
+
+        Input data in JSON format:
+
         ```json
         {
           "resource_type": "users"
         }
         ```
-    1. When the workflow status changes from `Running` to `Completed`, the following JSON object will appear in the **Output data** section:
+
+    1. When the workflow status changes from `Running` to `Completed`, the following JSON formatted result will appear in the **{{ ui-key.yacloud.serverless-workflows.label_output_data }}** section:
         ```json
         {
           "result": "OK",
@@ -202,6 +215,7 @@ To get started in {{ yandex-cloud }}:
         ```
 
 {% endlist %}
+
 
 ## What's next {#what-is-next}
 

@@ -1,18 +1,32 @@
 * Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}**, select the [serialization](../../data-transfer/concepts/serializer.md) type:
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_auto.title }}**: Automatic serialization.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_json.title }}**: JSON serialization.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**: Serialization under the Debezium standards:
+  
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_yandex_schema_registry_debezium.title }}**:
 
-      * Select the message key schema (matches the `key.converter` Debezium parameter).
-      * Select the message value schema (matches the `value.converter` Debezium parameter).
-      * If required, specify [**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**](../../data-transfer/concepts/serializer.md#debezium) in `Parameter`-`Value` format.
+      * Select a message schema (data format).
+      * From the list, select the [namespace](../../metadata-hub/operations/list-name-space.md) of the {{ schema-registry-full-name }} schema registry.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_on_premise_debezium.title }}**:
+
+      * Select the message key schema (matches the `key.converter` Debezium parameter). The default value matches the `key.converter.schemas.enable=true` and `key.converter=org.apache.kafka.connect.json.JsonConverter` Debezium parameters. If you select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.disabled.title }}**, the `key.converter.schemas.enable` Debezium parameter takes the `false` value.
+      * Select the message value schema (matches the `value.converter` Debezium parameter). The default value matches the `value.converter.schemas.enable=true` and `value.converter=org.apache.kafka.connect.json.JsonConverter` Debezium parameters. If you select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.disabled.title }}**, the `value.converter.schemas.enable` Debezium parameter takes the `false` value.
+      * When selecting the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.avro.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**, or **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.protobuf.title }}** value, specify the parameters for access to Confluent Schema Registry for message key and value schemas:
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.url.title }}**: URL.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.username.title }}**. This is an optional setting.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}**. This is an optional setting.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.ca_cert.title }}**: Upload the SSL certificate for the connection. This is an optional setting. To skip the certificate check, do not provide one.
+
+    * If required, specify [**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**](../../data-transfer/concepts/serializer.md#debezium) in `Parameter`-`Value` format.
 
 If you want to use JSON schemas in {{ schema-registry-full-name }} and preserve their [compatibility when adding and deleting optional fields](../../metadata-hub/concepts/schema-registry-content-model.md#optional-parameters-compatibility-solution), use these settings:
 
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_on_premise_debezium.title }}**.
-* To use {{ schema-registry-name }} for keys, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.key_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**. To use {{ schema-registry-name }} for values, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.value_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.url.title }}**: {{ schema-registry-name }} namespace endpoint. You can copy the endpoint from the details for the {{ schema-registry-name }} namespace connection on the **Debezium** tab, in the `value.converter.schema.registry.url` parameter.
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_on_premise_debezium.title }}**.
+
+* To use {{ schema-registry-name }} for keys, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.key_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**. To use {{ schema-registry-name }} for values, select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.value_converter_settings.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**. Set the parameters for access to Schema Registry:
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.url.title }}**: `https://<namespace_ID>.{{ schema-registry-endpoint }}`.
 
       {% note warning %}
 
@@ -40,16 +54,7 @@ If you want to use JSON schemas in {{ schema-registry-full-name }} and preserve 
           echo $SECRET
           ```
 
-      1. Copy the printed value and paste it into the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}** field in the endpoint creation window.
-
-
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_yandex_schema_registry_debezium.title }}**
-
- * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.yandex_sr.title }}: Specify the ID of the {{ schema-registry-full-name }} [namespace](../../metadata-hub/operations/list-name-space.md). 
-
-**Setting up Debezium key schemas and serialization values** 
 
 * Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**:
     * To generate a closed schema for keys, include the `key.converter.dt.json.generate.closed.content.schema` parameter set to `true`.
     * To generate a closed schema for values, include the `value.converter.dt.json.generate.closed.content.schema` parameter set to `true`.
-

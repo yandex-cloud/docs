@@ -64,7 +64,11 @@ The maximum string length in characters is 1000. ||
       "phone_number": "string",
       "created_at": "google.protobuf.Timestamp",
       "updated_at": "google.protobuf.Timestamp",
-      "external_id": "string"
+      "external_id": "string",
+      "company_name": "string",
+      "department": "string",
+      "job_title": "string",
+      "employee_id": "string"
     }
   ],
   "next_page_token": "string"
@@ -144,4 +148,16 @@ Timestamp when the user was last updated. ||
 
 External identifier for federation with external identity systems.
 This ID can be used to link this user with an account in an external system. ||
+|| company_name | **string**
+
+User's company name. ||
+|| department | **string**
+
+User's department. ||
+|| job_title | **string**
+
+User's job title. ||
+|| employee_id | **string**
+
+User's employee ID ||
 |#

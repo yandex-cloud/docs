@@ -53,7 +53,7 @@ To get a temporary access key:
     ```
 
     Where:
-    * `Version`: (Optional) Version of the access policy description, e.g., `2012-10-17`.
+    * `Version`: (Optional) Version of the bucket policy description, e.g., `2012-10-17`.
     * `Statement`: Bucket policy rules:
       * `Sid`: (Optional) Custom rule ID, e.g., `all`, `Statement Allow`, or `Statement Deny`.
       * `Effect`: Denies or allows the requested action. The possible values are `Allow` and `Deny`.
@@ -95,7 +95,7 @@ To get a temporary access key:
       * `--role-arn`: Description of at least 20 characters. You can use Latin letters, numbers, `_` and `-`.
       * `--role-session-name`: Unique key name. You can use Latin letters, numbers, `_` and `-`.
       * `--duration-seconds`: Key lifetime in seconds, which cannot exceed `43200`.
-      * `--policy file://`: Path to the access policy file.
+      * `--policy file://`: Path to the bucket policy file.
 
       For more information about the `aws sts assume-role` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
 
@@ -152,8 +152,3 @@ To get a temporary access key:
       ```
 
     {% endlist %}
-
-
-#### See also {#see-also}
-
-* [{#T}](../../storage/security/overview.md)

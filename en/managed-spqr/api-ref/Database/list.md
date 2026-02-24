@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster to list databases in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -24,6 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/databases
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster to list databases in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.spqr.v1.ListDatabasesRequest}
@@ -65,11 +70,15 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cl
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse) returned by the previous list request. ||
+[ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse}
@@ -81,7 +90,8 @@ Page token. To get the next page of results, set `pageToken` to the
   "databases": [
     {
       "name": "string",
-      "clusterId": "string"
+      "clusterId": "string",
+      "deletionProtection": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -114,4 +124,7 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the SPQR cluster that the database belongs to. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database ||
 |#

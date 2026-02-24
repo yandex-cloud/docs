@@ -30,6 +30,7 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
 
       1. {% include [arl-rule-action-over-limit](../../_includes/smartwebsecurity/arl-rule-action-over-limit.md) %}
       
+      1. Select or [create](template-create.md) a response template that will be returned to the client whenever a rule triggers. The standard {{ yandex-cloud }} template is used by default.
       1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
 
 - {{ TF }} {#tf}
@@ -96,7 +97,7 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
       }
       ```
 
-      For more information about the `yandex_sws_advanced_rate_limiter_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+      For more information about `yandex_sws_advanced_rate_limiter_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Apply the changes:
 

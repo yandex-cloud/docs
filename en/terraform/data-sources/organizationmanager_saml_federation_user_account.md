@@ -1,5 +1,5 @@
 ---
-subcategory: Identity and Access Management
+subcategory: Identity Hub
 ---
 
 # yandex_organizationmanager_saml_federation_user_account (DataSource)

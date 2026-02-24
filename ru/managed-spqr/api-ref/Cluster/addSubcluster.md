@@ -17,6 +17,7 @@ apiPlayground:
           description: |-
             **[HostSpec](#yandex.cloud.mdb.spqr.v1.HostSpec)**
             Configurations for SPQR hosts that should be created
+            Must contain exactly 1 element.
           type: array
           items:
             $ref: '#/definitions/HostSpec'
@@ -36,7 +37,7 @@ apiPlayground:
           clusterId:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
         required:
           - clusterId
@@ -48,6 +49,7 @@ apiPlayground:
               **string**
               ID of the availability zone where the host resides.
               To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+              The maximum string length in characters is 50.
             type: string
           subnetId:
             description: |-
@@ -55,6 +57,7 @@ apiPlayground:
               ID of the subnet that the host should belong to. This subnet should be a part
               of the network that the cluster belongs to.
               The network ID is set in the [Cluster.networkId](/docs/managed-spqr/api-ref/Cluster/get#yandex.cloud.mdb.spqr.v1.Cluster) field.
+              The maximum string length in characters is 50.
             type: string
           assignPublicIp:
             description: |-
@@ -70,7 +73,6 @@ apiPlayground:
             description: |-
               **enum** (Type)
               Required field. Type of the host to be deployed.
-              - `TYPE_UNSPECIFIED`
               - `ROUTER`: A SPQR Router host.
               - `COORDINATOR`: A SPQR Coordinator host.
               - `INFRA`: A SPQR Infra host (router+coordinator)
@@ -91,6 +93,7 @@ apiPlayground:
               **string**
               Name of the shard that the host belongs to.
               If empty, host doesn't belong to any shard
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           mdbPostgresql:
@@ -164,7 +167,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/subclusters
 Required field. ID of the SPQR cluster that subcluster is being added to. ||
 || hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.spqr.v1.HostSpec)**
 
-Configurations for SPQR hosts that should be created ||
+Configurations for SPQR hosts that should be created
+
+Must contain exactly 1 element. ||
 || resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
 
 Required field. Resources allocated to each host. ||
@@ -177,12 +182,16 @@ Required field. Resources allocated to each host. ||
 || zoneId | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.networkId](/docs/managed-spqr/api-ref/Cluster/get#yandex.cloud.mdb.spqr.v1.Cluster) field. ||
+The network ID is set in the [Cluster.networkId](/docs/managed-spqr/api-ref/Cluster/get#yandex.cloud.mdb.spqr.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assignPublicIp | **boolean**
 
 Whether the host should get a public IP address on creation.
@@ -197,7 +206,6 @@ Possible values:
 
 Required field. Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`
 - `ROUTER`: A SPQR Router host.
 - `COORDINATOR`: A SPQR Coordinator host.
 - `INFRA`: A SPQR Infra host (router+coordinator)
@@ -207,7 +215,9 @@ Required field. Type of the host to be deployed.
 || shardName | **string**
 
 Name of the shard that the host belongs to.
-If empty, host doesn't belong to any shard ||
+If empty, host doesn't belong to any shard
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || mdbPostgresql | **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)** ||
 |#
 
@@ -220,7 +230,7 @@ Configuration for MDB PostgreSQL host
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

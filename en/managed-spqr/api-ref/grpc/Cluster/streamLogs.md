@@ -30,13 +30,14 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. Required. ID of the SPQR cluster. ||
+Required field. Required. ID of the SPQR cluster.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from logs table to get in the response. ||
 || service_type | enum **ServiceType**
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `POSTGRESQL`: Logs of SPQR activity.
 - `ROUTER`
 - `COORDINATOR`
@@ -52,7 +53,9 @@ they appear. In essence it has 'tail -f' semantics. ||
 || record_token | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
-request to start streaming from next log record. ||
+request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -60,7 +63,9 @@ The expression must specify:
 1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
-Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')` ||
+Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')`
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## StreamLogRecord {#yandex.cloud.mdb.spqr.v1.StreamLogRecord}

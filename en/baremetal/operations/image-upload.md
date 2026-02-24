@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to provision a server from a c
 
 You can add a [custom OS or software product image](../concepts/images.md#user-images) to install it on your server on your own. To proceed, first upload your image file to the {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md).
 
-## Uploading an image file to {{ objstorage-name }} {#upload-file}
+## Upload the image file to {{ objstorage-name }} {#upload-file}
 
 {% note alert %}
 
@@ -67,6 +67,12 @@ Create a new image using the link you got in {{ objstorage-name }}:
       * `--description`: Image description. This is an optional setting.
       * `--uri`: Image link you got in {{ objstorage-name }}.
       * `--labels`: Image labels. This is an optional setting.
+
+- API {#api}
+
+  To create an image in {{ baremetal-name }}, use the [create](../api-ref/Image/create.md) REST API method for the [Image](../api-ref/Image/index.md) resource or the [ImageService/Create](../api-ref/grpc/Image/create.md) gRPC API call.
+  
+  {% include [create-baremetal-image-api](../../_includes/baremetal/create-baremetal-image-api.md) %}
 
 {% endlist %}
 

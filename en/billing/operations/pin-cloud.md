@@ -9,13 +9,15 @@ description: Follow this guide to link a cloud to a billing account.
 
 ## Requirements for linking a cloud {#bind-roles}
 
-Before linking a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), make sure that the [billing account](../concepts/billing-account.md) has been activated (has the `ACTIVE` or `TRIAL_ACTIVE` [status](../concepts/billing-account-statuses.md)) and the user has all of the following [roles](../../iam/concepts/access-control/roles.md):
-* [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the cloud.
-* `billing.accounts.editor` and higher for the billing account. To learn more about roles, see [Access management](../security/index.md#roles-list).
+Before linking a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), make sure the following conditions are met:
+1. [Billing account](../concepts/billing-account.md) has been successfully activated, i.e., its [status](../concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`.
+1. The user holds all these [roles](../../iam/concepts/access-control/roles.md) at once:
+   * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the cloud.
+   * [billing.accounts.editor](../security/index.md#billing-accounts-editor) and higher for the billing account.
 
 ## Linking a cloud {#bind-cloud}
 
-To link a cloud to a billing account or change the billing account a cloud is linked to:
+To link or re-link a cloud to a billing account:
 
 {% list tabs group=instructions %}
 
@@ -23,18 +25,26 @@ To link a cloud to a billing account or change the billing account a cloud is li
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select the billing account you want to link the cloud to.
-  1. Go to the ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}** page.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
   1. Click ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** in the top-right corner.
-  1. In the **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** field, select the type of the entity you are linking from the list and then select the cloud or service.
+
+     ![image](../../_assets/billing/billing-pin-cloud-1-4.png)
+
+  1. In the **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** field, pick the entity type you need from the list and select the resource to link to the billing account.
   1. Click **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**; the cloud or service you added will appear in the list.
-  1. If you are changing the cloud’s billing account, pay any outstanding charges on the old billing account.
+  1. If you are re-linking the cloud, pay any outstanding charges on the old billing account.
+
+     ![image](../../_assets/billing/billing-pin-cloud-5-6.png) 
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To link a cloud, the [service account](../../iam/concepts/users/service-accounts.md) must have the `billing.accounts.editor` [role](../security/index.md#set-role) or higher for the billing account.
-  1. In the configuration file, describe the properties of resources you want to create:
+  To link a cloud, the [service account](../../iam/concepts/users/service-accounts.md) must have the `billing.accounts.editor` [role](../security/index.md#set-role) or higher for the billing account you are linking your cloud to.
+
+  To link a cloud to a billing account:
+
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_billing_cloud_binding" "mycloud" {
@@ -45,9 +55,9 @@ To link a cloud to a billing account or change the billing account a cloud is li
 
      Where:
      * `billing_account_id`: ID of the billing account to link the cloud to.
-     * `cloud_id`: ID of the cloud to link the billing account to.
+     * `cloud_id`: ID of the cloud you want to link to the billing account.
 
-     For more information about the `yandex_billing_cloud_binding` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/billing_cloud_binding).
+     For more information about `yandex_billing_cloud_binding` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/billing_cloud_binding).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -60,11 +70,11 @@ To link a cloud to a billing account or change the billing account a cloud is li
 
 {% endlist %}
 
-If you are migrating a cloud because you want to stop using the old billing account, make sure the free **Basic** service plan is activated in it. Otherwise, even though it has no linked clouds remaining, you will continue to be charged for the paid service plan.
+If you want to stop using the old billing account, make sure it is on the free **Basic** service plan to avoid having your balance further debited. Otherwise, you will continue to be billed for the paid plan even if the account has no linked clouds.
 
 {% note warning %}
 
-Note that linking a cloud (or another container) to the [blocked account](../concepts/billing-account-statuses.md) will stop all your resources.
+Linking a cloud or another container to a [suspended account](../concepts/billing-account-statuses.md) will stop all your resources.
 
 {% endnote %}
 

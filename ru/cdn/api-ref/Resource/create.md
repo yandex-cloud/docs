@@ -78,6 +78,11 @@ apiPlayground:
             Default value: ourcdn
           default: ourcdn
           type: string
+        tls:
+          description: |-
+            **[TLS](#yandex.cloud.cdn.v1.TLS)**
+            TLS configuration for the resource.
+          $ref: '#/definitions/TLS'
       required:
         - folderId
         - cname
@@ -841,6 +846,24 @@ apiPlayground:
               **[SSLCertificateData](#yandex.cloud.cdn.v1.SSLCertificateData)**
               Certificate data.
             $ref: '#/definitions/SSLCertificateData'
+      TLS:
+        type: object
+        properties:
+          profile:
+            description: |-
+              **enum** (Profile)
+              TLS profile used for the resource.
+              - `PROFILE_COMPATIBLE`: TLSv1.2+, less secure
+              - `PROFILE_LEGACY`: TLSv1+, excluding most vulnerable
+              - `PROFILE_SECURE`: TLSv1.2+, most secure
+              - `PROFILE_STRICT`: TLSv1.3 only
+            type: string
+            enum:
+              - PROFILE_UNSPECIFIED
+              - PROFILE_COMPATIBLE
+              - PROFILE_LEGACY
+              - PROFILE_SECURE
+              - PROFILE_STRICT
 ---
 
 # Cloud CDN API, REST: Resource.Create
@@ -1090,7 +1113,10 @@ POST https://cdn.{{ api-host }}/cdn/v1/resources
     }
   },
   "labels": "object",
-  "providerType": "string"
+  "providerType": "string",
+  "tls": {
+    "profile": "string"
+  }
 }
 ```
 
@@ -1142,6 +1168,9 @@ ourcdn - Based on Yandex technologies
 gcore - Based on an external partner infrastructure
 
 Default value: ourcdn ||
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+
+TLS configuration for the resource. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.CreateResourceRequest.Origin}
@@ -1783,6 +1812,20 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
+## TLS {#yandex.cloud.cdn.v1.TLS}
+
+#|
+||Field | Description ||
+|| profile | **enum** (Profile)
+
+TLS profile used for the resource.
+
+- `PROFILE_COMPATIBLE`: TLSv1.2+, less secure
+- `PROFILE_LEGACY`: TLSv1+, excluding most vulnerable
+- `PROFILE_SECURE`: TLSv1.2+, most secure
+- `PROFILE_STRICT`: TLSv1.3 only ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -2196,7 +2239,7 @@ Type of the CDN provider for this resource. ||
 || providerCname | **string**
 
 CNAME provided by the CDN provider for this resource. ||
-|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS2)**
 
 TLS configuration for the resource. ||
 |#
@@ -2740,7 +2783,7 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
-## TLS {#yandex.cloud.cdn.v1.TLS}
+## TLS {#yandex.cloud.cdn.v1.TLS2}
 
 #|
 ||Field | Description ||

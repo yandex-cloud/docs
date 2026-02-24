@@ -25,16 +25,22 @@ Retrieves the list of SPQR Database resources in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to list databases in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse) returned by the previous list request. ||
+[ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListDatabasesResponse {#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse}
@@ -44,7 +50,8 @@ Page token. To get the next page of results, set `page_token` to the
   "databases": [
     {
       "name": "string",
-      "cluster_id": "string"
+      "cluster_id": "string",
+      "deletion_protection": "google.protobuf.BoolValue"
     }
   ],
   "next_page_token": "string"
@@ -77,4 +84,7 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the SPQR cluster that the database belongs to. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
 |#

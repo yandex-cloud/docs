@@ -62,7 +62,11 @@ The maximum string length in characters is 50. ||
   "phoneNumber": "string",
   "createdAt": "string",
   "updatedAt": "string",
-  "externalId": "string"
+  "externalId": "string",
+  "companyName": "string",
+  "department": "string",
+  "jobTitle": "string",
+  "employeeId": "string"
 }
 ```
 
@@ -139,4 +143,16 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 External identifier for federation with external identity systems.
 This ID can be used to link this user with an account in an external system. ||
+|| companyName | **string**
+
+User's company name. ||
+|| department | **string**
+
+User's department. ||
+|| jobTitle | **string**
+
+User's job title. ||
+|| employeeId | **string**
+
+User's employee ID ||
 |#

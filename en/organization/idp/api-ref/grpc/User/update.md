@@ -21,7 +21,11 @@ Updates the specified user.
   "given_name": "string",
   "family_name": "string",
   "email": "string",
-  "phone_number": "string"
+  "phone_number": "string",
+  "company_name": "string",
+  "department": "string",
+  "job_title": "string",
+  "employee_id": "string"
 }
 ```
 
@@ -67,6 +71,26 @@ The maximum string length in characters is 254. Value must match the regular exp
 New phone number for the user.
 
 The maximum string length in characters is 50. ||
+|| company_name | **string**
+
+New company name for the user.
+
+The maximum string length in characters is 256. ||
+|| department | **string**
+
+New department for the user.
+
+The maximum string length in characters is 256. ||
+|| job_title | **string**
+
+New job title for the user.
+
+The maximum string length in characters is 256. ||
+|| employee_id | **string**
+
+New employee ID for the user.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -96,7 +120,11 @@ The maximum string length in characters is 50. ||
     "phone_number": "string",
     "created_at": "google.protobuf.Timestamp",
     "updated_at": "google.protobuf.Timestamp",
-    "external_id": "string"
+    "external_id": "string",
+    "company_name": "string",
+    "department": "string",
+    "job_title": "string",
+    "employee_id": "string"
   }
   // end of the list of possible fields
 }
@@ -229,4 +257,16 @@ Timestamp when the user was last updated. ||
 
 External identifier for federation with external identity systems.
 This ID can be used to link this user with an account in an external system. ||
+|| company_name | **string**
+
+User's company name. ||
+|| department | **string**
+
+User's department. ||
+|| job_title | **string**
+
+User's job title. ||
+|| employee_id | **string**
+
+User's employee ID ||
 |#

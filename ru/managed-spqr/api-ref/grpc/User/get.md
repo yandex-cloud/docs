@@ -26,11 +26,15 @@ To get the list of available SPQR User resources, make a [List](/docs/managed-sp
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the SPQR User resource to return.
-To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/grpc/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/grpc/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## User {#yandex.cloud.mdb.spqr.v1.User}
@@ -50,7 +54,8 @@ To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref
   },
   "grants": [
     "string"
-  ]
+  ],
+  "deletion_protection": "google.protobuf.BoolValue"
 }
 ```
 
@@ -73,7 +78,12 @@ Set of permissions granted to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission}

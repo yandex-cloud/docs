@@ -225,7 +225,10 @@ Changes may take up to 15 minutes to apply. Afterwards, it is recommended to pur
     }
   },
   "labels": "map<string, string>",
-  "remove_labels": "bool"
+  "remove_labels": "bool",
+  "tls": {
+    "profile": "Profile"
+  }
 }
 ```
 
@@ -267,6 +270,9 @@ Resource labels. At some point will be needed for granular detailing. ||
 || remove_labels | **bool**
 
 If flag is set to true resource labels will be deleted. ||
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+
+TLS configuration for the resource. ||
 |#
 
 ## SecondaryHostnames {#yandex.cloud.cdn.v1.SecondaryHostnames}
@@ -813,6 +819,20 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
+## TLS {#yandex.cloud.cdn.v1.TLS}
+
+#|
+||Field | Description ||
+|| profile | enum **Profile**
+
+TLS profile used for the resource.
+
+- `PROFILE_COMPATIBLE`: TLSv1.2+, less secure
+- `PROFILE_LEGACY`: TLSv1+, excluding most vulnerable
+- `PROFILE_SECURE`: TLSv1.2+, most secure
+- `PROFILE_STRICT`: TLSv1.3 only ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -1173,7 +1193,7 @@ Type of the CDN provider for this resource. ||
 || provider_cname | **string**
 
 CNAME provided by the CDN provider for this resource. ||
-|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS2)**
 
 TLS configuration for the resource. ||
 |#
@@ -1717,7 +1737,7 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
-## TLS {#yandex.cloud.cdn.v1.TLS}
+## TLS {#yandex.cloud.cdn.v1.TLS2}
 
 #|
 ||Field | Description ||

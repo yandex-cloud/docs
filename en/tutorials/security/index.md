@@ -34,6 +34,7 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](export-logs-to-arcsight.md)
 * [{#T}](mgp-to-cloud-logging.md)
 * [{#T}](info-for-federal-ip-whitelist.md)
+* [{#T}](ephemeral-key-storage.md)
 
 ## Managing identity federations {#federations}
 

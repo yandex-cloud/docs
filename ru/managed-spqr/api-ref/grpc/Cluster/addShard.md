@@ -31,7 +31,9 @@ Creates a new shard.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to add a shard to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shard_spec | **[ShardSpec](#yandex.cloud.mdb.spqr.v1.ShardSpec)**
 
 Required field. Properties of the shard to be created. ||
@@ -43,7 +45,9 @@ Required field. Properties of the shard to be created. ||
 ||Field | Description ||
 || shard_name | **string**
 
-Required field. Name of the SPQR shard to create. ||
+Required field. Name of the SPQR shard to create.
+
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9][a-zA-Z0-9-]*$ `. ||
 || mdb_postgresql | **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)**
 
 Properties of the MDB PostgreSQL cluster
@@ -60,7 +64,7 @@ Configuration for MDB PostgreSQL host
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

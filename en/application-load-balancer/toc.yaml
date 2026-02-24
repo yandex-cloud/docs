@@ -71,7 +71,7 @@ items:
             items:
               - name: Allowing and denying availability zone shutdown
                 href: operations/manage-zone/allow-and-deny-shift.md
-              - name: Enabling and disabling an availability zone
+              - name: Enabling and disabling a zonal shift
                 href: operations/manage-zone/start-and-cancel-shift.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
@@ -81,6 +81,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Fault tolerance testing in the {{ yandex-cloud }} infrastructure
+        href: tutorials/testing-zone-failure-for-alb.md
       - name: Setting up virtual hosting
         href: tutorials/virtual-hosting.md
       - name: Creating an L7 load balancer with DDoS protection

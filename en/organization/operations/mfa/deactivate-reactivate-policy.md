@@ -5,6 +5,8 @@ description: Follow this guide to activate or deactivate an MFA policy in {{ org
 
 # Activating or deactivating an MFA policy
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 ## Activating an MFA policy {#reactivate-policy}
 
 To activate an inactive [MFA policy](../../concepts/mfa.md#mfa-policies):
@@ -40,6 +42,10 @@ To activate an inactive [MFA policy](../../concepts/mfa.md#mfa-policies):
 
      Where `--id` is the ID of the MFA policy you need to activate.
 
+- API {#api}
+
+  Use the [Activate](../../../organization/api-ref/MfaEnforcement/activate.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/Activate](../../../organization/api-ref/grpc/MfaEnforcement/activate.md) gRPC API call.
+
 {% endlist %}
 
 As a result, the MFA policy will be activated and switch to the `Active` status, and users with accounts added to the policy's target groups will be required to use an additional authentication factor.
@@ -74,6 +80,10 @@ To temporarily deactivate an [MFA policy](../../concepts/mfa.md#mfa-policies):
      ```
 
      Where `--id` is the ID of the MFA policy you need to deactivate.
+
+- API {#api}
+
+  Use the [Deactivate](../../../organization/api-ref/MfaEnforcement/deactivate.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/Deactivate](../../../organization/api-ref/grpc/MfaEnforcement/deactivate.md) gRPC API call.
 
 {% endlist %}
 

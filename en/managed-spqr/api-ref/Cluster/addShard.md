@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster to add a shard to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -34,7 +35,7 @@ apiPlayground:
           clusterId:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
         required:
           - clusterId
@@ -45,6 +46,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the SPQR shard to create.
+              The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9][a-zA-Z0-9-]*$ `.
             pattern: ^[a-zA-Z0-9][a-zA-Z0-9-]*$
             type: string
           mdbPostgresql:
@@ -77,7 +79,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/shards
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster to add a shard to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.AddClusterShardRequest}
@@ -108,7 +112,9 @@ Required field. Properties of the shard to be created. ||
 ||Field | Description ||
 || shardName | **string**
 
-Required field. Name of the SPQR shard to create. ||
+Required field. Name of the SPQR shard to create.
+
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9][a-zA-Z0-9-]*$ `. ||
 || mdbPostgresql | **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)**
 
 Properties of the MDB PostgreSQL cluster
@@ -125,7 +131,7 @@ Configuration for MDB PostgreSQL host
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

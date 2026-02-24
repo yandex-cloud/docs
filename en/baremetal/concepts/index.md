@@ -52,4 +52,3 @@ To configure, manage, and audit actions with objects, {{ baremetal-name }} provi
 * [{#T}](./network.md)
 * [{#T}](./dhcp.md)
 * [{#T}](./network-restrictions.md)
-* [Bare metal: Full control and high performance](https://yandex.cloud/ru/blog/bare-metal-guide)

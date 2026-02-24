@@ -89,6 +89,8 @@ The load balancer can establish unencrypted backend connections and backend conn
 
 If the backend group type is **{{ ui-key.yacloud.alb.label_proto-http }}**, you can use HTTP 1.1 or 2 to exchange data between the load balancer and backend endpoints. **{{ ui-key.yacloud.alb.label_proto-grpc }}** backend groups only support the HTTP/2 protocol.
 
+{% include [supported-certificates](../../_includes/application-load-balancer/supported-certificates.md) %}
+
 ### Balancing mode {#balancing-mode}
 
 In the backend settings, you can specify the mode for distributing traffic between backend endpoints (target group VMs):
@@ -152,7 +154,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 

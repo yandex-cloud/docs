@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
        * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** задайте конфигурацию хостов:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** задайте конфигурацию хостов:
 
       * Чтобы изменить настройки отдельного хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его именем.
 
@@ -137,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
       Если вы включили шардирование в кластере и выбрали тип диска **local-ssd**, добавьте не менее двух хостов на шард.
 
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** укажите пароль пользователя.
 
@@ -148,6 +148,12 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** задайте дополнительные настройки кластера:
 
       {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** подключите необходимые [модули {{ VLK }}](../../managed-valkey/concepts/modules.md).
+
+      Для модуля **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** настройте параметры **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** и **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+
+      {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 

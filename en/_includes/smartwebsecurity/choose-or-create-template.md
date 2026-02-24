@@ -1,0 +1,1 @@
+Select or [create](../../smartwebsecurity/operations/template-create.md) a response template that will be returned to the client whenever any rule triggers in the profile. The standard {{ yandex-cloud }} template is used by default.

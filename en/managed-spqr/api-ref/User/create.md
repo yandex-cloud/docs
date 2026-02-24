@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster to create a user in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -52,12 +53,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the SPQR user.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           password:
             description: |-
               **string**
               Required field. Password of the SPQR user.
+              The string length in characters must be 8-128.
             type: string
           permissions:
             description: |-
@@ -75,10 +78,16 @@ apiPlayground:
             description: |-
               **string**
               User grants
+              The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: array
             items:
               type: string
+          deletionProtection:
+            description: |-
+              **boolean**
+              Deletion Protection inhibits deletion of the user
+            type: boolean
         required:
           - name
           - password
@@ -101,7 +110,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.CreateUserRequest}
@@ -122,7 +133,8 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cl
     },
     "grants": [
       "string"
-    ]
+    ],
+    "deletionProtection": "boolean"
   }
 }
 ```
@@ -140,10 +152,14 @@ Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the SPQR user. ||
+Required field. Name of the SPQR user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the SPQR user. ||
+Required field. Password of the SPQR user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.spqr.v1.Permission)**
 
 Set of permissions to grant to the user. ||
@@ -152,7 +168,12 @@ Set of permissions to grant to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission}
@@ -210,7 +231,8 @@ Name of the database that the permission grants access to. ||
     },
     "grants": [
       "string"
-    ]
+    ],
+    "deletionProtection": "boolean"
   }
   // end of the list of possible fields
 }
@@ -335,7 +357,12 @@ Set of permissions granted to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission2}

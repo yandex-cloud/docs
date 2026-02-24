@@ -61,7 +61,7 @@ For IdP-specific examples, see our tutorials:
             {% include [download-saml-cert-when-creating-fed](../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
 
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}**: If enabled, federated user name IDs will be case-insensitive.
-        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**: When the {{ yandex-cloud }} session expires, your IdP will prompt the user to re-authenticate.
+        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**: Once the {{ yandex-cloud }} session expires, your IdP will prompt the user to re-authenticate.
 
   1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
@@ -127,7 +127,7 @@ For IdP-specific examples, see our tutorials:
 
   1. Create a configuration file describing the federation.
 
-      Here is a configuration file example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -177,7 +177,7 @@ For IdP-specific examples, see our tutorials:
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
-  1. Make sure the {{ TF }} configuration files are correct:
+  1. Validate your {{ TF }} configuration:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

@@ -44,7 +44,8 @@ description: Следуя данной инструкции, вы сможете
 
     - Консоль управления {#console}
 
-        1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где находится кластер {{ managed-k8s-name }}, к узлу которого нужен доступ.
+        1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер {{ managed-k8s-name }}, к узлу которого нужен доступ.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
         1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
         1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
         1. Выберите нужную группу узлов.

@@ -34,6 +34,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
+  1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
 
   1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** and configure logging:
@@ -180,7 +181,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
       If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 
