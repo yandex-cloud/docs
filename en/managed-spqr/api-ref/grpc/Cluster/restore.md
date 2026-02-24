@@ -28,7 +28,10 @@ Creates a new SPQR cluster using the specified backup.
             "double"
           ],
           "default_route_behavior": "DefaultRouteBehavior",
-          "prefer_same_availability_zone": "google.protobuf.BoolValue"
+          "prefer_same_availability_zone": "google.protobuf.BoolValue",
+          "enhanced_multishard_processing": "google.protobuf.BoolValue",
+          "default_target_session_attrs": "TargetSessionAttrs",
+          "default_commit_strategy": "CommitStrategy"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -64,7 +67,10 @@ Creates a new SPQR cluster using the specified backup.
             "double"
           ],
           "default_route_behavior": "DefaultRouteBehavior",
-          "prefer_same_availability_zone": "google.protobuf.BoolValue"
+          "prefer_same_availability_zone": "google.protobuf.BoolValue",
+          "enhanced_multishard_processing": "google.protobuf.BoolValue",
+          "default_target_session_attrs": "TargetSessionAttrs",
+          "default_commit_strategy": "CommitStrategy"
         },
         "coordinator": "CoordinatorSettings"
       },
@@ -121,19 +127,24 @@ To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-spqr/api-
 || name | **string**
 
 Required field. Name of the new SPQR cluster. The name must be unique within the folder.
-The name can't be changed after the SPQR cluster is created. ||
+The name can't be changed after the SPQR cluster is created.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the new SPQR cluster. ||
+Description of the new SPQR cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per resource.
-For example, "project": "mvp" or "source": "dictionary". ||
+For example, "project": "mvp" or "source": "dictionary".
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || environment | enum **Environment**
 
 Required field. Deployment environment of the new SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -144,13 +155,19 @@ Required field. Configuration for the SPQR cluster to be created. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.spqr.v1.HostSpec)**
 
 Configurations for SPQR hosts that should be created for
-the cluster that is being created from the backup. ||
+the cluster that is being created from the backup.
+
+The number of elements must be greater than 0. ||
 || network_id | **string**
 
-Required field. ID of the network to create the SPQR cluster in. ||
+Required field. ID of the network to create the SPQR cluster in.
+
+The maximum string length in characters is 150. ||
 || folder_id | **string**
 
-Required. ID of the folder to create the SPQR cluster in. ||
+Required. ID of the folder to create the SPQR cluster in.
+
+The maximum string length in characters is 50. ||
 || security_group_ids[] | **string**
 
 User security groups ||
@@ -210,13 +227,11 @@ Configuration and resource allocation for SPQR Infra (router+coordinator) hosts.
 Password of the SPQR console. ||
 || log_level | enum **LogLevel**
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 Configuration for SPQR Balancer. ||
@@ -244,10 +259,22 @@ Configuration of a SPQR router.
 || time_quantiles[] | **double** ||
 || default_route_behavior | enum **DefaultRouteBehavior**
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || prefer_same_availability_zone | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| enhanced_multishard_processing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| default_target_session_attrs | enum **TargetSessionAttrs**
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| default_commit_strategy | enum **CommitStrategy**
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -365,12 +392,16 @@ NOTE: Do not propagate to public API until Serverless integration is required. |
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](#yandex.cloud.mdb.spqr.v1.Cluster) field. ||
+The network ID is set in the [Cluster.network_id](#yandex.cloud.mdb.spqr.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
@@ -385,7 +416,6 @@ Possible values:
 
 Required field. Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`
 - `ROUTER`: A SPQR Router host.
 - `COORDINATOR`: A SPQR Coordinator host.
 - `INFRA`: A SPQR Infra host (router+coordinator)
@@ -395,7 +425,9 @@ Required field. Type of the host to be deployed.
 || shard_name | **string**
 
 Name of the shard that the host belongs to.
-If empty, host doesn't belong to any shard ||
+If empty, host doesn't belong to any shard
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || mdb_postgresql | **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)** ||
 |#
 
@@ -408,7 +440,7 @@ Configuration for MDB PostgreSQL host
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -451,7 +483,10 @@ Required field.  ||
               "double"
             ],
             "default_route_behavior": "DefaultRouteBehavior",
-            "prefer_same_availability_zone": "google.protobuf.BoolValue"
+            "prefer_same_availability_zone": "google.protobuf.BoolValue",
+            "enhanced_multishard_processing": "google.protobuf.BoolValue",
+            "default_target_session_attrs": "TargetSessionAttrs",
+            "default_commit_strategy": "CommitStrategy"
           },
           "resources": {
             "resource_preset_id": "string",
@@ -487,7 +522,10 @@ Required field.  ||
               "double"
             ],
             "default_route_behavior": "DefaultRouteBehavior",
-            "prefer_same_availability_zone": "google.protobuf.BoolValue"
+            "prefer_same_availability_zone": "google.protobuf.BoolValue",
+            "enhanced_multishard_processing": "google.protobuf.BoolValue",
+            "default_target_session_attrs": "TargetSessionAttrs",
+            "default_commit_strategy": "CommitStrategy"
           },
           "coordinator": "CoordinatorSettings"
         },
@@ -635,7 +673,6 @@ Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per reso
 
 Deployment environment of the SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -739,13 +776,11 @@ SPQR Infra (router+coordinator) settings. ||
 
 SPQR default log level
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings2)**
 
 SPQR Balancer settings. ||
@@ -769,10 +804,22 @@ Configuration of a SPQR router.
 || time_quantiles[] | **double** ||
 || default_route_behavior | enum **DefaultRouteBehavior**
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || prefer_same_availability_zone | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| enhanced_multishard_processing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| default_target_session_attrs | enum **TargetSessionAttrs**
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| default_commit_strategy | enum **CommitStrategy**
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources2}
@@ -908,7 +955,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -918,7 +964,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.spqr.v1.MaintenanceOperation}
@@ -929,7 +977,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||

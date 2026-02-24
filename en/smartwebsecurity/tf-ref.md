@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ sws-full-name }}'
-description: This page provides information about the {{ TF }} provider’s resources and data sources that {{ sws-full-name }} supports.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ sws-full-name }}.
 ---
 
 # {{ TF }} reference for {{ sws-full-name }}

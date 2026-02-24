@@ -14,6 +14,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListResourcePresetsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -22,6 +23,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListResourcePresetsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -47,11 +49,15 @@ GET https://{{ api-host-mdb }}/managed-spqr/v1/resourcePresets
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListResourcePresetsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListResourcePresetsResponse) returned by the previous list request. ||
+[ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListResourcePresetsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.spqr.v1.ListResourcePresetsResponse}

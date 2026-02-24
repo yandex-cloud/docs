@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Введите имя и описание кластера {{ managed-k8s-name }}. Имя кластера {{ managed-k8s-name }} должно быть уникальным в рамках {{ yandex-cloud }}.
 1. Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**, который будет использоваться для создания ресурсов.

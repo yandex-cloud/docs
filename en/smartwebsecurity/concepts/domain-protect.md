@@ -1,6 +1,11 @@
+---
+title: Protecting web applications in an external infrastructure
+description: Protecting web applications deployed outside {{ yandex-cloud }} using {{ sws-name }}.
+---
+
 # Protecting web applications in an external infrastructure
 
-{% include [preview-domain](../../_includes/smartwebsecurity/preview-domain.md)%}
+{% include [preview-domain](../../_includes/smartwebsecurity/preview-domain.md) %}
 
 {{ sws-name }} enables protection of web applications deployed both in and beyond {{ yandex-cloud }}, e.g., in your internal infrastructure or on another hosting service. {{ sws-name }} provides various means to protect your infrastructure against cybersecurity threats at the application layer (L7) of the OSI model. These may include DDoS attacks, [bot](https://en.wikipedia.org/wiki/Botnet) attacks, [SQL injections](https://en.wikipedia.org/wiki/SQL_injection), [cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting), etc.
 
@@ -40,7 +45,7 @@ You can configure logging for each proxy server. You can write all logs or filte
 
 You can connect multiple domains to a proxy server. For details on the number of domains, see [{#T}](limits.md).
 
-{% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md)%}
+{% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md) %}
 
 ### Domain {#domain}
 

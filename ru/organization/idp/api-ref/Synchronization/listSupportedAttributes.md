@@ -108,7 +108,11 @@ Target attribute to map to.
 - `FAMILY_NAME`: Family name attribute.
 - `EMAIL`: Email attribute.
 - `PHONE_NUMBER`: Phone number attribute.
-- `USERNAME`: Username attribute. ||
+- `USERNAME`: Username attribute.
+- `COMPANY_NAME`: Company name attribute.
+- `JOB_TITLE`: Job title attribute.
+- `DEPARTMENT`: Department attribute.
+- `EMPLOYEE_ID`: Employee ID attribute. ||
 || sourceAttributes[] | **[SourceAttributes](#yandex.cloud.organizationmanager.v1.idp.SourceAttributes)**
 
 List of source attribute configurations. ||

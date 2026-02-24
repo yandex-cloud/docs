@@ -46,13 +46,13 @@ This depends on your current service plan:
 
    If you [add a billing account](../../datalens/settings/service-plan.md#add-billing-account) by March 1, 2026, seat-based pricing will start to apply. Otherwise, your instance will be reduced to one seat starting March 1.
 
-   If you switch to **Business** before December 1, 2025, or complete your trial period under the new plan between December 1 and December 31, 2025, you may [get a 50% discount](../../datalens/pricing-changes.md#discounts) from that moment until the end of 2026. If you complete your trial period under the new plan between January 1 and January 31, 2026, you may [get a 20% discount](../../datalens/pricing-changes.md#discounts) from that moment until the end of 2026.
+   If you switch to **Business** before December 1, 2025 or complete your trial period under the new plan between December 1 and December 31, 2025, you may get a 50% [discount](../../datalens/pricing-changes.md#discounts) from that moment until the end of 2026. If you complete your trial period under the new plan between January 1 and February 28, 2026, you may get a 20% [discount](../../datalens/pricing-changes.md#discounts) from that moment until the end of 2026.
 
 ### How do I get the discount? {#discount}
 
 To be eligible for the 50% discount, you need to be a **Community** user as of November 16, 2025 and switch to the **Business** plan before December 1, 2025 or complete your trial period under the new plan between December 1 and December 31, 2025. The discount will apply immediately and remain in effect through all of 2026.
 
-To be eligible for the 20% discount, you need to be a **Community** user as of November 16, 2025 and complete your trial period under the new plan between January 1 and January 31, 2026. The discount will apply immediately and remain in effect through all of 2026.
+To be eligible for the 20% discount, you need to be a **Community** user as of November 16, 2025 and complete your trial period under the new plan between January 1 and February 28, 2026. The discount will apply immediately and remain in effect through all of 2026.
 
 ### I am currently on the Business plan. How will my active users convert to seats? {#business-conversion}
 

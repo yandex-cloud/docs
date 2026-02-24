@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster that the database belongs to.
             To get the cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         databaseName:
           description: |-
             **string**
             Required field. Name of the SPQR database to return.
             To get the name of the database use a [DatabaseService.List](/docs/managed-spqr/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -47,11 +49,15 @@ GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/databases/{d
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster that the database belongs to.
-To get the cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the SPQR database to return.
-To get the name of the database use a [DatabaseService.List](/docs/managed-spqr/api-ref/Database/list#List) request. ||
+To get the name of the database use a [DatabaseService.List](/docs/managed-spqr/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.spqr.v1.Database}
@@ -61,7 +67,8 @@ To get the name of the database use a [DatabaseService.List](/docs/managed-spqr/
 ```json
 {
   "name": "string",
-  "clusterId": "string"
+  "clusterId": "string",
+  "deletionProtection": "boolean"
 }
 ```
 
@@ -76,4 +83,7 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the SPQR cluster that the database belongs to. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database ||
 |#

@@ -13,7 +13,7 @@ For an [MFA policy](../../concepts/mfa.md#mfa-policies) to apply to user account
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
-  1. Navigate to the **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}** tab and select the policy you need from the list. In the window that opens, do the following:
+  1. Navigate to the **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}** tab and select the policy you need from the list. In the window that opens:
 
       1. Navigate to the **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.tab_groups }}** tab.
       1. To add a new user or group to the policy's target groups:
@@ -59,6 +59,10 @@ For an [MFA policy](../../concepts/mfa.md#mfa-policies) to apply to user account
        * `action`: Action, `action-add` to add, `action-remove` to delete.
 
      You can specify multiple `--audience-delta` parameters to edit more than one object at the same time.
+
+- API {#api}
+
+  Use the [UpdateAudience](../../../organization/api-ref/MfaEnforcement/updateAudience.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/UpdateAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateAudience.md) gRPC API call.
 
 {% endlist %}
 

@@ -94,7 +94,7 @@ As of November 16, 2025, special conditions apply to **Community** plan users.
 
 If you switch to the **Business** plan before December 1, 2025 or end your trial period early between December 1 and December 31, you will get a 50% discount on all seats from that moment until the end of 2026.
 
-If you complete your trial period early between January 1 and January 31, 2026, you will get a 20% discount on all seats from that moment until the end of 2026.
+If you complete your trial period early between January 1 and February 28, 2026, you will get a 20% discount on all seats from that moment until the end of 2026.
 
 {% note info %}
 

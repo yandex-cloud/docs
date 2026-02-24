@@ -8,6 +8,11 @@ description: This section contains the {{ org-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## January 2026 {#january-2026}
+
+* Added support for SMS as an [MFA](concepts/mfa.md) factor. {{ tag-con }}
+
+
 ## December 2025 {#december-2025}
 
 * Added a list of supported values for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands. {{ tag-cli }}

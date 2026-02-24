@@ -17,13 +17,16 @@
 - Консоль управления {#console}
 
   Чтобы узнать список доступных версий для кластера {{ managed-k8s-name }}:
-  1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. Получите список доступных версий в поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** блока **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**.
 
   Чтобы узнать список доступных версий для группы узлов {{ managed-k8s-name }}:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Выберите нужную группу узлов {{ managed-k8s-name }} в списке и нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. Получите список доступных версий в поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}**.
@@ -270,7 +273,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите вариант `Обновить до версии <номер_версии>`.
@@ -630,7 +634,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Выберите нужную группу узлов {{ managed-k8s-name }} в списке.
@@ -707,7 +712,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите `Получить последние улучшения и исправления для версии...`.
@@ -743,7 +749,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Выберите нужную группу узлов {{ managed-k8s-name }} в списке.
@@ -793,7 +800,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. В блоке **Обновления** нажмите кнопку **Обновить сейчас**.
 
@@ -805,7 +813,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. В блоке **Обновления** нажмите кнопку **Перенести**.
   1. Выберите новую дату обновления и нажмите кнопку **Перенести**.

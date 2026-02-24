@@ -79,6 +79,12 @@ description: В данном разделе приведены описания 
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
+## {{ mkf-full-name }} {#mkf}
+
+Имя сервиса — `mdb.kafka`.
+
+{% include [mkf-events-dp](../../_includes/audit-trails/events/mkf-events-dp.md) %}
+
 ## {{ mch-full-name }} {#mch}
 
 Имя сервиса — `mdb.clickhouse`.
@@ -102,6 +108,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
+
+## {{ mos-full-name }} {#mos}
+
+Имя сервиса — `mdb.opensearch`.
+
+{% include [mos-events-dp](../../_includes/audit-trails/events/mos-events-dp.md) %}
 
 ## {{ mgp-full-name }} {#mgp}
 

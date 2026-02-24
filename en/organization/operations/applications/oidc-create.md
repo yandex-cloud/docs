@@ -144,6 +144,104 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the [OAuth client](../../concepts/applications.md) parameters in the {{ TF }} configuration file:
+
+     ```hcl
+     resource "yandex_iam_oauth_client" "example_oauth_client" {
+       name      = "<OAuth_client_name>"
+       folder_id = "<folder_ID>"
+       scopes    = ["<attribute_1>", "<attribute_2>"]
+     }
+     ```
+
+     Where:
+
+     * `name`: OAuth client name.
+     * `folder_id`: ID of the folder where you want to create your OAuth server.
+     * `scopes`: User attributes that will be available to the service provider. Specify one or more attributes in square brackets. Possible attributes:
+       * `openid`: User ID. Required attribute.
+       * `profile`: Additional user details, such as first name, last name, and avatar.
+       * `email`: User email address.
+       * `address`: User home address.
+       * `phone`: User phone number.
+       * `groups`: User groups in the organization.
+
+     For more information about `yandex_iam_oauth_client` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
+
+  1. In the {{ TF }} configuration file, describe the OAuth client [secret](../../concepts/applications.md#oidc-secret) parameters:
+
+     ```hcl
+     resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
+       oauth_client_id = "<OAuth_client_ID>"
+     }
+     ```
+
+     Where:
+
+     * `oauth_client_id`: ID of the OAuth client for which you are creating the secret.
+
+     For more information about `yandex_iam_oauth_client_secret` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
+
+  1. Describe the [OIDC application](../../concepts/applications.md#oidc) parameters in the {{ TF }} configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
+       organization_id = "<organization_ID>"
+       name            = "<application_name>"
+       description     = "<application_description>"
+       
+       client_grant = {
+         client_id         = "<OAuth_client_ID>"
+         authorized_scopes = ["<attribute_1>", "<attribute_2>"]
+       }
+       
+       group_claims_settings = {
+         group_distribution_type = "ALL_GROUPS"
+       }
+       
+       labels = {
+         "<key_1>" = "<value_1>"
+         "<key_2>" = "<value_2>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your OIDC app in. This is a required parameter.
+     * `name`: OIDC app name. This is a required parameter. The name must be unique within the organization and follow the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description`: OIDC app description. This is an optional parameter.
+     * `client_grant`: OAuth client connection settings:
+       * `client_id`: OAuth client ID. This is a required parameter.
+       * `authorized_scopes`: Specify the same attributes as when creating the OAuth client.
+     * `group_claims_settings`: Settings for sending user groups to the service provider:
+       * `group_distribution_type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
+         * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
+         * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.
+         * `NONE`: Service provider will not get any of the groups the user belongs to.
+     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter.
+
+     For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager idp application oauth application list --organization-id <organization_ID>
+     ```
+
 - API {#api}
 
   1. Use the [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md) gRPC API call.
@@ -234,6 +332,44 @@ Before configuring your OIDC application in {{ org-name }}, get the redirect URI
        - https://example.ru
      folder_id: b1g500m2195v********
      status: ACTIVE
+     ```
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. In the {{ TF }} configuration file, specify the `redirect_uris` parameter for the `yandex_iam_oauth_client` resource:
+
+     ```hcl
+     resource "yandex_iam_oauth_client" "example_oauth_client" {
+       name          = "<OAuth_client_name>"
+       folder_id     = "<folder_ID>"
+
+       ...
+
+       redirect_uris = ["<address_1>", "<address_2>"]
+     }
+     ```
+
+     Where:
+
+     * `name`: OAuth client name.
+     * `folder_id`: ID of the folder where you want to create your OAuth server.
+     * `redirect_uris`: Specify the address or addresses you got from the service provider in square brackets.
+
+     For more information about `yandex_iam_oauth_client` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the updates of resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc iam oauth-client get <OAuth_client_ID>
      ```
 
 - API {#api}

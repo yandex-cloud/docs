@@ -5,7 +5,7 @@ items:
     items:
       - name: Leasing a stock configuration server
         href: quickstart.md
-      - name: Leasing a custom configuration server
+      - name: Leasing a custom-configured server
         href: operations/servers/custom-server-lease.md
   - name: Step-by-step guides
     expanded: true
@@ -16,7 +16,7 @@ items:
         items:
           - name: Leasing a stock configuration server
             href: operations/servers/server-lease.md
-          - name: Leasing a custom configuration server
+          - name: Leasing a custom-configured server
             href: operations/servers/custom-server-lease.md
           - name: Getting information about a server
             href: operations/servers/get-info.md
@@ -80,7 +80,7 @@ items:
             href: concepts/server-configurations.md
           - name: Custom server configuration
             href: concepts/server-custom-configurations.md
-          - name: Personalized server configuration
+          - name: On-request server configuration
             href: concepts/server-individual-configurations.md
       - name: Network
         expanded: true

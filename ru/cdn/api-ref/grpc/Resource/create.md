@@ -247,7 +247,10 @@ Creation may take up to 15 minutes.
     }
   },
   "labels": "map<string, string>",
-  "provider_type": "string"
+  "provider_type": "string",
+  "tls": {
+    "profile": "Profile"
+  }
 }
 ```
 
@@ -299,6 +302,9 @@ ourcdn - Based on Yandex technologies
 gcore - Based on an external partner infrastructure
 
 Default value: ourcdn ||
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+
+TLS configuration for the resource. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.CreateResourceRequest.Origin}
@@ -940,6 +946,20 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
+## TLS {#yandex.cloud.cdn.v1.TLS}
+
+#|
+||Field | Description ||
+|| profile | enum **Profile**
+
+TLS profile used for the resource.
+
+- `PROFILE_COMPATIBLE`: TLSv1.2+, less secure
+- `PROFILE_LEGACY`: TLSv1+, excluding most vulnerable
+- `PROFILE_SECURE`: TLSv1.2+, most secure
+- `PROFILE_STRICT`: TLSv1.3 only ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -1300,7 +1320,7 @@ Type of the CDN provider for this resource. ||
 || provider_cname | **string**
 
 CNAME provided by the CDN provider for this resource. ||
-|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS2)**
 
 TLS configuration for the resource. ||
 |#
@@ -1844,7 +1864,7 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
-## TLS {#yandex.cloud.cdn.v1.TLS}
+## TLS {#yandex.cloud.cdn.v1.TLS2}
 
 #|
 ||Field | Description ||

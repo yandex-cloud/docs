@@ -1,8 +1,8 @@
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
       [Switch](../../organization/operations/manage-organizations.md#switch-to-another-org) to an organization of your choice as required.
   1. In the left-hand panel, select ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
@@ -13,4 +13,4 @@
 
 {% endlist %}
 
-To allow federated users to use refresh tokens in the {{ yandex-cloud }} CLI, each user must [initialize DPoP](../../iam/concepts/authorization/refresh-token.md#enabling-dpop) after you enable this option at the organization level.
+To use refresh tokens in the {{ yandex-cloud }} CLI, each user must [initialize DPoP](../../iam/concepts/authorization/refresh-token.md#enabling-dpop) after you enable this option at the organization level.

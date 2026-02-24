@@ -62,13 +62,15 @@ You can opt for the following actions:
 
    Use this option if you need to limit peak load while maintaining maximum application availability. This action does not require request grouping.
 
-* Temporarily block all requests: All requests will be denied for the period you specify, You can block requests for the period from 1 second to 24 hours. The block duration is fixed, regardless of the remaining limit period. Access is automatically restored after the block expires.
+* Temporarily block all requests: All requests will be denied for the period you specify, You can block requests for a period from 1 second to 24 hours. The block duration is fixed, regardless of the remaining limit period. Access is automatically restored after the block expires.
 
    Use this action to provide enhanced protection against bots, scrapers, brute-force attacks, or spam, prioritizing reliability over availability. For example, it is a good fit for login pages or message submission forms. This action requires request grouping.
 
 * Send over-limit requests for CAPTCHA verification: Requests that exceed the limit will be sent to [{{ captcha-name }}](../../smartcaptcha/). You can configure CAPTCHA through the security profile associated with the ARL profile. This action helps differentiate legitimate users from bots, ensuring requests are not fully blocked and that the application remains available.
 
    Use this action as a softer restriction on pages with registration, login, feedback, search, or similar forms.
+
+To standardize client response pages whenever an individual rule or any rule in the profile triggers, you can create custom [response templates](response-templates.md).
 
 ## See also {#see-also}
 

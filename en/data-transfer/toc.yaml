@@ -290,7 +290,7 @@ items:
         href: concepts/copy-speed.md
       - name: Change data capture
         href: concepts/cdc.md
-      - name: What tasks the service is used for
+      - name: Use cases
         href: concepts/use-cases.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -484,31 +484,33 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
-      - name: December 2025
-        href: release-notes/2512.md
-      - name: November 2025
-        href: release-notes/2511.md
-      - name: October 2025
-        href: release-notes/2510.md
-      - name: September 2025
-        href: release-notes/2509.md
-      - name: August 2025
-        href: release-notes/2508.md
-      - name: July 2025
-        href: release-notes/2507.md
-      - name: June 2025
-        href: release-notes/2506.md
-      - name: May 2025
-        href: release-notes/2505.md
-      - name: April 2025
-        href: release-notes/2504.md
-      - name: March 2025
-        href: release-notes/2503.md
-      - name: February 2025
-        href: release-notes/2502.md
-      - name: January 2025
-        href: release-notes/2501.md
-      - name: '2024'
+      - name: 2025
+        items:
+          - name: December 2025
+            href: release-notes/2512.md
+          - name: November 2025
+            href: release-notes/2511.md
+          - name: October 2025
+            href: release-notes/2510.md
+          - name: September 2025
+            href: release-notes/2509.md
+          - name: August 2025
+            href: release-notes/2508.md
+          - name: July 2025
+            href: release-notes/2507.md
+          - name: June 2025
+            href: release-notes/2506.md
+          - name: May 2025
+            href: release-notes/2505.md
+          - name: April 2025
+            href: release-notes/2504.md
+          - name: March 2025
+            href: release-notes/2503.md
+          - name: February 2025
+            href: release-notes/2502.md
+          - name: January 2025
+            href: release-notes/2501.md
+      - name: 2024
         items:
           - name: December 2024
             href: release-notes/2412.md
@@ -534,7 +536,7 @@ items:
             href: release-notes/2402.md
           - name: January 2024
             href: release-notes/2401.md
-      - name: '2023'
+      - name: 2023
         items:
           - name: December 2023
             href: release-notes/2312.md

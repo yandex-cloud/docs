@@ -260,7 +260,7 @@ title: Обеспечение доступа к приложению, запущ
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог по умолчанию.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. На вкладке **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором вашего кластера {{ k8s }} в описании.
 
    - CLI {#cli}

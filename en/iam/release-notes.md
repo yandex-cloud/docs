@@ -10,7 +10,7 @@ description: This section contains the {{ iam-name }} release notes.
 
 ## December 2025 {#december-2025}
 
-* Added the `yc iam access-key issue-ephemeral` command for issuing ephemeral keys. {{ tag-cli }}
+* Added the `yc iam access-key issue-ephemeral` command for issuing [ephemeral keys](concepts/authorization/ephemeral-keys.md). {{ tag-cli }}
 * Added support for the `yandex_iam_oauth_client_secret` resource to manage OAuth client secrets. {{ tag-tf }}
 * Added the `labels` field to the `yandex_iam_service_account` resource to work with labels. {{ tag-tf }}
 * For the `yandex_iam_oauth_client` resource, changed the `scopes` and `redirect_uris` fields to the _set_ type to prevent comparison collisions. {{ tag-tf }}

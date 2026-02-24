@@ -29,7 +29,8 @@ Creates a SPQR user in the specified cluster.
     },
     "grants": [
       "string"
-    ]
+    ],
+    "deletion_protection": "google.protobuf.BoolValue"
   }
 }
 ```
@@ -39,7 +40,9 @@ Creates a SPQR user in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_spec | **[UserSpec](#yandex.cloud.mdb.spqr.v1.UserSpec)**
 
 Properties of the user to be created. ||
@@ -51,10 +54,14 @@ Properties of the user to be created. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the SPQR user. ||
+Required field. Name of the SPQR user.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || password | **string**
 
-Required field. Password of the SPQR user. ||
+Required field. Password of the SPQR user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.spqr.v1.Permission)**
 
 Set of permissions to grant to the user. ||
@@ -63,7 +70,12 @@ Set of permissions to grant to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission}
@@ -113,7 +125,8 @@ Name of the database that the permission grants access to. ||
     },
     "grants": [
       "string"
-    ]
+    ],
+    "deletion_protection": "google.protobuf.BoolValue"
   }
   // end of the list of possible fields
 }
@@ -207,7 +220,12 @@ Set of permissions granted to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission2}

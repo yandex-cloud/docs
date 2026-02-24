@@ -9,7 +9,7 @@
 
       {% include [name-format](../../name-format.md) %}
 
-  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../../backup/security/index.md#backup-editor) `backup.editor`.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../../backup/security/index.md#backup-user) `backup.user`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -48,11 +48,11 @@
       yc resource-manager folder add-access-binding --help
       ```
 
-  1. Назначьте сервисному аккаунту [роль](../../../backup/security/index.md#backup-editor) `backup.editor` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Назначьте сервисному аккаунту [роль](../../../backup/security/index.md#backup-user) `backup.user` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
-        --role backup.editor \
+        --role backup.user \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
@@ -63,7 +63,7 @@
       effective_deltas:
         - action: ADD
           access_binding:
-            role_id: backup.editor
+            role_id: backup.user
             subject:
               id: ajehb3tcdfa1********
               type: serviceAccount
@@ -85,9 +85,9 @@
         folder_id   = "<идентификатор_каталога>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_member" "backup-editor-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "backup-user-role" {
         folder_id   = "<идентификатор_каталога>"
-        role        = "backup.editor"
+        role        = "backup.user"
         member      = "serviceAccount:${yandex_iam_service_account.backup-sa.id}"
       }
       ```
@@ -97,7 +97,7 @@
       * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
       * `yandex_resourcemanager_folder_iam_member` — описание прав доступа сервисного аккаунта к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), где:
 
-          * `role` — назначаемая [роль](../../../backup/security/index.md#backup-editor).
+          * `role` — назначаемая [роль](../../../backup/security/index.md#backup-user).
           * `member` — субъект, которому назначается роль.
 
   1. Создайте ресурсы:
@@ -115,7 +115,7 @@
 
   Чтобы создать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), воспользуйтесь методом REST API [create](../../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../../iam/api-ref/grpc/ServiceAccount/create.md).
 
-  Чтобы назначить сервисному аккаунту [роль](../../../backup/security/index.md#backup-editor) `backup.editor` на каталог, воспользуйтесь методом [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
+  Чтобы назначить сервисному аккаунту [роль](../../../backup/security/index.md#backup-user) `backup.user` на каталог, воспользуйтесь методом [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
 {% endlist %}
 

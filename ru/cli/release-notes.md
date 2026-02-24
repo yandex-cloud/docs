@@ -7,6 +7,25 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.195.0 (23.02.26) {#version0.195.0}
+
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+
+##### {{ mmg-name }}
+* Добавлены настройки автоскейлинга и окна обслуживания для команд create и restore
+  * yc managed-mongodb cluster create
+  * restore --maintenance-window --disk-size-autoscaling
+
+
+##### {{ mrd-name }}
+* Добавлены настройки автоскейлинга и окна обслуживания для команд create и restore
+  * yc managed-redis cluster create
+  * restore --maintenance-window --disk-size-autoscaling
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.194.0 (19.02.26) {#version0.194.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.194.0}
@@ -16,8 +35,6 @@ description: На странице представлены релизы CLI, а
 В параметр `--attach-local-disk` команд для создания ВМ на выделенных хостах добавлены опции `kms-key-id` и `kms-key-name` для подключения к ВМ зашифрованных локальных дисков:
 * `yc compute instance create --attach-local-disk kms-key-id=<идентификатор_ключа_KMS>`;
 * `yc compute instance create-with-container --attach-local-disk kms-key-name=<имя_ключа_KMS>`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.193.0 (16.02.26) {#version0.193.0}
 

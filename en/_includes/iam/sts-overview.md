@@ -29,7 +29,7 @@ To get a temporary access key using {{ sts-name }}, use the [AWS Command Line In
 
 There is a separate [API endpoint](../../api-design-guide/concepts/endpoints.md) for {{ sts-name }}: `https://{{ sts-host }}`.
 
-For more information, see this [{#T}](../../iam/operations/sa/create-sts-key.md) article.
+For more information, see [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 
@@ -38,8 +38,3 @@ You cannot revoke a temporary key. However, you can [delete](../../iam/operation
 This will revoke permissions for all temporary access keys created based on the deleted static key.
 
 {% endnote %}
-
-
-#### See also {#see-also}
-
-* [{#T}](../../storage/security/overview.md)

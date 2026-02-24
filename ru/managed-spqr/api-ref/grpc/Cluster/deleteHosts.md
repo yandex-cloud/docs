@@ -26,10 +26,14 @@ Deletes the specified hosts for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to remove hosts from.
-To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || host_names[] | **string**
 
-Names of hosts to delete. ||
+Names of hosts to delete.
+
+Must contain exactly 1 element. The maximum string length in characters for each value is 253. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -16,7 +16,7 @@ You can get {{ yandex-cloud }} service logs on your own by connecting to [{{ dat
 
 {{ datalens-short-name }} offers the following deployment options:
 
-* {{ datalens-short-name }} Enterprise can be deployed within the customer’s on-premise infrastructure for team collaboration. [Submit request]({{ link-datalens-main }}/#enterpise).
+* {{ datalens-short-name }} On-premises can be deployed within the customer’s on-premise infrastructure for team collaboration. [Submit request]({{ link-datalens-main }}/#enterpise).
 * {{ datalens-full-name }} as a cloud service. Please, note:
 
   * {{ datalens-full-name }} is a {{ yandex-cloud }} service compliant with Federal Law No. 152 and industry security standards. For more information, see [{{ yandex-cloud }} security](/security).

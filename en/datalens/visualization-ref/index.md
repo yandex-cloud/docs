@@ -7,7 +7,7 @@ description: In this article, you will learn about chart types available in {{ d
 
 Use DataLens visualizations to plot data in an intuitive way and analyze relations within data arrays.
 
-The visualization reference is there to assist you: select the suitable chart type and craft visuals for your reports based on metrics and their relations.S
+The visualization reference is there to assist you: select the suitable chart type and craft visuals for your reports based on metrics and their relations.
 
 
 

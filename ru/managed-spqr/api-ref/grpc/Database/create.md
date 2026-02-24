@@ -16,7 +16,8 @@ Creates a new SPQR database in the specified cluster.
 {
   "cluster_id": "string",
   "database_spec": {
-    "name": "string"
+    "name": "string",
+    "deletion_protection": "google.protobuf.BoolValue"
   }
 }
 ```
@@ -26,7 +27,9 @@ Creates a new SPQR database in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to create a database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_spec | **[DatabaseSpec](#yandex.cloud.mdb.spqr.v1.DatabaseSpec)**
 
 Required field. Configuration of the database to create. ||
@@ -38,7 +41,12 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the SPQR database. 1-63 characters long. ||
+Required field. Name of the SPQR database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -59,7 +67,8 @@ Required field. Name of the SPQR database. 1-63 characters long. ||
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "cluster_id": "string"
+    "cluster_id": "string",
+    "deletion_protection": "google.protobuf.BoolValue"
   }
   // end of the list of possible fields
 }
@@ -145,4 +154,7 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the SPQR cluster that the database belongs to. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
 |#

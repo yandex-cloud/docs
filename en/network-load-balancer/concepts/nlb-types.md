@@ -22,15 +22,15 @@ These load balancers operate similarly, but you should keep the following distin
 | --- | --- | --- |
 | Listener IP address | [Public](../../vpc/concepts/ips.md) IP addresses only | IP addresses from [RFC-1918](https://www.ietf.org/rfc/rfc1918.txt) only |
 | Blocking the listener target port for traffic on target VMs | Active (*) | Blocked | 
-| Blocking the listener target port for health checks on target VMs | Active | Blocked |
+| Blocking the listener target port for health checks on target VMs | Active | Active (**) |
 | Locality in traffic processing | - | [Considerations apply](./specifics.md#nlb-int-locality) |
 | Use of static routes | - | [Considerations apply](./specifics.md#nlb-int-routing) |
 
 Explanation of the table:
-* The VM ports (Target-Port) used to receive traffic from the internal load balancer and health checks become unavailable for connecting.
+* The VM ports (Target-Port) used to receive traffic from the internal load balancer become unavailable for connection. 
 The VMs will only receive traffic from the internal load balancer. The same restriction will not allow a VM from the load balancer's target group to access it through the port being used.
 * (*) A VM from the load balancer's target group cannot access itself through the target port.
-
+* (**) The health check port (Healthcheck-Port) on target VMs is available for connection if it does not match the target port (Target-Port) of the load balancer listener.  
 
 ## Use cases {#examples}
 

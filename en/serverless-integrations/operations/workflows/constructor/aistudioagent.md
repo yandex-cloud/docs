@@ -10,19 +10,20 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} agen
 - Management console {#console}
 
   1. {% include [integrations-step1](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step1.md) %} 
-  1. From the **{{ ai-studio-name }}** section on the left side of the screen, drag the ![face-robot](../../../../_assets/console-icons/face-robot.svg) **{{ ai-studio-name }} agent** element to the required workflow location in the constructor window.
+  1. From the **{{ ai-studio-name }}** section on the left side of the screen, drag the ![face-robot](../../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_title }}** element to relevant workflow location in the constructor window.
 
       {% include [step-drag-destination-desc](../../../../_includes/serverless-integrations/workflows-constructor/step-drag-destination-desc.md) %}
-  1. In the workflow schema window, click the new **{{ ai-studio-name }} agent** section to select it.
+  1. In the workflow schema window, click the new **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_title }}** section to select it.
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. In the **Agent ID** field, specify the [{{ ai-studio-name }} agent](../../../../ai-studio/concepts/agents/index.md) ID.
-      1. Under **Prompt variables**, click **Add variable** to add the names and values of the variables you will use in your prompt. [Templating](../../../concepts/workflows/templating.md) is supported for variable values.
+      1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_prompt_template_id_view_spec_layout_title }}** field, specify the [{{ ai-studio-name }} agent](../../../../ai-studio/concepts/agents/index.md) ID.
+      1. Under **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_layout_title }}**, click **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** to add the names and values of the variables you will use in your prompt. [Templating](../../../concepts/workflows/templating.md) is supported for variable values.
 
-          To add multiple variables, click **Add variable** as many times as required.
+          To add multiple variables, click **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** as many times as needed.
 
-      1. Optionally, in the **Message** field, enter the incoming message to provide to the agent together with the prompt.
+      1. Optionally, in the ****{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_message_view_spec_layout_title }}**** field, enter the incoming message to provide to the agent together with the prompt.
+      1. Optionally, enable **Automatically allow tools**. If this option is off and the tool requires confirmation of use, the step will end with an error.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

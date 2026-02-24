@@ -20,7 +20,8 @@
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
@@ -78,7 +79,8 @@
 
 - {{ marketplace-full-name }} {#marketplace}
 
-   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
    1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, в строке приложения [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno), сначала нажмите кнопку ![image](../../../_assets/marketplace/three_dots.png =22x13), затем — **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
    1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.

@@ -75,6 +75,8 @@ items:
             href: operations/authentication/manage-authorized-keys.md
           - name: Creating a temporary access key using {{ sts-name }}
             href: operations/sa/create-sts-key.md
+          - name: Managing ephemeral access keys
+            href: operations/authentication/manage-ephemeral-keys.md
       - name: Service access to user resources
         stage: preview
         items:
@@ -117,6 +119,10 @@ items:
             href: tutorials/wlif-managed-k8s-integration.md
           - name: Configuring CI/CD between {{ sf-name }} and GitHub
             href: tutorials/ci-cd-github-functions.md
+      - name: >-
+          Uploading objects into an {{ objstorage-name }} bucket using an
+          ephemeral access key
+        href: tutorials/ephemeral-key-storage.md
   - name: Concepts
     items:
       - name: Overview
@@ -153,6 +159,8 @@ items:
             href: concepts/authorization/access-key.md
           - name: '{{ sts-name }}'
             href: concepts/authorization/sts.md
+          - name: Ephemeral keys
+            href: concepts/authorization/ephemeral-keys.md
           - name: Authorized key
             href: concepts/authorization/key.md
           - name: OAuth token

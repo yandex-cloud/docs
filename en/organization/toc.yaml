@@ -834,6 +834,9 @@ items:
                 href: api-ref/grpc/Organization/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/grpc/Organization/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: >-
+                  api-ref/grpc/Organization/updateAccessPolicyBindingParameters.md
           - name: OsLogin
             items:
               - name: Overview
@@ -1288,6 +1291,8 @@ items:
                 href: api-ref/Organization/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/Organization/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/Organization/updateAccessPolicyBindingParameters.md
           - name: OsLogin
             items:
               - name: Overview

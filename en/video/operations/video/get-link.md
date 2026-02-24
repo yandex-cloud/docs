@@ -7,7 +7,7 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
@@ -31,25 +31,21 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
 - REST API {#api}
 
-  Run the following command:
+  Run this command:
 
   {% include [get-video-link-rest](../../../_includes/video/get-video-link-rest.md) %}
 
-  Where:
-  * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
-  * `<video_ID>`: ID of the video you want to get a link to.
+  {% include [get-link-api-parameters-description](../../../_includes/video/get-link-api-parameters-description.md) %}
 
   {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 
 - gRPC API {#grpc-api}
 
-  Run the following command:
+  Run this command:
 
   {% include [get-video-link-grpc](../../../_includes/video/get-video-link-grpc.md) %}
 
-  Where:
-  * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
-  * `<video_ID>`: ID of the video you want to get a link to.
+  {% include [get-link-api-parameters-description](../../../_includes/video/get-link-api-parameters-description.md) %}
 
   {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 

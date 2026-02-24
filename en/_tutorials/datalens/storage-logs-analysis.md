@@ -1,4 +1,4 @@
-# Analyzing {{ objstorage-short-name }} logs with {{ datalens-short-name }}
+# Analyzing {{ objstorage-short-name }} logs using {{ datalens-short-name }}
 
 
 For a {{ objstorage-full-name }} bucket, you can enable [action logging](../../storage/concepts/server-logs.md). The logs store info on operations involving a [bucket](../../storage/concepts/bucket.md) and the [objects](../../storage/concepts/object.md) in it. For example, analyzing bucket logs can help understand what caused a steep load increase or get the overall picture of traffic distribution.
@@ -168,7 +168,7 @@ The cost includes:
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Key prefix](../../storage/concepts/server-logs.md#key-prefix) for objects with logs.
 
-        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about `yandex_storage_bucket` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -184,7 +184,7 @@ The cost includes:
 
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
-To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mch.editor }} roles or higher](../../managed-clickhouse/security.md#roles-list). To learn more about assigning roles, see [this {{ iam-name }} article](../../iam/operations/roles/grant.md).
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). To learn more about assigning roles, see [this {{ iam-name }} article](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -200,6 +200,8 @@ To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select `burstable` in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** field.
 
      1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
      1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -299,7 +301,7 @@ To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
   1. Make sure the settings are correct.
 

@@ -38,7 +38,7 @@ Field mask that specifies which fields of the Folder resource are going to be up
 Required field. Name of the folder.
 The name must be unique within the cloud.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the folder.

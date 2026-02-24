@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
       Собственные SSH-ключи на ВМ с включенным доступом по {{ oslogin }} передавайте через [метаданные](../../concepts/metadata/sending-metadata.md).
 
       {% endnote %}
-
+  1. {% include [section-backup](../../../_includes/compute/create/section-backup.md) %} 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
       {% include [name-format](../../../_includes/name-format.md) %}

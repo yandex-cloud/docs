@@ -97,7 +97,7 @@ If you have no SIEM, you can also analyze audit logs manually using {{ yandex-cl
 
 You can respond to {{ at-full-name }} events using your SIEM tools or manually. You can also use automatic responses.
 
-Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, as well as automatic responses to malicious actions, including removing dangerous rules or revoking access rights.
+With {{ sf-full-name }}, you can set up {{ at-name }} event alerts and automatic response to malicious actions, e.g., deletion of dangerous rules or access permissions.
 
 [Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response)
 

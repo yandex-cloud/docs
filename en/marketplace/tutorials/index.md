@@ -5,6 +5,9 @@ description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
 
 # {{ marketplace-name }} tutorials
 
+* [{#T}](s2s-vpn.md)
+* [{#T}](ghost-cms-cloudapp.md)
+
 ## Using {{ marketplace-name }} products in {{ managed-k8s-full-name }} {#marketplace-tutorials}
 
 * [{#T}](argo-cd.md)
@@ -22,4 +25,3 @@ description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](thumbor.md)
 * [{#T}](istio.md)
 * [{#T}](hashicorp-vault.md)
-* [{#T}](s2s-vpn.md)

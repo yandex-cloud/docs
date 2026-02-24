@@ -35,7 +35,9 @@ See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers g
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to request logs for.
-To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || column_filter[] | **string**
 
 Columns from the logs table to request.
@@ -44,7 +46,6 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `POSTGRESQL`: Logs of SPQR activity.
 - `ROUTER`
 - `COORDINATOR`
@@ -60,11 +61,15 @@ End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc333
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.spqr.v1.ListClusterLogsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.spqr.v1.ListClusterLogsResponse) returned by the previous list request. ||
+[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.spqr.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || always_next_page_token | **bool**
 
 Always return `next_page_token`, even if current page is empty. ||
@@ -75,7 +80,9 @@ The expression must specify:
 1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
-Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')` ||
+Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')`
+
+The maximum string length in characters is 1000. ||
 || order_by | **string** ||
 |#
 

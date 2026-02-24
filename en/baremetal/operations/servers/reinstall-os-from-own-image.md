@@ -47,20 +47,26 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     - CLI {#cli}
 
-       1. Run this command:
+      1. Run this command:
 
-          ```bash
-          yc baremetal boot-image create \
-            --name <image_name> \
-            --uri "<image_link>"
-          ```
+         ```bash
+         yc baremetal boot-image create \
+           --name <image_name> \
+           --uri "<image_link>"
+         ```
 
-          Where:
-          * `--name`: Image name. Follow these naming requirements:
+         Where:
+         * `--name`: Image name. Follow these naming requirements:
             
-              {% include [name-format](../../../_includes/name-format.md) %}
+             {% include [name-format](../../../_includes/name-format.md) %}
 
-          * `--uri`: Link to the image file you got from {{ objstorage-name }} in the previous step.
+         * `--uri`: Link to the image file you got from {{ objstorage-name }} in the previous step.
+
+    - API {#api}
+
+      To create an image in {{ baremetal-name }}, use the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/Image/create.md) gRPC API call.
+      
+      {% include [create-baremetal-image-api](../../../_includes/baremetal/create-baremetal-image-api.md) %}
 
     {% endlist %}
 
@@ -72,7 +78,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     {% endnote %}
 
-1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens, do the following:
+1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 
     1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../image-upload.md) ISO OS image in the `user-iso` directory.
     1. Click **Connect CD/DVD**.

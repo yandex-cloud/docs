@@ -16,6 +16,7 @@ keywords:
 * [версию](#change-version);
 * [группы безопасности](#change-sg);
 * [параметры отказоустойчивого выполнения запросов](#change-retry-policy);
+* [настройки выполнения запросов](#change-query-params);
 * [конфигурацию координатора и воркеров](#change-configuration);
 * [дополнительные настройки кластера](#change-additional-settings).
 
@@ -817,7 +818,7 @@ keywords:
           
         * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища Exchange Manager в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
-        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -970,6 +971,183 @@ keywords:
             * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
             * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Изменить настройки выполнения запросов {#change-query-params}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить настройки выполнения запросов и выделения ресурсов кластера для запросов:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update --help
+        ```
+
+    2. Измените настройки выполнения запросов и выделения ресурсов кластера для запросов, выполнив команду:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
+          --query-properties <список_настроек>
+        ```
+
+        Где:
+
+        * `--query-properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `<ключ>=<значение>`.
+
+          {% note warning %}
+
+          Все настройки, которые не были явно переданы в списке, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите как измененные, так и сохраняемые настройки.
+
+          {% endnote %}
+
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
+
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+    1. Измените настройки выполнения запросов и выделения ресурсов кластера для запросов в блоке `query_properties`:
+
+        {% include [Terraform query properties description](../../_includes/managed-trino/terraform/query-properties.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "updateMask": "trino.resourceManagement.query.properties",
+          "trino": {
+            "resourceManagement": {
+              "query": {
+                "properties": {
+                  <настройки_выполнения_запросов>,
+                  <настройки_выделения_ресурсов_кластера_для_запросов>
+                }
+              }
+            }
+          }
+        }
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в строку через запятую. В данном случае указан только один параметр, содержащий все настройки.
+
+        * `resourceManagement.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
+
+          {% note warning %}
+
+          Все настройки, которые не были явно переданы в объекте, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите как измененные, так и сохраняемые настройки.
+
+          {% endnote %}
+
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
+
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --data '@body.json'
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "cluster_id": "<идентификатор_кластера>",
+          "update_mask": {
+            "paths": [
+              "trino.resource_management.query.properties"
+            ]
+          },
+          "trino": {
+            "resource_management": {
+              "query": {
+                "properties": {
+                  <настройки_выполнения_запросов>,
+                  <настройки_выделения_ресурсов_кластера_для_запросов>
+                }
+              }
+            }
+          }
+        }
+        ```
+
+        Где:
+
+        * `cluster_id` — идентификатор кластера.
+
+            Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`. В данном случае указан только один параметр, содержащий все настройки.
+
+        * `resource_management.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
+
+          {% note warning %}
+
+          Все настройки, которые не были явно переданы в объекте, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите как измененные, так и сохраняемые настройки.
+
+          {% endnote %}
+
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
     1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 

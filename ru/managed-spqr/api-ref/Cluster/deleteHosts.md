@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster to remove hosts from.
             To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
           description: |-
             **string**
             Names of hosts to delete.
+            Must contain exactly 1 element. The maximum string length in characters for each value is 253.
           type: array
           items:
             type: string
@@ -47,7 +49,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/hosts:batch
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster to remove hosts from.
-To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.DeleteClusterHostsRequest}
@@ -64,7 +68,9 @@ To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-r
 ||Field | Description ||
 || hostNames[] | **string**
 
-Names of hosts to delete. ||
+Names of hosts to delete.
+
+Must contain exactly 1 element. The maximum string length in characters for each value is 253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

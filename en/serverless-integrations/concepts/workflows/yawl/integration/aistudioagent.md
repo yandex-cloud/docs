@@ -12,3 +12,4 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 `promptTemplateId`  | `string`              | Yes  | No | No | Agent ID.
 `message`           | `string`              | No | No | Yes  | Incoming message that will be provided to the agent together with the prompt.
 `variables`         | `map<string,string>`  | No | No | Yes  | Variables for substitution in the prompt, where key is the name of the variable, and value is its value. Templating is supported for variable values.
+`auto_approve` | `bool` | No | `false` | No | If set to `true`, [tools](../../../../../ai-studio/concepts/agents/index.md#tools) are automatically allowed. If set to `false`, and the tool requires confirmation of use, the step will end with an error.

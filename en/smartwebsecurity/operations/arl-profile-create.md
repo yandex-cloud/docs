@@ -15,6 +15,8 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
   1. Name the profile.
   1. Optionally, provide a description.
   1. Optionally, add [labels](../../resource-manager/concepts/labels.md) to your profile.
+  1. Optionally, select or [create](template-create.md) a response template that will be returned to the client whenever any rule triggers in the profile. The standard {{ yandex-cloud }} template is used by default.
+  1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. [Add](arl-rule-add.md) ARL rules.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -61,7 +63,7 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
       {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
 
-      For more information about the `yandex_sws_advanced_rate_limiter_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+      For more information about `yandex_sws_advanced_rate_limiter_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Create the resources:
 

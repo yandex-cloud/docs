@@ -177,6 +177,7 @@ For OnPremise, all fields are filled in manually.
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.table_filter.title }}**: 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
 

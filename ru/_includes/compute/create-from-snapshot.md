@@ -41,7 +41,7 @@
   1. {% include [section-platform](create/section-platform.md) %}
   1. {% include [network-settings](create/section-network.md) %}
   1. {% include [section-access](create/section-access.md) %}
-
+  1. {% include [section-backup](create/section-backup.md) %} 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
       {% include [name-format](../name-format.md) %}

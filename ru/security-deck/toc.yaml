@@ -122,6 +122,14 @@ items:
         href: security/alerts-roles.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник правил
+    items:
+      - name: Обзор
+        href: rules-reference/index.md
+      - name: Все правила
+        href: rules-reference/all.md
+      - name: CSPM
+        href: rules-reference/cspm.md
   - name: Справочник API
     items:
       - name: Аутентификация

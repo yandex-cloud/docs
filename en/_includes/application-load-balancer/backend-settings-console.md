@@ -8,7 +8,7 @@
     
     * **{{ ui-key.yacloud.alb.label_load-balancing-mode }}**: [Load balancing mode](../../application-load-balancer/concepts/backend-group.md#balancing-mode).
     * **{{ ui-key.yacloud.alb.label_panic-threshold }}**: Healthy endpoint threshold triggering [panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) when the load balancer distributes requests across all endpoints, regardless of their health status.
-    * **{{ ui-key.yacloud.alb.label_locality-aware-routing }}**: Share of incoming traffic the load balancer node will route to its availability zone backends. The remaining traffic will be evenly distributed across other availability zones. To learn more, see [{#T}](../../application-load-balancer/concepts/backend-group.md#locality).
+    * **{{ ui-key.yacloud.alb.label_locality-aware-routing }}**: Share of incoming traffic the load balancer node will route to its availability zone backends. The remaining traffic is distributed equally between other availability zones. To learn more, see [{#T}](../../application-load-balancer/concepts/backend-group.md#locality).
     * **{{ ui-key.yacloud.alb.label_strict-locality }}**: If this option is enabled, the load balancer will return `503 Service Unavailable` if no application backends are operational in the request’s originating availability zone.
  
   * Under **{{ ui-key.yacloud.alb.label_protocol-settings }}**:
@@ -19,7 +19,9 @@
       * **{{ ui-key.yacloud.alb.label_protocol }}**: Backend connection protocol, e.g., `{{ ui-key.yacloud.alb.label_proto-http-plain }}` without encryption or `{{ ui-key.yacloud.alb.label_proto-http-tls }}` with TLS encryption. For `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, specify:
         
         * **{{ ui-key.yacloud.alb.label_sni }}**. SNI domain name for TLS connections.
-        * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Specify the [root CA](https://en.wikipedia.org/wiki/Root_certificate) for the certificate chain installed on backend endpoints. You can use [X.509](https://en.wikipedia.org/wiki/X.509) certificates in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format.
+        * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Specify the [root CA](https://en.wikipedia.org/wiki/Root_certificate) for the certificate chain installed on backend endpoints.
+
+          {% include [supported-certificates](supported-certificates.md) %}
     
     * For a `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend group:
 
@@ -27,7 +29,7 @@
     
     * For a `{{ ui-key.yacloud.alb.label_proto-stream }}` backend group:
       
-      * **{{ ui-key.yacloud.alb.label_enable-proxy-protocol }}**: With this option enabled, the load balancer will send its client connection metadata, e.g. its IP address, to the backend via [HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt) protocol.
+      * **{{ ui-key.yacloud.alb.label_enable-proxy-protocol }}**: With this option enabled, the load balancer will send its client connection metadata, e.g., its IP address, to the backend via [HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt) protocol.
         
       * **{{ ui-key.yacloud.alb.label_protocol }}**: Backend connection protocol, e.g., `{{ ui-key.yacloud.alb.label_proto-grpc-plain }}` or `{{ ui-key.yacloud.alb.label_proto-grpc-tls }}`. For the encrypted protocol, specify **{{ ui-key.yacloud.alb.label_sni }}** and **{{ ui-key.yacloud.alb.label_trusted-ca }}** as shown above.
 
@@ -43,7 +45,7 @@
   * **{{ ui-key.yacloud.alb.label_healthy }}**: Number of consecutive successful checks required before considering the endpoint healthy. The load balancer ignores this setting at start, conducting one health check to identify the endpoint as healthy.
   * **{{ ui-key.yacloud.alb.label_unhealthy }}**: Number of consecutive failed checks required before considering the endpoint unhealthy. The load balancer ignores this setting when receiving `503 Service Unavailable` from a backend, following which it is considered unhealthy right away.
   * **{{ ui-key.yacloud.alb.label_port }}**.
-  * **{{ ui-key.yacloud.common.type }}**: Health check protocol, e.g., `{{ ui-key.yacloud.alb.label_hc-type-http }}`, `{{ ui-key.yacloud.alb.label_hc-type-grpc }}`, or `{{ ui-key.yacloud.alb.label_hc-type-stream }}`. The health check protocol does not need to match the backend group type. Depending on the selected protocol, specify:
+  * **{{ ui-key.yacloud.common.type }}**: Health check protocol, e.g., `{{ ui-key.yacloud.alb.label_hc-type-http }}`, `{{ ui-key.yacloud.alb.label_hc-type-grpc }}`, or `{{ ui-key.yacloud.alb.label_hc-type-stream }}`. The health check protocol does not need to match the backend group type. Also specify:
     
     * For the `{{ ui-key.yacloud.alb.label_hc-type-http }}` type:
       

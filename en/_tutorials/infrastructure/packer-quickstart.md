@@ -139,7 +139,7 @@ Install a Packer distribution kit for your platform from a [mirror](https://hash
   1. Add Packer to the `PATH` variable: 
 
       ```bash
-      echo 'export PATH="$PATH:$HOME/<username>/packer"' >> ~/.bash_profile
+      echo 'export PATH="$PATH:$HOME/packer"' >> ~/.bash_profile
       source ~/.bash_profile
       ```
 
@@ -211,7 +211,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
         {
           "type":      "yandex",
           "token":     "<OAuth_token_or_IAM_token>",
-          "folder_id": "<catalog_ID>",
+          "folder_id": "<folder_ID>",
           "zone":      "<availability_zone>",
 
           "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",

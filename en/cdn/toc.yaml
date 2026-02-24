@@ -318,6 +318,8 @@ items:
                 href: api-ref/grpc/Resource/getProviderCName.md
               - name: GetAttributes
                 href: api-ref/grpc/Resource/getAttributes.md
+              - name: ListAttributes
+                href: api-ref/grpc/Resource/listAttributes.md
           - name: Shielding
             items:
               - name: Overview

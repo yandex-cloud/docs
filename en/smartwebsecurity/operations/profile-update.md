@@ -20,8 +20,9 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
       * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
       * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}**: Select or create an [ARL profile](../concepts/arl.md).
       * Select or create a [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests.
+      * {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
       * {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
-  1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -45,7 +46,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
      ```bash
      yc smartwebsecurity security-profile update \
         --name <security_profile_name> \
-        --new-name <new_name_for_security_profile> \
+        --new-name <new_security_profile_name> \
         --description "<profile_description>" \
         --labels <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value> \
         --default-action <action> \
@@ -142,7 +143,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 
      {% endcut %}
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Apply the changes:
 

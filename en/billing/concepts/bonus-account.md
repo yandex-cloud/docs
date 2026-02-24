@@ -10,6 +10,19 @@ You cannot use grants to top up [personal accounts](personal-account.md).
 
 {% include [currency](../_includes/currency.md) %}
 
+## Viewing your grants {#how-to-view}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. Go to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Select the billing account from the list.
+  1. On the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, under **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}**, click ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
+  1. On the **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** page, the **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** tab shows all grants you received.
+
+{% endlist %}
+
 ## Initial grant {#start}
 
 {% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
@@ -31,4 +44,4 @@ Grants are prioritized based on their validity period: the earlier the expiratio
 
 {% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
 
-For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual).
+For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual.md).

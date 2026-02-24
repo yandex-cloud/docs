@@ -75,6 +75,14 @@ items:
             href: operations/validate-availability.md
       - name: Address lists
         href: operations/list-create.md
+      - name: Response templates
+        items:
+          - name: Creating a template
+            href: operations/template-create.md
+          - name: Adding a template to a profile or rule
+            href: operations/template-attach.md
+          - name: Managing a template
+            href: operations/template-manage.md
       - name: Required and recommended rules
         items:
           - name: Rule for captcha
@@ -202,6 +210,8 @@ items:
         href: concepts/botes.md
       - name: Protecting domains
         href: concepts/domain-protect.md
+      - name: Response templates
+        href: concepts/response-templates.md
       - name: Logging
         href: concepts/logging.md
       - name: Quotas and limits

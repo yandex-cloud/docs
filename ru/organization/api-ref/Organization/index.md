@@ -20,4 +20,5 @@ A set of methods for managing Organization resources.
 || [ListAccessPolicyBindings](listAccessPolicyBindings.md) | Returns list of access policy bindings for the organization. ||
 || [BindAccessPolicy](bindAccessPolicy.md) | Binds the access policy template to the organization. ||
 || [UnbindAccessPolicy](unbindAccessPolicy.md) | Unbinds the access policy template from the organization. ||
+|| [UpdateAccessPolicyBindingParameters](updateAccessPolicyBindingParameters.md) | Updates the access policy binding parameters for the organization. ||
 |#

@@ -20,11 +20,30 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
         1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
         
         1. [Connect to the database](../../../../managed-postgresql/operations/connect.md) you want to migrate as the database owner and [configure privileges](../../../../managed-postgresql/operations/grant.md#grant-privilege):
-            
-            * `SELECT` for all the database tables within the transfer.
-            * `SELECT` for all the database sequences within the transfer.
-            * `USAGE` for the schemas of those tables and sequences.
-            * `ALL PRIVILEGES` (`CREATE` and `USAGE`) for the service table (`__consumer_keeper` and `__data_transfer_mole_finder`) schema defined by the [endpoint parameter](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
+
+            * Grant the `SELECT` privilege for all the database tables within the transfer:
+
+              ```sql
+              GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <DB_owner_name>;
+              ```
+
+            * Grant the `SELECT` privilege for all the database sequences within the transfer:
+
+              ```sql
+              GRANT SELECT ON ALL SEQUENCES IN SCHEMA <schema_name> TO <DB_owner_name>;
+              ```
+
+            * Grant the `USAGE` privilege for all schemas storing these tables and sequences:
+
+              ```sql
+              GRANT USAGE ON SCHEMA <schema_name> TO <DB_owner_name>;
+              ```
+
+            * Grant `ALL PRIVILEGES` (`CREATE` and `USAGE`) for the service table (`__consumer_keeper` and `__data_transfer_mole_finder`) schema specified by the [endpoint parameter](../../../../data-transfer/operations/endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
+
+              ```sql
+              GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <DB_owner_name>;
+              ```
 
     1. Configure the [number of user connections](../../../../data-transfer/concepts/work-with-endpoints.md#postgresql-connection-limit) to the database.
 

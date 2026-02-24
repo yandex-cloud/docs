@@ -41,6 +41,14 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 # {{ data-transfer-name }} release notes
 
+## 2026 {#2026}
+
+### January {#jan26}
+
+ You can now configure [{{ KF }} connections](../operations/endpoint/source/kafka.md) and [{{ yds-name }}](../operations/endpoint/source/data-streams.md) in the [{{ schema-registry-name }}](../../metadata-hub/concepts/schema-registry.md) data source settings.
+
+{% cut "2025" %}{#2025}
+
 - [December 2025](2512.md)
 - [November 2025](2511.md)
 - [October 2025](2510.md)
@@ -53,6 +61,8 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 - [March 2025](2503.md)
 - [February 2025](2502.md)
 - [January 2025](2501.md)
+
+{% endcut %}
 
 {% cut "2024" %}{#2024}
 

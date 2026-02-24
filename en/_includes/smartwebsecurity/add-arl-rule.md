@@ -11,4 +11,6 @@
 
 1. {% include [arl-rule-action-over-limit](arl-rule-action-over-limit.md) %}
 
+1. Optionally, select or [create](../../smartwebsecurity/operations/template-create.md) a response template that will be returned to the client whenever a rule triggers. The standard {{ yandex-cloud }} template is used by default.
+
 1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.

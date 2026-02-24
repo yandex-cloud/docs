@@ -41,7 +41,7 @@ When creating a CAPTCHA, you can:
      * `Dark theme`
      * `Blue`
 
-      Under **Сustomize style**, you can set custom properties for the challenge window and other elements through the form or style description in `JSON` format.
+      Under **Customize style**, you can set custom properties for the challenge window and other elements through the form or style description in `JSON` format.
 
       All changes will be displayed in the preview window.
 
@@ -257,7 +257,7 @@ When creating a CAPTCHA, you can:
        * `override_variant_uuid`: ID of the challenge option to show if the traffic matches the rule. If the parameter is not specified, the user will get the default challenge.
        * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional setting.
 
-     For more information about the `yandex_smartcaptcha_captcha` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     For more information about `yandex_smartcaptcha_captcha` properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Create the resources:
 
@@ -317,7 +317,7 @@ Create a simple CAPTCHA without rules for incoming traffic, named `simple-captch
      }
      ```
 
-     For more information about the `yandex_smartcaptcha_captcha` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     For more information about `yandex_smartcaptcha_captcha` properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Create a CAPTCHA:
 
@@ -522,7 +522,7 @@ Create a CAPTCHA with rules for incoming traffic and the following test specific
      }
      ```
 
-     For more information about the `yandex_smartcaptcha_captcha` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+     For more information about `yandex_smartcaptcha_captcha` properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
   1. Create a CAPTCHA:
 

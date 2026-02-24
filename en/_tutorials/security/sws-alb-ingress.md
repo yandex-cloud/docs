@@ -1,4 +1,4 @@
-With [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), you can protect apps in a {{ managed-k8s-full-name }} cluster against DDoS attacks and bots. To do this, publish your apps through an ingress resource associated with a {{ sws-name }} [profile](../../smartwebsecurity/concepts/profiles.md) that uses an {{ alb-name }} ingress controller.
+With [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), you can protect apps in a {{ managed-k8s-full-name }} cluster against DDoS attacks and bots. To do this, publish your apps through an ingress resource associated with a {{ sws-name }} [profile](../../smartwebsecurity/concepts/profiles.md) that uses a [Gwin controller](../../application-load-balancer/tools/gwin/index.md) or an [{{ alb-name }} ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
@@ -6,7 +6,7 @@ Based on the ingress resource, an L7 load balancer will be deployed with a secur
 
 To create an L7 load balancer with an associated security profile using ingress:
 
-1. [Install the {{ alb-name }} ingress controller](#deploy-controller).
+1. [Install a load balancer controller](#deploy-controller).
 1. [Create a test application](#deploy-app).
 1. [Create a security profile](#create-security-profile).
 1. [Create an ingress resource](#deploy-ingress).
@@ -21,10 +21,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost for this solution includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using an L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for public IP addresses for cluster nodes and the L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for the number of requests to {{ sws-name }} (see [{{ sws-name }} pricing](../../smartwebsecurity/pricing.md)).
 
 
@@ -44,6 +44,8 @@ The support cost for this solution includes:
             * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin)
             * [compute.viewer](../../compute/security/index.md#compute-viewer)
             * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor)
+            * [k8s.viewer](../../managed-kubernetes/security/index.md#k8s-viewer)
+            * [certificate-manager.editor](../../certificate-manager/security/index.md#certificate-manager-editor)
 
                 {% note warning %}
 
@@ -107,13 +109,13 @@ The support cost for this solution includes:
             * {{ sws-name }} profile name.
             * IP address to allow traffic from.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -143,40 +145,75 @@ The support cost for this solution includes:
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Install the {{ alb-name }} ingress controller {#deploy-controller}
+## Installing a load balancer controller {#deploy-controller}
 
-1. [Install the {{ alb-name }} ingress controller](../../application-load-balancer/operations/k8s-ingress-controller-install.md) to the `yc-alb` namespace.
+{% list tabs group=alb_controller %}
 
-    Specify the service account [you created earlier for the controller](#before-you-begin).
+- Gwin {#gwin}
 
-    By uing the separate `yc-alb` namespace, you isolate the controller resources from those of your [test application](#deploy-app) and [ingress](#deploy-ingress).
+  1. [Install a Gwin controller](../../application-load-balancer/tools/gwin/quickstart.md) to the `gwin-space` namespace.
 
-1. Make sure you successfully installed the controller:
+      Specify the service account [you created earlier for the controller](#before-you-begin).
 
-    ```bash
-    kubectl logs deployment.apps/yc-alb-ingress-controller -n yc-alb
-    ```
+      By uing the separate `gwin-space` namespace, you isolate the controller resources from those of your [test application](#deploy-app) and [ingress](#deploy-ingress).
 
-    Logs should contain messages saying the ingress controller successfully started.
+  1. Make sure you successfully installed the controller:
 
-    {% cut "Example of a command result part" %}
+      ```bash
+      kubectl logs deployment.apps/gwin -n gwin-space
+      ```
 
-    ```text
-    ...    INFO    Starting EventSource    {"controller": "ingressgroup", ...}
-    ...    INFO    Starting Controller     {"controller": "ingressgroup"}
-    ...    INFO    Starting EventSource    {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting Controller     {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting EventSource    {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting Controller     {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      Logs should contain messages saying the Gwin controller successfully started.
 
-    ...
+      {% cut "Example of a command result part" %}
 
-    ...    INFO    Starting workers        {"controller": "ingressgroup", ...}
-    ...    INFO    Starting workers        {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ...    INFO    Starting workers        {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
-    ```
+      ```text
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:467 msg="Server setup completed successfully"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:488 msg="Starting ALB observer"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:490 msg="ALB observer started successfully"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:492 msg="Starting address updater"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:494 msg="Address updater started successfully"
+      level=INFO source=/yc_gwin/cmd/gwin/app/serve.go:496 msg="All services configured successfully, starting controller manager"
+      ```
 
-    {% endcut %}
+      {% endcut %}
+
+- Ingress controller {#alb-ingress}
+
+  1. [Install the {{ alb-name }} ingress controller](../../application-load-balancer/operations/k8s-ingress-controller-install.md) to the `yc-alb` namespace.
+
+      Specify the service account [you created earlier for the controller](#before-you-begin).
+
+      By uing the separate `yc-alb` namespace, you isolate the controller resources from those of your [test application](#deploy-app) and [ingress](#deploy-ingress).
+
+  1. Make sure you successfully installed the controller:
+
+      ```bash
+      kubectl logs deployment.apps/yc-alb-ingress-controller -n yc-alb
+      ```
+
+      Logs should contain messages saying the ingress controller successfully started.
+
+      {% cut "Example of a command result part" %}
+
+      ```text
+      ...    INFO    Starting EventSource    {"controller": "ingressgroup", ...}
+      ...    INFO    Starting Controller     {"controller": "ingressgroup"}
+      ...    INFO    Starting EventSource    {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting Controller     {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting EventSource    {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting Controller     {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+
+      ...
+
+      ...    INFO    Starting workers        {"controller": "ingressgroup", ...}
+      ...    INFO    Starting workers        {"controller": "grpcbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ...    INFO    Starting workers        {"controller": "httpbackendgroup", "controllerGroup": "alb.yc.io", ...}
+      ```
+
+      {% endcut %}
+
+{% endlist %}
 
 ## Create a test application {#deploy-app}
 
@@ -320,62 +357,72 @@ Create an application and an associated service for ingress to expose:
 
 ## Create a security profile {#create-security-profile}
 
-Create a security profile with a simple rule so you can easily [test](#check-the-result) the profile. The rules in the profile will only allow traffic from a specific IP address.
+{% list tabs group=instructions %}
 
-Create a security profile:
+- Management console {#console}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a profile.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  Create a security profile with a simple rule so you can easily [test](#check-the-result) the profile. The rules in the profile will only allow traffic from a specific IP address.
 
-    The profile will contain a number of preconfigured security rules:
+  Create a security profile:
 
-    * [Smart protection rule](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) providing full protection for all traffic. This rule takes priority over the default basic rule.
-    * Default [basic rule](../../smartwebsecurity/concepts/rules.md#base-rules) denying all traffic that does not satisfy higher-priority rules.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a profile.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
-        {% include [smart-protection-tip](../../_includes/smartwebsecurity/smart-protection-tip.md) %}
+      The profile will contain a number of preconfigured security rules:
 
-1. Set up the profile:
+      * [Smart protection rule](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) providing full protection for all traffic. This rule takes priority over the default basic rule.
+      * Default [basic rule](../../smartwebsecurity/concepts/rules.md#base-rules) denying all traffic that does not satisfy higher-priority rules.
 
-    * **{{ ui-key.yacloud.common.name }}**: Profile name, e.g., `test-sp1`.
-    * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}**: Action for the basic rule to effect.
+          {% include [smart-protection-tip](../../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
-        Leave `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` for the basic rule to deny all traffic.
+  1. Set up the profile:
 
-1. Add a security rule:
+      * **{{ ui-key.yacloud.common.name }}**: Profile name, e.g., `test-sp1`.
+      * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}**: Action for the basic rule to effect.
 
-    1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+          Leave `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` for the basic rule to deny all traffic.
 
-    1. Specify the main rule settings:
+  1. Add a security rule:
 
-        * **{{ ui-key.yacloud.common.name }}**: Name for the rule, e.g., `test-rule1`.
+      1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
 
-        * **Priority**: Specify a value to give the rule priority over the preconfigured rules, e.g., `999800`.
+      1. Specify the main rule settings:
 
-            {% include [preconfigured-rules-priority](../../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
+          * **{{ ui-key.yacloud.common.name }}**: Name for the rule, e.g., `test-rule1`.
 
-        * **Rule type**: Select `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+          * **Priority**: Specify a value to give the rule priority over the preconfigured rules, e.g., `999800`.
 
-        * **Action**: Select `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
+              {% include [preconfigured-rules-priority](../../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
 
-    1. Under **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**, configure the conditions to only allow traffic from a specific IP address:
+          * **Rule type**: Select `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
 
-        1. Select the traffic scope for the rule: `On condition`.
-        1. Select the `IP` condition.
-        1. For IP, select the condition: `Matches or falls within the range`.
-        1. Specify a public IP address, e.g., `203.0.113.200`.
+          * **Action**: Select `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
 
-    1. Click **{{ ui-key.yacloud.common.add }}**.
+      1. Under **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**, configure the conditions to only allow traffic from a specific IP address:
 
-    The new rule will appear in the list of security rules.
+          1. Select the traffic scope for the rule: `On condition`.
+          1. Select the `IP` condition.
+          1. For IP, select the condition: `Matches or falls within the range`.
+          1. Specify a public IP address, e.g., `203.0.113.200`.
 
-1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. Click **{{ ui-key.yacloud.common.add }}**.
 
-The new profile will appear in the list of security profiles. Write down the ID of your new security profile, as you will need it later.
+      The new rule will appear in the list of security rules.
+
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
+  The new profile will appear in the list of security profiles. Write down the ID of your new security profile, as you will need it later.
+
+- {{ TF }} {#tf}
+
+  If you have used the [alb-ready-k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-alb-mk8s-with-sws-profile/blob/main/alb-ready-k8s-cluster.tf) configuration file, the security profile [has already been created](#before-you-begin) and no further action is required.
+
+{% endlist %}
 
 ## Create an ingress resource {#deploy-ingress}
 
-This ingress resource will describe the {{ alb-name }} properties. The ingress controller [you installed earlier](#deploy-controller) will deploy the load balancer with the specified properties after the ingress resource is created.
+This ingress resource will describe the {{ alb-name }} properties. The load balancer controller [you installed earlier](#deploy-controller) will deploy the load balancer with the specified properties after the ingress resource is created.
 
 As per the ingress rules, traffic to the `demo.example.com` virtual host at the `/app1` path will be routed to the [service/demo-app1](#deploy-app) backend. The [security profile you created earlier](#create-security-profile) will protect this backend.
 
@@ -383,52 +430,108 @@ To create an ingress resource:
 
 1. Create a file named `demo-ingress.yaml` with the ingress resource description:
 
-    ```yaml
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
-    metadata:
-      name: demo-ingress
-      annotations:
-        ingress.alb.yc.io/subnets: "<list_of_subnet_IDs>"
-        ingress.alb.yc.io/security-groups: "<security_group_ID>"
-        ingress.alb.yc.io/external-ipv4-address: "auto"
-        ingress.alb.yc.io/group-name: "demo-sws"
-        ingress.alb.yc.io/security-profile-id: "<security_profile_ID>"
-    spec:
-      rules:
-        - host: demo.example.com
-          http:
-            paths:
-              - path: /app1
-                pathType: Exact
-                backend:
-                  service:
-                    name: demo-app1
-                    port:
-                      number: 80
-    ```
+    {% list tabs group=alb_controller %}
 
-    Where:
+    - Gwin {#gwin}
 
-    * [ingress.alb.yc.io/subnets](../../application-load-balancer/k8s-ref/ingress.md#annot-subnets): List of IDs for subnets where the load balancer will reside.
+      ```yaml
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: demo-ingress
+        annotations:
+          gwin.yandex.cloud/subnets: "<list_of_subnet_IDs>"
+          gwin.yandex.cloud/securityGroups: "<security_group_ID>"
+          gwin.yandex.cloud/externalIPv4Address: "auto"
+          gwin.yandex.cloud/groupName: "demo-sws"
+          gwin.yandex.cloud/hosts.securityProfileID: "<security_profile_ID>"
+      spec:
+        ingressClassName: gwin-default
+        rules:
+          - host: demo.example.com
+            http:
+              paths:
+                - path: /app1
+                  pathType: Exact
+                  backend:
+                    service:
+                      name: demo-app1
+                      port:
+                        number: 80
+      ```
 
-        If you [created the infrastructure using {{ TF }}](#before-you-begin), use the ID of the subnet named `subnet-a`.
+      Where:
 
-    * [ingress.alb.yc.io/security-groups](../../application-load-balancer/k8s-ref/ingress.md#annot-security-groups): ID of the group [you created](#before-you-begin) for the load balancer.
+      * [gwin.yandex.cloud/subnets](../../application-load-balancer/gwin-ref/ingress.md#load-balancer-configuration): List of IDs for subnets where the load balancer will reside.
 
-        If you created the infrastructure with {{ TF }}, specify the ID of the group named `alb-traffic`.
+          If you [created the infrastructure using {{ TF }}](#before-you-begin), use the ID of the subnet named `subnet-a`.
 
-    * [ingress.alb.yc.io/security-profile-id](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id): ID of the security profile [you created ealier](#create-security-profile) in {{ sws-name }}.
+      * [gwin.yandex.cloud/security-groups](../../application-load-balancer/gwin-ref/ingress.md#load-balancer-configuration): ID of the group [you created](#before-you-begin) for the load balancer.
 
-        {% note info %}
+          If you created the infrastructure with {{ TF }}, specify the ID of the group named `alb-traffic`.
 
-        The security profile will only apply to the [virtual hosts](../../application-load-balancer/tools/k8s-ingress-controller/principles.md#mapping) of the ingress resource with a configured annotation. For the above ingress resource described above, the profile will apply to a single virtual host, `demo.example.com`.
+      * [gwin.yandex.cloud/hosts.securityProfileID](../../application-load-balancer/gwin-ref/ingress.md#security-configuration): ID of the security profile [you created](#create-security-profile) in {{ sws-name }}.
 
-        This is the only ingress resource in the `demo-sws` ingress group. The security profile will not apply to the virtual hosts of other ingress resources if you add such resources to the group later.
+          {% note info %}
 
-     {% endnote %}
+          The security profile will only apply to the virtual hosts of the ingress resource with a configured annotation. For the above ingress resource described above, the profile will apply to a single virtual host, `demo.example.com`.
 
-    Learn more about annotations in [Ingress resource fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
+          This is the only ingress resource in the `demo-sws` ingress group. The security profile will not apply to the virtual hosts of other ingress resources if you add such resources to the group later.
+
+          {% endnote %}
+
+      Learn more about annotations in [Ingress resource fields and annotations](../../application-load-balancer/gwin-ref/ingress.md).
+
+    - Ingress controller {#alb-ingress}
+
+      ```yaml
+      apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: demo-ingress
+        annotations:
+          ingress.alb.yc.io/subnets: "<list_of_subnet_IDs>"
+          ingress.alb.yc.io/security-groups: "<security_group_ID>"
+          ingress.alb.yc.io/external-ipv4-address: "auto"
+          ingress.alb.yc.io/group-name: "demo-sws"
+          ingress.alb.yc.io/security-profile-id: "<security_profile_ID>"
+      spec:
+        rules:
+          - host: demo.example.com
+            http:
+              paths:
+                - path: /app1
+                  pathType: Exact
+                  backend:
+                    service:
+                      name: demo-app1
+                      port:
+                        number: 80
+      ```
+
+      Where:
+
+      * [ingress.alb.yc.io/subnets](../../application-load-balancer/k8s-ref/ingress.md#annot-subnets): List of IDs for subnets where the load balancer will reside.
+
+          If you [created the infrastructure using {{ TF }}](#before-you-begin), use the ID of the subnet named `subnet-a`.
+
+      * [ingress.alb.yc.io/security-groups](../../application-load-balancer/k8s-ref/ingress.md#annot-security-groups): ID of the group [you created](#before-you-begin) for the load balancer.
+
+          If you created the infrastructure with {{ TF }}, specify the ID of the group named `alb-traffic`.
+
+      * [ingress.alb.yc.io/security-profile-id](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id): ID of the security profile [you created ealier](#create-security-profile) in {{ sws-name }}.
+
+          {% note info %}
+
+          The security profile will only apply to the [virtual hosts](../../application-load-balancer/tools/k8s-ingress-controller/principles.md#mapping) of the ingress resource with a configured annotation. For the above ingress resource described above, the profile will apply to a single virtual host, `demo.example.com`.
+
+          This is the only ingress resource in the `demo-sws` ingress group. The security profile will not apply to the virtual hosts of other ingress resources if you add such resources to the group later.
+
+      {% endnote %}
+
+      Learn more about annotations in [Ingress resource fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
+
+    {% endlist %}
 
 1. Create an ingress resource:
 
@@ -450,14 +553,14 @@ To create an ingress resource:
 
     ```bash
     NAME             CLASS    HOSTS              ADDRESS         PORTS   AGE
-    demo-ingress     <none>   demo.example.com   <IP_address>      80      ...
+    demo-ingress     <none>   demo.example.com   158.1*.*.*      80      ...
     ```
 
     {% endcut %}
 
 ### Create a DNS record for the domain {#create-dns-record}.
 
-1. Create an `A` record for the `demo.example.com` domain in the `example.com` zone. In its value, specify the IP address of the load balancer you created earlier.
+1. [Create](../../dns/operations/resource-record-create.md) an `A` record for the `demo.example.com` domain in the `example.com` zone. In its value, specify the IP address of the load balancer you created earlier.
 
 1. Wait until the DNS propagation is finished.
 
@@ -471,7 +574,7 @@ To create an ingress resource:
 
 Requests to the application deployed in the {{ k8s }} cluster go through an {{ alb-name }}. Protection of the virtual hosts to which those requests are routed is implemented with a security profile. The profile [configuration](#create-security-profile) only allows traffic from a specific IP address, e.g., `203.0.113.200`.
 
-Make sure the load balancer works correctly as per the security profile settings.
+Make sure the load balancer works correctly as per the security profile settings:
 
 1. Use a host with an allowed IP address (`203.0.113.200`) to make sure traffic is routed as per the rule defined in the ingress resource:
 
@@ -507,7 +610,7 @@ After confirming the profile works properly, add more rules if required.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the ingress resource you created:
 

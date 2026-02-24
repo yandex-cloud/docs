@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the user to be updated.
             To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
           pattern: '[a-zA-Z0-9_]*'
           type: string
       required:
@@ -43,6 +45,7 @@ apiPlayground:
           description: |-
             **string**
             New password for the user.
+            The string length in characters must be 8-128.
           type: string
         permissions:
           description: |-
@@ -60,10 +63,16 @@ apiPlayground:
           description: |-
             **string**
             New user grants
+            The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: array
           items:
             type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the user
+          type: boolean
       additionalProperties: false
     definitions:
       Permission:
@@ -104,11 +113,15 @@ PATCH https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/users/{use
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to be updated.
-To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.UpdateUserRequest}
@@ -128,7 +141,8 @@ To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref
   },
   "grants": [
     "string"
-  ]
+  ],
+  "deletionProtection": "boolean"
 }
 ```
 
@@ -146,7 +160,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.spqr.v1.Permission)**
 
 New set of permissions for the user. ||
@@ -155,7 +171,12 @@ New set of permissions for the user. ||
 New settings for this user ||
 || grants[] | **string**
 
-New user grants ||
+New user grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission}
@@ -213,7 +234,8 @@ Name of the database that the permission grants access to. ||
     },
     "grants": [
       "string"
-    ]
+    ],
+    "deletionProtection": "boolean"
   }
   // end of the list of possible fields
 }
@@ -338,7 +360,12 @@ Set of permissions granted to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission2}

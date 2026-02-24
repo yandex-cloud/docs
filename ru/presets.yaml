@@ -271,9 +271,9 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33, 1.34
-  k8s-versions-regular: 1.30, 1.31, 1.32, 1.33
-  k8s-versions-stable: 1.30, 1.31, 1.32, 1.33
+  k8s-versions-rapid: 1.31, 1.32, 1.33, 1.34
+  k8s-versions-regular: 1.31, 1.32, 1.33
+  k8s-versions-stable: 1.31, 1.32, 1.33
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -5479,6 +5479,7 @@ default:
           field_multivolume-snapshot: Одновременное создание снимков нескольких томов
         title_backup: Резервное копирование
         title_linked-recourses: Привязанные ресурсы
+        title_select-vm-backup-policies-row: Политики резервного копирования
         value_bms-recourses: Серверы BareMetal
         value_vm-recourses: Виртуальные машины
       baremetal:
@@ -6125,6 +6126,8 @@ default:
         components:
           AttachInstanceToPoolDialog:
             button_attach_pHLyg: Привязать
+          BackupSection:
+            section_backup_1MXwy: Резервное копирование
           InstanceActions:
             button_attach-to-pool_ak57z: Привязать к пулу резервов ВМ
             button_confirm-detach-vm-from-pool_8dze2: Отвязать
@@ -7967,6 +7970,12 @@ default:
           switch_shards: Шарды
         field_announce-hostnames: Использовать FQDN вместо IP-адресов
         field_tls-support: Поддержка TLS
+        local:
+          valkey_modules_aQacT: Модули
+          valkey_search_vfqdy: Search
+        ModulesFormCard:
+          valkey_search_reader_threads_fNBHR: Количество потоков чтения
+          valkey_search_writer_threads_6HRjb: Количество потоков записи
         switch_backups: Резервные копии
         switch_list: Кластеры
         switch_operations: Операции
@@ -9288,8 +9297,6 @@ default:
                         title: Auto
                       serializer_debezium:
                         title: Debezium
-                      serializer_json:
-                        title: JSON
                       serializer_on_premise_debezium:
                         title: On Premise
                       serializer_yandex_schema_registry_debezium:
@@ -11186,11 +11193,11 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
-        tag: 0.54.0-8
+        tag: 0.54.1
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.7
+        tag: v1.0.9
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

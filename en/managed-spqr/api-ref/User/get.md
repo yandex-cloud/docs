@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster the user belongs to.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         userName:
           description: |-
             **string**
             Required field. Name of the SPQR User resource to return.
             To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
           pattern: '[a-zA-Z0-9_]*'
           type: string
       required:
@@ -47,11 +49,15 @@ GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/users/{userN
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the SPQR User resource to return.
-To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.spqr.v1.User}
@@ -73,7 +79,8 @@ To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref
   },
   "grants": [
     "string"
-  ]
+  ],
+  "deletionProtection": "boolean"
 }
 ```
 
@@ -96,7 +103,12 @@ Set of permissions granted to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission}

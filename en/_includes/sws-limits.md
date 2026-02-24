@@ -22,6 +22,7 @@
 `smart-web-security.loadBalancers.count` | 1 ||
 || Maximum total number of [domains](../smartwebsecurity/concepts/domain-protect.md#domain) per cloud 
 `smart-web-security.loadBalancerDomains.count` | 10 ||
+|| Maximum total number of [response templates](../smartwebsecurity/concepts/response-templates.md) per cloud | 20 ||
 |#
 
 #### Limits {#limits}
