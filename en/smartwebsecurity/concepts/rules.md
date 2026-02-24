@@ -83,5 +83,6 @@ Actions for Advanced Rate Limiter rules:
 
     {% endnote %}
     
-    
+To standardize client response pages for triggered rules, you can create your own [response templates](response-templates.md).
+
 The requests that were allowed by all rules and let through to the protected resource are called _legitimate_.

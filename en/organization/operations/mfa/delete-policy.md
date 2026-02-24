@@ -5,6 +5,8 @@ description: Follow this guide to delete an MFA policy in {{ org-full-name }}.
 
 # Deleting an MFA policy
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 To delete [an MFA policy](../../concepts/mfa.md#mfa-policies):
 
 {% list tabs group=instructions %}
@@ -46,6 +48,10 @@ To delete [an MFA policy](../../concepts/mfa.md#mfa-policies):
      ```
 
      Where `--id` is the ID of the MFA policy you need to delete.
+
+- API {#api}
+
+  Use the [Delete](../../../organization/api-ref/MfaEnforcement/delete.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/Delete](../../../organization/api-ref/grpc/MfaEnforcement/delete.md) gRPC API call.
 
 {% endlist %}
 

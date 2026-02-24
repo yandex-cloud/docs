@@ -81,13 +81,13 @@ items:
               Using a service account with an {{ oslogin }} profile for VM
               management via Ansible
             href: tutorials/authentication/sa-oslogin-ansible.md
-          - name: Authentication using {{ microsoft-idp.ad-short }}
+          - name: Authentication via {{ microsoft-idp.ad-short }}
             href: tutorials/authentication/integration-adfs.md
-          - name: Authentication using Google Workspace
+          - name: Google Workspace authentication
             href: tutorials/authentication/integration-gworkspace.md
-          - name: Authentication using {{ microsoft-idp.entra-id-full }}
+          - name: Authentication via {{ microsoft-idp.entra-id-full }}
             href: tutorials/authentication/integration-azure.md
-          - name: Authentication using Keycloak
+          - name: Keycloak authentication
             href: tutorials/authentication/integration-keycloak.md
           - name: User group mapping in {{ microsoft-idp.adfs-short }}
             href: tutorials/authentication/adfs.md
@@ -241,6 +241,11 @@ items:
           - name: Getting {{ lockbox-name }} secret value on the {{ GL }} side
             href: >-
               tutorials/data-encryption-and-key-management/wlif-gitlab-integration.md
+          - name: >-
+              Uploading objects into an {{ objstorage-name }} bucket using an
+              ephemeral access key
+            href: >-
+              tutorials/data-encryption-and-key-management/ephemeral-key-storage.md
       - name: Collecting, monitoring, and analyzing audit logs
         items:
           - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
@@ -259,10 +264,10 @@ items:
             href: tutorials/audit-logs/logging-functions.md
           - name: Processing {{ at-name }} events
             href: tutorials/audit-logs/audit-trails.md
-          - name: Uploading audit logs to {{ mes-name }}
+          - name: Exporting audit logs to {{ mes-name }}
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true
-          - name: Uploading audit logs to MaxPatrol SIEM
+          - name: Exporting audit logs to MaxPatrol SIEM
             href: tutorials/audit-logs/maxpatrol.md
           - name: Uploading audit logs to Splunk SIEM
             href: tutorials/audit-logs/export-logs-to-splunk.md

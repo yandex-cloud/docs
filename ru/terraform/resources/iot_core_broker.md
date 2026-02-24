@@ -1,5 +1,5 @@
 ---
-subcategory: Cloud Logging
+subcategory: IoT Core Broker
 ---
 
 # yandex_iot_core_broker (Resource)

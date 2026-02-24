@@ -6,7 +6,14 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#backup-editor) `backup.editor`.
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#backup-user) `backup.user` или выше.
+
+    {% note info %}
+
+    {% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
+
+    {% endnote %}
+
 1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
 
 ## Создание ВМ {#creating-vm}
@@ -25,17 +32,12 @@
       1. Выберите подсеть, соответствующую выбранной зоне доступности.
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Выберите [группу безопасности](../../vpc/concepts/security-groups.md), настроенную для работы с {{ backup-name }}.
+  1. {% include [backup-vm-creation-step-console](../../_includes/backup/backup-vm-creation-step-console.md) %}
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ и описание ВМ. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
-
-      1. Выберите сервисный аккаунт с ролью `backup.editor`.
-      1. Включите опцию **{{ backup-name }}**.
-      1. (опционально) Выберите политику резервного копирования или нажмите **{{ ui-key.yacloud.common.create }}**, чтобы [создать](./policy-vm/create.md) новую политику.
 
   1. Укажите другие необходимые параметры ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -115,7 +117,7 @@
       * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
       * `--core-fraction` — гарантированная доля vCPU в %.
       * `--memory` — [объем оперативной памяти](../../compute/concepts/vm.md) ВМ.
-      * `--service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.editor`.
+      * `--service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.user` или выше.
       * `--user-data` — путь к созданному ранее файлу со сценарием для установки на ВМ агента {{ backup-name }}.
 
       В этом примере создается ВМ на базе Windows Server 2022:
@@ -129,7 +131,7 @@
         --cores 2 \
         --core-fraction 100 \
         --memory 4 \
-        --service-account-name backup-editor \
+        --service-account-name backup-user \
         --metadata-from-file user-data=init.ps1
       ```
 

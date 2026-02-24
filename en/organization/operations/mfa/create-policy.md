@@ -5,6 +5,8 @@ description: Follow this guide to create and set up an MFA policy in {{ org-full
 
 # Creating an MFA policy
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 [MFA policies](../../concepts/mfa.md#mfa-policies) enable configuring [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) (MFA) for [federated](../../../iam/concepts/users/accounts.md#saml-federation) and [local](../../../iam/concepts/users/accounts.md#local) user accounts.
 
 To create an MFA policy:
@@ -74,6 +76,10 @@ To create an MFA policy:
       yc organization-manager mfa-enforcement activate \
         --id <policy_ID>
       ```
+
+- API {#api}
+
+  Use the [Create](../../../organization/api-ref/MfaEnforcement/create.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/Create](../../../organization/api-ref/grpc/MfaEnforcement/create.md) gRPC API call.
 
 {% endlist %}
 

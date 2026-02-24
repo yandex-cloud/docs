@@ -10,6 +10,8 @@ To use a second-level domain, such as `example.com`, delegate it to [{{ dns-full
 
 {% endnote %}
 
+Make sure you have an [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)) compliant [X.509 certificate](https://{{ lang }}.wikipedia.org/wiki/X.509) on the domain. For [ECDSA](https://{{ lang }}.wikipedia.org/wiki/ECDSA) certificates, only the P-256 curve is supported.
+
 To add a domain to an API gateway:
 
 {% list tabs group=instructions %}

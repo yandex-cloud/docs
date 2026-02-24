@@ -133,6 +133,10 @@ apiPlayground:
               - `EMAIL`: Email attribute.
               - `PHONE_NUMBER`: Phone number attribute.
               - `USERNAME`: Username attribute.
+              - `COMPANY_NAME`: Company name attribute.
+              - `JOB_TITLE`: Job title attribute.
+              - `DEPARTMENT`: Department attribute.
+              - `EMPLOYEE_ID`: Employee ID attribute.
             type: string
             enum:
               - USER_TARGET_ATTRIBUTE_UNSPECIFIED
@@ -142,6 +146,10 @@ apiPlayground:
               - EMAIL
               - PHONE_NUMBER
               - USERNAME
+              - COMPANY_NAME
+              - JOB_TITLE
+              - DEPARTMENT
+              - EMPLOYEE_ID
           type:
             description: |-
               **enum** (MappingType)
@@ -343,7 +351,11 @@ Required field. Target attribute to map to.
 - `FAMILY_NAME`: Family name attribute.
 - `EMAIL`: Email attribute.
 - `PHONE_NUMBER`: Phone number attribute.
-- `USERNAME`: Username attribute. ||
+- `USERNAME`: Username attribute.
+- `COMPANY_NAME`: Company name attribute.
+- `JOB_TITLE`: Job title attribute.
+- `DEPARTMENT`: Department attribute.
+- `EMPLOYEE_ID`: Employee ID attribute. ||
 || type | **enum** (MappingType)
 
 Required field. Type of mapping.
@@ -624,7 +636,11 @@ Required field. Target attribute to map to.
 - `FAMILY_NAME`: Family name attribute.
 - `EMAIL`: Email attribute.
 - `PHONE_NUMBER`: Phone number attribute.
-- `USERNAME`: Username attribute. ||
+- `USERNAME`: Username attribute.
+- `COMPANY_NAME`: Company name attribute.
+- `JOB_TITLE`: Job title attribute.
+- `DEPARTMENT`: Department attribute.
+- `EMPLOYEE_ID`: Employee ID attribute. ||
 || type | **enum** (MappingType)
 
 Required field. Type of mapping.

@@ -226,6 +226,20 @@ keywords:
         * `--retry-policy-exchange-manager-service-s3` — использование S3-хранилища для записи данных при перезапросах.
         * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
 
+    1. Чтобы добавить настройки выполнения запросов и выделения ресурсов для запросов, задайте параметр:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
+           ...
+           --query-properties <список_настроек>
+        ```
+
+        Где:
+
+        * `--query-properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `<ключ>=<значение>`.
+
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
+
     1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
 
         ```bash
@@ -270,6 +284,10 @@ keywords:
 
         {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
 
+    1. Чтобы задать настройки выполнения запросов и выделения ресурсов для запросов, добавьте к описанию кластера блок `query_properties`:
+
+        {% include [Terraform query properties description](../../_includes/managed-trino/terraform/query-properties.md) %}
+
     1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
@@ -285,7 +303,7 @@ keywords:
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-        
+
     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mtr }}).
 
 - REST API {#api}
@@ -336,6 +354,14 @@ keywords:
               "additionalProperties": {<дополнительные_параметры_перезапросов>}
             },
             "version": "<версия>",
+            "resourceManagement": {
+              "query": {
+                "properties": {
+                  <настройки_выполнения_запросов>,
+                  <настройки_выделения_ресурсов_кластера_для_запросов>
+                }
+              }
+            },
             "tls": {
               "trustedCertificates": [ <список_сертификатов> ]
             }
@@ -393,10 +419,14 @@ keywords:
                * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-            
+
             * `version` — версия {{ TR }}.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
+            * `resourceManagement.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
+
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 
@@ -489,6 +519,14 @@ keywords:
               "additional_properties": {<дополнительные_параметры_перезапросов>}
             },
             "version": "<версия>",
+            "resource_management": {
+              "query": {
+                "properties": {
+                  <настройки_выполнения_запросов>,
+                  <настройки_выделения_ресурсов_кластера_для_запросов>
+                }
+              }
+            },
             "tls": {
               "trusted_certificates": [ <список_сертификатов> ]
             }
@@ -546,10 +584,14 @@ keywords:
                * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-            
+
             * `version` — версия {{ TR }}.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
+            * `resource_management.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
+
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 
@@ -558,7 +600,7 @@ keywords:
                * `trusted_certificates` — список сертификатов, разделенных запятой.
 
                   {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-               
+
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
         * `network` — сетевые настройки:

@@ -40,7 +40,7 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 
 ### Create a form {#form}
 
-1. Navigate to the **Parameters** tab.
+1. Navigate to the **Launch parameters** tab.
 1. Add the following fields one by one by clicking ![image](../../_assets/console-icons/plus.svg) **Add field**:
 
     * **Database username**:<br>
@@ -136,11 +136,11 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
         Name | `vpc-subnet-1` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated subnet name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
         Subnet id | `Parameter` → `vpc_subnet_1` | The cloud network ID will be retrieved from the **Subnet 2** field as specified by the user when filling out the form.
 
-    * `Data source` → `{{ lockbox-short-name }} Secret`:<br>
+    * `Data source` → `{{ lockbox-short-name }} secret version`:<br>
 
         Parameter | Value | Description
         --- | --- | ---
-        Name | `lockbox-secret-with-db-password` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated {{ lockbox-name }} secret name to change it. The resource name must be unique within the configuration. The user will see it when installing the app.
+        Name | `lockbox-secret-with-db-password` | Click ![image](../../_assets/console-icons/pencil.svg) next to the auto-generated {{ lockbox-name }} secret version name to change it. The resource name must be unique within the configuration. The user will see it when installing the application.
         Secret id | `Parameter` → `pg_password_secret` | The {{ lockbox-short-name }} secret ID will be retrieved from the **Secret with DB user password** field as specified by the user when filling out the form.
 
     * `New resource` → `Service account`:<br>

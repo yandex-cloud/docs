@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endlist %}
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../security/index.md#backup-editor) `backup.editor`. 
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../security/index.md#backup-user) `backup.user` или выше. 
 1. Привяжите к подключаемой к {{ backup-name }} ВМ созданный [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
 
     {% include [connect-sa-to-vm-intro](../../_includes/connect-sa-to-vm-intro.md) %}

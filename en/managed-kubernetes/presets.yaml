@@ -24,7 +24,7 @@ default:
       rapid: 11.07.2024
       regular: 01.08.2024
       stable: 10.10.2024
-      deprecated: Q1 2026
+      deprecated: 16.02.2026
     - name: '1.29'
       rapid: 06.03.2024
       regular: 18.04.2024

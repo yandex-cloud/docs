@@ -15,7 +15,6 @@ description: Следуя данной инструкции, вы сможете
 Чтобы начать работать с {{ backup-name }}:
 
 1. [Подготовьте инфраструктуру](#deploy-infrastructure).
-1. [Активируйте {{ backup-name }}](#activate-provider).
 1. [Создайте ВМ](#vm-create).
 1. [Привяжите ВМ к политике резервного копирования](#add-policy).
 
@@ -28,12 +27,6 @@ description: Следуя данной инструкции, вы сможете
 1. В вашей облачной сети [создайте](../../vpc/operations/security-group-create.md) группу безопасности со следующими [правилами](../../vpc/concepts/security-groups.md#security-groups-rules) для исходящего трафика:
 
     {% include [outgoing-rules](../../_includes/backup/outgoing-rules.md) %}
-
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../security/index.md#backup-editor) `backup.editor`.
-
-## Активируйте {{ backup-name }} {#activate-provider}
-
-{% include [quickstart-activate-provider](../../_includes/backup/quickstart-activate-provider.md) %}
 
 ## Создайте ВМ {#vm-create}
 
@@ -66,15 +59,10 @@ description: Следуя данной инструкции, вы сможете
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
 
       Если в вашем профиле нет сохраненных SSH-ключей, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**, чтобы добавить новый ключ.
-
+  1. {% include [backup-vm-creation-step-console](../../_includes/backup/backup-vm-creation-step-console.md) %}
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
 
       {% include [name-format](../../_includes/name-format.md) %}
-
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
-
-      1. Выберите сервисный аккаунт, [созданный ранее](#deploy-infrastructure).
-      1. Включите опцию **{{ backup-name }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

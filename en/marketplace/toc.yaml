@@ -38,7 +38,7 @@ items:
             href: concepts/product.md
           - name: Version
             href: concepts/version.md
-          - name: Service plan
+          - name: Subscription plan
             href: concepts/tariff.md
           - name: Subscription
             href: concepts/subscription.md
@@ -334,6 +334,10 @@ items:
         items:
           - name: All tutorials
             href: tutorials/index.md
+          - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
+            href: tutorials/s2s-vpn.md
+          - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
+            href: tutorials/ghost-cms-cloudapp.md
           - name: Using {{ marketplace-name }} products in {{ managed-k8s-name }}
             items:
               - name: Integration with Argo CD
@@ -372,10 +376,6 @@ items:
                 href: tutorials/istio.md
               - name: Using HashiCorp Vault to store secrets
                 href: tutorials/hashicorp-vault.md
-              - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
-                href: tutorials/s2s-vpn.md
-              - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
-                href: tutorials/ghost-cms-cloudapp.md
       - name: Concepts
         items:
           - name: Subscription

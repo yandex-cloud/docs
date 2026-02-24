@@ -74,6 +74,11 @@ apiPlayground:
             **boolean**
             If flag is set to true resource labels will be deleted.
           type: boolean
+        tls:
+          description: |-
+            **[TLS](#yandex.cloud.cdn.v1.TLS)**
+            TLS configuration for the resource.
+          $ref: '#/definitions/TLS'
       additionalProperties: false
     definitions:
       SecondaryHostnames:
@@ -730,6 +735,24 @@ apiPlayground:
               **[SSLCertificateData](#yandex.cloud.cdn.v1.SSLCertificateData)**
               Certificate data.
             $ref: '#/definitions/SSLCertificateData'
+      TLS:
+        type: object
+        properties:
+          profile:
+            description: |-
+              **enum** (Profile)
+              TLS profile used for the resource.
+              - `PROFILE_COMPATIBLE`: TLSv1.2+, less secure
+              - `PROFILE_LEGACY`: TLSv1+, excluding most vulnerable
+              - `PROFILE_SECURE`: TLSv1.2+, most secure
+              - `PROFILE_STRICT`: TLSv1.3 only
+            type: string
+            enum:
+              - PROFILE_UNSPECIFIED
+              - PROFILE_COMPATIBLE
+              - PROFILE_LEGACY
+              - PROFILE_SECURE
+              - PROFILE_STRICT
 ---
 
 # Cloud CDN API, REST: Resource.Update
@@ -967,7 +990,10 @@ The maximum string length in characters is 50. ||
     }
   },
   "labels": "object",
-  "removeLabels": "boolean"
+  "removeLabels": "boolean",
+  "tls": {
+    "profile": "string"
+  }
 }
 ```
 
@@ -1004,6 +1030,9 @@ Resource labels. At some point will be needed for granular detailing. ||
 || removeLabels | **boolean**
 
 If flag is set to true resource labels will be deleted. ||
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+
+TLS configuration for the resource. ||
 |#
 
 ## SecondaryHostnames {#yandex.cloud.cdn.v1.SecondaryHostnames}
@@ -1550,6 +1579,20 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
+## TLS {#yandex.cloud.cdn.v1.TLS}
+
+#|
+||Field | Description ||
+|| profile | **enum** (Profile)
+
+TLS profile used for the resource.
+
+- `PROFILE_COMPATIBLE`: TLSv1.2+, less secure
+- `PROFILE_LEGACY`: TLSv1+, excluding most vulnerable
+- `PROFILE_SECURE`: TLSv1.2+, most secure
+- `PROFILE_STRICT`: TLSv1.3 only ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -1963,7 +2006,7 @@ Type of the CDN provider for this resource. ||
 || providerCname | **string**
 
 CNAME provided by the CDN provider for this resource. ||
-|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS)**
+|| tls | **[TLS](#yandex.cloud.cdn.v1.TLS2)**
 
 TLS configuration for the resource. ||
 |#
@@ -2507,7 +2550,7 @@ A certificate data custom parameters.
 ID of the custom certificate. ||
 |#
 
-## TLS {#yandex.cloud.cdn.v1.TLS}
+## TLS {#yandex.cloud.cdn.v1.TLS2}
 
 #|
 ||Field | Description ||

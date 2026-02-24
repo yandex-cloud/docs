@@ -22,4 +22,5 @@ A set of methods for managing Folder resources.
 || [ListAccessPolicyBindings](listAccessPolicyBindings.md) | Returns list of access policy bindings for the folder. ||
 || [BindAccessPolicy](bindAccessPolicy.md) | Binds the access policy template to the folder. ||
 || [UnbindAccessPolicy](unbindAccessPolicy.md) | Unbinds the access policy template from the folder. ||
+|| [UpdateAccessPolicyBindingParameters](updateAccessPolicyBindingParameters.md) | Updates the access policy binding parameters for the folder. ||
 |#

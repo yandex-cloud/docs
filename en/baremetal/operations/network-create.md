@@ -50,6 +50,10 @@ description: In this tutorial, you will learn how to create a virtual routing an
      * `--description`: VRF description. This is an optional parameter.
      * `--labels`: VRF labels. This is an optional parameter.
 
+- API {#api}
+
+  To create a VRF, use the [create](../api-ref/Vrf/create.md) REST API method for the [Vrf](../api-ref/Vrf/index.md) resource or the [VrfService/Create](../api-ref/grpc/Vrf/create.md) gRPC API call.
+  
 {% endlist %}
 
 ## Example {#examples}
@@ -67,7 +71,7 @@ Create a virtual routing and forwarding segment with a name, description, and la
     --labels env=test
   ```
 
-  Result:  
+  Result:
   
   ```text
   id: ly52l2lzaq5uw********
@@ -79,5 +83,64 @@ Create a virtual routing and forwarding segment with a name, description, and la
   labels:
     env: test
   ```
+
+- API {#api}
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM_token>" \
+    -d '{
+       "folderId": "b1g07hj5r6i4********",
+       "name": "baremetal-vrf",
+       "description": "Test baremetal VRF",
+       "labels": {
+         "key": "vrf"
+       }
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/vrfs"
+  ```
+
+  Where:
+
+  * `<IAM_token>`: IAM token used for authentication.
+  * `folderId`: Folder ID.
+  * `name`: Image name. Follow these naming requirements:
+
+    {% include [name-format](../../_includes/name-format.md) %}
+
+  * `description`: VRF description. This is an optional parameter.
+  * `labels`: VRF labels. This is an optional parameter.
+
+  Result:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreateVrfMetadata",
+      "vrfId": "ly5uyq2gbxu2********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.Vrf",
+      "labels": {
+        "key": "vrf"
+      },
+      "id": "ly5uyq2gbxu2********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "baremetal-vrf",
+      "description": "Test baremetal VRF",
+      "createdAt": "2025-12-07T21:22:16.493703Z"
+    },
+    "id": "ly53ac2rdtrk********",
+    "description": "VRF create",
+    "createdAt": "2025-12-07T21:22:16.521291Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-07T21:22:16.521291Z"
+  }
+  ```
+
+  Follow the status of the operation by the `done` field.
 
 {% endlist %}

@@ -206,6 +206,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   import io.jsonwebtoken.Jwts;
   import io.jsonwebtoken.SignatureAlgorithm;
+  import org.bouncycastle.jce.provider.BouncyCastleProvider;
   import org.bouncycastle.util.io.pem.PemObject;
   import org.bouncycastle.util.io.pem.PemReader;
 
@@ -214,11 +215,16 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   import java.nio.file.Paths;
   import java.security.KeyFactory;
   import java.security.PrivateKey;
+  import java.security.Security;
   import java.security.spec.PKCS8EncodedKeySpec;
   import java.time.Instant;
   import java.util.Date;
 
   public class JavaJwt {
+
+      static {
+          Security.addProvider(new BouncyCastleProvider());
+      }
 
       @JsonIgnoreProperties(ignoreUnknown = true)
       public static class KeyInfo {
@@ -240,6 +246,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
           PemObject privateKeyPem;
           try (PemReader reader = new PemReader(new StringReader(privateKeyString))) {
               privateKeyPem = reader.readPemObject();
+              if (privateKeyPem == null) {
+                  throw new IllegalArgumentException("Failed to read private key from PEM");
+              }
           }
 
           KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -488,6 +497,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
           iat: now,
           exp: now + 3600,
           aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+      }
       
       return jose.JWK.asKey(privateKey, 'pem', { kid: accessKeyId, alg: 'PS256' })
           .then(function (result)
@@ -718,7 +728,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   1. Exchange your JWT for an IAM token:
 
   
-      ```go
+      ```python
       import yandexcloud
 
       from yandex.cloud.iam.v1.iam_token_service_pb2 import (CreateIamTokenRequest)

@@ -3,9 +3,11 @@ title: How to create a partner connector in {{ datalens-short-name }} {{ marketp
 description: Follow this guide to create your own connector (connection type) and add it to {{ datalens-short-name }} {{ marketplace-short-name }} or to the connections page.
 ---
 
-# Suggest your partner connector
+# Offering a custom partner connector
 
-If you are a {{ datalens-short-name }} partner, you can create your own connector (connection type) and add it to {{ marketplace-full-name }} or to the [connections]({{ link-datalens-main }}/connections/new) page. With the help of a connector, users will be able to create datasets, charts, and dashboards from your data.
+If you are a {{ datalens-short-name }} partner, you can create a connector (connection type) of your own and add it to {{ marketplace-full-name }} or the [connections]({{ link-datalens-main }}/connections/new) page. With the help of your connector, users will be able to create datasets, charts, and dashboards based on your data.
+
+If you have more than 1,000 customers and want to replicate your designs for their use, follow this guide. If you have fewer customers, use [workbook export](../../workbooks-collections/export-and-import.md#export-workbook) and [object embedding](../../security/embedded-objects.md). You can also [add your creations to {{ datalens-gallery }}](../../concepts/gallery.md#suggest).
 
 Advantages of working with a connector for {{ datalens-short-name }} partners:
 

@@ -15,7 +15,13 @@ description: Из этой статьи вы узнаете, какие вирт
 
 Подробнее о подключении к {{ backup-name }} см. в [инструкциях](../operations/index.md).
 
-Чтобы подключение к {{ backup-name }} работало корректно, привяжите к защищаемому ресурсу [сервисный аккаунт](#sa) (с ролью `backup.editor` для ВМ или ролями `baremetal.editor` и `backup.editor` для сервера {{ baremetal-name }}) и настройте [сетевой доступ](#vm-network-access).
+Чтобы подключение к {{ backup-name }} работало корректно, привяжите к защищаемому ресурсу [сервисный аккаунт](#sa) (с ролью `backup.user` или выше для ВМ или ролями `baremetal.editor` и `backup.user` или выше для сервера {{ baremetal-name }}) и настройте [сетевой доступ](#vm-network-access).
+
+{% note tip %}
+
+{% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
+
+{% endnote %}
 
 После подключения к {{ backup-name }} [добавьте](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер {{ baremetal-name }} в [политику резервного копирования](policy.md).
 
@@ -161,11 +167,17 @@ description: Из этой статьи вы узнаете, какие вирт
 
 ## Сервисный аккаунт {#sa}
 
+{% note info %}
+
+{% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
+
+{% endnote %}
+
 [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — специальный аккаунт, от имени которого агент {{ backup-name }} регистрируется у провайдера Киберпротект.
 
-Когда вы создаете ВМ, для которой хотите настроить резервное копирование в {{ backup-name }}, к ВМ нужно привязать сервисный аккаунт с ролью [`backup.editor`](../security/index.md#backup-editor).
+Когда вы создаете ВМ, для которой хотите настроить резервное копирование в {{ backup-name }}, к ВМ нужно привязать сервисный аккаунт с ролью [`backup.user`](../security/index.md#backup-user) или выше.
 
-Когда вы заказываете сервер {{ baremetal-name }}, для которого хотите настроить резервное копирование в {{ backup-name }}, к серверу нужно привязать сервисный аккаунт с ролями [`baremetal.editor`](../../baremetal/security/index.md#baremetal-editor) и [`backup.editor`](../security/index.md#backup-editor).
+Когда вы заказываете сервер {{ baremetal-name }}, для которого хотите настроить резервное копирование в {{ backup-name }}, к серверу нужно привязать сервисный аккаунт с ролями [`baremetal.editor`](../../baremetal/security/index.md#baremetal-editor) и [`backup.user`](../security/index.md#backup-user) или выше.
 
 Вы можете [назначить роль](../../iam/operations/sa/assign-role-for-sa.md) существующему сервисному аккаунту или [создать](../../iam/operations/sa/create.md) новый сервисный аккаунт с нужными ролями.
 

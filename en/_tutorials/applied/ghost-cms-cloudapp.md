@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Make sure the selected [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in at least one [availability zone](../../overview/concepts/geo-scope.md). Do it by selecting **{{ vpc-short-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+Make sure the selected [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in at least one [availability zone](../../overview/concepts/geo-scope.md). To do this, select **{{ vpc-short-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -35,7 +35,7 @@ The cost of support for the new infrastructure includes:
 
 * Fee for using a VM instance (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a public DNS zone and for public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
-* Fee for data storage on disk (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for data storage on a disk (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using an S3 bucket to store media files (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ## Configure a DNS zone {#configure-dns}
@@ -121,8 +121,8 @@ Install [Ghost CMS](https://yandex.cloud/ru/marketplace/products/yc/ghost-cms) v
   1. In the [management console]({{ link-console-main }}), select the folder where you want to install the app.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Click **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
-  1. In the window that opens, select [**Ghost CMS**](https://yandex.cloud/en/marketplace/products/yc/ghost-cms).
-  1. Provide the installation parameters:
+  1. In the window that opens, select the [**Ghost CMS**](https://yandex.cloud/en/marketplace/products/yc/ghost-cms) app.
+  1. Fill in the installation parameters:
 
      {% note info %}
 
@@ -136,20 +136,20 @@ Install [Ghost CMS](https://yandex.cloud/ru/marketplace/products/yc/ghost-cms) v
 
      **Common parameters**:
 
-     * **{{ ui-key.yacloud.cloud-apps.section_parameters }}**: Enter a name and description (optional) for the app.
-     * **{{ ui-key.yacloud.cloud-apps.label_service-account }}**: Select the service account you are going to use to install the app. If you do not have a service account, create one.
+     * **{{ ui-key.yacloud.cloud-apps.section_parameters }}**: Enter a name and description for the app. This is an optional parameter.
+     * **{{ ui-key.yacloud.cloud-apps.label_service-account }}**: Select the service account to be used for app installation. If you do not have a service account, create one.
 
      **Host parameters**:
 
      * **Subnet**: Select a VPC network to deploy a VM in. **This is a required parameter.**
-     * **DNS zone ID**: Select a DNS zone from the list. **This is a required parameter.** Subdomains will be created in the selected DNS zone.
+     * **DNS zone ID**: Select the DNS zone from the list. **This is a required parameter.** Subdomains will be created in the selected DNS zone.
 
      **Domain parameters**:
 
      * **Website subdomain**: Specify a subdomain within the selected DNS zone for access to the main website. The website domain will be determined by prepending the subdomain to the DNS zone domain.
      * **Admin panel subdomain**: Specify a subdomain within the selected DNS zone for access to the Ghost CMS admin panel. The default value is `admin`.  The admin panel domain will be determined by prepending the subdomain to the DNS zone domain. The admin panel will be available at `https://<admin-panel-subdomain>.<dns-zone-domain>/ghost`.
      * **Database admin panel subdomain**: Specify a subdomain within the selected DNS zone for access to the database admin panel. The default value is `db`. The database admin panel domain will be determined by prepending the subdomain to the DNS zone domain.
-     * **Email sender**: Specify the email address that will be used to send notifications (e.g., on change of password or registration). The default value is `noreply@<website_domain>`.
+     * **Email sender**: Specify the email address that will be use send notifications (e.g., password resets or sign-ups). The default value is `noreply@<website_domain>`.
 
      **Virtual machine parameters**:
 
@@ -203,7 +203,7 @@ Installing the app automatically creates a {{ postbox-name }} address and DNS en
 
 Once the app is successfully installed, configure Ghost CMS:
 
-1. Open the admin panel URL in your browser: `https://<admin-panel-subdomain>/ghost` (where `<admin-panel-subdomain>` is the subdomain you specified during installation or the website subdomain if no admin panel subdomain was specified).
+1. Open the admin panel URL in your browser: `https://<admin-panel-subdomain>/ghost` (where `<admin-panel-subdomain>` is the subdomain you specified during installation, or the website subdomain if you did not specify the admin panel subdomain).
 
 1. Fill out the admin registration form:
 
@@ -214,7 +214,7 @@ Once the app is successfully installed, configure Ghost CMS:
 
 1. Click **Create account and run website**.
 
-1. After you register, the page will redirect you to the Ghost CMS admin panel where you can start using the website.
+1. After registering, the page will redirect you to the Ghost CMS admin panel where you can start working on your website.
 
 ## Check the result {#check-result}
 
@@ -225,11 +225,11 @@ Make sure that Ghost CMS is up and running:
 1. Create a test post:
 
    1. In the admin panel, click **New post**.
-   1. Provide the post header and content.
+   1. Fill in the post header and content.
    1. Upload an image to the post. It will be automatically saved in the S3 bucket.
    1. Publish the post.
 
-1. Check that the post has appeared on the website home page.
+1. Make sure that the post appears on the website home page.
 
 1. Test email notifications:
 
@@ -239,11 +239,11 @@ Make sure that Ghost CMS is up and running:
 
    {% note info %}
 
-   The integration with {{ postbox-name }} supports user registration and password recovery. {{ postbox-name }} does not support bulk mailing because the feature requires a special API.
+   Integration with {{ postbox-name }} supports user sign-ups and password resets. {{ postbox-name }} does not support bulk mailing because the feature requires a special API.
 
    {% endnote %}
 
-1. Optionally, if you have specified the DB admin panel domain, open it in your browser:
+1. Optionally, if you specified the DB admin panel domain, open it in your browser:
 
    1. Log in to the the DB admin panel.
    1. Use these credentials:
@@ -266,11 +266,11 @@ To shut down the resources you created and stop paying for them:
 
    {% note warning %}
 
-   When you delete the app, the following is not deleted automatically:
+   When deleting the app, the following is not deleted automatically:
    * {{ postbox-name }} address created during the installation.
    * DNS entry for {{ postbox-name }} verification.
 
-   These resources need to be deleted manually.
+   These resources require manual deletion.
 
    {% endnote %}
 

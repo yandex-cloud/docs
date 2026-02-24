@@ -5,6 +5,8 @@ description: Follow this guide to update an MFA policy in {{ org-full-name }}.
 
 # Updating an MFA policy
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
 
 {% list tabs group=instructions %}
@@ -80,6 +82,10 @@ To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
      * `--new-name`: New policy name.
      * `--description`: New description.
      * `--organization-id`: Organization ID.
+
+- API {#api}
+
+  Use the [Update](../../../organization/api-ref/MfaEnforcement/update.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/Update](../../../organization/api-ref/grpc/MfaEnforcement/update.md) gRPC API call.
 
 {% endlist %}
 

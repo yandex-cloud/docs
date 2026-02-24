@@ -73,8 +73,20 @@ output "network_id" {
         - `disk_type_id` (**Required**)(String). Type of the storage of OpenSearch hosts.
         - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-opensearch/concepts).
   - `opensearch` [Block]. Configuration for OpenSearch node groups.
-    - `plugins` (Set Of String). A set of requested OpenSearch plugins.
     - `config` [Block]. OpenSearch server configuration settings.
+      - `fielddata_cache_size` (String). The maximum size of the field data cache. 
+May be specified as an absolute value (for example, 8GB) or a percentage of the node heap (for example, 50%). 
+This setting is dynamic. If you don't specify this setting, the maximum size is 35%. 
+This value should be smaller than the **indices.breaker.fielddata.limit**
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
+      - `max_clause_count` (Number). Defines the maximum product of fields and terms that are queryable simultaneously. 
+Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting. 
+Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions. 
+New thread pools use the updated value.
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
+      - `reindex_remote_whitelist` (String). Allowed remote hosts
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list).
+    - `plugins` (Set Of String). A set of requested OpenSearch plugins.
     - `node_groups` [Block]. A set of named OpenSearch node group configurations.
       - `assign_public_ip` (Bool). Sets whether the hosts should get a public IP address.
       - `disk_size_autoscaling` [Block]. Node group disk size autoscaling settings.

@@ -70,7 +70,7 @@ keywords:
 
     1. Чтобы получить список резервных копий кластера:
 
-        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -85,7 +85,7 @@ keywords:
 
     1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -110,7 +110,7 @@ keywords:
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
     1. Чтобы получить список резервных копий кластера:
 
-        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -132,7 +132,7 @@ keywords:
 
     1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -221,7 +221,7 @@ keywords:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -241,7 +241,7 @@ keywords:
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -296,7 +296,7 @@ keywords:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -317,7 +317,7 @@ keywords:
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -519,7 +519,7 @@ keywords:
 
             * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат массив элементов `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
-    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -632,7 +632,7 @@ keywords:
 
             * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат массив элементов `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
-    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -651,19 +651,98 @@ keywords:
 
 {% endlist %}
 
+### Удалить резервную копию {#delete-backup}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.DeleteBackup](../api-ref/Cluster/deleteBackup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups/<идентификатор_резервной_копии>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteBackup.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.DeleteBackup](../api-ref/grpc/Cluster/deleteBackup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "backup_id": "<идентификатор_резервной_копии>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.deleteBackup
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteBackup.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
 ## Резервное копирование с помощью снапшотов {#snapshot-backups}
 
 Для работы со снапшотами используется [публичный API {{ OS }}]({{ os.docs }}/api-reference/index/), а для их хранения — бакет в {{ objstorage-name }}.
 
+{% note info %}
+
+Снапшоты, созданные средствами {{ yandex-cloud }}, помещаются в репозиторий `yc-automatic-backups` под именами `yc-automatic-backups-******` (для автоматических резервных копий) или `manual-snapshot-******` (для резервных копий, созданных вручную).
+
+{% endnote %}
+
 ### Получить список снапшотов {#list-snapshots}
 
-1. Найдите в списке репозиториев {{ OS }} тот, который содержит в себе резервные копии в виде снапшотов:
+##### **Для снапшотов, создаваемых средствами {{ yandex-cloud }}**
+
+Получите список снапшотов в репозитории `yc-automatic-backups`:
+
+ ```http
+ GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/_all
+ ```
+Каждой резервной копии соответствует один снапшот.
+
+##### **Для снапшотов, создаваемых средствами {{ OS }}**
+
+1. Получите список репозиториев {{ OS }}:
 
     ```http
     GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
     ```
 
    Если нужного репозитория нет в списке, [подключите его](s3-access.md).
+
+1. Найдите нужный репозиторий со снапшотами.
 
 1. Получите список снапшотов в репозитории:
 
@@ -674,6 +753,12 @@ keywords:
    Каждой резервной копии соответствует один снапшот.
 
 ### Создать снапшот {#create-snapshot}
+
+{% note warning %}
+
+Нельзя создать снапшот в репозитории `yc-automatic-backups`.
+
+{% endnote %}
 
 1. Найдите в списке репозиториев {{ OS }} тот, в котором нужно создать резервную копию в виде снапшота:
 
@@ -715,3 +800,19 @@ keywords:
 
 1. [Получите список резервных копий](#list-snapshots) и найдите нужный снапшот.
 1. [Запустите операцию восстановления]({{ os.docs }}/opensearch/snapshots/snapshot-restore/#restore-snapshots) из нужного снапшота всего кластера или отдельных индексов и потоков данных.
+
+### Удалить снапшот {#delete-snapshot}
+
+1. Найдите в списке репозиториев {{ OS }} тот, который содержит в себе резервные копии в виде снапшотов:
+
+    ```http
+    GET https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
+    ```
+
+   Если нужного репозитория нет в списке, [подключите его](s3-access.md).
+
+1. Удалите снапшот из репозитория:
+
+    ```http
+    DELETE https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/<имя_снапшота>
+    ```

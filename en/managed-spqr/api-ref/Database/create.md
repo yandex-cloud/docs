@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster to create a database in.
             To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -35,8 +36,14 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the SPQR database. 1-63 characters long.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
+          deletionProtection:
+            description: |-
+              **boolean**
+              Deletion Protection inhibits deletion of the database
+            type: boolean
         required:
           - name
 ---
@@ -58,7 +65,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/databases
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster to create a database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.CreateDatabaseRequest}
@@ -66,7 +75,8 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cl
 ```json
 {
   "databaseSpec": {
-    "name": "string"
+    "name": "string",
+    "deletionProtection": "boolean"
   }
 }
 ```
@@ -84,7 +94,12 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the SPQR database. 1-63 characters long. ||
+Required field. Name of the SPQR database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -113,7 +128,8 @@ Required field. Name of the SPQR database. 1-63 characters long. ||
   },
   "response": {
     "name": "string",
-    "clusterId": "string"
+    "clusterId": "string",
+    "deletionProtection": "boolean"
   }
   // end of the list of possible fields
 }
@@ -230,4 +246,7 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the SPQR cluster that the database belongs to. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the database ||
 |#

@@ -1,0 +1,1 @@
+We recommend you to perform fault tolerance testing on a regular basis, document the results, and continuously improve your processes based on the experience you gain.

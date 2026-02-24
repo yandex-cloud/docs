@@ -84,7 +84,7 @@ The infrastructure support cost includes:
 
     Follow [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) to install [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) from {{ marketplace-name }} with the following parameters:
 
-    * **Namespace**: Create a [namespace](../../managed-kubernetes/concepts/index.md#namespace) named `external-secrets`.
+    * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace) named `external-secrets`.
     * **Service account key**: Paste the contents of the `authorized-key.json` file created [earlier](#before-you-begin).
 
 
@@ -234,7 +234,7 @@ The infrastructure support cost includes:
      | base64 --decode
    ```
 
-   Result example:
+   Example of the result:
 
    ```text
    -----BEGIN CERTIFICATE-----
@@ -255,7 +255,7 @@ The infrastructure support cost includes:
    openssl x509 -in cert.pem -text
    ```
 
-   Result example:
+   Example of the result:
 
    ```text
    Certificate:
@@ -387,7 +387,7 @@ spec:
 1. Find out the IP address of the ingress controller (the value in the `EXTERNAL-IP` column):
 
    ```bash
-   kubectl get svc
+   kubectl get svc -n <Ingress_NGINX_application_namespace>
    ```
 
    Result:
@@ -451,7 +451,7 @@ Issue a GET request to the resource via HTTPS, for example, by this command:
 curl https://<your_domain> -vv
 ```
 
-Result example:
+Example of the result:
 
 ```text
 * Trying 51.250.64.86:443...

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the SPQR cluster to stop.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -35,7 +36,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}:stop
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the SPQR cluster to stop. ||
+Required field. ID of the SPQR cluster to stop.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -85,7 +88,10 @@ Required field. ID of the SPQR cluster to stop. ||
               "string"
             ],
             "defaultRouteBehavior": "string",
-            "preferSameAvailabilityZone": "boolean"
+            "preferSameAvailabilityZone": "boolean",
+            "enhancedMultishardProcessing": "boolean",
+            "defaultTargetSessionAttrs": "string",
+            "defaultCommitStrategy": "string"
           },
           "resources": {
             "resourcePresetId": "string",
@@ -121,7 +127,10 @@ Required field. ID of the SPQR cluster to stop. ||
               "string"
             ],
             "defaultRouteBehavior": "string",
-            "preferSameAvailabilityZone": "boolean"
+            "preferSameAvailabilityZone": "boolean",
+            "enhancedMultishardProcessing": "boolean",
+            "defaultTargetSessionAttrs": "string",
+            "defaultCommitStrategy": "string"
           },
           "coordinator": "object"
         },
@@ -309,7 +318,6 @@ Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per reso
 
 Deployment environment of the SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -413,13 +421,11 @@ SPQR Infra (router+coordinator) settings. ||
 
 SPQR default log level
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 SPQR Balancer settings. ||
@@ -443,10 +449,22 @@ Configuration of a SPQR router.
 || timeQuantiles[] | **string** ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || preferSameAvailabilityZone | **boolean** ||
+|| enhancedMultishardProcessing | **boolean** ||
+|| defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| defaultCommitStrategy | **enum** (CommitStrategy)
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -581,7 +599,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -591,7 +608,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.spqr.v1.MaintenanceOperation}
@@ -602,7 +621,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Time until which this maintenance operation is delayed.

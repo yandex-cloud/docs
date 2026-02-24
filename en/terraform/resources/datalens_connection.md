@@ -16,7 +16,7 @@ Manages a DataLens connection resource. For more information, see [the official 
 - `organization_id` (String). The organization ID for the DataLens instance. If not specified, the provider-level `organization_id` is used.
 - `type` (**Required**)(String). The connection type. Currently supported: `ydb`. Changing this attribute forces recreation of the resource.
 - `updated_at` (*Read-Only*) (String). The last update timestamp of the resource.
-- `ydb` [FW-Block]. Configuration for YDB connection type. Must be specified when `type` is `ydb`.
+- `ydb` [Block]. Configuration for YDB connection type. Must be specified when `type` is `ydb`.
   - `auth_type` (String). The authentication type for the connection. Possible values: `anonymous`, `password`, `oauth`.
   - `cache_ttl_sec` (Number). The cache TTL in seconds. `null` means default caching behavior.
   - `cloud_id` (**Required**)(String). The cloud ID where the YDB database is located.

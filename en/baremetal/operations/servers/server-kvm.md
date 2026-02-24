@@ -1,3 +1,8 @@
+---
+title: How to connect to the KVM console of a {{ baremetal-full-name }} server
+description: Follow this guide to connect to the KVM console of a {{ baremetal-name }} server.
+---
+
 # Connecting to the KVM console
 
 To connect to the server's KVM console:

@@ -1,5 +1,5 @@
 ---
-subcategory: Compute Cloud
+subcategory: Load Testing
 ---
 
 # yandex_loadtesting_agent (DataSource)

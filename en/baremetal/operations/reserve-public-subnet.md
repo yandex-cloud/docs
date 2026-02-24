@@ -66,6 +66,10 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
      * `--description`: Subnet description. This is an optional setting.
      * `--labels`: Subnet [labels](../../resource-manager/concepts/labels.md). This is an optional setting.
 
+- API {#api}
+
+  To lease a new dedicated public subnet, use the [create](../api-ref/PublicSubnet/create.md) REST API method for the [PublicSubnet](../api-ref/PublicSubnet/index.md) resource or the [PublicSubnetService/Create](../api-ref/grpc/PublicSubnet/create.md) gRPC API call.
+
 {% endlist %}
 
 ### Converting an ephemeral public subnet to a dedicated one {#transform-ephemeral-to-dedicated}
@@ -119,6 +123,10 @@ You can only convert an ephemeral public subnet to a dedicated public subnet of 
      * `--description`: Subnet description. This is an optional setting.
      * `--labels`: Subnet [labels](../../resource-manager/concepts/labels.md). This is an optional setting.
 
+- API {#api}
+
+  To convert an ephemeral public subnet to a dedicated one, use the [update](../api-ref/PublicSubnet/update.md) REST API method for the [PublicSubnet](../api-ref/PublicSubnet/index.md) resource or the [PublicSubnetService/Update](../api-ref/grpc/PublicSubnet/update.md) gRPC API call.
+
 {% endlist %}
 
 ## Examples {#examples}
@@ -160,6 +168,79 @@ Lease a new dedicated public subnet of the `/29` size:
     env: test
   ```
 
+- API {#api}
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM_token>" \
+    -d '{
+      "folderId": "b1g07hj5r6i4********",
+      "name": "new-public-subnet",
+      "description": "New public subnet",
+      "hardwarePoolIds": [
+        "ru-central1-m3"
+      ],
+      "prefixLength": "29",
+      "labels": {
+        "key": "public-subnet"
+      }
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets"
+  ```
+
+  Where:
+
+  * `<IAM_token>`: IAM token used for authentication.
+  * `folderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+  * `hardwarePoolIds`: [Pool](../concepts/servers.md#server-pools) IDs.
+  * `prefixLength`: Size of the subnet you want to order.
+  * `name`: Name of the public subnet. Follow these naming requirements:
+    
+    {% include [name-format](../../_includes/name-format.md) %}
+    
+  * `description`: Subnet description. This is an optional parameter.
+  * `labels`: Subnet labels. This is an optional parameter.
+
+  Result:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreatePublicSubnetMetadata",
+      "publicSubnetId": "ly52xefxa2hi********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.PublicSubnet",
+      "id": "ly52xefxa2hi********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "new-public-subnet",
+      "description": "New public subnet",
+      "zoneId": "ru-central1-m",
+      "hardwarePoolId": "ru-central1-m3",
+      "type": "EPHEMERAL",
+      "prefixLength": "29",
+      "cidr": "10.0.*.*/29",
+      "dhcpOptions": {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+      "gatewayIp": "10.0.*.*"
+      "createdAt": "2025-12-14T14:42:58.372557Z"
+      "labels": {
+        "env": "test"
+      },
+    "id": "ly5hcnsbx3l4********",
+    "description": "Public subnet create",
+    "createdAt": "2025-12-14T14:42:58.375290Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-14T14:42:58.375290Z"
+  }
+  ```
+  Follow the status of the operation by the `done` field.
+
 {% endlist %}
 
 ### Transforming an ephemeral public subnet into a dedicated one {#transform-ephemeral-to-dedicated-example}
@@ -194,5 +275,70 @@ Change the public subnet type from `ephemeral` to `dedicated`:
   gateway_ip: 94.139.248.185
   created_at: "2025-06-26T14:11:49.458568Z"
   ```
+- API {#api}
+
+  ```bash
+  curl -X PATCH \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM_token>" \
+    -d '{
+      "updateMask": "type,hardwarePoolIds,name,description",
+      "type": "DEDICATED",
+      "hardwarePoolIds": ["ru-central1-m3"],
+      "name": "transformed-public-subnet",
+      "description": "Transformed dedicated public subnet"
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets/<subnet_ID>"
+  ```
+
+  Where:
+  
+  * `updateMask`: List of parameters to update, comma-separated.
+  * `type`: New subnet type. The `DEDICATED` value for conversion into a dedicated subnet.
+  * `name`: Name of the dedicated subnet. Follow these naming requirements:
+    
+    {% include [name-format](../../_includes/name-format.md) %}
+    
+  * `description`: Description of the dedicated subnet. This is an optional parameter.
+  
+  Result:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreatePublicSubnetMetadata",
+      "publicSubnetId": "ly52xefxa2hi********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.PublicSubnet",
+      "id": "ly52xefxa2hi********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "new-public-subnet",
+      "description": "New public subnet",
+      "zoneId": "ru-central1-m",
+      "hardwarePoolId": "ru-central1-m3",
+      "type": "DEDICATED",
+      "prefixLength": "29",
+      "cidr": "10.0.*.*/29",
+      "dhcpOptions": {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+      "gatewayIp": "10.0.*.*"
+      "createdAt": "2025-12-14T14:42:58.372557Z"
+      "labels": {
+        "env": "test"
+      },
+    "id": "ly5hcnsbx3l4********",
+    "description": "Public subnet create",
+    "createdAt": "2025-12-14T14:42:58.375290Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-14T14:42:58.375290Z"
+  }
+  ```
+
+  Follow the status of the operation by the `done` field.
 
 {% endlist %}

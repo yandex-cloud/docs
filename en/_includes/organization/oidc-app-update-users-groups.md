@@ -83,6 +83,38 @@
               subject_id: ajetvnq2mil8********
         ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  1. Describe the parameters for assigning users and groups to your application in a configuration file:
+
+      ```hcl
+      resource "yandex_organizationmanager_idp_application_oauth_application_assignment" "example_assignment" {
+        application_id = "<app_ID>"
+        subject_id     = "<user_or_group_ID>"
+      }
+      ```
+
+      Where:
+
+      * `application_id`: OIDC app ID.
+      * `subject_id`: User or user group ID.
+
+      For more information about `yandex_organizationmanager_idp_application_oauth_application_assignment` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application_assignment).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+      ```bash
+      yc organization-manager idp application oauth application list-assignments <app_ID>
+      ```
+
 - API {#api}
 
   Use the [Application.UpdateAssignments](../../organization/idp/application/oauth/api-ref/Application/updateAssignments.md) REST API method for the [Application](../../organization/idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/UpdateAssignments](../../organization/idp/application/oauth/api-ref/grpc/Application/updateAssignments.md) gRPC API call.

@@ -1,0 +1,1 @@
+Select the availability zone to disable, i.e., to shift traffic away from, e.g., `{{ region-id }}-b`.

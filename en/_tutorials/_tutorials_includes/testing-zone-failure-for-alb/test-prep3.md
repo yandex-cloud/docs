@@ -1,0 +1,1 @@
+Determine the test duration. You can disable a load balancer zone either permanently or for a specified period, from 1 minute to 72 hours, e.g., 30 minutes.

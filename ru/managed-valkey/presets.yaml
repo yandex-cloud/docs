@@ -1,10 +1,10 @@
 default:
   versions:
     tf:
-      latest: 9.0-valkey`
+      latest: 9.0-valkey
       str: '`7.2-valkey`, `8.0-valkey`, `8.1-valkey` или `9.0-valkey`'
     cli:
-      latest: 9.0-valkey`
+      latest: 9.0-valkey
       previous: 8.1-valkey
       str: '`7.2-valkey`, `8.0-valkey`, `8.1-valkey` или `9.0-valkey`'
     console:

@@ -181,6 +181,8 @@ items:
                 href: api-ref/grpc/Cloud/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/grpc/Cloud/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/grpc/Cloud/updateAccessPolicyBindingParameters.md
           - name: Folder
             items:
               - name: Overview
@@ -209,6 +211,8 @@ items:
                 href: api-ref/grpc/Folder/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/grpc/Folder/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/grpc/Folder/updateAccessPolicyBindingParameters.md
           - name: Operation
             items:
               - name: Overview
@@ -249,6 +253,8 @@ items:
                 href: api-ref/Cloud/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/Cloud/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/Cloud/updateAccessPolicyBindingParameters.md
           - name: Folder
             items:
               - name: Overview
@@ -277,6 +283,8 @@ items:
                 href: api-ref/Folder/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/Folder/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/Folder/updateAccessPolicyBindingParameters.md
           - name: Operation
             items:
               - name: Overview

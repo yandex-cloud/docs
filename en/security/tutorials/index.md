@@ -72,6 +72,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](data-encryption-and-key-management/static-key-in-lockbox/index.md)
 * [{#T}](data-encryption-and-key-management/wlif-github-integration.md)
 * [{#T}](data-encryption-and-key-management/wlif-gitlab-integration.md)
+* [{#T}](data-encryption-and-key-management/ephemeral-key-storage.md)
 
 
 ## Collecting, monitoring, and analyzing audit logs {#audit-logs}

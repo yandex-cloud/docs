@@ -102,7 +102,7 @@ The emulator sends data from device sensors and processes data for monitoring an
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
           * File name: `device-emulator.js`.
           * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/device-emulator.js).
-      1. Similarly, create a file named `package.json` with the following content:
+      1. Similarly, create a file named `package.json` with the following contents:
 
           ```json
           {
@@ -129,7 +129,7 @@ The emulator sends data from device sensors and processes data for monitoring an
               `SMOKE_SENSOR_VALUE`       | Smoke sensor reading                             | `False`
               `WATER_SENSOR_VALUE`       | Water sensor reading                             | `False`
               `IOT_CORE_DEVICE_ID`       | ID of the device you created.         | See the [management console]({{ link-console-main }}),<br>{{ iot-name }}
-              `DEVICE_ID`                | Custom devicename                 | It is specified by the user.
+              `DEVICE_ID`                | Custom device name                 | It is specified by the user.
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -456,7 +456,7 @@ If you change the baselines in the environment variables of the emulation functi
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `my-device-emulator-function` function.
+  1. Select `my-device-emulator-function`.
   1. Click the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** tab.
   1. Change some original variable values as you like under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** in the **{{ ui-key.yacloud_components.forms.label_value }}** field at the bottom of the window.
 
@@ -531,7 +531,7 @@ Create an alert based on the room temperature sensor readings and connect the cr
       1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** list, select `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
       1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** field, enter `50`.
       1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** field, enter `70`.
-      1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}** list, select `5 minutes`.
+      1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** list, select `5 minutes`.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, click **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}**, and then **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. In the window that opens, select `my-message-channel` in the **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.notification-method }}** field and click **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. At the bottom of the window, click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.

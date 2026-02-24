@@ -56,7 +56,7 @@ Some creators consented to make their dashboards available for use. To convenien
 
 There are two ways you can use creations from {{ datalens-gallery }}:
 * Deploy them in your {{ datalens-name }} instance: this will create a copy of the workbook with all its objects.
-* Download a JSON export file and import it to a third-party {{ datalens-name }} environment: {{ datalens-name }} Open Source or {{ datalens-name }} Enterprise.
+* Download a JSON export file and import it to a third-party {{ datalens-name }} environment: {{ datalens-name }} Open Source or {{ datalens-name }} On-premises.
 
 {% note info %}
 

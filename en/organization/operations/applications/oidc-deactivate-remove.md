@@ -151,6 +151,62 @@ To delete an OIDC application:
      yc organization-manager idp application oauth application delete <app_ID>
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. To delete the OIDC app, delete the relevant resource from the {{ TF }} configuration file:
+
+     Example of an OIDC application description in the {{ TF }} configuration:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
+       organization_id = "<organization_ID>"
+       name            = "<application_name>"
+       description     = "<application_description>"
+    
+       client_grant = {
+         client_id         = "<OAuth_client_ID>"
+         authorized_scopes = ["<attribute_1>", "<attribute_2>"]
+       }
+    
+       group_claims_settings = {
+         group_distribution_type = "ALL_GROUPS"
+       }
+    
+       labels = {
+         "<key_1>" = "<value_1>"
+         "<key_2>" = "<value_2>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC app belongs to.
+     * `name`: OIDC app name.
+     * `description`: OIDC app description.
+     * `client_grant`: OAuth client connection settings:
+       * `client_id`: OAuth client ID.
+       * `authorized_scopes`: User attributes available to the service provider.
+     * `group_claims_settings`: Settings for sending user groups to the service provider:
+       * `group_distribution_type`: Group distribution type.
+     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md).
+
+     For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will delete the OIDC app resource. You can check the resource deletion in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager idp application oauth application list --organization-id <organization_ID>
+     ```
+
 - API {#api}
 
   Use the [Application.Delete](../../idp/application/oauth/api-ref/Application/delete.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Delete](../../idp/application/oauth/api-ref/grpc/Application/delete.md) gRPC API call.

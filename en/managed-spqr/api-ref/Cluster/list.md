@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list SPQR clusters in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListClustersResponse)
             that can be used to get the next page of results in subsequent list requests.
             Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -28,6 +30,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken`
             to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListClustersResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -37,6 +40,7 @@ apiPlayground:
             1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.spqr.v1.Cluster) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - folderId
@@ -63,24 +67,32 @@ GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters
 || folderId | **string**
 
 Required field. ID of the folder to list SPQR clusters in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListClustersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
-to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListClustersResponse) returned by the previous list request. ||
+to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.spqr.v1.ListClustersResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.spqr.v1.Cluster) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`. ||
+3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.spqr.v1.ListClustersResponse}
@@ -114,7 +126,10 @@ The expression must specify:
                 "string"
               ],
               "defaultRouteBehavior": "string",
-              "preferSameAvailabilityZone": "boolean"
+              "preferSameAvailabilityZone": "boolean",
+              "enhancedMultishardProcessing": "boolean",
+              "defaultTargetSessionAttrs": "string",
+              "defaultCommitStrategy": "string"
             },
             "resources": {
               "resourcePresetId": "string",
@@ -150,7 +165,10 @@ The expression must specify:
                 "string"
               ],
               "defaultRouteBehavior": "string",
-              "preferSameAvailabilityZone": "boolean"
+              "preferSameAvailabilityZone": "boolean",
+              "enhancedMultishardProcessing": "boolean",
+              "defaultTargetSessionAttrs": "string",
+              "defaultCommitStrategy": "string"
             },
             "coordinator": "object"
           },
@@ -257,7 +275,6 @@ Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per reso
 
 Deployment environment of the SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -361,13 +378,11 @@ SPQR Infra (router+coordinator) settings. ||
 
 SPQR default log level
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 SPQR Balancer settings. ||
@@ -391,10 +406,22 @@ Configuration of a SPQR router.
 || timeQuantiles[] | **string** ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || preferSameAvailabilityZone | **boolean** ||
+|| enhancedMultishardProcessing | **boolean** ||
+|| defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| defaultCommitStrategy | **enum** (CommitStrategy)
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -529,7 +556,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -539,7 +565,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.spqr.v1.MaintenanceOperation}
@@ -550,7 +578,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Time until which this maintenance operation is delayed.

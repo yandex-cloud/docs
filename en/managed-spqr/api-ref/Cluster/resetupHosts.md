@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the SPQR cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -22,6 +23,7 @@ apiPlayground:
           description: |-
             **string**
             Required. Name of the hosts to resetup.
+            The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
           type: array
           items:
             type: string
@@ -45,7 +47,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}:resetupHost
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the SPQR cluster. ||
+Required field. Required. ID of the SPQR cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.ResetupHostsRequest}
@@ -62,7 +66,9 @@ Required field. Required. ID of the SPQR cluster. ||
 ||Field | Description ||
 || hostNames[] | **string**
 
-Required. Name of the hosts to resetup. ||
+Required. Name of the hosts to resetup.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

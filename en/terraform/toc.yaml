@@ -240,17 +240,8 @@ items:
                   - name: function_trigger
                     href: data-sources/function_trigger.md
                     title: ''
-                  - name: iot_core_broker
-                    href: data-sources/iot_core_broker.md
-                    title: ''
-                  - name: iot_core_registry
-                    href: data-sources/iot_core_registry.md
-                    title: ''
                   - name: logging_group
                     href: data-sources/logging_group.md
-                    title: ''
-                  - name: serverless_container
-                    href: data-sources/serverless_container.md
                     title: ''
                 title: ''
               - name: Resources
@@ -267,20 +258,8 @@ items:
                   - name: function_trigger
                     href: resources/function_trigger.md
                     title: ''
-                  - name: iot_core_broker
-                    href: resources/iot_core_broker.md
-                    title: ''
-                  - name: iot_core_registry
-                    href: resources/iot_core_registry.md
-                    title: ''
                   - name: logging_group
                     href: resources/logging_group.md
-                    title: ''
-                  - name: serverless_container
-                    href: resources/serverless_container.md
-                    title: ''
-                  - name: serverless_container_iam_binding
-                    href: resources/serverless_container_iam_binding.md
                     title: ''
                 title: ''
             title: ''
@@ -348,9 +327,6 @@ items:
                   - name: compute_snapshot_schedule
                     href: data-sources/compute_snapshot_schedule.md
                     title: ''
-                  - name: loadtesting_agent
-                    href: data-sources/loadtesting_agent.md
-                    title: ''
                 title: ''
               - name: Resources
                 items:
@@ -410,9 +386,6 @@ items:
                     title: ''
                   - name: compute_snapshot_schedule_iam_binding
                     href: resources/compute_snapshot_schedule_iam_binding.md
-                    title: ''
-                  - name: loadtesting_agent
-                    href: resources/loadtesting_agent.md
                     title: ''
                 title: ''
             title: ''
@@ -568,6 +541,10 @@ items:
                   - name: organizationmanager_saml_federation
                     href: data-sources/organizationmanager_saml_federation.md
                     title: ''
+                  - name: organizationmanager_saml_federation_user_account
+                    href: >-
+                      data-sources/organizationmanager_saml_federation_user_account.md
+                    title: ''
                   - name: organizationmanager_user_ssh_key
                     href: data-sources/organizationmanager_user_ssh_key.md
                     title: ''
@@ -639,6 +616,10 @@ items:
                   - name: organizationmanager_saml_federation
                     href: resources/organizationmanager_saml_federation.md
                     title: ''
+                  - name: organizationmanager_saml_federation_user_account
+                    href: >-
+                      resources/organizationmanager_saml_federation_user_account.md
+                    title: ''
                   - name: organizationmanager_user_ssh_key
                     href: resources/organizationmanager_user_ssh_key.md
                     title: ''
@@ -671,10 +652,6 @@ items:
                     title: ''
                   - name: iam_workload_identity_oidc_federation
                     href: data-sources/iam_workload_identity_oidc_federation.md
-                    title: ''
-                  - name: organizationmanager_saml_federation_user_account
-                    href: >-
-                      data-sources/organizationmanager_saml_federation_user_account.md
                     title: ''
                 title: ''
               - name: Resources
@@ -716,9 +693,20 @@ items:
                     href: >-
                       resources/iam_workload_identity_oidc_federation_iam_binding.md
                     title: ''
-                  - name: organizationmanager_saml_federation_user_account
-                    href: >-
-                      resources/organizationmanager_saml_federation_user_account.md
+                title: ''
+            title: ''
+          - name: IoT Core Broker
+            items:
+              - name: Data Sources
+                items:
+                  - name: iot_core_broker
+                    href: data-sources/iot_core_broker.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: iot_core_broker
+                    href: resources/iot_core_broker.md
                     title: ''
                 title: ''
             title: ''
@@ -729,11 +717,17 @@ items:
                   - name: iot_core_device
                     href: data-sources/iot_core_device.md
                     title: ''
+                  - name: iot_core_registry
+                    href: data-sources/iot_core_registry.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:
                   - name: iot_core_device
                     href: resources/iot_core_device.md
+                    title: ''
+                  - name: iot_core_registry
+                    href: resources/iot_core_registry.md
                     title: ''
                 title: ''
             title: ''
@@ -791,6 +785,21 @@ items:
                 items:
                   - name: kubernetes_marketplace_helm_release
                     href: resources/kubernetes_marketplace_helm_release.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Load Testing
+            items:
+              - name: Data Sources
+                items:
+                  - name: loadtesting_agent
+                    href: data-sources/loadtesting_agent.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: loadtesting_agent
+                    href: resources/loadtesting_agent.md
                     title: ''
                 title: ''
             title: ''
@@ -1095,18 +1104,18 @@ items:
                   - name: mdb_postgresql_user
                     href: resources/mdb_postgresql_user.md
                     title: ''
-                title: ''
-            title: ''
-          - name: Managed Service for SPQR
-            items:
-              - name: Resources
-                items:
                   - name: mdb_sharded_postgresql_cluster
                     href: resources/mdb_sharded_postgresql_cluster.md
                     title: ''
                   - name: mdb_sharded_postgresql_cluster_iam_binding
                     href: resources/mdb_sharded_postgresql_cluster_iam_binding.md
                     title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for SPQR
+            items:
+              - name: Resources
+                items:
                   - name: mdb_sharded_postgresql_database
                     href: resources/mdb_sharded_postgresql_database.md
                     title: ''
@@ -1382,6 +1391,24 @@ items:
                 items:
                   - name: function_scaling_policy
                     href: resources/function_scaling_policy.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Serverless Containers
+            items:
+              - name: Data Sources
+                items:
+                  - name: serverless_container
+                    href: data-sources/serverless_container.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: serverless_container
+                    href: resources/serverless_container.md
+                    title: ''
+                  - name: serverless_container_iam_binding
+                    href: resources/serverless_container_iam_binding.md
                     title: ''
                 title: ''
             title: ''

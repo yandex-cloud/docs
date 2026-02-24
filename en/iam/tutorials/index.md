@@ -1,6 +1,6 @@
 ---
 title: '{{ iam-full-name }} use cases'
-description: Different use cases for {{ iam-full-name }} in {{ yandex-cloud }}.
+description: Various {{ iam-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ iam-name }} tutorials
@@ -13,3 +13,4 @@ description: Different use cases for {{ iam-full-name }} in {{ yandex-cloud }}.
 * [{#T}](wlif-k8s-integration.md)
 * [{#T}](wlif-managed-k8s-integration.md)
 * [{#T}](ci-cd-github-functions.md)
+* [{#T}](ephemeral-key-storage.md)

@@ -1,5 +1,5 @@
 ---
-subcategory: Cloud Logging
+subcategory: IoT Core Devices
 ---
 
 # yandex_iot_core_registry (DataSource)

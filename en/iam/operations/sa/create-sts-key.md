@@ -4,3 +4,9 @@ description: With {{ sts-name }} and {{ iam-name }}, you can get temporary keys 
 ---
 
 {% include [create-sts-key](../../../_includes/iam/create-sts-key.md) %}
+
+
+#### See also {#see-also}
+
+* [{#T}](../../../storage/security/overview.md)
+* [{#T}](../authentication/manage-ephemeral-keys.md)
