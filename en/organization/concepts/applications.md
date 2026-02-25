@@ -114,7 +114,6 @@ The signing mode configured on the service provider's side must be the same as t
 
 ## OIDC apps {#oidc}
 
-
 In {{ org-name }}, you can [create](../operations/applications/oidc-create.md) OpenID Connect (OIDC) applications that allow configuring OIDC-based single sign-on on the {{ org-name }} side and provide the values you need to set up integration on the service provider's side.
 
 The external applications can only be accessed by {{ yandex-cloud }} organization users either explicitly [added](../operations/applications/oidc-create.md#users-and-groups) to the relevant OIDC application or belonging to [user groups](./groups.md) explicitly added to it.

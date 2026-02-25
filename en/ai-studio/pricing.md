@@ -267,7 +267,7 @@ The search index size is rounded up to the nearest whole gigabyte.
 
 {% include [note-preview](../_includes/note-preview.md) %}
 
-At the Preview stage, [MCP servers](./concepts/mcp-hub/index.md#servers) are free of charge. However, you may still be charged for tools created in MCP servers, such as [{{ sf-full-name }} function invocations]({{ link-docs }}/functions/pricing.md#invoke).
+At the Preview stage, [MCP servers](./concepts/mcp-hub/index.md#servers) are free of charge. However, you may still be charged for tools created in MCP servers, such as [{{ sf-full-name }} function invocations](../functions/pricing.md#invoke).
 
 When using external APIs, such as [Kontur.Focus](./concepts/mcp-hub/templates.md#kontur) or [amoCRM](./concepts/mcp-hub/templates.md#amocrm), you are charged directly by our respective partner.
 

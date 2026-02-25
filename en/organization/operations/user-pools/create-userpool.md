@@ -91,13 +91,13 @@ description: Follow this guide to create a user pool in {{ org-name }}.
      * `default_subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter.
 
-     For more information about the `yandex_organizationmanager_idp_userpool` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more information about `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp userpool list --organization-id <organization_ID>

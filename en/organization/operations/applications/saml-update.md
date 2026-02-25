@@ -224,7 +224,7 @@ To update the service provider configuration in a SAML app:
 
 {% include [saml-app-cert-intro-phrase](../../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 
-You can issue any number of new digital signature verification key certificates for the SAML app at any time. To do so:
+You can issue any number of new digital signature verification key certificates for the SAML app at any time. Proceed as follows:
 
 {% list tabs group=instructions %}
 

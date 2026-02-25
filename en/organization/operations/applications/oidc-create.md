@@ -223,7 +223,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
      * `client_grant`: OAuth client connection settings:
        * `client_id`: OAuth client ID. This is a required parameter.
        * `authorized_scopes`: Specify the same attributes as when creating the OAuth client.
-     * `group_claims_settings`: Settings for sending user groups to the service provider:
+     * `group_claims_settings`: Settings for sending user group claims to the service provider:
        * `group_distribution_type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
          * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
          * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.

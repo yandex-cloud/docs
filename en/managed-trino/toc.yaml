@@ -37,7 +37,7 @@ items:
             href: operations/catalog-delete.md
       - name: Logs and monitoring
         items:
-          - name: Monitoring cluster state
+          - name: Cluster state monitoring
             href: operations/monitoring.md
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
@@ -77,6 +77,8 @@ items:
         href: concepts/retry-policy.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: Access management
+        href: concepts/access-control.md
       - name: Maintenance
         href: concepts/maintenance.md
   - name: CLI reference

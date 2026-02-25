@@ -90,7 +90,7 @@ To update local user data:
      * `email`: New user email address.
      * `phone_number`: New user phone number.
 
-     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
   1. Apply the changes:
 

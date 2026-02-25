@@ -1,6 +1,6 @@
 1. [Get your cloud ready](#before-begin).
 1. [Create your infrastructure](#deploy).
-1. [Get credentials for authenticating in the web interface](#get-auth-data).
+1. [Get credentials for authentication in the web interface](#get-auth-data).
 1. [Connect to the WordPress web interface](#connect-wordpress-interface).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -51,12 +51,12 @@ To create an infrastructure using {{ TF }}:
     * [Subnets](../../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
     * [DNS zone](../../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
     * [DNS resource record](../../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
-1. Under `metadata`, specify the metadata for creating a VM: `<username>:<SSH_key_contents>`. Regardless of the username specified, the key is assigned to the user set in the WordPress image configuration. Such users differ depending on the image. Learn more in [{#T}](../../../compute/concepts/metadata/public-image-keys.md).
+1. Under `metadata`, specify the metadata for creating a VM: `<username>:<SSH_key_contents>`. Regardless of the username specified, the key is assigned to the user set in the WordPress image configuration. Such users differ depending on the image. For more information, see [{#T}](../../../compute/concepts/metadata/public-image-keys.md).
 1. Create the resources:
 
    {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-## Get credentials for authenticating in the web interface {#get-auth-data}
+## Get credentials for authentication in the web interface {#get-auth-data}
 
 {% include [get-auth-data](get-auth-data.md) %}
 

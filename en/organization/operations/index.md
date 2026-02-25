@@ -15,6 +15,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./organization-get-id.md)
 * [{#T}](./org-profile.md)
 * [{#T}](./manage-organizations.md)
+* [{#T}](./manage-access-policies.md)
 * [{#T}](./hide-user-info.md)
 * [{#T}](./delete-org.md)
 * [{#T}](./add-region.md)

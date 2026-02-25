@@ -10,7 +10,7 @@ Below is an example demonstrating the calculation of 2018 US air traffic statist
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=resources %}
 
@@ -72,6 +72,8 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for subclusters: Provided.
 
+            {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -92,7 +94,7 @@ Set up the infrastructure:
         * {{ dataproc-name }} cluster.
 
     1. In the `data-proc-for-spark-jobs.tf` configuration file, specify the required parameters.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -640,7 +642,7 @@ The file will be uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=resources %}
 

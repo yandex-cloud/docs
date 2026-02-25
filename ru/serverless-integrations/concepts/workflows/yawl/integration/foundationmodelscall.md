@@ -133,7 +133,7 @@ description: В статье описаны поля для интеграцио
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `url` | `string` | Нет | Нет | Да | Публичный URL, по которому доступно изображение.
-`objectStorage` | [FoundationModelsVision.ObjectStorage](FoundationModelsVisionObjectStorage) | Нет | Нет | Нет | Изображение из [бакета](../../../../../storage/concepts/bucket.md) {{ objstorage-name }}.
+`objectStorage` | [FoundationModelsVision.ObjectStorage](#FoundationModelsVisionObjectStorage) | Нет | Нет | Нет | Изображение из [бакета](../../../../../storage/concepts/bucket.md) {{ objstorage-name }}.
 
 ## FoundationModelsVision.ObjectStorage {#FoundationModelsVisionObjectStorage}
 

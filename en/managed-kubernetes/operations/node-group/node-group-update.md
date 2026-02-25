@@ -106,6 +106,8 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
     * `--daily-maintenance-window`: Update daily at the selected time.
     * `--weekly-maintenance-window`: Update on selected days.
 
+      {% include [update time](../../../_includes/managed-kubernetes/note-update-time.md) %}
+
   {% note warning %}
 
   * The `user-data` metadata key is not supported for VM tuning or user data transmission.
@@ -721,11 +723,11 @@ After you update the metadata, the node group status will temporarily change to 
 
         * Node group ID in the `nodeGroupId` parameter.
 
-        * `updateMask` parameter set to `nodeTemplate.metadata`.
+        * `updateMask` set to `nodeTemplate.metadata`.
 
             {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
-        * `nodeTemplate.metadata` parameter listing the node group metadata.
+        * The `nodeTemplate.metadata` parameter listing the node group metadata.
 
             Edit the metadata list you got in the previous step: add, edit, or delete `key=value` pairs. Then provide the updated list in the `nodeTemplate.metadata` parameter.
 

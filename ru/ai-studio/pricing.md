@@ -440,7 +440,7 @@ _{{ price-per-hour-count-per-second }}_
 
 {% include [note-preview](../_includes/note-preview.md) %}
 
-На стадии Preview [MCP-серверы](./concepts/mcp-hub/index.md#servers) не тарифицируются. При этом может оплачиваться использование инструментов, создаваемых в MCP-серверах. Например, [вызовы функций]({{ link-docs }}/functions/pricing.md#invoke) {{ sf-full-name }}.
+На стадии Preview [MCP-серверы](./concepts/mcp-hub/index.md#servers) не тарифицируются. При этом может оплачиваться использование инструментов, создаваемых в MCP-серверах. Например, [вызовы функций](../functions/pricing.md#invoke) {{ sf-full-name }}.
 
 При работе с внешними API, такими как [Контур.Фокус](./concepts/mcp-hub/templates.md#kontur) или [amoCRM](./concepts/mcp-hub/templates.md#amocrm), оплата использования производится партнеру напрямую.
 

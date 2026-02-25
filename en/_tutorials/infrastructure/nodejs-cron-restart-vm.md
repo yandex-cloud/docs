@@ -25,7 +25,7 @@ The infrastructure support costs include:
 * Fee for VM [disks](../../compute/concepts/disk.md) (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * [Secret](../../lockbox/concepts/secret.md) storage and request fees (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
 ## Set up your environment {#prepare}
@@ -54,7 +54,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `key_token`.
-     * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the [OAuth token]({{ link-cloud-oauth }}) value required for authorizing the function.
+     * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the [OAuth token]({{ link-cloud-oauth }}) value required for authenticating the function.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -106,11 +106,11 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      * `name`: Secret name.
      * `key`: Secret key.
-     * `text_value`: [OAuth token]({{ link-cloud-oauth }}) value required to authorize the function.
+     * `text_value`: The [OAuth token]({{ link-cloud-oauth }}) value required for authenticating the function.
 
      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-     For more information about {{ TF }} resource parameters, see the overview documents by Terraform:
+     Learn more about the properties of {{ TF }} resources in the relevant provider guides:
 
      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
      * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version)
@@ -123,7 +123,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -266,7 +266,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        --runtime=nodejs18 \
        --entrypoint=index.handler \
        --service-account-id=<service_account_ID> \
-       --environment FOLDER_ID=<catalog_ID>,INSTANCE_ID=<VM_ID> \
+       --environment FOLDER_ID=<folder_ID>,INSTANCE_ID=<VM_ID> \
        --secret name=oauth-token,version-id=<secret_version_ID>,key=key_token,environment-variable=OAUTHTOKEN \
        --source-path=./function-js.zip \
        --no-logging
@@ -316,9 +316,9 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        memory             = "128"
        execution_timeout  = "3"
        service_account_id = "<service_account_ID>"
-       folder_id = "<catalog_ID>"
+       folder_id = "<folder_ID>"
        environment = {
-         FOLDER_ID = "<catalog_ID>"
+         FOLDER_ID = "<folder_ID>"
          INSTANCE_ID = "<VM_ID>"
        }
        secrets {
@@ -352,7 +352,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        * `environment_variable`: Environment variable where you will keep the secret.
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 
-     For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -361,7 +361,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -473,7 +473,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      * `id`: ID of the function for the trigger to call.
      * `service_account_id`: ID of the service account with permissions to invoke the function.
 
-     For more information about resource parameters in {{ TF }}, see [thisTerraform article]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -482,7 +482,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -490,7 +490,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create a trigger named `timer` in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -523,7 +523,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you created your preemptible VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM name and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.

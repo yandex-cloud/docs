@@ -57,8 +57,6 @@ The set of headers is request-specific and described in the documentation for th
 
   If authenticating with the API via an IAM token, you do not have to additionally sign HTTP requests.
 
-  Amazon S3 [tools](../tools/index.md), such as the [AWS CLI](../tools/aws-cli.md) and [AWS SDK](../tools/sdk/index.md), support static access key authentication only and cannot be used at the same time with IAM token authentication.
-
 - Static key authentication {#static-key}
 
   When using a static access key to authenticate with the API and accessing the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for signing requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).

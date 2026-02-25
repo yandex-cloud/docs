@@ -9,7 +9,7 @@ The VPC Private Endpoints feature in {{ vpc-full-name }} is at the [Preview](../
 {% endnote %}
 
 
-You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet via a service connection in the user network hosting the {{ mkf-name }} cluster. To do so:
+You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet via a service connection in the user network hosting the {{ mkf-name }} cluster. Proceed as follows:
 
 1. [Send data to the topic](#send-data).
 1. [Make sure the bucket is not accessible from the external network](#check-bucket-access).
@@ -50,9 +50,11 @@ The support cost for this solution includes:
 
         1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md) with the following settings:
 
+            * Network: `my-private-network`.
             * Broker hosts: One
             * Access to cluster hosts: Public
-            * Network: `my-private-network`
+
+                {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         
         1. If using security groups, make sure they are [configured correctly](../../managed-kafka/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.

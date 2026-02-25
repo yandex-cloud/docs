@@ -55,7 +55,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`type`| `string` | Yes | No | No | File type containing a knowledge source. Available types: `TEXT`, `JSON`, `CSV`, `PDF`, `EXCEL`.
+`type`| `string` | Yes | No | No | File type containing a knowledge source. Available types: `TEXT`, `JSON`, `CSV`, `PDF`, and `EXCEL`.
 `dataSource`| [DataSource](#DataSource) | Yes | No | No | Data source:
 
 ## DataSource object {#DataSource}
@@ -92,13 +92,13 @@ The `useServiceAccount` and `token` fields are mutually exclusive: you can use o
 
 #|
 || Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description ||
-|| `endpoint`| `string` | Yes | No | No | MCP server URL, e.g., `https://mcp.example.com/sse`. ||
+|| `endpoint`| `string` | Yes | No | No | MCP server URL. For example: `https://mcp.example.com/sse`. ||
 || `transport`| `string` | Yes | No | No | Transport mechanism type for interacting with the MCP server. Available types:
 * `STREAMABLE`: Your AI ​agent receives updates (events) from the server with no need for a persistent HTTP connection. Data exchange between the AI ​agent and the server is bidirectional.
 * `SSE`: Your AI ​agent receives updates from the server over a persistent HTTP connection. Data is only transmitted from the server to the AI ​agent.
 * `UNSPECIFIED`: Transport mechanism type is not specified. ||
 || `useServiceAccount`| `bool` | No | No | No | If set to:
-* `true`: For agent authentication, the MCP server requires an [IAM token](../../../../../iam/concepts/authorization/iam-token.md) of the [service account](../../../../../iam/concepts/users/service-accounts.md) associated with the workflow.
-* `false`: Agent can access the MCP server without authentication.||
-|| `token`| `string` | No | No | No | [OAuth token](../../../../../iam/concepts/authorization/oauth-token.md) to use for authentication in the MCP server. ||
+* `true`: To authenticate with the MCP server, the agent will use the [IAM token](../../../../../iam/concepts/authorization/iam-token.md) of the [service account](../../../../../iam/concepts/users/service-accounts.md) associated with the workflow.
+* `false`: Agent will access the MCP server without authentication.||
+|| `token` | `string` | No | No | No | [OAuth token](../../../../../iam/concepts/authorization/oauth-token.md) for authentication with the MCP server. ||
 |#

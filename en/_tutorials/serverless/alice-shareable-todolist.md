@@ -290,7 +290,7 @@ Use {{ TF }} to automate your operations. Before you start, [initialize it](../.
 
       {% endnote %}
 
-  1. After successful initialization, create resources by providing the OAuth token for {{ yandex-cloud }} authorization:
+  1. Following successful initialization, create resources by providing the OAuth token for {{ yandex-cloud }} authentication:
 
       ```bash
       terraform apply -var-file ./variables.json -var yc-token=<OAuth_token>
@@ -309,7 +309,7 @@ To deploy the frontend web app, compile the static files and upload them to {{ o
 
 - Bash {#bash}
 
-  1. Before compiling static files, make sure you have Node.js and the npm package manager [installed](#prepare).
+  1. Before compiling static files, make sure you have **Node.js** and the **npm** package manager [installed](#prepare).
   1. Navigate to the `yc-serverless-alice-shareable-todolist/frontend` directory and run the following command:
 
       ```bash
@@ -549,6 +549,6 @@ To stop paying for the resources you created:
 
 * [Delete](../../storage/operations/buckets/delete.md) the bucket.
 * [Delete](../../ydb/operations/manage-databases.md#delete-db) the database.
-* [Delete the functions](../../functions/operations/function/function-delete.md).
-* [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
-* [Delete the log group](../../logging/operations/delete-group.md).
+* [Delete](../../functions/operations/function/function-delete.md) the functions.
+* [Delete](../../api-gateway/operations/api-gw-delete.md) the API gateway.
+* [Delete](../../logging/operations/delete-group.md) the log group.

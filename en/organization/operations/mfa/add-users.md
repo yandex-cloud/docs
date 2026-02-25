@@ -60,6 +60,42 @@ For an [MFA policy](../../concepts/mfa.md#mfa-policies) to apply to user account
 
      You can specify multiple `--audience-delta` parameters to edit more than one object at the same time.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. To add a user or group to an MFA policy, describe the `yandex_organizationmanager_mfa_enforcement_audience` resource parameters in the configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement_audience" "example_mfa_audience" {
+       mfa_enforcement_id = "<MFA_policy_ID>"
+       subject_id         = "<user_or_group_ID>"
+     }
+     ```
+
+     Where:
+
+     * `mfa_enforcement_id`: ID of the MFA policy to which you want to add a user or group. This is a required parameter.
+     * `subject-id`: ID of the user or group you need to add to the MFA policy. This is a required parameter.
+
+     To add multiple users or groups, create a separate `yandex_organizationmanager_mfa_enforcement_audience` resource for each one.
+
+     For more information about `yandex_organizationmanager_mfa_enforcement_audience` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can make sure the users were added to the MFA policy using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager mfa-enforcement list-audience --id <policy_ID>
+     ```
+
+  1. To delete a user or group from an MFA policy, delete the relevant `yandex_organizationmanager_mfa_enforcement_audience` resource from the configuration file and apply the changes.
+
 - API {#api}
 
   Use the [UpdateAudience](../../../organization/api-ref/MfaEnforcement/updateAudience.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/UpdateAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateAudience.md) gRPC API call.

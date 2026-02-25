@@ -33,6 +33,13 @@ To learn more about user group management, see [this {{ org-full-name }} guide](
 
 The guides on managing identity federations are now included in the {{ org-full-name }} [documentation](../../organization/).
 
+## Access policies {#access-policies}
+
+- [{#T}](access-policies/list.md)
+- [{#T}](access-policies/assign.md)
+- [{#T}](access-policies/view-assigned.md)
+- [{#T}](access-policies/revoke.md)
+
 ## Roles {#roles}
 
 - [{#T}](roles/grant.md)

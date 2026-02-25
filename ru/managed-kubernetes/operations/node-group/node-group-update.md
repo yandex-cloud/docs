@@ -186,6 +186,104 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+## Настроить политику развертывания {#configure-deploy-policy}
+
+С помощью [политики развертывания](../../concepts/node-group/deploy-policy.md) вы можете контролировать количество доступных узлов во время изменения или обновления группы.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Выберите нужную группу узлов.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. Укажите значения параметров в блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**:
+
+      {% include [deploy-policy-parameters-console](../../../_includes/managed-kubernetes/deploy-policy/parameters-console.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения группы узлов {{ managed-k8s-name }}:
+
+      ```bash
+      {{ yc-k8s }} node-group update --help
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      {{ yc-k8s }} node-group update \
+        --name <имя_группы_узлов> \
+        --max-expansion <предел_расширения_группы_узлов> \
+        --max-unavailable <предел_недоступных_узлов>
+      ```
+
+      Где:
+
+      {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
+
+      Имя группы узлов можно запросить со [списком групп узлов в каталоге](./node-group-list.md#list).
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+
+      О том, как создать такой файл, см. в разделе [{#T}](./node-group-create.md).
+
+  1. Укажите значения параметров в блоке `deploy_policy`. Если такого блока нет — добавьте его.
+
+      ```hcl
+      resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+        cluster_id = yandex_kubernetes_cluster.<имя_кластера>.id
+        ...
+        deploy_policy {
+          max_expansion   = <предел_расширения_группы_узлов>
+          max_unavailable = <предел_недоступных_узлов>
+        }
+        ...
+      }
+      ```
+
+      Где:
+
+      {% include [deploy-policy-parameters-tf](../../../_includes/managed-kubernetes/deploy-policy/parameters-tf.md) %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md).
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Передайте в запросе:
+  * Идентификатор группы узлов в параметре `nodeGroupId`.
+
+    Идентификатор группы узлов можно запросить со [списком групп узлов в каталоге](./node-group-list.md#list).
+  * Параметр `updateMask` со значением `deployPolicy.maxExpansion,deployPolicy.maxUnavailable`.
+
+    {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  {% include [deploy-policy-parameters-api](../../../_includes/managed-kubernetes/deploy-policy/parameters-api.md) %}
+
+{% endlist %}
+
 ## Включить доступ к узлам из интернета {#node-internet-access}
 
 {% list tabs group=instructions %}

@@ -37,8 +37,10 @@ items:
             href: operations/resources/enable-segmentation.md
           - name: Enabling origin shielding
             href: operations/resources/enable-shielding.md
-          - name: Configuring request redirection
+          - name: Setting up a request redirect
             href: operations/resources/setup-http-rewrite.md
+          - name: Setting up how to follow request redirects
+            href: operations/resources/setup-follow-redirects.md
           - name: Setting up access via a secure token
             href: operations/resources/enable-secure-token.md
           - name: Setting up location rules
@@ -128,7 +130,9 @@ items:
             href: concepts/slicing.md
           - name: Origin shielding
             href: concepts/origins-shielding.md
-      - name: Redirecting requests
+          - name: Following request redirects
+            href: concepts/follow-redirects.md
+      - name: Request redirect
         href: concepts/http-rewrite.md
       - name: Content caching
         href: concepts/caching.md
@@ -438,7 +442,7 @@ items:
     href: logs-ref.md
   - name: '{{ at-name }} events'
     href: at-ref.md
-  - name: Event reference
+  - name: Audit log reference
     items:
       - name: CachePrefetch
         href: events-ref/CachePrefetch.md

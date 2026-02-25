@@ -39,6 +39,16 @@ items:
             href: operations/sa/get-id-token.md
           - name: Deleting a service account
             href: operations/sa/delete.md
+      - name: Access policies
+        items:
+          - name: Getting a list of supported policies
+            href: operations/access-policies/list.md
+          - name: Assigning a policy for a resource
+            href: operations/access-policies/assign.md
+          - name: Viewing policies assigned for a resource
+            href: operations/access-policies/view-assigned.md
+          - name: Revoking a policy
+            href: operations/access-policies/revoke.md
       - name: Roles
         items:
           - name: Assigning roles
@@ -120,7 +130,7 @@ items:
           - name: Configuring CI/CD between {{ sf-name }} and GitHub
             href: tutorials/ci-cd-github-functions.md
       - name: >-
-          Uploading objects into an {{ objstorage-name }} bucket using an
+          Uploading objects into an {{ objstorage-name }} bucket with an
           ephemeral access key
         href: tutorials/ephemeral-key-storage.md
   - name: Concepts
@@ -137,6 +147,8 @@ items:
         items:
           - name: Overview
             href: concepts/access-control/index.md
+          - name: Access policies
+            href: concepts/access-control/access-policies.md
           - name: Roles
             href: concepts/access-control/roles.md
           - name: System groups

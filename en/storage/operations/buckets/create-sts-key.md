@@ -6,3 +6,8 @@ description: With {{ sts-name }}, you can get temporary keys for limited access 
 # Accessing a bucket using {{ sts-name }}
 
 {% include notitle [create-sts-key](../../../_includes/iam/create-sts-key.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](../../security/overview.md)
+* [{#T}](manage-ephemeral-keys.md)

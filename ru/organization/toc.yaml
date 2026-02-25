@@ -275,6 +275,8 @@ items:
             href: tutorials/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
             href: tutorials/single-sign-on/saml-ovpn.md
+          - name: Sentry
+            href: tutorials/single-sign-on/saml-sentry.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
             href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
   - name: Концепции

@@ -118,7 +118,7 @@ To assign a role to a user:
 
   1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator or owner account.
 
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../_assets/console-icons/chevron-down.svg) and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
+  1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
 
   1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
 

@@ -14,6 +14,7 @@ host | Имя [домена](../../../smartcaptcha/concepts/domain-validation.md
 | --- | --- |
 | `smartcaptcha.captcha.advanced.success_count`<br>`IGAUGE`, штуки | Количество успешных решений дополнительного задания. |
 | `smartcaptcha.captcha.advanced.failed_count`<br>`IGAUGE`, штуки | Количество неуспешных решений дополнительного задания. |
+| `smartcaptcha.captcha.advanced.refresh_count`<br>`IGAUGE`, штуки | Количество обновлений дополнительного задания. |
 | `smartcaptcha.captcha.checkbox.shows`<br>`IGAUGE`, штуки | Количество показов основного задания с типом `Чекбокс`. |
 | `smartcaptcha.captcha.slider.shows`<br>`IGAUGE`, штуки | Количество показов основного задания с типом `Слайдер`. |
 | `smartcaptcha.captcha.checkbox.success_count`<br>`IGAUGE`, штуки | Количество успешных решений основного задания с типом `Чекбокс`. |

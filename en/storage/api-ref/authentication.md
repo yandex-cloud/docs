@@ -22,11 +22,11 @@ You can use the following types of APIs to work with {{ objstorage-name }}:
 
   If authenticating with the API via an IAM token, you do not have to additionally [sign](../s3/signing-requests.md) HTTP requests.
 
-  Amazon S3 [tools](../tools/index.md), such as the [AWS CLI](../tools/aws-cli.md) and [AWS SDK](../tools/sdk/index.md), support static access key authentication only and cannot be used at the same time with IAM token authentication.
-
 - Static key authentication {#static-key}
 
   To authenticate with the [AWS S3 API](../s3/api-ref/) and use {{ TF }} and other [supported tools](../tools/), a [static access key](../../iam/concepts/authorization/access-key.md) can be used. A static access key is issued for a specific [service account](../../iam/concepts/users/service-accounts.md), and all actions involving this key are performed on behalf of this service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
+
+  {% include [statickey-access-note](../../_includes/storage/statickey-access-note.md) %}
 
   
   {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}

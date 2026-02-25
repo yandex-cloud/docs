@@ -14,6 +14,11 @@
 
 {{ sws-name }} — это набор инструментов защиты, которые рекомендуется настраивать последовательно. Включайте каждое новое изменение в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** и [анализируйте логи](operations/configure-logging.md). Это облегчит отслеживание и корректировку правил.
 
+Если не получается настроить {{ sws-name }}:
+
+* Для Бизнес и Премиум [тарифов поддержки](../support/pricing.md) — обратитесь в [поддержку]({{ link-console-support }}).
+* В других случаях обратитесь к аккаунт-менеджеру для связи со специалистами сервиса.
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}

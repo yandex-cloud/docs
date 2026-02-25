@@ -1,0 +1,4 @@
+To manage access policies, a user must have one of the following roles:
+
+* [`resource-manager.admin`](../../resource-manager/security/index.md#resource-manager-admin) or [`admin`](../../iam/roles-reference.md#admin) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) to manage access policies at the folder or cloud level, respectively.
+* [`organization-manager.admin`](../../organization/security/index.md#organization-manager-admin) or [`admin`](../../iam/roles-reference.md#admin) for the [organization](../../organization/concepts/organization.md) to manage access policies at the organization level.

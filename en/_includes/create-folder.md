@@ -1,6 +1,6 @@
-1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../_assets/console-icons/chevron-down.svg) and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud).
+1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud).
 1. To the right of the cloud name, click ![image](../_assets/console-icons/ellipsis.svg).
-1. Select **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}** ![image](../_assets/console-icons/plus.svg).
+1. Select ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
 
    ![create-folder1](../_assets/resource-manager/create-folder-1.png)
 

@@ -27,7 +27,7 @@ To change the account administrator login:
 
 {% note warning %}
 
-You will need to [register](https://yandex.ru/support/id/authorization/registration.html) a new account on Yandex (Yandex ID) that you will not use it for authorization in other Yandex services. You will also need to log in and authorize with this Yandex ID in {{ yandex-cloud }} without creating new billing accounts.
+You must [register](https://yandex.ru/support/id/authorization/registration.html) a new account with Yandex (Yandex ID) and not use it for authentication in other Yandex services. You need to log in and authenticate with this Yandex ID in {{ yandex-cloud }} without creating new billing accounts.
 
 {% endnote %}
 

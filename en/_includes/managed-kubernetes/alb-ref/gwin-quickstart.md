@@ -14,7 +14,7 @@ Follow this guide to install the Gwin controller in a {{ managed-k8s-name }} clu
 The infrastructure support cost includes:
 
 * Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../../managed-kubernetes/pricing.md)).
-* Fee for {{ managed-k8s-name }} cluster nodes: specifically using computing resources and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* {{ managed-k8s-name }} cluster node fee, which covers the use of computing resources and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 * Fee for public IP addresses for {{ managed-k8s-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#prices-public-ip)).
 * Fee for using the load balancer's computing resources (see [{{ alb-name }} pricing](../../../application-load-balancer/pricing.md)).
 
@@ -41,7 +41,7 @@ The infrastructure support cost includes:
    * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor): To create {{ alb-name }} resources.
    * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
    * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): If you use cloud certificates registered with [{{ certificate-manager-full-name }}](../../../certificate-manager/).
-   * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager.editor): If you use {{ managed-k8s-name }} cluster certificates. In this case, the controller creates the relevant cloud certificates.
+   * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager-editor): If you use {{ managed-k8s-name }} cluster certificates. In this case, the controller creates the relevant cloud certificates.
    * [compute.viewer](../../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../../application-load-balancer/concepts/target-group.md).
    * [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer): To enable the controller to determine the network for deploying the L7 load balancer.
    * [smart-web-security.editor](../../../smartwebsecurity/security/index.md#smart-web-security-editor): To connect a {{ sws-full-name }} [profile](../../../smartwebsecurity/concepts/profiles.md) to an L7 load balancer's virtual host. This role is optional.
