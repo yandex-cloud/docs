@@ -88,7 +88,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
      * `yandex_iot_core_broker`: Broker parameters:
        * `name`: Broker name.
        * `description`: Broker description.
-       * `certificates`: List of broker certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+       * `certificates`: List of broker certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
       Example broker description in the {{ TF }} configuration:
 
@@ -105,7 +105,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -125,7 +125,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash
@@ -212,7 +212,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -232,7 +232,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash

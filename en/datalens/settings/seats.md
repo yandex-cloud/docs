@@ -5,7 +5,7 @@ description: Use seat settings in {{ datalens-full-name }} to manage your seats.
 
 # Setting up seats in {{ datalens-full-name }}
 
-Every {{ datalens-full-name }} user needs a _seat_ to log in and work with {{ datalens-name }}. The [cost of using {{ datalens-name }}](../pricing.md) depends on the number of seats in your instance.
+A _seat_ is what every {{ datalens-full-name }} user needs to log in and use the service. The [cost of using {{ datalens-name }}](../pricing.md) depends on the number of seats in your instance.
 
 {% note info %}
 
@@ -72,7 +72,7 @@ Seats can have the following statuses:
 * `Until <date>`: Administrator has scheduled seat reduction; this seat will be removed from the instance on the specified date.
 * `None`: Organization users without a seat. Theae users are not displayed in the list.
 
-To open a seat’s settings, click ![image](../../_assets/console-icons/ellipsis.svg). Here is the list of available actions:
+To open a seat’s settings, click ![image](../../_assets/console-icons/ellipsis.svg). You can do the following:
 
 * ![image](../../_assets/console-icons/circle-check.svg) **Activate seat**: Only for seats with the `Inactive` status.
 * ![image](../../_assets/console-icons/arrow-right.svg) **Reassign seat**: See [here](#reassign) for details.

@@ -37,6 +37,8 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket for the processing results.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: Enable this option to access hosts of all subclusters.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 ### Providing an SQL query in the job run command {#sql-in-cli}
 
 1. Create an external table for the data from the example in Parquet format. The table will contain a list of flights between US cities in 2018. Run the following query using the {{ yandex-cloud }} CLI:
@@ -85,7 +87,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
        --query-list="SELECT Month, COUNT(*) FROM flights GROUP BY Month;"
     ```
 
-    {% cut "Example of a response to a query" %}
+    {% cut "Response example:" %}
 
     ```bash
     done (34s)
@@ -116,7 +118,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
 1. Download the `driveroutput.000000000` file containing the response to your query.
 
-    {% cut "Example of a response to a query" %}
+    {% cut "Response example:" %}
 
     ```bash
     Init job c9quejacclo3******** at Wed Dec  4 05:15:40 UTC 2024
@@ -177,7 +179,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
       --query-file-uri="s3a://<input_data_bucket_name>/create-table.sql"
     ```
 
-    {% cut "Example of a response to a query" %}
+    {% cut "Response example:" %}
 
     ```bash
     done (8s)
@@ -212,7 +214,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
       --query-file-uri="s3a://<input_data_bucket_name>/get-data.sql"
     ```
 
-    {% cut "Example of a response to a query" %}
+    {% cut "Response example:" %}
 
     ```bash
     done (37s)
@@ -241,7 +243,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
 
 1. Download the `driveroutput.000000000` file containing the response to your query.
 
-    {% cut "Example of a response to a query" %}
+    {% cut "Response example:" %}
 
     ```bash
     Init job c9q2gha5hocg******** at Wed Dec  4 06:56:45 UTC 2024
@@ -291,6 +293,8 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you created earlier.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: Enable this option to access hosts of all subclusters.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 ### Running jobs using the Hive CLI {#run-job-hive-shell}
 
 1. [Connect to the master host](../../../data-proc/operations/connect-ssh.md) over SSH and run the `hive` command.
@@ -336,7 +340,7 @@ The query execution result is saved to an {{ objstorage-full-name }} bucket link
     SELECT Month, COUNT(*) FROM flights GROUP BY Month;
     ```
 
-    {% cut "Example of a response to a query" %}
+    {% cut "Response example:" %}
 
     ```text
     Query ID = root_20200119195338_28049b67-4de9-4568-a4c4-3bbe********

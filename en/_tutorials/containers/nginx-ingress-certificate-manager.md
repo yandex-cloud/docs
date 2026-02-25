@@ -272,7 +272,7 @@ The infrastructure support cost includes:
    ...
    ```
 
-## Install the NGINX Ingress Controller {#install-nginx-ingress}
+## Install the NGINX ingress controller {#install-nginx-ingress}
 
 {% list tabs group=instructions %}
 

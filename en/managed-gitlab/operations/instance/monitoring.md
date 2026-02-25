@@ -37,12 +37,12 @@ You will see the following charts:
    1. In the [management console]({{ link-console-main }}), select the folder with the instance you want to configure alerts for.
    1. [Go](../../../console/operations/select-service.md#select-service) to ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. On the home page, under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **Managed Gitlab**.
-   1. In the chart you need, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+   1. On the relevant chart, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
    1. If the selected chart contains multiple metrics in the **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}** section, you can keep all data queries or only specific ones. For example, for the **System disk** metric, you can remove the redundant free storage space query and keep only the used space query.
 
       To remove the redundant query, click ![options](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.delete }}** in the query row.
 
-      You can learn more about the query language in [this {{ monitoring-name }} article](../../../monitoring/concepts/querying.md).
+      To learn more about the query language, see [this {{ monitoring-name }} article](../../../monitoring/concepts/querying.md).
 
    1. Set the [alert trigger conditions](../../../monitoring/concepts/alerting/alert.md#condition):
 
@@ -62,7 +62,7 @@ You will see the following charts:
 
 You can also create alerts for specific {{ mgl-name }} metrics. 
 
-Below are the recommended thresholds for some metrics:
+Recommended threshold values for selected metrics:
 
 The recommended thresholds for the **Remaining free disk space** (`sys.filesystem.FreeB`) metric are as follows:
 
@@ -70,7 +70,7 @@ The recommended thresholds for the **Remaining free disk space** (`sys.filesyste
 1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: **Less than or equal to**.
 1. **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}**: 7% of the storage size.
 1. **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}**: 10% of the storage size.
-1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}**: 5 minutes.
+1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}**: 5 minutes.
 1. **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: 30 seconds.
 
 ## Instance statuses {#statuses}

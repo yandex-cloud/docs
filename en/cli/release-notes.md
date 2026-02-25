@@ -7,6 +7,31 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.190.0 (05/02/26) {#version0.190.0}
+
+
+#### Changes in {{ yandex-cloud }} services
+
+
+##### {{ connection-manager-name }}
+Added the `--secret-folder-id` flag for connection create commands, `yc metadata-hub connection-manager connection create`.
+
+
+##### {{ sw-name }}
+Fixed the cron expression example for a schedule: 
+  * `yc serverless workflow create`
+
+## Previous releases {#previous-release}
+
+### Version 0.189.0 (02/02/26) {#version0.189.0}
+
+
+#### Changes in {{ yandex-cloud }} services
+
+
+##### {{ connection-manager-name }}
+Added the `--secret-folder-id` flag for connection create commands.
+
 ### Version 0.188.0 (26/01/26) {#version0.188.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -16,8 +41,6 @@ description: This page presents a list of CLI releases and the updates of each.
 Added the `message-timestamp-type` parameter for managing {{ KF }} topics to the following commands:
 * `yc managed-kafka topic create`
 * `yc managed-kafka topic update`
-
-## Previous releases {#previous-release}
 
 ### Version 0.187.0 (23/01/26) {#version0.187.0}
 
@@ -74,7 +97,7 @@ Added commands for granting access permissions in {{ dataproc-name }}:
   
 ##### {{ org-name }} {#org-name-0.186.0}
 
-Added parameters for password complexity configuration to the following commands:
+Added password complexity settings to the following commands:
 * `yc organization-manager idp userpool create`
 * `yc organization-manager idp userpool update`
 
@@ -3824,7 +3847,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-  Added the `--network-acceleration-type` parameter to specify network type for a node group: standard or software-accelerated.
+  Added the `--network-acceleration-type` setting to specify a node group’s network type: standard or software-accelerated.
 
 * `yc managed-kubernetes cluster create` command.
 

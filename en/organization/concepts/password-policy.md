@@ -18,7 +18,7 @@ There are two available password complexity options:
 
 * **Any character types**: Minimum length depends on the number of character types used in a password. For example, for a password made up of lowercase and uppercase letters, you can set the length of 14 characters, and for a more complex one, 10 characters.
 
-  This is the preferred option as it does not require specific characters and allows users to create strong, yet more memorable passwords.
+  This is the preferred option because it does not require particular characters and allows users to create passwords that are stronger yet easier to remember.
 
 * **Required character types**: Password must contain all specified character types and meet the required length. You can specify the following types of characters:
 

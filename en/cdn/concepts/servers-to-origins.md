@@ -10,7 +10,8 @@ For a resource, you can also configure:
 
 * HTTP `Host` header value in CDN server requests to origins: the primary [domain name for content delivery](resource.md#hostnames), value copied from the client request, or an arbitrary value.
 * Other HTTP headers in CDN server requests to origins (see [instructions](../operations/resources/configure-headers.md)).
-* Receiving of files by CDN servers from origins in parts: [content segmentation](slicing.md).
+* Receiving segmented files from origins by CDN servers: [content segmentation](slicing.md).
+* [Following request redirects](follow-redirects.md) received from content origins.
 
 Your resource and origins must be configured so that requests from CDN servers are allowed, processed correctly, and not redirected.
 

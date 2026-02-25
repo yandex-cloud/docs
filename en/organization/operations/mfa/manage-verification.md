@@ -40,7 +40,7 @@ To remove an existing authentication factor from a user account:
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![icon-users](../../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** and select the federated or local user.
-  1. Go to the **{{ ui-key.yacloud_org.organization.users.components.title_mfa_5CFwd }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud_org.organization.users.components.title_mfa_5CFwd }}** tab.
   1. In the row with the user's authentication factor, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 

@@ -5,8 +5,6 @@ description: Follow this guide to create and set up an MFA policy in {{ org-full
 
 # Creating an MFA policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 [MFA policies](../../concepts/mfa.md#mfa-policies) enable configuring [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) (MFA) for [federated](../../../iam/concepts/users/accounts.md#saml-federation) and [local](../../../iam/concepts/users/accounts.md#local) user accounts.
 
 To create an MFA policy:
@@ -76,6 +74,28 @@ To create an MFA policy:
       yc organization-manager mfa-enforcement activate \
         --id <policy_ID>
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. In the {{ TF }} configuration file, describe the MFA policy parameters:
+
+     {% include [mfa-tf-code-block](../../../_includes/organization/mfa-tf-code-block.md) %}
+
+     {% include [mfa-tf-params-description](../../../_includes/organization/mfa-tf-params-description.md) %}
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new MFA policy using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager mfa-enforcement get <policy_ID>
+     ```
 
 - API {#api}
 

@@ -357,6 +357,8 @@ items:
         items:
           - name: Автоматическое масштабирование группы узлов
             href: concepts/node-group/cluster-autoscaler.md
+          - name: Политика развертывания группы узлов
+            href: concepts/node-group/deploy-policy.md
           - name: Расселение подов с узла
             href: concepts/node-group/node-drain.md
           - name: Динамическое резервирование ресурсов для узла

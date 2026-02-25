@@ -17,4 +17,5 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [Selectel](./saml-selectel.md)
 * [SonarQube](./saml-sonarqube.md)
 * [OpenVPN Access Server](./saml-ovpn.md)
+* [Sentry](./saml-sentry.md)
 * [Настройка единого входа в приложения, не поддерживающие SSO](./oidc-nginx-oauth2-proxy.md)

@@ -25,7 +25,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    1. In the [management console]({{ link-console-main }}), select the folder to add the device certificate to.
    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Click the name of the registry.
-   1. Go to **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Navigate to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section and click **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
@@ -79,7 +79,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
        * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device will be created.
        * `name`: [Device name](../device/device-list.md#device-list).
        * `description`: Device description.
-       * `certificates`: List of certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+       * `certificates`: List of certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
       Example device description in the {{ TF }} configuration:
 
@@ -96,7 +96,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -116,7 +116,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash
@@ -148,7 +148,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    1. In the [management console]({{ link-console-main }}), select the folder to delete the device certificate from.
    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Click the name of the registry.
-   1. Go to **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Navigate to **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Select the device from the list.
    1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
    1. In the line with the certificate, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
@@ -204,7 +204,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -224,7 +224,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash

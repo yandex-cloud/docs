@@ -58,7 +58,9 @@ description: Следуя данной инструкции, вы сможете
        --version <версия_{{ k8s }}_на_узлах_группы> \
        --node-name <шаблон_имени_узлов> \
        --node-taints <taint-политики> \
-       --container-network-settings pod-mtu=<значение_MTU_для_подов_группы>
+       --container-network-settings pod-mtu=<значение_MTU_для_подов_группы> \
+       --max-expansion <предел_расширения_группы_узлов> \
+       --max-unavailable <предел_недоступных_узлов>
      ```
 
      Где:
@@ -118,6 +120,9 @@ description: Следуя данной инструкции, вы сможете
 
      * `--node-taints` — [taint-политики](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько политик.
      * `--container-network-settings` — значение [MTU](https://ru.wikipedia.org/wiki/Maximum_transmission_unit) для сетевых соединений с подами группы. Настройка не применима для кластеров с контроллерами сетевых политик Calico или Cilium.
+     * Параметры [политики развертывания](../../concepts/node-group/deploy-policy.md) (deploy policy):
+
+        {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
 
      Результат:
 
@@ -334,7 +339,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
-  Воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) и передайте в запросе:
+  Воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) и передайте в запросе:
   * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров {{ managed-k8s-name }} в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов {{ managed-k8s-name }}](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) в параметре `nodeTemplate.networkSettings.type`.
@@ -360,6 +365,10 @@ description: Следуя данной инструкции, вы сможете
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
+  * Параметры [политики развертывания](../../concepts/node-group/deploy-policy.md) (deploy policy):
+
+    {% include [deploy-policy-parameters-api](../../../_includes/managed-kubernetes/deploy-policy/parameters-api.md) %}
+
   * Список изменяемых настроек в параметре `updateMask`.
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
@@ -423,8 +432,9 @@ description: Следуя данной инструкции, вы сможете
 * [Размер диска](../../../compute/concepts/disk.md#maximum-disk-size) — 64 ГБ.
 * [Тип диска](../../../compute/concepts/disk.md#disks_types) — `network-ssd`.
 * Количество узлов — один.
-* Количество узлов, которое сервис {{ managed-k8s-name }} может создать в группе при ее [обновлении](../../concepts/release-channels-and-updates.md#node-group), — не более трех.
-* Количество узлов, которое сервис может удалить из группы при ее обновлении, — не более одного.
+* [Политика развертывания](../../concepts/node-group/deploy-policy.md):
+    * Максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении — `3`.
+    * Максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы — `1`.
 * Объем RAM — два ГБ.
 * Время для [обновления](../../concepts/release-channels-and-updates.md#updates) — в период с 22:00 до 08:00 UTC.
 * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) — `standard` (без ускорения).

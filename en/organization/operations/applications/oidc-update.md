@@ -135,7 +135,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
     Where:
 
     * `application_id`: OIDC app ID. This is a required parameter.
-    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC app belongs to. This is a required parameter.
+    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC application belongs to. This is a required parameter.
     * `name`: New name for the OIDC app. The name must be unique within the organization and follow the naming requirements:
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
@@ -150,7 +150,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
         * `address`: User home address.
         * `phone`: User phone number.
         * `groups`: User groups in the organization.
-    * `group_claims_settings`: Settings for sending user groups to the service provider:
+    * `group_claims_settings`: Settings for sending user group claims to the service provider:
       * `group_distribution_type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
         * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
         * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.

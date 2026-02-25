@@ -271,9 +271,6 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.31, 1.32, 1.33, 1.34
-  k8s-versions-regular: 1.31, 1.32, 1.33
-  k8s-versions-stable: 1.31, 1.32, 1.33
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -3805,6 +3802,8 @@ default:
         list:
           title_ticket_table: Обращения
     yacloud_billing_account:
+      billing-account-detail:
+        button_move-to-datalens: Детализация в DataLens
       cloud-billing-account:
         base_label_payer: Плательщик
         label_card-add: Добавить карту
@@ -4289,8 +4288,6 @@ default:
           alert-conditions: Условия срабатывания
           alert-config: Настройки алерта
           annotations: Аннотации
-          evaluation-window:
-            anomaly: Окно обучения
           evaluation-window-key-value: Окно вычисления
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
@@ -4748,6 +4745,7 @@ default:
             field-name_d22aF: Имя
             field-signature-mode_ipXQ7: Режим подписи
             field-sp-entity-id_snAsX: SP EntityID
+            field-sp-logout-url_sLuRl: SP Logout URL
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response

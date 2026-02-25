@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ ycdr-full-name }}
-description: Access management in {{ ycdr-full-name }}, an incident monitoring and response service. This section describes the resources for which you can assign a role and the roles existing in the service.
+description: Access management in {{ ycdr-full-name }}, a monitoring and incident response service. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ ycdr-name }}
@@ -40,4 +40,4 @@ To assign a role for a resource, a user should have the `ycdr.admin` role or one
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

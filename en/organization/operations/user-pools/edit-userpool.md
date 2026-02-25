@@ -84,7 +84,7 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
      * `default_subdomain`: New default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
      * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md).
 
-     For more information about `yandex_organizationmanager_idp_userpool` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more information about `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Apply the changes:
 

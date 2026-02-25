@@ -22,6 +22,8 @@ description: This page gives information about the {{ TF }} provider resources a
 | [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application) | [SAML app](./concepts/applications.md#saml) |
 | [yandex_organizationmanager_idp_user]({{ tf-provider-resources-link }}/organizationmanager_idp_user) | [Local user](../iam/concepts/users/accounts.md#local) |
 | [yandex_organizationmanager_idp_userpool]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool) | [User pool](./concepts/user-pools.md) |
+| [yandex_organizationmanager_mfa_enforcement]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement) | [MFA policy](./concepts/mfa.md#mfa-policies) |
+| [yandex_organizationmanager_mfa_enforcement_audience]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience) | [MFA policy](./concepts/mfa.md#mfa-policies) target group |
 | [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for an organization. It has a limit of 1,000 bindings per resource. <br>We recommend using `yandex_organizationmanager_organization_iam_binding` instead of `yandex_organizationmanager_organization_iam_member`. |
 | [yandex_organizationmanager_organization_iam_member]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for an organization. |
 | [yandex_organizationmanager_os_login_settings]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings) | [{{ oslogin }}](./concepts/os-login.md) access settings |
@@ -41,7 +43,8 @@ description: This page gives information about the {{ TF }} provider resources a
 | [yandex_organizationmanager_idp_application_saml_application]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_saml_application) | Information about the [SAML application](./concepts/applications.md#saml) |
 | [yandex_organizationmanager_idp_user]({{ tf-provider-datasources-link }}/organizationmanager_idp_user) | [Local user](../iam/concepts/users/accounts.md#local) information |
 | [yandex_organizationmanager_idp_userpool]({{ tf-provider-datasources-link }}/organizationmanager_idp_userpool) | [User pool](./concepts/user-pools.md) information |
-| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/organizationmanager_os_login_settings) | Information on configuring access via [{{ oslogin }}](./concepts/os-login.md) |
+| [yandex_organizationmanager_mfa_enforcement]({{ tf-provider-datasources-link }}/organizationmanager_mfa_enforcement) | [MFA policy](./concepts/mfa.md#mfa-policies) information |
+| [yandex_organizationmanager_os_login_settings]({{ tf-provider-datasources-link }}/organizationmanager_os_login_settings) | Information on [{{ oslogin }}](./concepts/os-login.md) access settings |
 | [yandex_organizationmanager_saml_federation]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation) | Information about a [SAML-compatible identity federation](./concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account]({{ tf-provider-datasources-link }}/organizationmanager_saml_federation_user_account) | [Federated user](./concepts/add-federation.md#saml-authentication) information |
 | [yandex_organizationmanager_user_ssh_key]({{ tf-provider-datasources-link }}/organizationmanager_user_ssh_key) | Information about a user [SSH key](./concepts/os-login.md#ssh-keys) |

@@ -31,6 +31,8 @@
 
 
   To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../../storage/tools/index.md).
+  
+  {% include [statickey-access-note](../../_includes/storage/statickey-access-note.md) %}
 
   
   {% include [store-aws-key-in-lockbox](../storage/store-aws-key-in-lockbox.md) %}

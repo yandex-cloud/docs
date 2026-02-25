@@ -36,7 +36,7 @@ The infrastructure support cost includes:
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -131,6 +131,8 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** for the {{ dataproc-name }} subclusters: `dataproc-subnet`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for the master host: Enabled.
 
+            {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
 - {{ TF }} {#tf}
 
@@ -152,18 +154,18 @@ Set up the infrastructure:
         * Bucket.
         * Two {{ dataproc-name }} clusters.
 
-    1. Specify the following in `metastore-import.tf`:
+    1. In `metastore-import.tf`, specify the following:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 

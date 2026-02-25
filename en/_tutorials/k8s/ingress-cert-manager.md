@@ -71,7 +71,7 @@ If you are using [ExternalDNS with the {{ dns-name }} plugin](/marketplace/produ
 1. Get the [IP address](../../vpc/concepts/address.md) of the ingress controller (the value in the `EXTERNAL-IP` column):
 
    ```bash
-   kubectl get svc
+   kubectl get svc -n <Ingress_NGINX_application_namespace>
    ```
 
    Result:
@@ -154,7 +154,7 @@ Create an object with the required settings:
     spec:
       acme:
         server: https://acme-v02.api.letsencrypt.org/directory
-        email: <your_email>
+        email: <email_for_Lets_Encrypt_notifications>
         privateKeySecretRef:
           name: http01-clusterissuer-secret
         solvers:
@@ -243,7 +243,7 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
 ## Test TLS {#test-controller}
 
-1. Make sure the [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate has changed its status to `Issued`:
+1. Make sure the [domain ownership check](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate has changed its status to `Issued`:
 
    ```bash
    kubectl describe certificate domain-name-secret
@@ -253,7 +253,7 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
    {% note info %}
 
-   Domain ownership verification for a {{ lets-encrypt }} certificate may take several hours.
+   A domain ownership check for a {{ lets-encrypt }} certificate may take several hours.
 
    {% endnote %}
 

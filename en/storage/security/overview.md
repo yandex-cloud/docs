@@ -11,6 +11,7 @@ description: Access management in {{ objstorage-name }}.
 * [Bucket policy](#policy)
 * [Public access](#anonymous)
 * [{{ sts-name }}](#sts)
+* [Ephemeral access keys](#ephemeral-keys)
 * [Pre-signed URLs](#pre-signed)
 * [{{ vpc-short-name }} service connections](#pe-vpc)
 
@@ -104,6 +105,11 @@ Access is granted for a [bucket](../concepts/bucket.md).
 [{{ sts-name }}](./sts.md) is an {{ iam-name }} component to get temporary access keys compatible with [AWS S3 API](../s3/index.md).
 
 With temporary keys, you can set up granular access to buckets for multiple users with a single service account.
+
+## Ephemeral access keys {#ephemeral-keys}
+
+[Ephemeral access keys](./ephemeral-keys.md) are temporary credentials used to authenticate [Yandex accounts](../../iam/concepts/users/accounts.md#passport), [federated accounts](../../iam/concepts/users/accounts.md#saml-federation), [local users](../../iam/concepts/users/accounts.md#local), and [service accounts](../../iam/concepts/users/service-accounts.md).
+
 
 ## Pre-signed URLs {#pre-signed}
 

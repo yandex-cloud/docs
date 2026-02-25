@@ -23,7 +23,7 @@ Self-hosted worker use cases:
         needs: [test-task]
   ```
 
-  The `test-task` task performs useful work, such as project compilation.
+  The `test-task` performs useful work, such as compiling a project.
 
   The `delete` task gets started only after `test-task` (the `needs: [test-task]` parameter) is executed and asynchronously deletes the VM on which the self-hosted worker was run.
 
@@ -53,7 +53,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Get ready for work {#prepare}
 
 1. {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-1. Authenticate in {{ src-name }} on the service [home page]({{ link-src-main }}) or [sign up]({{ link-src-docs }}/sourcecraft/security/registration.md).
+1. Authenticate in {{ src-name }} on the service [home page]({{ link-src-main }}) or [sign up]({{ link-src-docs }}/sourcecraft/security/registration).
 
 ### Required paid resources {#paid-resources}
 
@@ -183,7 +183,7 @@ Instead of creating a new repository, you can also [fork]({{ link-src-docs }}/so
 
 {% note warning %}
 
-The [{{ src-name }} grant]({{ link-src-docs }}/sourcecraft/concepts/grant) you get when creating a service connection in a {{ src-name }} personal organization, does not apply to {{ compute-full-name }} and {{ vpc-full-name }}.
+The {{ src-name }} grant you get when creating a service connection in a {{ src-name }} personal organization, does not apply to {{ compute-full-name }} and {{ vpc-full-name }}.
 
 {% endnote %}
 
@@ -193,7 +193,7 @@ Set up a CI/CD process to deploy a self-hosted worker.
 
 ### Configure basic CI/CD settings {#base-config}
 
-The CI/CD process is [configured]({{ link-src-docs }}/sourcecraft/operations/ci-cd) in the `.sourcecraft/ci.yaml` file. 
+The CI/CD process is [configured]({{ link-src-docs }}/sourcecraft/operations/ci-cd) in the `.sourcecraft/ci.yaml` file.
 
 The presented [CI/CD configuration]({{ link-src-docs }}/sourcecraft/ci-cd-ref/) consists of the following [workflows]({{ link-src-docs }}/sourcecraft/ci-cd-ref/workflows):
 * `create-vm`: Creates a VM with a self-hosted worker.
@@ -213,7 +213,7 @@ Adjust the CI/CD configuration for your needs or use an existing one.
 The VM configuration for a self-hosted worker is specified in the `env` variable section in the `.sourcecraft/ci.yaml` file:
 * `COMPUTE_INSTANCE_NAME`: VM name and host name, e.g., `self-hosted-worker`.
 * `VPC_SUBNET_NAME`: Name of the subnet created earlier the VM will reside in, e.g., `default-ru-central1-d`.
-* `CREATE_BOOT_DISK`: [Disk image](../../compute/concepts/image.md) from which the VM will be created, e.g., `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). See also [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+* `CREATE_BOOT_DISK`: [Disk image](../../compute/concepts/image.md) from which the VM will be created, e.g., `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). See also [Getting a list of public images](../../compute/operations/images-with-pre-installed-software/get-list.md).
 * `PLATFORM`: VM [platform](../../compute/concepts/vm-platforms.md), e.g., `standard-v3`.
 * `MEMORY`: Amount of RAM, e.g., `64GB`.
 * `CORES`: Number of vCPU cores, e.g., `8`.
@@ -320,7 +320,7 @@ Optionally, delete the [network](../../vpc/operations/network-delete.md) and [su
 ## See also {#see-also}
 
 * [Setting up a self-hosted worker for {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker)
-* [{#T}](../../compute/operations/vm-create/create-with-cloud-init-scripts.md)
-* [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md)
-* [{#T}](../../compute/concepts/vm-platforms.md)
-* [{#T}](../../compute/concepts/performance-levels.md)
+* [Creating a VM with a custom configuration script](../../compute/operations/vm-create/create-with-cloud-init-scripts.md)
+* [Getting a list of public images](../../compute/operations/images-with-pre-installed-software/get-list.md)
+* [Platforms](../../compute/concepts/vm-platforms.md)
+* [vCPU performance levels](../../compute/concepts/performance-levels.md)

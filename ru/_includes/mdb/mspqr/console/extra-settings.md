@@ -10,11 +10,6 @@
 
     {% include [Maintenance window](../../console/maintenance-window-description.md) %}
 
-* **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../../datalens/concepts/index.md).
-
-* **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — разрешает выполнять SQL-запросы к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
-
-* {% include [datatransfer access](../../console/datatransfer-access.md) %}
 
 * {% include [Deletion protection](../../console/deletion-protection.md) %}
 
