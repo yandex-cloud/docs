@@ -5,8 +5,6 @@ description: Follow this guide to activate or deactivate an MFA policy in {{ org
 
 # Activating or deactivating an MFA policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 ## Activating an MFA policy {#reactivate-policy}
 
 To activate an inactive [MFA policy](../../concepts/mfa.md#mfa-policies):
@@ -41,6 +39,41 @@ To activate an inactive [MFA policy](../../concepts/mfa.md#mfa-policies):
      ```
 
      Where `--id` is the ID of the MFA policy you need to activate.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and update the `status` parameter in the `yandex_organizationmanager_mfa_enforcement` resource:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_policy" {
+       name            = "<policy_name>"
+       organization_id = "<organization_ID>"
+       acr_id          = "<authentication_factor_type>"
+       ttl             = "<lifetime>"
+       status          = "MFA_ENFORCEMENT_STATUS_ACTIVE"
+       apply_at        = "<activation_time>"
+       enroll_window   = "<creation_deadline>"
+       description     = "<policy_description>"
+     }
+     ```
+
+     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_ACTIVE` to activate the policy. This is an optional parameter.
+
+     For more information about `yandex_organizationmanager_mfa_enforcement` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will activate the MFA policy. You can check the MFA policy update using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager mfa-enforcement get <policy_ID>
+     ```
 
 - API {#api}
 
@@ -80,6 +113,41 @@ To temporarily deactivate an [MFA policy](../../concepts/mfa.md#mfa-policies):
      ```
 
      Where `--id` is the ID of the MFA policy you need to deactivate.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and update the `status` parameter in the `yandex_organizationmanager_mfa_enforcement` resource:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_policy" {
+       name            = "<policy_name>"
+       organization_id = "<organization_ID>"
+       acr_id          = "<authentication_factor_type>"
+       ttl             = "<lifetime>"
+       status          = "MFA_ENFORCEMENT_STATUS_INACTIVE"
+       apply_at        = "<activation_time>"
+       enroll_window   = "<creation_deadline>"
+       description     = "<policy_description>"
+     }
+     ```
+
+     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_INACTIVE` to deactivate the policy. This is an optional parameter.
+
+     For more information about `yandex_organizationmanager_mfa_enforcement` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will deactivate the MFA policy. You can check the MFA policy update using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager mfa-enforcement get <policy_ID>
+     ```
 
 - API {#api}
 

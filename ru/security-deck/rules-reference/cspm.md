@@ -12,6 +12,8 @@ editable: false
 
 {% include [access.bucket-public-access](../../_security-deck-rules/rules/cspm/access.bucket-public-access.md) %}
 
+{% include [access.compute-public-ip](../../_security-deck-rules/rules/cspm/access.compute-public-ip.md) %}
+
 {% include [access.db-console-access](../../_security-deck-rules/rules/cspm/access.db-console-access.md) %}
 
 {% include [access.db-datalens-access](../../_security-deck-rules/rules/cspm/access.db-datalens-access.md) %}

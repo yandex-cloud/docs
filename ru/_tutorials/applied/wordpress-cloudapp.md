@@ -1,14 +1,4 @@
----
-title: Установка WordPress
-description: Установка и настройка WordPress с помощью {{ cloud-apps-name }} в {{ yandex-cloud }}
-keywords:
-  - wordpress
-  - cloudapp
-  - установка wordpress
-  - wordpress cloudapp
----
 
-# Установка WordPress High Availability с помощью {{ cloud-apps-name }}
 
 С помощью этого руководства вы установите и настроите [WordPress](https://wordpress.org/) — систему управления контентом, подходящую как для личных блогов, так и для крупных медиа и коммерческих проектов. Приложение [{{ cloud-apps-name }}](../../cloud-apps/) будет развернуто на виртуальной машине с автоматической настройкой всех необходимых ресурсов, включая базу данных [{{ mmy-full-name }}](../../managed-mysql/), веб-сервер и интеграцию с сервисом [{{ postbox-name }}](../../postbox/).
 

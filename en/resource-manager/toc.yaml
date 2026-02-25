@@ -21,6 +21,8 @@ items:
             href: operations/cloud/delete.md
           - name: Canceling cloud deletion
             href: operations/cloud/delete-cancel.md
+          - name: Managing access policies
+            href: operations/cloud/manage-access-policies.md
           - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
           - name: Getting a cloud ID
@@ -39,6 +41,8 @@ items:
             href: operations/folder/update.md
           - name: Deleting a folder
             href: operations/folder/delete.md
+          - name: Managing access policies
+            href: operations/folder/manage-access-policies.md
           - name: Setting up access rights
             href: operations/folder/set-access-bindings.md
           - name: Folder navigation

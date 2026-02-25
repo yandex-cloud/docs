@@ -33,7 +33,7 @@ Orchestrate fault scenarios on a test cluster first so that you do not compromis
    * **Application name**: Specify the application name.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -60,7 +60,7 @@ You can check the current version of the Helm chart on the [application page](/m
 
 ## Chaos Mesh web interface and authorization {#interface-and-authorization}
 
-Once you install Chaos Mesh, use its web interface to go through the authorization process. To do this:
+Once you install Chaos Mesh, use its web interface to go through the authorization process. Proceed as follows:
 
 1. [Connect to your cluster](../connect/index.md#kubectl-connect).
 1. Forward the `http://localhost:8080` URL to the Chaos Mesh web interface:
@@ -118,8 +118,6 @@ For example, to use `YCChaos` to simulate a VM node restart:
 
 1. Save the workflow example with the `YCChaos` scenario to the `chaos.yaml` file:
 
-   {% cut "chaos.yaml" }
-
    ```yaml
    apiVersion: chaos-mesh.org/v1alpha1
    kind: Workflow
@@ -150,7 +148,13 @@ For example, to use `YCChaos` to simulate a VM node restart:
          secretName: yc-sa-secret
    ```
 
-   {% endcut %}
+   Description of available `YCChaos` fields:
+
+   * `action`: Action to execute. Possible values: `compute-stop` to stop the VM or `compute-restart` to restart. The default value is `compute-stop`.
+   * `computeInstance`: ID of the VM used to orchestrate the scenario.
+   * `duration`: Scenario duration. This is an optional field.
+   * `remoteCluster`: Cluster to run the scenario in. This is an optional field.
+   * `secretName`: Name of the {{ k8s }} secret containing the authorized key of the service account running the scenario.
 
 1. Create a workflow using this command:
 

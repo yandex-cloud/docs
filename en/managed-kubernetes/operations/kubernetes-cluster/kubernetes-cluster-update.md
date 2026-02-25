@@ -66,7 +66,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
      {{ yc-k8s }} cluster update --help
      ```
 
-  1. Run the following command providing a list of settings you want to change (not all settings are listed in the example below):
+  1. Run the command listing the settings you want to update (not all settings are listed in the example below):
 
      ```bash
      {{ yc-k8s }} cluster update <Managed_Service_for_Kubernetes_cluster_name> \
@@ -106,6 +106,8 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
        * `--daily-maintenance-window`: Update daily at the selected time.
        * `--weekly-maintenance-window`: Update on selected days.
 
+         {% include [update time](../../../_includes/managed-kubernetes/note-update-time.md) %}
+
 - {{ TF }} {#tf}
 
   To update a {{ managed-k8s-name }} cluster:
@@ -126,7 +128,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -336,7 +338,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

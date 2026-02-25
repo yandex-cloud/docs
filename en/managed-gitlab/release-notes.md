@@ -1,9 +1,19 @@
 ---
 title: '{{ mgl-full-name }} release notes'
-description: This section contains {{ mgl-name }} release notes.
+description: This section contains the {{ mgl-name }} release notes.
 ---
 
 # {{ mgl-full-name }} release notes
+
+## Q4 2025 {#q4-2025}
+
+Added new parameters for {{ GL }} workers created by [managed {{ yandex-cloud }} runners](./tutorials/install-gitlab-runner.md#create-runner):
+* [Security groups](../vpc/concepts/security-groups.md) for managing worker network access.
+* [Service account](../iam/concepts/users/service-accounts.md) that will be used to authenticate the worker in {{ yandex-cloud }} from CI/CD pipelines.
+
+## Q3 2025 {#q3-2025}
+
+Supported the option to [store {{ GL }} data in {{ objstorage-full-name }}](./concepts/s3-integration.md).
 
 ## Q2 2025 {#q2-2025}
 

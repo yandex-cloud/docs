@@ -35,6 +35,8 @@ items:
             href: operations/buckets/policy.md
           - name: Configuring public access to a bucket
             href: operations/buckets/bucket-availability.md
+          - name: Disabling access with static keys
+            href: operations/buckets/disable-statickey-auth.md
           - name: Accessing a bucket using {{ sts-name }}
             href: operations/buckets/create-sts-key.md
           - name: Accessing a bucket with an ephemeral access key
@@ -129,7 +131,7 @@ items:
             href: tutorials/object-storage-veritas.md
           - name: Backing up to {{ objstorage-name }} with Veeam Backup
             href: tutorials/backup-with-veeam.md
-          - name: Backing up a VM with Hystax Acura Backup
+          - name: Backing up a VM with Hystax Acura
             href: tutorials/hystax-backup.md
           - name: >-
               Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
@@ -462,6 +464,8 @@ items:
         href: security/pre-signed-urls.md
       - name: '{{ sts-name }}'
         href: security/sts.md
+      - name: Ephemeral keys
+        href: security/ephemeral-keys.md
   - name: Pricing policy
     href: pricing.md
   - name: YC CLI reference

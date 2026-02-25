@@ -22,6 +22,8 @@ The infrastructure support cost includes:
 
 1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) of any suitable configuration. When creating a cluster, enable **{{ ui-key.yacloud.kafka.field_schema-registry }}** and **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
     1. [Create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them permissions](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
         * `ACCESS_ROLE_CONSUMER`

@@ -2,7 +2,7 @@
 
     Retention policy for old log messages:
 
-    * `Delete` (`CLEANUP_POLICY_DELETE` for {{ TF }} and API): Delete log segments when either their retention time or log size limit is reached.
+    * `Delete` (`CLEANUP_POLICY_DELETE` for {{ TF }} and API): Delete log segments when either their retention period or log size limit is reached.
     * `Compact` (`CLEANUP_POLICY_COMPACT` for {{ TF }} and API): Compact the log.
     * `CompactAndDelete` (`CLEANUP_POLICY_COMPACT_AND_DELETE` for {{ TF }} and API): Both compact the log and delete log segments.
 
@@ -44,7 +44,7 @@
 
 * **Flush, ms** {{ tag-all }} {#settings-topic-flush-ms}
 
-    Maximum time in milliseconds a message can be stored in memory before being flushed to disk.    
+    Maximum time in milliseconds a message can be stored in memory before being flushed to the disk.    
 
     For more information, see the description of the [Log flush interval ms](#settings-log-flush-interval-ms) cluster-level setting.
 
@@ -56,7 +56,7 @@
 
     Maximum size of a message sent by the producer.
 
-    The minimum value is `0` (no limit); the default one is `1048588`. The value of this setting must not exceed the **Replica fetch max bytes** value by more than 12 bytes.
+    The minimum value is `0` (no limit); default: `1048588`. The value of this setting must not exceed the **Replica fetch max bytes** value by more than 12 bytes.
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_max-message-bytes }}**.
 
@@ -97,7 +97,7 @@
 
 * **Pre-allocation of the segment file** {{ tag-all }} {#settings-topic-preallocate}    
 
-    This setting determines whether to pre-allocate space for log segment files. By default, the space for log segment files is allocated as the segments get full (`false`).
+    This setting determines whether to pre-allocate space for log segment files. By default, the space for log segment files gets allocated as logs are filling up (`false`).
 
     For more information, see the description of the [Log preallocate](#settings-log-preallocate) cluster-level setting.
 

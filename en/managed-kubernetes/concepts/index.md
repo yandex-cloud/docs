@@ -92,7 +92,7 @@ The following master configurations are available for Intel Cascade Lake with a 
 
 * **Standard**: Standard hosts with 4:1 RAM to vCPU ratio: {#master-standard}
 
-  ID | Number of vCPUs | RAM
+  ID | Number of vCPUs | RAM, GB
   --- | --- | ---
   s-c2-m8    | 2 | 8
   s-c4-m16   | 4 | 16
@@ -104,7 +104,7 @@ The following master configurations are available for Intel Cascade Lake with a 
 
 * **CPU-optimized**: Hosts with a decreased RAM to vCPU ratio of 2:1: {#master-cpu-optimized}
 
-  ID | Number of vCPUs | RAM
+  ID | Number of vCPUs | RAM, GB
   --- | --- | ---
   c-c4-m8   | 4 | 8
   c-c8-m16  | 8 | 16
@@ -113,7 +113,7 @@ The following master configurations are available for Intel Cascade Lake with a 
 
 * **Memory-optimized**: Hosts with an increased RAM to vCPU ratio of 8:1: {#master-memory-optimized}
 
-  ID | Number of vCPUs | RAM
+  ID | Number of vCPUs | RAM, GB
   --- | --- | ---
   m-c2-m16 | 2 | 16
   m-c4-m32 | 4 | 32

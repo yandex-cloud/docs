@@ -175,7 +175,7 @@
            --user-password=<пароль_пользователя> \
            --master-config resource-id=<класс_хоста>,`
                           `disk-size=<объем_хранилища_ГБ>,`
-                          `disk-type=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
+                          `disk-type=<network-ssd|network-ssd-nonreplicated|local-ssd> \
            --segment-config resource-id=<класс_хоста>,`
                           `disk-size=<объем_хранилища_ГБ>,`
                           `disk-type=<network-ssd-nonreplicated|local-ssd> \
@@ -208,7 +208,6 @@
 
             * `disk-size` — объем хранилища в гигабайтах.
             * `disk-type` — [тип диска](../concepts/storage.md):
-                * `network-hdd` (только для хостов-мастеров);
                 * `network-ssd` (только для хостов-мастеров);
                 * `local-ssd`;
                 * `network-ssd-nonreplicated`.

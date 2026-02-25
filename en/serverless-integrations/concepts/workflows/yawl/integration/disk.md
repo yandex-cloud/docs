@@ -9,7 +9,7 @@ Interacting with files on Yandex Disk. The `upload` and `download` fields are mu
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`oauthToken` | `string` | Yes | No | Yes | [OAuth token](../../../../../iam/concepts/authorization/oauth-token.md) for authorization when accessing Yandex Disk
+`oauthToken` | `string` | Yes | No | Yes | [OAuth token](../../../../../iam/concepts/authorization/oauth-token.md) for authentication when accessing Yandex Disk
 `path` | `string` | Yes | No | Yes | Path to the file to upload or download
 `upload` | [DiskUpload](#DiskUpload) | No | No | No | `upload` configuration: uploading a file to Yandex Disk
 `download` | [DiskDownload](#DiskDownload) | No | No | No | `download` configuration: downloading a file from Yandex Disk

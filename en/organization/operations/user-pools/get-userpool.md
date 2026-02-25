@@ -54,12 +54,12 @@ description: Follow this guide to get information about a user pool in {{ org-na
 
      Where:
 
-     * `data "yandex_organizationmanager_idp_userpool"`: Description of the user pool as a data source:
+     * `data "yandex_organizationmanager_idp_userpool"`: Description of the user pool as data source:
        * `userpool_id`: Pool ID.
      * `output "instance_domain"`: Output variable that contains information about the pool domains:
        * `value`: Return value.
 
-     You can replace `domains` with any other parameter to get the information you need. For more information about the `yandex_organizationmanager_idp_userpool` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/organizationmanager_idp_userpool).
+     You can replace `domains` with any other parameter to get the information you need. For more information about the `yandex_organizationmanager_idp_userpool` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/organizationmanager_idp_userpool).
 
   1. Create the resources:
 

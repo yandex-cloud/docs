@@ -5,8 +5,6 @@ description: Follow this guide to update an MFA policy in {{ org-full-name }}.
 
 # Updating an MFA policy
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
 
 {% list tabs group=instructions %}
@@ -82,6 +80,39 @@ To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
      * `--new-name`: New policy name.
      * `--description`: New description.
      * `--organization-id`: Organization ID.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and edit the `yandex_organizationmanager_mfa_enforcement` resource:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_policy" {
+       name            = "<new_policy_name>"
+       organization_id = "<organization_ID>"
+       acr_id          = "<new_authentication_factor_type>"
+       ttl             = "<new_lifetime>"
+       status          = "<new_policy_status>"
+       apply_at        = "<new_activation_time>"
+       enroll_window   = "<new_creation_deadline>"
+       description     = "<new_policy_description>"
+     }
+     ```
+
+     {% include [mfa-tf-params-description](../../../_includes/organization/mfa-tf-params-description.md) %}
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will update the MFA policy. You can check the MFA policy updates using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager mfa-enforcement get <policy_ID>
+     ```
 
 - API {#api}
 

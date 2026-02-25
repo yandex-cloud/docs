@@ -7,7 +7,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
-    1. In the management console, click ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
+    1. In the management console, in the top panel, click ![image](../_assets/console-icons/chevron-down.svg) and select the cloud.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Specify your account in the search bar.
     1. Check that your account has the following roles:
@@ -25,7 +25,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 - Management console {#console}
   
     1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
-    1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
+    1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. In the top-right corner, click ![icon-users](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
     1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).

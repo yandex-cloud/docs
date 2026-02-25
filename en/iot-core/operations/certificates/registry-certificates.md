@@ -76,7 +76,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
      * `yandex_iot_core_registry`: Registry parameters:
        * `name`: Registry name.
        * `description`: Registry description.
-       * `certificates`: List of registry certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+       * `certificates`: List of registry certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
       Example registry description in the {{ TF }} configuration:
 
@@ -93,7 +93,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about `yandex_iot_core_registry` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -113,7 +113,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash
@@ -199,7 +199,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about `yandex_iot_core_registry` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -219,7 +219,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash

@@ -5,6 +5,10 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 11/2/2026 {#110226}
+
+Added support for [{{ code-interpreter }}](../concepts/agents/tools/code-interpreter.md), an in-built {{ ai-studio-full-name }} tool allowing the model to write and execute Python code in an isolated environment.
+
 ## Release as of 27/01/2026 {#270126}
 
 [Renamed](https://github.com/yandex-cloud/yandex-ai-studio-sdk/blob/master/compat/yandex-cloud-ml-sdk/MIGRATION.md) the Yandex ML SDK to the Yandex AI Studio SDK.

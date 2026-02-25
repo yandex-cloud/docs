@@ -5,10 +5,7 @@ description: Create an additional organization in another region linked to the m
 
 # Controlled organizations
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 ## Overview
-
 
 In {{ yandex-cloud }}, there are two [regions](../../overview/concepts/region.md) isolated from each other on all levels. To put your resources in another region, you need to register a separate organization and link your billing account to it. Once you do that, the management console will only show to you the services and resources of the region you select; you will not be able to transfer accounts or synchronize the settings between your organizations. 
 

@@ -53,7 +53,7 @@ For more information, see [{#T}](../../security/overview.md).
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -116,7 +116,7 @@ For more information, see [{#T}](../../security/overview.md).
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -143,7 +143,7 @@ For more information, see [{#T}](../../security/overview.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
   1. Select the bucket you want to redirect all requests for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -164,7 +164,7 @@ For more information, see [{#T}](../../security/overview.md).
      yc storage bucket update --help
      ```
      
-  1. Create a redirect configuration file in JSON format. Here is an example:
+  1. Create a redirect configuration file in JSON format. For example:
      
      ```json
      {
@@ -264,7 +264,7 @@ For more information, see [{#T}](../../security/overview.md).
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the changes:
 
@@ -286,14 +286,14 @@ For more information, see [{#T}](../../security/overview.md).
 
 ## Conditional request redirects {#redirects-on-conditions}
 
-With routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. This enables you to redirect object requests to different web pages (if the object was removed) or redirect the requests that return errors.
+Using routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. This enables you to redirect object requests to different web pages (if the object was removed) or redirect the requests that return errors. {{ objstorage-full-name }} has [limits](../../concepts/limits.md#storage-limits) on the maximum number of rules for conditional request redirects.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
   1. Select the bucket you want to configure conditional request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -469,7 +469,7 @@ With routing rules, you can redirect requests based on the object name prefixes 
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the changes:
 

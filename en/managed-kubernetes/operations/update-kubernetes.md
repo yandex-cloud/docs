@@ -24,7 +24,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
   To get a list of available versions for a {{ managed-k8s-name }} node group:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of the {{ managed-k8s-name }} cluster you need and go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Click the name of your {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
 
@@ -185,7 +185,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -258,6 +258,8 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
 {% endlist %}
 
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
+
 ### Manually upgrading the cluster version {#cluster-manual-upgrade}
 
 You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step, you can only upgrade your {{ managed-k8s-name }} cluster to the next minor version from the current one. Upgrading to newer versions is done in multiple steps, e.g., 1.19 → 1.20 → 1.21.
@@ -287,7 +289,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change the version in the {{ managed-k8s-name }} cluster description:
 
      ```hcl
@@ -302,7 +304,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -313,7 +315,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 - API {#api}
 
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
-  * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
 
@@ -355,8 +357,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
   ```bash
   {{ yc-k8s }} node-group <create_or_update> <node_group_name_or_ID> \
   ...
-    --max-expansion <expanding_group_when_updating> \
-    --max-unavailable <number_of_unavailable_nodes_when_updating> \
+    --max-expansion <expanding_group_during_update> \
+    --max-unavailable <number_of_unavailable_nodes_during_update> \
     --auto-upgrade <auto_update_mode> \
     --auto-repair <recreation_mode> \
     --anytime-maintenance-window \
@@ -415,7 +417,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     Learn how to create this file in [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change auto update settings in the {{ managed-k8s-name }} node group description.
 
      {% note info %}
@@ -481,7 +483,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          name = <node_group_name>
          ...
          deploy_policy {
-           max_expansion   = <expanding_group_when_updating>
+           max_expansion   = <expanding_group_during_update>
            max_unavailable = <number_of_unavailable_nodes_when_updating>
          }
        }
@@ -493,7 +495,6 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
        * `max_unavailable`: Maximum number of unavailable nodes in the group when updating it.
-
 
        {% note info %}
 
@@ -517,7 +518,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -592,8 +593,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<number_of_unavailable_nodes_when_updating>",
-    "maxExpansion": "<expanding_group_when_updating>"
+    "maxUnavailable": "<number_of_unavailable_nodes_during_update>",
+    "maxExpansion": "<expanding_group_during_update>"
   }
   ```
 
@@ -605,6 +606,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
     {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
 {% endlist %}
+
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
 
 ### Manually upgrading a node group version {#node-group-manual-upgrade}
 
@@ -659,7 +662,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -814,6 +817,12 @@ If your cluster is set to update at any time, the required update will take plac
 
   Use the [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) API method and provide the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
-  * New date and time for the update, `YYYY-MM-DDThh:mm:ssZ`, in `delayedUntil`. For example, `2026-01-01T21:00:00Z`.
+  * New date and time for the update, `YYYY-MM-DDThh:mm:ssZ`, in `delayedUntil`. For example: `2026-01-01T21:00:00Z`.
 
 {% endlist %}
+
+{% note info %}
+
+The update may start later than specified.  
+
+{% endnote %}

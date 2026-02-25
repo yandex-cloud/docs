@@ -3,7 +3,24 @@ title: '{{ websql-full-name }} release notes'
 description: This section contains the {{ websql-name }} release notes.
 ---
 
-# {{ websql-full-name }} release notes: 2025
+# {{ websql-full-name }} release notes: 2026
+
+## January {#jan-2026}
+
+### New features {#new-features-jan-2026}
+
+Tabs can now be dragged.
+
+### Improvements {#improvements-jan-2026}
+
+This request history list now displays only the completed request.
+
+### Fixed issues {#fixes-jan-2026}
+
+Fixed the display of the completed request in the editor.
+
+
+{% cut "2025" %}
 
 ## December {#december-2025}
 
@@ -179,7 +196,11 @@ Fixed an issue where certain authors were shown as unknown users in the query hi
 
 Fixed the behavior of the **Share query** button where it appeared before running a query.
 
-## 2024 {#2024-2025}
+
+{% endcut %}
+
+
+{% cut "2024" %}
 
 ### November {#november-2024}
 
@@ -335,3 +356,4 @@ Fixed the incorrect display of variables when opening [saved queries](../operati
 
 1. Simplified modal window for [reconnecting](../operations/update-connection.md).
 
+{% endcut %}

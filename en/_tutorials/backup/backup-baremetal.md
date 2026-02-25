@@ -158,6 +158,10 @@ If you are already leasing a server with an [appropriate OS](#os-support), proce
 
       {% include [server-lease-cli-general](../../_includes/baremetal/instruction-steps/server-lease-cli-general.md) %}
 
+- API {#api}
+
+  To rent a test server, use the [create](../../baremetal/api-ref/Server/create.md) REST API method for the [Server](../../baremetal/api-ref/Server/index.md) resource or the [ServerService/Create](../../baremetal/api-ref/grpc/Server/create.md) gRPC API call.
+
 {% endlist %}
 
 Save the server name and ID, as you will need them later.

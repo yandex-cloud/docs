@@ -44,13 +44,13 @@ The cert-manager application with the {{ dns-full-name }} ACME webhook plugin su
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `cert-manager-dns-space`. If you leave the default namespace, cert-manager with the {{ dns-full-name }} plugin may work incorrectly.
    * **Application name**: Specify the application name, e.g., `cert-manager`.
    * **Service account key**: Paste the contents of the `key.json` file or create a new [key](../../../iam/concepts/authorization/key.md).
-   * **Folder ID**: Specify the ID of the folder hosting the {{ dns-name }} zone, to confirm domain ownership at the DNS-01 challenge.
+   * **Folder ID**: Specify the ID of the folder the {{ dns-name }} zone resides in to confirm domain ownership during the DNS-01 challenge.
    * **Email address to get notifications from Let's Encrypt**: Specify the email address for Let's Encrypt® notifications.
    * **Let's Encrypt server address**: Select a Let's Encrypt® server address from the list:
      * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
      * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

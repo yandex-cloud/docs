@@ -1,5 +1,7 @@
 # Обновление {{ k8s }}
 
+{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
+
 Для {{ managed-k8s-name }} доступно как автоматическое, так и ручное обновление [кластера](../concepts/index.md#kubernetes-cluster) и [группы узлов](../concepts/index.md#node-group). Вы можете в любое время запросить обновление кластера {{ managed-k8s-name }} или его узлов вручную до последней поддерживаемой [версии](../concepts/release-channels-and-updates.md). Ручные обновления обходят любые настроенные окна обслуживания и исключения обслуживания.
 
 При обновлении мажорной версии {{ k8s }} сначала обновите кластер {{ managed-k8s-name }}, потом его группу узлов.
@@ -8,7 +10,11 @@
 
 Подробнее см. в разделе [{#T}](../concepts/release-channels-and-updates.md).
 
-{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
+{% note tip %}
+
+[Политика развертывания](../concepts/node-group/deploy-policy.md) (deploy policy) влияет на поведение группы узлов в [процессе обновления](../concepts/release-channels-and-updates.md#node-group). Перед тем как выполнять обновление, убедитесь, что политика [настроена](./node-group/node-group-update.md#configure-deploy-policy) корректно.
+
+{% endnote %}
 
 ## Список доступных версий {{ k8s }} {#versions-list}
 

@@ -22,7 +22,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} agen
 
           To add multiple variables, click **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** as many times as needed.
 
-      1. Optionally, in the ****{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_message_view_spec_layout_title }}**** field, enter the incoming message to provide to the agent together with the prompt.
+      1. Optionally, in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_message_view_spec_layout_title }}** field, enter the incoming message to provide to the agent together with the prompt.
       1. Optionally, enable **Automatically allow tools**. If this option is off and the tool requires confirmation of use, the step will end with an error.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}

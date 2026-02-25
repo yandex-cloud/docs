@@ -33,6 +33,9 @@ The support cost for this solution includes:
 ## Getting started {#before-you-begin}
 
 1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) of any suitable configuration. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** when creating your cluster.
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) for message exchange between the producer and the consumer with the following settings:
     * **{{ ui-key.yacloud.common.name }}**: `messages`
     * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
