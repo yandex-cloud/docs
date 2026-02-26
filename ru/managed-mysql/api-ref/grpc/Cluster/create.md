@@ -340,7 +340,8 @@ Creates a cluster in a folder.
   },
   "database_specs": [
     {
-      "name": "string"
+      "name": "string",
+      "deletion_protection_mode": "DeletionProtectionMode"
     }
   ],
   "user_specs": [
@@ -365,7 +366,8 @@ Creates a cluster in a folder.
         "max_user_connections": "google.protobuf.Int64Value"
       },
       "authentication_plugin": "AuthPlugin",
-      "generate_password": "google.protobuf.BoolValue"
+      "generate_password": "google.protobuf.BoolValue",
+      "deletion_protection_mode": "DeletionProtectionMode"
     }
   ],
   "host_specs": [
@@ -2529,6 +2531,15 @@ Limit on how large the storage for database instances can automatically grow, in
 Required field. Name of the database.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection_mode | enum **DeletionProtectionMode**
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.mysql.v1.UserSpec}
@@ -2585,6 +2596,15 @@ User authentication plugin.
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager. ||
+|| deletion_protection_mode | enum **DeletionProtectionMode**
+
+Deletion Protection inhibits deletion of the user
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}

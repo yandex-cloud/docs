@@ -1,0 +1,1 @@
+By default, secrets are created in the same folder as connections. To create a secret in a different folder, specify the folder ID in `lockboxSecretSpec`. You will need the `resource-manager.user` role for the target folder. The folders for the connection and the secret must be located within the same cloud. You cannot change this parameter after you create the connection.

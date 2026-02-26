@@ -33,7 +33,7 @@ To get a function ID, make a [FunctionService.List](/docs/functions/functions/ap
 
 Specific tag that history should be limited to.
 
-Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
+Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available

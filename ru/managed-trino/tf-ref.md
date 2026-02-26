@@ -9,6 +9,7 @@
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_trino_cluster]({{ tf-provider-resources-link }}/trino_cluster) | Кластер |
+| [yandex_trino_cluster_iam_binding]({{ tf-provider-resources-link }}/trino_cluster_iam_binding) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
 | [yandex_trino_catalog]({{ tf-provider-resources-link }}/trino_catalog) | Каталог |
 
 ## Источники данных {#data-sources}

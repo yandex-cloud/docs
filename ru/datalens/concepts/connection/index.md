@@ -57,8 +57,6 @@ _Подключение_ содержит информацию о парамет
 
 
 
-Вы можете добавить дополнительные типы подключений из [списка доступных в {{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens).
-
 ## Подключение внешней БД {#external-db-connection}
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}

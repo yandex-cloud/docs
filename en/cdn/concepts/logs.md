@@ -2,7 +2,7 @@
 
 {{ cdn-name }} provides CDN server request logs and, if [origin shielding](origins-shielding.md) is enabled, requests to the shielding servers.
 
-To export logs, you need a bucket in {{ objstorage-full-name }}. Logs are exported for all [CDN resources](resource.md).
+Log export can be [enabled](../operations/resources/configure-logs.md#enabling) for a specific [CDN resource](resource.md). To export logs, you need a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-full-name }}. 
 
 {% note info %}
 
@@ -13,12 +13,6 @@ Do not configure an [access policy](../../storage/concepts/policy.md) that denie
 Log export is a paid feature. See [{#T}](../pricing.md) for billing information.
 
 {% include [logs-unload-delay](../../_includes/cdn/logs-unload-delay.md) %}
-
-
-## Use cases {#examples}
-
-* [{#T}](../tutorials/prefetch.md)
-
 
 #### See also {#see-also}
 

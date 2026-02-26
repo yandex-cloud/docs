@@ -385,6 +385,8 @@ items:
                 href: api-ref/grpc/Database/list.md
               - name: Create
                 href: api-ref/grpc/Database/create.md
+              - name: Update
+                href: api-ref/grpc/Database/update.md
               - name: Delete
                 href: api-ref/grpc/Database/delete.md
           - name: Operation
@@ -495,6 +497,8 @@ items:
                 href: api-ref/Database/list.md
               - name: Create
                 href: api-ref/Database/create.md
+              - name: Update
+                href: api-ref/Database/update.md
               - name: Delete
                 href: api-ref/Database/delete.md
           - name: Operation

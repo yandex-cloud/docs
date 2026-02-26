@@ -7,6 +7,13 @@ description: You can learn what access rules are assigned for a {{ mtr-name }} c
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click the name of your cluster.
+  1. Go to the **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** section.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}

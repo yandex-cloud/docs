@@ -368,10 +368,10 @@ Add a user to the application:
 
 To make sure both your OIDC app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app.
 
-To do so:
+Proceed as follows:
 
 1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.
 1. On the Grafana Cloud sign in page, click **Sign in with OpenID Connect**.
 1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.
-1. Make sure you are logged in to Grafana Cloud.
+1. Make sure you have authenticated in Grafana Cloud.

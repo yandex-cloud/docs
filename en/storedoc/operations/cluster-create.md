@@ -25,7 +25,7 @@ A {{ SD }} cluster consists of one or multiple database hosts, with the option t
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For details on assigning roles, see [this {{ iam-name }} article](../../iam/operations/roles/grant.md).
+To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -42,12 +42,12 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, specify your cluster name. The cluster name must be unique within the cloud.
+      * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the cloud.
       * Optionally, specify your cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
       * Select your cluster environment. Note that you cannot change the environment once the cluster is created:
 
           * `PRODUCTION`: For stable versions of your applications.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
       * Specify the DBMS version.
       * Select the sharding type:
@@ -59,7 +59,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
       * [Cloud network](../../vpc/concepts/network.md#network) for cluster deployment.
-      * Security groups for the cluster network traffic. You may need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+      * Security groups for cluster network traffic. You may need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
   1. Specify the computing resource configuration:
@@ -91,12 +91,12 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
              * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
-             * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+             * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
              To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
-     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add the DB hosts created with the cluster:
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add the database hosts to be created alongside the cluster:
 
          
          * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
@@ -108,7 +108,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          To ensure fault tolerance while using `local-ssd` and `network-ssd-nonreplicated` disks, you need a minimum of 3 hosts. For more information, see [Storage](../concepts/storage.md).
 
          
-         By default, hosts are created in different availability zones. Read more about [host management](hosts.md).
+         By default, hosts are created across multiple availability zones. For more information, see [host management](hosts.md).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the database details:
@@ -118,9 +118,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
       * Username.
-      * User password. The password must be at least 8 characters long. 
+      * Password. It must be at least 8 characters long. 
 
-  1. Specify additional cluster settings, if required:
+  1. If needed, configure advanced cluster settings:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
@@ -148,7 +148,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. See the description of the CLI command for creating a cluster:
+  1. View the description of the CLI command for creating a cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster create --help
@@ -280,10 +280,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `type`: Host type, i.e., `mongod`, `mongoinfra`, `mongos`, or `mongocfg`. The default host type is `mongod`.
         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). To be specified if the selected availability zone has more than one subnet.
-        * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
-        * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-        * `secondary-delay-secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
-        * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+        * `assign-public-ip`: Controls whether the host is accessible via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
+        * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+        * `secondary-delay-secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+        * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
           
           {% note info %}
 
@@ -295,7 +295,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `--mongoinfra-resource-preset`, `--mongos-resource-preset`, `--mongocfg-resource-preset`: `MONGOINFRA`, `MONGOS`, and `MONGOCFG` host classes, respectively (for sharded clusters only).
       * `--mongod-disk-type`: Disk type of `MONGOD` hosts.
       * `--mongoinfra-disk-type`, `--mongos-disk-type`, `--mongocfg-disk-type`: Disk types of `MONGOINFRA`, `MONGOS`, and `MONGOCFG` hosts, respectively (for sharded clusters only).
-      * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+      * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
 
          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
@@ -415,7 +415,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        environment         = "<environment>"
        network_id          = yandex_vpc_network.<network_name>.id
        security_group_ids  = [ "<list_of_security_group_IDs>" ]
-       deletion_protection = <protect_cluster_against_deletion>
+       deletion_protection = <protect_cluster_from_deletion>
 
        cluster_config {
          version = "<Yandex_StoreDoc_version>"
@@ -490,7 +490,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        environment         = "<environment>"
        network_id          = yandex_vpc_network.<network_name>.id
        security_group_ids  = [ "<list_of_security_group_IDs>" ]
-       deletion_protection = <protect_cluster_against_deletion>
+       deletion_protection = <protect_cluster_from_deletion>
 
        cluster_config {
          version = "<Yandex_StoreDoc_version>"
@@ -576,10 +576,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `zone_id`: Availability zone.
        * `subnet_id`: ID of the subnet in the selected availability zone.
        * `assign_public_ip`: Public access to the host, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
-       * `host_parameters`: Additional host parameters:
-         * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-         * `secondary_delay_secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
-         * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+       * `host_parameters`: Additional host settings:
+         * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+         * `secondary_delay_secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
         {% note info %}
 
@@ -587,7 +587,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% endnote %}
      
-     * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -597,7 +597,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` parameter:
+     To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` argument:
 
        ```hcl
        resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -609,9 +609,9 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mmg }}).
+     To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mmg }}).
 
-  1. Make sure the settings are correct.
+  1. Validate your settings.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -619,7 +619,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      This will create all required resources in the specified folder, and you will see the [host FQDNs](../concepts/network.md#hostname) in the terminal. You can verify that the new resources have appeared and check their configuration in the [management console]({{ link-console-main }}).
+      This will create all required resources in the specified folder, and you will see the [host FQDNs](../concepts/network.md#hostname) in the terminal. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -737,7 +737,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletionProtection": <protect_cluster_against_deletion>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
@@ -767,7 +767,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               "minutes": "<minutes>",
               "seconds": "<seconds>",
               "nanos": "<nanoseconds>"
-            },
+            },  
             "backupRetainPeriodDays": "<backup_retention_in_days>",
             "performanceDiagnostics": {
               "profilingEnabled": <enable_profiler>
@@ -841,7 +841,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletionProtection": <protect_cluster_against_deletion>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
@@ -969,7 +969,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `configSpec`: Cluster settings:
 
             * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
-            * `mongod`: Host type.
+            * `mongod`, `mongoinfra`, `mongos`, `mongocfg`: Host types.
 
               * `resources`: Cluster resources:
 
@@ -1002,7 +1002,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `permissions`: User permissions:
 
             * `databaseName`: Name of the database the user can access.
-            * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             In the `permissions` array, add a separate element with permission settings for each database.
 
@@ -1010,13 +1010,13 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
                     * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
+          * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
-          * `tags`: Host labels.
+          * `tags`: Host tags.
           * `shard_name`: Shard name in a sharded cluster (for `MONGOD` hosts only).
-          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
-          * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+          * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+          * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
           {% note info %}
 
@@ -1040,7 +1040,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1152,7 +1152,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletion_protection": <protect_cluster_against_deletion>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
@@ -1256,7 +1256,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletion_protection": <protect_cluster_against_deletion>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
@@ -1360,7 +1360,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         Where:
 
-        * `folder_id`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where your cluster will be deployed.
@@ -1375,7 +1375,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of the following values:
 
-          * `anytime`: Maintenance can occur at any time.
+          * `anytime`: Maintenance can take place at any time.
           * `weekly_maintenance_window`: Maintenance occurs once a week at the specified time:
 
             * `day`: Day of the week, in `DDD` format.
@@ -1417,21 +1417,22 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `permissions`: User permissions:
 
             * `database_name`: Name of the database the user can access.
-            * `roles`: User roles as an array of strings, one per role. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             In the `permissions` array, add a separate element with permission settings for each database.
 
         * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
-                    * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+          
+          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
+          * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
-          * `tags`: Host labels.
+          * `tags`: Host tags.
           * `shard_name`: Shard name in a sharded cluster.
-          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
-          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
-          * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+          * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
+          * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
 
           {% note info %}
 
@@ -1470,7 +1471,7 @@ If you specified security group IDs when creating a cluster, you may need to [co
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a new {{ SD }} cluster based on the configuration of an existing one by importing the source {{ SD }} cluster configuration into {{ TF }}. This lets you either create an exact replica or use the imported configuration as a baseline for customization. Using import is convenient when you need to replicate a {{ SD }} cluster with multiple settings.
+You can create a {{ SD }} cluster with the settings of another one created earlier. Do this by importing the original {{ SD }} cluster configuration into {{ TF }}. This lets you either create an exact replica or use the imported configuration as a baseline for customization. The import feature is handy when the original {{ SD }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ SD }} cluster copy:
 
@@ -1495,7 +1496,7 @@ To create a {{ SD }} cluster copy:
         export STOREDOC_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](../operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
     1. Import the original {{ SD }} cluster configuration into {{ TF }}:
 
@@ -1510,8 +1511,8 @@ To create a {{ SD }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Move the file to the new `imported-cluster` directory.
-    1. Modify the copied configuration to prepare it for creating a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and in the `name` argument.
         * Delete the `created_at`, `health`, `id`, `sharded`, and `status` arguments.
@@ -1524,7 +1525,7 @@ To create a {{ SD }} cluster copy:
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -1599,7 +1600,7 @@ To create a {{ SD }} cluster copy:
   * Network: `mynet`.
   * Host class: `{{ host-class }}`.
   * Number of `host` blocks: 1.
-  * Subnet: `mysubnet`. Network settings:
+  * Subnet: `mysubnet`. Network settings: 
 
     * Availability zone: `{{ region-id }}-a`.
     * Range: `10.5.0.0/24`.
@@ -1700,7 +1701,7 @@ Cluster test specifications:
 * Deletion protection: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
-* Username: `user1`.
+* `user1` user.
 * Password: `user1user1`.
 * `MONGOD` host class: `{{ host-class }}`.
 * `MONGOINFRA` host class: `c3-c2-m4`.
@@ -1713,7 +1714,7 @@ Network specifications:
 * Network: `mynet`.
 
 
-* Security group: `mymg-sg` with `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
+* Security group: `mymg-sg` with `{{ security-group }}` ID. {{ TF }} creates a group containing a rule allowing incoming public TCP connections on port `{{ port-mmg }}`.
 * Subnet: `mysubnet`. 
 * Range: `10.5.0.0/24` (only for {{ TF }}).
 
@@ -1854,7 +1855,7 @@ Network specifications:
 
 {% endlist %}
 
-#### Advanced sharding {#adv-sharding}
+##### **Advanced sharding** {#adv-sharding}
 
 Create a multi-host {{ mmg-name }} cluster along with its supporting network:
 

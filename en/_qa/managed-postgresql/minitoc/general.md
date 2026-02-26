@@ -1,16 +1,16 @@
 * [What is {{ mpg-short-name }}?](#what-is)
 
-* [What parts of database management and maintenance does {{ mpg-short-name }} handle?](#services)
+* [What is the role of {{ mpg-short-name }} in database management and maintenance?](#services)
 
-* [When should I use {{ mpg-short-name }}, and when should I use VMs running databases?](#mdb-advantage)
+* [When to use {{ mpg-short-name }} and when database VMs?](#mdb-advantage)
 
-* [What is a database host and what is a database cluster?](#what-is-cluster)
+* [What is a database host and database cluster?](#what-is-cluster)
 
 * [How do I get started with {{ mpg-short-name }}?](#quickstart)
 
-* [How many database hosts can be in a cluster?](#how-many-hosts)
+* [How many database hosts can there be in a cluster?](#how-many-hosts)
 
-* [How to get access to a running host?](#db-access)
+* [How can I access a running database host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
@@ -25,13 +25,13 @@
 
 * [How do you calculate usage cost for a database host?](#db-cost)
 
-* [How can I change the compute and storage capacity for a database cluster?](#resources-change)
+* [How can I change the computing resources and storage size for a database cluster?](#resources-change)
 
 * [Can I configure automatic storage expansion for a cluster?](#storage-autoscale)
 
 * [Are database host backups enabled by default?](#default-backup)
 
-* [When does the backup run? Does a database cluster remain online during backups?](#backup-window)
+* [What is the backup schedule? Is a database cluster available during backups?](#backup-window)
 
 * [Is encryption enabled for {{ PG }} database cluster connections?](#encryption)
 
@@ -39,9 +39,9 @@
 
 * [What metrics and processes can be monitored?](#monitoring)
 
-* [Can I access my activity logs?](#logs)
+* [How do I get the logs of my activity in the Yandex Cloud services?](#logs)
 
-* [What restrictions are placed on {{ PG }} database clusters?](#instance-limitations)
+* [What limitations apply to {{ PG }} database clusters?](#instance-limitations)
 
 * [What {{ PG }} extensions are supported in {{ mpg-short-name }}?](#pg-extension)
 
@@ -55,4 +55,6 @@
 
 * [Are there any specific features or restrictions for the garbage collector in a {{ mpg-name }} cluster?](#vacuum)
 
-* [Why is my cluster slow even though the computational resources are not being fully utilized?](#throttling)
+* [Why is my cluster slow even though the computing resources are not fully utilized?](#throttling)
+
+* [What block size is used on the cluster disks?](#block-size)

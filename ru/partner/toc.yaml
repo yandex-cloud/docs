@@ -34,6 +34,8 @@ items:
             href: operations/access/partners-account.md
           - name: Посмотреть детализацию сабаккаунтов
             href: operations/get-client-stat.md
+          - name: Экспортировать расширенную детализацию
+            href: operations/get-partner-report.md
           - name: Приостановить оказание услуг клиенту
             href: operations/stop-client-services.md
           - name: Привязать облако к сабаккаунту

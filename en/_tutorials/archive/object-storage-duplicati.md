@@ -68,25 +68,28 @@ To configure Duplicati to work with {{ objstorage-name }}:
 
 1. Run Duplicati. If required, set a password for your account.
 1. Click **Add backup**.
-1. Select **Configure a new backup** and click **Next**.
-1. Enter the backup plan name: `{{ yandex-cloud }}`. If you chose to encrypt the backup (`AES-256 encryption` or `GNU Privacy Guard`), enter the password and confirm it. Click **Next**.
-1. In the **Storage Type** field, select `S3 compatible`.
-1. In the **Server** field, select `Custom server URL`. In the field that appears, enter the address: `{{ s3-storage-host }}/`.
-1. In the **Bucket name** field, enter a name for your bucket.
-1. In the **AWS Access ID** field, enter the static access key ID.
-1. In the **AWS Access Key** field, enter the secret key.
-1. To make sure the settings are correct, click **Test connection**. In the window that opens, click **No**.
-1. If successful, a window will appear saying **Connection worked!**. After you check the settings, click **Next**.
-1. Select the files you want to back up from your computer. Click **Next**.
-1. Set the backup schedule or deselect the **Automatically run backups** option to create backups manually. Click **Next**.
-1. Specify the volume size and set the storage duration. Click **Save**.
+1. Select **Add a new backup** ![image](../../_assets/plus.svg).
+1. At the **General** step, enter the backup plan name: `{{ yandex-cloud }}`. If you chose to encrypt the backup (`AES-256 encryption` or `GNU Privacy Guard`), enter the password and confirm it. Click **Continue**.
+1. At the **Destination** step, select `S3 Compatible` and click **Choose**:
+   1. In the **Bucket name** field, enter your bucket name.
+   1. In the **Folder path** field, specify the path inside the bucket (prefix). If you need the bucket root, leave this field empty.
+   1. In the **Server** field, enter this address: `{{ s3-storage-host }}/`. If there is a bucket connection error, try specifying the address without the slash: `{{ s3-storage-host }}`.
+   1. In the **Access Key ID** field, specify the static access key ID.
+   1. In the **Secret Access Key** field, paste the secret key. Click **Continue**.
+1. To make sure the settings are correct, click **Test now** in the window that opens.
+1. If successful, it will take you to the next step, **Source Data**. At this step:
+   1. In the **Source Data** field, select the local files you want to back up.
+   1. Optionally, configure filters in the **Filters** field.
+   1. Optionally, under **Exclude**, configure backup exclusions.
+   1. Click **Continue**.
+1. At the **Schedule** step, choose a backup schedule from the list or set a custom one by selecting **Custom** and enabling **Automatically run backups**. To create backups manually, select **Don't run automatically**. Click **Continue**.
+1. At the **Options** step, specify the volume size and set the storage duration. Click **Submit**.
 
 ## Test your backup {#test-backup}
 
 To test your backup:
 
-1. In the Duplicati interface, click **Home**.
-1. In the list of backup plans next to the `{{ yandex-cloud }}` plan, click **Run now**. Wait for the operation to complete.
+1. In the list of backup plans, next to the `{{ yandex-cloud }}` plan, click **Start**. Wait for the operation to complete.
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder with the backup bucket.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Open the bucket with backups and check whether all the relevant were copied.

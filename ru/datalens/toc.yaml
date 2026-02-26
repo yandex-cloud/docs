@@ -104,6 +104,8 @@ items:
             href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Примеры создания QL-чартов
             href: tutorials/data-from-ch-to-sql-chart.md
+          - name: Примеры создания чартов в Editor
+            href: tutorials/create-chart-editor.md
   - name: Подключения
     items:
       - name: Обзор
@@ -862,6 +864,8 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Нейроаналитик на дашборде
         href: dashboard/insights.md
+      - name: Тренды и сглаживания в чартах на дашборде
+        href: dashboard/trends-and-smoothing.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Пошаговые инструкции
@@ -1344,4 +1348,52 @@ items:
       - name: Обращение к несуществующему объекту
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
+      - name: Got an unexpected response from an external API
+        hidden: true
+        href: troubleshooting/errors/ERR-AUTH_API-UNEXPECTED_RESPONSE.md
+      - name: Internal Server Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-ACTION_NOT_ALLOWED.md
+      - name: Field references an unknown source avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND-FIELD_REF.md
+      - name: Source avatar not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND.md
+      - name: Source avatar title conflicts with another avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-TITLE-CONFLICT.md
+      - name: Invalid connection type value
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BAD_CONN_TYPE.md
+      - name: Got items with incompatible roles in block
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-ITEM_COMPATIBILITY.md
+      - name: Got more than one block with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_ROOTS.md
+      - name: This API does not support multiple query blocks
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_UNSUPPORTED.md
+      - name: Got no blocks with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-NO_ROOT.md
+      - name: Failed to load description of table columns
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-COLUMN_SCHEMA_FAILED.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL.md
+      - name: There are too many fields in the dataset
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET-TOO_MANY_FIELDS.md
+      - name: Dataset version mismatch. Refresh the page to continue
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET_REVISION_MISMATCH.md
 path: ru/datalens/toc.yaml

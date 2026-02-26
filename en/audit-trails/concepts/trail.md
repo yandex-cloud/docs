@@ -29,16 +29,29 @@ You can disable collecting all management or data events for any single service 
 
 Each trail uploads audit logs only to a single destination object: a bucket, a log group, or a data stream.
 
-{% include [note-lose-target-when-switch-trail](../../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
+#|
+|| **Destination** | **Use for** | **Delay** | **Format** ||
+|| {{ ui-key.yacloud.audit-trails.label_objectStorage }} bucket | Long-term storage and compliance | 5 min | JSON array ||
+|| {{ ui-key.yacloud.audit-trails.label_cloudLogging }} log group | Real-time monitoring | Seconds | One JSON object ||
+|| {{ ui-key.yacloud.audit-trails.label_dataStream }} data stream | Integration with SIEM, analytics | Seconds | JSON object stream ||
+|#
+
+Each destination object has its advantages:
+
+* **{{ ui-key.yacloud.audit-trails.label_objectStorage }}**: Provides long-term storage of large amounts of data for further processing.
+* **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Helps respond to events and analyze logs in real time.
+* **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Enables streaming data to other services and systems.
 
 When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./events.md) that occurred to the cloud resources during that period to one or more files. If no events occurred during the period, no files are generated.
 
-{{ at-name }} loads audit logs to log groups in near real time.
+{{ at-name }} uploads audit logs to log groups and data stream in near real time.
 
 The type of destination object determines the structure and content of the message used by {{ at-name }} to transmit audit logs:
 * If the destination object is a bucket, the message is a file containing a [JSON object](./format.md#scheme) array of the audit log.
 * If the destination object is a log group, the message includes a single JSON object of the audit log.
 * If the destination object is a data stream, the messages containing JSON objects of the audit log are sent to the stream.
+
+{% include [note-lose-target-when-switch-trail](../../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
 
 Each trail runs independently of one another. Using multiple trails, you can differentiate access to various log groups for users and services according to your information security policy.
 

@@ -301,7 +301,7 @@ The expression means the user will get the `Editor` role if they belong to the `
 
 The redirect URI you previously specified in {{ org-full-name }} must match the URI that Grafana OSS sends to {{ org-full-name }}.
 
-To do so:
+Proceed as follows:
 
 1. Open the [Grafana configuration file](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#configuration-file-location).
 1. In the `[server]` section, set:
@@ -379,11 +379,11 @@ Add a user to the application:
 
 To make sure both your OIDC app and Grafana OSS integration work correctly, authenticate to Grafana OSS as one of the users you added to the app.
 
-To do so:
+Proceed as follows:
 
 1. In your browser, navigate to the address of your Grafana OSS instance, e.g., `https://your-domain`.
 1. If you were logged in to Grafana OSS, log out.
 1. On the Grafana OSS sign in page, click **Sign in with OpenID Connect**.
 1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.
-1. Make sure you are logged in to Grafana OSS.
+1. Make sure you have successfully authenticated in Grafana OSS.
 1. If you have configured role mapping, go to the user profile in Grafana OSS and make sure the appropriate role is displayed under Organizations.

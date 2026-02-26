@@ -27,6 +27,8 @@ items:
             href: operations/cluster-patch-version.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Maintenance
             href: operations/cluster-maintenance.md
           - name: Deleting a cluster

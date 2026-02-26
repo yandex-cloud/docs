@@ -12,7 +12,7 @@ When creating a cluster, you can select the following disk types for data storag
   You can only increase the size of these disks in 93 GB increments.
 
 
-* **Local SSDs** (`local-ssd`): The highest-performing disks.
+* **Local SSDs** (`local-ssd`): Highest-performing disks.
 
   You can expand such a storage as follows:
   * For **Intel Broadwell** and **Intel Cascade Lake**: Only in 100 GB increments.
@@ -21,5 +21,7 @@ When creating a cluster, you can select the following disk types for data storag
   For a list of host classes and their respective platforms, see [Host classes](../../../storedoc/concepts/instance-types.md).
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [disk-block-size](../disk-block-size.md) %}
 
 {% include [available-storage](../available-storage.md) %}

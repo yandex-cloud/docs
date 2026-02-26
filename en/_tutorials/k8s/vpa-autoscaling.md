@@ -34,7 +34,7 @@ The support cost for this solution includes:
 
 1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md). Use these settings:
 
-   * Use the security groups you created earlier.
+   * Use the previously created security groups.
    * To enable internet access for your node group (e.g., for Docker image pulls), assign it a public IP address.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}

@@ -56,7 +56,9 @@ Required field. ID of the Workflow. ||
     "schedule": {
       "cron_expression": "string",
       "timezone": "string"
-    }
+    },
+    "is_public": "bool",
+    "execution_url": "string"
   }
 }
 ```
@@ -117,6 +119,12 @@ Express execution mode. ||
 || schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
 
 Workflow schedule settings. ||
+|| is_public | **bool**
+
+Ability of the Workflow to be executed without authentication. ||
+|| execution_url | **string**
+
+Execution URL of the Workflow. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}

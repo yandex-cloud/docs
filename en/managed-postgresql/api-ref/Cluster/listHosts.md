@@ -787,7 +787,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_14_1c": {
           "recoveryMinApplyDelay": "string",
@@ -855,7 +856,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_15": {
           "recoveryMinApplyDelay": "string",
@@ -923,7 +925,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_15_1c": {
           "recoveryMinApplyDelay": "string",
@@ -991,7 +994,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_16": {
           "recoveryMinApplyDelay": "string",
@@ -1059,7 +1063,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_16_1c": {
           "recoveryMinApplyDelay": "string",
@@ -1127,7 +1132,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_17": {
           "recoveryMinApplyDelay": "string",
@@ -1194,7 +1200,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_17_1c": {
           "recoveryMinApplyDelay": "string",
@@ -1261,7 +1268,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_18": {
           "recoveryMinApplyDelay": "string",
@@ -1328,7 +1336,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_18_1c": {
           "recoveryMinApplyDelay": "string",
@@ -1395,7 +1404,8 @@ The maximum string length in characters is 100. ||
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         }
         // end of the list of possible fields
       },
@@ -3566,6 +3576,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C}
@@ -3756,6 +3771,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15}
@@ -3946,6 +3966,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C}
@@ -4136,6 +4161,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16}
@@ -4329,6 +4359,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C}
@@ -4522,6 +4557,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17}
@@ -4716,6 +4756,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C}
@@ -4910,6 +4955,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18}
@@ -5104,6 +5154,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C}
@@ -5298,4 +5353,9 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#

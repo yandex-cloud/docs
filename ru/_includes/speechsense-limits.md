@@ -4,6 +4,7 @@
 ----- | -----
 **Общие квоты** |
 Максимальное количество [проектов](../speechsense/concepts/resources-hierarchy.md#project) в [пространстве](../speechsense/concepts/resources-hierarchy.md#space) | 100
+Максимальное количество [подключений](../speechsense/concepts/resources-hierarchy.md#connection) в [пространстве](../speechsense/concepts/resources-hierarchy.md#space) | 20
 Максимальное количество [тегов](../speechsense/concepts/tags.md) в проекте | 1 000
 Максимальное количество [метаданных](../speechsense/concepts/resources-hierarchy.md#connection) в подключении | 200
 Максимальное количество [словарей](../speechsense/concepts/dictionaries) в пространстве | 100

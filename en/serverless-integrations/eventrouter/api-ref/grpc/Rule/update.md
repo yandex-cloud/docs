@@ -118,7 +118,7 @@ Field mask that specifies which fields of the rule are going to be updated. ||
 
 New name of the rule.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 New description of the rule.

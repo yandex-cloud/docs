@@ -15,7 +15,7 @@ For more information about role inheritance, see [Inheritance of access permissi
 
 {% endnote %}
 
-## Roles this service has {#roles-list}
+## Available service roles {#roles-list}
 
 {% include [roles-security-deck-general](../../_mermaid/roles/security-deck-general.md) %}
 

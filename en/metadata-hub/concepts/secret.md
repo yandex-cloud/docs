@@ -14,4 +14,6 @@ Secrets are stored in [{{ lockbox-full-name }}](../../lockbox/index.yaml). To se
 
 You can set up access to versions of a secret in addition to access to the secret itself. To do this, you need to assign the `{{ roles-lockbox-admin }}` or `{{ roles-lockbox-payloadviewer }}` role. For more information about managing access, see [{{ lockbox-full-name }} access management: What roles do I need](../security/connection-manager-roles.md#choosing-roles).
 
+By default, secrets are created in the same folder as connections. To create a secret in a different folder, specify the ID of the folder for the secret in the relevant API, YC CLI, or {{ TF }} parameter when [creating the connection](../operations/create-connection.md). The connection and secret folders must be in the same cloud. Once the connection is created, you cannot change the folder for the secret.
+
 

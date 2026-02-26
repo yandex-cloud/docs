@@ -4005,7 +4005,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -4169,7 +4170,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -4333,7 +4335,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_14_1c": {
@@ -4500,7 +4503,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -4665,7 +4669,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -4830,7 +4835,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_15": {
@@ -4997,7 +5003,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -5162,7 +5169,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -5327,7 +5335,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_15_1c": {
@@ -5496,7 +5505,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -5663,7 +5673,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -5830,7 +5841,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_16": {
@@ -5997,7 +6009,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -6162,7 +6175,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -6327,7 +6341,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_16_1c": {
@@ -6496,7 +6511,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -6663,7 +6679,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -6830,7 +6847,8 @@ The maximum string length in characters is 50. ||
         "logReplicationCommands": "boolean",
         "logAutovacuumMinDuration": "string",
         "passwordEncryption": "string",
-        "autoExplainLogFormat": "string"
+        "autoExplainLogFormat": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_17": {
@@ -7000,7 +7018,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -7168,7 +7187,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -7336,7 +7356,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_17_1c": {
@@ -7508,7 +7529,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -7678,7 +7700,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -7848,7 +7871,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_18": {
@@ -8018,7 +8042,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -8186,7 +8211,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -8354,7 +8380,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       }
     },
     "postgresqlConfig_18_1c": {
@@ -8526,7 +8553,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "userConfig": {
         "maxConnections": "string",
@@ -8696,7 +8724,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       },
       "defaultConfig": {
         "maxConnections": "string",
@@ -8866,7 +8895,8 @@ The maximum string length in characters is 50. ||
         "trackCommitTimestamp": "boolean",
         "maxLogicalReplicationWorkers": "string",
         "maxWalSenders": "string",
-        "maxReplicationSlots": "string"
+        "maxReplicationSlots": "string",
+        "idleSessionTimeout": "string"
       }
     },
     // end of the list of possible fields
@@ -13153,6 +13183,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -13601,6 +13636,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -14054,6 +14094,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -14509,6 +14554,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -14966,6 +15016,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -15425,6 +15480,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -15891,6 +15951,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -16359,6 +16424,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -16825,6 +16895,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -17293,6 +17368,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}

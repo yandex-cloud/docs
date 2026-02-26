@@ -116,7 +116,7 @@ The rest of the fields will be reset to the default. ||
 New name for the container.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 New description for the container.

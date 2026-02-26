@@ -41,6 +41,12 @@ items:
             href: operations/monitoring.md
           - name: Просмотр логов кластера
             href: operations/cluster-logs.md
+          - name: Мониторинг состояния Spark-приложений
+            href: operations/spark-monitoring.md
+          - name: >-
+              Диагностика и примеры устранения проблем производительности
+              Spark-приложений
+            href: operations/spark-diagnostics.md
   - name: Практические руководства
     items:
       - name: Все руководства

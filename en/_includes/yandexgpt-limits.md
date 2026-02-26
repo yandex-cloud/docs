@@ -34,6 +34,8 @@ Number of [tools](../ai-studio/concepts/assistant/tools/index.md) per server | 5
 **[Voice agents](../ai-studio/concepts/agents/realtime.md)** (`{{ realtime-model }}` [model](../ai-studio/concepts/agents/realtime.md#model)) |
 Number of concurrent sessions with the model | 10
 Number of session creation queries per second | 10
+**[AI agents](../ai-studio/concepts/agents/index.md)** |
+Number of concurrent [{{ code-interpreter }}](../ai-studio/concepts/agents/tools/code-interpreter.md) launches | 3
 
 #### Limits {#yandexgpt-limits}
 

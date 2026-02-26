@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как получить ид
 
   **Получение идентификатора на дашборде**
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
   1. Идентификатор каталога указан сверху, под именем каталога. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
 
      {% cut "Расположение идентификатора" %}
@@ -24,7 +24,7 @@ description: Из статьи вы узнаете, как получить ид
 
   **Получение идентификатора на вкладке {{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }}**
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
   1. Справа от названия каталога нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_folder-info }}**.
   1. В открывшемся окне идентификатор каталога указан в поле **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoDialog.folder-id_6KQJv }}**. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
 

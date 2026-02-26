@@ -5,6 +5,10 @@ description: This section contains the {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## January 2026 {#jan-2026}
+
+Added the **{{ ui-key.yacloud.mdb.cluster.switch_shards }}** tab to **{{ ui-key.yacloud.mdb.cluster.monitoring.label_title }}**. From this tab, you can track metrics for each individual shard and promptly detect problematic nodes.
+
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.

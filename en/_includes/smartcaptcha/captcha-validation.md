@@ -1,4 +1,11 @@
-After validating a request, {{ captcha-name }} assigns it an ID: a one-time token. You can use the token to retrieve the result of a user request validation from the service. The token is valid for five minutes. After this time expires, it becomes invalid and the user has to go through the validation process again.
+After validating a request, {{ captcha-name }} assigns it an ID: a one-time token with a limited TTL. You can use the token to retrieve the result of a user request validation from the service.
+
+{% note warning %}
+
+* The token remains valid for five minutes. After it expires, the user has to pass validation again.
+* The token can be used only once to request the validation result. If you try to validate the same token again, you will get the `"status": "failed"` response that says `Token invalid or expired`.
+
+{% endnote %}
 
 After validation, the token is loaded into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page. For example:
 

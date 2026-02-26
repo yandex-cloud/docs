@@ -201,7 +201,7 @@ Automatic selection of serialization settings depending on the source type.
     1. Select the `Optional-friendly` compatibility check policy in the {{ schema-registry-name }} namespace.
     1. In serialization settings of the target endpoint, [set](../operations/endpoint/target/kafka.md#serializer) **value.converter.dt.json.generate.closed.content.schema** to `true`.    
 
-* **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
+* **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authentication in Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
     Value format: `<username>:<password>`.
 

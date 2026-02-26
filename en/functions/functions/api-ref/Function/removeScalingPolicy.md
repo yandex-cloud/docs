@@ -70,7 +70,7 @@ Required field. Version tag.
 
 To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
 
-Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
+Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

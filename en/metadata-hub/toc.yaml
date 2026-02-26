@@ -107,13 +107,13 @@ items:
         href: quickstart/metastore.md
       - name: Step-by-step guides
         items:
-          - name: Getting cluster info
+          - name: Getting information about clusters
             href: operations/metastore/cluster-list.md
           - name: Creating a cluster
             href: operations/metastore/cluster-create.md
           - name: Updating a cluster
             href: operations/metastore/cluster-update.md
-          - name: Stopping and starting a cluster
+          - name: Stopping and restarting a cluster
             href: operations/metastore/cluster-stop.md
           - name: Configuring security groups
             href: operations/metastore/configure-security-group.md
@@ -127,6 +127,8 @@ items:
             href: operations/metastore/s3-policy-connect.md
           - name: Transferring logs to {{ cloud-logging-name }}
             href: operations/metastore/logging.md
+          - name: Managing cluster access
+            href: operations/metastore/cluster-access.md
           - name: Deleting a cluster
             href: operations/metastore/cluster-delete.md
       - name: Tutorials
@@ -461,6 +463,14 @@ items:
                 href: operations/data-catalog/get-data-profile.md
               - name: Queries against datasets with {{ websql-full-name }}
                 href: operations/data-catalog/web-sql-query.md
+          - name: Data storage
+            items:
+              - name: Getting a list of data storages
+                href: operations/data-catalog/list-data-store.md
+              - name: Getting data storage info
+                href: operations/data-catalog/get-info-data-store.md
+              - name: Data storage markup
+                href: operations/data-catalog/markup-data-store.md
       - name: Concepts
         items:
           - name: Metadata catalogs

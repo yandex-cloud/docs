@@ -38,9 +38,9 @@ description: Следуя данной инструкции, вы сможете
   1. [Добавьте](../../billing/security/index.md#set-member-role) пользователя в сабаккаунт.
   1. [Назначьте](../../billing/security/index.md#set-role) ему роли.
 
-- Партнерский портал {#partner}
+- Партнёрский портал {#partner}
 
-  1. Перейдите на [партнерский портал]({{ link-cloud-partners }}).
+  1. Перейдите на [Партнёрский портал]({{ link-cloud-partners }}).
   1. На панели слева выберите ![icon](../../_assets/console-icons/credit-card.svg) **Сабаккаунты**.
   1. Выберите нужный сабаккаунт из списка.
   1. Перейдите на вкладку ![icon](../../_assets/console-icons/person-gear.svg) **Пользователи**.

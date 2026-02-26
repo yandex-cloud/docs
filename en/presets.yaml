@@ -4732,11 +4732,17 @@ default:
             oauth-scope-groups_iZoa5: groups (user's groups in the organization)
             oauth-scope-openid_o99tx: openid (user ID)
             oauth-scope-profile_sgdKX: profile (full name, first name, last name, avatar, etc.)
+            section-service-provider_5d85k: Service provider (SP) configuration
           OauthAppRedirectUrlsField:
             add-redirect-url_rS5jw: Add URI
           SamlAppAcsUrlsField:
             add-acs-url_eMunC: Add URL
           SamlAppEditForm:
+            EncryptResponseSection:
+              add-cert-action: Add certificate
+              field-encode-data-algo: Data encryption algorithm
+              field-encode-key-algo: Data encryption algorithm
+              field-encrypt-response: Encrypt assertion in response
             field-acs-urls_eQcJr: ACS URL
             field-description_cjpok: Description
             field-labels_uT2D2: Labels
@@ -4744,6 +4750,8 @@ default:
             field-signature-mode_ipXQ7: Signature mode
             field-sp-entity-id_snAsX: 'SP EntityID '
             field-sp-logout-url_sLuRl: SP Logout URL
+            RequestSigningSection:
+              field-request-signing: Only accept signed requests
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response

@@ -7,27 +7,48 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-### Version 0.190.0 (05/02/26) {#version0.190.0}
+### Version 0.192.0 (12/02/26) {#version0.192.0}
 
+#### Changes to {{ yandex-cloud }} services {#services-0.192.0}
 
-#### Changes in {{ yandex-cloud }} services
+##### {{ si-name }} {#si-name-0.192.0}
 
+The below workflow management commands now support the `--set-is-public` and `--remove-is-public` parameters to enable or disable public access to a workflow execution:
 
-##### {{ connection-manager-name }}
-Added the `--secret-folder-id` flag for connection create commands, `yc metadata-hub connection-manager connection create`.
-
-
-##### {{ sw-name }}
-Fixed the cron expression example for a schedule: 
-  * `yc serverless workflow create`
+* `yc serverless workflow create`
+* `yc serverless workflow update`
 
 ## Previous releases {#previous-release}
 
-### Version 0.189.0 (02/02/26) {#version0.189.0}
+### Version 0.191.0 (06/02/26) {#version0.191.0}
 
+#### Changes to the CLI {#cli-0.191.0}
+
+* Changed the procedure for getting an endpoint for authentication.
+* Removed commands for working with {{ mms-full-name }}.
+
+#### Changes to {{ yandex-cloud }} services {#services-0.191.0}
+
+##### {{ managed-k8s-full-name }} {#managed-k8s-name-0.191.0}
+
+The below node group management commands now support the `--enable-workload-identity-federation` parameter to enable or disable [integration with a workload identity federation](../iam/concepts/workload-identity.md) in {{ iam-name }}:
+* `yc managed-kubernetes node-group create`
+* `yc managed-kubernetes node-group update`
+
+### Version 0.190.0 (05/02/26) {#version0.190.0}
 
 #### Changes in {{ yandex-cloud }} services
 
+##### {{ connection-manager-name }}
+Added the `--secret-folder-id` flag for connection create commands, i.e., `yc metadata-hub connection-manager connection create`.
+
+##### {{ sw-name }}
+Fixed a cron expression example for schedule: 
+  * `yc serverless workflow create`
+
+### Version 0.189.0 (02/02/26) {#version0.189.0}
+
+#### Changes in {{ yandex-cloud }} services
 
 ##### {{ connection-manager-name }}
 Added the `--secret-folder-id` flag for connection create commands.
@@ -2592,7 +2613,7 @@ Fixed the `yc compute instance-group update` command issue where the instance gr
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can be either `SPREAD` or `PARTITION`.
+* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can either be `SPREAD` or `PARTITION`.
 * Added the `--partition-count` parameter to the `yc compute disk-placement-group create` command. The flag sets the number of partitions for a group with the `PARTITION` strategy.
 * Added the `--disk-placement-group-partition` parameter to the `yc compute disk create` command to specify the partition number in a placement group.
 * Added the `PLACEMENT GROUP` column to the table with a list of disks you get using the `yc compute disk list` command.
@@ -5159,7 +5180,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * `{{ yc-mdb-pg }} cluster update` command
 
   Added the `--connection-pool-discard` flag to disable the connection pooler.
-* `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update` commands.
+* `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update` commands
 
   You can now specify a login and set user access permissions using the `--login` and `--grants` parameters.
 

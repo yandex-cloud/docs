@@ -4,7 +4,7 @@ By default, all operations in {{ ig-name }} are performed under a [service accou
 
 Service accounts are special accounts that can be used by services and applications to work with other {{ yandex-cloud }} APIs on your behalf. For more information about service accounts and access management in {{ yandex-cloud }}, see the [{{ iam-full-name }} documentation](../../../iam/).
 
-{{ ig-name }} use [authorized keys](../../../iam/concepts/authorization/key.md) of the service account to authorize in the APIs and perform operations on resources within the roles granted to this service account. For example, {{ ig-name }} can use a service account to create, update, and delete VM instances.
+{{ ig-name }} use the service account's [authorized keys](../../../iam/concepts/authorization/key.md) to authenticate in the APIs and perform operations on resources within the roles granted to the service account. For example, {{ ig-name }} can use a service account to create, update, and delete VM instances.
 
 An instance group may only have one service account created in the same folder as the group.
 

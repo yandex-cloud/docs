@@ -495,7 +495,7 @@ Field mask that specifies which attributes of the trigger should be updated. ||
 New name for the trigger.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 New description of the trigger.
@@ -1024,7 +1024,7 @@ Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. T
 Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
 || stream_name[] | **string**
 
-Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100. ||
+Each value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. The maximum number of elements is 100. ||
 || levels[] | enum **Level**
 
 The maximum number of elements is 10.
@@ -2294,7 +2294,7 @@ Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. T
 Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
 || stream_name[] | **string**
 
-Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100. ||
+Each value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. The maximum number of elements is 100. ||
 || levels[] | enum **Level**
 
 The maximum number of elements is 10.

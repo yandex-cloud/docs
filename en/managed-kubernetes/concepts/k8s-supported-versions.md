@@ -21,6 +21,12 @@ The table below lists the supported {{ k8s }} versions for various {{ managed-k8
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
 |#
 
+{% note info %}
+
+The estimated release date of the new version in the `RAPID` channel is the quarter following the [official release date of the stable {{ k8s }} version](https://kubernetes.io/releases/).
+
+{% endnote %}
+
 ### See also {#see-also}
 
 * [{#T}](./release-channels-and-updates.md)

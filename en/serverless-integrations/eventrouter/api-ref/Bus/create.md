@@ -152,7 +152,7 @@ Required field. ID of the folder to create a bus in. ||
 
 Name of the bus.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the bus.

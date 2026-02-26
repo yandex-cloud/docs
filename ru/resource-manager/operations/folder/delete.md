@@ -6,7 +6,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
   1. Справа от названия каталога нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.FolderActions.button_action-delete-folder_mu24C }}**.
 

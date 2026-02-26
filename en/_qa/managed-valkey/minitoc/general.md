@@ -2,7 +2,7 @@
 
 * [What is the role of {{ mrd-short-name }} in database management and maintenance?](#services)
 
-* [When should I use {{ mrd-short-name }}, and when should I opt for database VMs?](#mdb-advantage)
+* [When to use {{ mrd-short-name }} and when database VMs?](#mdb-advantage)
 
 * [What is a database host and database cluster?](#what-is-cluster)
 
@@ -34,12 +34,18 @@
 
 * [What metrics and processes can be monitored?](#monitoring)
 
-* [How do I set up an alert that triggers as soon as a certain percentage of disk space is used up?](#disk-space-percentage)
+* [How can I configure an alert for when disk usage reaches a certain percentage?](#disk-space-percentage)
+
+* [Does the service comply with the Russian Federal Law 152-FZ on personal data?](#fz-152)
 
 * [How do I get the logs of my activity in the Yandex Cloud services?](#logs)
+
+* [How longs are logs retained?](#log-keeping)
 
 * [Why is my cluster slow even though the computing resources are not fully utilized?](#throttling)
 
 * [Can I connect to cluster hosts over SSH or get superuser privileges on hosts?](#connect-ssh)
 
-* [What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)
+* [What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell?](#get-ssl-error)
+
+* [What block size is used on the cluster disks?](#block-size)
