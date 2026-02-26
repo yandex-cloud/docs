@@ -34,7 +34,7 @@ Version tag.
 
 To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/grpc/Function/listTagHistory#ListTagHistory) request.
 
-Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
+Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
 |#
 
 ## Version {#yandex.cloud.serverless.functions.v1.Version}

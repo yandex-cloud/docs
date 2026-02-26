@@ -7,7 +7,7 @@ description: A {{ cdn-name }} point of presence is the physical location of CDN 
 
 _Points of presence_, or PoPs, are geographically distributed physical CDN servers that cache and deliver content to end users. They reside in strategic geographic locations with efficient access to communication links, enabling content delivery via the shortest route with minimal latency.
 
-{{ cdn-full-name }} provides access to 38 points of presence with a total throughput exceeding 3 Tbps.
+{{ cdn-full-name }} provides access to 44 points of presence with a total throughput exceeding 3 Tbps.
 
 {% note info %}
 
@@ -30,26 +30,29 @@ PoP server performance also shapes the overall content delivery speed. Stable de
 
 Cities with at least one PoP:
 
-| **Russia** | **Kazakhstan** | **Uzbekistan** |
-|------------|---------------|----------------|
-| Alexandrov | Aktobe | Tashkent |
-| Vladivostok | Karaganda | |
-| Voronezh | | |
-| Yekaterinburg | | |
-| Krasnodar | | |
-| Moscow | | |
-| Nizhny Novgorod | | |
-| Novosibirsk | | |
-| Petrozavodsk | | |
-| Rostov-on-Don | | |
-| Samara | | |
-| Saint Petersburg | | |
-| Simferopol | | |
-| Tambov | | |
-| Tyumen | | |
-| Khabarovsk | | |
-| Chelyabinsk | | |
-| Chita | | |
+| **Russia** | **Kazakhstan** | **Uzbekistan** | **Kyrgyzstan** |
+|------------|---------------|----------------|----------------|
+| Alexandrov | Aktobe | Tashkent | Manas |
+| Vladivostok | Karaganda | | |
+| Voronezh | | | |
+| Yekaterinburg | | | |
+| Krasnodar | | | |
+| Moscow | | | |
+| Nizhny Novgorod | | | |
+| Novosibirsk | | | |
+| Orenburg | | | |
+| Petrozavodsk | | | |
+| Rostov-on-Don | | | |
+| Samara | | | |
+| Saint Petersburg | | | |
+| Simferopol | | | |
+| Sochi | | | |
+| Tambov | | | |
+| Tyumen | | | |
+| Ufa | | | |
+| Khabarovsk | | | |
+| Chelyabinsk | | | |
+| Chita | | | |
 
 ## FAQ {#qa}
 

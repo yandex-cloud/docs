@@ -221,4 +221,10 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](airflow-spark-min.md)
 * [{#T}](spark-objstorage-integration.md)
 
+
+## {{ myt-full-name }} {#ytsaurus}
+
+* [{#T}](yt-run-spark-job.md)
+
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

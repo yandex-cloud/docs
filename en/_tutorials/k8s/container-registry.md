@@ -35,7 +35,7 @@ The support cost for this solution includes:
 ## Create service accounts {#create-sa}
 
 Create these [service accounts](../../iam/operations/sa/create.md):
-* Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the new {{ managed-k8s-name }} cluster. This service account will be used to create resources for your {{ managed-k8s-name }} cluster.
+* Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the new {{ managed-k8s-name }} cluster. This service account will be used to create {{ managed-k8s-name }} cluster resources.
 * Service account for [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder containing the Docker image registry. The {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
 
 ### Create a service account for resources {#res-sa}
@@ -189,7 +189,7 @@ To create a service account the {{ managed-k8s-name }} nodes will use to pull th
 
 {% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
-## Create {{ container-registry-name }} resources {#create-cr-res}
+## Set up {{ container-registry-name }} resources {#create-cr-res}
 
 ### Create a registry {#registry-create}
 

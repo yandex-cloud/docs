@@ -8,8 +8,8 @@ description: Access management in {{ data-transfer-full-name }}, a service for d
 
 In this section, you will learn about:
 
-* [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Resources available for role assignment](#resources).
+* [Available service roles](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
@@ -18,11 +18,11 @@ To use the service, log in to the management console with your [Yandex account](
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources available for role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Roles this service has {#roles-list}
+## Available service roles {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -60,7 +60,7 @@ To use the service, log in to the management console with your [Yandex account](
 
 {% include [roles-admin](../../_roles/primitive-roles/admin.md) %}
 
-## What roles are required {#required-roles}
+## Required roles {#required-roles}
 
 To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where you want to create {{ data-transfer-name }} resources. With the `viewer` role, you can only view the list of the projects and the contents of uploaded files.
 

@@ -8503,6 +8503,13 @@ apiPlayground:
               - AUTO_EXPLAIN_LOG_FORMAT_XML
               - AUTO_EXPLAIN_LOG_FORMAT_JSON
               - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig14_1C:
         type: object
         properties:
@@ -9462,6 +9469,13 @@ apiPlayground:
               - AUTO_EXPLAIN_LOG_FORMAT_XML
               - AUTO_EXPLAIN_LOG_FORMAT_JSON
               - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig15:
         type: object
         properties:
@@ -10425,6 +10439,13 @@ apiPlayground:
               - AUTO_EXPLAIN_LOG_FORMAT_XML
               - AUTO_EXPLAIN_LOG_FORMAT_JSON
               - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig15_1C:
         type: object
         properties:
@@ -11394,6 +11415,13 @@ apiPlayground:
               - AUTO_EXPLAIN_LOG_FORMAT_XML
               - AUTO_EXPLAIN_LOG_FORMAT_JSON
               - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig16:
         type: object
         properties:
@@ -12357,6 +12385,13 @@ apiPlayground:
               - AUTO_EXPLAIN_LOG_FORMAT_XML
               - AUTO_EXPLAIN_LOG_FORMAT_JSON
               - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig16_1C:
         type: object
         properties:
@@ -13326,6 +13361,13 @@ apiPlayground:
               - AUTO_EXPLAIN_LOG_FORMAT_XML
               - AUTO_EXPLAIN_LOG_FORMAT_JSON
               - AUTO_EXPLAIN_LOG_FORMAT_YAML
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig17:
         type: object
         properties:
@@ -14304,6 +14346,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               Acceptable values are 20 to 100, inclusive.
+            type: string
+            format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       PostgresqlConfig17_1C:
@@ -15292,6 +15341,13 @@ apiPlayground:
               Acceptable values are 20 to 100, inclusive.
             type: string
             format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig18:
         type: object
         properties:
@@ -16270,6 +16326,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               Acceptable values are 20 to 100, inclusive.
+            type: string
+            format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       PostgresqlConfig18_1C:
@@ -17256,6 +17319,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               Acceptable values are 20 to 100, inclusive.
+            type: string
+            format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       ConnectionPoolerConfig:
@@ -21863,6 +21933,13 @@ apiPlayground:
               Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlHostConfig14_1C:
         type: object
         properties:
@@ -22284,6 +22361,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               Acceptable values are 1048576 to 549755813888, inclusive.
+            type: string
+            format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig15:
@@ -22709,6 +22793,13 @@ apiPlayground:
               Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlHostConfig15_1C:
         type: object
         properties:
@@ -23130,6 +23221,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               Acceptable values are 1048576 to 549755813888, inclusive.
+            type: string
+            format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig16:
@@ -23555,6 +23653,13 @@ apiPlayground:
               Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlHostConfig16_1C:
         type: object
         properties:
@@ -23978,6 +24083,13 @@ apiPlayground:
               Acceptable values are 1048576 to 549755813888, inclusive.
             type: string
             format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlHostConfig17:
         type: object
         properties:
@@ -24396,6 +24508,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               Acceptable values are 0 to 549755813888, inclusive.
+            type: string
+            format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       PostgresqlHostConfig17_1C:
@@ -24818,6 +24937,13 @@ apiPlayground:
               Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlHostConfig18:
         type: object
         properties:
@@ -25238,6 +25364,13 @@ apiPlayground:
               Acceptable values are 0 to 549755813888, inclusive.
             type: string
             format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlHostConfig18_1C:
         type: object
         properties:
@@ -25656,6 +25789,13 @@ apiPlayground:
             description: |-
               **string** (int64)
               Acceptable values are 0 to 549755813888, inclusive.
+            type: string
+            format: int64
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       ConfigHostSpec:
@@ -27357,7 +27497,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
-      "autoExplainLogFormat": "string"
+      "autoExplainLogFormat": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_14_1c": {
       "maxConnections": "string",
@@ -27522,7 +27663,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
-      "autoExplainLogFormat": "string"
+      "autoExplainLogFormat": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_15": {
       "maxConnections": "string",
@@ -27687,7 +27829,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
-      "autoExplainLogFormat": "string"
+      "autoExplainLogFormat": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_15_1c": {
       "maxConnections": "string",
@@ -27854,7 +27997,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
-      "autoExplainLogFormat": "string"
+      "autoExplainLogFormat": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_16": {
       "maxConnections": "string",
@@ -28019,7 +28163,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
-      "autoExplainLogFormat": "string"
+      "autoExplainLogFormat": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_16_1c": {
       "maxConnections": "string",
@@ -28186,7 +28331,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
-      "autoExplainLogFormat": "string"
+      "autoExplainLogFormat": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_17": {
       "maxConnections": "string",
@@ -28354,7 +28500,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "trackCommitTimestamp": "boolean",
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
-      "maxReplicationSlots": "string"
+      "maxReplicationSlots": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_17_1c": {
       "maxConnections": "string",
@@ -28524,7 +28671,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "trackCommitTimestamp": "boolean",
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
-      "maxReplicationSlots": "string"
+      "maxReplicationSlots": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_18": {
       "maxConnections": "string",
@@ -28692,7 +28840,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "trackCommitTimestamp": "boolean",
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
-      "maxReplicationSlots": "string"
+      "maxReplicationSlots": "string",
+      "idleSessionTimeout": "string"
     },
     "postgresqlConfig_18_1c": {
       "maxConnections": "string",
@@ -28862,7 +29011,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "trackCommitTimestamp": "boolean",
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
-      "maxReplicationSlots": "string"
+      "maxReplicationSlots": "string",
+      "idleSessionTimeout": "string"
     },
     // end of the list of possible fields
     "poolerConfig": {
@@ -29586,7 +29736,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_14_1c": {
           "recoveryMinApplyDelay": "string",
@@ -29654,7 +29805,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_15": {
           "recoveryMinApplyDelay": "string",
@@ -29722,7 +29874,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_15_1c": {
           "recoveryMinApplyDelay": "string",
@@ -29790,7 +29943,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_16": {
           "recoveryMinApplyDelay": "string",
@@ -29858,7 +30012,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_16_1c": {
           "recoveryMinApplyDelay": "string",
@@ -29926,7 +30081,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_17": {
           "recoveryMinApplyDelay": "string",
@@ -29993,7 +30149,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_17_1c": {
           "recoveryMinApplyDelay": "string",
@@ -30060,7 +30217,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_18": {
           "recoveryMinApplyDelay": "string",
@@ -30127,7 +30285,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         },
         "postgresqlConfig_18_1c": {
           "recoveryMinApplyDelay": "string",
@@ -30194,7 +30353,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
           "maxParallelWorkersPerGather": "string",
           "timezone": "string",
           "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
+          "effectiveCacheSize": "string",
+          "idleSessionTimeout": "string"
         }
         // end of the list of possible fields
       }
@@ -34257,6 +34417,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C}
@@ -34689,6 +34854,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15}
@@ -35126,6 +35296,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C}
@@ -35565,6 +35740,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16}
@@ -36006,6 +36186,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C}
@@ -36449,6 +36634,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17}
@@ -36899,6 +37089,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C}
@@ -37351,6 +37546,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18}
@@ -37801,6 +38001,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C}
@@ -38253,6 +38458,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -40422,6 +40632,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C}
@@ -40612,6 +40827,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15}
@@ -40802,6 +41022,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C}
@@ -40992,6 +41217,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16}
@@ -41185,6 +41415,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C}
@@ -41378,6 +41613,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 1048576 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17}
@@ -41572,6 +41812,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C}
@@ -41766,6 +42011,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18}
@@ -41960,6 +42210,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlHostConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C}
@@ -42154,6 +42409,11 @@ Acceptable values are 0 to 1000, inclusive. ||
 || effectiveCacheSize | **string** (int64)
 
 Acceptable values are 0 to 549755813888, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
@@ -46181,7 +46441,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -46345,7 +46606,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -46509,7 +46771,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_14_1c": {
@@ -46676,7 +46939,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -46841,7 +47105,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -47006,7 +47271,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_15": {
@@ -47173,7 +47439,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -47338,7 +47605,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -47503,7 +47771,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_15_1c": {
@@ -47672,7 +47941,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -47839,7 +48109,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -48006,7 +48277,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_16": {
@@ -48173,7 +48445,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -48338,7 +48611,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -48503,7 +48777,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_16_1c": {
@@ -48672,7 +48947,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -48839,7 +49115,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -49006,7 +49283,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
-          "autoExplainLogFormat": "string"
+          "autoExplainLogFormat": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_17": {
@@ -49176,7 +49454,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -49344,7 +49623,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -49512,7 +49792,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_17_1c": {
@@ -49684,7 +49965,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -49854,7 +50136,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -50024,7 +50307,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_18": {
@@ -50194,7 +50478,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -50362,7 +50647,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -50530,7 +50816,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         }
       },
       "postgresqlConfig_18_1c": {
@@ -50702,7 +50989,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -50872,7 +51160,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -51042,7 +51331,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "trackCommitTimestamp": "boolean",
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
-          "maxReplicationSlots": "string"
+          "maxReplicationSlots": "string",
+          "idleSessionTimeout": "string"
         }
       },
       // end of the list of possible fields
@@ -55431,6 +55721,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -55879,6 +56174,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -56332,6 +56632,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -56787,6 +57092,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -57244,6 +57554,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -57703,6 +58018,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 - `AUTO_EXPLAIN_LOG_FORMAT_XML`
 - `AUTO_EXPLAIN_LOG_FORMAT_JSON`
 - `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -58169,6 +58489,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -58637,6 +58962,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -59103,6 +59433,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -59571,6 +59906,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2}

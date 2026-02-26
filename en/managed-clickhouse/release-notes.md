@@ -24,13 +24,19 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 # {{ mch-full-name }} release notes
 
+## January 2026 {#jan-2026}
+
+* Increased the maximum number of [shards](./concepts/sharding.md) per cluster to 100. This enables more flexible horizontal scaling of a cluster.
+* A new {{ CH }} version is out: [25.12](https://clickhouse.com/blog/clickhouse-release-25-12). Among other things, it features faster `INNER JOIN` algorithms.
+* The cluster page now displays the source cluster ID in the list of all backups. This allows you to find out the backup source faster.
+
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
 * Improved implementation of the `stats` and `Persistent Watches` methods in [{{ CK }}](concepts/replication.md#ck) to support a {{ ZK }}-compatible protocol.
 * Optimized [replica](concepts/replication.md) recovery. Recovery of large (2 TB and larger) non-replicated disks became faster.
 * {{ CK }} coordination service running on separate hosts is [billable](pricing.md#prices-keeper). It works faster than {{ ZK }} and uses the [Raft](https://en.wikipedia.org/wiki/Raft_(algorithm)) consensus algorithm. This configuration is recommended for the production environment.
-* Released a new {{ CH }} version: [25.11](https://clickhouse.com/blog/clickhouse-release-25-11).
+* A new {{ CH }} version is out: [25.11](https://clickhouse.com/blog/clickhouse-release-25-11).
 
 ## November 2025 {#nov-2025}
 
@@ -111,12 +117,12 @@ The new {{ CH }} version is out: [24.3 LTS](https://clickhouse.com/docs/en/whats
 
 ## February 2024 {#feb-2024}
 
-* The new {{ CH }} versions are out: [23.9](https://clickhouse.com/docs/en/whats-new/changelog/2023#239), [23.10](https://clickhouse.com/docs/en/whats-new/changelog/2023#2310), [23.11](https://clickhouse.com/docs/en/whats-new/changelog/2023#2311), [23.12](https://clickhouse.com/docs/en/whats-new/changelog/2023#2312), and [24.1](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-241-2024-01-30).
+* New {{ CH }} versions are out: [23.9](https://clickhouse.com/docs/en/whats-new/changelog/2023#239), [23.10](https://clickhouse.com/docs/en/whats-new/changelog/2023#2310), [23.11](https://clickhouse.com/docs/en/whats-new/changelog/2023#2311), [23.12](https://clickhouse.com/docs/en/whats-new/changelog/2023#2312), and [24.1](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-241-2024-01-30).
 * Now you can [restart cluster hosts](./operations/hosts.md#restart). In most cases, users do not need to restart hosts. This is an emergency troubleshooting tool in case of memory leaks or unresponsive internal DBMS processes.
 
 ## Q2 2023 {#q2-2023}
 
-The new {{ CH }} versions are out: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
+New {{ CH }} versions are out: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
 
 ## Q1 2023 {#q1-2023}
 
@@ -124,7 +130,7 @@ The new {{ CH }} version is out: [23.3](https://clickhouse.com/docs/en/whats-new
 
 ## Q4 2022 {#q4-2022}
 
-* The new {{ CH }} versions are out: [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) and [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).
+* New {{ CH }} versions are out: [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) and [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).
 * You can now create {{ ZK }} hosts with [non-replicated SSD storage](concepts/storage.md).
 * You can now set up {{ ZK }} hosts when restoring a cluster from a backup.
 * You can now set up hybrid storage when restoring a cluster from a backup.

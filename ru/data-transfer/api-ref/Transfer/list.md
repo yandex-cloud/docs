@@ -1973,7 +1973,6 @@ Includes only one of the fields `enabled`. ||
 || caCertificate | **string**
 
 CA certificate
-
 X.509 certificate of the certificate authority which issued the server's
 certificate, in PEM format. When CA certificate is specified, TLS is used to
 connect to the server. If CA certificate is empty, the server's certificate must
@@ -2442,6 +2441,7 @@ Unescape string values ||
 || jsonFields | **string**
 
 Description of the data schema as JSON specification
+Deprecated: please use fields instead
 
 Includes only one of the fields `jsonFields`, `fields`. ||
 || fields | **[FieldList](#yandex.cloud.datatransfer.v1.endpoint.FieldList)**

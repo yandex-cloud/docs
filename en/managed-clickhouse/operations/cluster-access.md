@@ -7,7 +7,7 @@ description: Follow this guide to configure {{ mch-name }} cluster access permis
 
 You can assign a user or service account a [role](../security.md) that grants access to a specific [cluster](../concepts/index.md).
 
-Thus, you can granularly assign different roles for particular clusters to different users and service accounts.
+This way, you can granularly assign different roles for specific clusters to different users and service accounts.
 
 
 ## Getting a list of roles assigned for a cluster {#list-access-bindings}
@@ -107,7 +107,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `--role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
@@ -154,7 +154,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -200,7 +200,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       * `resource_id`: Cluster ID.
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -250,7 +250,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
@@ -309,7 +309,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -373,7 +373,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       * `resource_id`: Cluster ID.
       * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -416,7 +416,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `--role`: [Role](../security.md#roles-list) being revoked, e.g., `managed-clickhouse.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
@@ -457,7 +457,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -533,7 +533,7 @@ For a service account to be able to view the info of all {{ mch-name }} clusters
   1. Assign the roles for the cluster:
 
       ```bash
-      {{ yc-mdb-ch }} cluster add-access-bindings <cluster_name_or_ID> \
+      {{ yc-mdb-ch }} cluster add-access-binding <cluster_name_or_ID> \
         --access-binding role=managed-clickhouse.editor,subject=serviceAccount:<service_account_ID>
       ```
 

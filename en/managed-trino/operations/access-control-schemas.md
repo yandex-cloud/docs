@@ -30,6 +30,33 @@ Schema names specified in the rules are not validated. If a schema name contains
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
+  1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
+  1. In the **{{ ui-key.yacloud.trino.label_rbac-schema }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
+  1. In the window that opens, set the rule settings:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. In the **{{ ui-key.yacloud.trino.label_rbac-schema-owner }}** field, select whether or not the user owns the schema:
+        * `YES`: The user owns the schema.
+        * `NO`: The user does not own the schema.
+
+     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+
+     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+  1. Add other rules in a similar way if required.
+  1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -65,8 +92,8 @@ Schema names specified in the rules are not validated. If a schema name contains
      * `schemas`: List of schema rules. Each rule contains the required `owner` parameter, as well as the optional `schema`, `catalog`, `groups`, `users`, and `description` parameters.
 
      * `owner`: Whether or not the user owns the schema:
-       * `YES`: This user owns the schema.
-       * `NO`: This user does not own the schema.
+       * `YES`: The user owns the schema.
+       * `NO`: The user does not own the schema.
 
      * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
        * `names`: List of schema names.
@@ -99,7 +126,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
   1. Create a {{ TF }} configuration file describing your [infrastructure](cluster-create.md).
   
-  1. Add to the configuration file the `yandex_trino_access_control` resource containing the `schemas` rule list.
+  1. Add the `yandex_trino_access_control` resource with the `schemas` rule list to the configuration file.
  
      ```hcl
      resource "yandex_trino_cluster" "<cluster_name>" {
@@ -163,8 +190,8 @@ Schema names specified in the rules are not validated. If a schema name contains
      * `schemas`: List of schema rule sections. Each rule contains the required `owner` parameter, as well as the optional `schema`, `catalog`, `groups`, `users`, and `description` parameters.
 
      * `owner`: Whether or not the user owns the schema:
-       * `YES`: This user owns the schema.
-       * `NO`: This user does not own the schema.
+       * `YES`: The user owns the schema.
+       * `NO`: The user does not own the schema.
 
      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
@@ -267,13 +294,13 @@ Schema names specified in the rules are not validated. If a schema name contains
 
       Where:
 
-      * `access_control`: Access rule configuration in the cluster.
+      * `access_control`: Configuration of access permissions within the cluster.
 
       * `schemas`: List of schema rule sections. Each rule contains the required `owner` parameter, as well as the optional `schema`, `catalog`, `groups`, `users`, and `description` parameters.
 
       * `owner`: Whether or not the user owns the schema:
-        * `YES`: This user owns the schema.
-        * `NO`: This user does not own the schema.
+        * `YES`: The user owns the schema.
+        * `NO`: The user does not own the schema.
 
       * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
         * `names`: List of schema names.
@@ -310,7 +337,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
 {% endlist %}
 
-## Setting rules for an existing cluster {#set-at-create}
+## Setting rules for an existing cluster {#set-at-update}
 
 You can set or update schema access rules for an existing {{ mtr-name }} cluster.
 
@@ -322,6 +349,35 @@ Schema names specified in the rules are not validated. If a schema name contains
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click the name of your cluster.
+  1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-schema }}**.
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. In the **{{ ui-key.yacloud.trino.label_rbac-schema-owner }}** field, select whether or not the user owns the schema:
+        * `YES`: The user owns the schema.
+        * `NO`: The user does not own the schema.
+
+     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+
+     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+  1. Add other rules in a similar way if required.
+  1. To edit a rule:
+     1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+     1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
+  1. To delete a rule you no longer need, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+  1. Click **{{ ui-key.yacloud.common.save-changes }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -330,7 +386,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
   To set schema access rules:
 
-  1. If you have not set any access rules yet, create a file named `access_control.yaml` and paste the following code into it:
+  1. If you have not set any access rules yet, create a file named `access_control.yaml` and paste the following into it:
 
      ```yaml
      schemas:
@@ -361,8 +417,8 @@ Schema names specified in the rules are not validated. If a schema name contains
      * `schemas`: List of schema rules. Each rule contains the required `owner` parameter, as well as the optional `schema`, `catalog`, `groups`, `users`, and `description` parameters.
 
      * `owner`: Whether or not the user owns the schema:
-       * `YES`: This user owns the schema.
-       * `NO`: This user does not own the schema.
+       * `YES`: The user owns the schema.
+       * `NO`: The user does not own the schema.
 
      * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
        * `names`: List of schema names.
@@ -464,8 +520,8 @@ Schema names specified in the rules are not validated. If a schema name contains
      * `schemas`: List of schema rule sections. Each rule contains the required `owner` parameter, as well as the optional `schema`, `catalog`, `groups`, `users`, and `description` parameters.
 
      * `owner`: Whether or not the user owns the schema:
-       * `YES`: This user owns the schema.
-       * `NO`: This user does not own the schema.
+       * `YES`: The user owns the schema.
+       * `NO`: The user does not own the schema.
 
      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
@@ -499,7 +555,7 @@ Schema names specified in the rules are not validated. If a schema name contains
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -596,8 +652,8 @@ Schema names specified in the rules are not validated. If a schema name contains
       * `schemas`: List of schema rule sections. Each rule contains the required `owner` parameter, as well as the optional `schema`, `catalog`, `groups`, `users`, and `description` parameters.
 
       * `owner`: Whether or not the user owns the schema:
-        * `YES`: This user owns the schema.
-        * `NO`: This user does not own the schema.
+        * `YES`: The user owns the schema.
+        * `NO`: The user does not own the schema.
 
       * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all cluster schemas.
         * `names`: List of schema names.
@@ -610,11 +666,11 @@ Schema names specified in the rules are not validated. If a schema name contains
         * `names`: List of catalog names. These must be the existing catalogs.
         * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` or `names` sections, or the `name_regexp` parameter.
+        The `catalog` section must contain either one of the nested `ids` and `names` sections or the `name_regexp` parameter.
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. If you have already set the access rules, open the existing `body.json` rules file and edit it as needed. You can:
+  1. If you have already set the rules, open the relevant `body.json` file and edit it as needed. You can:
 
      * Add new rules.
      * Update the existing ones.
@@ -650,7 +706,7 @@ Let's assume you need to specify schema owners in a {{ TR }} cluster as shown be
 
 - CLI {#cli}
 
-  The `access_control.yaml` file for this rule set is as follows:
+  The `access_control.yaml` file for this rule set looks like this:
 
   ```yaml
   schemas:

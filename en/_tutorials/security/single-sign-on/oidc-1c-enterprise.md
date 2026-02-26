@@ -225,7 +225,7 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-nam
         <1C_infobase_publication_domain>/<application_name>/authform.html
         ```
 
-        It may look like this: `https://your.company.ru/your-app/authform.html`.
+        For example: `https://your.company.ru/your-app/authform.html`.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -241,8 +241,8 @@ Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-nam
 
      Where:
      
-     * `<OAuth_client_ID>`: OAuth client ID you got when you created it.
-     * `--redirect-uris`: 1C infobase URL for OIDC app response processing. It may look like this: `https://your.company.ru/your-app/authform.html`.
+     * `<OAuth_client_ID>`: OAuth client ID you got when creating it.
+     * `--redirect-uris`: 1C infobase URL for OIDC app response processing. For example: `https://your.company.ru/your-app/authform.html`.
 
      Result:
 
@@ -322,10 +322,10 @@ The location of the configuration file depends on your specific 1C:Enterprise se
 
 To make sure both your OIDC app and 1C:Enterprise integration work correctly, authenticate to 1C:Enterprise as one of the users for whom you have enabled the OIDC authentication.
 
-To do so:
+Proceed as follows:
 
 1. In your browser, navigate to the address of your 1C:Enterprise instance, e.g., `https://your.company.ru`.
 1. If you were logged in to 1C:Enterprise, log out.
 1. On the 1C:Enterprise authentication page, click **Log in**.
 1. On the {{ yandex-cloud }} authentication page, enter the email address and user password.
-1. Make sure you are logged in to 1C:Enterprise.
+1. Make sure you have authenticated in 1C:Enterprise.

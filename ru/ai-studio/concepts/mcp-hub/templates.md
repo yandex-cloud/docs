@@ -25,6 +25,12 @@ MCP-сервер [amoCRM](https://www.amocrm.ru/) позволяет AI-аген
 
 ## {{ tracker-full-name }} {#tracker}
 
+{% note warning %}
+
+Чтобы отправлять запросы к API {{ tracker-full-name }} от имени сервисного аккаунта, сначала обратитесь в [службу поддержки {{ tracker-name }}]({{ link-tracker-cloudless }}feedback) с указанием [идентификатора облака](../../../resource-manager/operations/cloud/get-id.md) и [идентификатора сервисного аккаунта](../../../iam/operations/sa/get-id). В противном случае запросы к API будут завершаться ошибкой с кодом `401 Unauthorized`.
+
+{% endnote %}
+
 MCP-сервер [{{ tracker-full-name }}](https://360.yandex.ru/business/tracker/) позволяет AI-агенту полноценно работать с задачами и другими сущностями {{ tracker-full-name }}. Поддерживаются инструменты получения информации о задаче, проекте, портфеле и цели.
 
 Реализованы следующие инструменты:

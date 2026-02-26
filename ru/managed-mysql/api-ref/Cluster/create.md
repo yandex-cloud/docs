@@ -2712,6 +2712,21 @@ apiPlayground:
               The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
+          deletionProtectionMode:
+            description: |-
+              **enum** (DeletionProtectionMode)
+              Deletion Protection inhibits deletion of the database
+              Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+              - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+              - `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+              - `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster
+            default: DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+            type: string
+            enum:
+              - DELETION_PROTECTION_MODE_UNSPECIFIED
+              - DELETION_PROTECTION_MODE_DISABLED
+              - DELETION_PROTECTION_MODE_ENABLED
+              - DELETION_PROTECTION_MODE_INHERITED
         required:
           - name
       Permission:
@@ -2885,6 +2900,21 @@ apiPlayground:
               **boolean**
               Generate password using Connection Manager.
             type: boolean
+          deletionProtectionMode:
+            description: |-
+              **enum** (DeletionProtectionMode)
+              Deletion Protection inhibits deletion of the user
+              Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+              - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+              - `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+              - `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster
+            default: DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+            type: string
+            enum:
+              - DELETION_PROTECTION_MODE_UNSPECIFIED
+              - DELETION_PROTECTION_MODE_DISABLED
+              - DELETION_PROTECTION_MODE_ENABLED
+              - DELETION_PROTECTION_MODE_INHERITED
         required:
           - name
           - password
@@ -3337,7 +3367,8 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
   },
   "databaseSpecs": [
     {
-      "name": "string"
+      "name": "string",
+      "deletionProtectionMode": "string"
     }
   ],
   "userSpecs": [
@@ -3362,7 +3393,8 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
         "maxUserConnections": "string"
       },
       "authenticationPlugin": "string",
-      "generatePassword": "boolean"
+      "generatePassword": "boolean",
+      "deletionProtectionMode": "string"
     }
   ],
   "hostSpecs": [
@@ -5550,6 +5582,15 @@ Limit on how large the storage for database instances can automatically grow, in
 Required field. Name of the database.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.mysql.v1.UserSpec}
@@ -5606,6 +5647,15 @@ User authentication plugin.
 || generatePassword | **boolean**
 
 Generate password using Connection Manager. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion Protection inhibits deletion of the user
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}

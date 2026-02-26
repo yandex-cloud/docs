@@ -316,7 +316,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Adds advanced table partitioning options, including time-based and sequence-based partitioning.</p>  | 4.6.0 | 4.7.0 | 4.7.4 | 5.1.0 | 5.3.0 ||
 || <p>[pg_prewarm]({{ pg-docs }}/pgprewarm.html)</p><p>Enables loading relation data into the OS cache or the {{ PG }} buffer cache.</p> | 1.2 | 1.2 | 1.2 | 1.2 | - ||
 || <p>[pg_qualstats](https://github.com/powa-team/pg_qualstats)</p><p>Enables collection of predicate statistics from `WHERE` and `JOIN` clauses.</p><p>Using this extension requires you to [enable the `pg_qualstats` shared library](#libraries-connection).</p> | 2.0.3 | 2.0.4 | 2.1.0 | 2.1.1 | 2.1.2 ||
-|| <p>[pg_repack](http://reorg.github.io/pg_repack/)</p><p>Provides functions for removing bloat from tables and indexes. Unlike `CLUSTER` and `VACUUM FULL`, it does not require exclusive locking of tables.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.4.7 | 1.4.8 | 1.4.8 | 1.4.8 | 1.4.8 ||
+|| <p>[pg_repack](http://reorg.github.io/pg_repack/)</p><p>Provides functions for removing bloat from tables and indexes. Unlike `CLUSTER` and `VACUUM FULL`, it does not require exclusive locking of tables.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.4.7 | 1.5.2^1^  | 1.5.2^1^  | 1.5.2^1^ | 1.5.2^1^ ||
 || <p>[pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)</p><p>Enables collection of read and write operation statistics at the file system level.</p><p>Using this utility requires you to enable the `pg_stat_statements` extension.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 2.2.0 | 2.2.1 | 2.2.1 | 2.3.0 | - ||
 || <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Enables you to track the scheduling and collect execution statistics of all SQL queries running in a cluster.</p><p>To use this extension, you need the [`mdb_monitor`](../../concepts/roles.md#mdb_monitor) role.</p> | 1.9 | 1.10 | 1.10 | 1.11 | - ||
 || <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Enables you to create a logical replication slot in the past.</p> | 1.0 | 1.1 | 1.1.1 | 1.1.1 | 57 ||
@@ -346,6 +346,8 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[uuid-ossp]({{ pg-docs }}/static/uuid-ossp.html)</p><p>Provides functions for generating UUIDs according to standard algorithms.</p> | 1.1 | 1.1 | 1.1 | 1.1 | - ||
 || <p>[xml2]({{ pg-docs }}/static/xml2.html)</p><p>Adds support for Xpath and XSLT.</p> | 1.1 | 1.1 | 1.1 | 1.1 | - ||
 |#
+
+^1^: This extension version is installed in new clusters, as well as clusters upgraded to the current version from version 14 and below.
 
 The [pgcompacttable](https://github.com/dataegret/pgcompacttable) utility reorganizes table data to reduce its footprint without impacting cluster performance.
 

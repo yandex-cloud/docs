@@ -55,7 +55,7 @@ description: Из статьи вы узнаете, как в {{ datalens-full-n
     При этом порядок типов визуализации остается неизменным — сверху вниз: точечная карта, полилинейная карта, фоновая карта, тепловая карта.
 
 
-Вы можете приобрести предрассчитанные геослои от партнеров в [{{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens&categories=geolayer).
+Чтобы получить геослои, можно найти и использовать работу из [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery/all?category=geo&can_be_used=true).
 
 
 {% note info %}

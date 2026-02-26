@@ -28,7 +28,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) for the trail to be able to collect and upload logs:
+    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
         * `storage.uploader` for a bucket.
         * `kms.keys.encrypter` for a bucket encryption key.
@@ -45,9 +45,9 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
+    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
-        * `logging.writer` for a log group.
+        * `logging.writer` for the log group.
 
         {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
@@ -67,7 +67,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
 
-    1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) to enable the trail to collect and upload logs:
+    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
         * `yds.writer` for a data stream.
 
@@ -90,7 +90,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
     1. (Optional) Enter a description for your trail.
     1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, select one of the destination objects and specify its settings:
 
-        * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}**: Uploading audit logs to the {{ objstorage-name }} bucket:
+        * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}**: Uploading audit logs to an {{ objstorage-name }} bucket. Recommended for long-term data storage. Configure log storage settings:
 
             * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the bucket you [created earlier](#before-you-begin).
             * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: [Prefix](../concepts/format.md#log-file-name) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
@@ -99,9 +99,9 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
             * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Bucket encryption key. You only need to select it if encryption has been enabled for your bucket.
 
-        * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Specify the name of the log group you [created earlier](#before-you-begin). Audit logs will be uploaded into it.
+        * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Specify the name of the log group you [created earlier](#before-you-begin). Audit logs will be uploaded into this log group. Recommended for quick log collection and analysis.
 
-        * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Specify the name of the data stream you [created earlier](#before-you-begin). Audit logs will be uploaded into this stream.
+        * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Specify the name of the data stream you [created earlier](#before-you-begin). Audit logs will be uploaded into this stream. Recommended for streaming logs to other services or systems.
 
     1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the [previously created](#before-you-begin) service account the trail will operate under.
 
@@ -275,7 +275,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
+      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Create the resources:
 
@@ -299,7 +299,7 @@ The trail will be created and start uploading audit logs to the selected destina
 
 ## Examples {#examples}
 
-### Creating a trail with management and data event filters{#example-control-data-planes}
+### Creating a trail with management and data event filters {#example-control-data-planes}
 
 Create a trail with the following parameters:
 

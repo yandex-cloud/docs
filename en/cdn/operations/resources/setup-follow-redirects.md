@@ -1,6 +1,6 @@
 ---
 title: Setting up how to follow request redirects
-description: Follow this guide to set up redirects for requests received from content origins.
+description: Follow this guide to configure redirection of requests received from content origins.
 ---
 
 # Setting up how to follow request redirects
@@ -157,10 +157,6 @@ In this example, we will create a CDN resource for an online store that uses mul
 
       ```bash
       grpcurl \
-        -format json \
-        -import-path ~/cloudapi/ \
-        -import-path ~/cloudapi/third_party/googleapis/ \
-        -proto ~/cloudapi/yandex/cloud/cdn/v1/resource_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
               "folder_id": "b12m81qm6abc********",

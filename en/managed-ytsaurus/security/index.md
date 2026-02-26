@@ -1,14 +1,14 @@
 ---
 title: Access management in {{ myt-full-name }}
-description: Access management in {{ ytsaurus-name }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ ytsaurus-name }}, a cluster creation and management service. This section covers role assignment to resources, available service roles, and required permissions for actions.
 ---
 
 # Access management in {{ myt-name }}
 
 In this section, you will learn about:
 
-* [Resources you can assign a role for](#resources).
-* [Roles this service has](#roles-list).
+* [Resources available for role assignment](#resources).
+* [Available service roles](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
@@ -19,13 +19,13 @@ To assign a role for a resource, a user should have the `managed-ytsaurus.admin`
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources available for role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 To allow access to {{ myt-name }} resources, such as clusters and accounts, give the user the relevant roles for the folder, cloud, or organization containing those resources.
 
-## Roles this service has {#roles-list}
+## Available service roles {#roles-list}
 
 The list below shows all the roles used for access control in this service.
 
@@ -61,11 +61,11 @@ The list below shows all the roles used for access control in this service.
 
 ## Required roles {#required-roles}
 
-As a user, you need the `managed-ytsaurus.editor` role or higher for the folder that will contain the new cluster. The `managed-ytsaurus.viewer` role only allows you to view the list of clusters.
+As a user, you need the `managed-ytsaurus.editor` role or higher for the folder that will contain the new cluster. The `managed-ytsaurus.viewer` role only allows you to view the cluster list.
 
 To create an {{ myt-name }} cluster, the following roles are required: [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user), [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user), and `managed-ytsaurus.admin` or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `managed-ytsaurus.admin` role instead of `managed-ytsaurus.editor`.
+You can always assign a role with more permissions, e.g., `managed-ytsaurus.admin` instead of `managed-ytsaurus.editor`.
 
 ## What's next {#whats-next}
 

@@ -71,6 +71,8 @@ To add a test phone number:
 
 ## Create a notification channel with an individual sender {#create-individual-channel}
 
+{% include [legal-entity-note](../_includes/notifications/legal-entity-note.md) %}
+
 After practicing on a channel with a common sender, you can register an SMS notification channel with an individual sender.
 
 {% include [individual-sender-description](../_includes/notifications/individual-sender-description.md) %}

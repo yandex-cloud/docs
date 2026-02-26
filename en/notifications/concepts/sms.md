@@ -24,6 +24,8 @@ SMS notification channels can use the following types of senders:
 
 ### Individual sender {#individual-sender}
 
+{% include [legal-entity-note](../../_includes/notifications/legal-entity-note.md) %}
+
 {% include [individual-sender-description](../../_includes/notifications/individual-sender-description.md) %}
 
 Sender's text name is registered via support.

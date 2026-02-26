@@ -111,16 +111,19 @@ The value can also point to a moment in the past if [reschedule_type.IMMEDIATE](
           "effective_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
+            "search_max_buckets": "google.protobuf.Int64Value",
             "reindex_remote_whitelist": "string"
           },
           "user_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
+            "search_max_buckets": "google.protobuf.Int64Value",
             "reindex_remote_whitelist": "string"
           },
           "default_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
+            "search_max_buckets": "google.protobuf.Int64Value",
             "reindex_remote_whitelist": "string"
           }
         },
@@ -538,6 +541,17 @@ This value should be smaller than the **indices.breaker.fielddata.limit**
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| search_max_buckets | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
+Default value: **65535**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || reindex_remote_whitelist | **string**
 
 Allowed remote hosts

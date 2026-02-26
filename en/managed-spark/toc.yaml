@@ -19,8 +19,12 @@ items:
             href: operations/cluster-update.md
           - name: '{{ SPRK }} version upgrade'
             href: operations/cluster-version-update.md
-          - name: Stopping and starting a cluster
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
+          - name: Stopping and restarting a cluster
             href: operations/cluster-stop.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Jobs
@@ -59,6 +63,8 @@ items:
         href: concepts/limits.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Autoscaling
         href: concepts/autoscaling.md
   - name: Access management

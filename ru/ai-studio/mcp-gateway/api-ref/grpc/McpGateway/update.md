@@ -35,7 +35,13 @@ Updates the specified MCP Gateway.
           "method": "HttpMethod",
           "body": "string",
           "headers": "map<string, string>",
-          "query": "map<string, string>"
+          "query": "map<string, string>",
+          "forward_headers": {
+            "mode": "ForwardMode",
+            "headers": [
+              "string"
+            ]
+          }
         },
         "http_call": {
           "url": "string",
@@ -43,7 +49,13 @@ Updates the specified MCP Gateway.
           "body": "string",
           "headers": "map<string, string>",
           "query": "map<string, string>",
-          "use_service_account": "bool"
+          "use_service_account": "bool",
+          "forward_headers": {
+            "mode": "ForwardMode",
+            "headers": [
+              "string"
+            ]
+          }
         },
         "mcp_call": {
           "url": "string",
@@ -62,14 +74,26 @@ Updates the specified MCP Gateway.
           },
           "service_account": "SaAuthorization",
           // end of the list of possible fields
-          "forward_headers": "map<string, string>"
+          "forward_headers": "map<string, string>",
+          "transfer_headers": {
+            "mode": "ForwardMode",
+            "headers": [
+              "string"
+            ]
+          }
         },
         "grpc_call": {
           "endpoint": "string",
           "method": "string",
           "use_service_account": "bool",
           "body": "string",
-          "headers": "map<string, string>"
+          "headers": "map<string, string>",
+          "forward_headers": {
+            "mode": "ForwardMode",
+            "headers": [
+              "string"
+            ]
+          }
         },
         "start_workflow": {
           "workflow_id": "string",
@@ -104,12 +128,12 @@ Required field. ID of the MCP Gateway to update. ||
 
 Updated name of the MCP Gateway.
 
-The maximum string length in characters is 128. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+The maximum string length in characters is 128. Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Updated description of the MCP Gateway.
 
-The maximum string length in characters is 4000. ||
+The maximum string length in characters is 65536. ||
 || labels | **object** (map<**string**, **string**>)
 
 Updated MCP Gateway labels as `key:value` pairs.
@@ -148,7 +172,7 @@ The maximum string length in characters is 128. Value must match the regular exp
 
 Description of the tool.
 
-The maximum string length in characters is 4000. ||
+The maximum string length in characters is 65536. ||
 || input_json_schema | **string**
 
 JSON Schema describing tool input. ||
@@ -219,15 +243,15 @@ Relative request path inside the container. ||
 
 HTTP method to use for the request.
 
-- `OPTIONS`
-- `GET`
-- `HEAD`
-- `POST`
-- `PUT`
-- `PATCH`
-- `DELETE`
-- `TRACE`
-- `CONNECT` ||
+- `OPTIONS`: OPTIONS HTTP method.
+- `GET`: GET HTTP method.
+- `HEAD`: HEAD HTTP method.
+- `POST`: POST HTTP method.
+- `PUT`: PUT HTTP method.
+- `PATCH`: PATCH HTTP method.
+- `DELETE`: DELETE HTTP method.
+- `TRACE`: TRACE HTTP method.
+- `CONNECT`: CONNECT HTTP method. ||
 || body | **string**
 
 Request body to send to the container. ||
@@ -237,6 +261,30 @@ HTTP headers to include in the request. ||
 || query | **object** (map<**string**, **string**>)
 
 Query string parameters to include in the request. ||
+|| forward_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy)**
+
+Policy that defines which headers from the incoming request should be forwarded ||
+|#
+
+## ForwardHeadersPolicy {#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy}
+
+Policy defining which HTTP headers from the incoming request should be forwarded.
+
+#|
+||Field | Description ||
+|| mode | enum **ForwardMode**
+
+Required field. Mode of header forwarding. Determines how the headers list is interpreted.
+
+- `WHITE_LIST`: Whitelist mode: only headers listed in the headers field will be forwarded.
+All other headers from the incoming request will be excluded.
+- `BLACK_LIST`: Blacklist mode: all headers from the incoming request will be forwarded
+except those listed in the headers field. ||
+|| headers[] | **string**
+
+List of HTTP header names to forward. Interpretation depends on the mode:
+- WHITE_LIST: only these headers will be forwarded (all others are excluded)
+- BLACK_LIST: all headers except these will be forwarded (these are excluded) ||
 |#
 
 ## HttpCall {#yandex.cloud.serverless.mcpgateway.v1.HttpCall}
@@ -250,15 +298,15 @@ Required field. Absolute URL to send the request to. (required) ||
 
 HTTP method to use.
 
-- `OPTIONS`
-- `GET`
-- `HEAD`
-- `POST`
-- `PUT`
-- `PATCH`
-- `DELETE`
-- `TRACE`
-- `CONNECT` ||
+- `OPTIONS`: OPTIONS HTTP method.
+- `GET`: GET HTTP method.
+- `HEAD`: HEAD HTTP method.
+- `POST`: POST HTTP method.
+- `PUT`: PUT HTTP method.
+- `PATCH`: PATCH HTTP method.
+- `DELETE`: DELETE HTTP method.
+- `TRACE`: TRACE HTTP method.
+- `CONNECT`: CONNECT HTTP method. ||
 || body | **string**
 
 Request body payload. ||
@@ -271,6 +319,9 @@ Query string parameters to include. ||
 || use_service_account | **bool**
 
 Use MCP Gateway service account credentials for the request. ||
+|| forward_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy)**
+
+Policy that defines which headers from the incoming request should be forwarded ||
 |#
 
 ## McpCall {#yandex.cloud.serverless.mcpgateway.v1.McpCall}
@@ -282,6 +333,8 @@ Use MCP Gateway service account credentials for the request. ||
 Required field. MCP endpoint base URL. (required) ||
 || tool_call | **[ToolCall](#yandex.cloud.serverless.mcpgateway.v1.McpCall.ToolCall)**
 
+Tool call action to invoke a specific tool on the MCP endpoint.
+
 Includes only one of the fields `tool_call`. ||
 || transport | enum **Transport**
 
@@ -291,15 +344,21 @@ Transport to use for MCP communication.
 - `STREAMABLE`: Streamable HTTP transport. ||
 || unauthorized | **[NoAuthorization](#yandex.cloud.serverless.mcpgateway.v1.McpCall.NoAuthorization)**
 
+No authorization mode.
+
 Includes only one of the fields `unauthorized`, `header`, `service_account`.
 
 Authorization mode for requests to the MCP endpoint. ||
 || header | **[HeaderAuthorization](#yandex.cloud.serverless.mcpgateway.v1.McpCall.HeaderAuthorization)**
 
+Header-based authorization.
+
 Includes only one of the fields `unauthorized`, `header`, `service_account`.
 
 Authorization mode for requests to the MCP endpoint. ||
 || service_account | **[SaAuthorization](#yandex.cloud.serverless.mcpgateway.v1.McpCall.SaAuthorization)**
+
+Service account authorization.
 
 Includes only one of the fields `unauthorized`, `header`, `service_account`.
 
@@ -307,6 +366,9 @@ Authorization mode for requests to the MCP endpoint. ||
 || forward_headers | **object** (map<**string**, **string**>)
 
 Headers from the incoming request to forward downstream by name. ||
+|| transfer_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy)**
+
+Policy that defines which headers from the incoming request should be forwarded to the HTTP endpoint ||
 |#
 
 ## ToolCall {#yandex.cloud.serverless.mcpgateway.v1.McpCall.ToolCall}
@@ -370,6 +432,9 @@ Request body payload for the call. ||
 || headers | **object** (map<**string**, **string**>)
 
 gRPC/HTTP headers to include with the call. ||
+|| forward_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy)**
+
+Policy that defines which headers from the incoming request should be forwarded ||
 |#
 
 ## StartWorkflow {#yandex.cloud.serverless.mcpgateway.v1.StartWorkflow}
@@ -472,7 +537,13 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
             "method": "HttpMethod",
             "body": "string",
             "headers": "map<string, string>",
-            "query": "map<string, string>"
+            "query": "map<string, string>",
+            "forward_headers": {
+              "mode": "ForwardMode",
+              "headers": [
+                "string"
+              ]
+            }
           },
           "http_call": {
             "url": "string",
@@ -480,7 +551,13 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
             "body": "string",
             "headers": "map<string, string>",
             "query": "map<string, string>",
-            "use_service_account": "bool"
+            "use_service_account": "bool",
+            "forward_headers": {
+              "mode": "ForwardMode",
+              "headers": [
+                "string"
+              ]
+            }
           },
           "mcp_call": {
             "url": "string",
@@ -499,14 +576,26 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
             },
             "service_account": "SaAuthorization",
             // end of the list of possible fields
-            "forward_headers": "map<string, string>"
+            "forward_headers": "map<string, string>",
+            "transfer_headers": {
+              "mode": "ForwardMode",
+              "headers": [
+                "string"
+              ]
+            }
           },
           "grpc_call": {
             "endpoint": "string",
             "method": "string",
             "use_service_account": "bool",
             "body": "string",
-            "headers": "map<string, string>"
+            "headers": "map<string, string>",
+            "forward_headers": {
+              "mode": "ForwardMode",
+              "headers": [
+                "string"
+              ]
+            }
           },
           "start_workflow": {
             "workflow_id": "string",
@@ -674,7 +763,7 @@ The maximum string length in characters is 128. Value must match the regular exp
 
 Description of the tool.
 
-The maximum string length in characters is 4000. ||
+The maximum string length in characters is 65536. ||
 || input_json_schema | **string**
 
 JSON Schema describing tool input. ||
@@ -745,15 +834,15 @@ Relative request path inside the container. ||
 
 HTTP method to use for the request.
 
-- `OPTIONS`
-- `GET`
-- `HEAD`
-- `POST`
-- `PUT`
-- `PATCH`
-- `DELETE`
-- `TRACE`
-- `CONNECT` ||
+- `OPTIONS`: OPTIONS HTTP method.
+- `GET`: GET HTTP method.
+- `HEAD`: HEAD HTTP method.
+- `POST`: POST HTTP method.
+- `PUT`: PUT HTTP method.
+- `PATCH`: PATCH HTTP method.
+- `DELETE`: DELETE HTTP method.
+- `TRACE`: TRACE HTTP method.
+- `CONNECT`: CONNECT HTTP method. ||
 || body | **string**
 
 Request body to send to the container. ||
@@ -763,6 +852,30 @@ HTTP headers to include in the request. ||
 || query | **object** (map<**string**, **string**>)
 
 Query string parameters to include in the request. ||
+|| forward_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy2)**
+
+Policy that defines which headers from the incoming request should be forwarded ||
+|#
+
+## ForwardHeadersPolicy {#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy2}
+
+Policy defining which HTTP headers from the incoming request should be forwarded.
+
+#|
+||Field | Description ||
+|| mode | enum **ForwardMode**
+
+Required field. Mode of header forwarding. Determines how the headers list is interpreted.
+
+- `WHITE_LIST`: Whitelist mode: only headers listed in the headers field will be forwarded.
+All other headers from the incoming request will be excluded.
+- `BLACK_LIST`: Blacklist mode: all headers from the incoming request will be forwarded
+except those listed in the headers field. ||
+|| headers[] | **string**
+
+List of HTTP header names to forward. Interpretation depends on the mode:
+- WHITE_LIST: only these headers will be forwarded (all others are excluded)
+- BLACK_LIST: all headers except these will be forwarded (these are excluded) ||
 |#
 
 ## HttpCall {#yandex.cloud.serverless.mcpgateway.v1.HttpCall2}
@@ -776,15 +889,15 @@ Required field. Absolute URL to send the request to. (required) ||
 
 HTTP method to use.
 
-- `OPTIONS`
-- `GET`
-- `HEAD`
-- `POST`
-- `PUT`
-- `PATCH`
-- `DELETE`
-- `TRACE`
-- `CONNECT` ||
+- `OPTIONS`: OPTIONS HTTP method.
+- `GET`: GET HTTP method.
+- `HEAD`: HEAD HTTP method.
+- `POST`: POST HTTP method.
+- `PUT`: PUT HTTP method.
+- `PATCH`: PATCH HTTP method.
+- `DELETE`: DELETE HTTP method.
+- `TRACE`: TRACE HTTP method.
+- `CONNECT`: CONNECT HTTP method. ||
 || body | **string**
 
 Request body payload. ||
@@ -797,6 +910,9 @@ Query string parameters to include. ||
 || use_service_account | **bool**
 
 Use MCP Gateway service account credentials for the request. ||
+|| forward_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy2)**
+
+Policy that defines which headers from the incoming request should be forwarded ||
 |#
 
 ## McpCall {#yandex.cloud.serverless.mcpgateway.v1.McpCall2}
@@ -808,6 +924,8 @@ Use MCP Gateway service account credentials for the request. ||
 Required field. MCP endpoint base URL. (required) ||
 || tool_call | **[ToolCall](#yandex.cloud.serverless.mcpgateway.v1.McpCall.ToolCall2)**
 
+Tool call action to invoke a specific tool on the MCP endpoint.
+
 Includes only one of the fields `tool_call`. ||
 || transport | enum **Transport**
 
@@ -817,15 +935,21 @@ Transport to use for MCP communication.
 - `STREAMABLE`: Streamable HTTP transport. ||
 || unauthorized | **[NoAuthorization](#yandex.cloud.serverless.mcpgateway.v1.McpCall.NoAuthorization2)**
 
+No authorization mode.
+
 Includes only one of the fields `unauthorized`, `header`, `service_account`.
 
 Authorization mode for requests to the MCP endpoint. ||
 || header | **[HeaderAuthorization](#yandex.cloud.serverless.mcpgateway.v1.McpCall.HeaderAuthorization2)**
 
+Header-based authorization.
+
 Includes only one of the fields `unauthorized`, `header`, `service_account`.
 
 Authorization mode for requests to the MCP endpoint. ||
 || service_account | **[SaAuthorization](#yandex.cloud.serverless.mcpgateway.v1.McpCall.SaAuthorization2)**
+
+Service account authorization.
 
 Includes only one of the fields `unauthorized`, `header`, `service_account`.
 
@@ -833,6 +957,9 @@ Authorization mode for requests to the MCP endpoint. ||
 || forward_headers | **object** (map<**string**, **string**>)
 
 Headers from the incoming request to forward downstream by name. ||
+|| transfer_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy2)**
+
+Policy that defines which headers from the incoming request should be forwarded to the HTTP endpoint ||
 |#
 
 ## ToolCall {#yandex.cloud.serverless.mcpgateway.v1.McpCall.ToolCall2}
@@ -896,6 +1023,9 @@ Request body payload for the call. ||
 || headers | **object** (map<**string**, **string**>)
 
 gRPC/HTTP headers to include with the call. ||
+|| forward_headers | **[ForwardHeadersPolicy](#yandex.cloud.serverless.mcpgateway.v1.ForwardHeadersPolicy2)**
+
+Policy that defines which headers from the incoming request should be forwarded ||
 |#
 
 ## StartWorkflow {#yandex.cloud.serverless.mcpgateway.v1.StartWorkflow2}

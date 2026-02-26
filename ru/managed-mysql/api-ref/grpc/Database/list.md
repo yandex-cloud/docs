@@ -52,7 +52,8 @@ The maximum string length in characters is 100. ||
   "databases": [
     {
       "name": "string",
-      "cluster_id": "string"
+      "cluster_id": "string",
+      "deletion_protection_mode": "DeletionProtectionMode"
     }
   ],
   "next_page_token": "string"
@@ -87,4 +88,13 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the cluster that the database belongs to. ||
+|| deletion_protection_mode | enum **DeletionProtectionMode**
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#

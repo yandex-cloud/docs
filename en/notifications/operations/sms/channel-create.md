@@ -15,4 +15,6 @@ In {{ cns-name }}, messages to end users are sent through [notification channels
 
 ## Creating an SMS notification channel with an individual sender {#create-individual-channel}
 
+{% include [legal-entity-note](../../../_includes/notifications/legal-entity-note.md) %}
+
 {% include [sms-channel-individual-create](../../../_includes/notifications/sms-channel-individual-create.md) %}

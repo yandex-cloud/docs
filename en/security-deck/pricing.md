@@ -17,9 +17,9 @@ The applicable {{ sd-name }} pricing depends on the module you are using:
 * [Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) is free of charge.
 * [For {{ dspm-name }})](concepts/dspm.md), see [below](#dspm-rules).
 * For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
-* For [KSPM](concepts/kspm.md), see [Kubernetes® Security Posture Management (KSPM)](#kspm-rules) below.
+* For [{{ k8s }}® Security Posture Management (KSPM)](./concepts/kspm.md), see [below](#kspm-rules).
 * [{{ cspm-name }}](concepts/cspm.md), see [Cloud Security Posture Management ({{ cspm-name }})](#cspm-rules) below.
-* [AI assistant](concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and is free of charge.
+* [AI assistant](./concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
 
@@ -97,12 +97,6 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 
 ### {{ k8s }}® Security Posture Management (KSPM) {#kspm-pricing}
-
-{% note warning %}
-
-These prices apply starting February 2, 2026.
-
-{% endnote %}
 
 
 

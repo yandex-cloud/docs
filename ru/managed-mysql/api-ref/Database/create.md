@@ -39,6 +39,21 @@ apiPlayground:
               The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
+          deletionProtectionMode:
+            description: |-
+              **enum** (DeletionProtectionMode)
+              Deletion Protection inhibits deletion of the database
+              Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+              - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+              - `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+              - `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster
+            default: DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+            type: string
+            enum:
+              - DELETION_PROTECTION_MODE_UNSPECIFIED
+              - DELETION_PROTECTION_MODE_DISABLED
+              - DELETION_PROTECTION_MODE_ENABLED
+              - DELETION_PROTECTION_MODE_INHERITED
         required:
           - name
 ---
@@ -71,7 +86,8 @@ The maximum string length in characters is 50. ||
 ```json
 {
   "databaseSpec": {
-    "name": "string"
+    "name": "string",
+    "deletionProtectionMode": "string"
   }
 }
 ```
@@ -92,6 +108,15 @@ Required field. Configuration of the database. ||
 Required field. Name of the database.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -120,7 +145,8 @@ The maximum string length in characters is 63. Value must match the regular expr
   },
   "response": {
     "name": "string",
-    "clusterId": "string"
+    "clusterId": "string",
+    "deletionProtectionMode": "string"
   }
   // end of the list of possible fields
 }
@@ -238,4 +264,13 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the cluster that the database belongs to. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#

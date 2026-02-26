@@ -118,7 +118,7 @@
 
    ![image](../../_assets/datalens/dataset-parametrization/choose-sales-agregate.png)
 
-1. Откройте инспектор и убедитесь, что данные выбираются из таблицы `MS_SalesFacts`. Для этого в правом верхнем углу чарта нажмите ![icon](../../_assets/console-icons/ellipsis.svg) → **Инспектор**.
+1. Откройте инспектор и убедитесь, что данные выбираются из таблицы `MS_SalesFacts`. Для этого в правом верхнем углу чарта нажмите ![icon](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/magnifier.svg) **Инспектор**.
 
    ![image](../../_assets/datalens/dataset-parametrization/chart-inspector.png)
 
@@ -216,7 +216,7 @@
 
 1. Измените условие SQL-запроса в параметре:
 
-   1. В разделе **Параметры** нажмите значок у параметра `table_name`.
+   1. В разделе **Параметры** нажмите значок у параметра `custom_where`.
    1. Значение по умолчанию укажите: `ProductID IN (SELECT ProductID FROM samples.MS_Products WHERE ProductCategory='Техника для дома')`.
    1. Нажмите кнопку **Сохранить**. Данные в чарте отфильтрованы по условию: только продукты категории `Техника для дома`.
       

@@ -243,7 +243,7 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
 ## Test TLS {#test-controller}
 
-1. Make sure the [domain ownership check](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate has changed its status to `Issued`:
+1. Make sure the [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) was successful and the certificate has changed its status to `Issued`:
 
    ```bash
    kubectl describe certificate domain-name-secret
@@ -253,7 +253,7 @@ To test the certificate manager, create the `Ingress`, `Service`, and `Deploymen
 
    {% note info %}
 
-   A domain ownership check for a {{ lets-encrypt }} certificate may take several hours.
+   Domain ownership verification for a {{ lets-encrypt }} certificate may take several hours.
 
    {% endnote %}
 

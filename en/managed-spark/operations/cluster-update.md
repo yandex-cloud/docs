@@ -36,7 +36,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         1. Delete or add names of pip and deb packages.
 
            The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
-        1. In the **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** setting, update the cluster maintenance time:
+        1. In the **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** setting, update cluster [maintenance](../concepts/maintenance.md) time:
 
            {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -140,7 +140,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
             Specify either `--log-folder-id` or `--log-group-id`.
 
-        * `--maintenance-window`: Maintenance window settings (including for stopped clusters), where `type` is the maintenance type:
+        * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
             {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -239,7 +239,7 @@ After creating a cluster, you can edit its basic and advanced settings.
           * [Host class](../concepts/instance-types.md) in the `resource_preset_id` parameter.
           * Number of instances. Specify a fixed number in the `size` parameter or the minimum and maximum number for autoscaling in the `min_size` and `max_size` parameters.
 
-        * `maintenance_window`: Maintenance window settings (including for disabled clusters). In this section, specify:
+        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters). In this section, specify:
 
           * Maintenance type in the `type` parameter. The possible values include:
             * `ANYTIME`: Any time.
@@ -263,7 +263,7 @@ After creating a cluster, you can edit its basic and advanced settings.
              * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
              * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -271,7 +271,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-maf }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-maf }}).
 
 - gRPC API {#grpc-api}
 

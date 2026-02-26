@@ -5,6 +5,11 @@ description: This section contains the {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+## January 2026 {#jan-2026}
+
+* Added the **{{ ui-key.yacloud.mdb.cluster.switch_shards }}** tab to **{{ ui-key.yacloud.mdb.cluster.monitoring.label_title }}**. From this tab, you can track metrics for each individual shard and promptly detect problematic nodes.
+* Added the option of partial {{ SD }} cluster recovery from a backup. You can restore specific databases or collections by adding them to include or exclude lists.
+  
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.

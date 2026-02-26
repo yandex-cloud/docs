@@ -57,7 +57,7 @@ DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )
 
 
 **Типы аргументов:**
-- `expression` — `Массив дробных чисел | Массив целых чисел | Массив строк | Дата | Дробное число | Целое число | Строка`
+- `expression` — `Массив дробных чисел | Массив целых чисел | Массив строк | Логический | Дата | Дробное число | Целое число | Строка`
 - `native_type` — `Строка`
 - `param_1` — `Любой`
 - `param_2` — `Любой`
@@ -89,4 +89,4 @@ DB_CAST([float_value], "numeric", 10, 5)
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`, `YDB`.

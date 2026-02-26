@@ -76,9 +76,9 @@ items:
         items:
           - name: Overview
             href: concepts/standard-compliance/index.md
-          - name: '{{ yandex-cloud }} Security Baseline'
+          - name: '{{ yandex-cloud }} basic security rules'
             href: concepts/standard-compliance/yc-security-baseline.md
-          - name: '{{ yandex-cloud }} Security Standard'
+          - name: Cloud infrastructure security standard {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
       - name: Data Security Posture Management ({{ dspm-name }})
         href: concepts/dspm.md
@@ -132,7 +132,7 @@ items:
     items:
       - name: Authentication
         href: api-ref/authentication.md
-      - name: gRPC (англ.)
+      - name: gRPC
         items:
           - name: Overview
             href: api-ref/grpc/index.md
@@ -164,7 +164,7 @@ items:
                 href: api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: api-ref/grpc/Operation/cancel.md
-      - name: REST (англ.)
+      - name: REST
         items:
           - name: Overview
             href: api-ref/index.md

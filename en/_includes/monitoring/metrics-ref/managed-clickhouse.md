@@ -16,7 +16,7 @@ subcluster_name | Subcluster type: `clickhouse_subcluster` or `zookeeper_subclus
 
 ## CPU metrics {#managed-clickhouse-cpu-metrics}
 
-These metrics show the processor core workload.
+CPU core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -1137,6 +1137,8 @@ For each metric, the increment per unit of time (second) is calculated.
 
 #### System metrics {#managed-clickhouse-config-metrics}
 
+{{ CH }} native metrics from the [system.asynchronous_metrics]({{ ch.docs }}/operations/system-tables/asynchronous_metrics) table.
+
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, count | Threshold for active table data parts, which, when surpassed, causes {{ CH }} to throw a `Too many parts ...` exception. It is specified in the [settings](../../../managed-clickhouse/concepts/settings-list.md#setting-merge-tree). It makes sense to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
@@ -1185,10 +1187,10 @@ For each metric, the increment per unit of time (second) is calculated.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Host read availability.<br/>Returns `1` if the host service is available for read operations, `0` if not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
 | `host_count`<br/>`DGAUGE`, count | Number of hosts |
-| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. |
+| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. |
 | `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time |
 | `shard_count`<br/>`DGAUGE`, count | Number of shards |
 | `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time |

@@ -6,6 +6,12 @@ This section describes typical problems that may arise when using {{ compute-nam
 
 When creating a Linux VM with multiple [network interfaces](../../compute/concepts/network.md), the additional network interfaces may not work correctly in the OS. In some cases, this issue can hinder network connectivity and prevent you from [connecting](../../compute/operations/vm-connect/ssh.md) to your VM over SSH.
 
+{% note alert %}
+
+To access the VM's contents one must have the relevant user credentials, e.g., SSH keys. This means the {{ yandex-cloud }} support does not have access to your VM's OS for security and user data privacy reasons.
+
+{% endnote %}
+
 To fix it, delete the VM and [create](../../compute/operations/vm-create/create-linux-vm.md) a new one by providing additional [cloud-init](https://cloud-init.io) parameters in the new VM [metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images):
 
 {% list tabs group=instructions %}
@@ -32,7 +38,7 @@ To fix it, delete the VM and [create](../../compute/operations/vm-create/create-
 
 - CLI {#cli}
 
-  1. Create a file with the cloud-init configuration, e.g., `vm-init.tpl`:
+  1. Create a file with the `cloud-init` configuration, e.g., `vm-init.tpl`:
 
       {% cut "For Ubuntu" %}
 
@@ -63,7 +69,7 @@ To fix it, delete the VM and [create](../../compute/operations/vm-create/create-
 
 - {{ TF }} {#tf}
 
-  1. Create a file with the cloud-init configuration, e.g., `vm-init.tpl`:
+  1. Create a file with the `cloud-init` configuration, e.g., `vm-init.tpl`:
 
       {% cut "For Ubuntu" %}
 

@@ -8,7 +8,9 @@
 
 * [How do I get the logs of my activity in the Yandex Cloud services?](#logs)
 
-* [How do I set up an alert that triggers as soon as a certain percentage of disk space is used up?](#disk-space-percentage)
+* [How longs are logs retained?](#log-keeping)
+
+* [How can I configure an alert for when disk usage reaches a certain percentage?](#disk-space-percentage)
 
 * [Why is my cluster slow even though the computing resources are not fully utilized?](#throttling)
 
@@ -25,3 +27,5 @@
 
 
 * [What is the role of {{ mos-short-name }} in database management and maintenance?](#services)
+
+* [What block size is used on the cluster disks?](#block-size)

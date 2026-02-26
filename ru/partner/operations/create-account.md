@@ -9,9 +9,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Партнерский портал {#partner}
+- Партнёрский портал {#partner}
 
-  1. Перейдите на [партнерский портал]({{ link-cloud-partners }}).
+  1. Перейдите на [Партнёрский портал]({{ link-cloud-partners }}).
   1. На панели слева выберите ![icon](../../_assets/console-icons/persons.svg) **Аккаунты**.
   1. В правом верхнем углу нажмите ![image](../../_assets/console-icons/plus.svg) **Создать аккаунт**.
   1. В открывшемся окне:

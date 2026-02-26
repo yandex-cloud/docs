@@ -46,6 +46,8 @@ This means the total billable events are 1,500 + 700 = 2,200. The first 1,000 ev
 
 ### Registering individual sender names {#registration}
 
+{% include [legal-entity-note](../_includes/notifications/legal-entity-note.md) %}
+
 With an [individual sender name](concepts/sms.md#individual-sender), one can process text message notification sending events on behalf of a user other than {{ yandex-cloud }} ([shared sender](concepts/sms.md#common-sender)). The name is registered with Russian mobile operators: Beeline, MegaFon, MTS, and T2.
 
 Registering an individual sender name is billed monthly, until such a name is unregistered upon the customer’s request.

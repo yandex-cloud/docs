@@ -29,7 +29,7 @@ description: Follow this guide to install Agro CD.
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `argo-cd-space`. If you leave the default namespace, Argo CD may work incorrectly.
    * **Application name**: Specify the application name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -61,7 +61,7 @@ kubectl --namespace <namespace> get secret argocd-initial-admin-secret \
   --output jsonpath="{.data.password}" | base64 -d
 ```
 
-You will need the password for authorization in Argo CD.
+You will need the password to get authenticated in Argo CD.
 
 ### Opening the application via localhost {#open-via-localhost}
 

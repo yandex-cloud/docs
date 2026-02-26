@@ -72,7 +72,7 @@ keywords:
 
             After creating a {{ SPQR }} cluster, you can add more hosts to it if your [folder resource](../concepts/limits.md) quotas allow.
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the database parameters:
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
 
         * Database name. Acceptable length is from 1 to 63 characters. Can contain lowercase and uppercase Latin letters, numbers, underscores, and hyphens.
 
@@ -80,7 +80,7 @@ keywords:
 
         * Password: It may be from 8 to 128 characters long.
 
-    1. If needed, configure advanced cluster settings:
+    1. Configure advanced cluster settings:
 
         {% include [extra-settings](../../_includes/mdb/mspqr/console/extra-settings.md) %}
 
@@ -353,7 +353,7 @@ keywords:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

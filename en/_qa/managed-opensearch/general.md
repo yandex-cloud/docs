@@ -32,7 +32,7 @@ The owner of the affected clusters receives an advance email notice of the updat
 
 [Create an alert](../../managed-opensearch/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mos-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Their recommended values are as follows:
+For `disk.used_bytes`, use notification thresholds. with the following recommended values:
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
@@ -110,3 +110,7 @@ Use one of these methods:
 #### What is the role of {{ mos-short-name }} in database management and maintenance? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

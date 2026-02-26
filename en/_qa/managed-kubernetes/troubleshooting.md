@@ -393,7 +393,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
         ...
         ```
 
-        For more information about the `yandex_vpc_subnet` settings, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/vpc_subnet).
+        For more information about the `yandex_vpc_subnet` settings, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Apply the changes:
 
@@ -445,3 +445,16 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 #### What should I do if I deleted my {{ network-load-balancer-full-name }} or its target groups that were automatically created for a LoadBalancer service? {#deleted-loadbalancer-service}
 
 You cannot manually restore a {{ network-load-balancer-name }} or its target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) your `LoadBalancer` service. This will automatically create a load balancer and target groups.
+
+#### Error connecting a {{ compute-full-name }} VM instance as an external {{ managed-k8s-name }} node {#vm-as-external-node}
+
+Error message:
+
+```text
+Unable to create remote dir /home/kubernetes/bin/: ssh run `mkdir -p -m 0644 /home/kubernetes/bin/': Process exited with status 142
+Please login as the user "NONE" rather than the user "root".
+```
+
+To fix the issue, [recreate](../../compute/operations/index.md#vm-create) the VM instance, specifying `disable_root: false` in the metadata for the `user-data` key.
+
+{% include [external-node-metadata-example](../../_includes/managed-kubernetes/external-node-metadata-example.md) %}
