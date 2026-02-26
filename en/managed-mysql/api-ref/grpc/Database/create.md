@@ -16,7 +16,8 @@ Creates a new database in a cluster.
 {
   "cluster_id": "string",
   "database_spec": {
-    "name": "string"
+    "name": "string",
+    "deletion_protection_mode": "DeletionProtectionMode"
   }
 }
 ```
@@ -44,6 +45,15 @@ Required field. Configuration of the database. ||
 Required field. Name of the database.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection_mode | enum **DeletionProtectionMode**
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -64,7 +74,8 @@ The maximum string length in characters is 63. Value must match the regular expr
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "cluster_id": "string"
+    "cluster_id": "string",
+    "deletion_protection_mode": "DeletionProtectionMode"
   }
   // end of the list of possible fields
 }
@@ -151,4 +162,13 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the cluster that the database belongs to. ||
+|| deletion_protection_mode | enum **DeletionProtectionMode**
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#

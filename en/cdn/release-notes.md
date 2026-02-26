@@ -5,6 +5,15 @@ description: This section contains the {{ cdn-name }} release notes.
 
 # {{ cdn-full-name }} release notes
 
+## Q4 2025 {#q4-2025}
+
+* Implemented [location rules](./concepts/location-rules.md), a mechanism used to selectively redefine CDN resource settings for requests whose paths match a specific pattern.
+* Now you can enable a CDN resource to [follow request redirects](./concepts/follow-redirects.md) from the origin. With this feature on, {{ cdn-name }} sends a request to the address specified in the origin response and then returns content from the target address to the client.
+* Added support for the [WebSocket](https://en.wikipedia.org/wiki/WebSocket) protocol. To enable the feature, contact [support]({{ link-console-support }}).
+* Added new [points of presence](./concepts/points-of-presence.md).
+* Supported the [pricing calculator for {{ cdn-name }}](https://yandex.cloud/en/prices?state=cc0daabb430b#calculator).
+* Added an [{{ at-name }} management event](./at-ref.md), [ResourceDelete](./events-ref/ResourceDelete.md), for deleting a CDN resource.
+
 ## Q3 2025 {#q3-2025}
 
 * Added a {{ cdn-full-name }} provider based on Yandex's proprietary technology.

@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mtr-full-name }}
-description: Access management in {{ TR }}, a cluster creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ TR }}, a cluster creation and management service. This section covers role assignment to resources, available service roles, and required permissions for actions.
 ---
 
 # Managing access to {{ mtr-name }}
@@ -8,8 +8,8 @@ description: Access management in {{ TR }}, a cluster creation and management se
 
 In this section, you will learn about:
 
-* [Resources you can assign a role for](#resources).
-* [Roles this service has](#roles-list).
+* [Resources available for role assignment](#resources).
+* [Available service roles](#roles-list).
 * [Roles required](#required-roles) for specific actions.
 
 To use the service, log in to the management console with your [Yandex account](../iam/concepts/users/accounts.md#passport), [federated account](../iam/concepts/users/accounts.md#saml-federation), or [local account](../iam/concepts/users/accounts.md#local).
@@ -20,7 +20,7 @@ To assign a role for a resource, a user should have the `managed-trino.admin` ro
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources available for role assignment {#resources}
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -28,7 +28,7 @@ To allow access to {{ mtr-name }} resources, such as clusters and accounts, give
 
 You can assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
 
-## Roles this service has {#roles-list}
+## Available service roles {#roles-list}
 
 The list below shows all the roles used for access control in this service.
 
@@ -72,7 +72,7 @@ As a user, you need the `managed-trino.editor` role or higher for the folder tha
 
 To create an {{ mtr-name }} cluster, the following roles are required: [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user), [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), and `managed-trino.admin` or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `managed-trino.admin` role instead of `managed-trino.editor`.
+You can always assign a role with more permissions, e.g., `managed-trino.admin` instead of `managed-trino.editor`.
 
 ## What's next {#whats-next}
 

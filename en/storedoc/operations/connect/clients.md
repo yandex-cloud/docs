@@ -1,5 +1,5 @@
 ---
-title: Connecting to a {{ SD }} cluster in {{ mmg-full-name }}
+title: Connecting to an {{ SD }} cluster in {{ mmg-full-name }}
 description: In this tutorial, you will learn how to connect to a database in a {{ SD }} cluster via command line tools, graphical IDEs, or Docker container.
 ---
 
@@ -53,6 +53,10 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
             <DB_name>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
 - Connecting over SSL for {{ SD }} version 4.0 {#with-ssl-4}
 
     For a non-sharded cluster:
@@ -79,6 +83,10 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
             <DB_name>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
 - Connecting without SSL {#without-ssl}
 
     For a non-sharded cluster:
@@ -101,11 +109,31 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
             <DB_name>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+- SRV connection {#srv}
+
+    ```bash
+    mongosh "mongodb+srv://<DB_user_name>:<DB_user_password>\
+    @<cluster_ID>.{{ dns-zone }}/<DB_name>"
+    ```
+
+  You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+  {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+  {% include [srv-parameters](../../../_includes/mdb/mmg/srv-parameters.md) %}
+
+  Example of a command with connection properties:
+
+    ```bash
+    mongosh "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}\
+    /db********?authSource=admin&appName=debug"
+    ```
+
 {% endlist %}
-
-{% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
-
-Once connected, run the `db` command.
 
 ### Windows (PowerShell) {#powershell}
 
@@ -139,6 +167,10 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
                 <DB_name>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
 - Connecting without SSL {#without-ssl}
 
     For a non-sharded cluster:
@@ -161,11 +193,31 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
                 <DB_name>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+- SRV connection {#srv}
+
+    ```powershell
+    mongosh.exe "mongodb+srv://<DB_user_name>:<DB_user_password>`
+    @<cluster_ID>.{{ dns-zone }}/<DB_name>"
+    ```
+
+  You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+  {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+  {% include [srv-parameters](../../../_includes/mdb/mmg/srv-parameters.md) %}
+
+  Example of a command with connection properties:
+
+    ```powershell
+    mongosh.exe "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}`
+    /db********?authSource=admin&appName=debug"
+    ```
+
 {% endlist %}
-
-{% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
-
-Once connected, run the `db` command.
 
 ## Connecting from graphical IDEs {#connection-ide}
 
@@ -198,11 +250,11 @@ From graphical IDEs, you can only connect to public cluster hosts using an [SSL 
 
               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
-      1. Click **Download** to get the database driver.
+      1. Click **Download** to download the connection driver.
    1. On the **SSH/SSL** tab:
       1. Enable **Use SSL**.
       1. In the **CA file** field, specify the path to the [SSL certificate for your connection](./index.md#get-ssl-cert).
-1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}
@@ -238,7 +290,7 @@ To connect to your cluster:
       1. Enable **Use SSL**.
       1. In the **Root certificate** field, specify the path to your saved [SSL certificate](./index.md#get-ssl-cert) file.
       1. Under **Settings**, check **Skip hostname validation**.
-1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+1. Click **Test connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **Ready** to save the database connection settings.
 
 ## Before you connect from a Docker container {#connection-docker}

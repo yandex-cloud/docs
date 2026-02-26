@@ -9,6 +9,8 @@ description: Cloud Security Posture Management ({{ cspm-name }}) ensures that th
 
 {% include [cspm-basic-intro](../../_includes/security-deck/cspm-basic-intro.md) %}
 
+The check resumes every 8 hours. Upon completion, the system updates the violation count, applies created exceptions, and sends alerts.
+
 ## Standards {#standards}
 
 Currently, Cloud Security Posture Management ({{ cspm-name }}) supports infrastructure compliance checks for the following security standards:
@@ -17,7 +19,7 @@ Currently, Cloud Security Posture Management ({{ cspm-name }}) supports infrastr
 
 ## Rules {#rules}
 
-You can [view](../operations/cspm/view-rules.md) the information about {{ cspm-name }} rules currently enforced in your [workspace](./workspace.md) and compliance violations detected in the workspace infrastructure on the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page in the **{{ ui-key.yacloud_org.security.controls.ControlsPageLayout.configuration_w7Kw7 }}** tab. This section lists rules that are part of [security standards](#standards) applied to the current workspace.
+You can [view](../operations/cspm/view-rules.md) the information about {{ cspm-name }} rules currently enforced in your [workspace](./workspace.md) and compliance violations detected in the workspace infrastructure on the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page in the **{{ ui-key.yacloud_org.security.controls.ControlsPageLayout.configuration_w7Kw7 }}** tab. This section lists the control rules that form a part of the [security standards](#standards) specified for the current workspace.
 
 ### General information about rules {#general-info}
 
@@ -37,14 +39,14 @@ You can specify the following settings for an exception when [creating it](../op
 
     {% include [cspm-exception-types](../../_includes/security-deck/cspm-exception-types.md) %}
 
-* **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.scopeOfControl_aRkwB }}**: Resources you want to exclude when checking security rules:
+* **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.scopeOfControl_aRkwB }}**: Resources you want to exclude when checking the security rules:
 
-    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.allResources_2ax5E }}`: To exclude all controlled resources in the [workspace](./workspace.md).
-    * `Selected resources`: To exclude only the explicitly selected resources.
-* **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.section-title }}**: {{ cspm-name }} rules for which the selected resources should not be checked:
+    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.allResources_2ax5E }}`: To exclude all resources controlled in the [workspace](./workspace.md).
+    * `Selected resources`: To exclude only explicitly specified resources.
+* **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.section-title }}**: {{ cspm-name }} rules to disregard when checking the selected resources:
 
-    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.rules-select_option_all }}`: To exclude all security rules from compliance checks for the selected resources.
-    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.rules-select_option_selected }}`: To exclude explicitly indicated rules from compliance checks for the selected resources.
+    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.rules-select_option_all }}`: To disregard all security rules for the selected resources.
+    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.rules-select_option_selected }}`: To disregard an explicitly specified set of rules when checking the selected resources for compliance.
 * **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.section-title_3YcSF }}**: Reason for the exception. Specify it as plain text in any form.
 
 To cancel the limitations on rule compliance checks imposed by an exception, [delete](../operations/cspm/manage-exceptions.md#delete-exception) that exception.

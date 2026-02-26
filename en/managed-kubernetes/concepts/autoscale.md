@@ -55,11 +55,11 @@ For more on {{ k8s-hpa }}, see [this {{ k8s }} guide](https://kubernetes.io/docs
 
 If required, {{ k8s-vpa }} allocates additional vCPU and RAM resources to pods.
 
-When [creating a {{ k8s-vpa }}](../operations/autoscale.md#vpa), set the autoscaling option in the specification:
+When [creating a {{ k8s-vpa }}](../operations/autoscale.md#vpa), set the autoscaling mode in the specification:
 * `updateMode: "Off"` for {{ k8s-vpa }} to [provide recommendations](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) on managing pod resources without modifying them.
-* `updateMode: "Initial"`, for {{ k8s-vpa }} only sets resource requests when Pods are first created. It does not update resources for already running Pods, even if recommendations change over time.
-* `updateMode: "Recreate"`, for {{ k8s-vpa }} actively manages Pod resources by evicting Pods when their current resource requests differ significantly from recommendations.
-* `updateMode: "InPlaceOrRecreate"`, for {{ k8s-vpa }} attempts to update resource requests and limits without restarting the Pod when possible. If in-place updates are not supported, the Pod is recreated in the same way as in `Recreate` mode. 
+* `updateMode: "Initial"` for {{ k8s-vpa }} to apply recommendations only when creating pods.
+* `updateMode: "Recreate"` for {{ k8s-vpa }} to recreate pods with updated resource values in case of a serious discrepancy between the current requests and recommendations.
+* `updateMode: "InPlaceOrRecreate"` for {{ k8s-vpa }} to attempt updating requests and resource limits first, without restarting the pod. If such an update is not possible, the pod will be recreated as in the `Recreate` mode. For more information, see [Resize CPU and Memory Resources assigned to Containers](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/).
 
 For more on {{ k8s-vpa }}, see [this {{ k8s }} guide](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
 

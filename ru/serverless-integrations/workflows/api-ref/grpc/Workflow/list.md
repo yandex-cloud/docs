@@ -71,7 +71,9 @@ Example of a filter: `name=my-workflow`. ||
       },
       "network_id": "string",
       "service_account_id": "string",
-      "express": "bool"
+      "express": "bool",
+      "is_public": "bool",
+      "execution_url": "string"
     }
   ],
   "next_page_token": "string"
@@ -135,6 +137,12 @@ ID of the Service Account which will be used for resources access in Workflow ex
 || express | **bool**
 
 Express execution mode. ||
+|| is_public | **bool**
+
+Ability of the Workflow to be executed without authentication. ||
+|| execution_url | **string**
+
+Execution URL of the Workflow. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.workflows.v1.LogOptions}

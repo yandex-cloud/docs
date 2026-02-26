@@ -5,7 +5,7 @@ description: '{{ sd-name }} is a CNAPP, a comprehensive platform that discovers 
 
 # {{ sd-full-name }} overview
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+{% include [note-service-preview](../../_includes/note-service-preview.md) %}
 
 {{ sd-full-name }} is a comprehensive CNAPP service whose modules discover vulnerabilities, monitor and protect access to data, and enforce compliance with regulations and industry standards.
 

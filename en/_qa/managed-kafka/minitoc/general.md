@@ -4,6 +4,8 @@
 
 * [How do I get the logs of my activity in the Yandex Cloud services?](#logs)
 
+* [How longs are logs retained?](#log-keeping)
+
 * [How do I move a cluster to a different network?](#move-cluster)
 
 * [How do I set up an alert that triggers as soon as a certain percentage of disk space is used up?](#disk-space-percentage)
@@ -25,3 +27,5 @@
 * [What is the role of {{ mkf-short-name }} in database management and maintenance?](#services)
 
 * [How do I track message loss in an {{ KF }} topic?](#lost-messages)
+
+* [What block size is used on the cluster disks?](#block-size)

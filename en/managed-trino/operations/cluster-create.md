@@ -61,7 +61,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **Storage parameters** field. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
-    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add the required [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
+    1. Optionally, under **{{ ui-key.yacloud.trino.title_catalogs }}**, add [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
+    1. Optionally, under **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**, set [rules for access to cluster objects](../concepts/access-control.md). For more information, see [{#T}](access-control.md).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. Optionally, enable cluster deletion protection.
@@ -117,13 +118,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     To create a {{ mtr-name }} cluster:
 
-    1. Check whether the folder has any subnets for the cluster hosts:
+    1. Verify that your folder has subnets for cluster host placement:
 
         ```bash
         yc vpc subnet list
         ```
 
-        If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+        If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
     1. View the description of the CLI command for creating a cluster:
 
@@ -171,7 +172,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
         
         * `--trusted-certs-from-files`: List of certificate paths, separated by commas.
 
@@ -197,7 +198,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--log-folder-id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
         * `--log-group-id`: Custom log group ID. Logs will be written to this group.
 
-            You can specify only one of the parameters: `--log-folder-id` or `--log-group-id`.
+            You can specify either `--log-folder-id` or `--log-group-id` but not both.
 
         * `--log-min-level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
@@ -225,7 +226,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--retry-policy-exchange-manager-service-s3`: Use an S3 storage to write data when retrying queries.
         * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
 
-    1. To set up a maintenance window (including for disabled clusters), provide the required value in the `--maintenance-window` parameter:
+    1. To set up a maintenance window (including for disabled clusters), provide the relevant value in the `--maintenance-window` parameter:
 
         ```bash
         {{ yc-mdb-tr }} cluster create <cluster_name> \
@@ -269,7 +270,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
 
-    1. To set up the maintenance window that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
+    1. To set the maintenance window that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
@@ -281,7 +282,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
         
@@ -289,7 +290,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -414,7 +415,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
         * `serviceAccountId`: Service account ID.
         * `logging`: Logging parameters:
@@ -440,7 +441,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -567,7 +568,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
         * `service_account_id`: Service account ID.
         * `logging`: Logging parameters:
@@ -594,7 +595,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -612,7 +613,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     * Security group: `{{ security-group }}`.
     * Coordinator with [computing resource class](../concepts/instance-types.md) `c4-m16`.
     * Four workers with [computing resource class](../concepts/instance-types.md) `c4-m16`.
-    * Cluster protection against accidental deletion: Enabled.
+    * Accidental deletion protection enabled.
 
     Run this command:
 
@@ -629,7 +630,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - {{ TF }} {#tf}
 
-    Create a {{ mtr-name }} cluster and its network with the following test specifications:
+    Create a {{ mtr-name }} cluster and its supporting network, using the following test specifications:
 
     * Name: `mytr`.
     * Service account: `ajev56jp96ji********`.
@@ -637,7 +638,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     * Subnet: `mtr-subnet`. The subnet availability zone is `ru-central1-a`; the range is `10.1.0.0/16`.
     * Coordinator with [computing resource class](../concepts/instance-types.md) `c4-m16`.
     * Four workers with [computing resource class](../concepts/instance-types.md) `c4-m16`.
-    * Cluster protection against accidental deletion: Enabled.
+    * Accidental deletion protection enabled.
 
     The configuration file for this cluster is as follows:
 

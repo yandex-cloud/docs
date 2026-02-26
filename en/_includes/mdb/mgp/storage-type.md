@@ -12,7 +12,7 @@ When creating a cluster, you can select the following disk types for data storag
   You can only increase the size of these disks in 93 GB increments.
 
 
-* **Local SSDs** (`local-ssd`): The highest-performing disks.
+* **Local SSDs** (`local-ssd`): Highest-performing disks.
 
   You can expand such a storage as follows:
 
@@ -20,5 +20,7 @@ When creating a cluster, you can select the following disk types for data storag
   * For **Intel Ice Lake** and **AMD Zen 4**: Only in {{ local-ssd-v3-step }} increments.
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [disk-block-size](../disk-block-size.md) %}
 
 {% include [available-storage](../available-storage.md) %}

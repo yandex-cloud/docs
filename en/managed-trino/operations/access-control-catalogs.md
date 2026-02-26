@@ -18,6 +18,32 @@ You can set access rules for catalog objects when creating a {{ mtr-name }} clus
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
+  1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
+  1. In the **{{ ui-key.yacloud.trino.label_rbac-catalog }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
+  1. In the window that opens, set the rule settings:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. In the **{{ ui-key.yacloud.trino.label_rbac-catalog-permissions }}** field, select the access level for folder objects:
+        * `NONE`: All operations on catalog objects are prohibited.
+        * `ALL`: All operations are allowed. In which case user access to catalog objects is controlled by more granular rules, e.g., table rules.
+        * `READ_ONLY`: Only read operations are allowed, e.g., reading data from a table.
+
+     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+
+  1. Add other rules in a similar way if required.
+  1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -78,7 +104,7 @@ You can set access rules for catalog objects when creating a {{ mtr-name }} clus
 
   1. Create a {{ TF }} configuration file describing your [infrastructure](cluster-create.md).
   
-  1. Add to the configuration file the `yandex_trino_access_control` resource containing the `catalogs` rule list.
+  1. Add the `yandex_trino_access_control` resource with the `catalogs` rule list to the configuration file.
  
      ```hcl
      resource "yandex_trino_cluster" "<cluster_name>" {
@@ -267,11 +293,39 @@ You can set access rules for catalog objects when creating a {{ mtr-name }} clus
 
 {% endlist %}
 
-## Setting rules for an existing cluster {#set-at-create}
+## Setting rules for an existing cluster {#set-at-update}
 
 You can set or update access rules for catalog objects in an existing {{ mtr-name }} cluster.
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click the name of your cluster.
+  1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-catalog }}**.
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. In the **{{ ui-key.yacloud.trino.label_rbac-catalog-permissions }}** field, select the access level for folder objects:
+        * `NONE`: All operations on catalog objects are prohibited.
+        * `ALL`: All operations are allowed. In which case user access to catalog objects is controlled by more granular rules, e.g., table rules.
+        * `READ_ONLY`: Only read operations are allowed, e.g., reading data from a table.
+
+     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+
+  1. Add other rules in a similar way if required.
+  1. To edit a rule:
+     1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+     1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
+  1. To delete a rule you no longer need, Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+  1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
 - CLI {#cli}
 
@@ -281,7 +335,7 @@ You can set or update access rules for catalog objects in an existing {{ mtr-nam
 
   To set access rules for catalog objects:
 
-  1. If you have not set any access rules yet, create a file named `access_control.yaml` and paste the following code into it:
+  1. If you have not set any access rules yet, create a file named `access_control.yaml` and paste the following into it:
 
      ```yaml
      catalogs:
@@ -342,7 +396,7 @@ You can set or update access rules for catalog objects in an existing {{ mtr-nam
   
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
-  1. If you have not set the access rules yet, add the `yandex_trino_access_control` resource containing the `catalogs` rule list.
+  1. If you have not set any access rules yet, add the `yandex_trino_access_control` resource containing the `catalogs` rule list.
  
      ```hcl
      resource "yandex_trino_cluster" "<cluster_name>" {
@@ -432,7 +486,7 @@ You can set or update access rules for catalog objects in an existing {{ mtr-nam
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -530,11 +584,11 @@ You can set or update access rules for catalog objects in an existing {{ mtr-nam
         * `names`: List of catalog names. These must be the existing catalogs.
         * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` or `names` sections, or the `name_regexp` parameter.
+        The `catalog` section must contain either one of the nested `ids` and `names` sections or the `name_regexp` parameter.
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. If you have already set the access rules, open the existing `body.json` rules file and edit it as needed. You can:
+  1. If you have already set the rules, open the relevant `body.json` file and edit it as needed. You can:
 
      * Add new rules.
      * Update the existing ones.

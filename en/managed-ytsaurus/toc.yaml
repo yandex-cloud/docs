@@ -19,6 +19,10 @@ items:
         href: operations/cluster-stop.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
+  - name: Tutorials
+    items:
+      - name: Running a PySpark job
+        href: tutorials/yt-run-spark-job.md
   - name: Concepts
     items:
       - name: Authentication

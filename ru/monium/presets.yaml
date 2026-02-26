@@ -1,8 +1,9 @@
 default:
-  cloud-logging-full-name: Monium.Logs
-  monitoring-full-name: Monium.Metrics
-  cloud-logging-name: Monium.Logs
-  monitoring-name: Monium.Metrics
-  cloud-logging-short-name: Monium.Logs
-  monitoring-short-name: Monium.Metrics
+  cloud-logging-full-name: Monium Logs
+  monitoring-full-name: Monium Metrics
+  cloud-logging-name: Monium Logs
+  monitoring-name: Monium Metrics
+  cloud-logging-short-name: Monium Logs
+  monitoring-short-name: Monium Metrics
   link-monitoring: https://monium.yandex.cloud
+  unified-agent-full-name: Unified Agent

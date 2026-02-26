@@ -21,11 +21,11 @@ Here is an alternative solution:
 1. Create a new cluster with the same configuration in the target network.
 1. Use [MirrorMaker](../../managed-kafka/tutorials/kafka-connectors.md#kf-mirrormaker) to move the topics of your source cluster to the new cluster.
 
-#### How do I set up an alert that triggers as soon as a certain percentage of disk space is used up? {#disk-space-percentage}
+#### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
 
-[Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
+[Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Their recommended values are as follows:
+For `disk.used_bytes`, use notification thresholds with the following recommended values:
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
@@ -45,20 +45,20 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell? {#get-ssl-error}
 
-Here is the full text of the error:
+Complete error message:
 
 ```text
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means that when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
+This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
 
 To fix this error:
 
-* Make sure your corporate network policies are not blocking the check.
-* Run the command with the `--ssl-no-revoke` parameter:
+* Make sure your corporate network policies are not blocking the verification.
+* Run the following command with `--ssl-no-revoke`:
 
    ```powershell
    mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
@@ -114,3 +114,7 @@ To monitor message loss:
    * `kafka_group_topic_partition_offset` falling below `kafka_log_Log_LogStartOffset` signals a message loss.
 
 For more information, see [{#T}](../../managed-kafka/tutorials/retention-policy.md).
+
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

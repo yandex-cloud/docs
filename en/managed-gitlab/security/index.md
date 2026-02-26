@@ -1,13 +1,13 @@
 ---
 title: Access management in {{ mgl-full-name }}
-description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ mgl-full-name }}, a web-based open-source DevOps lifecycle tool. This section covers role assignment to resources, available service roles, and required permissions for actions.
 ---
 
 # Access management in {{ mgl-name }}
 
 In this section, you will learn about:
-* [Resources you can assign a role for](#resources).
-* [Roles this service has](#roles-list).
+* [Resources available for role assignment](#resources).
+* [Available service roles](#roles-list).
 * [Roles required](#required-roles) for specific actions.
 
 
@@ -20,11 +20,11 @@ To assign a role for a resource, a user should have the `gitlab.admin` role or o
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources available for role assignment {#resources}
 
 You can assign a role for an organization, [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Their nested resources will automatically inherit the roles.
 
-## Roles this service has {#roles-list}
+## Available service roles {#roles-list}
 
 {% include [gitlab](../../_mermaid/roles/gitlab.md) %}
 
@@ -58,7 +58,7 @@ To use the service, you need the [{{ roles.gitlab.editor }} role](../../iam/conc
 
 To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.gitlab.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.gitlab.admin }}` role instead of `{{ roles.gitlab.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.gitlab.admin }}` instead of `{{ roles.gitlab.editor }}`.
 
 
 ## What's next {#whats-next}

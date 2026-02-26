@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как получить ид
 
   **Получение идентификатора на дашборде**
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../concepts/resources-hierarchy.md#cloud).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../concepts/resources-hierarchy.md#cloud).
   1. Идентификатор облака указан сверху, под именем облака. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
 
      {% cut "Расположение идентификатора" %}
@@ -24,7 +24,7 @@ description: Из статьи вы узнаете, как получить ид
 
   **Получение идентификатора на вкладке {{ ui-key.yacloud.dashboard.DashboardPage.CloudInfoDialog.title_cloud-info-dialog_ddcbY }}**
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../concepts/resources-hierarchy.md#cloud).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../concepts/resources-hierarchy.md#cloud).
   1. Справа от названия облака нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_cloud-info }}**.
   1. В открывшемся окне идентификатор облака указан в поле **{{ ui-key.yacloud.dashboard.DashboardPage.CloudInfoTooltip.cloud-id_rncSU }}**. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
 

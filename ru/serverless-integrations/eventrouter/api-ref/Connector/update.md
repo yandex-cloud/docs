@@ -115,7 +115,7 @@ The rest of the fields will be reset to the default. ||
 
 New name of the connector.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 New description of the connector.

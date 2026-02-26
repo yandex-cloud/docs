@@ -55,7 +55,7 @@ Required field. ID of the bus to create a connector in. ||
 
 Name of the connector.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the connector.

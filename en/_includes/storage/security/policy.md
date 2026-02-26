@@ -91,6 +91,12 @@ Example of a rule for a specific {{ yandex-cloud }} user:
 You can retrieve the user ID by following [this guide](../../../organization/operations/users-get.md) in the {{ iam-full-name }} documentation.
 
 
+{% note info %}
+
+To enable access through the management console, you can also use the **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}** button when creating or editing an access policy.
+
+{% endnote %}
+
 ## Bucket access via a chain of reverse proxy servers {#access-via-reverse-proxy}
 
 For {{ objstorage-short-name }} to work with requests sent over a series of [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy), the `aws:sourceip` [condition](../../../storage/s3/api-ref/policy/conditions.md) checks both the IP address the request came from and the IP addresses of reverse proxy servers, e.g., those provided in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header.

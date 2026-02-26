@@ -57,7 +57,7 @@ The following type casts are supported:
 
 
 **Argument types:**
-- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Date | Fractional number | Integer | String`
+- `expression` — `Array of fractional numbers | Array of integers | Array of strings | Boolean | Date | Fractional number | Integer | String`
 - `native_type` — `String`
 - `param_1` — `Any`
 - `param_2` — `Any`
@@ -89,4 +89,4 @@ DB_CAST([float_value], "numeric", 10, 5)
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `Files`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Yandex Documents`.
+`ClickHouse 21.8`, `Files`, `Google Sheets`, `PostgreSQL 9.3`, `Trino`, `Yandex Documents`, `YDB`.

@@ -229,12 +229,12 @@ This example was tested in the following environment:
 * {{ PG }} `16` cluster containing the following resources:
 
     * [Database](../databases.md#add-db) `db1` owned by `user1`.
-    * `pg_repack``1.4.8` [extension](#install-extension) installed for database `db1`.
+    * `pg_repack``1.5.2` [extension](#install-extension) installed for database `db1`.
 
 * {{ yandex-cloud }} VM running Ubuntu 22.04 LTS, with the following configuration:
 
-    * Installed `pg_repack` [client](#install-client) `1.4.8` built from source.
-    * Enabled [SSL](../connect.md#get-ssl-cert) [connections to the cluster](../connect.md).
+    * Installed `pg_repack` [client](#install-client) `1.5.2` built from source.
+    * Enabled [SSL](../connect.md) [connections to the cluster](../connect.md#get-ssl-cert).
 
 {% endnote %}
 

@@ -2,13 +2,13 @@
 
 * [What is the role of {{ mmy-short-name }} in database management and maintenance?](#services)
 
-* [When should I use {{ mmy-short-name }}, and when should I use VMs running databases?](#mdb-advantage)
+* [When to use {{ mmy-short-name }} and when database VMs?](#mdb-advantage)
 
-* [What is a database host and database cluster?](#what-is-cluster)
+* [What is a database host and what is a database cluster?](#what-is-cluster)
 
 * [How do I get started with {{ mmy-short-name }}?](#quickstart)
 
-* [How many database hosts can be in a cluster?](#how-many-hosts)
+* [How many database hosts can there be in a cluster?](#how-many-hosts)
 
 * [How can I access a running database host?](#db-access)
 
@@ -28,10 +28,14 @@
 
 * [Are database host backups enabled by default?](#default-backup)
 
-* [When does a backup run? Is a database cluster available during backups?](#backup-window)
+* [What is the backup schedule? Can I access my database cluster during backup?](#backup-window)
 
 * [Can I change the retention period for automatic backups?](#backup-retain-days)
 
 * [What metrics and processes can be monitored?](#monitoring)
+
+* [What block size is used on the cluster disks?](#block-size)
+
+* [Does the service comply with the Russian Federal Law 152-FZ on personal data?](#fz-152)
 
 * [How do I get the logs of my activity in the {{ yandex-cloud }} services?](#logs)

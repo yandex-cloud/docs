@@ -89,6 +89,11 @@ apiPlayground:
             **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
             Workflow schedule settings.
           $ref: '#/definitions/WorkflowSchedule'
+        isPublic:
+          description: |-
+            **boolean**
+            Ability of the Workflow to be executed without authentication.
+          type: boolean
       additionalProperties: false
     definitions:
       WorkflowSpecification:
@@ -219,7 +224,8 @@ Required field. ID of the Workflow. ||
   "schedule": {
     "cronExpression": "string",
     "timezone": "string"
-  }
+  },
+  "isPublic": "boolean"
 }
 ```
 
@@ -229,7 +235,7 @@ Required field. ID of the Workflow. ||
 
 Name of the Workflow. The name is unique within the folder.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the Workflow.
@@ -268,6 +274,9 @@ Express execution mode. ||
 || schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
 
 Workflow schedule settings. ||
+|| isPublic | **boolean**
+
+Ability of the Workflow to be executed without authentication. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}
@@ -388,7 +397,9 @@ Required field. Timezone for the Workflow schedule. ||
     "schedule": {
       "cronExpression": "string",
       "timezone": "string"
-    }
+    },
+    "isPublic": "boolean",
+    "executionUrl": "string"
   }
   // end of the list of possible fields
 }
@@ -545,6 +556,12 @@ Express execution mode. ||
 || schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2)**
 
 Workflow schedule settings. ||
+|| isPublic | **boolean**
+
+Ability of the Workflow to be executed without authentication. ||
+|| executionUrl | **string**
+
+Execution URL of the Workflow. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2}

@@ -5,7 +5,7 @@ description: Следуя этой инструкции, с помощью {{ ve
 
 # Управлять поисковым индексом {{ vector-store-name }}
 
-[AI-агенты](../../concepts/agents/index.md) в своей работе могут использовать семантический поиск по контексту, получаемому из файлов внешних баз знаний. Такой дополнительный контекст хранится в [поисковых индексах](../../concepts/search/vectorstore.md) {{ vector-store-name }} — специальных векторных хранилищах {{ foundation-models-full-name }}, которые создаются с помощью {{ vector-store-name }} API и в которых документы представлены в виде векторов ([эмбеддингов](../../concepts/embeddings.md)).
+[AI-агенты](../../concepts/agents/index.md) в своей работе могут использовать гибридный поиск по контексту, получаемому из файлов внешних баз знаний. Такой дополнительный контекст хранится в [поисковых индексах](../../concepts/search/vectorstore.md) {{ vector-store-name }} — специальных векторных хранилищах {{ foundation-models-full-name }}, которые создаются с помощью {{ vector-store-name }} API и в которых документы представлены в виде векторов ([эмбеддингов](../../concepts/embeddings.md)).
 
 ## Перед началом работы {#before-begin}
 
@@ -140,10 +140,20 @@ description: Следуя этой инструкции, с помощью {{ ve
               # Ваши метки для файлов
               metadata={"key": "value"},
               # Время жизни индекса
-              # last_active_at - после последней активности
+              # last_active_at — после последней активности
+              # или created_at — после создания
               expires_after={"anchor": "last_active_at", "days": 1},
-              # или created_at - после создания
-              # expires_after={"anchor": "created_at", "days": 1},
+              # Стратегия разбиения документов на фрагменты (чанки)
+              # `max_chunk_size_tokens` — максимальный размер фрагмента в токенах
+              # `chunk_overlap_tokens` — размер перекрытия между соседними фрагментами, помогает избежать потери информации на границах фрагментов
+              chunking_strategy={
+                'type': 'static',
+                'static': {
+                    'max_chunk_size_tokens': 1408,
+                    'chunk_overlap_tokens': 148 
+                }
+              },  
+
               file_ids=input_file_ids,  # <- список файлов
           )
           vector_store_id = vector_store.id

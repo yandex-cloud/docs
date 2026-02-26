@@ -158,7 +158,7 @@ items:
         hidden: true
       - name: Configuring alerts and dashboards in {{ monitoring-name }}
         href: security/alerts-monitoring.md
-      - name: Exporting audit logs to MaxPatrol SIEM
+      - name: Uploading audit logs to MaxPatrol SIEM
         href: security/maxpatrol.md
       - name: Uploading audit logs to Splunk SIEM
         href: security/export-logs-to-splunk.md
@@ -1311,6 +1311,8 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: Running a PySpark job in {{ myt-full-name }}
+        href: dataplatform/yt-run-spark-job.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials

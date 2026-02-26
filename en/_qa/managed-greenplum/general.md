@@ -8,14 +8,14 @@ With {{ mgp-short-name }}, you can:
 * Scale computing power and dedicated storage capacity for your databases as needed.
 * Get database logs.
 
-{{ mgp-short-name }} takes over time-consuming administrative tasks in {{ GP }}:
+{{ mgp-short-name }} handles the heavy lifting of {{ GP }} infrastructure management:
 
 * Monitors resource usage.
-* Automatically creates DB backups.
-* Provides fault tolerance through automatic failover to backup replicas.
+* Performs automated database backups.
+* Ensures fault tolerance through automatic failover to standby replicas.
 * Keeps database software updated.
 
-You work with a {{ mgp-short-name }} database cluster just like with your regular local database. This allows you to manage internal database settings to meet your app requirements.
+You can work with a {{ mgp-short-name }} database cluster the same way as with your regular local database. This allows you to manage internal database settings to meet your app requirements.
 
 #### What is {{ mgp-short-name }}'s share of database management and maintenance work? {#services}
 
@@ -27,7 +27,7 @@ For all created and running databases, {{ mgp-short-name }} automatically create
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### Not sure whether to use {{ mgp-short-name }} or VMs with databases? {#mdb-advantage}
+#### When to use {{ mgp-short-name }} and when database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -49,13 +49,17 @@ For a detailed guide, see [Creating a cluster](../../managed-greenplum/operation
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
+The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 One month after a DBMS version becomes deprecated, {{ mgp-short-name }} automatically sends email notifications to the owners of database clusters created with that version.
 
 For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions will be upgraded even if you have disabled automatic updates.
+
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 

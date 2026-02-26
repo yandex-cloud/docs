@@ -1,4 +1,4 @@
-# Zones of control between the {{ managed-k8s-full-name }} users and {{ yandex-cloud }}
+# Zones of control between {{ managed-k8s-full-name }} users and {{ yandex-cloud }}
 
 The shared responsibility model for {{ managed-k8s-name }} in {{ yandex-cloud }} splits the zones of control between the cloud provider and the user.
 

@@ -22,7 +22,7 @@ To set up SAML authentication:
     https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
     ```
 
-    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     URL example: `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
 
@@ -77,7 +77,7 @@ Incorrect settings may cause the cluster to fail.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not specified, the `NameID` parameter is used.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime, in minutes. Specify if it is not set by the identity provider.
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime, in minutes. Specify it if it is not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
@@ -87,7 +87,7 @@ Incorrect settings may cause the cluster to fail.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -124,17 +124,17 @@ Incorrect settings may cause the cluster to fail.
         * `dashboardsUrl`: URL of the host with the `DASHBOARDS` role.
         * `rolesKey`: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
         * `subjectKey`: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not specified, the `NameID` parameter is used.
-        * `jwtDefaultExpirationTimeout`: Session lifetime, in minutes. Specify if it is not set by the identity provider.
+        * `jwtDefaultExpirationTimeout`: Session lifetime, in minutes. Specify it if it is not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -175,11 +175,11 @@ Incorrect settings may cause the cluster to fail.
         * `dashboards_url`: URL of the host with the `DASHBOARDS` role.
         * `roles_key`: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
         * `subject_key`: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not specified, the `NameID` parameter is used.
-        * `jwt_default_expiration_timeout`: Session lifetime, in minutes. Specify if it is not set by the identity provider.
+        * `jwt_default_expiration_timeout`: Session lifetime, in minutes. Specify it if it is not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -201,7 +201,7 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 1. On the IdP side, create a user that meets the role mappings defined in {{ OS }}.
 1. Grant this user access to the [previously created application](#configuration-idp).
 
-To log in to {{ OS }} using the new user's credentials, go to the **OpenSearch Dashboards** page.
+To authenticate in {{ OS }} with the new user's credentials, go to the **OpenSearch Dashboards** page.
 
 ## Examples of integration with providers {#examples}
 

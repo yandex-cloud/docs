@@ -31,6 +31,34 @@ Property names specified in the rules are not validated. If a property name cont
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
+  1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
+  1. In the **{{ ui-key.yacloud.trino.ClusterForm.label_system-session-property_grCye }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
+  1. In the window that opens, set the rule settings:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, specify whether the user is allowed to set the property:
+        * `No`: Not allowed.
+        * `Yes`: Allowed.
+
+     1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_session-property_cyTHR }}** field, specify the properties the rule applies to:
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select property names.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
+
+  1. Add other rules in a similar way if required.
+  1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -256,6 +284,36 @@ Property names specified in the rules are not validated. If a property name cont
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Click the name of your cluster.
+  1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.ClusterForm.label_system-session-property_grCye }}**.
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+
+     1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
+
+     1. {% include [users-console](../../_includes/managed-trino/users-console.md) %}
+
+     1. {% include [groups-console](../../_includes/managed-trino/groups-console.md) %}
+
+     1. In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, specify whether the user is allowed to set the property:
+        * `No`: Not allowed.
+        * `Yes`: Allowed.
+
+     1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_session-property_cyTHR }}** field, specify the properties the rule applies to:
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select property names.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
+
+  1. Add other rules in a similar way if required.
+  1. To edit a rule:
+     1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+     1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
+  1. To delete a rule you no longer need, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+  1. Click **{{ ui-key.yacloud.common.save-changes }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -264,7 +322,7 @@ Property names specified in the rules are not validated. If a property name cont
 
   To set access rules for session system properties:
 
-  1. If you have not set any access rules yet, create a file named `access_control.yaml` and paste the following code into it:
+  1. If you have not set any access rules yet, create a file named `access_control.yaml` and paste the following into it:
 
      ```yaml
      system_session_properties:
@@ -391,7 +449,7 @@ Property names specified in the rules are not validated. If a property name cont
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

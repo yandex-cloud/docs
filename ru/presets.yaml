@@ -4734,11 +4734,17 @@ default:
             oauth-scope-groups_iZoa5: groups (группы пользователя в организации)
             oauth-scope-openid_o99tx: openid (идентификатор пользователя)
             oauth-scope-profile_sgdKX: profile (полное имя, имя, фамилия, аватар и др.)
+            section-service-provider_5d85k: Конфигурация поставщика услуг (SP)
           OauthAppRedirectUrlsField:
             add-redirect-url_rS5jw: Добавить URI
           SamlAppAcsUrlsField:
             add-acs-url_eMunC: Добавить URL
           SamlAppEditForm:
+            EncryptResponseSection:
+              add-cert-action: Добавить сертификат
+              field-encode-data-algo: Алгоритм шифрования данных
+              field-encode-key-algo: Алгоритм шифрования ключа
+              field-encrypt-response: Шифровать assertion в ответе
             field-acs-urls_eQcJr: ACS URL
             field-description_cjpok: Описание
             field-labels_uT2D2: Метки
@@ -4746,6 +4752,8 @@ default:
             field-signature-mode_ipXQ7: Режим подписи
             field-sp-entity-id_snAsX: SP EntityID
             field-sp-logout-url_sLuRl: SP Logout URL
+            RequestSigningSection:
+              field-request-signing: Принимать только подписанные запросы
             signature-mode-assertions_thJgN: Assertions
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response

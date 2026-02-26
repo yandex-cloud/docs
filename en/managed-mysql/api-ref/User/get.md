@@ -88,7 +88,8 @@ The maximum string length in characters is 63. Value must match the regular expr
   "authenticationPlugin": "string",
   "connectionManager": {
     "connectionId": "string"
-  }
+  },
+  "deletionProtectionMode": "string"
 }
 ```
 
@@ -141,6 +142,15 @@ User authentication plugin.
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mysql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| deletionProtectionMode | **enum** (DeletionProtectionMode)
+
+Deletion Protection inhibits deletion of the user
+
+Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
+
+- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
+- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
+- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}

@@ -81,7 +81,7 @@ By default, maintenance can be scheduled for any time. You can choose a specific
 
 {% note warning %}
 
-By selecting a new maintenance interval you will automatically cancel scheduled maintenance unless it falls within the new interval.
+A scheduled maintenance job will be canceled automatically if it falls outside the specified interval.
 
 {% endnote %}
 
@@ -147,11 +147,11 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
   
       {% include [Maintenance window description](../../_includes/mdb/terraform/maintenance-window-description.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -184,7 +184,7 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings you want to update.
+     * `updateMask`: Comma-separated list of settings you want to update.
 
        Here, we provide only one setting.
 
@@ -231,7 +231,7 @@ By selecting a new maintenance interval you will automatically cancel scheduled 
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 

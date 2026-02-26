@@ -19,9 +19,13 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
 
 {% endnote %}
 
+If you plan to use {{ compute-full-name }} VM instances as external nodes, remember to specify `disable_root: false` in the `user-data` key metadata when [creating](../../compute/operations/index.md#vm-create) the instances. If this parameter is not specified, your cluster will produce [errors](../qa/troubleshooting.md#vm-as-external-node).
+
+{% include [external-node-metadata-example](../../_includes/managed-kubernetes/external-node-metadata-example.md) %}
+
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) of any suitable configuration.
 
     To create an external node group, the {{ managed-k8s-name }} cluster must operate in [tunnel mode](../concepts/network-policy.md#cilium). You can only enable this mode when creating the cluster.
 
@@ -37,7 +41,7 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}** and then **{{ ui-key.yacloud.k8s.cluster.node-groups.label_type-custom }}**.
   1. Enter a name for the {{ managed-k8s-name }} node group.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_ips }}** field, specify the [IP address](../../vpc/concepts/address.md) of the server you are connecting, available from the {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network).
-  1. Click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}** to add more IP addresses if needed.
+  1. Click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-ip }}** to add more IP addresses as needed.
   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
@@ -60,7 +64,7 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
 
      ```bash
      kubectl apply -f ext-nodegroup.yaml
-     ```
+     ```   
 
 {% endlist %}
 
@@ -102,7 +106,7 @@ With automated installation, the {{ managed-k8s-name }} cluster connects to the 
 
 To run an automated installation:
 
-1. In your {{ managed-k8s-name }} cluster, create a secret with a private SSH key for connection to the servers:
+1. In your {{ managed-k8s-name }} cluster, create a secret with a private SSH key for connection to the server:
 
     ```bash
     kubectl -n yandex-system create secret generic <secret_name> \

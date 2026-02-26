@@ -166,7 +166,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}    
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -181,6 +184,8 @@ You can create connections of the following types:
 
   To create a connection to a {{ mpg-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../connection-manager/api-ref/grpc/Connection/) resource.
 
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
+ 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) reference.
 
 {% endlist %}
@@ -321,7 +326,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -335,6 +343,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mch-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) reference.
 
@@ -476,7 +486,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -490,6 +503,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mmy-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) reference.
 
@@ -629,7 +644,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -643,6 +661,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mrd-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) reference.
 
@@ -772,7 +792,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -786,6 +809,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mos-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) reference.
 
@@ -927,7 +952,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -941,6 +969,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mmg-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) reference.
 
@@ -1101,7 +1131,10 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1115,6 +1148,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mkf-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../connection-manager/api-ref/grpc/Connection/) resource.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) reference.
 
@@ -1259,7 +1294,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1273,6 +1311,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mgp-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../connection-manager/api-ref/grpc/Connection/) resource.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) reference.
 
@@ -1436,7 +1476,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1450,6 +1493,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ PG }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) reference.
 
@@ -1634,7 +1679,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1648,6 +1696,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ CH }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) reference.
 
@@ -1809,7 +1859,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1823,6 +1876,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ MY }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) reference.
 
@@ -1998,7 +2053,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2012,6 +2070,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ RD }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) reference.
 
@@ -2169,7 +2229,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2183,6 +2246,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ VLK }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) reference.
 
@@ -2331,7 +2396,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2345,6 +2413,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ TR }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) reference.
 
@@ -2506,7 +2576,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2520,6 +2593,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ OS }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) reference.
 
@@ -2677,7 +2752,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2691,6 +2769,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ MG }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste) reference.
 
@@ -2886,7 +2966,10 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -2900,6 +2983,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ KF }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) reference.
 
@@ -3062,7 +3147,10 @@ You can create connections of the following types:
 
         * `auth.user_password.password.raw`: User password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -3076,6 +3164,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ MG }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) reference.
 

@@ -532,7 +532,7 @@ Required field. ID of the bus to create a rule for. ||
 
 Name of the rule.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the rule.

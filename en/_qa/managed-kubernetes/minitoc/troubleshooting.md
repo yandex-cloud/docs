@@ -29,3 +29,5 @@
 * [System time displayed incorrectly in the Linux console, as well as in container and {{ managed-k8s-name }} cluster pod logs](#time)
 
 * [What should I do if I deleted my {{ network-load-balancer-full-name }} or its target groups that were automatically created for a LoadBalancer service?](#deleted-loadbalancer-service)
+
+* [Error connecting a {{ compute-full-name }} VM instance as an external {{ managed-k8s-name }} node](#vm-as-external-node)

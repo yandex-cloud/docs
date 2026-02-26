@@ -125,6 +125,16 @@ apiPlayground:
               Change of the setting is applied with restart.
               For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
             type: string
+          searchMaxBuckets:
+            description: |-
+              **string** (int64)
+              The maximum number of aggregation buckets allowed in a single response. Default is 65535
+              Default value: **65535**.
+              Change of the setting is applied with restart.
+              For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
           reindexRemoteWhitelist:
             description: |-
               **string**
@@ -432,6 +442,7 @@ The maximum string length in characters is 50. ||
       "opensearchConfig_2": {
         "maxClauseCount": "string",
         "fielddataCacheSize": "string",
+        "searchMaxBuckets": "string",
         "reindexRemoteWhitelist": "string"
       },
       // end of the list of possible fields
@@ -614,6 +625,17 @@ This value should be smaller than the **indices.breaker.fielddata.limit**
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| searchMaxBuckets | **string** (int64)
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
+Default value: **65535**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || reindexRemoteWhitelist | **string**
 
 Allowed remote hosts
@@ -883,16 +905,19 @@ Acceptable values are 1 to 24, inclusive. ||
           "effectiveConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
+            "searchMaxBuckets": "string",
             "reindexRemoteWhitelist": "string"
           },
           "userConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
+            "searchMaxBuckets": "string",
             "reindexRemoteWhitelist": "string"
           },
           "defaultConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
+            "searchMaxBuckets": "string",
             "reindexRemoteWhitelist": "string"
           }
         },
@@ -1388,6 +1413,17 @@ This value should be smaller than the **indices.breaker.fielddata.limit**
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| searchMaxBuckets | **string** (int64)
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
+Default value: **65535**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || reindexRemoteWhitelist | **string**
 
 Allowed remote hosts

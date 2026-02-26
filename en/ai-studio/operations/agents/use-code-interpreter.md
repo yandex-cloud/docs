@@ -47,6 +47,8 @@ To use an example:
      import os     
 
      YC_MODEL = "qwen3-235b-a22b-fp8"
+     YC_API_KEY = os.getenv('YC_API_KEY')
+     YC_FOLDER_ID = os.getenv('YC_FOLDER_ID')
 
      client = openai.OpenAI(
          api_key=YC_API_KEY,
@@ -67,7 +69,6 @@ To use an example:
      stream = client.responses.create(
          model=f"gpt://{YC_FOLDER_ID}/{YC_MODEL}",
          input=prompt,
-         # instructions=instruction,
          tool_choice="auto",
          temperature=0.3,
          tools=[
