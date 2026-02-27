@@ -920,6 +920,12 @@ items:
         href: reports/versioning.md
       - name: Нейроаналитик в отчетах
         href: reports/insights.md
+  - name: Встраивание объектов
+    items:
+      - name: Публичное встраивание
+        href: security/embedded-objects.md
+      - name: Непубличное встраивание
+        href: security/private-embedded-objects.md
   - name: Управление доступом
     items:
       - name: Обзор
@@ -946,12 +952,6 @@ items:
         href: security/row-level-security.md
       - name: Публичный доступ
         href: concepts/datalens-public.md
-      - name: Встраивание объектов
-        items:
-          - name: Публичное встраивание
-            href: security/embedded-objects.md
-          - name: Непубличное встраивание
-            href: security/private-embedded-objects.md
   - name: Настройки сервиса
     items:
       - name: Обзор
@@ -974,10 +974,10 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
-      - name: Изменения в правилах тарификации 1 декабря
-        href: pricing-changes.md
       - name: Архив
         items:
+          - name: Изменения в правилах тарификации 1 декабря
+            href: pricing-changes.md
           - name: Правила тарификации до 1 декабря 2025
             href: pricing-old.md
           - name: Тарифные планы до 1 декабря 2025

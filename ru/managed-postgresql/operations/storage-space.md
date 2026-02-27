@@ -55,7 +55,7 @@ description: При заполнении хранилища более чем н
 
 Чтобы отключить режим read-only:
 
-1. [Подключитесь к БД](../operations/connect.md) любым удобным способом.
+1. [Подключитесь к БД](../operations/connect/index.md) любым удобным способом.
 
 1. Откройте транзакцию и внутри нее выполните команду:
 
@@ -82,8 +82,14 @@ description: При заполнении хранилища более чем н
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+{% note warning %}
+
+Размер хранилища нельзя уменьшить.
+
+{% endnote %}
 
 
 {% list tabs group=instructions %}
@@ -255,6 +261,8 @@ description: При заполнении хранилища более чем н
 {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}

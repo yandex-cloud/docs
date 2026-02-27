@@ -87,7 +87,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь](../../../managed-postgresql/operations/connect.md#bash) к базе данных {{ PG }}.
+1. [Подключитесь](../../../managed-postgresql/operations/connect/clients.md#bash) к базе данных {{ PG }}.
 
 1. Создайте таблицу `customers` и добавьте в нее тестовые данные:
 

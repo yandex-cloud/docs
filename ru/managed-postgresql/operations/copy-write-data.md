@@ -4,7 +4,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Получите SSL-сертификат](../../managed-postgresql/operations/connect.md#get-ssl-cert).
+1. [Получите SSL-сертификат](../../managed-postgresql/operations/connect/index.md#get-ssl-cert).
 1. Установите зависимости:
 
     ```bash

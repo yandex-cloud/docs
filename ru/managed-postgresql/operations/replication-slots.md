@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Посмотреть список логических слотов репликации {#list}
 
-1. [Подключитесь](connect.md) к базе данных с помощью учетной записи пользователя с [ролью `mdb_replication`](../concepts/roles.md#mdb-replication).
+1. [Подключитесь](connect/index.md) к базе данных с помощью учетной записи пользователя с [ролью `mdb_replication`](../concepts/roles.md#mdb-replication).
 1. Выполните SQL-запрос:
 
     ```sql
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
-1. [Подключитесь](connect.md) к базе данных с помощью учетной записи пользователя с [ролью `mdb_replication`](../concepts/roles.md#mdb-replication).
+1. [Подключитесь](connect/index.md) к базе данных с помощью учетной записи пользователя с [ролью `mdb_replication`](../concepts/roles.md#mdb-replication).
 1. Выполните SQL-запрос:
 
     ```sql
@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Удалить слот репликации {#delete}
 
-1. [Подключитесь](connect.md) к базе данных с помощью учетной записи пользователя с [ролью `mdb_replication`](../concepts/roles.md#mdb-replication).
+1. [Подключитесь](connect/index.md) к базе данных с помощью учетной записи пользователя с [ролью `mdb_replication`](../concepts/roles.md#mdb-replication).
 1. Выполните SQL-запрос:
 
     ```sql

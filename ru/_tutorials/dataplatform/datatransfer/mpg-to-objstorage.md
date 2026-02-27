@@ -32,7 +32,7 @@
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     
-    1. Если вы используете [группы безопасности](../../../managed-postgresql/operations/connect.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
+    1. Если вы используете [группы безопасности](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
 
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../../storage/operations/buckets/create.md).
@@ -83,7 +83,7 @@
 
 ## Подготовьте трансфер {#prepare-transfer}
 
-1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
 
      ```sql
      CREATE TABLE x_tab
@@ -156,7 +156,7 @@
 
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
-1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect.md), удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
+1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md), удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;

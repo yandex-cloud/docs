@@ -7,7 +7,7 @@
 
     {% include [metastore version](metastore-version-catalog-create.md) %}
 
-  * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/index.md) и внешнее хранилище.
+  * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) и внешнее хранилище.
 
     Для внешнего хранилища необходимо указать:
 

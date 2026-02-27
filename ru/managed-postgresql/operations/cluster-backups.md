@@ -307,7 +307,7 @@ description: Вы можете создавать резервные копии 
 
        * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+       * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -382,7 +382,7 @@ description: Вы можете создавать резервные копии 
 
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+       * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 

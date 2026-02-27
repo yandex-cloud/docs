@@ -36,7 +36,7 @@
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
-    1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-postgresql/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
+    1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
@@ -167,7 +167,7 @@
 ## Активируйте трансфер {#activate-transfer}
 
 1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../managed-postgresql/operations/connect.md).
+1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md).
 1. Выполните запрос:
 
     ```sql

@@ -41,7 +41,7 @@
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     
-    1. Настройте [группы безопасности](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и убедитесь, что они допускают подключение к кластеру.
+    1. Настройте [группы безопасности](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
 
     1. [Выдайте роль](../../../managed-postgresql/operations/grant.md#grant-privilege) `mdb_replication` пользователю `pg-user`.
@@ -92,7 +92,7 @@
 
 1. [Создайте поток данных {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md) с именем `mpg-stream`.
 
-1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
+1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
 
     ```sql
     CREATE TABLE measurements (

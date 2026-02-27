@@ -126,7 +126,7 @@ description: Из статьи вы узнаете, как безопасно в
 
         {% endnote %}
 
-      * `dlEmbedService` — строковая константа идентификатора сервиса: `YC_DATALENS_EMBEDDING_SERVICE_MARK`.
+      * `dlEmbedService` — строковая константа идентификатора сервиса: `{{ dlEmbedService }}`.
       * (опционально) `params` — подписанные параметры чарта, которые передаются в составе токена. Их нельзя изменить без повторной генерации токена.
 
         {% note warning %}
@@ -143,7 +143,7 @@ description: Из статьи вы узнаете, как безопасно в
           "embedId": "ieez7********",
           "iat": 1516239022,
           "exp": 1516240822,
-          "dlEmbedService": "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+          "dlEmbedService": "{{ dlEmbedService }}",
           "params": {
             "param1": "value1",
             "param2": "value2"
@@ -190,7 +190,7 @@ description: Из статьи вы узнаете, как безопасно в
         now = int(time.time())
         payload = {
            'embedId': "<идентификатор_объекта_встраивания>",
-           'dlEmbedService': "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+           'dlEmbedService': "{{ dlEmbedService }}",
            'iat': now,
            'exp': now + 360,
            "params": {  }}
@@ -221,7 +221,7 @@ description: Из статьи вы узнаете, как безопасно в
         const now = Math.floor(Date.now() / 1000);
         const payload = {
         embedId: '<идентификатор_объекта_встраивания>',
-        dlEmbedService: 'YC_DATALENS_EMBEDDING_SERVICE_MARK',
+        dlEmbedService: '{{ dlEmbedService }}',
         iat: now,
         exp: now + 360,
         params: {},
@@ -263,7 +263,7 @@ description: Из статьи вы узнаете, как безопасно в
           now := time.Now().Unix()
           payload := jwt.MapClaims{
               "embedId":        "<идентификатор_объекта_встраивания>",
-              "dlEmbedService": "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+              "dlEmbedService": "{{ dlEmbedService }}",
               "iat":            now,
               "exp":            now + 360,
               "params":         map[string]interface{}{},
@@ -288,19 +288,27 @@ description: Из статьи вы узнаете, как безопасно в
 
       - Для чарта {#chart}
 
+                
         ```bash
         {{ link-datalens-main }}/embeds/chart#dl_embed_token=<токен>
         ```
 
-        Где `<токен>` — JWT-токен.
+
+        Где:
+
+        * `<токен>` — JWT-токен.
 
       - Для дашборда {#dashboard}
 
+                
         ```bash
         {{ link-datalens-main }}/embeds/dash#dl_embed_token=<токен>
         ```
 
-        Где `<токен>` — JWT-токен.
+
+        Где:
+
+        * `<токен>` — JWT-токен.
 
       {% endlist %}
 
@@ -310,12 +318,14 @@ description: Из статьи вы узнаете, как безопасно в
 
       - Для чарта {#chart}
 
+                
         ```html
         <iframe src="{{ link-datalens-main }}/embeds/chart#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
         ```
 
-        Где:
 
+        Где:
+        
         * `src` — URL встраивания.
         * `<токен>` — JWT-токен.
         * `width` — ширина чарта.
@@ -324,9 +334,11 @@ description: Из статьи вы узнаете, как безопасно в
 
       - Для дашборда {#dashboard}
 
+                
         ```html
         <iframe src="{{ link-datalens-main }}/embeds/dash#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
         ```
+
 
         Где:
 
@@ -365,6 +377,7 @@ description: Из статьи вы узнаете, как безопасно в
 
 Пример:
 
+
 ```js
 const iframe = document.getElementById('ID_IFRAME');
 
@@ -373,6 +386,7 @@ iframe.contentWindow.postMessage({
     token: 'NEW_TOKEN'
 }, '{{ link-datalens-main }}/');
 ```
+
 
 Учитывайте время окончания действия токена при его обновлении.
 
@@ -386,9 +400,11 @@ iframe.contentWindow.postMessage({
 
 - Для чарта {#chart}
 
+    
   ```html
   <iframe src="{{ link-datalens-main }}/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
   ```
+
 
   Где:
 
@@ -398,9 +414,11 @@ iframe.contentWindow.postMessage({
 
 - Для дашборда {#dashboard}
 
+    
   ```html
   <iframe src="{{ link-datalens-main }}/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<токен>" width="600" height="400" frameborder="0"></iframe>
   ```
+
 
   Где:
 

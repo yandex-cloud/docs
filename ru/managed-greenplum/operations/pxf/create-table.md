@@ -230,8 +230,8 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * **Driver** — `org.postgresql.Driver`;
         * **Url** — `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`, где:
 
-            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mpg-name }}.
-            * `{{ port-mpg }}` — порт для [подключения](../../../managed-postgresql/operations/connect.md) к кластеру {{ mpg-name }}.
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-postgresql/operations/connect/fqdn.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mpg-name }}.
+            * `{{ port-mpg }}` — порт для [подключения](../../../managed-postgresql/operations/connect/index.md) к кластеру {{ mpg-name }}.
             * `db1` — имя БД в кластере {{ mpg-name }}.
 
         * **User** — `pguser`.
@@ -240,7 +240,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         Если не создать источник данных, параметры подключения к источнику нужно передать в SQL-запросе на создание внешней таблицы.
 
-    1. [Подключитесь к БД {{ PG }}](../../../managed-postgresql/operations/connect.md#bash) с помощью утилиты `psql`.
+    1. [Подключитесь к БД {{ PG }}](../../../managed-postgresql/operations/connect/clients.md) с помощью утилиты `psql`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
         ```sql
