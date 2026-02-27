@@ -19,7 +19,7 @@
         
         1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ [назначьте роль](../../../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` этому пользователю.
         
-        1. [Подключитесь к базе данных](../../../../managed-postgresql/operations/connect.md), которую нужно мигрировать, от имени владельца базы и [настройте привилегии](../../../../managed-postgresql/operations/grant.md#grant-privilege):
+        1. [Подключитесь к базе данных](../../../../managed-postgresql/operations/connect/index.md), которую нужно мигрировать, от имени владельца базы и [настройте привилегии](../../../../managed-postgresql/operations/grant.md#grant-privilege):
 
             * Выдайте привилегию на выполнение операции `SELECT` над всеми таблицами базы данных, которые переносит трансфер:
 

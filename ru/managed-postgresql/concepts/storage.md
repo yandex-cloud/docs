@@ -79,6 +79,8 @@ description: Из статьи вы узнаете, что такое храни
 
 Настроить автоматическое увеличение размера хранилища можно при [создании](../operations/cluster-create.md) или [изменении кластера](../operations/storage-space.md#disk-size-autoscale). Если настроен порог для планового увеличения, настройте расписание окна обслуживания.
 
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
+
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 

@@ -1,6 +1,6 @@
 * `filesystem`: File storage type. Available options:
 
-    * `s3`: [{{ objstorage-full-name }}](../../../storage/quickstart/index.md).
+    * `s3`: [{{ objstorage-full-name }}](../../../storage/quickstart/overview.md).
     * `externalS3`: External storage. You need to specify additional parameters for this one:
 
         * `awsAccessKey`: ID of AWS-compatible static access key.

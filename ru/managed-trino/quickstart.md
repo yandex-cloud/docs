@@ -136,7 +136,7 @@ description: В этой инструкции вы научитесь созда
 
 ## Проверьте запросы в кластере {{ mpg-name }} {#check-queries-in-psql}
 
-Чтобы проверить выполнение запросов в кластере {{ mpg-name }}, [подключитесь к БД в кластере](../managed-postgresql/operations/connect.md) и запросите количество строк в таблице `customers`:
+Чтобы проверить выполнение запросов в кластере {{ mpg-name }}, [подключитесь к БД в кластере](../managed-postgresql/operations/connect/index.md) и запросите количество строк в таблице `customers`:
 
 ```sql
 SELECT COUNT(*) FROM tpch_postgresql.customers;

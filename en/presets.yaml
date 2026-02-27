@@ -6102,6 +6102,7 @@ default:
           label_all-services_6sGQy: All services
         BalancerAllocationDialog:
           AllocationForm:
+            form_disable_traffic_3z2cs: Block
             form_timezone_0_6LoEf: Disable block through
         CloudActions:
           button_action-delete-cloud_3simi: Delete cloud
@@ -7371,6 +7372,8 @@ default:
           label_health-check-timeout: Timeout in sec
           label_health-check-unhealthy-threshold: Unhealthy threshold
           label_list: Load balancers
+          section_allocation-settings: Allocation
+          section_allocation-settings_button: Manage zone lock
           section_attached-target-groups: Target groups
           section_listeners: Listeners
         target-group:
@@ -8858,6 +8861,9 @@ default:
             button_add: Link
             field_route-table-id: Route table
             label_title: Link routing table
+        Subnetwork:
+          SubnetUsedAddressesList:
+            button_create_sPV4s: Reserve IP address
         subnetworks:
           button_action-add-route-table: Link routing table
           button_action-create: Create subnet

@@ -81,7 +81,7 @@ description: В этой инструкции вы научитесь созда
 
 {% note warning %}
 
-Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
 {% endnote %}
 
@@ -155,6 +155,6 @@ description: В этой инструкции вы научитесь созда
 
 * [Перенесите данные](../data-transfer/tutorials/managed-postgresql.md#quick-transfer) в БД кластера.
 * Изучите [концепции сервиса](concepts/index.md).
-* Узнайте больше о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
+* Узнайте больше о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect/index.md).
 * Ознакомьтесь с [практическими руководствами](tutorials/index.md) по работе с сервисом.
 * Ознакомьтесь с [вопросами и ответами](qa/general.md).

@@ -30,7 +30,7 @@ Get started with {{ yandex-cloud }}:
 
   Create a [VM](../../compute/concepts/vm.md) and connect to it.
 
-* [{{ objstorage-full-name }}](../../storage/quickstart/index.md).
+* [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
 
   Create a bucket for storing data in {{ yandex-cloud }}.
 

@@ -39,6 +39,8 @@ items:
         items:
           - name: Зарезервировать статический публичный IP-адрес
             href: operations/get-static-ip.md
+          - name: Зарезервировать внутренний IP-адрес
+            href: operations/private-ip-reserve.md
           - name: Сделать динамический публичный IP-адрес статическим
             href: operations/set-static-ip.md
           - name: Сделать статический публичный IP-адрес динамическим
@@ -51,6 +53,8 @@ items:
             href: operations/address-get-info.md
           - name: Удалить статический публичный IP-адрес
             href: operations/address-delete.md
+          - name: Удалить внутренний IP-адрес
+            href: operations/private-ip-delete.md
       - name: Статическая маршрутизация
         stage: new
         items:

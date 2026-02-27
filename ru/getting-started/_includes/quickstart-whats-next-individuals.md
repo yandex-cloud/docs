@@ -30,7 +30,7 @@
 
   Создайте [виртуальную машину](../../compute/concepts/vm.md) и подключитесь к ней.
 
-* [{{ objstorage-full-name }}](../../storage/quickstart/index.md).
+* [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
 
   Создайте бакет для хранения данных в {{ yandex-cloud }}.
 

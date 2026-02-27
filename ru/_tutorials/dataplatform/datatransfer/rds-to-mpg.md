@@ -57,7 +57,7 @@
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. Убедитесь, что группа безопасности кластера {{ mpg-name }} [настроена правильно](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и допускает подключение к кластеру через интернет.
+    1. Убедитесь, что группа безопасности кластера {{ mpg-name }} [настроена правильно](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и допускает подключение к кластеру через интернет.
     1. Настройте [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в интернет для подсети, в которой расположен кластер-приемник.
     1. [Скачайте сертификат AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) для региона, в котором расположен инстанс Amazon RDS for {{ PG }}.
 
@@ -246,7 +246,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect.md).
+1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md).
 1. Выполните запрос:
 
     ```sql
@@ -277,7 +277,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect.md).
+    1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md).
     1. Выполните запрос:
 
         ```sql

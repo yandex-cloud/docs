@@ -3,32 +3,59 @@ title: Список релизов {{ org-sync-agent-name }}
 description: На странице представлены релизы агента синхронизации, а также изменения в каждом из них.
 ---
 
-# Релизы {{ org-sync-agent-name }}
+# Релизы {{ org-sync-agent-name }}  
 
 ## Текущая версия {#latest-release}
 
-### Версия 0.38.0 (08.12.2025) {#version0.38.0}
+### Версия 0.39.0 (27.02.26) {#version0.39.0}
 
-* Исправлен некорректный парсинг объектов Active Directory при наличии неизвестных атрибутов.
+#### Изменения в {{ org-sync-agent-name }} {#changes-version0.39.0}
 
-* Исправлено экранирование CN в фильтрах LDAP.
+* Добавлена настройка `use_session_api` для запуска нескольких агентов одновременно.  
+
+* Изменена валидация групп и organization units в фильтре.  
+
+* Исправлена ошибка с отсутствием хеша пароля при переносе одного organization unit целиком в другой.  
+
+* Добавлены новые атрибуты `employee_id`, `department`, `company_name`, `job_title`.  
 
 {% cut "Контрольные суммы" %}
 
 | Платформа   | Контрольная сумма (sha-256) |
 |-------------|-----------------------------|
-| linux/amd64 | `87ccbc96e8d99baa6353d97688643f3b9284cfa01b4cde8982884c4620e73ae7` |
-| linux/arm64 | `083d112c4bdf7d9ffbe89e6744120f657dd8da2ec8186156009a4e2d199c99ad` |
-| darwin/amd64 | `077fde2da16904c288638f284626db34ff4758aa64d7d1483f54cd713c451bc2` |
-| darwin/arm64 | `a79770081bf4943380613e73d45a43036922dd43b2f0e65e39e41c2fe520a05f` |
-| windows/amd64 | `d9a9b6b4475c02d26a2f489ba0c62c37b468f763366cc265e9ea4859badc2fd2` |
-| windows/arm64 | `89cf257f59abd98c191fa2329899c473b24a586fc54a1a3bf9eebfd976265067` |
+| `linux/amd64` | `03d148741cc24631d6d7a5385f4571ec91291de0e517387d38011183eda793e4` |
+| `linux/arm64` | `2300e3f421094db85d7c339a35af33973da8afb21e51d4bda6c81cf1c1e18e8c` |
+| `darwin/amd64` | `0e7e693ecefe8aa4c7c49569cbc6fee674c0d6a8172ef349916578c04c0fe9b4` |
+| `darwin/arm64` | `ed1c8ab0117531b6732bb522ee9343af525511fbabe09d8e0c6eb55830582a5a` |
+| `windows/amd64` | `0d86277fdb4ebd5483c2cdcebb2eb3cf6e39e5cdf8c7a82193ccf1011c49c31a` |
+| `windows/arm64` | `4c2219e7abd00747c3422425456300d98775c426ba46e7fe73f4bc7d6fe30510` |
 
 {% endcut %}
 
-## Предыдущие релизы {#previous-release}
+### Версия 0.38.0 (08.12.25) {#version0.38.0}
 
-### Версия 0.37.0 (28.11.2025) {#version0.37.0}
+#### Изменения в {{ org-full-name }} sync agent {#changes-version0.38.0}
+
+* Исправлен некорретный парсинг объектов AD при наличии неизвестных атрибутов.  
+
+* Исправлено экранирование CN в ldap фильтрах
+
+{% cut "Контрольные суммы" %}
+
+| Платформа   | Контрольная сумма (sha-256) |
+|-------------|-----------------------------|
+| `linux/amd64` | `87ccbc96e8d99baa6353d97688643f3b9284cfa01b4cde8982884c4620e73ae7` |
+| `linux/arm64` | `083d112c4bdf7d9ffbe89e6744120f657dd8da2ec8186156009a4e2d199c99ad` |
+| `darwin/amd64` | `077fde2da16904c288638f284626db34ff4758aa64d7d1483f54cd713c451bc2` |
+| `darwin/arm64` | `a79770081bf4943380613e73d45a43036922dd43b2f0e65e39e41c2fe520a05f` |
+| `windows/amd64` | `d9a9b6b4475c02d26a2f489ba0c62c37b468f763366cc265e9ea4859badc2fd2` |
+| `windows/arm64` | `89cf257f59abd98c191fa2329899c473b24a586fc54a1a3bf9eebfd976265067` |
+
+{% endcut %}
+
+### Версия 0.37.0 (28.11.25) {#version0.37.0}
+
+#### Изменения в {{ org-full-name }} sync agent {#changes-version0.37.0}
 
 * Значение `replacement_domain` теперь подставляется независимо от того, соответствует ли домен в UPN домену в фильтре.
 

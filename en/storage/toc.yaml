@@ -4,7 +4,7 @@ items:
   - name: Getting started
     items:
       - name: Overview
-        href: quickstart/index.md
+        href: quickstart/overview.md
       - name: Getting started with {{ objstorage-name }}
         href: quickstart.md
       - name: Getting started with the AWS CLI

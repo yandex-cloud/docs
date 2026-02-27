@@ -42,7 +42,7 @@
   1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
      * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
-     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+     * [{{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
   1. [Выдайте роль](../../managed-postgresql/operations/grant.md#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
@@ -86,7 +86,7 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Подключитесь к кластеру {{ mpg-name }}](../../managed-postgresql/operations/connect.md).
+1. [Подключитесь к кластеру {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md).
 1. Создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
 
      ```sql

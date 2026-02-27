@@ -4,7 +4,7 @@ items:
   - name: Начало работы
     items:
       - name: Обзор
-        href: quickstart/index.md
+        href: quickstart/overview.md
       - name: Начало работы c {{ objstorage-name }}
         href: quickstart.md
       - name: Начало работы с AWS CLI

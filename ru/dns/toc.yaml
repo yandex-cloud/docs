@@ -17,6 +17,8 @@ items:
             href: operations/zone-update.md
           - name: Настроить права доступа к зоне DNS
             href: operations/zone-access.md
+          - name: Перенести зону DNS в другой каталог
+            href: operations/zone-move-folder.md
           - name: Посмотреть операции с зонами DNS
             href: operations/operation-logs.md
           - name: Удалить зону DNS

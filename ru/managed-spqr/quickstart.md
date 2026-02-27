@@ -104,7 +104,7 @@ keywords:
 Создайте два шарда в кластере {{ mspqr-name }}. Чтобы создать шард:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором [создан](#cluster-create) кластер {{ SPQR }}.
-1. [Cоздайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) {{ mpg-name }} в той же облачной сети, что и кластер {{ SPQR }}.
+1. [Создайте кластер](../managed-postgresql/operations/cluster-create.md#create-cluster) {{ mpg-name }} в той же облачной сети, что и кластер {{ SPQR }}.
 1. Откройте ваш кластер {{ SPQR }} и перейдите на вкладку ![image](../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
 1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
 1. В открывшемся окне:
@@ -313,7 +313,7 @@ keywords:
     SELECT * FROM customers WHERE id = 28;
     ```
 
-    Запрос `SELECT * FROM customers;` приведет к ошибке, так как строки распределены по разным шардам. Одновременно можно получить строки только с одного шарда. Чтобы проверить распределение строк по шардам, [подключитесь к каждому шарду](../managed-postgresql/operations/connect.md) и посмотрите добавленные записи.
+    Запрос `SELECT * FROM customers;` приведет к ошибке, так как строки распределены по разным шардам. Одновременно можно получить строки только с одного шарда. Чтобы проверить распределение строк по шардам, [подключитесь к каждому шарду](../managed-postgresql/operations/connect/index.md) и посмотрите добавленные записи.
 
 1. Чтобы выйти из базы данных, выполните команду `\q`.
 

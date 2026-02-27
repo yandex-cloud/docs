@@ -10,9 +10,12 @@ keywords:
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+## Кластеры
+
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
 * [Управление шардами](shards.md)
 * [Подключение к базе данных](connect.md)
 * [Техническое обслуживание](cluster-maintenance.md)
+* [Просмотр логов кластера](cluster-logs.md)
 * [Удаление кластера](cluster-delete.md)
