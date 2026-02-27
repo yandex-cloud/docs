@@ -16,7 +16,7 @@ description: '{{ ai-studio-full-name }} — это платформа {{ yandex-
 Выберите интерфейс и модель для своих задач — в {{ ai-studio-name }} есть все необходимое:
 
 * [{{ ai-playground }}]({{ link-console-main }}/link/ml/ai-studio/playground) — для экспериментов, тестирования моделей и генерации изображений.
-* [{{ agents-atelier-name }}]({{ link-console-main }}link/ml/ai-studio/agents) — для создания и управления агентами в консоли управления.
+* [{{ agents-atelier-name }}]({{ link-console-main }}/link/ml/ai-studio/agents) — для создания и управления агентами в консоли управления.
 * {{ openai }}-совместимые API, {{ openai }} SDK и {{ ml-sdk-full-name }} — для встраивания моделей в приложения.
 * [Модели базового инстанса](./generation/models.md) — для большинства бизнес-сценариев.
 * [Выделенные инстансы](./generation/dedicated-instance.md) — для развертывания моделей, которых нет в базовом инстансе.
