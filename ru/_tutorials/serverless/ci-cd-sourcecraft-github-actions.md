@@ -309,8 +309,11 @@
 ## См. также {#see-also}
 
 * [Настроить CI/CD между {{ src-name }} и {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
+* [Сервисные подключения]({{ link-src-docs }}/sourcecraft/concepts/service-connections)
 * [Настроить в {{ src-name }} сервисное подключение к {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)
 * [Интеграция с GitHub Actions в {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
+* [Использовать GitHub Actions в CI/CD {{ src-full-name }}]({{ link-src-docs }}/sourcecraft/operations/gh-actions)
+* [Пайплайны {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gl-pipelines)
+* [Использовать пайплайн {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines)
 * [Репозиторий serverless-functions в {{ src-name }}]({{ link-src-main }}/yandex-cloud-examples/serverless-functions)
 * [Репозиторий yc-ci-cd-serverless в {{ src-name }}]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless)
-* [Использовать пайплайн {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines)

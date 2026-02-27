@@ -183,6 +183,7 @@ default:
   ddos-protection-short-name: DDoS Protection
   device-id: b91qprkvbks9********
   disk-type-example: network-ssd
+  dlEmbedService: YC_DATALENS_EMBEDDING_SERVICE_MARK
   dns-full-name: Yandex Cloud DNS
   dns-mx-host: mx.cloud.yandex.net
   dns-name: Cloud DNS
@@ -6107,6 +6108,7 @@ default:
           label_all-services_6sGQy: Все сервисы
         BalancerAllocationDialog:
           AllocationForm:
+            form_disable_traffic_3z2cs: Блокировка
             form_timezone_0_6LoEf: Отключить блокировку через
         CloudActions:
           button_action-delete-cloud_3simi: Удалить облако
@@ -7378,6 +7380,8 @@ default:
           label_health-check-timeout: Время ожидания, c
           label_health-check-unhealthy-threshold: Порог неработоспособности
           label_list: Балансировщики
+          section_allocation-settings: Размещение
+          section_allocation-settings_button: Управление блокировками зон
           section_attached-target-groups: Целевые группы
           section_listeners: Обработчики
         target-group:
@@ -8865,6 +8869,9 @@ default:
             button_add: Привязать
             field_route-table-id: Таблица маршрутизации
             label_title: Привязка таблицы маршрутизации
+        Subnetwork:
+          SubnetUsedAddressesList:
+            button_create_sPV4s: Зарезервировать IP-адрес
         subnetworks:
           button_action-add-route-table: Привязать таблицу маршрутизации
           button_action-create: Создать подсеть

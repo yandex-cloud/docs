@@ -1,4 +1,4 @@
-### 1C:Предприятие {#1c}
+## 1C:Предприятие {#1c}
 
 Если кластер использует версию {{ PG }}, оптимизированную для работы с системой <q>1С:Предприятие</q>, укажите в настройках:
 
@@ -10,54 +10,7 @@
 * **Пароль пользователя** — `<пароль>`.
 * **Создать базу данных в случае ее отсутствия** — отключено.
 
-### Bash {#bash}
-
-Перед подключением установите зависимости:
-
-```bash
-sudo apt update && sudo apt install --yes postgresql-client
-```
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  1. Подключитесь к базе данных:
-
-      ```bash
-      psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-            port=6432 \
-            sslmode=disable \
-            dbname=<имя_БД> \
-            user=<имя_пользователя> \
-            target_session_attrs=read-write"
-      ```
-
-      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-      ```bash
-      SELECT version();
-      ```
-
-- Подключение с SSL {#with-ssl}
-
-  1. Подключитесь к базе данных:
-
-      {% include [default-connstring](./mpg/default-connstring.md) %}
-
-      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-      ```bash
-      SELECT version();
-      ```
-
-{% endlist %}
-
-### C++ (фреймворк userver) {#cpp-userver}
+## C++ (фреймворк userver) {#cpp-userver}
 
 Асинхронный фреймворк [userver](https://userver.tech/) предоставляет богатый набор абстракций для создания утилит, сервисов и микросервисов на языке C++. В том числе фреймворк предоставляет возможности для взаимодействия с {{ PG }}.
 
@@ -120,7 +73,7 @@ peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
 
 {% endcut %}
 
-### C# EF Core {#csharpefcore}
+## C# EF Core {#csharpefcore}
 
 Для подключения к кластеру необходим пакет [Npgsql](https://www.nuget.org/packages/Npgsql/).
 
@@ -162,7 +115,7 @@ peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
 
 {% endlist %}
 
-### Go {#go}
+## Go {#go}
 
 Перед подключением установите зависимости:
 
@@ -322,7 +275,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Java {#java}
+## Java {#java}
 
 Перед подключением:
 
@@ -497,7 +450,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 Перед подключением установите зависимости:
 
@@ -577,7 +530,7 @@ npm install pg
 node app.js
 ```
 
-### ODBC {#odbc}
+## ODBC {#odbc}
 
 Перед подключением установите зависимости:
 
@@ -642,7 +595,7 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 
 {% endlist %}
 
-### PHP {#php}
+## PHP {#php}
 
 Перед подключением установите зависимости:
 
@@ -718,67 +671,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 {% endlist %}
 
-### PowerShell {#powershell}
-
-Перед подключением установите [{{ PG }} для Windows](https://www.postgresql.org/download/windows/) той же версии, которая используется в кластере. Выберите только установку *Command Line Tools*.
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  1. Установите переменные окружения для подключения:
-
-     ```powershell
-     $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
-     ```
-
-  1. Подключитесь к базе данных:
-
-     ```powershell
-     & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
-           --port={{ port-mpg }} `
-           --username=<имя_пользователя> `
-           <имя_БД>
-     ```
-
-     После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-     ```sql
-     SELECT version();
-     ```
-
-- Подключение с SSL {#with-ssl}
-
-  1. Установите переменные окружения для подключения:
-
-      ```powershell
-      $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
-      ```
-
-  1. Подключитесь к базе данных:
-
-      ```powershell
-      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
-        --port={{ port-mpg }} `
-        --username<имя_пользователя> `
-        <имя_БД>
-      ```
-
-      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-     ```sql
-     SELECT version();
-     ```
-
-{% endlist %}
-
-### Python {#python}
+## Python {#python}
 
 Перед подключением установите зависимости:
 
@@ -857,7 +750,7 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### R {#r}
+## R {#r}
 
 Перед подключением:
 
@@ -940,7 +833,7 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 Перед подключением установите зависимости:
 

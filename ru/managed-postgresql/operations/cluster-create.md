@@ -88,6 +88,8 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
+      {% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
+
       
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
@@ -130,7 +132,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной [подсети](../../vpc/concepts/network.md#subnet). Чтобы выбрать для хоста конкретную подсеть, в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
@@ -594,7 +596,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
+       * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
      * `maintenanceWindow` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
 
@@ -781,7 +783,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+       * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета.
     
      * `maintenance_window` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
 
@@ -810,7 +812,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note warning %}
 
-Если вы указали идентификаторы групп безопасности при создании кластера, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+Если вы указали идентификаторы групп безопасности при создании кластера, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 {% endnote %}
 

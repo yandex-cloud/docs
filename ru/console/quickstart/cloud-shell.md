@@ -31,7 +31,7 @@ description: С помощью {{ cloud-shell-name }} вы можете поль
 
     {% endnote %}
    
-1. Установите необходимые приложения с помощью инструмента `apt`. Например, чтобы установить `postgresql-client` для [подключения к кластеру {{ mpg-full-name }}](../../managed-postgresql/operations/connect.md), выполните команду:
+1. Установите необходимые приложения с помощью инструмента `apt`. Например, чтобы установить `postgresql-client` для [подключения к кластеру {{ mpg-full-name }}](../../managed-postgresql/operations/connect/index.md), выполните команду:
 
     ```bash
     sudo apt update && sudo apt install --yes postgresql-client

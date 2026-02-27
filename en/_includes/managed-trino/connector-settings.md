@@ -7,7 +7,7 @@
 
     {% include [metastore version](metastore-version-catalog-create.md) %}
 
-  * **File storage**: File storage type. The available options are [{{ objstorage-full-name }}](../../storage/quickstart/index.md) and external storage.
+  * **File storage**: File storage type. The available options are [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) and external storage.
 
     For external storage, specify:
 

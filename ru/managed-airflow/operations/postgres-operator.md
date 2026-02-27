@@ -60,7 +60,7 @@ description: С помощью направленного ациклическо
       }
       ```
 
-Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, см. в разделе [{#T}](../../managed-postgresql/operations/connect.md#fqdn).
+Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, см. в разделе [{#T}](../../managed-postgresql/operations/connect/fqdn.md).
 
 В секрете будут сохранены данные для подключения к БД в кластере {{ mpg-name }}.
 

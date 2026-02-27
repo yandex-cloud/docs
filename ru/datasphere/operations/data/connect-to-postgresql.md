@@ -5,7 +5,7 @@
 ## Перед началом работы {#before-begin}
 
 1. [Создайте](../../../managed-postgresql/operations/cluster-create.md) новый кластер {{ mpg-short-name }} с публичным доступом для хоста. Вы можете использовать существующий кластер, содержащий хосты в публичном доступе.
-1. [Настройте](../../../managed-postgresql/operations/connect.md#configuring-security-groups) группы безопасности кластера.
+1. [Настройте](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) группы безопасности кластера.
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Подключиться к хосту {#connect-to-host}

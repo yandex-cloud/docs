@@ -37,7 +37,7 @@
 
         1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+            * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
     - {{ TF }} {#tf}
 
@@ -253,7 +253,7 @@
 
 1. Проверьте, что в базу данных {{ mpg-name }} перенеслись данные из кластера-источника {{ mkf-name }}:
 
-    1. [Подключитесь к базе данных {{ mpg-name }}](../../../managed-postgresql/operations/connect.md).
+    1. [Подключитесь к базе данных {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md).
     1. Проверьте, что таблица `sensors` содержит отправленные данные:
 
         ```sql

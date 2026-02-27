@@ -56,7 +56,7 @@
 1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
 
     * [к виртуальной машине и кластеру {{ dataproc-name }}](../../../data-proc/operations/security-groups.md);
-    * [к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+    * [к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 ### С помощью {{ TF }} {#create-terraform}
 
@@ -110,7 +110,7 @@
 
 ## Подготовка кластера-источника {#prepare}
 
-1. [Подключитесь к базе данных](../../../managed-postgresql/operations/connect.md) `db1` кластера {{ mpg-name }} от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../../managed-postgresql/operations/connect/index.md) `db1` кластера {{ mpg-name }} от имени пользователя `user1`.
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей:
 
     1. Создайте таблицу:

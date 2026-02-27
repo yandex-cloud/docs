@@ -37,7 +37,7 @@ The revocation function was unable to check revocation for the certificate
 
 Ошибка означает, что вы пытаетесь подключиться к кластеру с [хостом в публичном доступе](../../managed-postgresql/concepts/network.md#public-access-to-a-host). Такие хосты поддерживают только соединения с SSL-сертификатом. Вы можете:
 
-* [Получить SSL-сертификат](../../managed-postgresql/operations/connect.md#get-ssl-cert) и добавить его в приложение, которое вы используете для подключения.
+* [Получить SSL-сертификат](../../managed-postgresql/operations/connect/index.md#get-ssl-cert) и добавить его в приложение, которое вы используете для подключения.
 * [Отключить публичный доступ для хостов](../../managed-postgresql/operations/hosts.md#update) и подключаться к кластеру с виртуальной машины, расположенной в той же облачной сети.
 
 #### Что делать, если при подключении я получаю ошибку `too many active clients for user`? {#connection-limit-error}
@@ -108,7 +108,7 @@ could not translate host name "<обычный или специальный FQD
 
 Решение:
 
-* Включите публичный доступ для хоста, к которому выполняется подключение. При использовании [специального FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) включите публичный доступ для хоста, на который указывает специальный FQDN.
+* Включите публичный доступ для хоста, к которому выполняется подключение. При использовании [специального FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) включите публичный доступ для хоста, на который указывает специальный FQDN.
 
   {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
@@ -219,13 +219,13 @@ ERROR: cannot execute INSERT in a read-only transaction
 
 Избежать таких ошибок можно любым из способов:
 
-* Подключитесь к кластеру с помощью [особого FQDN](../../managed-postgresql/operations/connect.md#special-fqdns), который всегда указывает на текущий мастер.
+* Подключитесь к кластеру с помощью [особого FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns), который всегда указывает на текущий мастер.
 
   {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 * При подключении укажите параметр `target_session_attrs=read-write` и перечислите все хосты кластера. Так вы подключитесь к хосту-мастеру с возможностью чтения и записи.
 
-Подробнее о способах подключения к хосту-мастеру см. в разделе [Подключение к базе данных](../../managed-postgresql/operations/connect.md#automatic-master-host-selection).
+Подробнее о способах подключения к хосту-мастеру см. в разделе [Подключение к базе данных](../../managed-postgresql/operations/connect/fqdn.md#automatic-master-host-selection).
 
 #### Что делать, если в логах отображается ошибка `too many connections for role "monitor"`? {#monitor-role-error}
 

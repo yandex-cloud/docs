@@ -24,7 +24,7 @@ cluster should have at least 2 HA hosts to use cascade host
 
 #### Как всегда подключаться к хосту-мастеру? {#connect-to-master-ha}
 
-Чтобы подключиться к текущему хосту-мастеру, используйте [особый FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). Он имеет вид `c-<идентификатор_кластера>.rw.{{ dns-zone }}`. При подключении к этому FQDN вы сможете выполнять операции чтения и записи.
+Чтобы подключиться к текущему хосту-мастеру, используйте [особый FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns). Он имеет вид `c-<идентификатор_кластера>.rw.{{ dns-zone }}`. При подключении к этому FQDN вы сможете выполнять операции чтения и записи.
 
 {% cut "Пример команды для подключения к мастеру" %}
 
@@ -40,7 +40,7 @@ cluster should have at least 2 HA hosts to use cascade host
 
 #### Как всегда подключаться к наименее отстающей от мастера реплике? {#connect-to-replica-ha}
 
-Чтобы подключиться к наименее отстающей от мастера реплике, используйте [особый FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). Он имеет вид `c-<идентификатор_кластера>.ro.{{ dns-zone }}`. При подключении к этому FQDN вы сможете выполнять только операции чтения. 
+Чтобы подключиться к наименее отстающей от мастера реплике, используйте [особый FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns). Он имеет вид `c-<идентификатор_кластера>.ro.{{ dns-zone }}`. При подключении к этому FQDN вы сможете выполнять только операции чтения. 
 
 {% cut "Пример команды для подключения к реплике" %}
 
@@ -60,7 +60,7 @@ psql "host=c-<идентификатор_кластера>.ro.{{ dns-zone }} \
 
 Это значит, что произошло [переключение](../../architecture/fault-tolerance.md#mdb-ha) роли мастера на хост-реплику. Переключение обеспечивает доступность кластера во время технического обслуживания и при выходе из строя хоста-мастера.
 
-Чтобы всегда подключаться к текущему мастеру, используйте [особый FQDN](../../managed-postgresql/operations/connect.md#special-fqdns).
+Чтобы всегда подключаться к текущему мастеру, используйте [особый FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns).
 
 {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
@@ -74,7 +74,7 @@ psql "host=c-<идентификатор_кластера>.ro.{{ dns-zone }} \
 
 Балансировка не осуществляется на стороне {{ mpg-name }}, поэтому ее необходимо реализовать в бэкенде вашего приложения. Чтобы отправлять запросы на чтение репликам, приложение должно определить самостоятельно, какой из хостов является репликой, а какой — мастером. Например, это можно сделать с помощью библиотеки `libpq`. Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS).
 
-Либо вы можете воспользоваться [особым FQDN](../../managed-postgresql/operations/connect.md#fqdn-replica), который указывает на наименее отстающую реплику.
+Либо вы можете воспользоваться [особым FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-replica), который указывает на наименее отстающую реплику.
 
 Дополнительные сведения см. в разделе [Высокая доступность](../../managed-postgresql/concepts/high-availability.md).
 

@@ -141,7 +141,7 @@
     {% endlist %}
 
 
-1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
+1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
 1. Подготовьте базу-приемник к миграции в соответствии с [рекомендациями](../../../data-transfer/operations/prepare.md#target-pg).
@@ -285,7 +285,7 @@
 
 ## Проверьте перенос данных {#verify}
 
-1. [Подключитесь к базе данных](../../../managed-postgresql/operations/connect.md) `db1` в кластере-приемнике {{ mpg-name }}.
+1. [Подключитесь к базе данных](../../../managed-postgresql/operations/connect/index.md) `db1` в кластере-приемнике {{ mpg-name }}.
 
 1. Убедитесь, что в базе данных `db1` появились таблицы, выполнив запрос:
 

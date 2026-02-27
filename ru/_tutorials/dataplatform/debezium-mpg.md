@@ -33,7 +33,7 @@
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../glossary/ssh-keygen.md):
 
     * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-    * [Настройка групп безопасности кластера {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+    * [Настройка групп безопасности кластера {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
 1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
@@ -65,7 +65,7 @@
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (используйте утилиту `kafkacat`).
-        * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#get-ssl-cert) (используйте утилиту `psql`).
+        * [{{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#get-ssl-cert) (используйте утилиту `psql`).
 
     1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:
 
@@ -90,7 +90,7 @@
 
     Это нужно для создания публикации (publication), с помощью которой Debezium будет отслеживать изменения в кластере {{ mpg-name }}.
 
-1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect.md) `db1` от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect/index.md) `db1` от имени пользователя `user1`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
 
@@ -162,7 +162,7 @@
     Где:
 
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
-    * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
+    * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list).
 
@@ -311,7 +311,7 @@
 
     {% endcut %}
 
-1. [Подключитесь к кластеру-источнику](../../managed-postgresql/operations/connect.md).
+1. [Подключитесь к кластеру-источнику](../../managed-postgresql/operations/connect/index.md).
 
     При подключении может возникнуть ошибка `ERROR Postgres roles LOGIN and REPLICATION are not assigned to user`. Она не влияет на работу Debezium, и ее можно игнорировать.
 

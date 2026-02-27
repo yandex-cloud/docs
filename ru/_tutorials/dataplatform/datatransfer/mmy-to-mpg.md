@@ -45,7 +45,7 @@
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
         * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configuring-security-groups).
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -168,7 +168,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect.md).
+1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md).
 1. Выполните запрос:
 
     ```sql
@@ -187,7 +187,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect.md).
+    1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md).
     1. Выполните запрос:
 
         ```sql
