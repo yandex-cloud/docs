@@ -1,9 +1,9 @@
 1. Скачайте последнюю версию deb-пакета:
 
     ```bash
-    ubuntu_name="<версия_ОС>" \
-    ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) \
-    bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+    ubuntu_name="<версия_ОС>"
+    ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version)
+    bash -c "curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb"
     ```
 
     Где `ubuntu_name` — версия операционной системы:
