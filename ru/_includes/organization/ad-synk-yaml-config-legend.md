@@ -19,7 +19,7 @@
 
     {% note info %}
 
-    Если в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.level` заданы пути, отличные от пути, заданного в параметре `working_directory`, будут использоваться пути, указанные в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.level`.
+    Если в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename`.
 
     {% endnote %}
 

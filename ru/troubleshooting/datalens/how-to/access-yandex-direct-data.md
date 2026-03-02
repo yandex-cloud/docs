@@ -9,4 +9,6 @@
 
 Вы можете запрашивать данные из [API {{ yandex-direct }}](https://yandex.ru/dev/direct/#start) с помощью [{{ sf-name }}](../../../functions/quickstart/index.md).
 
-Для этого понадобится создать функцию, которая будет сохранять данные из {{ yandex-direct }} в промежуточной базе данных, например в кластер [{{ mch-full-name }}](../../../managed-clickhouse/quickstart.md). Затем на стороне {{ datalens-name }} потребуется [настроить подключение](../../../datalens/operations/connection/create-clickhouse.md) к этой БД.
+Для этого понадобится создать функцию, которая будет сохранять данные из {{ yandex-direct }} в промежуточной базе данных, например в кластере [{{ mch-full-name }}](../../../managed-clickhouse/quickstart.md). Затем на стороне {{ datalens-name }} потребуется [настроить подключение](../../../datalens/operations/connection/create-clickhouse.md) к этой БД.
+
+Для создания функции рекомендуем воспользоваться [примером получения JSON из API {{ yandex-direct }}](https://yandex.ru/dev/direct/doc/ru/python3-requests-campaigns) и [документацией по импорту данных в {{ CH }}](https://clickhouse.com/docs/ru/integrations/data-formats). 

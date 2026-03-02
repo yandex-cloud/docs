@@ -20,7 +20,7 @@ The expected response time is shown in the table below.
 | Channel | Basic | Business | Premium |
 | --------------- | ------- | ------ | ------- |
 |  | For personal and research projects | For business projects | For business projects with increased fault tolerance requirements |
-| Request to [Support Center](cloud-center.md) | Question: 24 hours<br>Issue: 24 hours<br>Quotas: 24 hours<br>Supply: 5 work days | Question: 4 hours<br>Issue,_medium_ priority: 4 hours<br>Issue, _important_ priority: 4 hours<br>Issue, _critical_ priority: 30 minutes<br>Quotas: 24 hours<br>Supply: 5 work days | Question: 2 hours<br>Issue,_medium_ priority: 2 hours<br>Issue, _important_ priority: 2 hours<br>Issue, _critical_ priority: 15 minutes<br>Quotas: 24 hours<br>Supply: 5 work days |
+| Request to [Support Center](cloud-center.md) | Question: 24 hours<br>Issue: 24 hours<br>Quotas: 24 hours<br>Supply: 5 business days | Question: 4 hours<br>Issue,_medium_ priority: 4 hours<br>Issue, _important_ priority: 4 hours<br>Issue, _critical_ priority: 30 minutes<br>Quotas: 24 hours<br>Supply: 5 business days | Question: 2 hours<br>Issue,_medium_ priority: 2 hours<br>Issue, _important_ priority: 2 hours<br>Issue, _critical_ priority: 15 minutes<br>Quotas: 24 hours<br>Supply: 5 business days |
 | Increasing quotas in the [Quotas](https://console.yandex.cloud/cloud?section=quotas) section | 30 minutes within the specified [limits](../overview/concepts/quotas-limits.md) | 30 minutes within the specified [limits](../overview/concepts/quotas-limits.md) | 30 minutes within the specified [limits](../overview/concepts/quotas-limits.md) |
 | Chat in the {{ yandex-cloud }} interface,<br>[Telegram chat](tg-chat.md) | 15 minutes | 5 minutes | 5 minutes |
 | Email | 24 hours | 24 hours | 24 hours |
@@ -40,7 +40,7 @@ The types of requests available depend on the selected plan and are shown in the
 
 | Request type | Basic | Business | Premium |
 | ------------- | ------- | ------ | ------- |
-| Restoring access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Restorings access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Advice on billing-related issues | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Request for links to documents | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Inquiries about your {{ yandex-cloud }} data, including personal data | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
@@ -69,6 +69,7 @@ The types of requests available depend on the selected plan and are shown in the
 * Use of {{ adv-ddos-protection }}.
 * {{ tracker-full-name }}, {{ forms-full-name }}, {{ wiki-full-name }}.
 * Operations with the MDB services within the [{{ yandex-cloud }} customer control zone](../overview/concepts/mdb-responsibilities.md#customer-responsibilities).
+* Operations with {{ managed-k8s-name }} within the [{{ yandex-cloud }} customer control zone](../overview/concepts/kubernetes-responsibilities.md#client-responsibility).
 
 If the technical support cannot resolve your third-party software issue, contact the software vendor's support service. In some cases, contacting the vendor's support service requires a valid technical support contract with the vendor or its partners.
 

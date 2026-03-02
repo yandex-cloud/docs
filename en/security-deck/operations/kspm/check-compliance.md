@@ -5,6 +5,8 @@ description: In this section, you will learn how to use the compliance UI to vie
 
 # Checking your infrastructure for compliance with security standards
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% include [check-compliance-instruction-intro](../../../_includes/security-deck/check-compliance-instruction-intro.md) %}
 
 {% list tabs group=instructions %}
