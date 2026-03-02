@@ -282,6 +282,8 @@ items:
       - name: Примеры конфигураций и сценариев {{ compute-name }}
         href: compute/how-to/index.md
         hidden: true
+      - name: Как восстановить доступ к виртуальной машине
+        href: compute/how-to/restore-access-to-compute-instance.md
       - name: Варианты миграции образа виртуальной машины в {{ yandex-cloud }}
         href: compute/how-to/possible-vm-migration-scenarios.md
       - name: Как изменить тип загрузочного диска виртуальной машины
