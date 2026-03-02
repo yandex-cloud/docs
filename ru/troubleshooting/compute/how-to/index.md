@@ -20,3 +20,4 @@
 * [Как создать виртуальную машину с доступом по паролю](create-password-protected-vm.md)
 * [Как увеличить количество сетевых соединений](increase-network-connections.md)
 * [Как настроить защиту RDP-подключения на Microsoft Windows®](rdp-protection-for-windows.md)
+* [Как восстановить доступ к виртуальной машине](restore-access-to-compute-instance.md)
