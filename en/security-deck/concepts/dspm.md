@@ -9,9 +9,10 @@ description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-na
 
 {% note info %}
 
-Disk scanning in {{ yandex-360 }} is in the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [tech support]({{ link-console-support }}) or your account manager.
+The {{ yandex-360 }} disk scanning feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
+
 
 ## Scanning for sensitive information {#scanning}
 

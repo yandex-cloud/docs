@@ -1,7 +1,7 @@
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
 1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.schema-registry.label_create-namespace-action }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.schema-registry.SchemaRegistry.Namespaces.label_create-namespace-action_kTxW4 }}**.
 1. В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя пространства имен.
 1. (Опционально) Добавьте описание пространства имен.
 1. В блоке **Параметры совместимости**:

@@ -12,12 +12,14 @@
 `baremetal.images.count` | 10 ||
 || Количество [приватных подсетей](../baremetal/concepts/private-network.md#private-subnet)
 `baremetal.privateSubnets.count` | 2 ||
-|| Количество приватных подсетей, которые могут быть привязаны к одному серверу
+|| Количество приватных подсетей на одном интерфейсе сервера
 `baremetal.privateSubnetsPerServerInterface.count` | 1 ||
 || Количество [выделенных публичных подсетей](../baremetal/concepts/public-network.md#public-subnet)
 `baremetal.dedicatedPublicSubnets.count` | 1 ||
 || Количество пулов в выделенных публичных подсетях
 `baremetal.dedicatedPublicSubnetsHardwarePools.count` | 1 ||
+|| Количество всех статических маршрутов в облаке
+`baremetal.staticRoutes.count` | 10 ||
 |#
 
 ^1^ Квота определяется автоматически. Для увеличения квоты обратитесь в [службу поддержки]({{ link-console-support }}).

@@ -85,7 +85,7 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|security_deck }}']}
-    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}']}
+    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}', '{{ pc|security_deck.cspm.resources }}']}
     installationCode="ru"
     currency="RUB"
   />

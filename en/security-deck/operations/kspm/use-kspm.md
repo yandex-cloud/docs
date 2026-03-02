@@ -15,7 +15,7 @@ To work with the dashboard, you need the `security-deck.viewer` role or higher f
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![image](../../../_assets/security-deck/kspm.svg) **{{ ui-key.yacloud_org.security-center.label_kspm }}**.
-  1. At the top of the window, click **{{ ui-key.yacloud_components.cloud-center.action_more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select the [workspace](../../concepts/workspace.md).
+  1. At the top of the window, select the [workspace](../../concepts/workspace.md).
   1. On the **{{ ui-key.yacloud_org.security-center.kspm.title_clusters }}** tab, make sure all the clusters are connected to KSPM and are in the active control status.
   1. Review the **{{ ui-key.yacloud_org.security-center.kspm.title_dashboard }}** tab. It has the following sections:
       * **{{ ui-key.yacloud_org.security.kspm.TopControlsByErrorsWidget.table_controls_rJ32E }}**: Contains the most frequently violated rules within the control scope and gives the number of violations.

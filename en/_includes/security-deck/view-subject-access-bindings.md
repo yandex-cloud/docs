@@ -4,7 +4,7 @@
 
   1. [Log in]({{ link-passport-login }}) as an organization user with the `organization-manager.viewer` [role](../../organization/security/index.md#organization-manager-viewer) or higher for the organization.
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. In the left-hand panel, select ![person-gear](../../_assets/console-icons/person-gear.svg) **CIEM**.
+  1. In the left-hand panel, select ![person-gear](../../_assets/console-icons/person-gear.svg) **{{ ui-key.yacloud_org.security-center.label_acl-diagnostics }}**.
   1. Click ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.page.acl-diagnostics.action_select-subject }}** and in the window that opens:
   
       1. Select the [user](../../overview/roles-and-resources.md#users), [service account](../../iam/concepts/users/accounts.md#sa), [user group](../../organization/concepts/groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md) you need.
@@ -14,7 +14,7 @@
   
   This will open a list of accesses assigned to the selected subject. For each access, the list indicates the resource name/ID and type, [role](../../iam/concepts/access-control/roles.md) assigned to the subject for that resource, and information about whether the role was assigned to the subject directly or inherited from a group to which the subject belongs.
   
-  If the selected subject has multiple accesses, only some of them will be displayed. To display the remaining access permissions, click **Load more** at the bottom of the page.
+  If the selected subject has multiple accesses, only some of them will be displayed. To display the remaining access permissions, click **{{ ui-key.yacloud_org.dashboard.notify.action.load-more }}** at the bottom of the page.
   
   Use filtering by resource ID, role ID, or access assignment method (`{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_direct }}` or `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_group }}`) as needed.
 
