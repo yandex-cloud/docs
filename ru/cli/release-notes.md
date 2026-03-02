@@ -7,6 +7,25 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.196.0 (02.03.26) {#version0.196.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.196.0}
+
+##### {{ cloud-desktop-name }} {#cloud-desktop-0.196.0}
+
+Добавлена полная поддержка параметров `labels`, `description` и `name` в следующих командах:
+* `yc desktops desktop create`;
+* `yc desktops desktop update-properties`;
+* `yc desktops group create`;
+* `yc desktops image copy`;
+* `yc desktops image update`.
+
+##### {{ captcha-full-name }} {#smartcaptcha-0.196.0}
+
+Добавлена поддержка параметра `labels`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.195.0 (26.02.26) {#version0.195.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -33,8 +52,6 @@ description: На странице представлены релизы CLI, а
 В методы управления NodeGroup добавлены параметры '--reserved-instance-pool-id' и '--variables', которые позволяют указать пулы резервов ВМ и пользовательские переменные соответственно:
   * `yc managed-kubernetes node-group create`;
   * `yc managed-kubernetes node-group update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.195.0 (23.02.26) {#version0.195.0}
 

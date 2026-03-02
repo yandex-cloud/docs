@@ -705,6 +705,10 @@ items:
           Подключение сервера {{ baremetal-name }} как внешнего узла к кластеру
           {{ managed-k8s-name }}
         href: tutorials/k8s-connect-bms-as-node.md
+      - name: >-
+          Настройка DNS-связности между сегментами {{ baremetal-full-name }} и
+          {{ vpc-full-name }} для доступа к {{ mpg-name }} по FQDN
+        href: tutorials/bm-vpc-dns-forwarder.md
   - name: Правила тарификации
     href: pricing.md
   - name: Вопросы и ответы

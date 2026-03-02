@@ -65,7 +65,7 @@ items:
             href: operations/performance-diagnostics.md
           - name: Инструменты для анализа производительности
             href: operations/tools.md
-          - name: Мониторинг состояния кластера и хостов
+          - name: Мониторинг состояния кластера, хостов и шардов
             href: operations/monitoring.md
   - name: Практические руководства
     items:

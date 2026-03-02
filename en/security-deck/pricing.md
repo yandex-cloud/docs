@@ -77,7 +77,7 @@ The monthly price is based on 720 hours per month.
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|security_deck }}']}
-    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}']}
+    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}', '{{ pc|security_deck.cspm.resources }}']}
     installationCode="ru"
     currency="USD"
   />
@@ -110,4 +110,5 @@ The monthly price is based on 720 hours per month.
 
 
 {% include notitle [usd.md](../_pricing/security-deck/cspm/usd.md) %}
+
 
