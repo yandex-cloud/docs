@@ -43,7 +43,7 @@ items:
         href: concepts/agents/text-agents.md
       - name: Голосовые агенты
         href: concepts/agents/realtime.md
-      - name: Управление контектом диалога
+      - name: Управление контекстом диалога
         href: concepts/agents/conversations-api.md
       - name: '{{ code-interpreter }}'
         href: concepts/agents/tools/code-interpreter.md
