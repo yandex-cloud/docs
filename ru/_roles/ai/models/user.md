@@ -1,10 +1,10 @@
 Роль `ai.models.user` позволяет использовать AI-агентов и модели генерации текста и изображений, векторного представления текста и классификаторов в Yandex AI Studio, а также использовать сервисы Yandex Translate, Yandex Vision OCR и Yandex SpeechKit.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [моделях генерации текста](../../../ai-studio/concepts/generation/models.md) Yandex AI Studio;
-* использовать [AI-агентов](../../../ai-studio/concepts/agents/index.md), а также модели генерации текста и изображений, модели [векторного представления текста](../../../ai-studio/concepts/embeddings.md#yandexgpt-embeddings) и [классификаторов](../../../ai-studio/concepts/classifier/models.md) в сервисе Yandex AI Studio;
-* использовать сервис Yandex Translate для [перевода текста](../../../translate/quickstart.md);
-* использовать сервис Yandex Vision OCR для [анализа изображений](../../../vision/concepts/ocr/index.md);
-* использовать сервис Yandex SpeechKit для [распознавания](../../../speechkit/stt/index.md) и [синтеза](../../../speechkit/tts/index.md) речи.
+* просматривать информацию о [моделях генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) Yandex AI Studio;
+* использовать [AI-агентов]({{ link-docs-ai }}ai-studio/concepts/agents/index), а также модели генерации текста и изображений, модели [векторного представления текста]({{ link-docs-ai }}ai-studio/concepts/embeddings#yandexgpt-embeddings) и [классификаторов]({{ link-docs-ai }}ai-studio/concepts/classifier/models) в сервисе Yandex AI Studio;
+* использовать сервис Yandex Translate для [перевода текста]({{ link-docs-ai }}translate/quickstart);
+* использовать сервис Yandex Vision OCR для [анализа изображений]({{ link-docs-ai }}vision/concepts/ocr/index);
+* использовать сервис Yandex SpeechKit для [распознавания]({{ link-docs-ai }}speechkit/stt/index) и [синтеза]({{ link-docs-ai }}speechkit/tts/index) речи.
 
 Включает разрешения, предоставляемые ролью `ai.models.viewer`.

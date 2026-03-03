@@ -1,0 +1,1 @@
+The `monium.shards.viewer` role enables viewing info on [shards](../../../monium/concepts/glossary.md#shard), [clusters](../../../monium/concepts/glossary.md#cluster), [services](../../../monium/concepts/glossary.md#service) and their quotas.

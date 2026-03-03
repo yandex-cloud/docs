@@ -89,18 +89,4 @@ editable: false
 {% include [ymq-limits.md](../../../_includes/message-queue/ymq-limits.md) %}
 
 
-### {{ speechkit-full-name }} {#speechkit}
-
-{% include [speechkit-limits](../../../_includes/speechkit-limits.md) %}
-
-
-### {{ translate-full-name }} {#translate}
-
-{% include [translate-limits](../../../_includes/translate-limits.md) %}
-
-
-### {{ vision-full-name }} {#vision}
-
-{% include [vision-limits](../../../_includes/vision-limits.md) %}
-
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

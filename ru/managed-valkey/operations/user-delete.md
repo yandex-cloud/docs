@@ -8,7 +8,7 @@ description: Вы можете удалить пользователя {{ VLK }}
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
@@ -20,7 +20,7 @@ description: Вы можете удалить пользователя {{ VLK }}
       ```bash
       {{ yc-mdb-rd }} user delete --help
       ```
-  
+
   1. Удалите пользователя, выполнив команду:
 
       ```bash
@@ -35,28 +35,28 @@ description: Вы можете удалить пользователя {{ VLK }}
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  
+
   1. Удалите ресурс `yandex_mdb_redis_user` с описанием нужного пользователя.
-  
+
   1. Проверьте корректность настроек.
-  
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
   1. Подтвердите изменение ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   1. Убедитесь, что пользователь удален, выполнив команду [CLI](../../cli/quickstart.md#install):
-      
+
       ```bash
       {{ yc-mdb-rd }} user list \
         --cluster-id=<идентификатор_кластера>
       ```
 
       [Подробнее о том, как получить список пользователей](user-list.md#list).
-  
+
   {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
@@ -104,15 +104,15 @@ description: Вы можете удалить пользователя {{ VLK }}
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.redis.v1.UserService.Delete
         ```
-      
+
       Где:
 
       * `cluster_id` — идентификатор кластера.
-        
+
         Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       * `user_name` — имя пользователя.
-      
+
         Имя пользователя можно получить со [списком пользователей](user-list#list) в кластере.  
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation).

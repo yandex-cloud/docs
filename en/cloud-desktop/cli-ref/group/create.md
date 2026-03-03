@@ -28,6 +28,9 @@ Desktop name. ||
 || `--description` | `string`
 
 Desktop description. ||
+|| `--labels` | `key=value[,key=value...]`
+
+Desktop group labels. ||
 || `--resource-spec` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Resources specification for desktop group.

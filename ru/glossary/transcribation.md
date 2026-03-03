@@ -74,7 +74,7 @@ description: Транскрибация — это перевод речи из 
 * Перевод аудиофайла в текст.
 * Анализ текста.
 
-Сервис [{{ speechkit-name }}](../{{ speechkit-slug }}/overview.md) предоставляет доступ к потоковому, синхронному и асинхронному [распознаванию речи](../{{ speechkit-slug }}/stt/index.md) высокой точности.
+Сервис [{{ speechkit-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/overview) предоставляет доступ к потоковому, синхронному и асинхронному [распознаванию речи]({{ link-docs-ai }}{{ speechkit-slug }}/stt/index) высокой точности.
 
 {{ speechkit-name }} использует речевые технологии на базе машинного обучения для транскрибации, создания голосовых помощников, автоматизации колл-центров, контроля качества сервиса и других задач.
 
@@ -82,7 +82,7 @@ description: Транскрибация — это перевод речи из 
 
 ## Полезные материалы {#useful-materials}
 
-* [Документация {{ speechkit-name }}](../speechkit)
+* [Документация {{ speechkit-name }}]({{ link-docs-ai }}speechkit)
 * Блог:
     * [Автоматизация контакт-центра. Часть 1. Голосовые роботы](https://yandex.cloud/ru/blog/posts/2019/09/solutions-for-call-centers-robots)
     * [Автоматизация контакт-центра. Часть 2. Речевая аналитика](https://yandex.cloud/ru/blog/posts/2019/09/solutions-for-call-centers-speech-analytics)

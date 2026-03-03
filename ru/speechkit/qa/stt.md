@@ -1,1 +1,0 @@
-{% include [stt](../../_qa/speechkit/stt.md) %}

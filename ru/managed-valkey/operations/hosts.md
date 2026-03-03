@@ -189,24 +189,39 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mrd-name }} блок `host`.
+  1. Добавьте к описанию кластера {{ mrd-name }} новый хост в блоке `hosts`:
 
      
      ```hcl
      resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
        ...
-       host {
-         zone             = "<зона_доступности>"
-         subnet_id        = "<идентификатор_подсети>"
-         assign_public_ip = <публичный_доступ>
-         replica_priority = <приоритет_хоста>
-         shard_name       = "<имя_шарда>"
+       hosts = {
+         ...
+         "<имя_хоста>" = {
+           zone             = "<зона_доступности>"
+           subnet_id        = "<идентификатор_подсети>"
+           assign_public_ip = <публичный_доступ>
+           replica_priority = <приоритет_хоста>
+           shard_name       = "<имя_шарда>"
+         }
        }
      }
      ```
 
-     Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
 
+     Где:
+
+     * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+     
+     * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
+     * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
+
+     * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+     * `shard_name` — имя шарда, в котором будет расположен хост.
+
+     Имя хоста должно быть уникальным в кластере.
 
   1. Проверьте корректность настроек.
 
@@ -289,24 +304,37 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Измените в описании кластера {{ mrd-name }} атрибуты блока `host`, соответствующего изменяемому хосту.
+  1. Измените в описании кластера {{ mrd-name }} параметры нужного хоста в блоке `hosts`:
 
      
      ```hcl
      resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
        ...
-       host {
-         zone             = "<зона_доступности>"
-         subnet_id        = "<идентификатор_подсети>"
-         assign_public_ip = <публичный_доступ>
-         replica_priority = <приоритет_хоста>
-         shard_name       = "<имя_шарда>"
+       hosts = {
+         ...
+         "<имя_хоста>" = {
+           zone             = "<зона_доступности>"
+           subnet_id        = "<идентификатор_подсети>"
+           assign_public_ip = <публичный_доступ>
+           replica_priority = <приоритет_хоста>
+           shard_name       = "<имя_шарда>"
+         }
        }
      }
      ```
 
-     Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
 
+     Где:
+
+     * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+     
+     * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
+     * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
+
+     * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+     * `shard_name` — имя шарда, в котором расположен хост.
 
   1. Проверьте корректность настроек.
 
@@ -317,6 +345,8 @@
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -433,7 +463,7 @@
   Чтобы удалить хост из кластера:
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужным хостом нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI {#cli}
@@ -457,7 +487,7 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Удалите из описания кластера {{ mrd-name }} блок `host`.
+  1. Удалите из описания кластера {{ mrd-name }} нужный хост в блоке `hosts`.
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

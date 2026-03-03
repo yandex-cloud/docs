@@ -22,77 +22,6 @@ editable: false
 
 ### {{ model-gallery-name }} {#rules-model-gallery}
 
-{% note warning %}
-
-The pricing provided below for the common instance and batch processing models are effective until March 3, 2026. Starting March 3, the [new pricing policy](#rules-new) will apply. 
-
-{% endnote %}
-
-The cost of using {{ model-gallery-name }} models depends on:
-* [Model's operating mode](concepts/generation/index.md#working-mode).
-* Number of input and output [tokens](concepts/generation/tokens.md). The [token](concepts/generation/tokens.md) count in the same text may vary from one model to another. Here is a [cost calculation example](#example-generating) for processing the same text in synchronous mode using different models.
-
-[{{ billing-name }} breaks down](../billing/operations/check-charges.md) the use of {{ model-gallery-name }} models in _billing units_. The total number of billing units is rounded up to an integer.
-
-
-
-{% include [rub-generating-units.md](../_pricing/yandexgpt/usd-generating_units.md) %}
-
-
-#### Using common instance models until March 3, 2026 {#text-sync-async}
-
-
-
-{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
-
-
-{#example-generating}
-
-{% cut "Example of cost calculation for a model in synchronous mode" %}
-
-> Request parameters:
-> * Instruction: «Проанализируй предоставленный текст и выполни его комплексную грамотную редактуру. Твоя задача — устранить любые грамматические, орфографические, стилистические и пунктуационные ошибки, не изменяя при этом исходного смысла и структуры высказывания. Сохраняй оригинальный порядок слов и не вноси дополнительных уточнений, пояснений или переформулировок, которые могут изменить тон или содержание текста. Внесённые правки должны быть минимально необходимыми для того, чтобы предложение стало корректным с точки зрения русского языка. Также убедись, что все слова употреблены в нормативной форме, а знаки препинания соответствуют литературным стандартам»
-> * Request text: «Нейрасети оптемезируют бизнес-працесы розгружают техпадержку ускаряют праверку документов аналис и абработку данных генирируют отчёты за минуты и прогназируют спрос.»
-> * The model's response: «Нейросети оптимизируют бизнес‑процессы: разгружают техподдержку, ускоряют проверку документов, анализ и обработку данных, генерируют отчёты за минуты и прогнозируют спрос.»
-> Количество символов на вход: 782
-
-
-{% include [usd-generating-sync](../_pricing_examples/ai-studio/usd-generating-sync.md) %}
-
-{% endcut %}
-
-{% cut "Example of cost calculation for a model in asynchronous mode" %}
-
-> Request parameters:
-> * Number of prompt tokens: 115
-> * Number of response tokens: 1,500
-> * Model: {{ gpt-pro }}
-> * Model operating mode: Asynchronous
-
-
-
-{% include [usd-generating-pro](../_pricing_examples/ai-studio/usd-generating-pro.md) %}
-
-
-{% endcut %}
-
-#### Using models in batch mode until March 3, 2026 {#batch}
-
-With models in batch mode, the minimum cost per run is 200,000 tokens.
-
-
-
-{% include [usd-generating.md](../_pricing/yandexgpt/usd-generating-batch.md) %}
-
-
-#### Using {{ model-gallery-name }} models starting March 3, 2026 {#rules-new}
-
-{% note warning %}
-
-This pricing for the common instance models and batch processing is effective as of March 3, 2026.
-
-{% endnote %}
-
 The cost of using the models depends on the [operating mode](concepts/generation/index.md#working-mode) and the number of [tokens](concepts/generation/tokens.md) for different consumption types:
 
 * Input query tokens.
@@ -135,7 +64,7 @@ _{{ price-per-hour-count-per-second }}_
 
 
 
-{% include [usd-generating.md](../_pricing/yandexgpt/usd-dedicated.md) %}
+{% include [usd-generating.md](../_pricing/ai-studio/usd-dedicated.md) %}
 
 
 #### Fine-tuning {#rules-tuned-generating}
@@ -182,7 +111,7 @@ Requests with less than one billing unit are rounded up to the next integer. Lar
 
 
 
-{% include [usd-classifier.md](../_pricing/yandexgpt/usd-classifier.md) %}
+{% include [usd-classifier.md](../_pricing/ai-studio/usd-classifier.md) %}
 
 
 #### Image generation {#rules-image-generation}
@@ -191,7 +120,7 @@ You are charged for each generation request in {{ yandexart-name }}. Requests ar
 
 
 
-{% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
+{% include [usd-embedding.md](../_pricing/ai-studio/usd-image.md) %}
 
 
 ### {{ agents-atelier-name }} {#rules-agent}
@@ -207,7 +136,7 @@ The cost of using voice agents consists of the following:
 
 
 
-{% include [usd-speech-realtime.md](../_pricing/yandexgpt/usd-speech-realtime.md) %}
+{% include [usd-speech-realtime.md](../_pricing/ai-studio/usd-speech-realtime.md) %}
 
 
 {#price-example-voice-assistant}

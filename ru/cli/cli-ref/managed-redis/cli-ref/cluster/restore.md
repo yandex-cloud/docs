@@ -68,6 +68,28 @@ A list of security groups for the Redis cluster. ||
 || `--disk-encryption-key-id` | `string`
 
 ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
+|| `--disk-size-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Disk size autoscaling settings
+
+Possible property names:
+
+- `disk-size-limit`: Set disk size limit in GB
+
+- `planned-usage-threshold`: Planned usage threshold
+
+- `emergency-usage-threshold`: Emergency usage threshold ||
+|| `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Maintenance window settings
+
+Possible property names:
+
+- `type`: Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.
+
+- `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
+
+- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
 || `--redis-version` | `string`
 
 Version of Redis used in the cluster. Values: 7.2 ||

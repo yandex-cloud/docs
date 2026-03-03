@@ -47,9 +47,11 @@
 
   Выполнено одно из условий:
 
-  * Реализация не менее одного проекта с использованием сервиса [{{ brand-voice-premium }}](../../speechkit/tts/brand-voice/index.md#premium).
-  * Реализация не менее одного проекта с использованием сервиса [{{ brand-voice-core }}](../../speechkit/tts/brand-voice/index.md#ss).
-  * Реализация проекта (проектов) с использованием сервиса [{{ brand-voice-cc }}](../../speechkit/tts/brand-voice/index.md#cc) и объемом потребления свыше 100 000 рублей в месяц без НДС и партнерской премии.
+
+  * Реализация не менее одного проекта с использованием сервиса [{{ brand-voice-premium }}]({{ link-docs-ai }}speechkit/tts/brand-voice/index#premium).
+  * Реализация не менее одного проекта с использованием сервиса [{{ brand-voice-core }}]({{ link-docs-ai }}speechkit/tts/brand-voice/index#ss).
+  * Реализация проекта (проектов) с использованием сервиса [{{ brand-voice-cc }}]({{ link-docs-ai }}speechkit/tts/brand-voice/index#cc) и объемом потребления свыше 100 000 рублей в месяц без НДС и партнерской премии.
+
 
 * [Security Compliance](./index.md#secom-spec)
 

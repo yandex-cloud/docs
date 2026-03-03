@@ -26,6 +26,9 @@ Desktop name. ||
 || `--new-name` | `string`
 
 New desktop name. ||
+|| `--description` | `string`
+
+New desktop description. ||
 || `--labels` | `key=value[,key=value...]`
 
 New desktop labels. ||

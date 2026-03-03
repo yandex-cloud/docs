@@ -12,4 +12,5 @@ description: В этом разделе собраны пошаговые инс
 * [{#T}](send-templated-email.md)
 * [{#T}](create-configuration.md)
 * [{#T}](bind-configuration.md)
+* [{#T}](restrict-senders.md)
 * [{#T}](logs-write.md)

@@ -1,1 +1,0 @@
-В результате в файл `result.json` будет сохранен результат выполнения поискового запроса, содержащий в поле `rawData` [XML](../../search-api/concepts/response.md) или [HTML](../../search-api/concepts/html-response.md) ответ в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).

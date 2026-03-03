@@ -4,15 +4,15 @@
 
 Сейчас в {{ ml-platform-name }} доступны следующие фундаментальные модели:
 
-* [Базовая модель {{ gpt-pro }}](../../../ai-studio/concepts/generation/index.md).
-* [Классификаторы на базе {{ yagpt-name }}](../../../ai-studio/concepts/classifier/index.md).
-* [Генеративная модель {{ yandexart-name }}](../../../ai-studio/concepts/generation/index.md).
+* [Базовая модель {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index).
+* [Классификаторы на базе {{ yagpt-name }}]({{ link-docs-ai }}ai-studio/concepts/classifier/index).
+* [Генеративная модель {{ yandexart-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index).
 * Модели с открытым исходным кодом:
   * Большая языковая модель [Mistral](https://mistral.ai/).
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora) — дообученная русскоязычная версия Mistral.
 
-Если вы хотите дообучить модель, воспользуйтесь [дообучением моделей](../../../ai-studio/concepts/tuning/index.md) в сервисе {{ foundation-models-full-name }}.
+Если вы хотите дообучить модель, воспользуйтесь [дообучением моделей]({{ link-docs-ai }}ai-studio/concepts/tuning/index) в сервисе {{ foundation-models-full-name }}.
 
 ## Примеры использования {#examples}
 
-[{#T}](../../../ai-studio/tutorials/models-fine-tuning.md)
+[Дообучение моделей в {{ ml-platform-name }} Notebooks]({{ link-docs-ai }}ai-studio/tutorials/models-fine-tuning)

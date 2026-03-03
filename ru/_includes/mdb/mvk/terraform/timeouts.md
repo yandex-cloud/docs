@@ -15,7 +15,7 @@
 ```hcl
 resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
   ...
-  timeouts {
+  timeouts = {
     create = "1h30m" # Полтора часа
     update = "2h"    # 2 часа
     delete = "30m"   # 30 минут

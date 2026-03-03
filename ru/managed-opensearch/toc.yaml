@@ -112,6 +112,8 @@ items:
         href: concepts/backup.md
       - name: Шардирование и репликация
         href: concepts/scalability-and-resilience.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Плагины {{ OS }}
         href: concepts/plugins.md
       - name: Политика работы с версиями {{ OS }}

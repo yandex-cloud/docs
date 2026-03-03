@@ -83,6 +83,46 @@ A list of security groups for the MongoDB cluster. ||
 || `--disk-encryption-key-id` | `string`
 
 ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
+|| `--disk-size-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Disk size autoscaling settings
+
+Possible property names:
+
+- `mongod-disk-size-limit`: Set disk size limit for mongod in GB
+
+- `mongod-planned-usage-threshold`: Planned usage threshold mongod
+
+- `mongod-emergency-usage-threshold`: Emergency usage threshold mongod
+
+- `mongocfg-disk-size-limit`: Set disk size limit for mongocfg in GB
+
+- `mongocfg-planned-usage-threshold`: Planned usage threshold mongocfg
+
+- `mongocfg-emergency-usage-threshold`: Emergency usage threshold mongocfg
+
+- `mongoinfra-disk-size-limit`: Set disk size limit for mongoinfra in GB
+
+- `mongoinfra-planned-usage-threshold`: Planned usage threshold mongoinfra
+
+- `mongoinfra-emergency-usage-threshold`: Emergency usage threshold mongoinfra
+
+- `mongos-disk-size-limit`: Set disk size limit for mongos in GB
+
+- `mongos-planned-usage-threshold`: Planned usage threshold mongos
+
+- `mongos-emergency-usage-threshold`: Emergency usage threshold mongos ||
+|| `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Maintenance window settings
+
+Possible property names:
+
+- `type`: Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.
+
+- `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
+
+- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
 || `--mongodb-version` | `string`
 
 Version of MongoDB used by the cluster. Supported value: 5.0, 6.0, 7.0 ||
