@@ -99,9 +99,6 @@ links:
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции
     href: functions/
-  - title: '{{ foundation-models-name }}'
-    description: Генеративные модели машинного обучения
-    href: ai-studio/
   - title: Identity and Access Management
     description: Идентификация и контроль доступа к облачным ресурсам
     href: iam/
@@ -207,11 +204,6 @@ links:
   - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
-  - title: '{{ search-api-name }}'
-    description: >-
-      Cервис, позволяющий отправлять запросы к поисковой базе Яндекса и получать
-      ответы по api.
-    href: search-api/
   - title: SmartCaptcha
     description: Инструмент для верификации запросов
     href: smartcaptcha/
@@ -227,9 +219,6 @@ links:
   - title: '{{ src-full-name }}'
     description: Платформа для разработки исходного кода
     href: sourcecraft/
-  - title: '{{ speechkit-name }}'
-    description: Комплекс технологий распознавания и синтеза речи
-    href: speechkit/
   - title: SpeechSense
     description: Речевая аналитика
     href: speechsense/
@@ -239,12 +228,6 @@ links:
   - title: Описание технической поддержки Yandex Cloud
     description: Правила предоставления технической поддержки
     href: support/
-  - title: Translate
-    description: Машинный перевод с поддержкой более 90 языков
-    href: translate/
-  - title: Vision
-    description: Анализ изображений с помощью моделей машинного обучения
-    href: vision/
   - title: Virtual Private Cloud
     description: Управление сетями в облаке
     href: vpc/

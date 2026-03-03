@@ -1,0 +1,1 @@
+We recommend to install OTel Collector [version 0.144.0](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.144.0).

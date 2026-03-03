@@ -28,7 +28,7 @@ keywords:
 
 ## Создать кластер {#create-cluster}
 
-При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры.
+При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры. Для снижения нагрузки на хосты с ролью `DATA` рекомендуется выделять хосты с ролью `MANAGER` в отдельную группу.
 
 {% list tabs group=instructions %}
 
@@ -91,12 +91,6 @@ keywords:
 
       
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
-
-          {% note tip %}
-
-          Не рекомендуется включать публичный доступ для хостов с ролью `MANAGER`, т. к. это может быть небезопасно.
-
-          {% endnote %}
 
 
   1. При необходимости задайте конфигурацию [группы хостов](../concepts/host-roles.md#dashboards) `Dashboards` в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:

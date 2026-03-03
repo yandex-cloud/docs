@@ -1,0 +1,1 @@
+Роль `monium.shards.viewer` позволяет просматривать информацию о [шардах](../../../monium/concepts/glossary.md#shard), [кластерах](../../../monium/concepts/glossary.md#cluster), [сервисах](../../../monium/concepts/glossary.md#service) и их квотах.

@@ -1,0 +1,73 @@
+title: Monium
+description:
+  - >-
+    Monium allows you to collect, store, analyze, and visualize the status and
+    performance data of your resources and applications.
+meta:
+  title: Monium
+  description: >-
+    Monium allows you to collect, store, analyze, and visualize the status and
+    performance data of your resources and applications.
+  keywords:
+    - keyword: monitoring
+    - keyword: Monitoring
+    - keyword: '{{ monitoring-name }} metric'
+    - keyword: '{{ monitoring-name }}'
+    - keyword: '{{ monitoring-name }}'
+    - keyword: alerting
+    - keyword: time series in {{ monitoring-name }}
+    - keyword: dashboard in {{ monitoring-name }}
+    - keyword: '{{ monitoring-name }} in {{ yandex-cloud }}'
+    - keyword: metric collection agent
+    - keyword: '{{ unified-agent-short-name }}'
+    - keyword: '{{ unified-agent-full-name }}'
+    - keyword: '{{ prometheus-name }}'
+    - keyword: notification channel in {{ monitoring-name }}
+links:
+  - title: Getting started
+    description: Get started with the platform
+    href: quickstart
+  - title: Metrics
+    description: Collecting, storing, and displaying resource and application metrics
+    href: metrics/quickstart
+  - title: Logs
+    description: Reading and writing logs of resource and app resources
+    href: logs/quickstart
+  - title: Traces
+    description: Configuring tracing for your applications
+    href: traces/
+  - title: Agents for data collection and delivery
+    description: >-
+      Configure delivery of metrics, logs, and traces using Yandex Unified Agent
+      or OpenTelemetry Collector
+    href: collector/
+  - title: Alerts
+    description: Set up alerts about parameter updates in your services
+    href: concepts/alerting
+  - title: SLO
+    description: Track service reliability level
+    href: slo/
+  - title: Yandex Managed Service for Prometheus®
+    description: Prometheus-compatible monitoring
+    href: operations/prometheus/index
+  - title: Query language
+    description: Overview of the query language for metric conversion
+    href: concepts/querying
+  - title: Metric reference
+    description: Yandex Cloud service metrics
+    href: metrics-ref/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/authentication
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Access management
+    description: Permissions required to use the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
+  - title: FAQ
+    description: Answers to frequently asked questions
+    href: qa/all

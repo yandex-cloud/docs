@@ -16,27 +16,27 @@ description: Следуя данной инструкции, вы сможете
   1. В окне со схемой рабочего процесса нажмите на добавленный блок **Модели {{ ai-studio-name }}**, чтобы выбрать его.
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}      
-      1. Выберите [AI-модель](../../../../ai-studio/concepts/generation/index.md):
+      1. Выберите [AI-модель]({{ link-docs-ai }}ai-studio/concepts/generation/index):
 
           {% cut "`{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_description_generate }}`" %}
         
           1. Выберите:
 
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_base_model }}`, чтобы использовать модель из выпадающего списка, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title }}** выберите [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет вызываться модель.
-              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_custom }}`, чтобы использовать дообученную модель, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** укажите идентификатор ([URI](../../../../ai-studio/concepts/tuning/index.md#requests)) дообученной модели.
+              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_model_description_custom }}`, чтобы использовать дообученную модель, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** укажите идентификатор ([URI]({{ link-docs-ai }}ai-studio/concepts/tuning/index#requests)) дообученной модели.
 
           1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title }}** задайте вариативность ответа модели: чем выше значение температуры, тем более непредсказуемым будет результат выполнения запроса. Диапазон возможных значений — от `0` до `1`.
-          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title }}** задайте ограничение на максимально допустимое количество [токенов](../../../../ai-studio/concepts/generation/tokens.md) в ответе модели.
+          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title }}** задайте ограничение на максимально допустимое количество [токенов]({{ link-docs-ai }}ai-studio/concepts/generation/tokens) в ответе модели.
           1. В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title }}** выберите:
 
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_description_messages }}`, чтобы задать контекст запроса к модели в виде последовательности отдельных сообщений в формате `<Роль_отправителя_сообщения>`:`<Текст_сообщения>`, используя кнопку ![plus](../../../../_assets/console-icons/plus.svg).
-              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_description_json }}`, чтобы задать [контекст](../../../../ai-studio/concepts/index.md#prompt) запроса к модели в формате [JSON](https://ru.wikipedia.org/wiki/JSON)-строки.
+              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_context_description_json }}`, чтобы задать [контекст]({{ link-docs-ai }}ai-studio/concepts/index#prompt) запроса к модели в формате [JSON](https://ru.wikipedia.org/wiki/JSON)-строки.
 
-          1. (Опционально) В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_reasoning_mode_view_spec_layout_title }}** выберите статус [режима рассуждений](../../../../ai-studio/concepts/generation/chain-of-thought.md):
+          1. (Опционально) В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_reasoning_mode_view_spec_layout_title }}** выберите статус [режима рассуждений]({{ link-docs-ai }}ai-studio/concepts/generation/chain-of-thought):
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_reasoning_mode_unspecified }}` — не указано.
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_disabled }}` — режим рассуждений выключен. 
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_enabled_hidden }}` — режим рассуждений включен.
-          1. (Опционально) В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title }}** выберите [формат ответа](../../../../ai-studio/concepts/generation/structured-output.md):
+          1. (Опционально) В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title }}** выберите [формат ответа]({{ link-docs-ai }}ai-studio/concepts/generation/structured-output):
 
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_structured_output_description_none }}` — модель возвращает ответ, отформатированный с помощью разметки Markdown.
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_generate_properties_structured_output_description_json_object }}` — модель возвращает ответ в виде JSON-объекта.
@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
 
           1. Выберите модель из выпадающего списка и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title }}** выберите [каталог](../../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет вызываться модель.
           1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_temperature_view_spec_layout_title }}** задайте вариативность ответа модели: чем выше значение температуры, тем более непредсказуемым будет результат выполнения запроса. Диапазон возможных значений — от `0` до `1`.
-          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title }}** задайте ограничение на максимально допустимое количество [токенов](../../../../ai-studio/concepts/generation/tokens.md) в ответе модели.
+          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_max_tokens_view_spec_layout_title }}** задайте ограничение на максимально допустимое количество [токенов]({{ link-docs-ai }}ai-studio/concepts/generation/tokens) в ответе модели.
           1. В блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_view_spec_layout_title }}** выберите:
 
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_layout_title }}`, чтобы задать контекст запроса к модели в виде последовательности отдельных сообщений в формате `<Роль_отправителя_сообщения>`:`<Текст_сообщения>`, используя кнопку ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_properties_messages_view_spec_item_label }}**.
@@ -57,13 +57,13 @@ description: Следуя данной инструкции, вы сможете
                   * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_base64_view_spec_layout_title }}`, чтобы добавить изображение в формате [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64).
                   * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_properties_messages_items_properties_images_items_properties_file_view_spec_layout_title }}`, чтобы указать публичный URL, по которому будет доступно изображение, или имя объекта с изображением в [бакете](../../../../storage/concepts/bucket.md) {{ objstorage-name }} (например, `prefix/subprefix/image.png`).
 
-              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_properties_json_view_spec_layout_title }}`, чтобы задать [контекст](../../../../ai-studio/concepts/index.md#prompt) запроса к модели в формате [JSON](https://{{ lang }}.wikipedia.org/wiki/JSON)-строки.
+              * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_vision_properties_context_properties_json_view_spec_layout_title }}`, чтобы задать [контекст]({{ link-docs-ai }}ai-studio/concepts/index#prompt) запроса к модели в формате [JSON](https://{{ lang }}.wikipedia.org/wiki/JSON)-строки.
 
           {% endcut %}
 
           {% cut "`{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_description_classify }}`" %}
 
-          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** введите идентификатор дообученной модели. Подробнее см. в разделе [{#T}](../../../../ai-studio/concepts/classifier/models.md).
+          1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_model_properties_custom_view_spec_layout_title }}** введите идентификатор дообученной модели. Подробнее см. в разделе [Модели классификаторов на базе {{ yagpt-name }}]({{ link-docs-ai }}ai-studio/concepts/classifier/models).
           1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_few_shot_classify_properties_text_view_spec_layout_title }}** введите текстовое содержимое сообщения.
 
           {% endcut %}

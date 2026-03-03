@@ -99,6 +99,17 @@ Possible property names:
 - `mongos-planned-usage-threshold`: Planned usage threshold mongos
 
 - `mongos-emergency-usage-threshold`: Emergency usage threshold mongos ||
+|| `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Maintenance window settings
+
+Possible property names:
+
+- `type`: Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.
+
+- `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
+
+- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
 || `--mongodb-version` | `string`
 
 Version of MongoDB used by the cluster. Supported value: 5.0, 6.0, 7.0 ||

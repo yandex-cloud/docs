@@ -1,0 +1,1 @@
+Роль `monium.escalations.viewer` позволяет просматривать информацию об уведомлениях и [эскалациях](../../../monium/concepts/alerting/escalations.md) для [алертов](../../../monium/concepts/alerting/alert.md).

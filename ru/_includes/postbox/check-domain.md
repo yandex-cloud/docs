@@ -21,17 +21,18 @@
         {% endnote %}
 
     1. В поле **{{ ui-key.yacloud.common.type }}** выберите `TXT`.
-    1. В поле **{{ ui-key.yacloud.dns.label_records }}** скопируйте содержимое поля **{{ ui-key.yacloud.postbox.label_dns-record-value }}** из блока **Подтверждение подписи**. Обратите внимание, что значение записи нужно взять в кавычки, например:
+    1. В поле **{{ ui-key.yacloud.dns.label_records }}** скопируйте содержимое поля **{{ ui-key.yacloud.postbox.label_dns-record-value }}** из блока **{{ ui-key.yacloud.postbox.section_dkim }}** необходимого адреса. Обратите внимание, что значение записи нужно взять в кавычки, например:
 
         ```text
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"
         ```
 
+    1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни записи.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Выберите созданный адрес.
-    1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_run-verification }}**. Если запись верна, статус проверки на странице адреса изменится на `Success`.
+    1. Дождитесь, когда {{ postbox-name }} проверит настройки DKIM-подписи. Если запись верна, статус проверки на странице адреса изменится на `Success`.
 
-    Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи.
+    Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи. Если статус проверки не изменится в течение 24 часов, нажмите кнопку **{{ ui-key.yacloud.postbox.button_run-verification }}**. 
 
 {% endlist %}

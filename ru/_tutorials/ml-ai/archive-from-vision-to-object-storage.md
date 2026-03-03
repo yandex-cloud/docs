@@ -1,6 +1,6 @@
 # Распознавание архива изображений в {{ vision-full-name }}
 
-С помощью сервисов [{{ vision-name }}](../../vision/) и [{{ objstorage-full-name }}](../../storage/) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
+С помощью сервисов [{{ vision-name }}]({{ link-docs-ai }}vision/) и [{{ objstorage-full-name }}](../../storage/) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
 
 Чтобы настроить инфраструктуру для распознавания текста с помощью {{ vision-name }} и автоматической выгрузки результатов в {{ objstorage-name }}:
 
@@ -24,7 +24,7 @@
 * Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}](../../vision/pricing.md)).
+* Плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing)).
 
 ## Создайте бакет {#create-bucket}
 

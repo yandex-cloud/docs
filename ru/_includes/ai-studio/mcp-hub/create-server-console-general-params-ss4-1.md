@@ -1,1 +1,0 @@
-(Опционально) Включите опцию **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.newtwork_enable_ndkhL }}**, чтобы указать [облачную сеть](../../../vpc/concepts/network.md), в которой будут размещены экземпляры MCP-сервера.

@@ -17,13 +17,13 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [integrations-step-select-settings-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-select-settings-tab.md) %}
 
       1. {% include [integrations-name-the-step](../../../../_includes/serverless-integrations/workflows-constructor/integrations-name-the-step.md) %}
-      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_prompt_template_id_view_spec_layout_title }}** укажите идентификатор [агента {{ ai-studio-name }}](../../../../ai-studio/concepts/agents/index.md).
+      1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_prompt_template_id_view_spec_layout_title }}** укажите идентификатор [агента {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/agents/index).
       1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_layout_title }}** нажмите кнопку **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}**, чтобы добавить имена и значения переменных, которые будут использоваться в промпте. Для значений переменных поддерживается [шаблонизация](../../../concepts/workflows/templating.md).
 
           Чтобы добавить несколько переменных, нажмите **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_variables_view_spec_item_label }}** необходимое количество раз.
 
       1. (Опционально) В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.ai_studio_agent_properties_message_view_spec_layout_title }}** введите входящее сообщение, которое будет передано агенту вместе с промптом.
-      1. (Опционально) Включите опцию **Автоматически разрешать использование инструментов**. Если для [инструмента](../../../../ai-studio/concepts/agents/index.md#tools) необходимо подтверждение использования, а опция не включена, шаг завершится с ошибкой.
+      1. (Опционально) Включите опцию **Автоматически разрешать использование инструментов**. Если для [инструмента]({{ link-docs-ai }}ai-studio/concepts/agents/index#tools) необходимо подтверждение использования, а опция не включена, шаг завершится с ошибкой.
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

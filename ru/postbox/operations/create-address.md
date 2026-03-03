@@ -34,8 +34,8 @@ description: Следуя данной инструкции, вы создади
      
     {% endlist %}
 
-1. (Опционально) [Настройте логирование](logs-write.md).
-1. (Опционально) В блоке **{{ ui-key.yacloud.postbox.section_restrictions }}** включите опцию **{{ ui-key.yacloud.postbox.label_restrict-senders }}** и добавьте почтовые ящики, с которых будет разрешена отправка писем.  
+1. (Опционально) [Ограничьте список отправителей](../../postbox/operations/restrict-senders.md).
+1. (Опционально) [Настройте логирование](logs-write.md). 
 1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 
 Чтобы отправлять письма, пройдите [проверку владения доменом](check-domain.md).

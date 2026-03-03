@@ -48,7 +48,7 @@ description: С помощью этого руководства вы может
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите арендовать сервер {{ baremetal-name }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Требования к формату имени:
 
@@ -77,7 +77,7 @@ description: С помощью этого руководства вы может
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите арендовать сервер и подключить его к {{ backup-name }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Если сервис {{ backup-name }} еще не активирован, нажмите **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
       Если кнопки **{{ ui-key.yacloud.backup.button_action-activate }}** нет, значит, сервис уже активирован. Переходите к следующему шагу.
@@ -175,9 +175,9 @@ description: С помощью этого руководства вы может
 - KVM-консоль {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервер.
-  1. В списке сервисов выберите **{{ baremetal-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. В строке с нужным сервером нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Запустить KVM-консоль**.
-  1. В открывшемся окне нажмите кнопку **KVM-консоль**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
 
 - Linux/macOS {#linux-macos}
 
@@ -300,7 +300,7 @@ description: С помощью этого руководства вы может
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите привязать сервер к политике.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Выберите политику, к которой вы хотите привязать сервер.
   
@@ -353,7 +353,7 @@ description: С помощью этого руководства вы может
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
   1. В строке с нужным сервером нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. В открывшемся окне выберите политику резервного копирования, в соответствии с которой будет создана резервная копия, и нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -397,7 +397,7 @@ description: С помощью этого руководства вы может
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** и откройте вкладку **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
   1. В строке с резервной копией, из которой нужно восстановить сервер {{ baremetal-name }}, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
   1. В открывшемся окне выберите сервер, из которого была создана выбранная резервная копия. В списке этот сервер будет отмечен как `({{ ui-key.yacloud.backup.context_current-bms }})`.

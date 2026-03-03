@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 Если во время [создания демонстрационного стенда](quickstart.md) {{ sk-hybrid-name }} возникли проблемы, проведите диагностику, чтобы найти ошибки:
 
-1. [Подключитесь к ВМ по SSH](../compute/operations/vm-connect/ssh.md#vm-connect):
+1. [Подключитесь к ВМ по SSH]({{ link-docs }}/compute/operations/vm-connect/ssh#vm-connect):
 
    ```bash
    ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
    telnet <публичный_адрес_ВМ> 8080 && telnet <публичный_адрес_ВМ> 9080
    ```
 
-   В команде укажите публичный IP-адрес ВМ, которая была создана вместе с [инфраструктурой](quickstart.md#create-infrastructure). Узнайте, как [получить IP-адрес ВМ](../compute/operations/vm-info/get-info.md#outside-instance).
+   В команде укажите публичный IP-адрес ВМ, которая была создана вместе с [инфраструктурой](quickstart.md#create-infrastructure). Узнайте, как [получить IP-адрес ВМ]({{ link-docs }}/compute/operations/vm-info/get-info#outside-instance).
 
 1. Проверьте список загруженных Docker-образов:
 

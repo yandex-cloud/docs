@@ -1,0 +1,1 @@
+Роль `monium.quickLinks.viewer` позволяет просматривать список настроенных [быстрых ссылок](../../../monium/concepts/glossary.md#project-menu) и информацию о них в меню [проекта](../../../monium/concepts/glossary.md#project).

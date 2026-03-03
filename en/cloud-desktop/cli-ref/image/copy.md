@@ -25,6 +25,12 @@ Compute image to copy the image from ||
 || `--new-image-name` | `string`
 
 Name for new desktop image ||
+|| `--description` | `string`
+
+Description for new desktop image. ||
+|| `--labels` | `key=value[,key=value...]`
+
+Labels for new desktop image. ||
 || `--folder-id` | `string`
 
 Destination folder for new desktop image ||

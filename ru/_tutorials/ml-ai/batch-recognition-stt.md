@@ -1,7 +1,7 @@
 # Регулярное распознавание аудиофайлов из {{ objstorage-full-name }}
 
 
-В [API асинхронного распознавания](../../speechkit/stt/api/transcribation-api.md) {{ speechkit-short-name }} реализована интеграция с сервисом {{ objstorage-full-name }}. С ее помощью можно настроить автоматическое распознавание аудиофайлов [поддерживаемых форматов](../../speechkit/formats.md), регулярно загружаемых в бакет {{ objstorage-name }}. Облачная функция в сервисе {{ sf-full-name }} периодически проверяет наличие аудиофайлов в бакете и отправляет их в API {{ speechkit-short-name }} для распознавания. Результат и статус распознавания сохраняются в тот же бакет {{ objstorage-name }}.
+В [API асинхронного распознавания]({{ link-docs-ai }}speechkit/stt/api/transcribation-api) {{ speechkit-short-name }} реализована интеграция с сервисом {{ objstorage-full-name }}. С ее помощью можно настроить автоматическое распознавание аудиофайлов [поддерживаемых форматов]({{ link-docs-ai }}speechkit/formats), регулярно загружаемых в бакет {{ objstorage-name }}. Облачная функция в сервисе {{ sf-full-name }} периодически проверяет наличие аудиофайлов в бакете и отправляет их в API {{ speechkit-short-name }} для распознавания. Результат и статус распознавания сохраняются в тот же бакет {{ objstorage-name }}.
 
 Чтобы настроить автоматическое распознавание аудиофайлов с помощью {{ speechkit-short-name }}:
 
@@ -19,7 +19,7 @@
 1. [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ доступа для сервисного аккаунта.
 1. [Создайте](../../storage/operations/buckets/create.md) бакет {{ objstorage-name }} с именем `asr-batch-bucket` в каталоге сервисного аккаунта.
 1. Откройте бакет `asr-batch-bucket`, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_create }}** и укажите в поле **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name}}** значение `input`.
-1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` бакета файл `config.json` с заданным [языком распознавания](../../speechkit/stt/models.md#languages). Файл содержит только один параметр:
+1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` бакета файл `config.json` с заданным [языком распознавания]({{ link-docs-ai }}speechkit/stt/models#languages). Файл содержит только один параметр:
 
    ```json
    {
@@ -86,10 +86,10 @@
 ## Проверьте работу функции {#check-function}
 
 1. В консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и откройте бакет `asr-batch-bucket`.
-1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` аудиофайлы любого [поддерживаемого формата](../../speechkit/formats.md).
+1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` аудиофайлы любого [поддерживаемого формата]({{ link-docs-ai }}speechkit/formats).
 1. Подождите несколько минут и убедитесь, что в бакете появились папки `log` и `out`.
 1. Проверьте статус распознавания в папке `log`. Для каждого из отправленных на распознавание аудиофайлов статус сохраняется во вспомогательном файле `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Если в файле содержится параметр `"done": "false"`, то процесс распознавания не завершен.
-1. Проверьте результат распознавания в папке `out`. Результат сохраняется в формате JSON в файле с именем `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Подробнее о формате результата распознавания см. раздел [API асинхронного распознавания](../../speechkit/stt/api/transcribation-api.md#get-result-response).
+1. Проверьте результат распознавания в папке `out`. Результат сохраняется в формате JSON в файле с именем `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Подробнее о формате результата распознавания см. раздел [API асинхронного распознавания]({{ link-docs-ai }}speechkit/stt/api/transcribation-api#get-result-response).
 
 {% note info %}
 
@@ -100,6 +100,8 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../speechkit/stt/api/transcribation-api.md)
-* [{#T}](../../speechkit/stt/api/transcribation-lpcm.md)
-* [{#T}](../../speechkit/stt/api/transcribation-ogg.md)
+
+* [API v2 асинхронного распознавания]({{ link-docs-ai }}speechkit/stt/api/transcribation-api)
+* [Асинхронное распознавание аудиофайлов в формате LPCM в API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-lpcm)
+* [Асинхронное распознавание аудиофайлов в формате OggOpus в API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-ogg)
+

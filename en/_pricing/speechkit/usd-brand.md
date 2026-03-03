@@ -2,9 +2,6 @@
 | ----- | ----- |
 | **{{ brand-voice-cc-name }}** | |
 | Request | {{ sku|USD|speechkit.tts.v3_bvcc_request.v1|string }} |
-| **{{ brand-voice-core-name }}** | |
-| Hosting, per month | $2,000.00 |
-| Request | {{ sku|USD|speechkit.tts.v3_bvss_request.v1|string }} |
 | **{{ brand-voice-lite-name }}** | |
 | One-time fee for creating one voice | $75.00 |
 | Hosting, first seven days ^1^ | Free of charge |

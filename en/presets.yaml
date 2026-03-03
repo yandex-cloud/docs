@@ -48,6 +48,7 @@ default:
   api-host-mdb-operation: operation.api.cloud.yandex.net
   api-host-metastore: metastore.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
+  api-host-monium: ingest.monium.yandex.cloud
   api-host-operation: operation.api.cloud.yandex.net
   api-host-quota-manager: quota-manager.api.cloud.yandex.net
   api-host-sk: api.cloud.yandex.net
@@ -298,6 +299,7 @@ default:
   link-auth-logout: https://auth.yandex.cloud/logout
   link-azure-ad: https://azure.microsoft.com/en-us/services/active-directory/
   link-base64: https://en.wikipedia.org/wiki/Base64
+  link-blog: https://yandex.cloud/en/blog
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-cloud-calculator: /prices#calculator
   link-cloud-communications: https://console.yandex.cloud/folders?openSettings=communications
@@ -329,6 +331,7 @@ default:
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
   link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
   link-monitoring: https://monitoring.yandex.cloud
+  link-monium: https://monium.yandex.cloud
   link-my-account: https://myaccount.yandex.cloud/
   link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-federations: https://org.yandex.cloud/federations
@@ -452,6 +455,7 @@ default:
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring
   monium-full-name: Yandex Monium
+  monium-logs-name: Monium Logs
   monium-name: Monium
   mos-full-name: Yandex Managed Service for OpenSearch
   mos-name: Managed Service for OpenSearch
@@ -882,6 +886,7 @@ default:
   TR: Trino
   tr:
     docs: https://trino.io/docs/current
+  traces-name: Monium Traces
   tracker-full-name: Yandex Tracker
   tracker-name: Tracker
   tracker-short-name: Tracker
@@ -1831,10 +1836,6 @@ default:
         provisioned_rcu: dn2kg3kak19fubcmerdh
         requests: dn2f1mpij5h7573tqjdt
         storage: dn2iqvpuvujh28ggku9h
-  sku|KZT|ai:
-    mt:
-      detect|string: ₸2548.89
-      translate|string: ₸2548.89
   sku|KZT|airflow:
     cluster:
       generic:
@@ -1959,24 +1960,6 @@ default:
           v1|pricingRate:
             1|number: 178.97
             1|string: ₸178.97
-  sku|KZT|foundation_models:
-    image_generation:
-      v1|string: ₸11.39
-    realtime_audio:
-      input:
-        v1|string: ₸0.1346
-      output:
-        v1|string: ₸0.1036
-    text_classification:
-      v1|string: ₸0.78
-    text_embedding:
-      v1|number: 0.0518
-      v1|string: ₸0.0518
-    text_generation_alt:
-      v1|number: 1.04
-    text_generation:
-      v1|number: 1.04
-      v1|string: ₸1.04
   sku|KZT|gitlab:
     backup|month|number: 10.74
     backup|month|string: ₸10.74
@@ -2162,26 +2145,9 @@ default:
           2|string: ₸409.11
           50|number: 305.54
           50|string: ₸305.54
-  sku|KZT|searchapi:
-    generative:
-      requests:
-        v3|number: 25.89
-    requests:
-      async:
-        v3|number: 155.36
-        v3|string: ₸155.36
-      image:
-        sync:
-          v3|string: ₸4660.71
-      night:
-        async:
-          v3|string: ₸129.46
-        sync:
-          v3|string: ₸1864.29
-      sync:
-        v3|number: 2485.71
-        v3|string: ₸2485.71
   sku|KZT|security_deck:
+    cspm:
+      resources|string: ₸3005.27
     dspm:
       scanned:
         files:
@@ -2220,27 +2186,6 @@ default:
         vcpu:
           v2|number: 8.01
           v2|string: ₸8.01
-  sku|KZT|speechkit:
-    stt_long_running_deferred:
-      v1|number: 0.0129
-      v1|string: ₸0.0129
-    stt_long_running:
-      v1|number: 0.0518
-      v1|string: ₸0.0518
-    stt:
-      v1|number: 0.83
-      v1|string: ₸0.83
-    tts_gpu:
-      v1|number: 6835.71
-      v1|string: ₸6835.71
-    tts:
-      v3_bvcc_request:
-        v1|string: ₸0.83
-      v3_bvprem_request:
-        v1|string: ₸0.83
-      v3_request:
-        v1|number: 0.83
-        v1|string: ₸0.83
   sku|KZT|speechsense:
     analysis:
       assistant:
@@ -2349,21 +2294,6 @@ default:
       vod:
         v1|number: 5.59
         v1|string: ₸5.59
-  sku|KZT|vision_ocr:
-    driver_license_text_detection:
-      v1|string: ₸3.63
-    handwriting_and_printed_text_detection:
-      v1|string: ₸7.77
-    license_plates:
-      v1|string: ₸0.67
-    passport_text_detection:
-      v1|string: ₸3.63
-    printed_text_detection:
-      v1|string: ₸0.67
-    text_and_table_text_detection:
-      v1|string: ₸6.21
-    vehicle_certificate_text_detection:
-      v1|string: ₸3.63
   sku|KZT|ydb:
     v1:
       serverless:
@@ -2421,10 +2351,6 @@ default:
         v3|number: 7.05
       ram:
         v3|number: 1.88
-  sku|RUB|ai:
-    mt:
-      detect|string: ₽500.40
-      translate|string: ₽500.40
   sku|RUB|airflow:
     cluster:
       generic:
@@ -2550,24 +2476,6 @@ default:
           v1|pricingRate:
             1|number: 35.14
             1|string: ₽35.14
-  sku|RUB|foundation_models:
-    image_generation:
-      v1|string: ₽2.24
-    realtime_audio:
-      input:
-        v1|string: ₽0.0264
-      output:
-        v1|string: ₽0.0203
-    text_classification:
-      v1|string: ₽0.1525
-    text_embedding:
-      v1|number: 0.0102
-      v1|string: ₽0.0102
-    text_generation_alt:
-      v1|number: 0.2033
-    text_generation:
-      v1|number: 0.2033
-      v1|string: ₽0.2033
   sku|RUB|gitlab:
     backup|month|number: 2.11
     backup|month|string: ₽2.11
@@ -2771,26 +2679,9 @@ default:
           2|string: ₽80.32
           50|number: 59.98
           50|string: ₽59.98
-  sku|RUB|searchapi:
-    generative:
-      requests:
-        v3|number: 5.08
-    requests:
-      async:
-        v3|number: 30.5
-        v3|string: ₽30.50
-      image:
-        sync:
-          v3|string: ₽915.00
-      night:
-        async:
-          v3|string: ₽25.42
-        sync:
-          v3|string: ₽366.00
-      sync:
-        v3|number: 488
-        v3|string: ₽488.00
   sku|RUB|security_deck:
+    cspm:
+      resources|string: ₽590.00
     dspm:
       scanned:
         files:
@@ -2837,27 +2728,6 @@ default:
         vcpu:
           v2|number: 1.57
           v2|string: ₽1.57
-  sku|RUB|speechkit:
-    stt_long_running_deferred:
-      v1|number: 0.002542
-      v1|string: ₽0.002542
-    stt_long_running:
-      v1|number: 0.0102
-      v1|string: ₽0.0102
-    stt:
-      v1|number: 0.1627
-      v1|string: ₽0.1627
-    tts_gpu:
-      v1|number: 1342
-      v1|string: ₽1342.00
-    tts:
-      v3_bvcc_request:
-        v1|string: ₽0.1627
-      v3_bvprem_request:
-        v1|string: ₽0.1627
-      v3_request:
-        v1|number: 0.1627
-        v1|string: ₽0.1627
   sku|RUB|speechsense:
     analysis:
       assistant:
@@ -2966,21 +2836,6 @@ default:
       vod:
         v1|number: 1.1
         v1|string: ₽1.10
-  sku|RUB|vision_ocr:
-    driver_license_text_detection:
-      v1|string: ₽0.71
-    handwriting_and_printed_text_detection:
-      v1|string: ₽1.52
-    license_plates:
-      v1|string: ₽0.1322
-    passport_text_detection:
-      v1|string: ₽0.71
-    printed_text_detection:
-      v1|string: ₽0.1322
-    text_and_table_text_detection:
-      v1|string: ₽1.22
-    vehicle_certificate_text_detection:
-      v1|string: ₽0.71
   sku|RUB|ydb:
     v1:
       serverless:
@@ -3179,11 +3034,8 @@ default:
     text_embedding:
       v1|number: 0.000083
       v1|string: $0.000083
-    text_generation_alt:
-      v1|number: 0.001667
     text_generation:
-      v1|number: 0.001667
-      v1|string: $0.001667
+      v1|number: 0
   sku|USD|gitlab:
     backup|month|number: 0.0173
     backup|month|string: $0.0173
@@ -3393,6 +3245,8 @@ default:
       subscription:
         v1|number: 583.34
         v1|string: $583.34
+    cspm:
+      resources|string: $4.84
     dspm:
       scanned:
         files:
@@ -3456,8 +3310,6 @@ default:
       v3_bvcc_request:
         v1|string: $0.001333
       v3_bvprem_request:
-        v1|string: $0.001333
-      v3_bvss_request:
         v1|string: $0.001333
       v3_request:
         v1|number: 0.001333
@@ -4126,6 +3978,13 @@ default:
           no-data-key-value: No data
           ok: Ok
           warn: Warn
+        no-points-policy:
+          alarm: Alarm
+          manual:
+            default: Default (Manual)
+          no-data-key-value: No data
+          ok: Ok
+          warn: Warn
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -4174,10 +4033,20 @@ default:
             title: Escalation policies
           explorer:
             title: Metrics
+          logs:
+            title: Logs
           notification-feed:
             title: Notification feed
+          notification-methods:
+            title: Notification methods
           prometheus:
             title: Prometheus
+          shards:
+            title: Shards
+          slo:
+            title: SLO
+          traces:
+            title: Traces
       channel:
         button_create: Create
         button_new-channel: Create channel
@@ -4265,6 +4134,8 @@ default:
         button_dashboards-action: Create dashboard
         title_service-dashboards: Service dashboards
       monitoring-alerts:
+        button:
+          create-custom-title: Custom
         channel-table:
           repeat: Re-notification
         label:
@@ -4351,6 +4222,15 @@ default:
         actions:
           go-to-line: Go to line
           go-to-window: Go to selected window
+      traces:
+        trace-id-input:
+          placeholder: Enter trace.id
+        trace-tabs:
+          crit-path: Critical path
+        traces-search:
+          mode:
+            spans: Search by spans
+            traces: Search by traces
       wizard:
         axes:
           linear: Linear
@@ -7932,11 +7812,13 @@ default:
           field_cloud-name: Cloud name
           field_organization: Organization
       postbox:
+        add-allowed-sender: Add sender
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
         button_run-verification: Run verification
         field_secure-connection: Deliver emails only over a secure connection
         label_address: Domain
+        label_allowed-senders: Allowed senders
         label_configuration-set: Configuration
         label_configuration-sets: Configurations
         label_data-stream: Data stream
@@ -7950,6 +7832,8 @@ default:
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
         label_selector: Selector
+        label_signing-type-internal: Simple
+        section_dkim: Email signature configuration (DKIM)
         section_restrictions: Restrictions
       postgresql:
         cluster:

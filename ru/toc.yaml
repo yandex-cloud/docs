@@ -69,8 +69,6 @@ items:
     href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
     href: functions/index.yaml
-  - name: '{{ foundation-models-name }}'
-    href: ai-studio/index.yaml
   - name: '{{ gost-gateway-name }}'
     href: gost-gateway/index.yaml
   - name: Identity and Access Management
@@ -139,8 +137,6 @@ items:
     href: resource-manager/index.yaml
   - name: Практические руководства платформы {{ yandex-cloud }}
     href: tutorials/index.yaml
-  - name: '{{ search-api-name }}'
-    href: search-api/index.yaml
   - name: Безопасность в {{ yandex-cloud }}
     href: security/index.yaml
   - name: Security Deck
@@ -149,8 +145,6 @@ items:
     href: smartcaptcha/index.yaml
   - name: Smart Web Security
     href: smartwebsecurity/index.yaml
-  - name: '{{ speechkit-name }}'
-    href: speechkit/index.yaml
   - name: SpeechSense
     href: speechsense/index.yaml
   - name: Object Storage
@@ -161,21 +155,6 @@ items:
     href: serverless-integrations/index.yaml
   - name: Serverless Containers
     href: serverless-containers/index.yaml
-  - name: Translate
-    href: translate/index.yaml
-  - name: Vision
-    href: vision/index.yaml
-  - name: Virtual Private Cloud
-    href: vpc/index.yaml
-  - name: WebSQL
-    href: websql/index.yaml
-  - name: '{{ ydb-name }}'
-    href: ydb/index.yaml
-  - name: Query
-    href: query/index.yaml
-  - name: '{{ cloudml-full-name }}'
-    href: cloudai-hybrid/index.yaml
-    hidden: true
   - name: Консоль управления
     href: console/index.yaml
   - name: Облачная терминология

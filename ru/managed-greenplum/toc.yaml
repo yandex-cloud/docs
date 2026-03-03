@@ -189,6 +189,8 @@ items:
         href: concepts/expand.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
+      - name: Очистка таблиц и системного каталога
+        href: concepts/vacuum.md
       - name: Настройки {{ GP }}
         href: concepts/settings-list.md
   - name: Управление доступом

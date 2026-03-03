@@ -5,7 +5,7 @@ description: В статье описаны поля для интеграцио
 
 # FoundationModelsCall
 
-Интеграция с [{{ foundation-models-full-name }}](../../../../../ai-studio/).
+Интеграция с [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/).
 
 Поля `generate`, `classify`, `fewShotClassify` и `vision` — взаимоисключающие, можно использовать только одно из них.
 
@@ -25,11 +25,11 @@ description: В статье описаны поля для интеграцио
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Да | `0.3` | Нет | Чем выше температура, тем более креативными и случайными будут ответы модели. Принимает значения от 0 (включительно) до 1 (включительно). 
 `maxTokens` | `integer` | Да | `5.0` | Нет | Максимальное число токенов генерации. Позволит ограничить ответ модели, если это необходимо.
-`json` | `string` | Нет | `""` | Да | Контекст для модели в виде JSON-строки. Подробнее см. описание поля `messages` в [документации {{ foundation-models-name }}](../../../../../ai-studio/operations/generation/create-prompt.md#request).
+`json` | `string` | Нет | `""` | Да | Контекст для модели в виде JSON-строки. Подробнее см. описание поля `messages` в [документации {{ foundation-models-name }}]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request).
 `messages` | [FoundationModelsGenerate.Messages[]](#FoundationModelsGenerateMessages) | Нет | `[]` | Нет | Контекст для модели в виде явного перечисления входных сообщений.
-`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | Нет | Нет  | Нет | Режим рассуждений. Подробнее см. в [документации {{ foundation-models-name }}](../../../../../ai-studio/concepts/generation/chain-of-thought.md).
+`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | Нет | Нет  | Нет | Режим рассуждений. Подробнее см. в [документации {{ foundation-models-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/chain-of-thought).
 `jsonSchema` | `string` | Нет | Нет | Да | Ответ модели в виде JSON-схемы.
-`jsonObject` | `boolean` | Нет | Нет | Нет | Если значение `true`, модель возвращает ответ в виде JSON-объекта. Иначе — ответ форматируется с помощью разметки Markdown. Подробнее см. в [документации {{ foundation-models-name }}](../../../../../ai-studio/concepts/generation/structured-output.md).
+`jsonObject` | `boolean` | Нет | Нет | Нет | Если значение `true`, модель возвращает ответ в виде JSON-объекта. Иначе — ответ форматируется с помощью разметки Markdown. Подробнее см. в [документации {{ foundation-models-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/structured-output).
 
 ## Объект FoundationModelsGenerate.Messages {#FoundationModelsGenerateMessages}
 
@@ -41,8 +41,8 @@ description: В статье описаны поля для интеграцио
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Да | Нет | Нет | Идентификатор отправителя сообщения. Доступные значения: `system`, `assistant`, и `user`. Подробнее см. [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
-`text` | `string` | Да | Нет | Да | Текст сообщения. Подробнее см. [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
+`role` | `string` | Да | Нет | Нет | Идентификатор отправителя сообщения. Доступные значения: `system`, `assistant`, и `user`. Подробнее см. [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
+`text` | `string` | Да | Нет | Да | Текст сообщения. Подробнее см. [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
 
 ## Объект FoundationModelsGenerate.ReasoningOptions {#FoundationModelsGenerateReasoningOptions}
 
@@ -100,7 +100,7 @@ description: В статье описаны поля для интеграцио
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Да | `0.3` | Нет | Чем выше температура, тем более креативными и случайными будут ответы модели. Принимает значения от 0 (включительно) до 1 (включительно). 
 `maxTokens` | `integer` | Да | `5.0` | Нет | Максимальное число токенов генерации. Позволит ограничить ответ модели, если это необходимо.
-`json` | `string` | Нет | `""` | Да | Контекст для модели в виде JSON-строки. Подробнее см. описание поля `messages` в [документации {{ foundation-models-name }}](../../../../../ai-studio/operations/generation/create-prompt.md#request).
+`json` | `string` | Нет | `""` | Да | Контекст для модели в виде JSON-строки. Подробнее см. описание поля `messages` в [документации {{ foundation-models-name }}]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request).
 `messages` | [FoundationModelsVision.Messages[]](#FoundationModelsVisionMessages) | Нет | `[]` | Нет | Контекст для модели в виде явного перечисления входных сообщений.
 
 ## Объект FoundationModelsVision.Messages {#FoundationModelsVisionMessages}
@@ -113,8 +113,8 @@ description: В статье описаны поля для интеграцио
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Да | Нет | Нет | Идентификатор отправителя сообщения. Доступные значения: `system`, `assistant`, и `user`. Подробнее см. [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md). Если поле `images` не пустое, необходимо указать `role: user`.
-`text` | `string` | Да | Нет | Да | Текст сообщения. Подробнее см. [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
+`role` | `string` | Да | Нет | Нет | Идентификатор отправителя сообщения. Доступные значения: `system`, `assistant`, и `user`. Подробнее см. [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion). Если поле `images` не пустое, необходимо указать `role: user`.
+`text` | `string` | Да | Нет | Да | Текст сообщения. Подробнее см. [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
 `images` | [FoundationModelsVision.Image](#FoundationModelsVisionImage) | Нет | Нет | Нет | Изображения, которые будут добавлены в сообщение.
 
 ## FoundationModelsVision.Image {#FoundationModelsVisionImage}

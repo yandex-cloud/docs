@@ -1,0 +1,1 @@
+Роль `monium.channels.viewer` позволяет просматривать список и информацию о [каналах уведомлений](../../../monium/concepts/alerting/notification-channel.md) для [алертов](../../../monium/concepts/alerting/alert.md).

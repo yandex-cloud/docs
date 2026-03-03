@@ -58,7 +58,6 @@ Volume of the storage available to a host in GB ||
 || `--disk-type` | `string`
 
 Type of the storage environment for a host ||
-|| `--autofailover` | Enables/disables autofailover in cluster ||
 || `--backup-window-start` | `timeofday`
 
 Start time for the daily backup in UTC timezone. Format: HH:MM:SS ||

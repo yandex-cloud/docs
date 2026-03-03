@@ -44,6 +44,18 @@ flowchart BT
     ai.playground.user ~~~ ai.imageGeneration.user
     end
 
+    subgraph guardrails
+    ai.guardrails.editor --> ai.guardrails.admin
+    ai.guardrails.user --> ai.guardrails.editor
+    ai.guardrails.viewer --> ai.guardrails.editor
+    ai.guardrails.auditor --> ai.guardrails.viewer
+    end
+
+    ai.guardrails.admin --> ai.admin
+    ai.guardrails.editor --> ai.editor
+    ai.guardrails.viewer --> ai.viewer
+    ai.guardrails.auditor --> ai.auditor
+
     ai.languageModels.user --> ai.editor
     ai.imageGeneration.user --> ai.editor
     ai.playground.user --> ai.editor
