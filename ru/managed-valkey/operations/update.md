@@ -96,9 +96,8 @@ description: Из статьи вы узнаете, как изменить на
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
-          name        = "<имя_кластера>"
-          description = "<новое_описание_кластера>"
           ...
+          description = "<новое_описание_кластера>"
         }
         ```
 
@@ -238,10 +237,8 @@ description: Из статьи вы узнаете, как изменить на
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
-          name        = "<имя_кластера>"
           ...
-          announce_hostnames    = <использование_FQDN_вместо_IP-адресов>
-          ...
+          announce_hostnames = <использование_FQDN_вместо_IP-адресов>
         }
         ```
 
@@ -391,10 +388,8 @@ description: Из статьи вы узнаете, как изменить на
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
-          name = "<имя_кластера>"
           ...
           persistence_mode = "<режим_персистентности>"
-          ...
         }
         ```
 
@@ -587,7 +582,7 @@ description: Из статьи вы узнаете, как изменить на
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
-          resources {
+          resources = {
             resource_preset_id = "<класс_хоста>"
             ...
             }
@@ -754,7 +749,7 @@ description: Из статьи вы узнаете, как изменить на
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
-          resources {
+          resources = {
             disk_size = <размер_хранилища_ГБ>
             ...
             }
@@ -932,7 +927,7 @@ description: Из статьи вы узнаете, как изменить на
   1. Добавьте в описание кластера блок:
 
       ```hcl
-      disk_size_autoscaling {
+      disk_size_autoscaling = {
         planned_usage_threshold   = "<процент_для_планового_увеличения>"
         emergency_usage_threshold = "<процент_для_незамедлительного_увеличения>"
         disk_size_limit           = "<максимальный_размер_хранилища_в_гибибайтах>"
@@ -951,7 +946,9 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [terraform-timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+  {% include [terraform-timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -1070,7 +1067,7 @@ description: Из статьи вы узнаете, как изменить на
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
-          config {
+          config = {
             password         = "<пароль>"
             timeout          = <время>
             maxmemory_policy = "<политика>"
@@ -1263,14 +1260,16 @@ description: Из статьи вы узнаете, как изменить на
 
     1. Измените в описании кластера {{ mrd-name }} значения нужных вам параметров:
     
-        * Для настройки времени начала резервного копирования добавьте блок `backup_window_start`:
+        * Для настройки времени начала резервного копирования добавьте в блок `config` параметр `backup_window_start`:
         
             ```hcl
             resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
+              ...
+              config = {
                 ...
-                backup_window_start {
-                    hours   = <часы>
-                    minutes = <минуты>
+                backup_window_start = {
+                  hours   = <часы>
+                  minutes = <минуты>
                 }
             }
             ```
@@ -1284,12 +1283,12 @@ description: Из статьи вы узнаете, как изменить на
 
             ```hcl
             resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
-            ...
-                maintenance_window {
-                    day  = <день_недели>
-                    hour = <час_начала>
-                    type = "ANYTIME"
-                }
+              ...
+              maintenance_window = {
+                day  = "<день_недели>"
+                hour = <час_начала>
+                type = "ANYTIME"
+              }
             }
             ```
 
@@ -1304,10 +1303,12 @@ description: Из статьи вы узнаете, как изменить на
 
             ```hcl
             resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
-            ...
-                    deletion_protection = false
+              ...
+              deletion_protection = true
             }
             ```
+
+            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -1524,8 +1525,8 @@ description: Из статьи вы узнаете, как изменить на
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
-            ...
-            sharded = true
+          ...
+          sharded = true
         }
         ```
 
@@ -1763,7 +1764,7 @@ description: Из статьи вы узнаете, как изменить на
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
           ...
-          security_group_ids = [<список_идентификаторов_групп_безопасности>]
+          security_group_ids = [ "<список_идентификаторов_групп_безопасности>" ]
         }
         ```
 

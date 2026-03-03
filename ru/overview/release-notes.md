@@ -45,7 +45,7 @@
 
 * [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)
-* [{{ search-api-full-name }}](../search-api/release-notes/index.md)
+* [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/release-notes/index)
 
 ## Бессерверные вычисления {#serverless}
 
@@ -75,11 +75,11 @@
 ## Машинное обучение {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
-* [{{ foundation-models-full-name }}](../ai-studio/release-notes/index.md)
-* [{{ search-api-full-name }}](../search-api/release-notes/index.md)
-* {{ speechkit-full-name }}: [распознавание](../speechkit/release-notes-stt.md) и [синтез](../speechkit/release-notes-tts.md)
-* [{{ sk-hybrid-full-name }}](../speechkit-hybrid/release-notes.md)
-* [{{ vision-full-name }}](../vision/release-notes.md)
+* [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/release-notes/index)
+* [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/release-notes/index)
+* {{ speechkit-full-name }}: [распознавание]({{ link-docs-ai }}speechkit/release-notes-stt) и [синтез]({{ link-docs-ai }}speechkit/release-notes-tts)
+* [{{ sk-hybrid-full-name }}]({{ link-docs-ai }}speechkit-hybrid/release-notes)
+* [{{ vision-full-name }}]({{ link-docs-ai }}vision/release-notes)
 
 ## Бизнес-инструменты {#business-tools}
 

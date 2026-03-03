@@ -5,7 +5,7 @@ description: По этой инструкции вы можете создать
 
 # Создание демонстрационного стенда {{ sk-hybrid-name }}
 
-{{ sk-hybrid-name }} предоставляет возможности сервиса {{ speechkit-full-name }} для [распознавания](stt/testing.md) и [синтеза](tts/testing.md) речи. Вы можете развернуть демонстрационный стенд {{ sk-hybrid-name }} с помощью сервисов {{ yandex-cloud }} через {{ TF }}. Так можно потестировать приложения распознавания и синтеза, размещаемые в [Docker-контейнерах](/blog/posts/2022/03/docker-containers).
+{{ sk-hybrid-name }} предоставляет возможности сервиса {{ speechkit-full-name }} для [распознавания](stt/testing.md) и [синтеза](tts/testing.md) речи. Вы можете развернуть демонстрационный стенд {{ sk-hybrid-name }} с помощью сервисов {{ yandex-cloud }} через {{ TF }}. Так можно потестировать приложения распознавания и синтеза, размещаемые в [Docker-контейнерах]({{ link-blog }}/posts/2022/03/docker-containers).
 
 Работа по созданию демонстрационного стенда ведется на двух машинах:
 
@@ -30,38 +30,38 @@ description: По этой инструкции вы можете создать
 
 1. Зарегистрируйтесь в {{ yandex-cloud }}. Процесс регистрации различается для физических и юридических лиц:
 
-   * [регистрация физических лиц](../getting-started/individuals/registration.md);
-   * [регистрация юридических лиц](../getting-started/legal-entity/registration.md).
+   * [регистрация физических лиц]({{ link-docs }}/getting-started/individuals/registration);
+   * [регистрация юридических лиц]({{ link-docs }}/getting-started/legal-entity/registration).
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }}.
 1. Создайте каталог в консоли управления. В нем будут располагаться ваши ресурсы:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) `sk-hybrid-example`.
+1. [Создайте сервисный аккаунт]({{ link-docs }}/iam/operations/sa/create) `sk-hybrid-example`.
 
-   Сервисный аккаунт позволяет гибко настраивать права доступа. Подробнее о сервисном аккаунте читайте в разделе [{#T}](../iam/concepts/users/service-accounts.md).
+   Сервисный аккаунт позволяет гибко настраивать права доступа. Подробнее о сервисном аккаунте читайте в разделе [Сервисные аккаунты]({{ link-docs }}/iam/concepts/users/service-accounts).
 
-1. [Назначьте сервисному аккаунту роли](../iam/operations/sa/assign-role-for-sa.md):
+1. [Назначьте сервисному аккаунту роли]({{ link-docs }}/iam/operations/sa/assign-role-for-sa):
 
    * `compute.editor` — чтобы создать ВМ {{ yandex-cloud }};
-   * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [{{ container-registry-full-name }}](../container-registry/index.yaml);
-   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для аутентификации в {{ billing-name }}.
+   * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [{{ container-registry-full-name }}]({ link-docs }}/container-registry/);
+   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ]({{ link-docs }}/iam/concepts/authorization/api-key) для аутентификации в {{ billing-name }}.
 
-1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key).
+1. [Создайте API-ключ]({{ link-docs }}/iam/operations/authentication/manage-api-keys#create-api-key).
 
    Сохраните идентификатор и секретную часть ключа. Их нельзя запросить позднее.
 
-1. [Создайте реестр](../container-registry/operations/registry/registry-create.md) в {{ container-registry-name }}.
+1. [Создайте реестр]({{ link-docs }}/container-registry/operations/registry/registry-create) в {{ container-registry-name }}.
 1. [Сообщите команде {{ speechkit-name }}]({{ link-console-support }}) идентификатор реестра. В вашем реестре появятся необходимые контейнеры и образы.
 
 ## Установите дополнительные зависимости {#prepare}
 
 На локальной машине:
 
-1. [Установите интерфейс командной строки](../cli/operations/install-cli.md) {{ yandex-cloud }} (CLI).
-1. [Аутентифицируйте свой сервисный аккаунт](../cli/operations/authentication/service-account.md) через CLI.
-1. [Установите {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. [Установите интерфейс командной строки]({{ link-docs }}/cli/operations/install-cli) {{ yandex-cloud }} (CLI).
+1. [Аутентифицируйте свой сервисный аккаунт]({{ link-docs }}/cli/operations/authentication/service-account) через CLI.
+1. [Установите {{ TF }}]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#install-terraform).
 
 ## Подготовьте репозиторий с конфигурацией {{ TF }} {#repository}
 
@@ -117,7 +117,7 @@ SSH-ключи понадобятся для аутентификации при
 
 1. (Опционально) Добавьте переменную `NODES_GPU_INTERRUPTIBLE = false`.
 
-   Конфигурация {{ TF }} в репозитории предполагает создание [прерываемой ВМ](../compute/concepts/preemptible-vm.md). Вы можете отключить возможность прерывания с помощью переменной `NODES_GPU_INTERRUPTIBLE`. Ее значение по умолчанию — `true`, оно прописано в файле `variables.tf` в репозитории `yc-speechkit-hybrid-deployment`.
+   Конфигурация {{ TF }} в репозитории предполагает создание [прерываемой ВМ]({{ link-docs }}/compute/concepts/preemptible-vm). Вы можете отключить возможность прерывания с помощью переменной `NODES_GPU_INTERRUPTIBLE`. Ее значение по умолчанию — `true`, оно прописано в файле `variables.tf` в репозитории `yc-speechkit-hybrid-deployment`.
 
 ## Создайте инфраструктуру с помощью {{ TF }} {#create-infrastructure}
 
@@ -139,8 +139,8 @@ SSH-ключи понадобятся для аутентификации при
 * {{ TF }} {#tf}
 
    1. В терминале перейдите в директорию репозитория `yc-speechkit-hybrid-deployment`.
-   1. [Получите данные для аутентификации](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) сервисного аккаунта `sk-hybrid-example`. Вы можете добавить данные в переменные окружения или указать эти данные в файле `main.tf`, в блоке `provider "yandex"`.
-   1. [Настройте и инициализируйте провайдеры {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. [Получите данные для аутентификации]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#get-credentials) сервисного аккаунта `sk-hybrid-example`. Вы можете добавить данные в переменные окружения или указать эти данные в файле `main.tf`, в блоке `provider "yandex"`.
+   1. [Настройте и инициализируйте провайдеры {{ TF }}]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
       В репозитории в качестве конфигурационного файла с настройками провайдеров используется файл `main.tf`, поэтому повторно создавать такой файл не нужно.
 
@@ -183,7 +183,7 @@ SSH-ключи понадобятся для аутентификации при
 
    Публичный адрес указан в поле `EXTERNAL IP`.
 
-1. [Подключитесь к ВМ по SSH](../compute/operations/vm-connect/ssh.md#vm-connect):
+1. [Подключитесь к ВМ по SSH]({{ link-docs }}/compute/operations/vm-connect/ssh#vm-connect):
 
    ```bash
    ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>

@@ -28,15 +28,7 @@
     1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
     1. Укажите **{{ ui-key.yacloud.postbox.label_address }}**, с которого будете отправлять письма. Домен может быть любого уровня.
-    1. Укажите **{{ ui-key.yacloud.postbox.label_selector }}**: `postbox`.
-
-        {% note info %}
-
-        Вы можете указать селектор, отличный от `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую вы создадите на шаге [Пройдите проверку владения доменом](#verify-domain).
-
-        {% endnote %}
-
-    1. Скопируйте в поле **{{ ui-key.yacloud.postbox.label_private-key }}** содержимое файла приватного ключа `privatekey.pem`, [созданного ранее](#service-account-and-keys).
+    1. В блоке **{{ ui-key.yacloud.postbox.section_dkim }}** выберите **{{ ui-key.yacloud.postbox.label_signing-type-internal }}**.
     1. (Опционально) [Настройте логирование](operations/logs-write.md).
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 

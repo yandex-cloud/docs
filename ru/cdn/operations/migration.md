@@ -83,15 +83,11 @@ noIndex: true
     > cdn.example.com. CNAME {{ cname-example-yc }}
     > ```
 
-    {% note tip %}
+    {% include [note-dns-hosting](../../_includes/cdn/note-dns-hosting.md) %}
 
-    Если для DNS-хостинга вы используете {{ dns-full-name }}, см. инструкцию [{#T}](../../dns/operations/resource-record-update.md).
+    Новый ресурс начнет корректно работать после того, как CNAME-запись, которую вы изменили в своем DNS-хостинге, распространится по серверам DNS. На это может потребоваться несколько часов. См. [раздел о доменных именах для раздачи контента](../../cdn/concepts/resource.md#hostnames).
 
-    {% endnote %}
-
-Новый ресурс начнет корректно работать после того, как CNAME-запись, которую вы изменили в своем DNS-хостинге, распространится по серверам DNS. На это может потребоваться несколько часов. См. [раздел о доменных именах для раздачи контента](../../cdn/concepts/resource.md#hostnames).
-
-{% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
+    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
 ## Проверьте защиту источников от информационных атак {#ddos}
 

@@ -43,12 +43,6 @@ The cost for using {{ k8s }}® Security Posture Management (KSPM) is monthly-bas
 
 ### Cloud Security Posture Management ({{ cspm-name }}) {#cspm-rules}
 
-{% note info %}
-
-Module billing starts on March 2, 2026.
-
-{% endnote %}
-
 The cost of using the {{ cspm-name }} module is calculated monthly and depends on the standard selected in the environment for infrastructure checking and the number of resources included in the check. All standards are charged except for the [{{ yandex-cloud }} Security Baseline](concepts/standard-compliance/yc-security-baseline.md).
 
 Each environment is charged separately, even if resources overlap between them.

@@ -9,7 +9,7 @@ description: Из статьи вы узнаете, как начать рабо
 
 1. Установите на сервер [Docker Engine](https://docs.docker.com/engine/install/) и [Docker Compose](https://docs.docker.com/compose/install/).
 
-1. [Аутентифицируйтесь](../../container-registry/operations/authentication) в {{ container-registry-name }}.
+1. [Аутентифицируйтесь]({{ link-docs }}/container-registry/operations/authentication) в {{ container-registry-name }}.
 
 Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](../system-requirements.md).
 

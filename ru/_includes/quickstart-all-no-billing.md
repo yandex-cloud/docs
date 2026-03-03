@@ -40,8 +40,9 @@
   * [{{ GP }}](../managed-greenplum/quickstart.md).
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
-* Машинное обучение:
-  * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
-  * [Переведите текст в {{ translate-name }}](../translate/quickstart.md).
-  * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}](../vision/quickstart.md).
+* Искусственный интеллект:
+  * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}]({{ link-docs-ai }}/speechkit/quickstart/index).
+  * [Переведите текст в {{ translate-name }}]({{ link-docs-ai }}/translate/quickstart).
+  * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}]({{ link-docs-ai }}/vision/quickstart).
   * [Обучайте и запускайте модели машинного обучения в {{ ml-platform-name }}](../datasphere/quickstart.md).
+  * [Создайте AI-агента для своего бизнеса]({{ link-docs-ai }})

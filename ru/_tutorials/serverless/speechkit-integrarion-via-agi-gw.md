@@ -5,7 +5,7 @@
 
 Пользовательская интеграция, создаваемая в данном руководстве, представляет собой [API-шлюз](../../api-gateway/concepts/index.md), сконфигурированный по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) c [HTTP-интеграцией](../../api-gateway/concepts/extensions/http.md). 
 
-Запросы на синтез речи от пользователей поступают в API-шлюз, который с помощью HTTP-интеграции вызывает [API {{ speechkit-name }}](../../speechkit/concepts/api.md) и получает от {{ speechkit-name }} синтезированную речь.
+Запросы на синтез речи от пользователей поступают в API-шлюз, который с помощью HTTP-интеграции вызывает [API {{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api) и получает от {{ speechkit-name }} синтезированную речь.
 
 Чтобы настроить синтез речи {{ speechkit-name }} с помощью API-шлюза {{ api-gw-full-name }}:
 
@@ -27,12 +27,12 @@
 В стоимость поддержки создаваемой инфраструктуры входит:
 
 * плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за использование {{ speechkit-name }} (см. [тарифы {{ speechkit-name }}](../../speechkit/pricing.md)).
+* плата за использование {{ speechkit-name }} (см. [тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing)).
 
 
 ## Создайте сервисный аккаунт {#create-service-account}
 
-[Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `speechkit-sa` с [ролью](../../speechkit/security/index.md#ai-speechkit-tts-user) `ai.speechkit-tts.user` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы создаете инфраструктуру:
+[Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `speechkit-sa` с [ролью]({{ link-docs-ai }}speechkit/security/index#ai-speechkit-tts-user) `ai.speechkit-tts.user` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы создаете инфраструктуру:
 
 {% list tabs group=instructions %}
 
@@ -171,7 +171,7 @@ curl --verbose \
 
 В результате выполнения команды синтезированная речь будет сохранена в файл `audio.mp3` в текущей директории. Прослушать созданный файл можно в браузере, например в [Яндекс Браузере](https://browser.yandex.ru) или [Mozilla Firefox](http://www.mozilla.org).
 
-Подробнее о формате передаваемого в параметре `-d` текста см. в [документации {{ speechkit-full-name }}](../../speechkit/tts/request.md).
+Подробнее о формате передаваемого в параметре `-d` текста см. в [документации {{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/tts/request).
 
 
 ## Как удалить созданные ресурсы {#clear-out}

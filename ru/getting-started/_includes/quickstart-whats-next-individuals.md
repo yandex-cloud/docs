@@ -84,13 +84,13 @@
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}](../../ai-studio/index.yaml):
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/index):
 
-  * [{{ gpt-lite }} и {{ gpt-pro }}](../../ai-studio/quickstart/yandexgpt.md).
+  * [{{ gpt-lite }} и {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt).
 
     Используйте нейросеть {{ yagpt-name }} для генерации текста в синхронном режиме без дополнения контекста
 
-  * [{{ yandexart-name }}](../../ai-studio/operations/generation/yandexart-request.md).
+  * [{{ yandexart-name }}]({{ link-docs-ai }}ai-studio/operations/generation/yandexart-request).
 
     Используйте нейросеть {{ yandexart-name }} для генерации изображений.
 
@@ -102,7 +102,7 @@
 
   Загрузите аудиозапись или текстовый диалог, запустите распознавание и проанализируйте полученные данные. 
 
-* [{{ speechkit-full-name }}](../../speechkit/quickstart/index.md).
+* [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/quickstart/index).
 
   Ознакомьтесь с возможностями распознавания и синтеза речи в {{ speechkit-name }}.
 

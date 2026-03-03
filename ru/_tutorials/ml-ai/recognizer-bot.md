@@ -3,8 +3,8 @@
 
 В этом руководстве вы создадите [бота](../../glossary/chat-bot.md) для Telegram, который умеет:
 
-* [синтезировать речь](../../speechkit/tts/index.md) из текста сообщения и [распознавать речь](../../speechkit/stt/index.md) в голосовых сообщениях с помощью [Python SDK](../../speechkit/sdk/python/index.md) сервиса {{ speechkit-full-name }};
-* [распознавать текст](../../vision/concepts/ocr/index.md) на изображениях с помощью сервиса {{ vision-full-name }}.
+* [синтезировать речь]({{ link-docs-ai }}speechkit/tts/index) из текста сообщения и [распознавать речь]({{ link-docs-ai }}speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK]({{ link-docs-ai }}speechkit/sdk/python/index) сервиса {{ speechkit-full-name }};
+* [распознавать текст]({{ link-docs-ai }}vision/concepts/ocr/index) на изображениях с помощью сервиса {{ vision-full-name }}.
 
 Аутентификация в сервисах {{ yandex-cloud }} выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../../functions/operations/function-sa.md), которая программирует диалог пользователя с ботом.
 
@@ -30,8 +30,8 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за использование {{ speechkit-name }} (см. [тарифы для {{ speechkit-name }}](../../speechkit/pricing.md));
-* плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}](../../vision/pricing.md));
+* плата за использование {{ speechkit-name }} (см. [тарифы для {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing));
+* плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы для {{ sf-name }}](../../functions/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
@@ -594,7 +594,7 @@ curl --request POST \
 
    {% note info %}
 
-   Изображение должно соответствовать [требованиям](../../vision/concepts/ocr/index.md#image-requirements).
+   Изображение должно соответствовать [требованиям]({{ link-docs-ai }}vision/concepts/ocr/index#image-requirements).
 
    {% endnote %}
 

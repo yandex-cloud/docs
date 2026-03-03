@@ -60,6 +60,9 @@ Specifies baseline performance for a core in percent. ||
 || `--gpus` | `int`
 
 Specifies how many GPUs instances should have. ||
+|| `--reserved-instance-pool-id` | `string`
+
+Specifies reserved instance pool id for instance in the node group. ||
 || `--preemptible` | Specifies if created nodes will be preemptible. ||
 || `--gpu-cluster-id` | `string`
 
@@ -205,6 +208,9 @@ Possible property names:
 - `Value must be in interval 1000 - 8910 if set.`: 
 - `Can't be used on clusters with Cilium or Calico.`:  ||
 || `--enable-workload-identity-federation` | Enable Workload Identity Federation for Node Group. ||
+|| `--variables` | `key=value[,key=value...]`
+
+Variables for fields templating. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

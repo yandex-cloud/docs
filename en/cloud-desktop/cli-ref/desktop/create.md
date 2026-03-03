@@ -25,6 +25,15 @@ Desktop user account id. ||
 || `--subnet-id` | `string`
 
 Desktop subnet id. ||
+|| `--name` | `string`
+
+Desktop name. ||
+|| `--description` | `string`
+
+Desktop description. ||
+|| `--labels` | `key=value[,key=value...]`
+
+Desktop labels. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

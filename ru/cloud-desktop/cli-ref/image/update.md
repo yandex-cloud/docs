@@ -26,6 +26,9 @@ Image name. ||
 || `--new-name` | `string`
 
 New desktop image name. ||
+|| `--description` | `string`
+
+New desktop image description. ||
 || `--labels` | `key=value[,key=value...]`
 
 New desktop image labels. ||

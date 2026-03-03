@@ -1,6 +1,6 @@
 
 
-В этом руководстве вы создадите агент со стримингом ответа через [веб-сокеты](https://{{ lang }}.wikipedia.org/wiki/WebSocket) на [{{ sf-full-name }}](../../functions/) и [{{ api-gw-full-name }}](../../api-gateway/). Функция будет использовать [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) для работы с моделями [{{ foundation-models-full-name }}](../../ai-studio/quickstart/yandexgpt.md).
+В этом руководстве вы создадите агент со стримингом ответа через [веб-сокеты](https://{{ lang }}.wikipedia.org/wiki/WebSocket) на [{{ sf-full-name }}](../../functions/) и [{{ api-gw-full-name }}](../../api-gateway/). Функция будет использовать [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) для работы с моделями [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt).
 
 Когда агент обрабатывает сложные запросы, ему может потребоваться продолжительное время на ответ. Например, при генерации больших текстов с рассуждениями, поиске и индексации. В таких случаях важно видеть прогресс и получать частичные результаты по мере готовности. Стриминг ответа позволяет сразу выводить токены или фразы, промежуточные сообщения и статусы шагов, отображать логи, а затем — финальный ответ, не дожидаясь завершения всего сценария. Это повышает воспринимаемую скорость, обеспечивает более интерактивный UI/UX, дает возможность отмены, повтора и динамического обновления интерфейса. Стриминг поддерживается большинством фреймворков. В OpenAI Agents SDK также предусмотрен [стриминг](https://openai.github.io/openai-agents-python/streaming/).
 
@@ -11,8 +11,8 @@
 1. Пользователь устанавливает веб-сокетное соединение с [API-шлюзом](../../api-gateway/concepts/index.md) и отправляет по нему запрос к AI-агенту.
 1. API-шлюз перенаправляет запрос в обработчик [функции](../../functions/concepts/function.md).
 1. Обработчик функции создает и запускает AI-агента с помощью OpenAI Agent SDK в режиме стриминга. В этом режиме агент будет передавать данные от модели по мере их поступления, не дожидаясь полного ответа.
-1. AI-агент расширяет запрос пользователя дополнительным контекстом и отправляет его в [модель генерации текста](../../ai-studio/concepts/generation/index.md).
-1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) предоставляет AI-агенту доступ к [Text Generation API](../../ai-studio/text-generation/api-ref/index.md).
+1. AI-агент расширяет запрос пользователя дополнительным контекстом и отправляет его в [модель генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/index).
+1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) предоставляет AI-агенту доступ к [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
 1. Сервисный аккаунт предоставляет функции доступ к [секрету](../../lockbox/concepts/secret.md), в котором хранится API-ключ сервисного аккаунта.
 1. Функция получает из секрета API-ключ сервисного аккаунта.
 1. Модель передает AI-агенту сгенерированный ответ.
@@ -53,7 +53,7 @@
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
 
 * Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
-* Плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../ai-studio/pricing.md)).
+* Плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
 * Плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
 * Плата за получение и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
@@ -495,7 +495,7 @@
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
              * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
-             * `MODEL_NAME` — [URI модели](../../ai-studio/concepts/generation/models.md#generation) генерации текста {{ foundation-models-full-name }}.
+             * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
 
@@ -554,7 +554,7 @@
       * `--environment` — переменные окружения:
 
           * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
-          * `MODEL_NAME` — [URI модели](../../ai-studio/concepts/generation/models.md#generation) генерации текста {{ foundation-models-full-name }}.
+          * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
 
               Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
 

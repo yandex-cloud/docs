@@ -37,7 +37,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-glusterfs`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -334,7 +334,7 @@
       - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Выберите ВМ `gluster02` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
         1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 

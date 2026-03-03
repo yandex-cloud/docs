@@ -11,7 +11,7 @@ description: В данной инструкции рассматриваются
 
 {% endnote %}
 
-В {{ websql-name }} интегрирован [AI-ассистент](../../ai-studio/concepts/assistant/index.md), который помогает:
+В {{ websql-name }} интегрирован [AI-ассистент]({{ link-docs-ai }}ai-studio/concepts/assistant/index), который помогает:
 
 * [формировать SQL-запросы](#db-query) по текстовому описанию на естественном языке;
 * [исправлять](#query-fix) SQL-запросы из [редактора запросов](query-executor.md);

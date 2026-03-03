@@ -1,1 +1,0 @@
-В файл `result.json` будут сохранены результаты поиска в [формате JSON](../../search-api/concepts/image-search.md#json-response-format).

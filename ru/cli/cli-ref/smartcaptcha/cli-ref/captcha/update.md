@@ -26,6 +26,9 @@ Captcha name. ||
 || `--new-name` | `string`
 
 A new name of the captcha. ||
+|| `--labels` | `key=value[,key=value...]`
+
+A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
 || `--complexity` | `string`
 
 Captcha complexity.

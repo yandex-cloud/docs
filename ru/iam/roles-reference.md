@@ -1289,6 +1289,26 @@ description: В статье приведен полный справочник 
 
 {% include [ai-models-admin](../_roles/ai/models/admin.md) %}
 
+#### ai.guardrails.auditor {#ai-guardrails-auditor}
+
+{% include [ai.guardrails.auditor](../_roles/ai/guardrails/auditor.md) %}
+
+#### ai.guardrails.viewer {#ai-guardrails-viewer}
+
+{% include [ai.guardrails.viewer](../_roles/ai/guardrails/viewer.md) %}
+
+#### ai.guardrails.user {#ai-guardrails-user}
+
+{% include [ai.guardrails.user](../_roles/ai/guardrails/user.md) %}
+
+#### ai.guardrails.editor {#ai-guardrails-editor}
+
+{% include [ai.guardrails.editor](../_roles/ai/guardrails/editor.md) %}
+
+#### ai.guardrails.admin {#ai-guardrails-admin}
+
+{% include [ai.guardrails.admin](../_roles/ai/guardrails/admin.md) %}
+
 #### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
 
 {% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
@@ -1313,7 +1333,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
-Подробнее см. [{#T}](../ai-studio/security/index.md).
+Подробнее см. [Управление доступом в {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -2065,7 +2085,7 @@ description: В статье приведен полный справочник 
 
 {% include [searchapi-admin](../_roles/search-api/admin.md) %}
 
-Подробнее см. [{#T}](../search-api/security/index.md).
+Подробнее см. [Управление доступом в {{ search-api-full-name }}]({{ link-docs-ai }}search-api/security/index).
 
 
 ## {{ sd-full-name }} {#security-deck-roles}
@@ -2367,7 +2387,7 @@ description: В статье приведен полный справочник 
 
 {% include [speechkit-tts-user](../_roles/ai/speechkit-tts/user.md) %}
 
-Подробнее см. [{#T}](../speechkit/security/index.md).
+Подробнее см. [Управление доступом в {{ speechkit-name }}]({{ link-docs-ai }}speechkit/security/index).
 
 
 ## {{ speechsense-full-name }} {#speechsense-roles}
@@ -2409,7 +2429,7 @@ description: В статье приведен полный справочник 
 
 {% include [translate-user](../_roles/ai/translate/user.md) %}
 
-Подробнее см. [{#T}](../translate/security/index.md).
+Подробнее см. [Управление доступом в {{ translate-name }}]({{ link-docs-ai }}translate/security/index).
 
 
 ## {{ vpc-full-name }} {#vpc-roles}
@@ -2487,7 +2507,7 @@ description: В статье приведен полный справочник 
 
 {% include [vision-user](../_roles/ai/vision/user.md) %}
 
-Подробнее см. [{#T}](../vision/security/index.md).
+Подробнее см. [Управление доступом в {{ vision-name }}]({{ link-docs-ai }}vision/security/index).
 
 
 ## {{ websql-full-name }} {#websql-roles}

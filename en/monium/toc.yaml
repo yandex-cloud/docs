@@ -1,0 +1,612 @@
+title: Monium
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Overview
+    href: overview.md
+  - name: Data collection
+    items:
+      - name: Overview
+        href: collector/index.md
+      - name: OpenTelemetry SDK
+        href: collector/otlp-sdk.md
+      - name: OTel Collector
+        href: collector/opentelemetry.md
+      - name: '{{ unified-agent-short-name }}'
+        items:
+          - name: Overview
+            href: concepts/data-collection/unified-agent/index.md
+          - name: Installing and updating
+            href: concepts/data-collection/unified-agent/installation.md
+          - name: Starting and stopping
+            href: concepts/data-collection/unified-agent/run-and-stop.md
+          - name: Configuration
+            items:
+              - name: Overview
+                href: concepts/data-collection/unified-agent/configuration.md
+              - name: Inputs
+                href: concepts/data-collection/unified-agent/inputs.md
+              - name: Outputs
+                href: concepts/data-collection/unified-agent/outputs.md
+              - name: Routing
+                href: concepts/data-collection/unified-agent/routing.md
+              - name: Storages
+                href: concepts/data-collection/unified-agent/storage.md
+              - name: Filters
+                href: concepts/data-collection/unified-agent/filters.md
+              - name: Service
+                href: concepts/data-collection/unified-agent/services.md
+          - name: Agent best practices
+            href: concepts/data-collection/unified-agent/best-practices.md
+          - name: Possible errors
+            href: concepts/data-collection/unified-agent/errors.md
+          - name: Deletion
+            href: concepts/data-collection/unified-agent/delete.md
+  - name: Metrics
+    items:
+      - name: Getting started
+        href: metrics/quickstart.md
+      - name: Overview of features
+        href: metrics/overview.md
+      - name: Step-by-step guides
+        items:
+          - name: All guides
+            href: operations/index.md
+          - name: Working with metrics
+            items:
+              - name: Metrics overview
+                href: operations/metric/metric-explorer.md
+              - name: Delivering Linux system metrics
+                href: operations/unified-agent/linux_metrics.md
+              - name: Delivering custom application metrics
+                href: operations/unified-agent/pull_prometheus.md
+              - name: >-
+                  Delivering metrics from HAProxy and other third-party
+                  applications
+                href: operations/unified-agent/haproxy.md
+              - name: Delivering metrics from hosts outside {{ yandex-cloud }}
+                href: operations/unified-agent/non-yc.md
+              - name: Writing custom metrics via the API
+                href: operations/metric/add.md
+              - name: Getting a list of metrics
+                href: operations/metric/list.md
+              - name: Downloading metrics
+                href: operations/metric/get.md
+              - name: Exporting metrics in Prometheus format
+                href: operations/metric/prometheusExport.md
+          - name: Working with dashboards
+            items:
+              - name: Creating and managing dashboards
+                href: operations/dashboard/create.md
+              - name: Copying dashboards
+                href: operations/dashboard/copy.md
+              - name: Adding a widget to a dashboard
+                href: operations/dashboard/add-widget.md
+              - name: Adding a dashboard parameter
+                href: operations/dashboard/add-parameters.md
+              - name: Managing widgets
+                href: operations/dashboard/widget-management.md
+              - name: Deleting a widget from a dashboard
+                href: operations/dashboard/delete-widget.md
+              - name: Deleting a dashboard
+                href: operations/dashboard/delete-dashboard.md
+              - name: Examples of working with the gRPC API
+                href: operations/dashboard/api-examples.md
+      - name: Tutorials
+        items:
+          - name: All tutorials
+            href: tutorials/index.md
+          - name: Autoscaling an instance group to process messages from a queue
+            href: tutorials/autoscale-monitoring.md
+          - name: Sensor reading monitoring and event notifications
+            href: tutorials/monitoring.md
+          - name: Configuring dashboards and alerts for {{ at-name }}
+            href: tutorials/alerts-monitoring.md
+          - name: Searching for the {{ mpg-name }} cluster performance issues
+            href: tutorials/mpg-performance-problems.md
+          - name: Collecting 1C:Enterprise Linux cluster metrics
+            href: tutorials/collect-metrics-1c-cluster.md
+      - name: Metric reference
+        items:
+          - name: All metric references
+            href: metrics-ref/index.md
+          - name: '{{ api-gw-name }}'
+            href: metrics-ref/api-gateway-ref.md
+          - name: '{{ alb-name }}'
+            href: metrics-ref/alb-ref.md
+          - name: '{{ at-name }}'
+            href: metrics-ref/at-ref.md
+          - name: '{{ baremetal-name }}'
+            href: metrics-ref/baremetal-ref.md
+          - name: '{{ certificate-manager-name }}'
+            href: metrics-ref/certificate-manager-ref.md
+          - name: '{{ backup-name }}'
+            href: metrics-ref/backup-ref.md
+          - name: '{{ cdn-name }}'
+            href: metrics-ref/cdn-ref.md
+          - name: '{{ sf-name }}'
+            href: metrics-ref/functions-ref.md
+          - name: '{{ cloud-logging-name }}'
+            href: metrics-ref/logging-ref.md
+          - name: '{{ compute-name }}'
+            href: metrics-ref/compute-ref.md
+          - name: '{{ container-registry-name }}'
+            href: metrics-ref/container-registry-ref.md
+          - name: '{{ dataproc-name }}'
+            href: metrics-ref/data-processing-ref.md
+          - name: '{{ data-transfer-name }}'
+            href: metrics-ref/data-transfer-ref.md
+          - name: '{{ dns-name }}'
+            href: metrics-ref/dns-ref.md
+          - name: '{{ iam-name }}'
+            href: metrics-ref/iam-ref.md
+          - name: '{{ iot-name }}'
+            href: metrics-ref/iot-core-ref.md
+          - name: '{{ kms-name }}'
+            href: metrics-ref/kms-ref.md
+          - name: '{{ lockbox-name }}'
+            href: metrics-ref/lockbox-ref.md
+          - name: '{{ maf-name }}'
+            href: metrics-ref/managed-airflow-ref.md
+          - name: '{{ mkf-name }}'
+            href: metrics-ref/managed-kafka-ref.md
+          - name: '{{ msp-name }}'
+            href: metrics-ref/managed-spark-ref.md
+          - name: '{{ mch-name }}'
+            href: metrics-ref/managed-clickhouse-ref.md
+          - name: '{{ mgp-name }}'
+            href: metrics-ref/managed-greenplum-ref.md
+          - name: '{{ mgl-name }}'
+            href: metrics-ref/managed-gitlab-ref.md
+          - name: '{{ managed-k8s-name }}'
+            href: metrics-ref/managed-kubernetes-ref.md
+          - name: '{{ mmg-name }}'
+            href: metrics-ref/managed-mongodb-ref.md
+          - name: '{{ mmy-name }}'
+            href: metrics-ref/managed-mysql-ref.md
+          - name: '{{ mos-name }}'
+            href: metrics-ref/managed-opensearch-ref.md
+          - name: '{{ mpg-name }}'
+            href: metrics-ref/managed-postgresql-ref.md
+          - name: '{{ mtr-name }}'
+            href: metrics-ref/managed-trino-ref.md
+          - name: '{{ mrd-name }}'
+            href: metrics-ref/managed-valkey-ref.md
+          - name: '{{ ydb-name }}'
+            href: metrics-ref/ydb-ref.md
+          - name: '{{ message-queue-name }}'
+            href: metrics-ref/message-queue-ref.md
+          - name: '{{ monitoring-name }}'
+            href: metrics-ref/monitoring-ref.md
+          - name: '{{ network-load-balancer-name }}'
+            href: metrics-ref/network-load-balancer-ref.md
+          - name: '{{ objstorage-name }}'
+            href: metrics-ref/storage-ref.md
+          - name: '{{ si-name }}'
+            href: metrics-ref/serverless-integrations-ref.md
+          - name: '{{ serverless-containers-name }}'
+            href: metrics-ref/serverless-containers-ref.md
+          - name: '{{ captcha-name }}'
+            href: metrics-ref/captcha-ref.md
+          - name: '{{ sws-name }}'
+            href: metrics-ref/smartwebsecurity-ref.md
+          - name: '{{ unified-agent-short-name }}'
+            href: metrics-ref/unifiedagent-ref.md
+      - name: Data decimation
+        href: concepts/decimation.md
+      - name: Deleting expired metrics (TTL)
+        href: concepts/ttl.md
+  - name: Logs
+    items:
+      - name: Getting started
+        href: logs/quickstart.md
+      - name: Overview
+        href: logs/index.md
+      - name: Data collection
+        items:
+          - name: Data conversions
+            href: logs/write/converting-data.md
+          - name: '{{ unified-agent-short-name }}'
+            href: logs/write/unified-agent.md
+          - name: Fluent Bit
+            href: logs/write/fluent-bit.md
+      - name: View logs
+        href: logs/logs-explorer.md
+      - name: Query language
+        href: logs/query.md
+      - name: Concepts
+        items:
+          - name: Basic terms
+            href: logs/concepts/glossary.md
+          - name: Log annotation recommendations
+            href: logs/concepts/attributes-guide.md
+          - name: Data retention period (TTL)
+            href: logs/concepts/ttl.md
+          - name: Quotas and limits
+            href: logs/concepts/limits.md
+      - name: Log metrics
+        href: logs/logs-metrics.md
+  - name: Traces
+    items:
+      - name: Getting started
+        href: traces/quickstart.md
+      - name: Overview
+        href: traces/index.md
+      - name: Data collection
+        items:
+          - name: Data collection agents
+            href: traces/write/index.md
+          - name: '{{ unified-agent-short-name }}'
+            href: traces/write/python-ua.md
+          - name: OTel Collector
+            href: traces/write/python-otel.md
+      - name: Viewing traces
+        href: traces/operations/traces-explorer.md
+      - name: LLM monitoring
+        href: traces/operations/llm-traces.md
+      - name: Limitations
+        href: traces/constraint.md
+  - name: Visualizing data
+    items:
+      - name: Overview
+        href: visualization/index.md
+      - name: Working with dashboards
+        items:
+          - name: Creating and managing dashboards
+            href: operations/dashboard/create.md
+          - name: Copying dashboards
+            href: operations/dashboard/copy.md
+          - name: Adding a widget to a dashboard
+            href: operations/dashboard/add-widget.md
+          - name: Adding a dashboard parameter
+            href: operations/dashboard/add-parameters.md
+          - name: Managing widgets
+            href: operations/dashboard/widget-management.md
+          - name: Deleting a widget from a dashboard
+            href: operations/dashboard/delete-widget.md
+          - name: Deleting a dashboard
+            href: operations/dashboard/delete-dashboard.md
+          - name: Examples of working with the gRPC API
+            href: operations/dashboard/api-examples.md
+      - name: Concepts
+        items:
+          - name: Data model
+            href: concepts/data-model.md
+          - name: Query string
+            href: concepts/visualization/query-string.md
+          - name: Widgets
+            href: concepts/visualization/widget.md
+          - name: Dashboard
+            href: concepts/visualization/dashboard.md
+          - name: Query language
+            href: concepts/querying.md
+  - name: Alerts
+    items:
+      - name: Step-by-step guides
+        items:
+          - name: Creating an alert
+            href: operations/alert/create-alert.md
+          - name: Creating a notification channel with a recipient
+            href: operations/alert/create-channel.md
+          - name: Creating a notification channel that invokes a function
+            href: operations/alert/create-channel-function.md
+          - name: Creating a webhook that calls an external API
+            href: operations/alert/alert-call-function.md
+          - name: Creating an escalation policy
+            href: operations/alert/create-escalation.md
+          - name: Deleting an alert
+            href: operations/alert/delete-alert.md
+      - name: Concepts
+        items:
+          - name: Overview
+            href: concepts/alerting.md
+          - name: Alert
+            href: concepts/alerting/alert.md
+          - name: Annotation
+            href: concepts/alerting/annotation.md
+          - name: Notification channel
+            href: concepts/alerting/notification-channel.md
+          - name: Escalations
+            href: concepts/alerting/escalations.md
+      - name: Mutes
+        href: alerts/mutes.md
+  - name: SLO
+    items:
+      - name: Overview
+        href: slo/index.md
+      - name: Managing SLOs
+        href: slo/management.md
+      - name: Adding an SLO widget to a dashboard
+        href: slo/visualisation.md
+  - name: '{{ managed-prometheus-name }}'
+    items:
+      - name: Overview
+        href: operations/prometheus/index.md
+      - name: Writing metrics
+        items:
+          - name: Overview
+            href: operations/prometheus/ingestion/index.md
+          - name: Metric collection agent
+            href: operations/prometheus/ingestion/prometheus-agent.md
+          - name: Remote Write
+            href: operations/prometheus/ingestion/remote-write.md
+          - name: Diagnostics and troubleshooting
+            href: operations/prometheus/ingestion/troubleshooting.md
+      - name: Reading metrics
+        items:
+          - name: Overview
+            href: operations/prometheus/querying/index.md
+          - name: Remote Read
+            href: operations/prometheus/querying/remote-read.md
+          - name: Visualization
+            href: operations/prometheus/querying/monitoring.md
+          - name: Grafana
+            href: operations/prometheus/querying/grafana.md
+      - name: Recording rules
+        href: operations/prometheus/recording-rules.md
+      - name: Alerting rules
+        href: operations/prometheus/alerting-rules.md
+      - name: Reading and writing {{ k8s }} cluster metrics
+        href: operations/prometheus/read-write-for-kubernetes.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Basic terms
+        href: concepts/glossary.md
+      - name: Object configuration
+        href: concepts/configuration-model.md
+      - name: Data model
+        href: concepts/data-model.md
+      - name: Query language
+        href: concepts/querying.md
+      - name: Functions for searching metrics
+        href: concepts/querying-functions.md
+      - name: Data retention period (TTL)
+        href: concepts/common-ttl.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
+  - name: API reference
+    items:
+      - name: API authentication
+        href: api-ref/authentication.md
+      - name: Metrics
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: MetricsData
+                items:
+                  - name: Overview
+                    href: api-ref/MetricsData/index.md
+                  - name: read
+                    href: api-ref/MetricsData/read.md
+                  - name: write
+                    href: api-ref/MetricsData/write.md
+                  - name: prometheusMetrics
+                    href: api-ref/MetricsData/prometheusMetrics.md
+              - name: MetricsMeta
+                items:
+                  - name: Overview
+                    href: api-ref/MetricsMeta/index.md
+                  - name: listLabelKeys
+                    href: api-ref/MetricsMeta/listLabelKeys.md
+                  - name: listLabelValues
+                    href: api-ref/MetricsMeta/listLabelValues.md
+                  - name: listMetricNames
+                    href: api-ref/MetricsMeta/listMetricNames.md
+                  - name: listMetrics
+                    href: api-ref/MetricsMeta/listMetrics.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: api-ref/api-ref-grpc/index.md
+              - name: DashboardService
+                href: api-ref/api-ref-grpc/DashboardService.md
+      - name: Logs
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: api-ref/grpc/index.md
+              - name: Export
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Export/index.md
+                  - name: Run
+                    href: api-ref/grpc/Export/run.md
+                  - name: Get
+                    href: api-ref/grpc/Export/get.md
+                  - name: List
+                    href: api-ref/grpc/Export/list.md
+                  - name: Create
+                    href: api-ref/grpc/Export/create.md
+                  - name: Update
+                    href: api-ref/grpc/Export/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Export/delete.md
+                  - name: ListOperations
+                    href: api-ref/grpc/Export/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/Export/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/Export/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/Export/updateAccessBindings.md
+              - name: LogGroup
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/LogGroup/index.md
+                  - name: Get
+                    href: api-ref/grpc/LogGroup/get.md
+                  - name: Stats
+                    href: api-ref/grpc/LogGroup/stats.md
+                  - name: List
+                    href: api-ref/grpc/LogGroup/list.md
+                  - name: Create
+                    href: api-ref/grpc/LogGroup/create.md
+                  - name: Update
+                    href: api-ref/grpc/LogGroup/update.md
+                  - name: Delete
+                    href: api-ref/grpc/LogGroup/delete.md
+                  - name: ListResources
+                    href: api-ref/grpc/LogGroup/listResources.md
+                  - name: ListOperations
+                    href: api-ref/grpc/LogGroup/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/LogGroup/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/LogGroup/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/LogGroup/updateAccessBindings.md
+              - name: LogIngestion
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/LogIngestion/index.md
+                  - name: Write
+                    href: api-ref/grpc/LogIngestion/write.md
+              - name: LogReading
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/LogReading/index.md
+                  - name: Read
+                    href: api-ref/grpc/LogReading/read.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
+              - name: Sink
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Sink/index.md
+                  - name: Get
+                    href: api-ref/grpc/Sink/get.md
+                  - name: List
+                    href: api-ref/grpc/Sink/list.md
+                  - name: Create
+                    href: api-ref/grpc/Sink/create.md
+                  - name: Update
+                    href: api-ref/grpc/Sink/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Sink/delete.md
+                  - name: ListOperations
+                    href: api-ref/grpc/Sink/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/Sink/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/Sink/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/Sink/updateAccessBindings.md
+          - name: REST
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: Export
+                items:
+                  - name: Overview
+                    href: api-ref/Export/index.md
+                  - name: Run
+                    href: api-ref/Export/run.md
+                  - name: Get
+                    href: api-ref/Export/get.md
+                  - name: List
+                    href: api-ref/Export/list.md
+                  - name: Create
+                    href: api-ref/Export/create.md
+                  - name: Update
+                    href: api-ref/Export/update.md
+                  - name: Delete
+                    href: api-ref/Export/delete.md
+                  - name: ListOperations
+                    href: api-ref/Export/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/Export/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/Export/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/Export/updateAccessBindings.md
+              - name: LogGroup
+                items:
+                  - name: Overview
+                    href: api-ref/LogGroup/index.md
+                  - name: Get
+                    href: api-ref/LogGroup/get.md
+                  - name: Stats
+                    href: api-ref/LogGroup/stats.md
+                  - name: List
+                    href: api-ref/LogGroup/list.md
+                  - name: Create
+                    href: api-ref/LogGroup/create.md
+                  - name: Update
+                    href: api-ref/LogGroup/update.md
+                  - name: Delete
+                    href: api-ref/LogGroup/delete.md
+                  - name: ListResources
+                    href: api-ref/LogGroup/listResources.md
+                  - name: ListOperations
+                    href: api-ref/LogGroup/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/LogGroup/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/LogGroup/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/LogGroup/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
+              - name: Sink
+                items:
+                  - name: Overview
+                    href: api-ref/Sink/index.md
+                  - name: Get
+                    href: api-ref/Sink/get.md
+                  - name: List
+                    href: api-ref/Sink/list.md
+                  - name: Create
+                    href: api-ref/Sink/create.md
+                  - name: Update
+                    href: api-ref/Sink/update.md
+                  - name: Delete
+                    href: api-ref/Sink/delete.md
+                  - name: ListOperations
+                    href: api-ref/Sink/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/Sink/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/Sink/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/Sink/updateAccessBindings.md
+  - name: Release notes
+    href: release-notes.md
+  - name: FAQ
+    items:
+      - name: General questions
+        href: qa/general.md
+      - name: Navigation
+        href: qa/navigation.md
+      - name: Collecting and exporting metrics
+        href: qa/metrics-export.md
+      - name: Metrics and units of measure
+        href: qa/metrics-measure.md
+      - name: Alerts / notifications
+        href: qa/alerts.md
+      - name: All questions on one page
+        href: qa/all.md
+path: en/monium/toc.yaml

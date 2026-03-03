@@ -1,1 +1,0 @@
-Где `API_KEY` — [API-ключ](../../iam/concepts/authorization/api-key.md), полученный [перед началом работы](#before-begin). Если для аутентификации вы используете [IAM-токен](../../iam/concepts/authorization/iam-token.md), измените заголовок `Authorization` на `"Authorization: Bearer <IAM-токен>"`.
