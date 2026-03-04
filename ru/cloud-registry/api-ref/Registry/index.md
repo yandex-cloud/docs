@@ -15,6 +15,7 @@ A set of methods for managing Registry resources.
 || [Create](create.md) | Creates a registry in the specified folder. ||
 || [Update](update.md) | Updates the specified registry. ||
 || [Delete](delete.md) | Deletes the specified registry. ||
+|| [ForceDelete](forceDelete.md) | Forcefully deletes the specified registry along with all its repositories and data. ||
 || [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the specified registry. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified registry. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified registry. ||

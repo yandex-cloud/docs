@@ -175,6 +175,12 @@ items:
                 href: api-ref/grpc/Artifact/get.md
               - name: Delete
                 href: api-ref/grpc/Artifact/delete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Artifact/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Artifact/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Artifact/updateAccessBindings.md
           - name: LifecyclePolicy
             items:
               - name: Overview
@@ -213,6 +219,8 @@ items:
                 href: api-ref/grpc/Registry/update.md
               - name: Delete
                 href: api-ref/grpc/Registry/delete.md
+              - name: ForceDelete
+                href: api-ref/grpc/Registry/forceDelete.md
               - name: ListAccessBindings
                 href: api-ref/grpc/Registry/listAccessBindings.md
               - name: SetAccessBindings
@@ -239,6 +247,12 @@ items:
                 href: api-ref/Artifact/get.md
               - name: Delete
                 href: api-ref/Artifact/delete.md
+              - name: ListAccessBindings
+                href: api-ref/Artifact/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Artifact/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Artifact/updateAccessBindings.md
           - name: LifecyclePolicy
             items:
               - name: Overview
@@ -277,6 +291,8 @@ items:
                 href: api-ref/Registry/update.md
               - name: Delete
                 href: api-ref/Registry/delete.md
+              - name: ForceDelete
+                href: api-ref/Registry/forceDelete.md
               - name: ListAccessBindings
                 href: api-ref/Registry/listAccessBindings.md
               - name: SetAccessBindings

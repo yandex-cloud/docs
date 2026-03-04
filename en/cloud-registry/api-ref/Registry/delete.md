@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the registry to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -35,7 +36,9 @@ DELETE https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of the registry to delete. ||
+Required field. ID of the registry to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

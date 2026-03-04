@@ -27,7 +27,9 @@ Retrieves the list of registry artifact resources in the specified registry.
 
 ID of the registry artifact to list repositories in.
 
-To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/grpc/LifecyclePolicy/list#List) request. ||
+To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/grpc/LifecyclePolicy/list#List) request.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 The path to a specific node where the registry artifact is located. ||
@@ -37,11 +39,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListRepositoriesResponse.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 10. ||
+Default value: 10.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListArtifactsResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request. ||
+[ListArtifactsResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListArtifactsResponse {#yandex.cloud.cloudregistry.v1.ListArtifactsResponse}
@@ -97,7 +103,6 @@ Name of the artifact. ||
 
 Kind of the artifact.
 
-- `KIND_UNSPECIFIED`
 - `FOLDER`: Artifact kind is folder.
 - `PACKAGE`: Artifact kind is package.
 - `ARTIFACT`: Artifact kind is artifact. ||
@@ -105,7 +110,6 @@ Kind of the artifact.
 
 Output only. Status of the artifact.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Artifact status is being created.
 - `ACTIVE`: Artifact status is ready to use.
 - `DELETING`: Artifact status is being deleted. ||

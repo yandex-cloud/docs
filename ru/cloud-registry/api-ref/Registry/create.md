@@ -13,18 +13,21 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create a registry in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Name of the registry.
             There may be only one registry per folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -40,7 +43,6 @@ apiPlayground:
           description: |-
             **enum** (Kind)
             Required field. Kind of the registry.
-            - `KIND_UNSPECIFIED`
             - `MAVEN`: Registry kind is maven.
             - `NPM`: Registry kind is npm.
             - `DOCKER`: Registry kind is docker.
@@ -62,7 +64,6 @@ apiPlayground:
           description: |-
             **enum** (Type)
             Required field. Type of the registry.
-            - `TYPE_UNSPECIFIED`
             - `LOCAL`: Registry type is local.
             - `REMOTE`
             - `VIRTUAL`
@@ -76,11 +77,13 @@ apiPlayground:
           description: |-
             **string**
             Description of the registry. 0-1024 characters long.
+            The maximum string length in characters is 1024.
           type: string
         properties:
           description: |-
             **object** (map<**string**, **string**>)
             Property names and values.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `.
           type: object
           additionalProperties:
             type: string
@@ -130,20 +133,25 @@ POST https://registry.{{ api-host }}/cloud-registry/v1/registries
 
 Required field. ID of the folder to create a registry in.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the registry.
 
-There may be only one registry per folder. ||
+There may be only one registry per folder.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || kind | **enum** (Kind)
 
 Required field. Kind of the registry.
 
-- `KIND_UNSPECIFIED`
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
@@ -155,16 +163,19 @@ Required field. Kind of the registry.
 
 Required field. Type of the registry.
 
-- `TYPE_UNSPECIFIED`
 - `LOCAL`: Registry type is local.
 - `REMOTE`
 - `VIRTUAL` ||
 || description | **string**
 
-Description of the registry. 0-1024 characters long. ||
+Description of the registry. 0-1024 characters long.
+
+The maximum string length in characters is 1024. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values. ||
+Property names and values.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -321,7 +332,6 @@ Name of the registry. ||
 
 Kind of the registry.
 
-- `KIND_UNSPECIFIED`
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
@@ -333,7 +343,6 @@ Kind of the registry.
 
 Type of the registry.
 
-- `TYPE_UNSPECIFIED`
 - `LOCAL`: Registry type is local.
 - `REMOTE`
 - `VIRTUAL` ||
@@ -341,7 +350,6 @@ Type of the registry.
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||

@@ -31,160 +31,17 @@
 
 ## Создайте сеть и подсети {{ vpc-short-name }} {#create-network}
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать облачную сеть.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети. Требования к имени:
-
-      {% include [name-format](../../_includes/name-format.md) %}
-  
-  1. Оставьте включенной опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-
-- CLI {#cli}
-
-  {% include [include](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  1. Создайте [облачную сеть](../../vpc/concepts/network.md) в каталоге по умолчанию:
-
-      ```
-      yc vpc network create --name wordpress-network
-      ```
-
-  1. Получите список облачных сетей в каталоге:
-
-      ```
-      yc vpc network list --folder-id b1g6ci08ma55********
-      ```
-
-      Результат:
-
-      ```
-      +----------------------+-------------------+
-      |          ID          |      NAME         |
-      +----------------------+-------------------+
-      | enpavfmgapum******** | wordpress-network |
-      | enplom7a98s1******** | default           |
-      +----------------------+-------------------+
-      ```
-
-  1. Выберите `NAME` или `ID` требуемой облачной сети. Создайте подсеть в зоне доступности `{{ region-id }}-a`:
-
-      ```
-      yc vpc subnet create \
-        --network-id enpavfmgapum******** \
-        --zone {{ region-id }}-a \
-        --range 192.168.0.0/24
-      ```
-
-      Где:
-
-      * `--network-id` — идентификатор облачной сети. При создании подсети указывается облачная сеть, в которой создаются подсеть и CIDR.
-      * `--zone` — зона доступности, в которой создается подсеть.
-      * `--range` — список внутренних IPv4-адресов, определенных для данной подсети. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети — /28, а максимальный размер подсети — /16. Поддерживается только IPv4.
-
-      Требования к названию подсети:
-
-      {% include [name-format](../../_includes/name-format.md) %}
-
-  1. Аналогичным образом создайте подсеть в зоне доступности `{{ region-id }}-d`.
-
-- API {#api}
-
-  Чтобы создать [облачную сеть](../../vpc/concepts/network.md), воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) и передайте в запросе идентификатор каталога, в котором будет размещена сеть, в параметре `folderId`.
-
-  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
-
-  Чтобы создать подсети в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-d`, воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) и передайте в запросе:
-
-  * Идентификатор каталога, в котором будет размещена подсеть, в параметре `folderId`.
-  * Идентификатор сети, в которой будет размещена подсеть, в параметре `networkId`.
-  * Идентификатор зоны доступности, в которой будет размещена подсеть, в параметре `zoneId`.
-  * Список внутренних IPv4-адресов, определенных для данной подсети, в массиве `v4CidrBlocks[]`. Например, `10.0.0.0/22` или `192.168.0.0/16`. Адреса должны быть уникальными внутри сети. Минимальный размер подсети — `/28`, а максимальный размер подсети — `/16`. Поддерживается только IPv4.
-
-  {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
-
-{% endlist %}
+{% include [create-network](../_tutorials_includes/website/create-network.md) %}
 
 ## Настройте DNS-зону {#configure-dns}
 
-Создайте публичную DNS-зону и делегируйте на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md). В DNS-зоне будут размещаться домены WordPress.
+Создайте [публичную DNS-зону](../../dns/concepts/dns-zone.md#public-zones) и делегируйте на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md). В DNS-зоне будут размещаться домены WordPress.
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [зону DNS](../../dns/concepts/dns-zone.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
-  1. Задайте настройки зоны DNS:
-     * **{{ ui-key.yacloud.dns.label_zone }}** — укажите ваш зарегистрированный домен, например `example.com.` (с точкой в конце).
-     * **{{ ui-key.yacloud.common.type }}** — выберите `{{ ui-key.yacloud.dns.label_public }}`.
-     * **{{ ui-key.yacloud.common.name }}** — укажите имя зоны, например `example-zone`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-  1. Делегируйте домен на серверы {{ yandex-cloud }}. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
-
-     Делегирование происходит не сразу. Серверы интернет-провайдеров обновляют записи до 24 часов. Проверить делегирование домена можно с помощью [сервиса Whois](https://www.reg.ru/whois/check_site) или утилиты `dig`:
-
-     ```bash
-     dig +short NS example.com
-     ```
-
-     Результат:
-
-     ```text
-     ns2.{{ dns-ns-host-sld }}.
-     ns1.{{ dns-ns-host-sld }}.
-     ```
-
-- {{ yandex-cloud }} CLI {#cli}
-
-  1. Создайте публичную зону DNS:
-
-     ```bash
-     yc dns zone create \
-       --name example-zone \
-       --zone example.com. \
-       --public-visibility
-     ```
-
-     Где `--zone` — имя вашего домена, например `example.com.`. Значение параметра `--zone` должно заканчиваться точкой.
-
-     Результат:
-
-     ```text
-     id: dns39gihj0ef********
-     folder_id: b1g681qpemb4********
-     created_at: "2024-09-09T15:23:34.919887Z"
-     name: example-zone
-     zone: example.com.
-     public_visibility: {}
-     ```
-
-     Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
-
-  1. Делегируйте домен на серверы {{ yandex-cloud }}. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
-
-     Делегирование происходит не сразу. Серверы интернет-провайдеров обновляют записи до 24 часов.
-
-- API {#api}
-
-  Чтобы создать публичную зону DNS, воспользуйтесь методом REST API [create](../../dns/api-ref/DnsZone/create.md) для ресурса [DnsZone](../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md).
-
-  Делегируйте домен на серверы {{ yandex-cloud }}. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
-
-{% endlist %}
+{% include [configure-dns](../_tutorials_includes/website/configure-dns.md) %}
 
 ## Создайте секрет {{ lockbox-name }} {#create-secret}
 
-В секретах [{{ lockbox-name }}](../../lockbox/) будут храниться пароль базы данных {{ mmy-full-name }} и пароль администратора WordPress.
+В [секретах](../../lockbox/concepts/secret.md) {{ lockbox-name }} будут храниться пароль базы данных {{ mmy-full-name }} и пароль администратора WordPress.
 
 {% list tabs group=instructions %}
 
@@ -192,7 +49,6 @@
 
   Чтобы создать секрет, в котором будет храниться пароль базы данных {{ mmy-full-name }}:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [секрет](../../lockbox/concepts/secret.md) {{ lockbox-name }}.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `db-password-secret`.
@@ -256,7 +112,6 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите установить приложение.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
   1. В открывшемся окне выберите приложение **WordPress High Availability**.
@@ -370,11 +225,11 @@
 1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакетов {{ objstorage-name }}, созданных при установке приложения, так как удалять можно только пустые бакеты.
 1. Удалите установленное приложение WordPress High Availability:
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором установлено приложение.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
    1. Найдите установленное приложение WordPress High Availability в списке.
    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) рядом с приложением и выберите **{{ ui-key.yacloud.common.delete }}**.
    1. Подтвердите удаление приложения.
+
 1. [Удалите](../../dns/operations/zone-delete.md) публичную DNS-зону.
 1. [Удалите](../../lockbox/operations/secret-delete.md) секреты {{ lockbox-name }}.
 1. Удалите [подсети](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md) {{ vpc-short-name }}.

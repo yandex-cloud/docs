@@ -23,6 +23,12 @@ description: С помощью этой инструкции вы узнаете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  1. Посмотрите описание команды CLI для получения списка групп:
+
+      ```bash
+      yc organization-manager group list --help
+      ```
+
   1. {% include [get-federation-id-cli](../../_includes/organization/get-group-id-cli.md) %}
 
 - API {#api}

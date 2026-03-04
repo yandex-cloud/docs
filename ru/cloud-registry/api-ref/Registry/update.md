@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Registry resource to update.
             To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -36,6 +37,7 @@ apiPlayground:
             **string**
             Name of the registry.
             There may be only one registry per folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
           pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         labels:
@@ -43,6 +45,7 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -58,11 +61,13 @@ apiPlayground:
           description: |-
             **string**
             Description of the registry. 0-1024 characters long.
+            The maximum string length in characters is 1024.
           type: string
         properties:
           description: |-
             **object** (map<**string**, **string**>)
             Property names and values.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `.
           type: object
           additionalProperties:
             type: string
@@ -96,7 +101,9 @@ PATCH https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}
 
 Required field. ID of the Registry resource to update.
 
-To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/Registry/list#List) request. ||
+To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/Registry/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.cloudregistry.v1.UpdateRegistryRequest}
@@ -127,18 +134,26 @@ The rest of the fields will be reset to the default. ||
 
 Name of the registry.
 
-There may be only one registry per folder. ||
+There may be only one registry per folder.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || description | **string**
 
-Description of the registry. 0-1024 characters long. ||
+Description of the registry. 0-1024 characters long.
+
+The maximum string length in characters is 1024. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values. ||
+Property names and values.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -295,7 +310,6 @@ Name of the registry. ||
 
 Kind of the registry.
 
-- `KIND_UNSPECIFIED`
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
@@ -307,7 +321,6 @@ Kind of the registry.
 
 Type of the registry.
 
-- `TYPE_UNSPECIFIED`
 - `LOCAL`: Registry type is local.
 - `REMOTE`
 - `VIRTUAL` ||
@@ -315,7 +328,6 @@ Type of the registry.
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||

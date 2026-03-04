@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list registries in.
             To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -21,6 +22,7 @@ apiPlayground:
             the service returns a [ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 10.
+            The maximum value is 1000.
           default: '10'
           type: string
           format: int64
@@ -29,6 +31,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -55,18 +58,24 @@ GET https://registry.{{ api-host }}/cloud-registry/v1/registries
 
 Required field. ID of the folder to list registries in.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 10. ||
+Default value: 10.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+[ListRegistriesResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cloudregistry.v1.ListRegistriesResponse}
@@ -128,7 +137,6 @@ Name of the registry. ||
 
 Kind of the registry.
 
-- `KIND_UNSPECIFIED`
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
@@ -140,7 +148,6 @@ Kind of the registry.
 
 Type of the registry.
 
-- `TYPE_UNSPECIFIED`
 - `LOCAL`: Registry type is local.
 - `REMOTE`
 - `VIRTUAL` ||
@@ -148,7 +155,6 @@ Type of the registry.
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||

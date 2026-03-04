@@ -1,6 +1,6 @@
 ---
 title: Сценарии использования продуктов {{ marketplace-full-name }}
-description: Различные сценарии использованияпродуктов {{ marketplace-name }} в {{ yandex-cloud }}.
+description: Различные сценарии использования продуктов {{ marketplace-name }} в {{ yandex-cloud }}.
 ---
 
 # Практические руководства {{ marketplace-name }}

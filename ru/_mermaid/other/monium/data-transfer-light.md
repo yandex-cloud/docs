@@ -8,6 +8,6 @@ graph LR
   end
 
   A -->|"localhost:8889"| B
-  B -->|"ingest.monium.yandex.cloud"| C
-  A -->|"ingest.monium.yandex.cloud"| C["Monium"]
+  B -->|"{{ api-host-monium }}"| C
+  A -->|"{{ api-host-monium }}"| C["Monium"]
 ```
