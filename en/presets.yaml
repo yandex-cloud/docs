@@ -481,6 +481,7 @@ default:
   msp-name: Managed Service for Apache Spark™
   mspqr-full-name: Yandex Managed Service for Sharded PostgreSQL
   mspqr-name: Managed Service for Sharded PostgreSQL
+  mspqr-short-name: Managed Service for Sharded PostgreSQL
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
   mtr-short-name: Managed Service for Trino
@@ -1415,12 +1416,6 @@ default:
         12_month: dn2rjddkxpre3mpgnbod
         3_month: dn25xbol3hcbnbiw6tlg
         6_month: dn25aaodc3xbsxqhmvse
-      ba-a612-n-25g-p1:
-        1_day: dn24bdjs4so3d6rtivey
-        1_month: dn2jce33tbqzmzfnreef
-        12_month: dn2wavefx3aj3yq6574g
-        3_month: dn2xf2swsbne7ewj5gyr
-        6_month: dn2rhfwz7a2j5rll4vqz
       ba-a612-n-25g:
         1_day: dn2hdfgsbn7yuax22bqa
         1_month: dn2rn6ae5uv7qgsb7b4e
@@ -1439,12 +1434,6 @@ default:
         12_month: dn2o37ubk4t3iaow63jt
         3_month: dn2wch2v5lriafthzrjf
         6_month: dn2s3j7tgubgjk7l5azt
-      ba-i208-s-10g-p1:
-        1_day: dn2rfpkhrt6mldfamg3s
-        1_month: dn2kjl4tw2rmzp2erafy
-        12_month: dn2pyjfrw33536v6vn4r
-        3_month: dn2gukgg4ttx6rto24og
-        6_month: dn2snu4sdxun2lp2vt7d
       ba-i209-ss-1-10g-p1:
         1_day: dn234x5yvleikg5uygye
         1_month: dn2lsktejmmm6sjyhmrl
@@ -1457,18 +1446,6 @@ default:
         12_month: dn22un44apyqndj2ei5l
         3_month: dn2dj4l3apo6jbjco3l7
         6_month: dn2loxxtnmlb45n3jmix
-      ba-i507-nh-2x25g-p1:
-        1_day: dn2ttdgeonjbzssppclx
-        1_month: dn2m5j6fabkyksh47wfi
-        12_month: dn2ulxehlkqigtsp6w5n
-        3_month: dn26nss2ihwtlaai2zm5
-        6_month: dn252acfo3bfs3ysdoaj
-      ba-i512-nh-2x25g-p1:
-        1_day: dn2pzlgrxhjthudgtmdo
-        1_month: dn2brjyqwsi5jhx6uc4o
-        12_month: dn2lawovf56l6kdkebgl
-        3_month: dn24ggwy5gsi5o6qpx4h
-        6_month: dn2e22vxkfh4d4opjvo4
       ba-i523-nh-2x25g-p1:
         1_day: dn26k67ks64mcijvs4mi
         1_month: dn2o4kgngionblzgk3vo
@@ -2121,14 +2098,15 @@ default:
           ram|string: ₸1.57
   sku|KZT|monitoring:
     point:
+      api:
+        read|pricingRate:
+          50|string: ₸23.49
+        read|string: ₸39.15
       prometheus:
         export|number: 39.15
+        export|pricingRate:
+          50|string: ₸23.49
         export|string: ₸39.15
-      write|number: 54.81
-      write|pricingRate:
-        50|number: 31.32
-        50|string: ₸31.32
-      write|string: ₸54.81
   sku|KZT|network:
     public_fips:
       deallocated|number: 1.73
@@ -2655,13 +2633,16 @@ default:
           ram|string: ₽0.31
   sku|RUB|monitoring:
     point:
+      api:
+        read|pricingRate:
+          50|string: ₽4.61
+        read|string: ₽7.69
       prometheus:
         export|number: 7.69
+        export|pricingRate:
+          50|string: ₽4.61
         export|string: ₽7.69
       write|number: 10.76
-      write|pricingRate:
-        50|number: 6.15
-        50|string: ₽6.15
       write|string: ₽10.76
   sku|RUB|network:
     public_fips:
@@ -3197,13 +3178,16 @@ default:
           ram|string: $0.0025
   sku|USD|monitoring:
     point:
+      api:
+        read|pricingRate:
+          50|string: $0.0378
+        read|string: $0.0630
       prometheus:
         export|number: 0.063
+        export|pricingRate:
+          50|string: $0.0378
         export|string: $0.0630
       write|number: 0.0882
-      write|pricingRate:
-        50|number: 0.05
-        50|string: $0.05
       write|string: $0.0882
   sku|USD|network:
     public_fips:

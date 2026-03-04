@@ -16,7 +16,7 @@ from opentelemetry import trace
 tracer = trace.get_tracer("my_service.orders")
 ```
 
-Аргумент `get_tracer` — имя модуля или компонента. Используйте фиксированную строку (например, `"my_service.orders"`), а не `__name__` — так имя останется стабильным независимо от структуры файлов.
+Аргумент `get_tracer` — имя модуля или компонента. Для именования можно использовать `__name__` (чтобы легко находить файл с кодом) или фиксированную строку (например, `my_service.orders`), чтобы имя компонента не менялось при рефакторинге и перемещении файлов.
 
 Если вы запускаете приложение через [автоинструментацию](auto.md), `TracerProvider` настраивается автоматически. Если нет — инициализируйте провайдер до вызова `get_tracer`.
 
@@ -102,11 +102,26 @@ with tracer.start_as_current_span("process_batch") as span:
     span.add_event("Batch processing completed")
 ```
 
-Типичные применения: начало/завершение этапа, промах кэша, повторная попытка, результат валидации.
+Типичные применения: начало или завершение этапа, промах кэша, повторная попытка, результат валидации.
 
 ## Статусы и ошибки {#status}
 
-По умолчанию спан создается со статусом `UNSET`, который означает «завершено без ошибки». Явно устанавливать статус `OK` не нужно — достаточно отмечать ошибки:
+Каждый спан имеет статус. По умолчанию спан создается со статусом `UNSET`, что означает успешное завершение операции без ошибок. Используйте `OK` только тогда, когда хотите явно застраховаться от переопределения статуса автоинструментацией или другим кодом.
+
+Ошибки можно отразить в трейсе двумя способами.
+
+**Исключение пробрасывается наружу.** Контекстный менеджер `start_as_current_span` по умолчанию перехватывает исключение, вышедшее из блока `with`, записывает его как событие, устанавливает статус `ERROR` и пробрасывает дальше. Достаточно не ловить исключение внутри блока:
+
+```python
+# Исключение выйдет из with — OTel запишет его в спан, выставит ERROR и пробросит дальше
+with tracer.start_as_current_span("charge_payment"):
+    if order_id < 0:
+        raise ValueError(f"Invalid order ID: {order_id}")
+```
+
+**Исключение перехватывается и обрабатывается.** Если вы обрабатываете ошибку внутри блока, исключение не выходит за пределы `with` — автоматическая запись контекстным менеджером не срабатывает. Вызовите `record_exception` и `set_status` вручную.
+
+Важно: `record_exception` и `set_status` — независимые операции. `record_exception` создает событие с типом `exception`, сообщением и стектрейсом, но **не** устанавливает статус `ERROR`. Без явного вызова `set_status` спан не будет помечен как ошибочный. Согласно спецификации OTel, исключение следует записывать как событие только вместе с установкой статуса `ERROR` — именно такой паттерн отражает реальную ошибку в трейсе.
 
 ```python
 from opentelemetry.trace import Status, StatusCode
@@ -116,11 +131,13 @@ with tracer.start_as_current_span("handle_order") as span:
         result = process(order_id)
         return result
     except Exception as e:
+        # Событие: тип, сообщение, стектрейс
         span.record_exception(e)
+         # Помечает спан как ошибочный
         span.set_status(Status(StatusCode.ERROR, str(e)))
 ```
 
-Метод `record_exception` создает событие с типом `exception`, сообщением и стектрейсом. Спаны со статусом `ERROR` выделяются в интерфейсе {{ traces-name }}.
+Спаны со статусом `ERROR` выделяются в интерфейсе {{ traces-name }}.
 
 ## Propagation контекста {#context}
 
@@ -128,7 +145,7 @@ with tracer.start_as_current_span("handle_order") as span:
 
 Внутри одного процесса контекст передается автоматически: каждый новый спан, созданный через `start_as_current_span`, наследует текущий контекст и становится дочерним.
 
-При межсервисном взаимодействии контекст нужно передавать явно. Если вы используете автоинструментацию для HTTP или gRPC, это происходит автоматически. Для кастомных протоколов внедрите контекст вручную:
+При межсервисном взаимодействии контекст нужно передавать явно. Если вы используете автоинструментацию для HTTP или gRPC, это происходит автоматически. Для других протоколов внедрите контекст вручную:
 
 ```python
 from opentelemetry.propagate import inject, extract
@@ -149,56 +166,96 @@ with tracer.start_as_current_span("process", context=ctx):
 Консольная программа с ручной инструментацией. Демонстрирует все основные приемы: инициализацию провайдера, создание вложенных спанов, атрибуты, событие и обработку ошибки.
 
 ```python
-import os
 from opentelemetry import trace
-from opentelemetry.trace import Status, StatusCode
+from opentelemetry.trace import Status, StatusCode, SpanKind
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 
-# Инициализация провайдера — настраивает экспорт трейсов в {{ traces-name }}.
+# Инициализация провайдера.
 # Параметры подключения берутся из переменных окружения OTEL_*.
-resource = Resource.create({"service.name": os.environ["OTEL_SERVICE_NAME"]})
+resource = Resource.create()
 provider = TracerProvider(resource=resource)
 provider.add_span_processor(BatchSpanProcessor(OTLPSpanExporter()))
 trace.set_tracer_provider(provider)
 
-# Трейсер — точка входа для создания спанов в этом модуле.
 tracer = trace.get_tracer("my_service.orders")
 
 
-def process_order(order_id: int):
-    # Корневой спан — охватывает всю операцию обработки заказа.
-    with tracer.start_as_current_span("process_order") as span:
+def validate_order(order_id: int) -> None:
+    """
+    Исключение пробрасывается наружу из блока with.
+    Контекстный менеджер перехватит его, запишет в спан и выставит ERROR автоматически.
+    """
+    with tracer.start_as_current_span("validate_order") as span:
         span.set_attribute("order.id", order_id)
 
-        # Дочерний спан для отдельного этапа.
-        # Создается внутри родительского — автоматически становится дочерним.
-        with tracer.start_as_current_span("validate_payment") as payment_span:
-            is_valid = order_id > 0
-            payment_span.set_attribute("payment.valid", is_valid)
+        if order_id <= 0:
+            raise ValueError(f"Invalid order ID: {order_id}")
 
-        # Дочерний спан с обработкой ошибки.
-        with tracer.start_as_current_span("charge_payment") as charge_span:
-            try:
-                if order_id < 0:
-                    raise ValueError(f"Invalid order ID: {order_id}")
-            except Exception as e:
-                # record_exception сохраняет тип, сообщение и стектрейс.
-                charge_span.record_exception(e)
-                # set_status помечает спан как ошибочный — он выделится в UI.
-                charge_span.set_status(Status(StatusCode.ERROR, str(e)))
-                return
+        span.add_event("Validation passed")
 
-        # Событие фиксирует момент внутри спана с дополнительным контекстом.
-        span.add_event("Order processed", {"order.id": order_id})
+
+def charge_payment(order_id: int, amount: float) -> bool:
+    """
+    Исключение перехватывается внутри блока with.
+    Автоматическая запись не срабатывает — вызываем record_exception и set_status явно.
+    """
+    with tracer.start_as_current_span("charge_payment") as span:
+        span.set_attribute("order.id", order_id)
+        span.set_attribute("payment.amount", amount)
+
+        try:
+            if amount <= 0:
+                raise ValueError(f"Invalid payment amount: {amount}")
+            span.add_event("Payment charged")
+            return True
+        except Exception as e:
+            # record_exception записывает событие с типом, сообщением и стектрейсом.
+            # set_status — отдельный вызов: без него спан не будет помечен как ошибочный.
+            span.record_exception(e)
+            span.set_status(Status(StatusCode.ERROR, str(e)))
+            return False
+
+
+def update_inventory(order_id: int) -> None:
+    with tracer.start_as_current_span("update_inventory") as span:
+        span.set_attribute("order.id", order_id)
+        span.add_event("Inventory updated")
+
+
+def process_order(order_id: int, amount: float) -> None:
+    # SpanKind.SERVER — точка входа, обрабатывающая входящий запрос.
+    # Дочерние спаны создаются внутри и наследуют контекст автоматически.
+    with tracer.start_as_current_span("process_order", kind=SpanKind.SERVER) as span:
+        span.set_attribute("order.id", order_id)
+        span.set_attribute("order.amount", amount)
+        span.add_event("Order processing started")
+
+        try:
+            validate_order(order_id)
+        except ValueError as e:
+            span.set_status(Status(StatusCode.ERROR, str(e)))
+            print(f"Order {order_id} failed: {e}")
+            return
+
+        if not charge_payment(order_id, amount):
+            span.set_status(Status(StatusCode.ERROR, "Payment failed"))
+            print(f"Order {order_id} failed: payment rejected")
+            return
+
+        update_inventory(order_id)
+        span.add_event("Order processing completed")
         print(f"Order {order_id} processed successfully")
 
-
 if __name__ == "__main__":
-    process_order(42)   # успешный сценарий
-    process_order(-1)   # сценарий с ошибкой
+    process_order(1, 50.0)   # успешный сценарий
+    process_order(-1, 50.0)  # ошибка валидации
+    process_order(2, -1.0)   # ошибка оплаты
+
+    # Дожидаемся отправки всех буферизованных спанов перед завершением процесса
+    provider.shutdown()
 ```
 
 Для запуска установите зависимости и задайте переменные окружения из раздела [Настройка подключения](../index.md#connection-setup):
@@ -208,8 +265,21 @@ pip install opentelemetry-api opentelemetry-sdk opentelemetry-exporter-otlp
 ```
 
 ```bash
+export OTEL_EXPORTER_OTLP_PROTOCOL="grpc"
+```
+
+```bash
 export OTEL_SERVICE_NAME=my-service
-export OTEL_EXPORTER_OTLP_ENDPOINT=https://{{ api-host-monium }}:443
+```
+
+```bash
+export OTEL_EXPORTER_OTLP_ENDPOINT="{{ api-host-monium }}:443"
+```
+
+```bash
 export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Api-Key <API-ключ>,x-monium-project=folder__<идентификатор_каталога>"
+```
+
+```bash
 python app.py
 ```

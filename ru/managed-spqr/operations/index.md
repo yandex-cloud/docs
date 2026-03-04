@@ -14,6 +14,7 @@ keywords:
 
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
+* [Управление хостами кластера](cluster-hosts.md)
 * [Управление шардами](shards.md)
 * [Подключение к базе данных](connect.md)
 * [Техническое обслуживание](cluster-maintenance.md)

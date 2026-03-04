@@ -64,22 +64,17 @@ Prices are effective from March 4, 2026.
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+### Metrics Pricing {#metrics-prices}
+
 The minimum billing unit is one metric value. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
 
 
 
 
-<MDX>
-  <PriceList
-    serviceIds={['{{ pcs|monitoring }}']}
-    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.prometheus.point.remote_api.read }}', '{{ pc|monitoring.point.ui.read }}', '{{ pc|monitoring.metrics.stored }}']}
-    installationCode="ru"
-    currency="USD"
-  />
-</MDX>
+{% include [usd.md](../_pricing/monium/usd-metrics.md) %}
 
 
-## Logs and Traces Pricing {#logs-traces-prices}
+### Logs and Traces Pricing {#logs-traces-prices}
 
 For logs and traces, you are billed for the volume of data ingested into {{ monium-logs-name }} and {{ traces-name }}. The minimum billing unit is 1 MB. Prices are shown per 1 GB. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
 

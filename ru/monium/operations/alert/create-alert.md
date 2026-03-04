@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
 1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
 1. Укажите основные параметры алерта:
 
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее в разделе [{#T}](../../concepts/alerting/alert.md#condition).
 
 1. Настройте [прореживание данных](../../concepts/decimation.md).
-1. Чтобы создать [мультиалерты](../../concepts/alerting/alert.md#multi-alerts, в разделе **Разложение по меткам** добавьте метки.
+1. Чтобы создать [мультиалерты](../../concepts/alerting/alert.md#multi-alerts), в разделе **Разложение по меткам** добавьте метки.
 1. Задайте [политики обработки отсутствия данных](../../concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
 1. Укажите [аннотации](../../concepts/alerting/annotation.md) к алерту.
 

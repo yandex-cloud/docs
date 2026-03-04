@@ -12,6 +12,18 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 ## Установка {#install}
 
+{% include [interactive-install-cli-intro](../_includes/cli/interactive-install-cli-intro.md) %}
+
+{% note tip %}
+
+Чтобы вручную настроить директорию установки CLI, автодополнение, скрипт автозапуска оболочки и добавить CLI в переменную окружения `PATH`, воспользуйтесь [неинтерактивной установкой CLI с помощью скрипта](./operations/install-cli.md#non-interactive).
+
+
+Также вы можете самостоятельно загрузить и установить исполняемый файл с последней стабильной версией CLI. Подробнее см. в разделе [{#T}](./operations/install-cli.md#bin).
+
+
+{% endnote %}
+
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
 ## Создание профиля {#initialize}
