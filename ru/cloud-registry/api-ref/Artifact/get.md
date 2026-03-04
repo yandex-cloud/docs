@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the artifact resource to return.
+            The maximum string length in characters is 50.
           type: string
       required:
         - artifactId
@@ -37,7 +38,9 @@ GET https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{artifactId}
 ||Field | Description ||
 || artifactId | **string**
 
-Required field. ID of the artifact resource to return. ||
+Required field. ID of the artifact resource to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cloudregistry.v1.Artifact}
@@ -73,7 +76,6 @@ Name of the artifact. ||
 
 Kind of the artifact.
 
-- `KIND_UNSPECIFIED`
 - `FOLDER`: Artifact kind is folder.
 - `PACKAGE`: Artifact kind is package.
 - `ARTIFACT`: Artifact kind is artifact. ||
@@ -81,7 +83,6 @@ Kind of the artifact.
 
 Output only. Status of the artifact.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Artifact status is being created.
 - `ACTIVE`: Artifact status is ready to use.
 - `DELETING`: Artifact status is being deleted. ||

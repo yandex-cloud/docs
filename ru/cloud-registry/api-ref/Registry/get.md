@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Registry resource to return.
             To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -40,7 +41,9 @@ GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}
 
 Required field. ID of the Registry resource to return.
 
-To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/Registry/list#List) request. ||
+To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/Registry/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cloudregistry.v1.Registry}
@@ -80,7 +83,6 @@ Name of the registry. ||
 
 Kind of the registry.
 
-- `KIND_UNSPECIFIED`
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
@@ -92,7 +94,6 @@ Kind of the registry.
 
 Type of the registry.
 
-- `TYPE_UNSPECIFIED`
 - `LOCAL`: Registry type is local.
 - `REMOTE`
 - `VIRTUAL` ||
@@ -100,7 +101,6 @@ Type of the registry.
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||

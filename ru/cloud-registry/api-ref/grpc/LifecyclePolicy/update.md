@@ -46,8 +46,9 @@ Updates the specified lifecycle policy.
       },
       "maven_filters": {
         "version_type": "VersionType"
-      }
+      },
       // end of the list of possible fields
+      "version_regexp": "string"
     }
   ],
   "state": "LifecyclePolicyState"
@@ -58,16 +59,22 @@ Updates the specified lifecycle policy.
 ||Field | Description ||
 || policy_id | **string**
 
-Required field. ID of the lifecycle policy to update. ||
+Required field. ID of the lifecycle policy to update.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the lifecycle policy are going to be updated. ||
 || name | **string**
 
-Name of the lifecycle policy. ||
+Name of the lifecycle policy.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the lifecycle policy. 0-1024 characters long. ||
+Description of the lifecycle policy. 0-1024 characters long.
+
+The maximum string length in characters is 1024. ||
 || rules[] | **[LifecycleRule](#yandex.cloud.cloudregistry.v1.LifecycleRule)**
 
 List of lifecycle rules. ||
@@ -75,7 +82,6 @@ List of lifecycle rules. ||
 
 State of the lifecycle policy.
 
-- `LIFECYCLE_POLICY_STATE_UNSPECIFIED`
 - `DISABLED`: Policy is disabled and won't be executed.
 - `ENABLED`: Policy is enabled and will be executed according to schedule. ||
 |#
@@ -124,6 +130,9 @@ Maven-specific filters.
 Includes only one of the fields `docker_filters`, `maven_filters`.
 
 Filters to determine which artifacts the rule applies to. ||
+|| version_regexp | **string**
+
+Regular expression pattern to match package version or docker tag. ||
 |#
 
 ## KeepByAgeLifecycleRule {#yandex.cloud.cloudregistry.v1.KeepByAgeLifecycleRule}
@@ -158,7 +167,6 @@ Rule that deletes artifacts based on specified conditions.
 
 Type of deletion.
 
-- `DELETE_LIFECYCLE_RULE_KIND_UNSPECIFIED`
 - `HARD_DELETE`: Hard delete - artifacts are permanently removed.
 - `SOFT_DELETE`: Soft delete - artifacts are marked for deletion but can be recovered. ||
 || cooldown_period_days | **int64**
@@ -208,7 +216,6 @@ Docker-specific filters for lifecycle rules.
 
 Filter by tag status.
 
-- `TAG_STATUS_UNSPECIFIED`
 - `TAG_STATUS_ANY`: Any tag status.
 - `TAGGED`: Only tagged images.
 - `UNTAGGED`: Only untagged images. ||
@@ -224,7 +231,6 @@ Maven-specific filters for lifecycle rules.
 
 Filter by version type.
 
-- `VERSION_TYPE_UNSPECIFIED`
 - `VERSION_TYPE_ANY`: Any version type.
 - `RELEASE`: Only release versions.
 - `SNAPSHOT`: Only snapshot versions. ||
@@ -277,8 +283,9 @@ Filter by version type.
         },
         "maven_filters": {
           "version_type": "VersionType"
-        }
+        },
         // end of the list of possible fields
+        "version_regexp": "string"
       }
     ],
     "state": "LifecyclePolicyState",
@@ -353,7 +360,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || policy_id | **string**
 
-Required field. ID of the lifecycle policy that is being updated. ||
+Required field. ID of the lifecycle policy that is being updated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## LifecyclePolicy {#yandex.cloud.cloudregistry.v1.LifecyclePolicy}
@@ -378,7 +387,6 @@ List of lifecycle rules. ||
 
 Current state of the lifecycle policy.
 
-- `LIFECYCLE_POLICY_STATE_UNSPECIFIED`
 - `DISABLED`: Policy is disabled and won't be executed.
 - `ENABLED`: Policy is enabled and will be executed according to schedule. ||
 || registry_id | **string**
@@ -442,6 +450,9 @@ Maven-specific filters.
 Includes only one of the fields `docker_filters`, `maven_filters`.
 
 Filters to determine which artifacts the rule applies to. ||
+|| version_regexp | **string**
+
+Regular expression pattern to match package version or docker tag. ||
 |#
 
 ## KeepByAgeLifecycleRule {#yandex.cloud.cloudregistry.v1.KeepByAgeLifecycleRule2}
@@ -476,7 +487,6 @@ Rule that deletes artifacts based on specified conditions.
 
 Type of deletion.
 
-- `DELETE_LIFECYCLE_RULE_KIND_UNSPECIFIED`
 - `HARD_DELETE`: Hard delete - artifacts are permanently removed.
 - `SOFT_DELETE`: Soft delete - artifacts are marked for deletion but can be recovered. ||
 || cooldown_period_days | **int64**
@@ -526,7 +536,6 @@ Docker-specific filters for lifecycle rules.
 
 Filter by tag status.
 
-- `TAG_STATUS_UNSPECIFIED`
 - `TAG_STATUS_ANY`: Any tag status.
 - `TAGGED`: Only tagged images.
 - `UNTAGGED`: Only untagged images. ||
@@ -542,7 +551,6 @@ Maven-specific filters for lifecycle rules.
 
 Filter by version type.
 
-- `VERSION_TYPE_UNSPECIFIED`
 - `VERSION_TYPE_ANY`: Any version type.
 - `RELEASE`: Only release versions.
 - `SNAPSHOT`: Only snapshot versions. ||

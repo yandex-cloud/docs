@@ -24,7 +24,9 @@ To get the list of available artifact resources, make [RegistryService.ListArtif
 ||Field | Description ||
 || artifact_id | **string**
 
-Required field. ID of the artifact resource to return. ||
+Required field. ID of the artifact resource to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Artifact {#yandex.cloud.cloudregistry.v1.Artifact}
@@ -58,7 +60,6 @@ Name of the artifact. ||
 
 Kind of the artifact.
 
-- `KIND_UNSPECIFIED`
 - `FOLDER`: Artifact kind is folder.
 - `PACKAGE`: Artifact kind is package.
 - `ARTIFACT`: Artifact kind is artifact. ||
@@ -66,7 +67,6 @@ Kind of the artifact.
 
 Output only. Status of the artifact.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Artifact status is being created.
 - `ACTIVE`: Artifact status is ready to use.
 - `DELETING`: Artifact status is being deleted. ||

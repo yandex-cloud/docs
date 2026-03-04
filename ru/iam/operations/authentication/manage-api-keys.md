@@ -101,7 +101,7 @@ description: Из статьи вы узнаете, как создавать и
         expires_at         = "<дата_и_время>"
         pgp_key            = "<pgp-ключ>"
         output_to_lockbox  {
-          secret_id             = "<идентификатор_секрета_Lockbox>"
+          secret_id            = "<идентификатор_секрета_Lockbox>"
           entry_for_secret_key = "<ключ_секрета>"
         }
       }
@@ -271,8 +271,8 @@ description: Из статьи вы узнаете, как создавать и
 
   Где:
 
-  * `SERVICEACCOUNT_ID` - [идентификатор сервисного аккаунта](../sa/get-id). Обязательный параметр.
-  * `IAM_TOKEN` - [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
+  * `SERVICEACCOUNT_ID` — [идентификатор сервисного аккаунта](../sa/get-id.md). Обязательный параметр.
+  * `IAM_TOKEN` — [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
   * `scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
 
 {% endlist %}
@@ -331,9 +331,9 @@ description: Из статьи вы узнаете, как создавать и
 
         ```hcl
         resource "yandex_iam_service_account_api_key" "sa-api-key" {
-            service_account_id = "<идентификатор_сервисного_аккаунта>"
-            description        = "<описание_ключа>"
-            pgp_key            = "<pgp-ключ>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          description        = "<описание_ключа>"
+          pgp_key            = "<pgp-ключ>"
         }
         ```
 

@@ -105,6 +105,8 @@ items:
             href: tutorials/single-sign-on/oidc-grafana.md
           - name: Настройка единого входа в 1С:Предприятие по стандарту OIDC
             href: tutorials/single-sign-on/oidc-1c-enterprise.md
+          - name: Настройка единого входа в Cloud.ru по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-cloud-ru.md
           - name: Настройка единого входа в Grafana Cloud по стандарту SAML
             href: tutorials/single-sign-on/saml-grafana.md
           - name: Настройка единого входа в {{ mgl-name }} по стандарту SAML
@@ -121,6 +123,8 @@ items:
             href: tutorials/single-sign-on/saml-yandex-360.md
           - name: Настройка единого входа в OpenVPN Access Server по стандарту SAML
             href: tutorials/single-sign-on/saml-ovpn.md
+          - name: Настройка единого входа в Cloud.ru по стандарту SAML
+            href: tutorials/single-sign-on/saml-cloud-ru.md
           - name: Настройка единого входа в Sentry по стандарту SAML
             href: tutorials/single-sign-on/saml-sentry.md
       - name: Сетевая безопасность

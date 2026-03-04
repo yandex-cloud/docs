@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the artifact to delete.
+            The maximum string length in characters is 50.
           type: string
       required:
         - artifactId
@@ -35,7 +36,9 @@ DELETE https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{artifactId}
 ||Field | Description ||
 || artifactId | **string**
 
-Required field. ID of the artifact to delete. ||
+Required field. ID of the artifact to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

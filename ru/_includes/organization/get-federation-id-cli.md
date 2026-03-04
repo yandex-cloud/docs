@@ -1,7 +1,7 @@
-Чтобы посмотреть список доступных организаций, выполните команду, подставив [идентификатор организации](../../organization/operations/organization-get-id.md):
+Получите список доступных организаций:
 
 ```bash
-yc organization-manager organization list --organization-id <идентификатор_организации>
+yc organization-manager organization list
 ```
 
 Результат:

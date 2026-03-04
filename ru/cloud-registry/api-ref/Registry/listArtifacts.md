@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the registry artifact to list repositories in.
             To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/LifecyclePolicy/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
     query:
@@ -29,6 +30,7 @@ apiPlayground:
             the service returns a [ListRepositoriesResponse.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
             Default value: 10.
+            Acceptable values are 0 to 1000, inclusive.
           default: '10'
           type: string
           format: int64
@@ -37,6 +39,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListArtifactsResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -61,7 +64,9 @@ GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:li
 
 Required field. ID of the registry artifact to list repositories in.
 
-To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/LifecyclePolicy/list#List) request. ||
+To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/LifecyclePolicy/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.cloudregistry.v1.ListArtifactsRequest}
@@ -77,11 +82,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListRepositoriesResponse.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 10. ||
+Default value: 10.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListArtifactsResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request. ||
+[ListArtifactsResponse.nextPageToken](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cloudregistry.v1.ListArtifactsResponse}
@@ -139,7 +148,6 @@ Name of the artifact. ||
 
 Kind of the artifact.
 
-- `KIND_UNSPECIFIED`
 - `FOLDER`: Artifact kind is folder.
 - `PACKAGE`: Artifact kind is package.
 - `ARTIFACT`: Artifact kind is artifact. ||
@@ -147,7 +155,6 @@ Kind of the artifact.
 
 Output only. Status of the artifact.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Artifact status is being created.
 - `ACTIVE`: Artifact status is ready to use.
 - `DELETING`: Artifact status is being deleted. ||

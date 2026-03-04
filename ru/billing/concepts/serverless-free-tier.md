@@ -34,7 +34,6 @@ Free tier распространяется на сервисы:
 * [{{ dataproc-full-name }}](#dataproc)
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
-* [{{ datalens-full-name }}](#datalens)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -138,12 +137,6 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../data-transfer/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ datalens-full-name }} {#datalens}
-
-[{{ datalens-full-name }}](../../datalens/quickstart.md) — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
-
-{% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
 
 ## {{ iot-full-name }} {#iot}
 

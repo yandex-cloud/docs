@@ -16,10 +16,6 @@ editable: false
 
 {% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
 
-## Ограничения для логов
-
-{% include [logging-limits.md](../../_includes/monium/limits-logs.md) %}
-
 ## Ограничения для трейсов
 
 {% include [logging-limits.md](../../_includes/monium/limits-traces.md) %}

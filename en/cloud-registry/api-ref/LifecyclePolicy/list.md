@@ -11,11 +11,13 @@ apiPlayground:
           description: |-
             **string**
             ID of the registry to list lifecycle policies in.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
             **string** (int64)
             The maximum number of results per page to return.
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         pageToken:
@@ -23,6 +25,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set page_token to the
             ListLifecyclePolicyResponse.next_page_token returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -45,14 +48,20 @@ GET https://registry.{{ api-host }}/cloud-registry/v1/lifecyclePolicies
 ||Field | Description ||
 || registryId | **string**
 
-ID of the registry to list lifecycle policies in. ||
+ID of the registry to list lifecycle policies in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
-The maximum number of results per page to return. ||
+The maximum number of results per page to return.
+
+Acceptable values are 0 to 100, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set page_token to the
-ListLifecyclePolicyResponse.next_page_token returned by a previous list request. ||
+ListLifecyclePolicyResponse.next_page_token returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cloudregistry.v1.ListLifecyclePolicyResponse}
@@ -94,8 +103,9 @@ ListLifecyclePolicyResponse.next_page_token returned by a previous list request.
           },
           "mavenFilters": {
             "versionType": "string"
-          }
+          },
           // end of the list of possible fields
+          "versionRegexp": "string"
         }
       ],
       "state": "string",
@@ -142,7 +152,6 @@ List of lifecycle rules. ||
 
 Current state of the lifecycle policy.
 
-- `LIFECYCLE_POLICY_STATE_UNSPECIFIED`
 - `DISABLED`: Policy is disabled and won't be executed.
 - `ENABLED`: Policy is enabled and will be executed according to schedule. ||
 || registryId | **string**
@@ -220,6 +229,9 @@ Maven-specific filters.
 Includes only one of the fields `dockerFilters`, `mavenFilters`.
 
 Filters to determine which artifacts the rule applies to. ||
+|| versionRegexp | **string**
+
+Regular expression pattern to match package version or docker tag. ||
 |#
 
 ## KeepByAgeLifecycleRule {#yandex.cloud.cloudregistry.v1.KeepByAgeLifecycleRule}
@@ -254,7 +266,6 @@ Rule that deletes artifacts based on specified conditions.
 
 Type of deletion.
 
-- `DELETE_LIFECYCLE_RULE_KIND_UNSPECIFIED`
 - `HARD_DELETE`: Hard delete - artifacts are permanently removed.
 - `SOFT_DELETE`: Soft delete - artifacts are marked for deletion but can be recovered. ||
 || cooldownPeriodDays | **string** (int64)
@@ -304,7 +315,6 @@ Docker-specific filters for lifecycle rules.
 
 Filter by tag status.
 
-- `TAG_STATUS_UNSPECIFIED`
 - `TAG_STATUS_ANY`: Any tag status.
 - `TAGGED`: Only tagged images.
 - `UNTAGGED`: Only untagged images. ||
@@ -320,7 +330,6 @@ Maven-specific filters for lifecycle rules.
 
 Filter by version type.
 
-- `VERSION_TYPE_UNSPECIFIED`
 - `VERSION_TYPE_ANY`: Any version type.
 - `RELEASE`: Only release versions.
 - `SNAPSHOT`: Only snapshot versions. ||

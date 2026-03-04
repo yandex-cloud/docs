@@ -339,8 +339,8 @@ items:
           - name: Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}
             href: tutorials/s2s-vpn.md
           - name: >-
-              Установка Ghost CMS в {{ objstorage-name }} с помощью {{
-              cloud-apps-name }}
+              Установка Ghost CMS High Availability с помощью {{ cloud-apps-name
+              }}
             href: tutorials/ghost-cms-cloudapp.md
           - name: >-
               Установка WordPress High Availability с помощью {{ cloud-apps-name
