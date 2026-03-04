@@ -8,7 +8,6 @@
 
 * **Java** — Java-агент модифицирует байткод при загрузке классов.
 * **Python, Node.js** — инструменты подменяют вызовы стандартных модулей на обертки, создающие спаны.
-* **Go** — инструментация подключается через обертки (`middleware`, `interceptor`), которые нужно добавить в код при инициализации.
 
 Во всех случаях каждый перехваченный вызов автоматически создает спан с атрибутами по [семантическим конвенциям OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/) — HTTP-метод, URL, статус ответа, имя таблицы БД и т. д.
 
@@ -27,9 +26,22 @@
 Независимо от языка, для отправки трейсов в {{ traces-name }} укажите параметры подключения через переменные окружения:
 
 ```bash
+export OTEL_EXPORTER_OTLP_PROTOCOL="grpc"
+```
+
+```bash
 export OTEL_SERVICE_NAME=<имя_приложения>
-export OTEL_EXPORTER_OTLP_ENDPOINT=https://{{ api-host-monium }}:443
+```
+
+```bash
+export OTEL_EXPORTER_OTLP_ENDPOINT="{{ api-host-monium }}:443"
+```
+
+```bash
 export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Api-Key <API-ключ>,x-monium-project=folder__<идентификатор_каталога>"
+```
+
+```bash
 export OTEL_RESOURCE_ATTRIBUTES="cluster=<окружение>"
 ```
 
@@ -94,25 +106,6 @@ export OTEL_RESOURCE_ATTRIBUTES="cluster=<окружение>"
    ```bash
    node --require @opentelemetry/auto-instrumentations-node/register app.js
    ```
-
-### Go {#go}
-
-В Go автоинструментация работает через библиотеки-обертки, которые нужно подключить при инициализации приложения. Например, для HTTP-сервера:
-
-```go
-import "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
-
-handler := otelhttp.NewHandler(mux, "server")
-http.ListenAndServe(":8080", handler)
-```
-
-Аналогичные обертки доступны для gRPC, database/sql, Kafka и других библиотек. Полный список см. в репозитории [opentelemetry-go-contrib](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/instrumentation).
-
-{% note info %}
-
-В отличие от Python и Java, в Go нет агента для автоматического внедрения. Обертки необходимо добавить в код явно.
-
-{% endnote %}
 
 ## Ограничения {#limitations}
 

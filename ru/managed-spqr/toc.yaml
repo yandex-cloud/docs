@@ -14,6 +14,8 @@ items:
         href: operations/connect.md
       - name: Изменение кластера
         href: operations/cluster-update.md
+      - name: Управление хостами кластера
+        href: operations/cluster-hosts.md
       - name: Управление шардами
         href: operations/shards.md
       - name: Техническое обслуживание

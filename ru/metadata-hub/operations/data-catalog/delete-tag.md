@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите удалить тег.
   1. На панели слева выберите ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** и выберите классификацию, в которой вы хотите удалить тег.

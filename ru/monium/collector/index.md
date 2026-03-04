@@ -59,4 +59,4 @@
 
 * [{{ unified-agent-short-name }}](../concepts/data-collection/unified-agent/index.md) — агент от Яндекса.
 * [OTel Collector](../collector/opentelemetry.md) — агент экосистемы OpenTelemetry.
-* [Fluent Bit](../logs/write/fluent-bit.md) — для сбора логов и метрик.
+* [Fluent Bit](fluentbit.md) — легковесный агент для обработки логов и форвардированию других видов телеметрии.

@@ -122,9 +122,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
+  1. Вверху справа нажмите **Создать** → **Канал уведомления**.
   1. Введите имя канала уведомлений, например `channel-function`.
   1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите **{{ sf-name }}**.
   1. В списке **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт, созданный при добавлении функции.
@@ -138,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В сервисе **{{ monitoring-name }}** выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+  1. В **{{ monium-name }}** выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Введите имя алерта, например `alert-function`.
   1. Введите [запрос](../../concepts/alerting/alert.md#queries), по которому будут выбираться метрики для отслеживания.

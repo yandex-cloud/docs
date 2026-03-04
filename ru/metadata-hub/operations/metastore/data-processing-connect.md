@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-* Консоль управления {#console}
+- Консоль управления {#console}
 
     1. [Создайте кластер](cluster-create.md) {{ metastore-name }}.
     1. При [создании](../../../data-proc/operations/cluster-create.md) или [изменении](../../../data-proc/operations/cluster-update.md) кластера {{ dataproc-name }} задайте следующее [свойство](../../../data-proc/concepts/settings-list.md):

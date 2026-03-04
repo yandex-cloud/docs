@@ -35,7 +35,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в ваш рабочий каталог ресурсов.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. На панели слева выберите сервис ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Выберите нужный каталог метаданных.
   1. Чтобы просмотреть доступные в каталоге метаданные, перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.

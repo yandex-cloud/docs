@@ -35,8 +35,8 @@
 
 ## Создайте облачную функцию {#create-function}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где был создан сервисный аккаунт.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором был создан сервисный аккаунт.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}** и укажите имя функции `asr-batch-function`.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Python` версии `3.8` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -68,7 +68,8 @@
 
 ## Создайте триггер {#create-trigger}
 
-1. В консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором была создана функция.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 1. Укажите параметры триггера:
@@ -85,7 +86,8 @@
 
 ## Проверьте работу функции {#check-function}
 
-1. В консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и откройте бакет `asr-batch-bucket`.
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором была создана функция.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и откройте бакет `asr-batch-bucket`.
 1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` аудиофайлы любого [поддерживаемого формата]({{ link-docs-ai }}speechkit/formats).
 1. Подождите несколько минут и убедитесь, что в бакете появились папки `log` и `out`.
 1. Проверьте статус распознавания в папке `log`. Для каждого из отправленных на распознавание аудиофайлов статус сохраняется во вспомогательном файле `<имя_аудиофайла>.json` (например, `audio.mp3.json`). Если в файле содержится параметр `"done": "false"`, то процесс распознавания не завершен.

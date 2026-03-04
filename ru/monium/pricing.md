@@ -26,7 +26,6 @@ editable: false
 Запись значений метрик ресурсов {{ yandex-cloud }}, чтение метрик через {{ prometheus-name }} Remote API, чтение логов и трейсов не тарифицируются.
 
 Особенности тарификации:
-* После записи или чтения первых 50 млн значений через {{ monium-name }} API стоимость записи снижается. См. [Цены для региона Россия](#prices).
 * Запись метрик ресурсов {{ yandex-cloud }}, собираемых автоматически, не тарифицируется.
 * Чтение данных при помощи интерфейса {{ monium-name }} и при помощи консоли {{ yandex-cloud }} не тарифицируется.
 * Входящий и исходящий трафик в {{ monium-name }} не тарифицируются.
@@ -89,14 +88,17 @@ editable: false
 Минимальная единица тарификации для метрик — 1 значение метрики. Стоимость округляется до копейки, тиына или цента.
 
 
-<MDX>
-  <PriceList
-    serviceIds={['{{ pcs|monitoring }}']}
-    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.prometheus.point.remote_api.read }}', '{{ pc|monitoring.point.ui.read }}', '{{ pc|monitoring.metrics.stored }}']}
-    installationCode="ru"
-    currency="RUB"
-  />
-</MDX>
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub.md](../_pricing/monium/rub-metrics.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/monium/kzt-metrics.md) %}
+
+{% endlist %}
 
 
 

@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
-  1. В списке сервисов выберите **{{ container-registry-name }}**.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Задайте имя реестра, например `datasphere-registry`, и нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
@@ -70,7 +70,7 @@
 - Консоль управления {#console}
 
    1. Перейдите в каталог `data-folder`.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `sa-for-datasphere`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
@@ -93,7 +93,7 @@
 - Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `sa-for-datasphere`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
