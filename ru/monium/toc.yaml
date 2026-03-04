@@ -27,6 +27,14 @@ items:
             href: collector/otel-k8s-example.md
           - name: Устранение неполадок при поставке данных
             href: collector/troubleshooting.md
+      - name: Fluent Bit
+        items:
+          - name: Настройка Fluent Bit
+            href: collector/fluentbit.md
+          - name: Пример для демо-приложения Java с Fluent Bit
+            href: collector/otel-clinic-fluentbit-example.md
+          - name: Обработка логов
+            href: logs/write/fluent-bit.md
       - name: '{{ unified-agent-short-name }}'
         items:
           - name: Обзор
@@ -285,13 +293,13 @@ items:
         items:
           - name: Начало работы
             href: traces/llm/quickstart.md
-          - name: 'Инструментирование LLM-приложений: автоматически'
+          - name: Автоматическая инструментация LLM-приложений
             href: traces/llm/auto_instrumentation.md
-          - name: 'Инструментирование LLM-приложений: вручную'
+          - name: Ручная инструментация LLM-приложений
             href: traces/llm/manual_instrumentation.md
           - name: Просмотр и анализ LLM-трейсов
             href: traces/llm/traces.md
-      - name: Лимиты и валидация
+      - name: Ограничения
         href: traces/limits.md
   - name: Визуализация данных
     items:

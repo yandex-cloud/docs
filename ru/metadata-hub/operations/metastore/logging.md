@@ -23,10 +23,10 @@ description: Следуя данной инструкции, вы сможете
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
@@ -43,7 +43,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -74,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
 
       [Подробнее о создании кластера](cluster-create.md).
 
-    * REST API {#api}
+   - REST API {#api}
 
         1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -127,7 +127,7 @@ description: Следуя данной инструкции, вы сможете
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
-    * gRPC API {#grpc-api}
+   - gRPC API {#grpc-api}
 
         1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -193,15 +193,15 @@ description: Следуя данной инструкции, вы сможете
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -240,7 +240,7 @@ description: Следуя данной инструкции, вы сможете
       ]
       ```
 
-   * API {#api}
+   - API {#api}
 
       Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md).
 
@@ -255,10 +255,10 @@ description: Следуя данной инструкции, вы сможете
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
@@ -275,7 +275,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -306,7 +306,7 @@ description: Следуя данной инструкции, вы сможете
 
       [Подробнее о создании кластера](cluster-create.md).
 
-    * REST API {#api}
+   - REST API {#api}
 
         1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -359,7 +359,7 @@ description: Следуя данной инструкции, вы сможете
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
-    * gRPC API {#grpc-api}
+   - gRPC API {#grpc-api}
 
         1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -425,15 +425,15 @@ description: Следуя данной инструкции, вы сможете
 
    {% list tabs group=instructions %}
 
-   * Консоль управления {#console}
+   - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `metastore-log-group`.
 
       На открывшейся странице отобразятся записи.
 
-   * CLI {#cli}
+   - CLI {#cli}
 
       {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -472,7 +472,7 @@ description: Следуя данной инструкции, вы сможете
       ]
       ```
 
-   * API {#api}
+   - API {#api}
 
       Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md).
 

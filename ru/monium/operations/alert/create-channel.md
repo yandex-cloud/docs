@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание канала уведомлений с получателями
 
-1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
+1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
 1. Вверху справа нажмите **Создать** → **Канал уведомления**.
 1. Укажите параметры канала:
     * **{{ ui-key.yacloud_monitoring.channel.field_name }}**. Задайте имя канала.

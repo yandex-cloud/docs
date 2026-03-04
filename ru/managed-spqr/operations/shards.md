@@ -23,7 +23,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать шард.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
     1. Укажите имя шарда и выберите кластер {{ PG }}, хосты которого будут использоваться в качестве хостов с данными в кластере {{ SPQR }}.
@@ -99,7 +100,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить шард. 
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

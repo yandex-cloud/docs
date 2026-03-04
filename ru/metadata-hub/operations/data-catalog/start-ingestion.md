@@ -17,7 +17,7 @@
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно запустить загрузку.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Выберите каталог метаданных, в котором нужно запустить загрузку, затем на панели слева выберите ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
   1. В списке загрузок нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужной загрузкой и выберите пункт **{{ ui-key.yacloud.common.start }}**.
@@ -33,7 +33,7 @@
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Выберите каталог, в котором нужно остановить загрузку, затем на панели слева выберите ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
   1. В списке загрузок нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужной загрузкой в статусе **{{ ui-key.yacloud.data-catalog.label_ingestion-status-Running }}** и выберите пункт **{{ ui-key.yacloud.common.stop }}**.
@@ -47,7 +47,7 @@
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором была создана загрузка.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Выберите каталог метаданных, в котором создана загрузка, затем на панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
 
