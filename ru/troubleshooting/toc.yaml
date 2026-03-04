@@ -1046,6 +1046,8 @@ items:
         href: serverless-containers/known-issues/exec-format-error.md
       - name: Устранение ошибки `No space left on device`
         href: serverless-containers/known-issues/no-space-left-on-device.md
+      - name: Устранение ошибки 403 `Permission denied`
+        href: serverless-containers/known-issues/permission-denied.md
       - name: Примеры конфигураций и сценариев {{ serverless-containers-name }}
         href: serverless-containers/how-to/index.md
         hidden: true

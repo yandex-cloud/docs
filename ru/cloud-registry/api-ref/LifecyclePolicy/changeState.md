@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the lifecycle policy to change state.
+            The maximum string length in characters is 50.
           type: string
       required:
         - policyId
@@ -22,7 +23,6 @@ apiPlayground:
           description: |-
             **enum** (LifecyclePolicyState)
             Required field. Target state of the lifecycle policy.
-            - `LIFECYCLE_POLICY_STATE_UNSPECIFIED`
             - `DISABLED`: Policy is disabled and won't be executed.
             - `ENABLED`: Policy is enabled and will be executed according to schedule.
           type: string
@@ -52,7 +52,9 @@ POST https://registry.{{ api-host }}/cloud-registry/v1/lifecyclePolicies/{policy
 ||Field | Description ||
 || policyId | **string**
 
-Required field. ID of the lifecycle policy to change state. ||
+Required field. ID of the lifecycle policy to change state.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.cloudregistry.v1.ChangeLifecyclePolicyStateRequest}
@@ -69,7 +71,6 @@ Required field. ID of the lifecycle policy to change state. ||
 
 Required field. Target state of the lifecycle policy.
 
-- `LIFECYCLE_POLICY_STATE_UNSPECIFIED`
 - `DISABLED`: Policy is disabled and won't be executed.
 - `ENABLED`: Policy is enabled and will be executed according to schedule. ||
 |#

@@ -245,8 +245,6 @@ items:
             href: logs/concepts/attributes-guide.md
           - name: Время хранения данных (TTL)
             href: logs/concepts/ttl.md
-          - name: Квоты и лимиты
-            href: logs/concepts/limits.md
       - name: Метрики логов
         href: logs/logs-metrics.md
   - name: Трейсы

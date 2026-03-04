@@ -9,8 +9,14 @@ items:
         href: operations/install-app.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Создание сайта на WordPress с помощью {{ cloud-apps-name }}
         href: tutorials/wordpress-cloudapp.md
+      - name: >-
+          Создание сайта на Ghost CMS High Availability с помощью {{
+          cloud-apps-name }}
+        href: tutorials/ghost-cms-cloudapp.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
 path: ru/cloud-apps/toc.yaml

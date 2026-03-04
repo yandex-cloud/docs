@@ -258,6 +258,14 @@ items:
             href: security/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
             href: security/single-sign-on/saml-ovpn.md
+          - name: MWS
+            href: security/single-sign-on/oidc-mws.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
@@ -829,7 +837,9 @@ items:
             href: web/flask.md
           - name: Хостинг статического сайта на фреймворке Gatsby
             href: web/gatsby-static-website.md
-          - name: Установка Ghost CMS с помощью {{ cloud-apps-name }}
+          - name: >-
+              Установка Ghost CMS High Availability с помощью {{ cloud-apps-name
+              }}
             href: web/ghost-cms-cloudapp.md
           - name: Миграция в {{ cdn-name }} из стороннего CDN-провайдера
             href: web/migrate-to-yc-cdn.md

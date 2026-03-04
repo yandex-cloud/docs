@@ -327,7 +327,7 @@ default:
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/ru/docs
-  link-docs-ai: https://aistudio.yandex.ru/ru/docs/
+  link-docs-ai: https://aistudio.yandex.ru/docs/ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-forms-cloudless: https://yandex.ru/support/forms/ru
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
@@ -1033,7 +1033,7 @@ default:
     redis: dn2hb3vlkb6qfih0pgv6
   pcs|metadatahub: dn2rnt6lkfbauucwnfby
   pcs|mk8s: dn2af04ph5otc5f23o1h
-  pcs|monitoring: dn2675dm5m59q3pira4b
+  pcs|monium: dn2oxk4367kv6etfvj5x
   pcs|nlb: dn2pr3ni7eesvh97h5ro
   pcs|postbox: dn2h92g8s9qofi6iu1gp
   pcs|security_deck: dn28d4gpcfmv27l612lh
@@ -1723,6 +1723,13 @@ default:
       point:
         remote_api:
           read: dn2mb7iibauphc8mh0nm
+  pc|monium:
+    logs:
+      ingested:
+        traffic: dn2v26ez3jp4ztahlu7u
+    traces:
+      ingested:
+        traffic: dn2mzghnshxknwf2kd6u
   pc|network:
     egress:
       inet: dn28ml7sjbb5v98jkuj3
@@ -2644,8 +2651,8 @@ default:
         export|pricingRate:
           50|string: "4,61\_₽"
         export|string: "7,69\_₽"
-      write|number: 10.76
-      write|string: "10,76\_₽"
+      write|number: 0.32
+      write|string: "0,32\_₽"
   sku|RUB|network:
     public_fips:
       deallocated|number: 0.34
@@ -3189,8 +3196,8 @@ default:
         export|pricingRate:
           50|string: "0,0378\_$"
         export|string: "0,0630\_$"
-      write|number: 0.0882
-      write|string: "0,0882\_$"
+      write|number: 0.0026
+      write|string: "0,0026\_$"
   sku|USD|network:
     public_fips:
       deallocated|number: 0.0028
