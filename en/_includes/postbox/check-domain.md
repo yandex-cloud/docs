@@ -21,7 +21,7 @@ To send emails, confirm domain ownership. After creating an address, DKIM signat
         {% endnote %}
 
     1. In the **{{ ui-key.yacloud.common.type }}** field, select `TXT`.
-    1. Copy the contents of the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field from the **Signature verification** section and paste it into the **{{ ui-key.yacloud.dns.label_records }}** field. Note that the record value must be enclosed in quotes, for example:
+    1. Paste the contents of the **{{ ui-key.yacloud.postbox.label_dns-record-value }}** field under **Signature verification** into the **{{ ui-key.yacloud.dns.label_records }}** field. Note that the record value must be enclosed in quotes, for example:
 
         ```text
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"

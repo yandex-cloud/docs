@@ -10,13 +10,13 @@ description: Follow this guide to add label to a workflow.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to add a label to a [workflow](../../../concepts/workflows/workflow.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the workflow row and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**:
 
       1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-      1. Enter the key and the value, and press **Enter**.
+      1. Enter the key and value, and press **Enter**.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

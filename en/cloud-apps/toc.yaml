@@ -7,6 +7,10 @@ items:
     items:
       - name: Installing an app
         href: operations/install-app.md
+  - name: Tutorials
+    items:
+      - name: Creating a WordPress website using {{ cloud-apps-name }}
+        href: tutorials/wordpress-cloudapp.md
   - name: Audit logs {{ at-name }}
     href: at-ref.md
 path: en/cloud-apps/toc.yaml

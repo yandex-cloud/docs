@@ -6,6 +6,24 @@ editable: false
 
 
 
+## 0.191.0 (March 5, 2026)
+##### FEATURES:
+* kubernetes: add "node_template.reserved_instance_pool_id" and "variables" attributes in "yandex_kubernetes_node_group"
+##### BUG FIXES:
+* organizationmanager: fix update_mask and field deletion for idp userpool
+* postgresql: make folder_id in yandex_mdb_postgresql_cluster datasource optional, to resolve cluster by name and folder
+
+## 0.190.0 (February 26, 2026)
+##### FEATURES:
+* DNS: Added a human-readable description to dns recordset resource.
+* compute: add `kms_key_id` option to local_disks
+* postgres: removed autofailover flag
+##### BUG FIXES:
+* postgresql: deprecate pool_discard field, add new field pooler_pool_discard instead
+* opensearch: fix migration from schema version 0
+##### WARNING:
+* sharded_postgresql: `console_password` for `yandex_mdb_sharded_postgresql_cluster` config is now deprecated
+
 ## 0.189.0 (February 23, 2026)
 ##### FEATURES:
 * kubernetes: add "workload_identity_federation" attribute to k8s node-group resource and data-source

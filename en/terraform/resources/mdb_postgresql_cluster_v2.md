@@ -92,7 +92,6 @@ resource "yandex_vpc_subnet" "foo" {
     - `serverless` (Bool). Allow access for connection to managed databases from functions
     - `web_sql` (Bool). Allow access for SQL queries in the management console
     - `yandex_query` (Bool). Allow access for YandexQuery
-  - `autofailover` (Bool). Configuration setting which enables/disables automatic failover in the cluster.
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
   - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started (UTC).

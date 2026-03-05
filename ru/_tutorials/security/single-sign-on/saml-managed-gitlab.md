@@ -18,7 +18,7 @@
 - Консоль управления {#console}
 
    1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance).
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
    1. В верхней части страницы:
 
@@ -77,7 +77,8 @@
 
 Чтобы интегрировать провайдер аутентификации для {{ GL }} через OmniAuth, добавьте провайдер аутентификации:
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Нажмите на созданный инстанс и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.

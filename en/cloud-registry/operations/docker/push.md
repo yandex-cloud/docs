@@ -5,7 +5,7 @@ description: This guide describes how to push a local Docker image to a {{ cloud
 
 # Pushing a Docker image to a registry in {{ cloud-registry-name }}
 
-These instructions describe how to push a local [Docker image](../../concepts/docker-image.md) to a registry.
+These instructions describe how to push a local [Docker image](../../concepts/artifacts/docker.md) to a registry.
 
 {% note info %}
 
@@ -19,7 +19,7 @@ To push a Docker image to the registry, you need the `cloud-registry.artifacts.p
 
 - CLI {#cli}
 
-  1. View the list of available [Docker images](../../concepts/docker-image.md):
+  1. View the list of available [Docker images](../../concepts/artifacts/docker.md):
 
      ```bash
      docker image list
@@ -42,7 +42,7 @@ To push a Docker image to the registry, you need the `cloud-registry.artifacts.p
 
      {% note info %}
 
-     You can only push Docker images to {{ cloud-registry-name }} if they have a URL in this format: `{{ cloud-registry }}/<registry_ID>/<Docker_image_name>:<tag>`.
+     To push Docker images to {{ cloud-registry-name }}, you need to assign them URLs in this format: `{{ cloud-registry }}/<registry_ID>/<Docker_image_name>:<tag>`.
 
      {% endnote %}
 

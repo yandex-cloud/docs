@@ -23,7 +23,7 @@ To get started with {{ managed-k8s-name }}:
    * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create the resources for the {{ managed-k8s-name }} cluster.
    * Service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) registry in [{{ container-registry-full-name }}](../container-registry/concepts/index.md). The {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
 
-     If you want to use the [Docker image](../cloud-registry/concepts/docker-image.md) registry in [{{ cloud-registry-full-name }}](../cloud-registry/concepts/index.md), assign the [cloud-registry.artifacts.puller](../cloud-registry/security/index.md#cloud-registry-artifacts-puller) role to the service account.
+     If you want to use the [Docker image](../cloud-registry/concepts/artifacts/docker.md) registry in [{{ cloud-registry-full-name }}](../cloud-registry/concepts/index.md), assign the [cloud-registry.artifacts.puller](../cloud-registry/security/index.md#cloud-registry-artifacts-puller) role to the service account.
 
    You can use the same service account for both operations.
 

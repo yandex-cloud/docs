@@ -92,8 +92,8 @@
 
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-1. В консоли управления перейдите в каталог, в котором создан L7-балансировщик.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создан L7-балансировщик.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Дождитесь, когда L7-балансировщик перейдет в статус `Active`.
 1. Укажите настройки автомасштабирования в L7-балансировщике:
 

@@ -47,6 +47,8 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы включать или отключать [логирование](../concepts/logging.md) в профиле безопасности, необходима [роль](../security/index.md#smart-web-security-editor) `smart-web-security.editor` или выше на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается или находится профиль безопасности, а также [роль](../../logging/security/index.md#logging-writer) `logging.writer` или выше на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
 
+Для просмотра логов нужна [роль](../../logging/security/index.md#logging-viewer) `logging.viewer` на лог-группу.
+
 {% endnote %}
 
 {% list tabs group=instructions %}

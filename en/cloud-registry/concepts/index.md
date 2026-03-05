@@ -1,6 +1,6 @@
 # {{ cloud-registry-full-name }} overview
 
-{{ cloud-registry-name }} is a service for storing and managing development [artifacts](artifacts.md).
+{{ cloud-registry-name }} is a service for storing and managing development [artifacts](artifacts/index.md).
 
 You can use {{ cloud-registry-name }} for simple and effective management of artifacts required to create, test, and deploy applications in a cloud environment.
 

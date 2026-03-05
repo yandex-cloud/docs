@@ -180,7 +180,8 @@
 
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Откройте страницу кластера `dataproc-source`.
 1. Перейдите по ссылке **Zeppelin Web UI** в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 1. Выберите **Notebook**, затем ![image](../../../_assets/console-icons/plus.svg) **Create new note**.

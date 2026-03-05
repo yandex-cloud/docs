@@ -58,6 +58,9 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %} 
+
+
   To create a connection to a {{ mpg-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -76,7 +79,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -173,7 +176,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -218,6 +221,9 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
+
   To create a connection to a {{ mch-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -236,7 +242,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -333,7 +339,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -378,6 +384,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a {{ mmy-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -396,7 +404,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -493,7 +501,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -536,6 +544,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a {{ mrd-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -554,7 +564,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -651,7 +661,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -695,6 +705,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a {{ mos-name }} cluster, do the following:
 
@@ -799,7 +811,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -844,6 +856,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a {{ mmg-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -862,7 +876,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -959,7 +973,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1012,6 +1026,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a {{ mkf-name }} cluster, do the following:
 
@@ -1138,7 +1154,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1186,6 +1202,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a {{ mgp-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1204,7 +1222,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -1301,7 +1319,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1356,6 +1374,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ PG }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1374,7 +1394,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -1483,7 +1503,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1535,6 +1555,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ CH }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1553,7 +1575,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -1686,7 +1708,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1739,6 +1761,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ MY }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1757,7 +1781,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -1866,7 +1890,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1912,6 +1936,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ RD }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1930,7 +1956,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -2060,7 +2086,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2109,6 +2135,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ VLK }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -2127,7 +2155,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -2236,7 +2264,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2282,6 +2310,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a custom {{ TR }} installation, do the following:
 
@@ -2403,7 +2433,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2451,6 +2481,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a custom {{ OS }} installation, do the following:
 
@@ -2583,7 +2615,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2632,6 +2664,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ MG }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -2650,7 +2684,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -2759,7 +2793,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2819,6 +2853,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a custom {{ KF }} installation, do the following:
 
@@ -2973,7 +3009,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -3027,6 +3063,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ GP }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -3045,7 +3083,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -3154,7 +3192,7 @@ You can create connections of the following types:
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   

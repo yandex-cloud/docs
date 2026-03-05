@@ -14,8 +14,4 @@ Python artifacts are used to distribute libraries, tools, and components you can
 
 #### See also {#see-also}
 
-* [Docker image](./docker-image.md)
-* [{#T}](./art-java.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-binary.md)
+[Supported artifact types](./index.md#artifacts)

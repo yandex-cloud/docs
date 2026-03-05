@@ -5,7 +5,7 @@ description: This guide describes how to create and build a Docker image based o
 
 # Creating a Docker image in {{ cloud-registry-name }}
 
-This guide describes how to create and build a [Docker image](../../concepts/docker-image.md) based on a Dockerfile.
+This guide describes how to create and build a [Docker image](../../concepts/artifacts/docker.md) based on a Dockerfile.
 
 To work with Docker images, [install and configure](installation.md) Docker.
 
@@ -22,7 +22,7 @@ To work with Docker images, [install and configure](installation.md) Docker.
 
      The described Docker image is based on Ubuntu and will execute one simple command.
 
-  1. Assemble the Docker image. For `<registry_ID>`, use the `ID` you got when [creating the registry](../registry/create.md).
+  1. Build the Docker image. For `<registry_ID>`, use the `ID` you got when [creating the registry](../registry/create.md).
 
      ```bash
      docker build . \
@@ -36,4 +36,4 @@ To work with Docker images, [install and configure](installation.md) Docker.
 Once these commands are executed, a Docker image will be created in your repository with the `hello` tag and the full address of the repository, which includes:
 * {{ cloud-registry-name }} address: `{{ cloud-registry }}`.
 * Your registry ID: `<registry_ID>`.
-* Name of your `ubuntu` repository.
+* Name of your repository: `ubuntu`.

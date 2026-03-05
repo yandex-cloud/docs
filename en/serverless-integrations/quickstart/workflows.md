@@ -34,7 +34,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your [service account](../../iam/concepts/users/service-accounts.md).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ iam-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Name the [service account](../../iam/concepts/users/service-accounts.md): `sa-for-function`.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`{{ roles-functions-invoker }}`](../../iam/concepts/access-control/roles.md).
@@ -50,7 +50,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ sf-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Create a function:
         1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Enter the function name: `filter-function`.
@@ -84,7 +84,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ sf-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Create a function:
         1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Enter the function name: `return-function`.
@@ -117,7 +117,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a workflow.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ si-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
     1. In the **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** field, add the specification below. In the `functionId` field:

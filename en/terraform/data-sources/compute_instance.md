@@ -125,6 +125,7 @@ Local disks are not available for all users by default.
 
 
   - `device_name` (*Read-Only*) (String). The name of the local disk device.
+  - `kms_key_id` (String). The ID of the KMS key to encrypt the disk.
   - `size_bytes` (**Required**)(Number). Size of the disk, specified in bytes.
 - `metadata_options` [Block]. Options allow user to configure access to instance's metadata.
   - `aws_v1_http_endpoint` (Number). 

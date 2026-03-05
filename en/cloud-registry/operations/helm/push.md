@@ -1,6 +1,6 @@
 # Pushing a Helm chart to a registry
 
-You can push a [Helm chart](https://helm.sh/docs/topics/charts/) to a [registry](../../concepts/registry.md) in {{ cloud-registry-name }}. {{ cloud-registry-name }} stores Helm charts as [Docker images](../../concepts/docker-image.md).
+You can push a [Helm chart](https://helm.sh/docs/topics/charts/) to a [registry](../../concepts/registry.md) in {{ cloud-registry-name }}. {{ cloud-registry-name }} stores Helm charts as [Docker images](../../concepts/artifacts/docker.md).
 
 {% note info %}
 
@@ -35,11 +35,11 @@ To push a Helm chart:
 
           ```bash
           helm registry login {{ cloud-registry }} -u oauth
-          Password: <OAut_token>
+          Password: <OAuth_token>
           ```
 
      * With an IAM token:
-       1. Get an [IAM token](../../../iam/operations/iam-token/create.md).
+       1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
        1. Run this command:
 
           ```bash
