@@ -1,14 +1,14 @@
 ---
-title: Quotas and limits in {{ mgp-full-name }}
-description: '{{ mgp-full-name }} has quotas and limits. For more information about the service restrictions, read this article.'
+title: '{{ mgp-full-name }} quotas and limits'
+description: '{{ mgp-full-name }} has quotas and limits. For more information about the service limitations, read this article.'
 editable: false
 ---
 
 
-# Quotas and limits in {{ mgp-name }}
+# {{ mgp-name }} quotas and limits
 
 
-{{ mgp-name }} has the following limits:
+{{ mgp-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

@@ -2,7 +2,7 @@ You can migrate a database from {{ GP }} to the {{ PG }} cluster using {{ data-t
 
 To transfer a database from {{ GP }} to {{ PG }}:
 
-1. [Set up the transfer](#prepare-transfer).
+1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 1. [Test copying after reactivation](#example-check-copy).
 
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-In our example, we will create all required resources in {{ yandex-cloud }}. Set up the infrastructure:
+In our example, we will create all required resources in {{ yandex-cloud }}. Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -28,7 +28,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
     1. [Create a {{ GP }} source cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with the `gp-user` admin username and public hosts.
 
-    1. [Create a {{ mpg-full-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) using any suitable configuration with publicly accessible hosts. When creating a cluster, specify:
+    1. [Create a {{ mpg-full-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly accessible hosts. When creating a cluster, specify:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
@@ -37,7 +37,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
     1. If using security groups, make sure they are configured correctly and allow inbound connections to the clusters:
 
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
-        * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -134,7 +134,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Connect to the {{ GP }} cluster](../../../managed-greenplum/operations/connect.md), create a table named `x_tab`, and populate it with data:
+1. [Connect to the {{ GP }} cluster](../../../managed-greenplum/operations/connect/index.md), create a table named `x_tab`, and populate it with data:
 
     ```sql
     CREATE TABLE x_tab
@@ -171,7 +171,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 ## Verify that the copy operation works upon reactivation {#example-check-copy}
 
 1. In the [target endpoint parameters](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings), select either `DROP` or `TRUNCATE` as cleanup policy.
-1. [Connect to the {{ GP }} cluster](../../../managed-greenplum/operations/connect.md).
+1. [Connect to the {{ GP }} cluster](../../../managed-greenplum/operations/connect/index.md).
 1. In the `x_tab` table, delete the row with the `41` ID and update the one with the `42` ID:
 
     ```sql

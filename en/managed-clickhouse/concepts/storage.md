@@ -6,7 +6,7 @@ description: In this article, you will learn about disk types in {{ mch-name }},
 # Storage in {{ mch-name }}
 
 
-{{ mch-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
+{{ mch-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
@@ -118,13 +118,9 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
 
 * With local SSD storage (`local-ssd`), you can create a cluster with two or more hosts.
 
-    This cluster will be fault-tolerant.
-
     Storage on local SSDs increases your cluster costs: you pay for the cluster even if it is stopped. For more information, see the [pricing policy](../pricing.md).
 
 * With non-replicated network SSD storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts.
-
-    This cluster will be fault-tolerant.
 
 * You can add any number of hosts within the current quota when using the following disk types:
 
@@ -146,7 +142,7 @@ For more information about limits on the number of hosts per cluster, see [Quota
 In {{ mch-name }}, if your storage runs out of space, `INSERT` queries, background merges, and mutations are suspended. They will resume automatically after [you expand the storage](../operations/update.md#change-disk-size).
 
 
-To monitor your storage utilization, [set up alerts in {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration).
+To monitor storage utilization, [set up alerts in {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration).
 
 
 ### Automatic storage expansion {#autoscaling}

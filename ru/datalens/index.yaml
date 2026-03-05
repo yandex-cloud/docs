@@ -63,6 +63,6 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
-  - title: DataLens Gallery
+  - title: Галерея в DataLens
     description: Готовые дашборды для вдохновения и решения бизнес-задач
     href: concepts/gallery

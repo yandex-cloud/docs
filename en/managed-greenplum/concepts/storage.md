@@ -7,7 +7,7 @@ description: In this article, you will learn about disk types in {{ mgp-name }} 
 
 
 
-{{ mgp-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
+{{ mgp-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
 {% include [storage-type](../../_includes/mdb/mgp/storage-type.md) %}
 
@@ -15,7 +15,7 @@ In a {{ GP }} cluster, the type of disks for master hosts and segment hosts may 
 
 {% note info %}
 
-When using standard **Intel Ice Lake** hosts, access to local SSD storage is provided on request. If you need one, contact [our support]({{ link-console-support }}) or your account manager.
+When using standard **Intel Ice Lake** hosts, access to local SSD storage is provided on request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 
@@ -24,9 +24,9 @@ When using standard **Intel Ice Lake** hosts, access to local SSD storage is pro
 Local SSDs do not provide fault-tolerant storage and impact the cost of the entire cluster: you are charged for a cluster with this type of storage even if it is stopped. You can find more information in the [pricing policy](../pricing).
 
 
-## Disk space management {#manage-storage-space}
+## Managing disk space {#manage-storage-space}
 
-If any host storage is more than 95% full, the cluster will switch to read-only mode automatically, all DBs get the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting through the `ALTER DATABASE` query.
+When the storage of any host is more than 95% full, {{ mgp-name }} switches the cluster to `read-only` mode. All DBs get the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting through the `ALTER DATABASE` query.
 
 In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
@@ -80,7 +80,7 @@ If the cluster switched to read-only mode:
 
 To disable read-only mode manually, contact [support]({{ link-console-support }}) or follow the steps below:
 
-1. [Connect to the database](../operations/connect.md) using any method of your choice.
+1. [Connect to the database](../operations/connect/index.md) using any method of your choice.
 
 1. Start a transaction and run the following statement within it:
 

@@ -31,7 +31,7 @@ The support cost for this solution includes:
 
 * {{ mos-name }} cluster fee, which covers the use of computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk storage (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
 * Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee, which covers data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Migration using snapshots {#snapshot}
@@ -119,9 +119,9 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     {% include [source-3p](es-mos-migration/source-3p.md) %}
 
-1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
+1. [Install an SSL certificate](../../managed-opensearch/operations/connect/index.md#ssl-certificate).
 
-1. Make sure you can [connect to the target {{ mos-name }} cluster](../../managed-opensearch/operations/connect.md) using the {{ OS }} API and Dashboards.
+1. Make sure you can [connect to the target {{ mos-name }} cluster](../../managed-opensearch/operations/connect/index.md) using the {{ OS }} API and Dashboards.
 
 ### Create a snapshot on the source cluster {#create-snapshot}
 
@@ -151,7 +151,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     ```bash
     curl --request PUT \
-         "https://admin:<admin_user_password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>" \
+         "https://admin:<admin_password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>" \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --data '{
@@ -225,7 +225,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     - {{ OS }} Dashboards {#opensearch}
     
-      1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+      1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
       1. Select the `Global` tenant.
       1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
       1. Under **{{ OS }} Plugins**, select **Index Management**.
@@ -321,7 +321,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
     {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
-1. Make sure you can [connect to the target {{ mos-name }} cluster](../../managed-opensearch/operations/connect.md) using the {{ OS }} API and Dashboards.
+1. Make sure you can [connect to the target {{ mos-name }} cluster](../../managed-opensearch/operations/connect/index.md) using the {{ OS }} API and Dashboards.
 
 
 1. Make sure the source {{ ES }} cluster can access the internet.
@@ -460,7 +460,7 @@ Make sure all indexes have been migrated to the target {{ mos-name }} cluster an
 
 - {{ OS }} Dashboards {#opensearch}
 
-  1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+  1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
   1. Select the `Global` tenant.
   1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
   1. Under **{{ OS }} Plugins**, select **Index Management**.

@@ -8,7 +8,7 @@ To authenticate your [organization's](../../../organization/concepts/organizatio
 
 ## Getting started {#before-you-begin}
 
-Make sure you can [access {{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards) using the `admin` user credentials. For information on how to create and configure an {{ OS }} cluster, see [Creating an {{ OS }} cluster](../../../managed-opensearch/operations/cluster-create.md).
+Make sure you can [access {{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) using the `admin` user credentials. For information on how to create and configure an {{ OS }} cluster, see [Creating an {{ OS }} cluster](../../../managed-opensearch/operations/cluster-create.md).
 
 In this tutorial, we will use the following URL to access the {{ OS }} Dashboards web interface:
 

@@ -57,7 +57,7 @@ If a bucket is registered in an {{ OS }} cluster as a snapshot repository, do no
 
 {% endnote %}
 
-1. [Connect](connect.md) to the cluster.
+1. [Connect](connect/index.md) to the cluster.
 1. Register the bucket as a snapshot repository using the public [{{ OS }} API]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 
     ```http

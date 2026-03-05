@@ -27,10 +27,18 @@ items:
             href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code examples
+            href: operations/connect/code-examples.md
       - name: Databases
         items:
-          - name: Connecting to a database
-            href: operations/connect.md
           - name: Managing databases
             href: operations/databases.md
           - name: Queries in {{ websql-full-name }}
@@ -71,12 +79,16 @@ items:
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
+          - name: gp_relaccess_stats
+            href: operations/extensions/gp_relaccess_stats.md
           - name: gp_relsizes_stats
             href: operations/extensions/gp-relsizes-stats.md
           - name: gp_url_tools
             href: operations/extensions/gp-url-tools.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: try_convert
+            href: operations/extensions/try_convert.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
           - name: Yezzey

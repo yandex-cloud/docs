@@ -55,7 +55,7 @@ To update these settings, contact [support]({{ link-console-support }}).
 
 ## Installing gp_relsizes_stats in a {{ GP }} cluster {#extension-install}
 
-1. [Connect](../connect.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
+1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
 
     ```sql
     CREATE EXTENSION gp_relsizes_stats;

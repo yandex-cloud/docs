@@ -52,3 +52,5 @@ Coordinators store sharding rules in a QDB database running on `INFRA` or `COORD
 
 Using a coordinator, you can create or edit sharding rules for all routers at the same time. If you change the rules on one of the coordinators, the other coordinators and routers will get this update.
 
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

@@ -16,6 +16,8 @@ items:
         href: operations/cluster-update.md
       - name: Managing shards
         href: operations/shards.md
+      - name: Maintenance
+        href: operations/cluster-maintenance.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
   - name: Concepts

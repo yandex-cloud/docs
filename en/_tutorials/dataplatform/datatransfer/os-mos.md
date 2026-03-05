@@ -1,7 +1,7 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Proceed as follows:
+With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. To do this:
 
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
@@ -150,7 +150,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
 ## Configure the target cluster {#configure-target}
 
-1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
 1. Optionally, create a user to run the transfer.
 
@@ -219,7 +219,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
     - {{ OS }} Dashboards {#opensearch}
 
-      1. [Connect](../../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+      1. [Connect](../../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
       1. Select the `Global` tenant.
       1. Open the management panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
       1. Under **OpenSearch Dashboards**, select **Discover**.

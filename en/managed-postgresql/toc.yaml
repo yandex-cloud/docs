@@ -151,9 +151,11 @@ items:
             href: tutorials/data-migration.md
           - name: Migrating a database from {{ mpg-name }}
             href: tutorials/outbound-replication.md
+          - name: Migrating a {{ mpg-name }} cluster to another version
+            href: tutorials/postgresql-versions.md
           - name: >-
-              Creating a logical replica of Amazon RDS for {{ PG }} in {{
-              mpg-name }}
+              Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
+              }}
             href: tutorials/logical-replica-from-rds.md
           - name: >-
               Migrating a database from {{ mpg-full-name }} to {{

@@ -13,7 +13,7 @@ User authentication in {{ mgp-name }} is set up under **{{ ui-key.yacloud.greenp
 
 For more information about these limitations, see [Authentication rule settings](#auth-settings).
 
-Each authentication rule determines the connection type, DB name, user name or user group name, host FQDN or IP range to connect from, and authentication method. Rules are read from top to bottom, and the first suitable one is applied for authentication. If authentication based on the first suitable rule fails, other rules are not applied.
+Each authentication rule determines the connection type, DB name, user name or user group name, host FQDN or IP range to connect from, and authentication method. Rules are read from top to bottom, and the first suitable one is applied for authentication. If authentication based on the first suitable rule fails, other rules do not apply.
 
 If no authentication rules are set, the default rule is used; it allows authentication for all users in any database and from any host using the `md5` method (password-based authentication). If the authentication rules are set, the default rule is read last.
 
@@ -45,8 +45,8 @@ As an address, you can use a host's FQDN, IP range, or the special `all` value t
 
 The following authentication methods are supported:
 
-* `md5`: Password-based authentication. For more information, see [this {{ PG }} guide]({{ pg-docs }}/auth-password.html).
-* `iam`: [IAM-based authentication](../operations/connect.md#iam).
+* `md5`: Password-based authentication. For more information, see [this {{ PG }} article]({{ pg-docs }}/auth-password.html).
+* `iam`: [IAM-based authentication](../operations/connect/clients.md#iam).
 * `reject`: User connection is not allowed.
 
 You can learn more about these settings in [this {{ PG }} guide]({{ pg-docs }}/auth-pg-hba-conf.html).

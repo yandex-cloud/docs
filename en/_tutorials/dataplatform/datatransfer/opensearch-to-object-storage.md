@@ -33,7 +33,7 @@ Set up your infrastructure:
 
     1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
     1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
@@ -89,7 +89,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. [Connect to the {{ mos-name }} source cluster](../../../managed-opensearch/operations/connect.md).
+1. [Connect to the {{ mos-name }} source cluster](../../../managed-opensearch/operations/connect/index.md).
 
 1. Create a test index named `people` and define its schema:
 
@@ -153,7 +153,7 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`.
 
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`

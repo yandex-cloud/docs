@@ -46,7 +46,7 @@ Configuration types:
   {% endnote %}
 
 
-| Host class name | Number of CPUs | CPU performance | RAM, GB | Disk <br>size, GB |
+| Host class name | Number of vCPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
 | **Intel Broadwell**                                                                          |
 | b1.medium         | 2              | 50%                    | 4       | 10–512               |

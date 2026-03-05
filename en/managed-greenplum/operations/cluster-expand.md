@@ -48,7 +48,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
                 {% include [updating-short](../../_includes/mdb/mgp/expand/updating-short.md) %}
 
-        * **{{ ui-key.yacloud.greenplum.field_expand-duration }}**: [Timeout (in seconds) after which the data redistribution process will be interrupted](../concepts/expand.md#setting-duration).
+        * **{{ ui-key.yacloud.greenplum.field_expand-duration }}**: [Timeout after which the data redistribution process will be interrupted, in seconds](../concepts/expand.md#setting-duration).
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -104,7 +104,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-delay-redistribution](../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
 
-        * `--duration-seconds`: [Timeout (in seconds) after which the data redistribution process will be interrupted](../concepts/expand.md#setting-duration).
+        * `--duration-seconds`: [Timeout after which the data redistribution process will be interrupted, in seconds](../concepts/expand.md#setting-duration).
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -116,7 +116,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -152,7 +152,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-        * `duration`: [Timeout](../concepts/expand.md#setting-duration) (in seconds) after which the data redistribution process will be interrupted.
+        * `duration`: [Timeout](../concepts/expand.md#setting-duration) after which the data redistribution process will be interrupted, in seconds.
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -172,13 +172,13 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Expand](../api-ref/grpc/Cluster/expand.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Expand](../api-ref/grpc/Cluster/expand.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -214,7 +214,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-        * `duration`: [Timeout](../concepts/expand.md#setting-duration) (in seconds) after which the data redistribution process will be interrupted.
+        * `duration`: [Timeout](../concepts/expand.md#setting-duration) after which the data redistribution process will be interrupted, in seconds.
 
             {% include [setting-expand-duration](../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
@@ -248,7 +248,7 @@ There are several ways to monitor the [data redistribution process](../concepts/
 
     To track the progress of the data redistribution process using SQL queries:
 
-    1. [Connect](connect.md) to the `postgres` database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
+    1. [Connect](connect/index.md) to the `postgres` database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
     1. Run a query to get the current process status:
 
         {% include [sql-redistribution-status](../../_includes/mdb/mgp/expand/sql-redistribution-status.md) %}
@@ -275,7 +275,7 @@ If you need to, you can change the rank for one or more tables provided the clus
 
 To edit the ranks of redistributed tables:
 
-1. [Connect](connect.md) to the `postgres` database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
+1. [Connect](connect/index.md) to the `postgres` database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
 
 1. Run a query to get the current status of the data redistribution process:
 
@@ -304,7 +304,7 @@ This will leave some of the data distributed unevenly. As a result, the `Unknown
     1. [Get detailed information about a cluster](cluster-list.md#get-cluster).
     1. Multiply the number of segments per host by the number of segment hosts.
 
-1. [Connect](connect.md) to the database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
+1. [Connect](connect/index.md) to the database as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
 
 1. Find tables with unevenly distributed data:
 

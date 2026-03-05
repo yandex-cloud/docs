@@ -17,10 +17,17 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
 
+## Connection {#connect}
+
+* [Pre-configuring a cluster connection](./connect/index.md)
+* [FQDNs of hosts](./connect/fqdn.md)
+* [Connecting to a cluster from applications](./connect/clients.md)
+* [Code examples for connecting to a cluster](./connect/code-examples.md)
+
 ## Databases {#databases}
 
-* [{#T}](connect.md)
 * [{#T}](databases.md)
+* [{#T}](web-sql-query.md)
 
 ## Users and sessions {#users-and-sessions}
 

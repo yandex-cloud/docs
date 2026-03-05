@@ -1,4 +1,4 @@
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. To do this:
 
 1. [Prepare your test data](#prepare-data).
 1. [Set up and activate the transfer](#prepare-transfer).
@@ -34,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
+            * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
     - {{ TF }} {#tf}
 
@@ -218,7 +218,7 @@ Make sure data from the {{ mkf-name }} source cluster topic is being transferred
 
 1. Make sure the data from the {{ mkf-name }} source cluster has been transferred to the {{ GP }} database:
 
-    1. [Connect to the {{ GP }} database](../../../managed-greenplum/operations/connect.md).
+    1. [Connect to the {{ GP }} database](../../../managed-greenplum/operations/connect/index.md).
     1. Check that the database contains a table named `sensors` with the test data from the topic:
 
         ```sql

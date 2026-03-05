@@ -52,7 +52,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
   
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#security-groups) to be able connect to the cluster.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#security-groups) to be able connect to the cluster.
 
 
   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure your `{{ OS }}` [host group](../concepts/host-roles.md):
@@ -76,7 +76,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
-          * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+          * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
           To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
@@ -90,7 +90,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the number of hosts to create.
 
       
-      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect.md) to hosts over the internet.
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect/index.md) to hosts over the internet.
 
           {% note tip %}
 
@@ -107,7 +107,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the number of hosts to create.
         
       
-      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect.md) to hosts over the internet.
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect/index.md) to hosts over the internet.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
 
@@ -223,7 +223,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           * `max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see [this {{ OS }} guide]({{ os.docs }}/query-dsl/compound/bool/).
           * `fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see [this {{ OS }} guide]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-          * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value as `<host_address>:<port>`. If you need to specify more than one host, list values separated by commas. For more information, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+          * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
@@ -257,7 +257,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
         config {
 
           version        = "<{{ OS }}_version>"
-          admin_password = "<admin_password>"
+          admin_password = "<admin_user_password>"
 
           opensearch {
             node_groups {
@@ -336,8 +336,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `roles`: Host roles, `DATA` and `MANAGER`.
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) (for stopped clusters as well):
           * `type`: Maintenance type. The possible values include:
-              * `ANYTIME`: At any time.
-              * `WEEKLY`: On schedule.
+              * `ANYTIME`: Any time.
+              * `WEEKLY`: On a schedule.
           * `day`: Day of week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
           * `hour`: Time of day (UTC) in `HH` format for the `WEEKLY` type, e.g., `21`.
 
@@ -355,7 +355,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -454,10 +454,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       Where:
 
-      * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folderId`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where your cluster will be deployed.
 
       
       * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
@@ -495,7 +495,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `subnetIds`: List of subnet IDs.
 
                   
-                  * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+                  * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
                   * `diskSizeAutoscaling`: Automatic storage expansion settings:
@@ -522,7 +522,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
 
 
-          * `dashboardsSpec`: `Dashboards` host group settings that contain the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
+          * `dashboardsSpec`: `Dashboards` host group settings. These contain the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
 
           
           * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
@@ -549,11 +549,11 @@ When creating a cluster, you need to specify individual parameters for each [hos
           --data "@body.json"
       ```
 
-  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -656,14 +656,14 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where your cluster will be deployed.
 
       
       * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
       * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
 
-      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
         Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
@@ -694,7 +694,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `subnet_ids`: List of subnet IDs.
 
                   
-                  * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+                  * `assign_public_ip`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
                   * `disk_size_autoscaling`: Automatic storage expansion settings:
@@ -721,7 +721,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
 
 
-          * `dashboards_spec`: `Dashboards` host group settings that contain the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
+          * `dashboards_spec`: `Dashboards` host group settings. These contain the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
 
           
           * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
@@ -729,7 +729,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
-              The possible setting values are `true` or `false`.
+              The possible values are `true` or `false`.
 
 
       * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
@@ -758,7 +758,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another one created earlier. To do this, import the original {{ OS }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is useful when you need to replicate an {{ OS }} cluster with multiple settings.
+You can create an {{ OS }} cluster with the settings of another one created earlier. Do this by importing the original {{ OS }} cluster configuration into {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ OS }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ OS }} cluster copy:
 
@@ -809,11 +809,11 @@ To create an {{ OS }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
-    1. Make sure the {{ TF }} configuration files are correct:
+    1. Validate your {{ TF }} configuration:
 
         ```bash
         terraform validate
