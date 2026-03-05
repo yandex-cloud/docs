@@ -6,7 +6,7 @@ description: Follow this guide to push a binary artifact to a registry in {{ clo
 # Pushing a binary artifact to a registry
 
 1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. To push a [binary artifact](../../concepts/art-binary.md), use a POST [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP) request:
+1. To push a [binary artifact](../../concepts/artifacts/binary.md), use a POST [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP) request:
 
     ```bash
     curl \

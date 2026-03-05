@@ -19,7 +19,7 @@ The `x-yc-apigateway` extension allows you to set top-level API gateway paramete
  `validator`             | `ValidatorObject` | [HTTP request and response validator](validator.md#validator_object) or a link to it. It can be overridden at the level of a specific operation. 
  `cors`                  | `CorsRuleObject`  | [Rule for handling CORS preflight requests](cors.md#corsrule_object) or a link to it. It can be overridden at the level of a specific path. 
  `rateLimit`             | `RateLimitObject` | [Request rate limit](rate-limit.md#rate_limit_object) or a link to it. It can be overridden at the level of a specific path and/or operation. 
- `ignoreTrailingSlashes` | `boolean`         | If `true`, {{ api-gw-name }} ignores the trailing slash (`/`) in the request URL; otherwise, it uses the exact URL path to search for a handler in the OpenAPI specification. The default value is `true`.
+ `ignoreTrailingSlashes` | `boolean`         | If `true`, {{ api-gw-name }} ignores the trailing slash (`/`) in the request URL; otherwise, it is sensitive to its presence or absence when searching for a handler in the OpenAPI specification. The default value is `true`.
  `securityProfileId`     | `string`          | {{ sws-name }} [profile](../../../smartwebsecurity/concepts/profiles.md) ID.
 
 ### Extension specification {#tl-spec}

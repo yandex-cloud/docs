@@ -170,7 +170,7 @@
 Убедитесь, что данные перенеслись из базы данных {{ ydb-name }} в бакет {{ objstorage-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Выберите бакет из списка.
 1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
 1. Проверьте, что бакет {{ objstorage-name }} содержит папку `from_YDB` с объектом `<seasons.csv>` с тестовыми данными.

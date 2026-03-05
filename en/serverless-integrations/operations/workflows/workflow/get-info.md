@@ -3,14 +3,14 @@ title: How to get information about a workflow
 description: Follow this guide to get information about a {{ sw-full-name }} workflow.
 ---
 
-# Getting information about a workflow
+# Getting workflow info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [workflow](../../../concepts/workflows/workflow.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select a workflow. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the workflow.
 
@@ -20,7 +20,7 @@ description: Follow this guide to get information about a {{ sw-full-name }} wor
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to view information about a [workflow](../../../concepts/workflows/workflow.md):
+  1. See the description of the CLI command for viewing [workflow](../../../concepts/workflows/workflow.md) info:
 
       ```bash
       yc serverless workflow get --help

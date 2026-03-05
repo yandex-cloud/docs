@@ -7,7 +7,7 @@ description: Follow this guide to delete a connector.
 
 {% note info %}
 
-You cannot delete a connector if deletion protection is enabled. Before deleting the rule, [disable](update.md) the protection.
+You cannot delete a connector if deletion protection is enabled. Before deleting the connector, [disable](update.md) the protection.
 
 {% endnote %}
 
@@ -16,7 +16,7 @@ You cannot delete a connector if deletion protection is enabled. Before deleting
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [connector](../../../concepts/eventrouter/connector.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
@@ -79,7 +79,7 @@ You cannot delete a connector if deletion protection is enabled. Before deleting
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter connector list

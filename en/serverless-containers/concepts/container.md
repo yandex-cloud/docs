@@ -92,7 +92,7 @@ In some cases, the service may [forcibly terminate](long-lived-containers.md#pos
 
 {{ serverless-containers-name }} supports the following container operation modes:
 
-Operation mode | How it works | Result returned when a container is invoked successfully | Data on the HTTP request to a container | Constraints
+Operation mode | How it works | Result returned when a container is invoked successfully | Data on the HTTP request to a container | Limitations
 --- | --- | --- | --- | ---
 **HTTP server** | HTTP requests to the container are received by an HTTP server, which must be running on the port specified in the `PORT` [environment variable](runtime.md#environment-variables). {{ serverless-containers-name }} sets the variable value automatically. | An HTTP response received from the HTTP server. When forwarded to the container, some HTTP response headers [get modified](invoke.md#filter) | Provided in an HTTP request to the HTTP server | —
 **Commands** | Each HTTP request to the container initiates the `ENTRYPOINT` instructions from a Dockerfile or the commands set when [creating a revision](../operations/manage-revision.md). If the commands are set, they will override the `ENTRYPOINT` instructions from Dockerfile | Response code 200 and termination code in the `X-Task-Exit-Code` response header | Specified in the file located at the path from the`REQUEST_PATH` environment variable | Maximum number of concurrent requests to a single container instance: 1

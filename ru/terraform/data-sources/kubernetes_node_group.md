@@ -86,6 +86,7 @@ output "my_node_group.status" {
   - `placement_policy` [Block]. The placement policy configuration.
     - `placement_group_id` (**Required**)(String). Specifies the id of the Placement Group to assign to the instances.
   - `platform_id` (String). The ID of the hardware platform configuration for the node group compute instances.
+  - `reserved_instance_pool_id` (String). ID of the reserved instance pool.
   - `resources` [Block]. Instance resource configuration.
     - `core_fraction` (Number). Baseline core performance as a percent.
     - `cores` (Number). Number of CPU cores allocated to the instance.
@@ -118,6 +119,7 @@ output "my_node_group.status" {
   - `fixed_scale` [Block]. Scale policy for a fixed scale node group.
     - `size` (Number). The number of instances in the node group.
 - `status` (*Read-Only*) (String). Status of the Kubernetes node group.
+- `variables` (Map Of String). Variables for templating as key/value pairs.
 - `version_info` (*Read-Only*) (List Of Object). Information about Kubernetes node group version.
   - `current_version` . 
   - `new_revision_available` . 

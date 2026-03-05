@@ -32,7 +32,7 @@
 - Консоль управления {#console} 
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `webserver-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -107,7 +107,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя `webserver-sg`.
@@ -312,7 +312,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Нажмите **{{ ui-key.yacloud.dns.button_zone-create }}**.
       1. Задайте настройки зоны, соответствующие вашему домену:
 
@@ -363,7 +363,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Выберите созданную ранее DNS-зону.
       1. Нажмите **{{ ui-key.yacloud.dns.button_record-set-create }}**.
       1. Задайте параметры записи:
@@ -417,7 +417,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Нажмите **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите `mymanagedcert`.
       1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена, например `example.com`.
@@ -474,7 +474,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
         1. В списке сертификатов выберите `mymanagedcert`.
         1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** выберите `CNAME-запись`.
         1. В секции первого домена ниже нажмите **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** и в открывшемся окне нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -632,7 +632,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета, например `cdn-source-bucket`.
       1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** укажите `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -751,7 +751,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Выберите созданный ранее бакет.
       1. В правом верхнем углу страницы нажмите ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите созданные файлы `index.html` и `content.jpg`.
       1. В открывшемся окне подтвердите загрузку объектов.
@@ -800,7 +800,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Нажмите **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
       * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
@@ -905,7 +905,7 @@
 
   1. [Получите](../../cdn/operations/resources/get-resources-info.md#get-cname) значение доменного имени провайдера CDN.
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите созданную ранее DNS-зону.
   1. Нажмите **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:

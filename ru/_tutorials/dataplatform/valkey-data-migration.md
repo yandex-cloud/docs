@@ -329,8 +329,8 @@
 
 ## Убедитесь, что дамп полностью восстановлен {#check-data}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно восстановить кластер.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно восстановить кластер.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-valkey/operations/monitoring.md).
 
 Обратите внимание на график **DB Keys**, отображающий количество ключей, хранящихся в кластере. Если кластер [шардированный](../../managed-valkey/concepts/sharding.md), на графике будет выводиться количество ключей в каждом шарде. В этом случае количество ключей в кластере равно суммарному количеству ключей в шардах.

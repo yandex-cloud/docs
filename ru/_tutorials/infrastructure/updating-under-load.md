@@ -30,7 +30,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-load`.
      1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor).
@@ -87,7 +87,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `yc-auto-network`.
      1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -164,7 +164,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать группу ВМ.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
      1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -266,7 +266,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Нажмите на имя группы ВМ `group-for-load`.
 
@@ -303,7 +303,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать балансировщик.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `load-generator`.
      1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите `{{ ui-key.yacloud.common.label_auto }}`.
@@ -372,7 +372,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сетевой балансировщик.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Нажмите на имя сетевого балансировщика `load-generator`.
 
    - CLI {#cli}
@@ -406,7 +406,7 @@
    - Консоль управления {#console}
    
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Скопируйте **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** балансировщика `load-generator`.
      
    - CLI {#cli}
@@ -451,7 +451,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Нажмите на имя группы ВМ `group-for-load`.
   1. Нажмите кнопку ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -530,24 +530,24 @@ Transfer/sec:     206.94B
 
    1. Удалите балансировщик нагрузки:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик нагрузки.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
       1. Справа в строке балансировщика `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.remove }}**.
       1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.remove }}**.
    1. Удалите группу ВМ:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
       1. Справа в строке группы `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
       1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Удалите сервисный аккаунт:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. В открывшемся списке в строке с сервисным аккаунтом `yc-auto-sa` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. В открывшемся окне нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
    1. Удалите сеть и подсети:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сеть и подсети.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Выберите сеть `yc-auto-network`.
       1. В блоке **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**:
          1. Справа в строке подсети `yc-auto-subnet-1` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.

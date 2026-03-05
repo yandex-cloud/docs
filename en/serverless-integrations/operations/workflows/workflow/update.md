@@ -10,7 +10,7 @@ description: Follow this guide to update a workflow.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to update a [workflow](../../../concepts/workflows/workflow.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the workflow row and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Update workflow parameters in the YaML specification or using the constructor. For more information about configuring workflow steps using the constructor, see [{#T}](../constructor/index.md).

@@ -27,7 +27,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. В строке с вашим кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите версию 3.6.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -160,7 +161,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Нажмите на имя нужного кластера.
     1. В верхней части экрана нажмите кнопку **Мигрировать**.
     1. Выберите [платформу](../../compute/concepts/vm-platforms.md), тип хостов и класс хостов для контроллеров {{ kraft-short-name }}.

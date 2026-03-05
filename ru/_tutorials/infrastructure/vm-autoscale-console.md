@@ -25,7 +25,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**. В открывшемся окне:
         * В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-autoscale`.
         * Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `compute.editor` и `load-balancer.editor`.
@@ -79,7 +79,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** задайте имя сети `yc-auto-network`.
      1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -161,7 +161,8 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
+     1. Откройте [консоль управления]({{ link-console-main }}).
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Откройте вкладку **Группы безопасности**.
      1. Создайте группу безопасности для балансировщика:
         1. Нажмите кнопку **Создать группу**.
@@ -285,7 +286,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. На панели слева нажмите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Выберите группу ВМ `auto-group`.
 
@@ -321,7 +322,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать балансировщик.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
      1. Укажите имя — `group-balancer`.
      1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** укажите `{{ ui-key.yacloud.common.label_auto }}`.
@@ -375,7 +376,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Выберите балансировщик `group-balancer`.
 
    - CLI {#cli}

@@ -6,7 +6,7 @@ description: Follow this guide to set up NuGet.
 # Setting up NuGet
 
 1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. Set up the [NuGet](../../concepts/art-nuget.md) configuration file:
+1. Set up the [NuGet](../../concepts/artifacts/nuget.md) configuration file:
 
     {% list tabs %}
 

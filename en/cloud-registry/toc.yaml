@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Creating a registry
         href: operations/registry/create.md
+      - name: Creating a lifecycle policy
+        href: operations/lifecycle-policy/create.md
       - name: Managing artifacts
         items:
           - name: Docker image
@@ -59,6 +61,8 @@ items:
     items:
       - name: Running a Docker image on a VM using {{ cloud-registry-name }}
         href: tutorials/docker-cloud-registry.md
+      - name: Configuring lifecycle policies
+        href: tutorials/lifecycle-policy-examples.md
   - name: Concepts
     items:
       - name: Overview
@@ -68,19 +72,23 @@ items:
       - name: Artifacts
         items:
           - name: Overview
-            href: concepts/artifacts.md
+            href: concepts/artifacts/index.md
           - name: Docker image
-            href: concepts/docker-image.md
+            href: concepts/artifacts/docker.md
           - name: Java artifact
-            href: concepts/art-java.md
+            href: concepts/artifacts/java.md
           - name: Node.js artifact
-            href: concepts/art-nodejs.md
+            href: concepts/artifacts/nodejs.md
           - name: NuGet artifact
-            href: concepts/art-nuget.md
+            href: concepts/artifacts/nuget.md
           - name: Python artifact
-            href: concepts/art-python.md
+            href: concepts/artifacts/python.md
           - name: Binary artifact
-            href: concepts/art-binary.md
+            href: concepts/artifacts/binary.md
+      - name: Lifecycle policy
+        href: concepts/lifecycle-policy.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

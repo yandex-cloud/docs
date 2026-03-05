@@ -59,6 +59,13 @@ Automatic recalculation of modified and newly created dictionary and semantic [t
 {% include [usd-model.md](../_pricing/speechsense/usd-model-assistant.md) %}
 
 
+### Cost of manually recalculating pro tags and assistants {#price-recalc}
+
+
+
+{% include [usd-recalc.md](../_pricing/speechsense/usd-recalc.md) %}
+
+
 ### Cost calculation example for audio analysis {#price-example-speech}
 
 

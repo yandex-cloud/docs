@@ -16,6 +16,7 @@ With {{ sf-name }}, you can run applications written in [Python](https://python.
 | python39 | 3.9.11 | Ubuntu 18.04 | No | No |
 | python311 | 3.11.0 | Ubuntu 18.04 | Yes | No |
 | python312 | 3.12.0 | Ubuntu 22.04 LTS | Yes | Yes |
+| python314 | 3.14.0 | Ubuntu 22.04 LTS | Yes | Yes |
 
 {% include [note-preload-runtime](../../../_includes/functions/note-preload-runtime.md) %}
 

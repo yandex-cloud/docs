@@ -7,6 +7,7 @@ description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
 
 * [{#T}](s2s-vpn.md)
 * [{#T}](ghost-cms-cloudapp.md)
+* [{#T}](wordpress-cloudapp.md)
 
 ## Using {{ marketplace-name }} products in {{ managed-k8s-full-name }} {#marketplace-tutorials}
 

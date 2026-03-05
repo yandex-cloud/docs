@@ -18,7 +18,7 @@ To [send](../../../concepts/eventrouter/sending-events.md) events directly to a 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) with the bus you need.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![object-align-center-vertical](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. In the top panel, click ![comment-plus](../../../../_assets/console-icons/comment-plus.svg) **{{ ui-key.yacloud.serverless-event-router.button_send-event }}**.

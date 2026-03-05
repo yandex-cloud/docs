@@ -1,6 +1,6 @@
 ---
 title: '{{ metadata-hub-full-name }} use cases'
-description: Different use cases for {{ schema-registry-name }} in {{ yandex-cloud }}.
+description: Various {{ schema-registry-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ metadata-hub-full-name }} tutorials
@@ -15,6 +15,10 @@ description: Different use cases for {{ schema-registry-name }} in {{ yandex-clo
 * [{#T}](./metastore-import.md)
 * [{#T}](./sharing-tables.md)
 * [{#T}](./metastore-and-spark.md)
+
+## {{ data-catalog-name }} {#data-catalog}
+
+* [{#T}](./ai-studio-data-catalog-integration.md)
 
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

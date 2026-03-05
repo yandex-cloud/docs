@@ -174,6 +174,10 @@ resource "yandex_smartcaptcha_captcha" "demo-captcha-advanced" {
   - `pre_check_type` (String). Basic check type of the captcha.
   - `uuid` (String). Unique identifier of the variant.
 - `security_rule` [Block]. List of security rules.
+  - `description` (String). Optional description of the rule. 0-512 characters long.
+  - `name` (**Required**)(String). Name of the rule. The name is unique within the captcha. 1-50 characters long.
+  - `override_variant_uuid` (String). Variant UUID to show in case of match the rule. Keep empty to use defaults.
+  - `priority` (Number). Priority of the rule. Lower value means higher priority.
   - `condition` [Block]. The condition for matching the rule.
     - `headers` [Block]. Captcha request headers.
       - `name` (**Required**)(String). Name of header (case insensitive).
@@ -273,11 +277,6 @@ filename: yandex/cloud/smartcaptcha/v1/captcha.proto
 
           - `prefix_not_match` (String). package: yandex.cloud.smartcaptcha.v1
 filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-  - `description` (String). Optional description of the rule. 0-512 characters long.
-  - `name` (**Required**)(String). Name of the rule. The name is unique within the captcha. 1-50 characters long.
-  - `override_variant_uuid` (String). Variant UUID to show in case of match the rule. Keep empty to use defaults.
-  - `priority` (Number). Priority of the rule. Lower value means higher priority.
 
 ## Import
 

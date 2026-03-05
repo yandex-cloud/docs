@@ -105,7 +105,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог СИБ](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
@@ -130,7 +130,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог СИБ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**.
 
 {% endlist %}
@@ -234,7 +234,8 @@
 
   Если в вашей инфраструктуре уже используется L7-балансировщик и настроен обработчик с публичным IP-адресом:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите L7-балансировщик.
   1. В блоке **Обработчики** напротив обработчика с публичным IP-адресом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **Приём и обработка трафика** нажмите **Добавить обработчик SNI** и укажите:
@@ -260,7 +261,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог СИБ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите созданный L7-балансировщик.
   1. Слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**. 
    

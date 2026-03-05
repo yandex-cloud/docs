@@ -86,6 +86,23 @@ editable: false
 
 
 
+### Стоимость ручного пересчета pro-тегов и ассистентов {#price-recalc}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-recalc.md](../_pricing/speechsense/rub-recalc.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-recalc.md](../_pricing/speechsense/kzt-recalc.md) %}
+
+{% endlist %}
+
+
+
 ### Пример расчета стоимости анализа аудиозаписей {#price-example-speech}
 
 

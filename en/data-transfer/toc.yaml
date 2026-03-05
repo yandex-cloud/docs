@@ -127,6 +127,8 @@ items:
         items:
           - name: '{{ PG }} cluster'
             href: tutorials/managed-postgresql.md
+          - name: Migrating a {{ mpg-name }} cluster to another version
+            href: tutorials/postgresql-versions.md
           - name: Data in {{ MY }}
             href: tutorials/managed-mysql.md
           - name: Third-party {{ MY }} cluster

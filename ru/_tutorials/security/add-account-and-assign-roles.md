@@ -186,7 +186,7 @@
   1. Перейдите в [консоль управления]({{ link-console-main }}) и на панели слева нажмите на аватар вашего аккаунта.
   1. Выберите организацию `Example organization`.
   1. На панели слева выберите каталог `test-folder`.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}** и задайте настройки ВМ:
 

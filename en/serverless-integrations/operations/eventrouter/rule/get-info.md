@@ -3,14 +3,14 @@ title: How to get information about a rule
 description: Follow this guide to get information about a {{ er-full-name }} rule.
 ---
 
-# Getting information about a rule
+# Getting rule information
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [rule](../../../concepts/eventrouter/rule.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Navigate to the ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}** tab.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
@@ -22,7 +22,7 @@ description: Follow this guide to get information about a {{ er-full-name }} rul
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to view information about a [rule](../../../concepts/eventrouter/rule.md):
+  1. See the description of the CLI command for viewing [rule](../../../concepts/eventrouter/rule.md) info:
 
      ```bash
      yc serverless eventrouter rule get --help

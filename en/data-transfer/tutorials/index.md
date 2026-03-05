@@ -14,7 +14,8 @@ Migration is a task that involves transferring data from one data storage to ano
 
 ![migration](../../_assets/data-transfer/tutorials/migration.svg)
 
-* [Migrating {{ PG }} clusters](managed-postgresql.md)
+* [Migrating {{ PG }}](managed-postgresql.md) clusters
+* [Migrating a {{ mpg-name }} cluster to a different version](postgresql-versions.md)
 * [Migrating {{ MY }} clusters](managed-mysql-to-mysql.md)
 * [Migrating {{ CH }} clusters](managed-clickhouse.md)
 * [Migrating {{ GP }} clusters](managed-greenplum.md)

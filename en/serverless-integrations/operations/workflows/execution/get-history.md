@@ -10,7 +10,7 @@ description: Follow this guide to view detailed information on the progress of e
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the [workflow execution](../../../concepts/workflows/execution.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}** and select a workflow.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** and select an execution.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/timeline.svg) **{{ ui-key.yacloud.serverless-workflows.label_timeline }}**. The **{{ ui-key.yacloud.serverless-workflows.label_timeline }}** page will display the chart of the workflow execution steps.

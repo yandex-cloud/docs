@@ -39,7 +39,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
 
@@ -171,7 +171,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}**.
   1. В открывшемся окне:
 
@@ -316,7 +316,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
   1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -469,7 +469,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
   1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
