@@ -98,7 +98,7 @@ Make sure the {{ mos-name }} cluster receives logs from the {{ managed-k8s-name 
 
 - {{ OS }} Dashboards {#opensearch}
 
-  1. Connect to the {{ mos-name }} cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+  1. Connect to the {{ mos-name }} cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
   1. Select the `Global` tenant.
   1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
   1. Under **{{ OS }} Plugins**, select **Index Management**.

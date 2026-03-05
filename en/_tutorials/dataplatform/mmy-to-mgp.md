@@ -1,6 +1,6 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. Proceed as follows:
+You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -46,7 +46,7 @@ Set up your infrastructure:
     1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
         * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 - Using {{ TF }} {#tf}
 
@@ -89,7 +89,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. [Connect to the `mmy_db` database](../../managed-mysql/operations/connect/index.md) in the {{ mmy-name }} source cluster.
+1. [Connect](../../managed-mysql/operations/connect/index.md) to the `mmy_db` database in the {{ mmy-name }} source cluster.
 
 1. Create a simple table named `table1`:
 
@@ -112,7 +112,7 @@ Set up your infrastructure:
 
 ## Create a database in the target cluster {#prepare-data}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the `postgres` system database in the {{ GP }} target cluster as `mgp_user`.
+1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `postgres` system database in the {{ GP }} target cluster as `mgp_user`.
 
 1. Create a database named `mgp_db`:
 
@@ -177,7 +177,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 ### Test copying {#verify-copy}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the `mgp_db` database in the {{ GP }} target cluster.
+1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `mgp_db` database in the {{ GP }} target cluster.
 
 1. Run this query:
 
@@ -187,7 +187,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 ### Test replication {#verify-replication}
 
-1. [Connect to the `mmy_db` database](../../managed-mysql/operations/connect/index.md) in the {{ mmy-name }} source cluster.
+1. [Connect](../../managed-mysql/operations/connect/index.md) to the `mmy_db` database in the {{ mmy-name }} source cluster.
 
 1. Populate the `table1` table with data:
 
@@ -198,7 +198,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. Check that the added row appears in the target database:
 
-    1. [Connect](../../managed-greenplum/operations/connect.md) to the `mgp_db` database in the {{ GP }} target cluster.
+    1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `mgp_db` database in the {{ GP }} target cluster.
     1. Run this query:
 
         ```sql

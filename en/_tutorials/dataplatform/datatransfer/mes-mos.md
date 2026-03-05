@@ -1,7 +1,7 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. Proceed as follows:
+You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. To do this:
 
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
@@ -146,7 +146,7 @@ You can deliver data from the {{ ES }} cluster as `admin` with the `superuser` r
 
 ## Configure the target cluster {#configure-target}
 
-1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
 1. Optionally, create a user to run the transfer.
 
@@ -214,7 +214,7 @@ Check that the {{ mos-name }} cluster's `people` index contains the data you sen
 
 - {{ OS }} Dashboards {#opensearch}
 
-    1. [Connect](../../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+    1. [Connect](../../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
     1. Select the `Global` tenant.
     1. Open the management panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
     1. Under **OpenSearch Dashboards**, select **Discover**.

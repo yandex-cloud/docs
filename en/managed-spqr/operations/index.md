@@ -14,4 +14,5 @@ keywords:
 * [Updating a cluster](cluster-update.md)
 * [Managing shards](shards.md)
 * [Connecting to a database](connect.md)
+* [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)

@@ -3,10 +3,10 @@ title: Storage in {{ mmg-full-name }}
 description: In this article, you will learn what storage is in {{ mmg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
 ---
 
-# {{ mmg-name }} storage
+# Storage in {{ mmg-name }}
 
 
-{{ mmg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
+{{ mmg-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mmg/storage-type.md) %}
 
@@ -19,9 +19,7 @@ The number of hosts you can create together with a {{ SD }} cluster depends on t
     * Local SSDs (`local-ssd`)
     * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
-   This cluster will be fault-tolerant.
-
-   Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
+   Storage on local SSDs increases your cluster costs: you pay for the cluster even if it is stopped. For more information, see the [pricing policy](../pricing.md).
 
 * You can add any number of hosts within the current quota when using the following disk types:
 
@@ -37,7 +35,7 @@ For more information about limits on the number of hosts per cluster or [shard](
 {% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
 
 
-## Disk space management {#manage-storage-space}
+## Managing disk space {#manage-storage-space}
 
 {% include [mmg-readonly-safeguard.md](../../_includes/mdb/mmg-readonly-safeguard.md) %}
 

@@ -7,6 +7,71 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.197.0 (05.03.26) {#version0.197.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.197.0}
+
+##### {{ alb-name }} {#alb-0.197.0}
+
+Добавлена поддержка клиентских сертификатов в следующих командах:
+* `yc application-load-balancer add-listener`;
+* `yc application-load-balancer add-http-listener`;
+* `yc application-load-balancer add-stream-listener`;
+* `yc application-load-balancer update-listener`;
+* `yc application-load-balancer update-http-listener`;
+* `yc application-load-balancer update-stream-listener`;
+* `yc application-load-balancer add-sni`;
+* `yc application-load-balancer add-http-sni`;
+* `yc application-load-balancer add-stream-sni`;
+* `yc application-load-balancer update-sni`;
+* `yc application-load-balancer update-http-sni`;
+* `yc application-load-balancer update-stream-sni`;
+* `yc application-load-balancer append-http-route`;
+* `yc application-load-balancer prepend-http-route`;
+* `yc application-load-balancer insert-http-route`;
+* `yc application-load-balancer update-http-route`;
+* `yc application-load-balancer append-grpc-route`;
+* `yc application-load-balancer prepend-grpc-route`;
+* `yc application-load-balancer insert-grpc-route`;
+* `yc application-load-balancer update-grpc-route`.
+
+##### {{ baremetal-name }} {#baremetal-0.197.0}
+
+Добавлены команды управления дополнительными приватными подсетями в следующих командах:
+* `yc baremetal server create`;
+* `yc baremetal server update`.
+
+##### {{ dns-name }} {#dns-0.197.0}
+
+Добавлена поддержка описаний DNS-записей в следующих командах:
+* `yc dns zone list-records`;
+* `yc dns zone add-records`;
+* `yc dns zone delete-records`;
+* `yc dns zone replace-records`.
+
+##### {{ org-name }} {#org-0.197.0}
+
+Добавлена поддержка флага `--parameters` в команде `yc organization-manager organization bind-access-policy`.
+
+##### {{ mos-name }} {#managed-opensearch-0.197.0}
+
+Добавлен параметр конфигурации `search_max_buckets` в следующих командах:
+* `yc managed-opensearch cluster create`;
+* `yc managed-opensearch cluster update`.
+
+##### {{ resmgr-name }} {#resmgr-0.197.0}
+
+Добавлена поддержка флага `--parameters` в следующих командах:
+* `yc resource-manager folder bind-access-policy`;
+* `yc resource-manager cloud bind-access-policy`.
+
+##### {{ vpc-name }} {#vpc-0.197.0}
+
+* В команду `yc vpc address create` добавлена возможность создания внутренних IPv4-адресов с помощью параметра `--internal-ipv4 subnet=<subnet>`.
+* В `yc vpc address` добавлена команда `list-by-subnet` для листинга адресов по подсети: `yc vpc address list-by-subnet --subnet-id <subnet-id>`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.196.0 (02.03.26) {#version0.196.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.196.0}
@@ -23,8 +88,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ captcha-full-name }} {#smartcaptcha-0.196.0}
 
 Добавлена поддержка параметра `labels`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.195.0 (26.02.26) {#version0.195.0}
 

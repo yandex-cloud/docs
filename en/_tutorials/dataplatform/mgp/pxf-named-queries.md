@@ -68,7 +68,7 @@ Set up your infrastructure:
          * `mpg_password`: {{ PG }} database user password.
          * `mpg_version`: {{ PG }} version.
 
-    1. To verify that the config files are correct, run the command below:
+    1. To make sure the configuration files are correct, run this command:
 
          ```bash
          terraform validate
@@ -157,7 +157,7 @@ In the {{ GP }} cluster, [create an external data source](../../../managed-green
 
 To create a named query, add it to the `mdb_toolkit.pxf_named_queries` table:
 
-1. [Connect](../../../managed-greenplum/operations/connect.md) to {{ GP }}.
+1. [Connect](../../../managed-greenplum/operations/connect/index.md) to {{ GP }}.
 
 1. Run this query:
 
@@ -196,7 +196,7 @@ To create a named query, add it to the `mdb_toolkit.pxf_named_queries` table:
 
 ## Create an external table and get data from it {#create-ext-table}
 
-1. [Connect](../../../managed-greenplum/operations/connect.md) to {{ GP }}.
+1. [Connect](../../../managed-greenplum/operations/connect/index.md) to {{ GP }}.
 
 1. Create an external table named `pxf_named_query`. It will reference the data the named query retrieves from the `customers` and `orders` tables in the {{ PG }} DB:
 

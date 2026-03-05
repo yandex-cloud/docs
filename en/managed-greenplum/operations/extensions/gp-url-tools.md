@@ -14,7 +14,7 @@ The `gp_url_tools` extension enables you to encode URLs/URIs into a format suppo
 
 ## Installing the gp_url_tools extension in a {{ GP }} cluster {#gp-url-tools-install}
 
-1. [Connect](../connect.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
+1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
 
     ```sql
     CREATE EXTENSION gp_url_tools;
@@ -22,7 +22,7 @@ The `gp_url_tools` extension enables you to encode URLs/URIs into a format suppo
 
     Installing the extension creates a schema named `url_tools_schema` and adds encoding and decoding functions to it.
 
-1. Make sure that the extension is installed:
+1. Make sure the extension has been installed:
 
     ```sql
     SELECT extname FROM pg_extension;

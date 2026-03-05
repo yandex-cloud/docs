@@ -86,7 +86,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         INSERT INTO test VALUES (1);
         ```
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. Create an external table named `pxf_ch` to reference the `test` table in the {{ CH }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -177,7 +177,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         INSERT INTO test VALUES (1, '11'), (2, '22');
         ```
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. Create an external table named `pxf_mysql` to reference the `test` table in the {{ MY }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -251,7 +251,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         INSERT INTO public.test VALUES (1, '11'), (2, '22');
         ```
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. Create an external table named `pxf_pg` to reference the `public.test` table in the {{ PG }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -315,7 +315,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         Files you are uploading to the bucket must not start with `.` or `_`. Such files are considered hidden, and PXF does not read data from them.
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. To read data from an {{ objstorage-name }} bucket:
 
         1. Create an external table named `pxf_s3_read` to reference the bucket. The SQL query depends on whether you previously created an external data source:

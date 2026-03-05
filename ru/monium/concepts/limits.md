@@ -14,7 +14,7 @@ editable: false
 
 ## Ограничения для метрик и алертов
 
-{% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
+{% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
 
 ## Ограничения для трейсов
 

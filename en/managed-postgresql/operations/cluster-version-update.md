@@ -1,6 +1,6 @@
 # {{ PG }} version upgrade
 
-You can upgrade a {{ mpg-name }} cluster to any version up to and including version 18.
+You can upgrade a {{ mpg-name }} cluster to version 18 or lower.
 
 {% note info %}
 
@@ -14,7 +14,7 @@ To upgrade the version, the cluster storage must have at least 10% free space, w
 
 {% endnote %}
 
-You can only upgrade to the next sequential version, e.g., from 14 to 15. Upgrading to later versions is performed in stages. For example, to upgrade {{ PG }} from version 14 to 16, follow this sequence: 14 → 15 → 16.
+You can only upgrade to the next sequential version, e.g., from 14 to 15. Upgrading to subsequent versions must be done incrementally. For example, to upgrade {{ PG }} from version 14 to 16, follow this sequence: 14 → 15 → 16.
 
 In single-host clusters, only the master host is taken offline for upgrades. Such clusters are unavailable for reading and writing during upgrades.
 
@@ -75,7 +75,7 @@ Make sure the upgrade will not disrupt your applications:
      {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
      ```
 
-  1. Run the {{ PG }} upgrade:
+  1. Start the {{ PG }} upgrade:
 
      ```bash
      {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
@@ -86,9 +86,9 @@ Make sure the upgrade will not disrupt your applications:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-       To learn how to create this file, see [Creating a cluster](cluster-create.md).
+       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-       For a complete list of {{ mpg-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+       For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. Add the `version` field to the `cluster_config` section of the target {{ mpg-name }} cluster, or update its value if it already exists:
 
@@ -101,11 +101,11 @@ Make sure the upgrade will not disrupt your applications:
        }
        ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -113,11 +113,11 @@ Make sure the upgrade will not disrupt your applications:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -137,7 +137,7 @@ Make sure the upgrade will not disrupt your applications:
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings you want to update.
+     * `updateMask`: Comma-separated list of settings you want to update.
 
        Here, we provide only one setting.
 
@@ -149,12 +149,12 @@ Make sure the upgrade will not disrupt your applications:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -182,7 +182,7 @@ Make sure the upgrade will not disrupt your applications:
 
      Where:
 
-     * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -200,7 +200,7 @@ Cluster upgrade time depends on the database size.
 
 {% note tip %}
 
-If you encounter issues while upgrading to version 18, contact [technical support]({{ link-console-support }}).
+Contact [support]({{ link-console-support }}) if you have issues upgrading to version 18.
 
 {% endnote %}
 

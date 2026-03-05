@@ -15,7 +15,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
 ## Getting started {#before-you-begin}
 
-1. Make sure you can [access {{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards) using the `admin` user credentials.
+1. Make sure you can [access {{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards) using the `admin` user credentials.
 
     In this tutorial, we will use the following URL to access the {{ OS }} Dashboards web interface:
 
@@ -251,7 +251,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
     To map roles:
 
-    1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to {{ OS }} Dashboards as `admin`.
+    1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to {{ OS }} Dashboards as `admin`.
     1. In the left-hand menu, select **{{ OS }} Plugins** → **Security**.
     1. In the left-hand panel, select **Roles**.
     1. Configure role mapping:
@@ -276,7 +276,7 @@ Upon successful authentication with {{ OS }} Dashboards, the user with the `kc_d
 
     For this, you must use a computer with access to {{ keycloak }}.
 
-1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to {{ OS }} Dashboards.
+1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to {{ OS }} Dashboards.
 
     On the login page, click **Log in with single sign-on** rather than entering your username and password.
 

@@ -13,12 +13,6 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Connection
-            items:
-              - name: Connecting to a cluster
-                href: operations/connect.md
-              - name: Configuring SAML authentication
-                href: operations/saml-authentication.md
           - name: Updating properties
             items:
               - name: Updating cluster settings
@@ -43,13 +37,25 @@ items:
             href: operations/s3-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code examples
+            href: operations/connect/code-examples.md
+          - name: Configuring SAML authentication
+            href: operations/saml-authentication.md
       - name: Managing users
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of a cluster and its hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:

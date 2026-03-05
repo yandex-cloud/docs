@@ -8,7 +8,7 @@
 
     {% note alert %}
 
-    Do not use this example for users created with {{ TF }} as subsequent changes made via {{ TF }} may overwrite privileges granted via SQL.
+    Do not use this example if a user is created using {{ TF }}: subsequent changes made via {{ TF }} may cancel the user's privileges granted through SQL.
 
     {% endnote %}
 
@@ -58,7 +58,11 @@
 
 - {{ TF }} {#tf}
 
+    {% note warning %}
+
     You can only grant user privileges via {{ TF }} in a cluster with publicly accessible hosts.
+
+    {% endnote %}
 
     You can grant user privileges via {{ TF }} using the third-party [{{ TF }} Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
 
@@ -82,7 +86,7 @@
         }
         ```
 
-    1. Open the {{ TF }} configuration file describing your infrastracture.
+    1. Open the {{ TF }} configuration file describing your infrastructure.
     1. Add the `yandex_mdb_postgresql_user` resource:
 
         ```hcl
@@ -130,7 +134,7 @@
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -193,7 +197,7 @@
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

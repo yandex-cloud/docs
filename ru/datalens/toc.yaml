@@ -968,7 +968,7 @@ items:
         href: settings/restrictions.md
       - name: Навигация
         href: settings/navigation.md
-  - name: DataLens Gallery
+  - name: Галерея в DataLens
     href: concepts/gallery.md
   - name: Правила тарификации
     items:

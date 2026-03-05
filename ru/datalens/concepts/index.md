@@ -11,7 +11,7 @@ description: '{{ datalens-full-name }} — это сервис для бизне
 
 
 
-Примеры использования сервиса вы найдете на [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery).
+Примеры использования сервиса вы найдете в [Галерее]({{ link-datalens-main }}/gallery).
 
 
 ## Как устроен {{ datalens-short-name }} {#how-dl-works}

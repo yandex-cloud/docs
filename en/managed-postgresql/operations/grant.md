@@ -1,6 +1,6 @@
 ---
-title: Assigning privileges and roles to {{ PG }} users
-description: In {{ PG }}, individual permissions are called privileges, while groups of permissions are called roles. To learn more about access permissions, see {{ PG }} guides. The user created for a new {{ mpg-name }} cluster is the owner of its first database. You can create more users and configure their permissions as needed.
+title: Assigning privileges and roles to PostgreSQL users
+description: '{{ PG }} manages database access permissions using roles. Roles can own database objects and have privileges. In {{ PG }}, a user is a role that can log in to the database. To learn more about access permissions, see {{ PG }} guides. The user created for a new {{ mpg-name }} cluster is the owner of its first database. You can create more users and configure their permissions as needed.'
 ---
 
 # Assigning privileges and roles to {{ PG }} users
@@ -21,7 +21,7 @@ For more information about [creating users](https://www.postgresql.org/docs/curr
 
 ## Editing user’s roles {#grant-role}
 
-To assign a role to a user, use the {{ yandex-cloud }} interfaces. A role assigned via a `GRANT` statement will be revoked during the next database operation.
+To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` request are canceled during the next database operation.
 
 {% include [users-and-roles](../../_includes/mdb/mpg/users-and-roles.md) %}
 
@@ -43,7 +43,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 - Management console {#console}
 
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. Find the user you want to update in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Expand the **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** list and select the roles you want to assign to the user in the **Grants** field.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
@@ -54,7 +54,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To assign roles to a cluster user, provide the list of required roles in the `--grants` argument. This will completely overwrite the existing roles. To add or remove roles from the current list, you must first retrieve the user’s current roles using the `{{ yc-mdb-pg }} user get` command.
+  To assign roles to a cluster user, provide the list of required roles in the `--grants` parameter. This will completely overwrite the existing roles. To add or remove roles, first, run the `{{ yc-mdb-pg }} user get` command to get the list of current roles together with the user info.
 
   To assign roles, run this command:
 
@@ -72,11 +72,11 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
     1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
         For a complete list of configurable fields of {{ mpg-name }} cluster user accounts, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
-    1. Locate the user's `yandex_mdb_postgresql_user` resource.
+    1. Locate the `yandex_mdb_postgresql_user` resource for the user in question.
     1. Add the `grants` attribute with the list of required roles:
   
         ```hcl
@@ -92,13 +92,13 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -150,7 +150,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -203,7 +203,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
      Where:
 
-     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -231,8 +231,12 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
 - {{ TF }} {#tf}
 
-    You can only grant user privileges via {{ TF }} in a cluster that has publicly accessible hosts.
+    {% note warning %}
 
+    You can only grant user privileges via {{ TF }} in a cluster with publicly accessible hosts.
+
+    {% endnote %}
+  
     You can grant user privileges via {{ TF }} using a third-party tool, [Terraform Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
 
     {% include [pg-provider-disclaimer](../../_includes/mdb/mpg/terraform/pg-provider-disclaimer.md) %}
@@ -255,7 +259,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
     1. Open the {{ TF }} configuration file describing your infrastructure.
   
-        For more information about creating this file, see [this guide](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `postgresql` provider and configure it to access your target database using its owner’s credentials:
 
@@ -293,8 +297,8 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         * `<resource_name>`: Name of the {{ TF }} resource that grants the privileges. This name must be unique within the {{ TF }} manifest.
         * `database`: Name of the target database for granting privileges.
         * `role`: Name of the user receiving the privileges.
-        * `object_type`: Type of the target {{ PG }} object for granting privileges. The possible values are: `database`, `schema`, `table`, `sequence`, `function`, `procedure`, `routine`, `foreign_data_wrapper`, `foreign_server`, `column`.
-        * `privileges`: Array of privileges. The possible values are `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE` and `USAGE`. For privilege descriptions see [this {{ PG }} article](https://www.postgresql.org/docs/current/ddl-priv.html).
+        * `object_type`: Type of {{ PG }} object for which the privileges are granted. Possible values: `database`, `schema`, `table`, `sequence`, `function`, `procedure`, `routine`, `foreign_data_wrapper`, `foreign_server`, `column`.
+        * `privileges`: Array of privileges to grant. The possible values are `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE`, and `USAGE`. For privilege descriptions see [this {{ PG }} article](https://www.postgresql.org/docs/current/ddl-priv.html).
         * `schema`: Target schema for granting privileges. You cannot use this option with the `database` object type.
         * `objects`: Array of target objects for granting privileges. This is an optional argument. If you omit it, the system will grant privileges on all objects of the specified type. You cannot use this option with `database` and `schema` object types. For the `column` object type, the array of target objects cannot contain more than one item.
         * `columns`: Array of target columns for granting privileges. This argument is required for the `column` object type and cannot be used with any other type.
@@ -310,7 +314,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -338,7 +342,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

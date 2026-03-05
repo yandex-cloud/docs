@@ -1,6 +1,6 @@
 ---
 title: Maintenance in {{ mgp-full-name }}
-description: In {{ mgp-name }}, maintenance means automatic installation of DBMS updates and fixes for hosts (including disabled clusters), changing host class and storage size, and other maintenance activities.
+description: In {{ mgp-name }}, maintenance means automatic installation of database updates and patches for hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
 ---
 
 # Maintenance in {{ mgp-name }}
@@ -28,17 +28,17 @@ Non-routine maintenance operations related to cluster recovery can be performed 
 
 ### Maintenance window {#maintenance-window}
 
-You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
+You can set the maintenance window when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
-### Maintenance procedure {#maintenance-order}
+### Maintenance workflow {#maintenance-order}
 
 Maintenance related to software updates is performed as follows:
 
-1. [Segment hosts](index.md) undergo maintenance one by one. The hosts are queued randomly. If a segment host needs to be restarted during maintenance, it becomes unavailable while being restarted.
+1. [Segment hosts](index.md) undergo maintenance one by one. Such hosts are queued randomly. If a segment host needs to be restarted during maintenance, it becomes unavailable while being restarted.
 1. Maintenance is performed on the `STANDBY` master host. If it needs to be restarted during maintenance, it becomes unavailable while being restarted.
-1. Maintenance is performed on the `PRIMARY` master host. If it is restarted during maintenance and becomes unavailable, the standby master host will take its role. If you access a cluster using the FQDN of the primary master host, the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect.md#fqdn-master) always pointing to the primary master host.
+1. Maintenance is performed on the `PRIMARY` master host. If it is restarted during maintenance and becomes unavailable, the standby master host will take its role. If you access a cluster using the FQDN of the primary master host, the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#fqdn-master) always pointing to the primary master host.
 
 ## Routine maintenance operations {#regular-ops}
 
@@ -64,7 +64,7 @@ The default mode is sequential. To switch to concurrent table vacuuming mode, co
 
 The start time and timeout of the `VACUUM` operation are set up when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/update.md).
 
-### Statistics collection {#get-statistics}
+### Collecting statistics {#get-statistics}
 
 Statistics collection (the `ANALYZE` operation) is performed after the vacuuming of tables (if [background data redistribution](../concepts/expand.md#setting-delay-redistribution) is not in progress). Databases are handled concurrently in two threads. In addition, two threads are run to collect table statistics in each database. As a result, statistics can be collected in four threads.
 

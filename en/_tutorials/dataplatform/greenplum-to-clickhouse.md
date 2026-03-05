@@ -11,15 +11,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mgp-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mgp-name }} cluster, which includes computing resources allocated to hosts, as well as the storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, as well as the storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-In our example, we will create all required resources in {{ yandex-cloud }}. Set up the infrastructure:
+In our example, we will create all required resources in {{ yandex-cloud }}. Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -33,7 +33,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
     1. If using security groups, make sure they are configured correctly and allow inbound connections to the clusters.
 
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 
     1. Create a `{{ CH }}` [target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md). In the endpoint [settings](../../data-transfer/operations/endpoint/target/clickhouse.md#additional-settings), specify `Drop` or `Truncate` as the cleanup policy to prevent duplication of copied data.
@@ -60,7 +60,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
         * {{ mch-name }} target cluster.
         * Target endpoint.
 
-    1. In the `greenplum-clickhouse.tf` file, specify the following:
+    1. In `greenplum-clickhouse.tf`, specify the following:
 
         * `mgp_password`: {{ GP }} admin password.
         * `mch_db`: {{ CH }} database name.
@@ -93,7 +93,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Connect to the {{ GP }} cluster](../../managed-greenplum/operations/connect.md), create a table named `x_tab`, and populate it with data:
+1. [Connect to the {{ GP }} cluster](../../managed-greenplum/operations/connect/index.md), create a table named `x_tab`, and populate it with data:
 
     ```sql
     CREATE TABLE x_tab
@@ -129,7 +129,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Verify that the copy operation works upon reactivation {#example-check-copy}
 
-1. [Connect to the {{ GP }} cluster](../../managed-greenplum/operations/connect.md). Then, in the `x_tab` table, delete one row and update another:
+1. [Connect to the {{ GP }} cluster](../../managed-greenplum/operations/connect/index.md). Then, in the `x_tab` table, delete one row and update another:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;
@@ -154,18 +154,18 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Delete](../../managed-clickhouse/operations/cluster-delete.md) the {{ mch-name }} cluster.
-        1. [Delete](../../managed-greenplum/operations/cluster-delete.md) the {{ GP }} cluster.
+        1. [Delete the {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md) cluster.
+        1. [Delete the {{ GP }}](../../managed-greenplum/operations/cluster-delete.md) cluster.
         1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
     - {{ TF }} {#tf}

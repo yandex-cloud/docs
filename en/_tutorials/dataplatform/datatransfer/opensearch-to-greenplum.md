@@ -32,12 +32,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
+    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) using any suitable configuration with publicly accessible hosts.
     1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration. When creating your cluster:
         * Enable public access for the hosts.
         * Enable **Data Transfer access**.
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
-    1. Make sure the [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) and [{{ GP }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups) cluster security groups allow connecting from the internet.
+    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. Make sure the [{{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups) and [{{ GP }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups) cluster security groups allow connecting from the internet.
 
 - {{ TF }} {#tf}
 
@@ -199,7 +199,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure the data from the source {{ mos-name }} cluster has been transferred to the {{ mgp-name }} cluster:
 
-   1. [Get an SSL certificate](../../../managed-greenplum/operations/connect.md#get-ssl-cert) to connect to the {{ GP }} cluster.
+   1. [Get an SSL certificate](../../../managed-greenplum/operations/connect/index.md#get-ssl-cert) to connect to the {{ GP }} cluster.
    1. Install the dependencies:
 
       ```bash
