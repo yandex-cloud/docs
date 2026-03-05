@@ -30,10 +30,10 @@ To get started in {{ yandex-cloud }}:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `sa-for-eventrouter`.
+    1. Name the [service account](../../iam/concepts/users/service-accounts.md): `sa-for-eventrouter`.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `serverless.workflows.executor`, [ymq.reader](../../iam/roles-reference.md#ymq-reader), and [ymq.writer](../../iam/roles-reference.md#ymq-writer) roles.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**. 
 
@@ -45,7 +45,7 @@ To get started in {{ yandex-cloud }}:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. Open your [management console]({{ link-console-main }}) and [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
     1. Enter a name for the queue: `sample-queue`.
     1. Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` type. Do not change other settings.
@@ -63,7 +63,7 @@ To get started in {{ yandex-cloud }}:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}** from the list of services.
+    1. Open your [management console]({{ link-console-main }}) and [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
     1. In the **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** field, add the specification as follows:
@@ -89,7 +89,7 @@ To get started in {{ yandex-cloud }}:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}** from the list of services.
+    1. Open your [management console]({{ link-console-main }}) and [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![ObjectAlignCenterVertical](../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-bus }}**.
     1. Enter the bus name: `sample-bus`.
@@ -174,7 +174,7 @@ Make sure the messages matching the created rule are converted and forwarded to 
          ```
     1. Make sure the filter you specified in the rule stopped the message from going through the bus:
 
-        1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}** from the list of services.
+        1. Open your [management console]({{ link-console-main }}) and [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should not see any completed executions on the page.
 
@@ -198,7 +198,7 @@ Make sure the messages matching the created rule are converted and forwarded to 
          ```
     1. Make sure the filter you specified in the rule allowed the message to go through the bus and then the message was converted according to the template and forwarded to the workflow:
 
-        1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}** from the list of services.
+        1. Open your [management console]({{ link-console-main }}) and [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab. You should now see a completed execution on the page.
         1. Select the completed execution.

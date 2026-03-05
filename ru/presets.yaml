@@ -915,6 +915,7 @@ default:
   vpc-full-name: Yandex Virtual Private Cloud
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
+  vuln-man-name: Управление уязвимостями
   websql-full-name: Yandex WebSQL
   websql-link: https://websql.yandex.cloud
   websql-name: WebSQL

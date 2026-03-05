@@ -1,4 +1,4 @@
-In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts/docker-image.md) from a [registry](../../cloud-registry/concepts/registry.md) in {{ cloud-registry-full-name }} and run a container on a {{ compute-full-name }} VM instance.
+In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts/artifacts/docker.md) from a [registry](../../cloud-registry/concepts/registry.md) in {{ cloud-registry-full-name }} and run a container on a {{ compute-full-name }} VM instance.
 
 To run a Docker image on a VM:
 
@@ -170,7 +170,7 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `doc
 - Management console {#console}
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the list that opens, select `docker-puller`.
+  1. In the list that opens, select the `docker-puller` service account.
   1. In the top panel, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** and then **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**
@@ -538,7 +538,7 @@ Delete the resources you no longer need to avoid [paying](#paid-resources) for t
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one.
 1. Delete the [network](../../vpc/operations/network-delete.md) and the [subnets](../../vpc/operations/subnet-delete.md).
-1. Delete the [Docker image](../../cloud-registry/concepts/docker-image.md) from the registry.
+1. Delete the [Docker image](../../cloud-registry/concepts/artifacts/docker.md) from the registry.
 1. Delete the [registry](../../cloud-registry/concepts/registry.md).
 
 

@@ -14,7 +14,8 @@
 
 ## Проверьте состояние кластера с помощью {{ monitoring-full-name }} {#monitoring}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 1. На графике **Average CPU usage** найдите участок, где график постоянно рос, а потом вышел на плато.

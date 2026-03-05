@@ -26,7 +26,7 @@
     1. Создайте соединение:
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится трейл, поставляющий логи в бакет.
-        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+        1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
         1. Выберите трейл, поставляющий логи в бакет.
         1. Нажмите **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
         1. Выберите **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`.

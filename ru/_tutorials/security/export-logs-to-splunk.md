@@ -50,7 +50,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
@@ -74,7 +74,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с бакетом.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
 
      * Имя и опциональное описание в свободной форме.
@@ -110,7 +110,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта. Требования к имени:
 
@@ -187,7 +187,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать трейл.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
 
      * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла.
@@ -235,7 +235,7 @@
 
   1. Создайте NAT-шлюз:
       1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с подсетью для промежуточной ВМ.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Задайте имя шлюза. Требования к имени:

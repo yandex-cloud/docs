@@ -10,7 +10,7 @@ description: Follow this guide to start a workflow.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to start a [workflow](../../../concepts/workflows/workflow.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![GraphNode](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click ![ellipsis](../../../../_assets/console-icons/ellipsis.svg) next to the workflow in question and select ![TriangleRight](../../../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.start }}** and wait for the workflow to complete.

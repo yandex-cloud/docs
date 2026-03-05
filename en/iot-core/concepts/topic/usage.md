@@ -38,9 +38,9 @@ Aliases cannot match the prefixes of other aliases within the same registry.
 
 > You can create aliases named `my/alias1/=...`, `my/alias2/=...`, or `my/ali/=...`.
 
-## Using $me system aliases in $me topics {#mealias}
+## Using \$me system aliases in \$me topics {#mealias}
 
-To avoid entering the ID of the device on whose behalf an MQTT session is established each time, you can use $me topics based on existing `$me` aliases.
+To avoid manually entering the ID of the device which established the MQTT session, you can use \$me topics based on existing `$me` aliases.
 
 $me topic | Equivalent topic
 ----|----
@@ -52,8 +52,8 @@ $me topic | Equivalent topic
 `$me/registry/config` | `$registries/<device_ID>/config`
 `$me/monitoring/json`| `$monitoring/<device_ID>/json`
 
-When sending or subscribing to messages, $me topics are converted to topics with `<device_ID>` at the MQTT level.
-If you subscribe to a $me topic, you will receive data in the $me topic, too.
+When sending or subscribing to messages, \$me topics are converted to topics with `<device_ID>` at the MQTT level.
+If you subscribe to a \$me topic, you will receive data in the \$me topic as well.
 
 ## Subscribing to topics using wildcard characters {#wildcards}
 

@@ -209,6 +209,16 @@ Automatic selection of serialization settings depending on the source type.
 
     If the setting value is not specified, the SSL certificate does not get verified.
 
+* **tombstones.on.delete**: Determines whether Debezium will generate tombstone events for {{ KF }} topics.
+
+    Tombstone events are written to the {{ KF }} source cluster log when deleting messages from a topic. They indicate log entries storing previous values of deleted messages.
+
+    If the source cluster [log cleanup policy](../../managed-kafka/concepts/settings-list.md#settings-topic-cleanup-policy) is set to `Compact` or `CompactAndDelete`, log compaction will delete all entries indicated by tombstone events.
+
+    The default value is `true`.
+
+    For more information about configurations, see [this Debezium article](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
+
 * **unavailable.value.placeholder**: Value that replaces data if its type is not supported.
 
     The default value is `__debezium_unavailable_value`.

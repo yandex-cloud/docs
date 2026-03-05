@@ -1,6 +1,6 @@
 # Pulling a Docker image from a registry {{ cloud-registry-name }}
 
-To download a [Docker image](../../concepts/docker-image.md), you need the `cloud-registry.artifacts.puller` [role](../../security/index.md#cloud-registry-artifacts-puller) or higher.
+To download a [Docker image](../../concepts/artifacts/docker.md), you need the `cloud-registry.artifacts.puller` [role](../../security/index.md#cloud-registry-artifacts-puller) or higher.
 
 To work with Docker images, [install and configure](installation.md) Docker.
 

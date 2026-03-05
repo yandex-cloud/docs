@@ -37,7 +37,7 @@ Available extensions:
 ## Algorithm for a handler search in the OpenAPI specification {#algorithm}
 
 When searching for a handler, {{ api-gw-name }} does the following:
-1. Selects routes in the OpenAPI specification matching the request being processed.
+1. Selects in the OpenAPI specification the routes that fall in with the request being processed.
 1. Sorts the selected routes by priority:
     * The highest priority is given to fixed routes, which do not contain path parameters and [greedy parameters](extensions/greedy-parameters.md), e.g., `/simple/path`.
     * Routes that contain path parameters but do not have any greedy parameters get the medium priority, e.g., `/{param}/path`.

@@ -10,7 +10,7 @@ description: Follow this tutorial to view a list of available {{ er-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to view a list of [rules](../../../concepts/eventrouter/rule.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}** tab. The **{{ ui-key.yacloud.serverless-event-router.label_rules }}** page will show a list of rules.
@@ -21,7 +21,7 @@ description: Follow this tutorial to view a list of available {{ er-full-name }}
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../../../cli/) command for viewing a list of [rules](../../../concepts/eventrouter/rule.md):
+  1. View the description of the [CLI](../../../../cli/) command for viewing the list of [rules](../../../concepts/eventrouter/rule.md):
 
       ```bash
       yc serverless eventrouter rule list --help

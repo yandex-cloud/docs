@@ -10,7 +10,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [connector](../../../concepts/eventrouter/connector.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
@@ -114,7 +114,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
   To create a [connector](../../../concepts/eventrouter/connector.md) for {{ message-queue-name }}:
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -158,7 +158,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
-      For more information about the `yandex_serverless_eventrouter_connector` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Create the resources:
 

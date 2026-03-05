@@ -11,12 +11,12 @@ The system logs all actions with {{ si-name }} resources as a list of operations
   You can get a list of operations for a specific resource. Follow the steps below to do this for an {{ er-name }} bus. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder the bus resides in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select a bus.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected bus.
 
-     You will see a list of operations with the bus.
+     You will see the list of operations with the bus.
 
 - CLI {#cli}
 
@@ -50,7 +50,7 @@ The system logs all actions with {{ si-name }} resources as a list of operations
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
 
   ```bash
   yc serverless eventrouter bus list-operations <bus_name_or_ID> --format yaml

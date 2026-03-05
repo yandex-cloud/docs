@@ -5,7 +5,7 @@ description: A Java artifact is a file containing compiled Java code and relevan
 
 # Java artifact
 
-A _Java artifact_ is a file containing compiled [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) code and relevant information. [Artifacts](artifacts.md) are used to distribute libraries, frameworks, and other components you can add to Java projects.
+A _Java artifact_ is a file containing compiled [Java](https://en.wikipedia.org/wiki/Java_(programming_language)) code and relevant information. [Artifacts](index.md) are used to distribute libraries, frameworks, and other components you can add to Java projects.
 
 ## Maven {#maven-inf}
 
@@ -19,8 +19,4 @@ For more information about Maven, see [this documentation](https://maven.apache.
 
 #### See also {#see-also}
 
-* [Docker image](./docker-image.md)
-* [{#T}](./art-nodejs.md)
-* [{#T}](./art-nuget.md)
-* [{#T}](./art-python.md)
-* [{#T}](./art-binary.md)
+[Supported artifact types](./index.md#artifacts)

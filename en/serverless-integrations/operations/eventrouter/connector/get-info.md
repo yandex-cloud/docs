@@ -3,15 +3,15 @@ title: How to get information about a connector
 description: Follow this tutorial to get information about a {{ er-full-name }} connector.
 ---
 
-# Getting information about a connector
+# Getting connector info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [connector](../../../concepts/eventrouter/connector.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}** and select the bus. 
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}** and select a bus. 
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** and select the connector in question.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show detailed information about the connector.
 
@@ -21,7 +21,7 @@ description: Follow this tutorial to get information about a {{ er-full-name }} 
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for viewing information about a [connector](../../../concepts/eventrouter/connector.md):
+  1. See the description of the CLI command for viewing [connector](../../../concepts/eventrouter/connector.md) info:
 
      ```bash
      yc serverless eventrouter connector get --help

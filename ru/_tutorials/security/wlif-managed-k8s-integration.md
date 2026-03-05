@@ -60,7 +60,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен кластер.
-      1. В списке сервисов выберите **{{ managed-k8s-name }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
       1. Напротив кластера нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
       1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
       1. Нажмите **Сохранить**.
@@ -108,7 +108,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, к которому вы хотите получить доступ через API {{ yandex-cloud }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
   1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите значение **URL эмитента**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
@@ -128,7 +128,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен секрет {{ lockbox-name }}.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например `sa-lockbox`.
       1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -159,7 +159,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. В списке выберите сервисный аккаунт `sa-lockbox`.
   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
@@ -179,7 +179,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `MY_SECRET`.
   1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.

@@ -326,7 +326,7 @@
 
        1. Откройте [консоль управления]({{ link-console-main }}).
        1. Перейдите в каталог, указанный в `folder_id`.
-       1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
        1. Откройте лог-группу по умолчанию `default`.
        1. На вкладке **{{ ui-key.yacloud.common.logs }}** настройте фильтры:
           - `resource_type=logtest` для просмотра логов тестового сервиса.

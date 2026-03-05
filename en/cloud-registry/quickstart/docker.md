@@ -5,7 +5,7 @@ description: Use this guide to create your first {{ cloud-registry-name }} regis
 
 # Getting started with {{ cloud-registry-name }}
 
-Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/docker-image.md).
+Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/artifacts/docker.md).
 
 ## Getting started {#before-you-begin}
 
@@ -49,5 +49,4 @@ To work with {{ cloud-registry-name }} and Docker images:
 
 #### See also {#see-also}
 
-* [Java artifact](../concepts/art-java.md)
-* [Node.js artifact](../concepts/art-nodejs.md)
+[Supported artifact types](../concepts/artifacts/index.md#artifacts)

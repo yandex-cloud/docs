@@ -471,6 +471,10 @@ items:
                 href: operations/data-catalog/get-info-data-store.md
               - name: Data storage markup
                 href: operations/data-catalog/markup-data-store.md
+      - name: Tutorials
+        items:
+          - name: Integrating the AI data analyst with {{ data-catalog-name }}
+            href: tutorials/ai-studio-data-catalog-integration.md
       - name: Concepts
         items:
           - name: Metadata catalogs

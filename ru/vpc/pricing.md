@@ -13,6 +13,8 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [vpc-consumption-fix](../_includes/pricing/vpc-consumption-fix.md) %}
+
 ## Из чего складывается стоимость использования {{ vpc-short-name }} {#rules}
 
 В рамках {{ vpc-short-name }} оплачивается почасовое использование публичных IP-адресов.

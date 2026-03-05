@@ -97,6 +97,7 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
 - `node_labels` (Map Of String). A set of key/value label pairs, that are assigned to all the nodes of this Kubernetes node group.
 - `node_taints` (List Of String). A list of Kubernetes taints, that are applied to all the nodes of this Kubernetes node group.
 - `status` (*Read-Only*) (String). Status of the Kubernetes node group.
+- `variables` (Map Of String). Variables for templating as key/value pairs.
 - `version` (String). Version of Kubernetes that will be used for Kubernetes node group.
 - `version_info` (*Read-Only*) (List Of Object). Information about Kubernetes node group version.
   - `current_version` . 
@@ -124,6 +125,7 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
   - `nat` (Bool). Enables NAT for node group compute instances.
   - `network_acceleration_type` (String). Type of network acceleration. Values: `standard`, `software_accelerated`.
   - `platform_id` (String). The ID of the hardware platform configuration for the node group compute instances.
+  - `reserved_instance_pool_id` (String). ID of the reserved instance pool.
   - `boot_disk` [Block]. The specifications for boot disks that will be attached to the instance.
     - `size` (Number). The size of the disk in GB. Allowed minimal size: 64 GB.
     - `type` (String). The disk type.

@@ -43,6 +43,7 @@ Runtime environments available in {{ sf-name }}.
 | Python 3.9 | `python39` | No | No |
 | Python 3.11 | `python311` | Yes | No |
 | Python 3.12 | `python312` | Yes | Yes |
+| Python 3.14 | `python314` | Yes | Yes |
 | **Go** |  |  |
 | Go 1.16 | `golang116` | No | No |
 | Go 1.17 | `golang117` | No | No |

@@ -215,7 +215,7 @@
 1. Убедитесь, что данные из потока {{ yds-name }} перенеслись в бакет {{ objstorage-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
     1. Проверьте, что бакет содержит файл `<имя_потока>_0.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с тестовыми данными.
 
@@ -238,7 +238,7 @@
 1. Убедитесь, что в бакете {{ objstorage-name }} появились добавленные данные:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
     1. Проверьте, что в бакет добавился файл `<имя_потока>_0-1_1.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с новыми данными.
 

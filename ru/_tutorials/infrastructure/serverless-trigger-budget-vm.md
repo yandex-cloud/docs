@@ -40,7 +40,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать сервисный аккаунт.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Введите имя сервисного аккаунта `service-account-for-budget`.
     1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `{{ roles-functions-invoker }}`.
@@ -141,7 +141,7 @@ zip src.zip index.go go.mod
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Создайте функцию:
         1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Введите имя функции `function-for-budget`.
@@ -246,7 +246,7 @@ zip src.zip index.go go.mod
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт, функцию и бюджет.
 
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 

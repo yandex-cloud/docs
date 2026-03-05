@@ -10,7 +10,7 @@ description: Follow this guide to create a bus.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bus](../../../concepts/eventrouter/bus.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-bus }}**. In the window that opens:
 
@@ -85,7 +85,7 @@ description: Follow this guide to create a bus.
 
   To create a [bus](../../../concepts/eventrouter/bus.md):
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_bus" "example_bus" {
@@ -112,7 +112,7 @@ description: Follow this guide to create a bus.
       * `deletion-protection`: Bus deletion protection, `true` or `false`. You cannot delete a bus with this option enabled. This is an optional parameter.
       * `labels`: List of labels. Provide labels in `<key> = "<value>"` format. This is an optional parameter.
 
-      For more information about the `yandex_serverless_eventrouter_bus` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_eventrouter_bus).
+      For more information about `yandex_serverless_eventrouter_bus` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_bus).
 
   1. Create the resources:
 

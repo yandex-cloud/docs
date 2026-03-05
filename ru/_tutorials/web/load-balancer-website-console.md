@@ -31,7 +31,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
@@ -96,7 +97,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Укажите имя балансировщика, например `nlb-1`.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
   

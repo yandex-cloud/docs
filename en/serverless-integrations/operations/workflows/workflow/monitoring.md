@@ -10,11 +10,11 @@ description: You can view a monitoring chart in {{ sw-full-name }} using the man
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [workflow](../../../concepts/workflows/workflow.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select the workflow whose monitoring charts you want to view.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
-  1. The following charts will open on the page:
+  1. You will see the following charts:
 
       * **Workflow Executions**: Total number of [workflow runs](../../../concepts/workflows/execution.md).
       * **Workflow Executions Inflight**: Number of workflow runs in progress.

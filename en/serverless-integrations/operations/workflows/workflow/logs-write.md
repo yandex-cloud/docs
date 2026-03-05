@@ -12,7 +12,7 @@ description: Follow this guide to configure workflow logging.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [workflow](../../../concepts/workflows/workflow.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the workflow row and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}** and find **{{ ui-key.yacloud.logging.label_title }}**.
@@ -23,7 +23,7 @@ description: Follow this guide to configure workflow logging.
          * `{{ ui-key.yacloud.common.folder }}`: To write logs to the default log group of the folder containing the workflow.
          * {% include [log-group](../../../../_includes/functions/log-group.md) %}
 
-      1. (Optional) Select the minimum logging level.
+      1. Optionally, select the minimum logging level.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -39,13 +39,13 @@ description: Follow this guide to configure workflow logging.
 
   If a custom [log group](../../../../logging/concepts/log-group.md) is not specified in the workflow parameters or logging is not turned off, the workflow automatically writes all logs to the default log group of the [folder](../../../../resource-manager/concepts/resources-hierarchy.md#folder) it resides in.
 
-  For logging to another folder's default log group, provide that folder's ID in the `--log-folder-id` parameter when [creating](create-yawl.md) or [updating](update.md) a workflow. The [account](../../../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../../../logging/security/index.md#logging-editor) or higher for the folder.
+  To write logs to a default log group for another folder, provide that folder's ID in the `--log-folder-id` parameter when [creating](create-yawl.md) or [updating](update.md) a workflow. The [account](../../../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../../../logging/security/index.md#logging-editor) or higher for that folder.
 
-  For logging to a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating or updating a workflow. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for the folder.
+  To write logs to a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating or updating a workflow. A log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
 
   ### Minimum logging level {#log-level}
 
-  To set the minimum logging level, specify it in the `--min-log-level` parameter when creating or updating the workflow.
+  To set the minimum logging level, provide it in the `--min-log-level` parameter when creating or updating the workflow.
 
   {% include [min-log-level](../../../../_includes/serverless-integrations/min-log-level.md) %}
 
@@ -93,6 +93,6 @@ description: Follow this guide to configure workflow logging.
 
 - API {#api}
 
-  For logging to the workflow execution log, use the [Update](../../../../serverless-integrations/workflows/api-ref/Workflow/update.md) REST API method for the [Workflows](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [workflow/Update](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/update.md) gRPC API call.
+  To write to the workflow execution log, use the [Update](../../../../serverless-integrations/workflows/api-ref/Workflow/update.md) REST API method for the [Workflows](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [workflow/Update](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/update.md) gRPC API call.
 
 {% endlist %}

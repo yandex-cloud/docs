@@ -105,7 +105,7 @@ VPN-туннель работает между двумя решениями ViP
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. В списке сервисов выберите **{{ vpc-name }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Нажмите **Создать сеть**.
     1. Задайте имя сети, например, `vipnet-network`.
     1. Отключите опцию **Создать подсети**.
@@ -135,7 +135,7 @@ VPN-туннель работает между двумя решениями ViP
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. В списке сервисов выберите **{{ vpc-name }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Выберите облачную сеть `vipnet-network`.
     1. Нажмите **Добавить подсеть**.
     1. Укажите имя подсети, например, `public-subnet`.
@@ -197,7 +197,7 @@ VPN-туннель работает между двумя решениями ViP
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. В списке сервисов выберите **{{ vpc-name }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Выберите облачную сеть `vipnet-network`.
     1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
     1. Нажмите **Создать**.
@@ -220,7 +220,7 @@ VPN-туннель работает между двумя решениями ViP
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `vipnet-folder`.
-    1. В списке сервисов выберите **{{ vpc-name }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Выберите облачную сеть `vipnet-network`.
     1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
     1. Выберите подсеть `segment1-subnet` и нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **Привязать таблицу маршрутизации**.
@@ -538,7 +538,7 @@ VPN-туннель работает между двумя решениями ViP
 
   1. Создайте бакет:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-      1. Выберите сервис **{{ objstorage-name }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Нажмите кнопку **Создать бакет**.
       1. Задайте параметры бакета:
           * **Имя** — `my-vipnet-images`.
@@ -571,7 +571,7 @@ VPN-туннель работает между двумя решениями ViP
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example_folder`.
-  1. Выберите сервис **{{ compute-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers.svg) **Образы**.
   1. Нажмите **Загрузить образ**.
   1. Введите имя образа — `vipnet-va-disk1`.
@@ -655,7 +655,7 @@ VPN-туннель работает между двумя решениями ViP
 
     Перейдите в серийную консоль созданной ВМ:
     1. В [консоли управления]({{ link-console-main }}) выберите каталог `vipnet-folder`.
-    1. Перейдите в сервис **{{ compute-name }}** и выберите ВМ `vipnet-va`.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и выберите ВМ `vipnet-va`.
     1. Перейдите на вкладку **Серийная консоль**.
     1. Введите логин `user` и пароль демоверсии `11111111`.
 

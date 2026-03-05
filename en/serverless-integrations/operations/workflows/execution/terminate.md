@@ -5,14 +5,14 @@ description: Follow this guide to terminate a workflow execution.
 
 # Terminating a workflow execution
 
-If you terminate a [workflow](../../../concepts/workflows/workflow.md) execution, this will interrupt the current active step. To stop a workflow after the current active step is complete, follow [this guide](stop.md).
+If you terminate a [workflow](../../../concepts/workflows/workflow.md) execution, this will interrupt the current active step. To stop a workflow after the current active step is complete, see [{#T}](stop.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where the [workflow execution](./start.md) is in progress.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}** and select a workflow.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**.
   1. Next to the execution, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.serverless-workflows.label_terminate-workflow }}**.

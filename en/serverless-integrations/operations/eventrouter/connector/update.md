@@ -12,11 +12,11 @@ You can update a [connector](../../../concepts/eventrouter/connector.md) name, d
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to edit a connector.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
-  1. In the line with the connector you need, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. In the line with the connector, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the connector's advanced settings.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -93,13 +93,13 @@ You can update a [connector](../../../concepts/eventrouter/connector.md) name, d
       }
       ```
 
-      For more information about the `yandex_serverless_eventrouter_connector` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter connector list
