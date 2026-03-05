@@ -35,7 +35,7 @@ The support cost for this solution includes:
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../managed-opensearch/operations/connect.md#configuring-security-groups).
+        1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
     - Using {{ TF }} {#tf}
 
@@ -72,7 +72,7 @@ The support cost for this solution includes:
 
     {% endlist %}
 
-1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
+1. [Install an SSL certificate](../../managed-opensearch/operations/connect/index.md#ssl-certificate).
 
 1. Check the connection to the cluster using [cURL](https://curl.haxx.se/):
 

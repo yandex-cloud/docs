@@ -154,7 +154,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Connect to the target cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+1. Connect to the target cluster via [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Select the `Global` tenant.
 1. Create a new index template named `audit-trails*`:
 
@@ -190,7 +190,7 @@ All required event fields are converted to [Elastic Common Schema (ECS)]({{ link
     git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch.git
     ```
 
-1. Connect to the target cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+1. Connect to the target cluster via [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **Management**, select **Stack Management**.
 1. Go to **Saved Objects** and import files from the `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/` folder:

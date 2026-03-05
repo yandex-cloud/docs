@@ -127,6 +127,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](mpg-replication-overview.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [Migrating a database from {{ mpg-name }}](outbound-replication.md)
+* [{#T}](postgresql-versions.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mpg.md)
 * [{#T}](data-transfer-mpg.md)
@@ -211,6 +212,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](managed-mysql.md)
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
+* [{#T}](postgresql-versions.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
 
 ## {{ msp-full-name }} {#spark}

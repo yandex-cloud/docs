@@ -10,13 +10,13 @@
 
     Limit on the output buffer size for regular clients.
 
-    {{ VLK }} uses an output buffer to temporarily store сommand-generated data before it reaches the client. If the client is sending new commands faster than {{ VLK }} can process pending ones, the buffer size increases.
+    {{ VLK }} uses an output buffer to temporarily store command-generated data before it reaches the client. If the client is sending new commands faster than {{ VLK }} can process pending ones, the buffer size increases.
 
     This setting includes the following parameters:
 
-    * **Hard limit**: Hard buffer size limit, in bytes. If this limit is crossed, the client connection terminates immediately. The minimum value is `0`, i.e., there is no limit. The default value is `0`. To define the units of measurement in the management console, use the **Hard limit unit** setting.
-    * **Soft limit**: Soft buffer size limit, in bytes. The client connection terminates only if this limit is exceeded for the period specified in the **Soft seconds** setting. The minimum value is `0`, i.e., there is no limit. The default value is `0`. To define the units of measurement in the management console, use the **Soft limit unit** setting.
-    * **Soft seconds**: Time (in seconds) during which the soft buffer limit may be exceeded. The minimum value is `0`. The default value is `0`.
+    * **Hard limit**: Hard buffer size limit, in bytes. If this limit is crossed, the client connection terminates immediately. The minimum value is `0`, i.e., there is no limit. The default value depends on the network speed limits, which are specific to the VM configuration. To define the units of measurement in the management console, use the **Hard limit unit** setting.
+    * **Soft limit**: Soft buffer size limit, in bytes. The client connection terminates only if this limit is exceeded for the period specified in the **Soft seconds** setting. The minimum value is `0`, i.e., there is no limit. The default value is `<Hard_limit_value>/2`. To define the units of measurement in the management console, use the **Soft limit unit** setting.
+    * **Soft seconds**: Time (in seconds) during which the soft buffer limit may be exceeded. The minimum value is `0`. The default value is `60`.
 
     For more information about this setting, see [this {{ VLK }} guide](https://redis.io/docs/reference/clients/#output-buffer-limits).
 
@@ -24,7 +24,7 @@
 
     Limit on the output buffer size for clients using the [Pub/Sub](https://redis.io/docs/manual/pubsub/) pattern.
 
-    {{ VLK }} uses an output buffer to temporarily store сommand-generated data before it reaches the client. If the client is sending new commands faster than {{ VLK }} can process pending ones, the buffer size increases.
+    {{ VLK }} uses an output buffer to temporarily store command-generated data before it reaches the client. If the client is sending new commands faster than {{ VLK }} can process pending ones, the buffer size increases.
 
     This setting includes the following parameters:
 

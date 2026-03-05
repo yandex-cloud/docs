@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) of any suitable configuration with the following settings:
+        1. [Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) in any suitable configuration with the following settings:
 
             * In the same availability zone as the source cluster.
             * With public access to hosts with the `DATA` role.
@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. To connect to the cluster from the user's local machine, configure security groups:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mos-name }}](../../managed-opensearch/operations/connect.md#security-groups).
+            * [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
 
 
     - {{ TF }} {#tf}
@@ -321,7 +321,7 @@ Make sure data from the {{ mkf-name }} source cluster topic can be transferred t
 
     - {{ OS }} Dashboards {#opensearch}
 
-        1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+        1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
         1. Select the `Global` tenant.
         1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
         1. Under **OpenSearch Dashboards**, select **Discover**.

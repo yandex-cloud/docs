@@ -35,15 +35,15 @@ To create a {{ GP }} connection:
 
      * **Host type**. Select a host type:
        
-       * **Regular** (default): Allows you to select regular hosts to connect to.
-       * **Special FQDNs**: Allows you to select a [special FQDN](../../../managed-greenplum/operations/connect.md#fqdn-master) for connection, which always points to the primary {{ GP }} master host.
+       * **Regular**: Enables you to select regular hosts to connect to.
+       * **Special FQDNs**: Enables you to select a [special FQDN](../../../managed-greenplum/operations/connect/fqdn.md#fqdn-master), which always points to the {{ GP }} primary master host.
 
      * **Hostname**. Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**. Specify the {{ GP }} connection port. The default port is {{ port-mgp }}.
      * **Path to database** Specify the name of the database to connect to.
      * **Username**. Specify the username for the {{ GP }} connection.
      * **Password**. Enter the password for the user.
-     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
@@ -56,7 +56,7 @@ To create a {{ GP }} connection:
       * **Path to database**. Specify the name of the database to connect to.
       * **Username**. Specify the username for the {{ GP }} connection.
       * **Password**. Enter the password for the user.
-      * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+      * **Cache TTL in seconds**. Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
       
       {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
@@ -65,7 +65,7 @@ To create a {{ GP }} connection:
    {% endlist %}
 
 
-1. (Optional) Test the connection. To do this, click **Check connection**.
+1. Optionally, test the connection. To do this, click **Check connection**.
 1. Click **Create connection**.
 
 

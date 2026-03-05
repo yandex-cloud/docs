@@ -1,8 +1,8 @@
 # Managing resource groups
 
-You can manage cluster resource usage quotas using [resource groups](../concepts/resource-groups.md).
+You can manage cluster resource usage quotas via [resource groups](../concepts/resource-groups.md).
 
-To perform operations using SQL queries, [connect to the cluster](connect.md) as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
+To perform operations using SQL queries, [connect to the cluster](connect/index.md) as a user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
 
 ## View information about resource groups {#info}
 
@@ -37,7 +37,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
     SELECT * FROM gp_toolkit.gp_resgroup_config;
     ```
 
-    To view a list of roles and the resource groups they belong to, run the command:
+    To view a list of roles and the resource groups they belong to, run this command:
 
     ```sql
     SELECT rolname, rsgname FROM pg_roles, pg_resgroup
@@ -68,7 +68,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
        --memory-spill-ratio=<MEMORY_SPILL_RATIO_parameter_value>
     ```
 
-    When creating a resource group, just specify the value of the `CPU_RATE_LIMIT` parameter. For the other parameters, the default settings will be applied.
+    When creating a resource group, just specify the value of the `CPU_RATE_LIMIT` parameter. The other parameters will be set to defaults.
 
     {% include [cluster-name-as-id](../../_includes/mdb/mgp/cluster-name-as-id.md) %}
 
@@ -80,7 +80,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
     CREATE RESOURCE GROUP <resource_group_name> WITH (<parameter_1>, <parameter_2>, ...);
     ```
 
-    When creating a resource group, just specify the value of the `CPU_RATE_LIMIT` or `CPUSET` parameter. For the other parameters, the default settings will be applied.
+    When creating a resource group, just specify the value of the `CPU_RATE_LIMIT` or `CPUSET` parameter. The other parameters will be set to defaults.
 
 
 {% endlist %}
@@ -91,7 +91,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
 
 - SQL {#sql}
 
-    To create a role and immediately assign it to a resource group, run the command:
+    To create a role and immediately assign it to a resource group, run this command:
 
     ```sql
     CREATE ROLE <role_name> RESOURCE GROUP <resource_group_name>;
@@ -103,7 +103,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
 
     {% endnote %}
 
-    To assign a different resource group to the role, run the command:
+    To assign a different resource group to the role, run this command:
 
     ```sql
     ALTER ROLE <role_name> RESOURCE GROUP <resource_group_name>;
@@ -111,7 +111,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
 
 {% endlist %}
 
-## View the current load of resource groups {#load}
+## View the current load on resource groups {#load}
 
 {% list tabs group=instructions %}
 
@@ -143,7 +143,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
 
 - SQL {#sql}
 
-    To see a list of queries in progress and in the queue, run the command:
+    To see a list of queries in progress and in the queue, run this command:
 
     ```sql
     SELECT query, waiting, rsgname, rsgqueueduration
@@ -152,7 +152,7 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
 
 {% endlist %}
 
-## Change resource group parameters {#params}
+## Edit resource group settings {#params}
 
 {% list tabs group=instructions %}
 
@@ -162,16 +162,16 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Provide the name of the resource group and the new values for its [parameters](../concepts/resource-groups.md#rg-params) you want to change in the command:
+    Provide the name of the resource group and the new values for its [settings](../concepts/resource-groups.md#rg-params) you want to edit in this command:
 
     ```bash
     {{ yc-mdb-gp }} resource-groups update <resource_group_name> \
        --cluster-id=<cluster_ID> \
-       --concurrency=<new_CONCURRENCY_parameter_value> \
-       --cpu-rate-limit=<new_CPU_RATE_LIMIT_parameter_value> \
-       --memory-limit=<new_MEMORY_LIMIT_parameter_value> \
-       --memory-shared-quota=<new_MEMORY_SHARED_QUOTA_parameter_value> \
-       --memory-spill-ratio=<new_MEMORY_SPILL_RATIO_parameter_value>
+       --concurrency=<new_CONCURRENCY_value> \
+       --cpu-rate-limit=<new_CPU_RATE_LIMIT_value> \
+       --memory-limit=<new_MEMORY_LIMIT_value> \
+       --memory-shared-quota=<new_MEMORY_SHARED_QUOTA_value> \
+       --memory-spill-ratio=<new_MEMORY_SPILL_RATIO_value>
     ```
 
     {% include [cluster-name-as-id](../../_includes/mdb/mgp/cluster-name-as-id.md) %}
@@ -181,16 +181,16 @@ To perform operations using SQL queries, [connect to the cluster](connect.md) as
     Provide the name of the resource group and the new values of its [parameters](../concepts/resource-groups.md#rg-params) you want to change in the command:
 
     ```sql
-    ALTER RESOURCE GROUP <resource_group_name> SET <parameter_name> <new_parameter_value>;
+    ALTER RESOURCE GROUP <resource_group_name> SET <setting_name> <new_setting_value>;
     ```
 
 {% endlist %}
 
-If you do not provide new values for certain resource group parameters, they will not change.
+If you do not provide new values for certain resource group settings, they will not change.
 
 ## Delete a resource group {#delete}
 
-You can delete a resource group only if it isn't assigned to any roles and contains no transactions in progress or in the queue.
+You can only delete a resource group if it is not assigned to any roles and contains no transactions in progress or in the queue.
 
 {% list tabs group=instructions %}
 
@@ -200,7 +200,7 @@ You can delete a resource group only if it isn't assigned to any roles and conta
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To delete a resource group, run the command:
+    To delete a resource group, run this command:
 
     ```bash
     {{ yc-mdb-gp }} resource-groups delete <resource_group_name> \
@@ -211,7 +211,7 @@ You can delete a resource group only if it isn't assigned to any roles and conta
 
 - SQL {#sql}
 
-    To delete a resource group, run the command:
+    To delete a resource group, run this command:
 
     ```sql
     DROP RESOURCE GROUP <resource_group_name>;
@@ -222,7 +222,7 @@ You can delete a resource group only if it isn't assigned to any roles and conta
 
 ## Example of creating a resource group {#example}
 
-Create a resource group with test characteristics:
+Create a resource group with test specifications:
 
 * Name: `testgroup`.
 * Maximum number of processed transactions: 15.
@@ -251,7 +251,7 @@ Create a resource group with test characteristics:
        --memory-spill-ratio=30
     ```
 
-    Check that the new resource group appeared in the list:
+    Make sure the new resource group appeared in the list:
 
     ```bash
     {{ yc-mdb-gp }} resource-groups list --cluster-id=<cluster_ID> 
@@ -266,7 +266,7 @@ Create a resource group with test characteristics:
     WITH (CONCURRENCY=15, CPU_RATE_LIMIT=10, MEMORY_LIMIT=20, MEMORY_SHARED_QUOTA=50, MEMORY_SPILL_RATIO=30);
     ```
 
-    Check that the new resource group appeared in the list:
+    Make sure the new resource group appeared in the list:
 
     ```sql
     SELECT * FROM gp_toolkit.gp_resgroup_config;

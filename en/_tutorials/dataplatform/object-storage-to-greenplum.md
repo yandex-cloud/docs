@@ -1,6 +1,6 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. Proceed as follows:
+You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -34,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         
-        1. If using security groups, make sure they are [configured correctly](../../managed-greenplum/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
+        1. If using security groups, make sure they are [configured correctly](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
 
 
         1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
@@ -115,7 +115,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a database in the target cluster {#prepare-data}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the auxiliary `postgres` database in the {{ GP }} target cluster as `user1`.
+1. [Connect](../../managed-greenplum/operations/connect/index.md) to the auxiliary `postgres` database in the {{ GP }} target cluster as `user1`.
 
 1. Create a database named `db1`:
 
@@ -195,7 +195,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 ### Test copying {#verify-copy}
 
-1. [Connect](../../managed-greenplum/operations/connect.md) to the `db1` database in the {{ GP }} target cluster.
+1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `db1` database in the {{ GP }} target cluster.
 
 1. Run this query:
 
@@ -223,7 +223,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. Make sure the data from `demo_data2.csv` has been added to the target database:
 
-    1. [Connect](../../managed-greenplum/operations/connect.md) to the `db1` database in the {{ GP }} target cluster.
+    1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `db1` database in the {{ GP }} target cluster.
 
     1. Run this query:
 

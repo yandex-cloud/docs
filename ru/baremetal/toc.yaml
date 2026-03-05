@@ -68,6 +68,8 @@ items:
             href: operations/reserve-public-subnet.md
           - name: Создать приватное соединение с облачными сетями
             href: operations/create-vpc-connection.md
+          - name: Создать статический маршрут
+            href: operations/create-static-route.md
   - name: Концепции
     expanded: true
     items:

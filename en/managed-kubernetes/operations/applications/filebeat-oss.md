@@ -69,9 +69,9 @@ description: Follow this guide to install Filebeat OSS.
    * **Application name**: Specify the application name, e.g., `filebeat-oss`.
    * **{{ OS }} username**: Enter the username that Filebeat OSS will use to connect to the {{ mos-name }} cluster.
    * **{{ OS }} connection password**: Enter the user password for the {{ mos-name }} cluster.
-   * **{{ OS }} FQDN**: Enter the URL and port for the {{ mos-name }} cluster host with the data role, e.g., `https://rc1a-7hkolet********.{{ dns-zone }}:9200`. For more information about connecting to a cluster, see [this guide](../../../managed-opensearch/operations/connect.md).
+   * **{{ OS }} FQDN**: Enter the URL and port for the {{ mos-name }} cluster host with the data role, e.g., `https://rc1a-7hkolet********.{{ dns-zone }}:9200`. For more information about connecting to a cluster, see [this guide](../../../managed-opensearch/operations/connect/index.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -110,5 +110,5 @@ description: Follow this guide to install Filebeat OSS.
 
 ## See also {#see-also}
 
-* [{{ mos-name }} documentation](../../../managed-opensearch/).
-* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).
+* [{{ mos-name }} documentation](../../../managed-opensearch/)
+* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html)

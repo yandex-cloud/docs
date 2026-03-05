@@ -36,7 +36,7 @@ Set up your infrastructure:
 
     1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
     1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) named `ydb1` of your preferred configuration.
 
@@ -87,7 +87,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. [Connect to the {{ mos-name }} source cluster](../../../managed-opensearch/operations/connect.md).
+1. [Connect to the {{ mos-name }} source cluster](../../../managed-opensearch/operations/connect/index.md).
 
 1. Create a test index named `people` and define its schema:
 
@@ -176,7 +176,7 @@ Set up your infrastructure:
         1. In the `opensearch-to-ydb.tf` file, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a target endpoint and a transfer.
+            * `transfer_enabled`: Set to `1` to create a target endpoint and transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 

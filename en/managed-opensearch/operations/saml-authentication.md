@@ -16,19 +16,19 @@ To set up SAML authentication:
 1. Create an application on the IdP side.
 1. Specify the **Assertion Consumer Service (ACS) URL**.
 
-    Use this URL with a [special cluster FQDN](connect.md#special-fqdns):
+    Use this URL with a [special cluster FQDN](connect/fqdn.md#special-fqdns):
 
     ```text
     https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
     ```
 
-    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     URL example: `https://c-e4ut2....rw.{{ dns-zone }}/_opendistro/_security/saml/acs`
 
 1. Specify the **SP Entity ID (Audience URI)**.
 
-    Use this URL with a [special cluster FQDN](connect.md#special-fqdns):
+    Use this URL with a [special cluster FQDN](connect/fqdn.md#special-fqdns):
 
     ```text
     https://c-<cluster_ID>rw.{{ dns-zone }}/
@@ -71,7 +71,7 @@ Incorrect settings may cause the cluster to fail.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**: Application-defined SP Entity ID (Audience URI). Make sure it matches the ID specified when [configuring the IdP](#configuration-idp).
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}**: URL with a [special cluster FQDN](./connect.md#special-fqdns), same as **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**.
+        * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}**: URL with a [special cluster FQDN](./connect/fqdn.md#special-fqdns), same as **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
 
@@ -87,7 +87,7 @@ Incorrect settings may cause the cluster to fail.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -128,13 +128,13 @@ Incorrect settings may cause the cluster to fail.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -179,7 +179,7 @@ Incorrect settings may cause the cluster to fail.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
-        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

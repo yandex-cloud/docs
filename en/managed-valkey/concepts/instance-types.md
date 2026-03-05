@@ -39,7 +39,7 @@ Configuration types:
 
 {% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 
-| Host class name | Number of CPUs | RAM, GB | CPU performance | Disk <br>size, GB |
+| Host class name | Number of vCPUs | RAM, GB | CPU performance | Disk <br>size, GB |
 |-------------------|----------------|---------|------------------------|----------------------|
 | **Intel Broadwell**                                                                          |
 | hm1.nano          | 2              | 8       | 100%                   | 16 - 4,096            |

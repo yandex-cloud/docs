@@ -1,41 +1,4 @@
-### Bash {#bash}
-
-Before connecting, install the dependencies:
-
-```bash
-sudo apt update && sudo apt install --yes postgresql-client
-```
-
-Connect to a database:
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-  ```bash
-  psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
-        port={{ port-mgp }} \
-        sslmode=disable \
-        dbname=postgres \
-        user=<username> \
-        target_session_attrs=read-write"
-  ```
-
-- Connecting via SSL {#with-ssl}
-
-  {% include [default-connstring](default-connstring.md) %}
-
-{% endlist %}
-
-After running the command, enter the user password to complete the connection process.
-
-To check the connection, run this query:
-
-```sql
-SELECT version();
-```
-
-### C# EF Core {#csharpefcore}
+## C# EF Core {#csharpefcore}
 
 Required packages:
 
@@ -44,7 +7,7 @@ Required packages:
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   ```csharp
   using System;
@@ -92,9 +55,9 @@ Required packages:
 
 {% endlist %}
 
-### Go {#go}
+## Go {#go}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes golang git && \
@@ -166,7 +129,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       go run connect.go
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example:
 
@@ -242,7 +205,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
-      For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
+      For this connection method, you must specify the full path to the {{ PG }} `root.crt` certificate in the `ca` variable.
 
   1. Connecting:
 
@@ -252,7 +215,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Java {#java}
+## Java {#java}
 
 Before connecting:
 
@@ -262,7 +225,7 @@ Before connecting:
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Create a folder for the Maven project:
+1. Create a directory for the Maven project:
 
     ```bash
     cd ~/ && mkdir --parents project/src/java/com/example && cd project/
@@ -390,7 +353,7 @@ Before connecting:
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example:
 
@@ -433,9 +396,9 @@ Before connecting:
 
 {% endlist %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes nodejs npm && \
@@ -469,7 +432,7 @@ npm install pg
     });
     ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     `app.js`
 
@@ -501,7 +464,7 @@ npm install pg
     });
     ```
 
-    For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
+    For this connection method, you must specify the full path to the {{ PG }} `root.crt` certificate in the `ca` variable.
 
 {% endlist %}
 
@@ -511,15 +474,15 @@ Connecting:
 node app.js
 ```
 
-### ODBC {#odbc}
+## ODBC {#odbc}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 ```
 
-The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`.
+The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcinst.ini`.
 
 {% list tabs group=connection %}
 
@@ -546,9 +509,9 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       isql -v postgresql
       ```
 
-      After connecting to the DBMS, run the `SELECT version();` command.
+      Once connected to the DBMS, run the `SELECT version();` command.
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example:
 
@@ -572,13 +535,13 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       isql -v postgresql
       ```
 
-      After connecting to the DBMS, run the `SELECT version();` command.
+      Once connected to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-### PHP {#php}
+## PHP {#php}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes php php-pgsql
@@ -618,7 +581,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       php connect.php
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example:
 
@@ -652,49 +615,9 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 {% endlist %}
 
-### PowerShell {#powershell}
+## Python {#python}
 
-Before connecting, install the current version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/). Select the *Command Line Tools* installation only.
-
-Connect to a database:
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-  ```powershell
-  & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-      host=c-<cluster_ID>.rw.{{ dns-zone }} `
-      port={{ port-mgp }} `
-      sslmode=disable `
-      dbname=postgres `
-      user=<username>"
-  ```
-
-- Connecting via SSL {#with-ssl}
-
-  ```powershell
-  & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-      host=c-<cluster_ID>.rw.{{ dns-zone }} `
-      port={{ port-mgp }} `
-      sslmode=verify-full `
-      dbname=postgres `
-      user=<username>"
-  ```
-
-{% endlist %}
-
-After running the command, enter the user password to complete the connection process.
-
-To check the connection, run this query:
-
-```sql
-SELECT version();
-```
-
-### Python {#python}
-
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip && \
@@ -736,7 +659,7 @@ pip3 install psycopg2-binary
       python3 connect.py
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example:
 
@@ -771,9 +694,9 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install --yes ruby ruby-pg
@@ -812,7 +735,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       ruby connect.rb
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   1. Code example:
 

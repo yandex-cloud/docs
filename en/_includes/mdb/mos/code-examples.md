@@ -1,16 +1,4 @@
-### Bash {#bash}
-
-{% list tabs group=connection %}
-
-- Connecting with SSL {#with-ssl}
-
-   {% include [Default connection string](default-connstring.md) %}
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-### Go {#go}
+## Go {#go}
 
 Before connecting, install the required dependencies:
 
@@ -29,7 +17,7 @@ go get github.com/opensearch-project/opensearch-go
 
         ```go
         package main
-
+        
         import (
         	"crypto/tls"
         	"crypto/x509"
@@ -39,17 +27,17 @@ go get github.com/opensearch-project/opensearch-go
         	"log"
         	"net/http"
         )
-
+        
         var hosts = []string{
         	"<FQDN_of_host_1_with_DATA_role>:{{ port-mos }}",
         	...,
         	"<FQDN_of_host_N_with_DATA_role>:{{ port-mos }}"
         	}
-
+        
         var CA = "/home/<home_directory>/.opensearch/root.crt"
-
+        
         var password = "<password>"
-
+        
         func main() {
         	caCert, err := ioutil.ReadFile(CA)
         	if err != nil {
@@ -57,7 +45,7 @@ go get github.com/opensearch-project/opensearch-go
         	}
         	caCertPool := x509.NewCertPool()
         	caCertPool.AppendCertsFromPEM(caCert)
-
+        
         	cfg := opensearch.Config{
         		Addresses: hosts,
         		Transport: &http.Transport{
@@ -89,25 +77,8 @@ go get github.com/opensearch-project/opensearch-go
 
 {% include [see-fqdn](fqdn-host.md) %}
 
-### PowerShell {#powershell}
-
-{% list tabs group=connection %}
-
-- Connecting with SSL {#with-ssl}
-
-   ```powershell
-   curl `
-     -Certificate <absolute_path_to_certificate_file> `
-     -Uri https://<FQDN_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }} `
-     -Credential admin
-   ```
-
-{% endlist %}
-
-{% include [see-fqdn](fqdn-host.md) %}
-
-### Python {#python}
-
+## Python {#python}
+  
 Before connecting, install the required dependencies:
 
 ```bash

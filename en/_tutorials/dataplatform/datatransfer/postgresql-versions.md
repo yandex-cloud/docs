@@ -264,7 +264,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * `type`: Transfer type. `SNAPSHOT_AND_INCREMENT`: **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**.
         * `runtime.yc_runtime.upload_shard_params`: [Parallel copy](../../../data-transfer/concepts/sharded.md) settings. This option speeds up the copying of large tables (over 100 GB).
 
-            * `job_count`: Number of workers
+            * `job_count`: Number of workers.
             * `process_count`: Number of streams.
 
         If you have distributed your tables between several endpoint pairs, create a separate transfer for each pair.

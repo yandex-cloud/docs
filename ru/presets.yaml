@@ -5458,6 +5458,15 @@ default:
         title_section-server-public-network_p7Zhj: Публичная сеть
         title_server-access: Доступ
         title_vrf-interconnect-section: Приватное соединение с облачными сетями
+        vrfs:
+          AddStaticRoute:
+            label_add-static-route_wY5KQ: Добавить маршрут
+          VrfForm:
+            title_section-vrf-static-routes_4KS9m: Статические маршруты
+          VrfStaticRoutesField:
+            column_destination_t24Ah: Префикс назначения
+            column_is-console-enabled_hiCs9: Доступ из облака
+            column_next-hop_gM3vY: Next hop
       cdn:
         button_activate-shielding: Включить
         button_add-domain: Добавить доменное имя

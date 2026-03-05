@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to manage database access righ
 ​
 ​For more information, see [Users and roles](../concepts/cluster-users.md).
 
-The admin user is created together with the {{ GP }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect.md) on its behalf to:
+The admin user is created together with the {{ GP }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect/index.md) on its behalf to:
 
 * [View a list of roles](#list).
 * [Create a role](#create).
@@ -21,7 +21,7 @@ The admin user is created together with the {{ GP }} cluster and automatically g
 * [Configure role privileges](#privileges).
 * [Delete a role](#remove).
 
-For more information about role interaction commands, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-sql_ref.html).
+For more information about role interaction commands, see the [{{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-sql_ref.html).
 
 ## View a list of roles {#list}
 
@@ -35,7 +35,7 @@ For more information about role interaction commands, see the [{{ GP }} document
     SELECT rolname FROM pg_roles;
     ```
 
-    To see a list of roles with their privileges, run the command:
+    To see a list of roles along with their privileges, run the command:
 
     ```sql
     SELECT
@@ -90,21 +90,21 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-    To add a role to a group role, run the command:
+    To add a role to a group role, run this command:
 
     ```sql
     GRANT <group_role_name> TO <list_of_roles_separated_by_commas>;
     ```
 
-    You can obtain role names with a [list of roles in the cluster](#list).
+    You can get role names with the [list of roles in the cluster](#list).
 
-    The `LOGIN`, `SUPERUSER`, `CREATEDB`, `CREATEROLE`, `CREATEEXTTABLE`, and `RESOURCE QUEUE` attributes are not inherited. To use all attributes of the group role, run the following command on behalf of the role:
+    The `LOGIN`, `SUPERUSER`, `CREATEDB`, `CREATEROLE`, `CREATEEXTTABLE`, and `RESOURCE QUEUE` attributes are not inherited. To use all attributes of a group role, run the following command on behalf of the role:
 
     ```sql
     SET ROLE <group_role_name>;
     ```
 
-    To remove a role from a group role, run the command:
+    To remove a role from a group role, run this command:
 
     ```sql
     REVOKE <group_role_name> FROM <list_of_roles_separated_by_commas>;
@@ -134,7 +134,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 * SQL
 
-    To grant privileges to a role, run the command:
+    To grant privileges to a role, run this command:
 
     ```sql
     GRANT <list_of_privileges_separated_by_commas> ON <object_name> TO <role_name>;
@@ -142,7 +142,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
     For a list of available privileges, see [{#T}](../concepts/cluster-users.md#privileges).
 
-    To revoke privileges from a role, run the command:
+    To revoke privileges from a role, run this command:
 
     ```sql
     REVOKE <list_of_privileges_separated_by_commas> ON <object_name> FROM <role_name>;
@@ -160,7 +160,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 ## Delete a role {#remove}
 
-Before deleting a role, delete all objects it owns or reassign their ownership rights and revoke all privileges for other objects.
+Before deleting a role, delete all its objects it owns or reassign their ownership rights and revoke all privileges for other objects.
 
 {% list tabs %}
 
@@ -178,7 +178,7 @@ Before deleting a role, delete all objects it owns or reassign their ownership r
 
 ### Creating a role
 
-Create a role with these test characteristics:
+Create a role with these test specifications:
 
 * Name: `greenplum_user`.
 * Attributes: `CREATEDB` and `CREATEROLE`.
@@ -190,7 +190,7 @@ Run this command:
 CREATE ROLE greenplum_user CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'password123';
 ```
 
-Check that the new role with the specified attributes appeared in the list:
+Make sure the new role with the specified attributes appeared in the list:
 
 ```sql
 SELECT

@@ -1,6 +1,6 @@
 ## Delivering data from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. To do so:
 
 1. [Set up the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
@@ -30,11 +30,11 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
 
-    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) target cluster using any suitable configuration with publicly accessible hosts.
+    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) target cluster in any suitable configuration with publicly accessible hosts.
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) for connecting to the {{ mos-name }} target cluster.
+    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) for connecting to the {{ mos-name }} target cluster.
 
-    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect.md#configuring-security-groups).
+    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -150,7 +150,7 @@ Set up your infrastructure:
 ## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Connect to the target cluster via [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
+1. Connect to the target cluster via [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Select the `Global` tenant.
 1. Create a new index template named `public.x_tab`:
 

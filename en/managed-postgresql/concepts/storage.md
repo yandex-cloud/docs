@@ -7,7 +7,7 @@ description: In this article, you will learn what storage is in {{ mpg-name }}, 
 
 
 
-{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
+{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
 
 {% include [storage-type-nrd](../../_includes/mdb/mpg/storage-type.md) %}
 
@@ -19,8 +19,6 @@ The number of hosts you can create together with a {{ PG }} cluster depends on t
 
     * Local SSDs (`local-ssd`)
     * Non-replicated SSDs (`network-ssd-nonreplicated`)
-
-    This cluster will be fault-tolerant.
 
     Storage on local SSDs increases your cluster costs: you pay for the cluster even if it is stopped. For more information, see the [pricing policy](../pricing.md).
 
@@ -42,7 +40,7 @@ For more information about limits on the number of hosts per cluster, see [Quota
 
 ## Managing disk space {#manage-storage-space}
 
-When the storage usage exceeds 97%, the host automatically switches to read-only mode. All DBs get the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting through the `ALTER DATABASE` query.
+When the storage is more than 97% full, {{ mpg-name }} automatically switches the host to `read-only` mode. All DBs get the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting through the `ALTER DATABASE` query.
 
 In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
@@ -79,6 +77,7 @@ You can use either one or both thresholds. If you set both, make sure the immedi
 You can configure automatic storage expansion when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
 
 ## Use cases {#examples}
 

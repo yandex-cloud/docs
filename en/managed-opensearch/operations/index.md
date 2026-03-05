@@ -9,8 +9,6 @@ description: This page provides a list of step-by-step guides for {{ mos-name }}
 
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
-* [Connecting to a cluster](connect.md)
-* [{#T}](saml-authentication.md)
 * [Updating cluster settings](update.md)
 * [{#T}](cluster-version-update.md)
 * [Managing plugins](plugins.md)
@@ -21,6 +19,14 @@ description: This page provides a list of step-by-step guides for {{ mos-name }}
 * [Managing cluster access](cluster-access.md)
 * [Configuring access to {{ objstorage-name }}](s3-access.md)
 * [Deleting a cluster](cluster-delete.md)
+
+## Connecting to a cluster
+
+* [Pre-configuration](connect/index.md)
+* [FQDNs of hosts](connect/fqdn.md)
+* [Connecting from applications](connect/clients.md)
+* [Code examples](connect/code-examples.md)
+* [{#T}](saml-authentication.md)
 
 ## {{ OS }} users
 

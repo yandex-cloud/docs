@@ -18,7 +18,7 @@ To connect to the cluster and work with databases, you will need the following t
 * [DBeaver](https://dbeaver.io/) graphical IDE.
 * `psql` console client.
 
-For more tools you can use to work with {{ GP }}, see [{#T}](./operations/connect.md).
+For more tools you can use to work with {{ GP }}, see [{#T}](./operations/connect/index.md).
 
 
 ## Getting started {#before-you-begin}
@@ -35,7 +35,7 @@ For more tools you can use to work with {{ GP }}, see [{#T}](./operations/connec
 
 ## Create a cluster {#create-cluster}
 
-Create a {{ GP }} cluster with public access. You can [connect](./operations/connect.md) to such a cluster with a {{ compute-full-name }} VM or over the internet.
+Create a {{ GP }} cluster with public access. You can [connect](./operations/connect/index.md) to such a cluster with a {{ compute-full-name }} VM or over the internet.
 
 To create a cluster:
 
@@ -53,7 +53,7 @@ To create a cluster:
         * **Network**: Specify the [network](../vpc/concepts/network.md) you want the [cluster hosts](./concepts/index.md) to reside in.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Specify [security groups](../vpc/concepts/security-groups.md) for the cluster network traffic.
 
-            [Set up the security groups](./operations/connect.md#configuring-security-groups) to be able to connect to the cluster over the internet.
+            [Set up the security groups](./operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster over the internet.
 
         * **{{ ui-key.yacloud.mdb.forms.network_field_zone }}**: Specify an availability zone for the cluster hosts.
 
@@ -115,7 +115,7 @@ Connect to the cluster you [created](#create-cluster):
 
         * Under **Server**:
             * **Connect by**: `Host`.
-            * **Host**: [Special FQDN of the primary master](./operations/connect.md#fqdn-master), `c-<cluster_ID>.rw.{{ dns-zone }}`.
+            * **Host**: [Special FQDN of the primary master](./operations/connect/fqdn.md#fqdn-master), `c-<cluster_ID>.rw.{{ dns-zone }}`.
 
                 Cluster ID [you got earlier](#get-cluster-id).
 
@@ -142,7 +142,7 @@ Connect to the cluster you [created](#create-cluster):
 
         {% include [ssl-default-mode](../_includes/mdb/mgp/quickstart/ssl-default-mode.md) %}
 
-        In the production environment, we recommend [connecting to the cluster over SSL with host authentication](./operations/connect.md#connection-ide).
+        In the production environment, we recommend [connecting to the cluster over SSL with host authentication](./operations/connect/clients.md#connection-ide).
 
         {% endnote %}
 
@@ -188,7 +188,7 @@ Connect to the cluster you [created](#create-cluster):
             sudo apt update && sudo apt install postgresql-client --yes
             ```
 
-    1. Connect to the `postgres` database in the {{ GP }} cluster. Use the [special primary master FQDN](operations/connect.md#fqdn-master):
+    1. Connect to the `postgres` database in the {{ GP }} cluster. Use the [special primary master FQDN](operations/connect/fqdn.md#fqdn-master):
 
         ```bash
         psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
@@ -205,7 +205,7 @@ Connect to the cluster you [created](#create-cluster):
 
         {% include [ssl-default-mode](../_includes/mdb/mgp/quickstart/ssl-default-mode.md) %}
 
-        In the production environment, we recommend [connecting to the cluster over SSL with host authentication](./operations/connect.md#bash).
+        In the production environment, we recommend [connecting to the cluster over SSL with host authentication](./operations/connect/clients.md#bash).
 
         {% endnote %}
 
@@ -362,6 +362,6 @@ To make sure the database [was created](#create-db) correctly, run a few queries
 ## What's next {#whats-next}
 
 * Read about the [service concepts](./concepts/index.md).
-* Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to a cluster](./operations/connect.md).
+* Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to a cluster](./operations/connect/index.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}
