@@ -1,6 +1,6 @@
 ---
 title: Setting up how to follow request redirects
-description: Follow this guide to configure redirection of requests received from content origins.
+description: Follow this guide to set up redirects for requests received from content origins.
 ---
 
 # Setting up how to follow request redirects

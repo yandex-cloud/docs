@@ -11,4 +11,7 @@
 * HTTP-заголовки в ответах CDN-серверов клиентам (см. [инструкцию](../operations/resources/configure-headers.md));
 * [обработку кросс-доменных запросов](cors.md) по механизму CORS;
 * HTTP-методы, которые разрешено использовать клиентам в запросах к CDN (см. [инструкцию](../operations/resources/configure-http.md));
+
+  {% include [post-method](../../_includes/cdn/http-post-method.md) %}
+
 * [отправку контента в сжатом виде](compression.md) с использованием HTTP-заголовка `Content-Encoding: gzip`.

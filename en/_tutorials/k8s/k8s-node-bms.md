@@ -15,8 +15,8 @@ You can connect {{ baremetal-name }} [servers](../../baremetal/concepts/servers.
 The support cost for this solution includes:
 
 * Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for {{ managed-k8s-name }} standard cluster nodes (if any): use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* VM fee: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for {{ managed-k8s-name }} standard cluster nodes (if any), which includes the use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* VM fee, which includes the use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
   {% note info %}
 

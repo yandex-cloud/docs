@@ -44,7 +44,7 @@ For the users of your organization to be able to access {{ mgl-name }}:
       * **{{ ui-key.yacloud.gitlab.field_admin-email }}**: Email address of the {{ GL }} instance administrator. This is the address to receive the email with a link to create a password.
       * **{{ ui-key.yacloud.gitlab.field_admin-login }}**: Administrator login.
    1. Click **{{ ui-key.yacloud.common.create }}**.
-   1. Wait for the instance to get ready: its status on the {{ mgl-name }} dashboard will change to **Running**. This may take some time.
+   1. Wait for the instance to get ready: its status on the {{ mgl-name }} dashboard will change to **Running**. This may take a while.
 
 {% endlist %}
 
@@ -59,6 +59,7 @@ For the users of your organization to be able to access {{ mgl-name }}:
    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `managed-gitlab-app`.
+
       1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
       1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
@@ -76,7 +77,7 @@ For the users of your organization to be able to access {{ mgl-name }}:
 
 To enable {{ GL }} authentication using OmniAuth, add an authentication provider:
 
-1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click the instance you created and select the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
 1. Click **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. To add an authentication provider, click **Add**.

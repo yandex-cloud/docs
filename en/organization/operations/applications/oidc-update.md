@@ -163,7 +163,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
 
     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    You can check the updates of resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+    You can check the updates of resources and their settings either in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
     ```bash
     yc organization-manager idp application oauth application get <app_ID>
@@ -280,7 +280,7 @@ To update the service provider configuration in an OIDC app:
 
     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    You can check the updates of resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+    You can check the updates of resources and their settings either in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
     ```bash
     yc iam oauth-client get <OAuth_client_ID>
@@ -361,7 +361,7 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
 
     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    You can check the updates of resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+    You can check the updates of resources and their settings either in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
     ```bash
     yc iam oauth-client-secret list --oauth-client-id <OAuth_client_ID>

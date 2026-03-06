@@ -113,7 +113,6 @@ description: Следуя данной инструкции, вы сможете
         allowed_http_methods:
           value:
           - GET
-          - POST
           - HEAD
           - OPTIONS
       origin_group_id: "89783"

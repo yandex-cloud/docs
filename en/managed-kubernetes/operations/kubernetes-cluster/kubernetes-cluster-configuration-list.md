@@ -54,7 +54,7 @@ description: Follow this guide to get a list of available master configurations 
 
 - API {#api}
 
-  To get the list of available master configurations in the cluster, use the [list](../../managed-kubernetes/api-ref/grpc/ResourcePreset/list.md) method for the [ResourcePreset](../../managed-kubernetes/api-ref/grpc/ResourcePreset/) resource.
+  Use the [ResourcePresetService/List](../../managed-kubernetes/api-ref/grpc/ResourcePreset/list.md) gRPC API call.
 
 {% endlist %}
 

@@ -23,6 +23,8 @@ items:
           Installing applications from {{ marketplace-full-name }} using {{ TF
           }}
         href: operations/apply-helm-provider.md
+      - name: Working with private Docker image registries
+        href: operations/private-registries.md
       - name: Connecting to a cluster
         items:
           - name: Connection method overview

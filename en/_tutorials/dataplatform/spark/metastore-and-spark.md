@@ -1,17 +1,28 @@
 # {{ msp-full-name }} integration with {{ metastore-full-name }}
 
 
-You can connect an {{ metastore-name }} cluster to an {{ SPRK }} cluster. In this case, metadata produced by job runs will get uploaded to the {{ metastore-name }} cluster. The saved metadata can be used by another {{ SPRK }} cluster.
+In a PySpark job, you can use the global Hive catalog. To do it, you need to connect a {{ metastore-name }} cluster to your {{ msp-full-name }} cluster.
 
-Below, we walk you through an example of using a PySpark job to create a database and a table within it and then load the data from the new database into a {{ objstorage-full-name }} bucket. Database metadata is stored in an {{ metastore-name }} cluster connected to an {{ SPRK }} cluster.
+{{ metastore-name }} provides for:
+* Centralized storage of metadata on databases, tables, and partitions.
+* Simplified access to data without specifying paths and schemas manually.
+* Storing table and column statistics for query optimization.
 
-To implement the above example, do the following:
+This tutorial shows an example of working with a table in a {{ objstorage-full-name }} bucket from a PySpark job using the global Hive catalog. The database metadata is saved to the {{ metastore-name }} cluster before being exported to an output bucket.
 
-1. [Set up the infrastructure](#infra).
+To implement the above example:
+
+1. [Set up your infrastructure](#infra).
 1. [Prepare and run a PySpark job](#prepare-job).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+{% note info %}
+
+{{ msp-full-name }} cluster integration with {{ metastore-name }} allows using the {{ IBRG }} table format in Spark jobs. For more information, see [{#T}](../../../managed-spark/tutorials/spark-simple-rw-job.md).
+
+{% endnote %}
 
 
 ## Required paid resources {#paid-resources}
@@ -20,17 +31,17 @@ The support cost for this solution includes:
 
 * {{ objstorage-name }} bucket fee for storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * {{ cloud-logging-full-name }} fee for the amount of data written and the time of its retention (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
-* Fee for the computing resources of {{ msp-name }} cluster components (see [{{ msp-name }} pricing](../../../managed-spark/pricing.md)).
+* Fee for the computing resources of {{ msp-full-name }} cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
 * Fee for the computing resources of {{ metastore-name }} cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md)).
 
 
-## Set up the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. [Create a service account](../../../iam/operations/sa/create.md) named `spark-agent` for the {{ SPRK }} cluster and assign it the [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) role to enable the {{ SPRK }} cluster to interact with other resources.
+    1. [Create a service account](../../../iam/operations/sa/create.md) named `spark-agent` for the {{ msp-full-name }} cluster and assign it the [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) role to enable the {{ msp-full-name }} cluster to interact with other resources.
 
     1. [Create a service account](../../../iam/operations/sa/create.md) named `metastore-agent` and assign it the [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) and [storage.uploader](../../../iam/roles-reference.md#storage-uploader) roles to enable your {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md) and export metadata to the {{ objstorage-name }} bucket.
 
@@ -50,9 +61,9 @@ The support cost for this solution includes:
 
         This will automatically create three subnets in different availability zones.
 
-    1. For the {{ SPRK }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` in `integration-network`. Add the following rule to it:
+    1. For the {{ msp-full-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` in `integration-network`. Add the following rule to it:
 
-        * For outgoing traffic, to allow {{ SPRK }} cluster connections to {{ metastore-name }}:
+        * For outgoing traffic, to allow {{ msp-full-name }} cluster connections to {{ metastore-name }}:
 
             * Port range: `{{ port-metastore }}`
             * Protocol: `Any`
@@ -82,7 +93,7 @@ The support cost for this solution includes:
         * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `integration-network-{{ region-id }}-a`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `metastore-sg`.
 
-    1. [Create a {{ msp-name }} cluster](../../../managed-spark/operations/cluster-create.md) with the following parameters:
+    1. [Create a {{ msp-full-name }} cluster](../../../managed-spark/operations/cluster-create.md) with the following parameters:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `spark-agent`.
         * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `integration-network`.
@@ -94,7 +105,7 @@ The support cost for this solution includes:
 
 ## Prepare a PySpark job {#prepare-job}
 
-For a PySpark job, we will use a Python script that creates a database named `database_1` and a table named `table_1`. The script will be stored in the {{ objstorage-name }} bucket.
+For a PySpark job, we will use a Python script that creates a database named `database_1` and a table named `table_1`. To allow the {{ msp-full-name }} cluster to access the global {{ metastore-name }} catalog, call the `enableHiveSupport()` method in the script. The script will be stored in the {{ objstorage-name }} bucket.
 
 Prepare a script file:
 
@@ -126,7 +137,7 @@ Prepare a script file:
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Wait for the PySpark job you created to change its status to **Done**.
     1. Make sure the file with data from `database_1` appears in the `warehouse` folder in your output data bucket.
     1. Make sure the {{ metastore-name }} cluster has the metadata on `database_1`:
@@ -145,7 +156,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 - Management console {#console}
 
     1. [{{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
-    1. [{{ SPRK }} cluster](../../../managed-spark/operations/cluster-delete.md).
+    1. [{{ msp-full-name }} cluster](../../../managed-spark/operations/cluster-delete.md).
     1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md). Before deleting your buckets, make sure to [have deleted](../../../storage/operations/objects/delete.md) all objects from those buckets.
 
 {% endlist %}

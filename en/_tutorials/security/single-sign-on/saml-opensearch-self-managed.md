@@ -23,6 +23,7 @@ For the users of your organization to be able to access {{ OS }}:
     1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `opensearch-app`.
+
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
@@ -282,7 +283,7 @@ To make sure both your SAML app and its integration with {{ OS }} work correctly
 1. If logged in to {{ OS }} Dashboards, log out.
 1. On the {{ OS }} Dashboards authentication page, click **Log in with single sign-on**.
 1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user must be a member of a group added to the app.
-1. Make sure you are logged in to {{ OS }} Dashboards.
+1. Make sure you have successfully authenticated in {{ OS }} Dashboards.
 1. If you have configured role mapping:
      1. Click the user icon in {{ OS }} Dashboards.
      1. Go to **View roles and identities**.

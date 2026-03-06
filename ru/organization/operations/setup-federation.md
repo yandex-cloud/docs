@@ -483,6 +483,11 @@
 Телефон | Используется для отправки уведомлений из сервисов {{ yandex-cloud }}.<br>Пример: +71234567890.<br> Ограничение по длине: {{ saml-limit-phone }}. | `<Attribute>` с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
 Аватар | Отображается в сервисах {{ yandex-cloud }}.<br>Изображение передается в кодировке [Base64]({{ link-base64 }}).<br> Ограничение по длине: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` с параметром<br>`Name="thumbnailPhoto"`
 Членство в группах | Используется для функционала динамического сопоставления членства в группах. | `<Attribute>` с параметром<br>`Name="member"`
+Название компании | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: ООО «Праздник». | `<Attribute>` с параметром<br>`Name="company_name"`
+Подразделение | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: Отдел АСУ. | `<Attribute>` с параметром<br>`Name="department"`
+Должность | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: Разработчик. | `<Attribute>` с параметром<br>`Name="job_title"`
+Табельный номер | Отображается в сервисах {{ yandex-cloud }}.<br>Пример: 08012. | `<Attribute>` с параметром<br>`Name="employee_id"`
+
 
 {% note info %}
 

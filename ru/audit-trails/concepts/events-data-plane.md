@@ -25,6 +25,12 @@ description: В данном разделе приведены описания 
 
 {% include [alb-events-dp](../../_includes/audit-trails/events/alb-events-dp.md) %}
 
+## {{ baremetal-full-name }} {#baremetal}
+
+Имя сервиса — `baremetal`.
+
+{% include [baremetal-events-dp](../../_includes/audit-trails/events/baremetal-events-dp.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Имя сервиса — `certificatemanager`.

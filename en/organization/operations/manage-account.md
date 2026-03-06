@@ -1,11 +1,11 @@
 ---
-title: How to manage a user in the My account portal
-description: Follow this guide to manage a user in the {{ org-full-name }} My account portal.
+title: How to manage an account on the My account portal
+description: Follow this guide to manage a user account on the {{ org-full-name }} My account portal.
 ---
 
-# Managing a user in the My account portal
+# Managing an account on the My account portal
 
-What you can do in the [_My account_](../concepts/my-account.md) portal depends on your account type:
+What you can do on the [_My account_](../concepts/my-account.md) portal depends on your account type:
 
 | | [Yandex account](../../iam/concepts/users/accounts.md#passport) | [Federated account](../../iam/concepts/users/accounts.md#saml-federation) | [Local account](../../iam/concepts/users/accounts.md#local) |
 ---|---|---|---
@@ -23,7 +23,7 @@ What you can do in the [_My account_](../concepts/my-account.md) portal depends 
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
   1. Under **{{ ui-key.yacloud_org.my-account.ProfileEditPageLayout.main_breadcrumb }}**, you will see your account’s attributes.
 
@@ -35,7 +35,7 @@ What you can do in the [_My account_](../concepts/my-account.md) portal depends 
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
   1. Click ![alt](../../_assets/console-icons/person-pencil.svg) **{{ ui-key.yacloud_org.my-account.ProfilePage.edit_action }}**.
   1. Edit the first name, last name, and contact details.
@@ -49,7 +49,7 @@ What you can do in the [_My account_](../concepts/my-account.md) portal depends 
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
   1. Under **{{ ui-key.yacloud_org.my-account.login.entry-methods.header }}**, click ![alt](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.myaccount.security.EntryMethodsTable.change-action }}**.
   1. Enter your current password and enter the new one twice.
@@ -63,7 +63,7 @@ What you can do in the [_My account_](../concepts/my-account.md) portal depends 
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
   1. Navigate to the **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}** tab.
   1. You will see all the applications you added [refresh tokens](../../iam/concepts/authorization/refresh-token.md) for.
@@ -78,11 +78,17 @@ To manage login authentication methods, a user must be added to the [MFA policy]
 
 ### Adding a login authentication method {#mfa-add}
 
+{% note warning %}
+
+Before using WebAuthn for login authentication, make sure your browser and OS are supported. To check compatibility, refer to the [table of supported configurations](../concepts/mfa.md#webauthn-support).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
   1. Under **{{ ui-key.yacloud_org.my-account.security.login-confirmation.header }}**, click **Add authentication method**.
   1. Select the login authentication method you need.
@@ -95,7 +101,7 @@ To manage login authentication methods, a user must be added to the [MFA policy]
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
   1. Under **{{ ui-key.yacloud_org.my-account.security.login-confirmation.header }}**, you will see your login authentication methods and their last use dates.
   1. Click ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.myaccount.security.LoginConfirmationTable.delete-action }}** next to the relevant login authentication method.
@@ -108,7 +114,7 @@ To manage login authentication methods, a user must be added to the [MFA policy]
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.groups_pqQRu }}**.
   1. On the **{{ ui-key.yacloud_org.my-account.GroupsPageLayout.header }}** page, you will see all your groups and their IDs.
 
@@ -120,7 +126,7 @@ To manage login authentication methods, a user must be added to the [MFA policy]
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  1. Go to the [_My account_]({{ link-my-account }}) portal.
+  1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.activity_kyqSv }}**.
   1. The page that opens will show your audit [logs](../concepts/logs.md).
   1. Click an entry to view more details about the event.

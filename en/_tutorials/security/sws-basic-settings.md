@@ -346,7 +346,7 @@ The `Allow` action is set for the basic default rule, while other rules are in t
 
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-    You will see the associated virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
+    You will see the connected virtual host under ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
 
   {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
 

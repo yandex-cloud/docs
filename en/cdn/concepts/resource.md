@@ -103,7 +103,7 @@ For the list of metrics delivered to {{ monitoring-name }}, see the [reference](
 * [{#T}](../tutorials/prefetch.md)
 * [{#T}](../tutorials/thumbor.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/protected-access-to-content/index.md)
 
 

@@ -25,13 +25,35 @@ You can get an IAM token for your Yandex account in two ways:
 
 ## Getting an IAM token using the YC CLI {#via-cli}
 
-{% include [cli-install](../../../_includes/cli-install.md) %}
+{% list tabs group=instructions %}
 
-Get an [IAM token](../../concepts/authorization/iam-token.md):
+- CLI {#cli}
 
-```bash
-yc iam create-token
-```
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  1. [Authenticate in the CLI as a user](../../../cli/operations/authentication/user.md).
+  1. Get an IAM token:
+
+      ```bash
+      yc iam create-token
+      ```
+
+      Result:
+
+      ```text
+      t1.9euelZrLop7Uz8up********
+      ```
+
+      The value you get is an IAM token. You can copy it, save it to a file, or write it into a variable:
+
+      ```bash
+      export IAM_TOKEN=`<IAM_token>`
+      ```
+
+{% endlist %}
+
+{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+
 
 ### Example of using an IAM token obtained through the CLI {#use-cli}
 

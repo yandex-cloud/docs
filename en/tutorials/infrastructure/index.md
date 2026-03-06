@@ -14,7 +14,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
 * [Fault-tolerant website with load balancing via {{ network-load-balancer-full-name }}](../web/load-balancer-website/index.md)
 * [Fault-tolerant website with load balancing via {{ alb-full-name }}](../web/application-load-balancer-website/index.md)
-* [Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
+* [Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}](../web/cdn-storage-integration/index.md)
 * [Running an instance group with autoscaling](../infrastructure-management/vm-autoscale/index.md)
 * [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled/index.md)
 * [Autoscaling an instance group to process messages enqueued in {{ message-queue-name }}](../infrastructure-management/autoscale-monitoring.md)

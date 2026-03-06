@@ -5,11 +5,12 @@ description: Follow this guide to deactivate, reactivate, and delete a SAML appl
 
 # Deactivating and deleting a SAML application in {{ org-full-name }}
 
+
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 ## Deactivate the application {#deactivate}
 
-If you need to temporarily disable authentication in an external app using the [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based single sign-on for your [organization](../../concepts/organization.md) users, deactivate the relevant [SAML application](../../concepts/applications.md#saml).
+If you need to temporarily disable [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based single sign-on authentication to an external app for the users of your [organization](../../concepts/organization.md), deactivate the relevant [SAML application](../../concepts/applications.md#saml) in {{ org-name }}:
 
 {% list tabs group=instructions %}
 
@@ -146,7 +147,7 @@ To delete a SAML application:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and delete the fragment describing the SAML application.
+  1. Open the {{ TF }} configuration file and delete the fragment describing the SAML application:
 
      Example of a SAML application description in the {{ TF }} configuration:
 
@@ -170,7 +171,7 @@ To delete a SAML application:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the deletion of the resources in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the deletion of the resources in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
 
 - API {#api}
 

@@ -137,7 +137,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
      1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-        For more information about creating this file, see [{#T}](node-group-create.md).
+        For more on how to create this file, see [{#T}](node-group-create.md).
      1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
         ```hcl
@@ -166,7 +166,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
    - API {#api}
 
-     To create a {{ managed-k8s-name }} node group, use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
+     To create a {{ managed-k8s-name }} node group, use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource or the [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) gRPC API call.
 
    {% endlist %}
 
@@ -229,7 +229,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
    - API {#api}
 
-     To view the {{ managed-k8s-name }} node details, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
+     To view information about a {{ managed-k8s-name }} node, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource or the [NodeGroupService/List](../../managed-kubernetes/api-ref/grpc/NodeGroup/list.md) gRPC API call.
 
    {% endlist %}
 
@@ -264,7 +264,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, add the `node_labels` section:
 
@@ -295,7 +295,9 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
 - API {#api}
 
-  To add a {{ k8s }} label to an existing node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  To add a {{ k8s }} label to an existing node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
   * {{ k8s }} labels in the `nodeLabels` parameter.
   * `nodeLabels` parameter to update in the `updateMask` parameter.
@@ -335,7 +337,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the {{ k8s }} labels you no longer need from `node_labels`.
 
@@ -353,7 +355,9 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
 - API {#api}
 
-  To remove a {{ k8s }} label from a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  To remove a {{ k8s }} label from a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
   * New list of {{ k8s }} labels in the `nodeLabels` parameter. If you want to remove all the labels, provide `"nodeLabels": {}` in your request.
   * `nodeLabels` parameter to update in the `updateMask` parameter.

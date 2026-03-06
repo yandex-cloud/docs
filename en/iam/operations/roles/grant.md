@@ -255,7 +255,7 @@ To assign a role for an organization:
 
       For more information, see [this provider guide]({{ tf-provider-link }}).
 
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -496,9 +496,9 @@ You can assign a role not only for an organization, cloud, or folder but their c
       ```bash
       yc <service_name> <resource> set-access-bindings \
          --id <resource_ID> \
-         --access-binding role=<role1>,service-account-id=<service_account_ID> \
-         --access-binding role=<role2>,service-account-id=<service_account_ID> \
-         --access-binding role=<role3>,service-account-id=<service_account_ID>
+         --access-binding role=<role_1>,service-account-id=<service_account_ID> \
+         --access-binding role=<role_2>,service-account-id=<service_account_ID> \
+         --access-binding role=<role_3>,service-account-id=<service_account_ID>
       ```
 
 - API {#api}

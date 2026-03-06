@@ -7,6 +7,10 @@ editable: false
 
 # {{ mpg-name }} pricing policy
 
+
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
 In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% note tip %}

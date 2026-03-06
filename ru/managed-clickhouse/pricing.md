@@ -7,6 +7,10 @@ editable: false
 
 # Правила тарификации для {{ mch-short-name }}
 
+
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mch-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 {% note tip %}

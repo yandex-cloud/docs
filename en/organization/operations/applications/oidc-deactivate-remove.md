@@ -201,7 +201,7 @@ To delete an OIDC application:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will delete the OIDC app resource. You can check the resource deletion in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will delete the OIDC app resource. You can check the resource deletion in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp application oauth application list --organization-id <organization_ID>

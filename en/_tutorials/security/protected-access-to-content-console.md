@@ -879,7 +879,11 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
         data:
           cm:
             id: fpqia0s2fc21********
+      provider_type: ourcdn
+      provider_cname: d88c6ee6********.topology.gslb.yccdn.ru
       ```
+
+      Save the provider’s CNAME value (the `provider_cname` field) for later.
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
@@ -914,7 +918,6 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. [Get](../../cdn/operations/resources/get-resources-info.md#get-cname) the CDN provider domain name value.
   1. Create a CNAME resource record in {{ dns-name }}:
 
       ```bash
@@ -925,7 +928,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       Where:
       * `<subdomain>`: Subdomain created for the CDN resource. For example, for the `cdn.example.com` domain name, specify `cdn`.
-      * `<cname_value>`: `cname` value for the CDN resource you got in the previous step.
+      * `<cname_value>`: CDN provider’s `cname` value you got in the previous step.
 
       Result:
 

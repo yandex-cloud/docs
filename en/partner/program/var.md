@@ -36,6 +36,8 @@ You can also get the following:
 * When [registering a project](./var-tools.md#project-reg): Up to 15% of the customer's consumption growth in the registered cloud or folder as a [rebate](../terms.md#rebate) credited within 12 months.
 * Quarterly rebate for customers’ use of [specialization](../specializations/index.md) services.
 
+For more information on how to withdraw commissions you got as rebates, see [this guide](../operations/get-bonus.md).
+
 ### What is not included when calculating a partner bonus {#ignore}
 
 The discount does not apply to:
@@ -50,23 +52,6 @@ The discount does not apply to:
 * Grants credited to subaccounts.
 
 You can view the absolute and relative discounts for a reporting month under **Partner bonus** on the [partner portal]({{ link-cloud-partners }}).
-
-
-### Withdrawing your commission {#bonus}
-
-You can withdraw your commissions credited as rebates through the partner portal:
-
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![icon](../../_assets/console-icons/sack.svg) **Rebate accrual balance**.
-1. Click **Withdraw**.
-1. Specify the amount to withdraw.
-1. Select the withdrawal destination:
-
-   * **Invoice deduction**: The amount will reduce the sum due for the consumption of your customer subaccounts in the current month.
-   * **To bank account**: The amount will be transferred to the bank account specified in the partner agreement.
-
-1. Click **Withdraw**.
-
 
 ## How to quit the program {#end}
 

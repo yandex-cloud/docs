@@ -37,6 +37,12 @@ The cost depends on the service plan you choose, which covers your organization 
 
 
 
+{% note warning %}
+
+Starting May 1, 2026, the fixed part of the technical support payment will increase to $40.98.
+
+{% endnote %}
+
 Service plan | Basic           | Business                       | Premium
 --- |-------------------|------------------------------|--------
  **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month charged to the billing account selected at the time of service plan activation plus 5% of the organization's resource consumption cost, regardless of which billing account the resources are linked to. | Upon request

@@ -12,6 +12,8 @@ The maximum key lifetime is 12 hours.
 
 To set up access permissions for the key, you need an [access policy](../../storage/security/policy.md) in JSON format based on [this schema](../../storage/s3/api-ref/policy/scheme.md).
 
+{% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
+
 {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
 {% include [sts-sa-access-backets-list](sts-sa-access-backets-list.md) %}

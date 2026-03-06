@@ -5,6 +5,7 @@ description: Follow this guide to create a SAML application in {{ org-name }} to
 
 # Creating a SAML application in {{ org-full-name }}
 
+
 To authenticate your [organization](../../concepts/organization.md)'s users to external apps using [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based SSO, create a [SAML application](../../concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and on your service provider side.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
@@ -120,7 +121,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
    When you create a SAML application, a certificate is automatically created to verify the SAML response signature.
 
@@ -273,7 +274,7 @@ Before configuring your SAML application in {{ org-name }}, get the required set
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 

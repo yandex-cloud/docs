@@ -58,6 +58,7 @@ You can use an OpenVPN Access Server installation of your own, an SaaS version, 
    1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
       1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `ovpn-app`.
+
       1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
       1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
@@ -65,7 +66,7 @@ You can use an OpenVPN Access Server installation of your own, an SaaS version, 
          1. Enter a label in `key: value` format.
          1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
-   1. Save the **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}** value until the next step.
+   1. Save the **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}** value, you will need it at the next step.
 
 {% endlist %}
 

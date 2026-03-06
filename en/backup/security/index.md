@@ -20,7 +20,7 @@ To assign a role for a resource, a user should have the `backup.admin` role or o
 
 Using the {{ yandex-cloud }} console or the CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
 
-## What roles exist in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-backup](../../_mermaid/roles/backup.md) %}
 

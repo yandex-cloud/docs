@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
@@ -45,7 +45,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
 - Manually {#manual}
 
-  [Create a {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md) cluster with any suitable configuration.
+  [Create a {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md) cluster of any suitable configuration.
 
 - Using {{ TF }} {#tf}
 
@@ -60,7 +60,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mos-name }} cluster.
         * {{ mos-name }} target cluster.
         * Transfer.
 
@@ -68,7 +68,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
         * `os_version`: {{ OS }} version in the target cluster.
         * `os_admin_password`: `admin` user password.
-        * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+        * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -97,7 +97,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
@@ -122,7 +122,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type that will use the endpoints you created.
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - Using {{ TF }} {#tf}
@@ -131,7 +131,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -161,7 +161,7 @@ Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
     1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
     1. Under **Management**, select **Stack Management**.
     1. Go to **Index Patterns** and click **create an index pattern** at the bottom of the page.
-    1. In the **Index pattern name** field, specify `audit-trails*` and click **Next step**.
+    1. Specify `audit-trails*` in the **Index pattern name** field and click **Next step**.
     1. In **Time field**, select `application_usage_daily.timestamp` and click **Create index pattern**.
 
 1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
@@ -238,14 +238,14 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db) database.
 1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 1. Delete the [{{ at-name }}](../../audit-trails/concepts/trail.md) trail.
-1. Delete other resources using the same method used for their creation:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

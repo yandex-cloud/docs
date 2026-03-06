@@ -1,14 +1,14 @@
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the line with the [group](../../organization/concepts/groups.md) name you need.
 
-  1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
 
-  1. Find the group member you need. You may want to use the search feature.
+  1. Locate the group member. Use search, if required.
 
   1. In the line with the group member you want to delete, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_remove-user }}**.
 
@@ -63,11 +63,11 @@
 
      * `group_id`: ID of the group to delete a member from.
      * `members`: [IDs](../../organization/operations/users-get.md) of the members that are to remain in the group.
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc organization-manager group list-members \

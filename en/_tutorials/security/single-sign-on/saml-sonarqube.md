@@ -209,5 +209,5 @@ To ensure that your SAML app and integration with SonarQube are working correctl
 1. If you were logged in to SonarQube, log out.
 1. On the SonarQube authentication page, click **Log in with SAML**.
 1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user or group they belong to must be added to the application.
-1. Make sure you are logged in to SonarQube.
+1. Make sure you have authenticated in SonarQube.
 1. If you have configured role mapping, go to the user profile in SonarQube and make sure the appropriate group is displayed under **Groups**. 
