@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ mgl-full-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 {% note tip %}
 

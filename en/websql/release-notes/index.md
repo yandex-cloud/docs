@@ -9,7 +9,7 @@ description: This section contains the {{ websql-name }} release notes.
 
 ### New features {#new-features-jan-2026}
 
-Tabs can now be dragged.
+Added the ability to drag tabs.
 
 ### Improvements {#improvements-jan-2026}
 
@@ -30,7 +30,7 @@ Fixed the display of the completed request in the editor.
 
 ### Improvements {#improvements-december-2025}
 
-1. Added display of {{ PG }} partitions in the connection tree.
+1. Added display of a {{ PG }} partition in the connection tree.
 
 ### Fixed issues {#fixes-december-2025}
 

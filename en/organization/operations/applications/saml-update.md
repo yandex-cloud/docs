@@ -1,9 +1,10 @@
 ---
 title: How to update a SAML app in {{ org-full-name }}
-description: Follow this guide to update a a SAML app in {{ org-name }}.
+description: Follow this guide to update a SAML app in {{ org-name }}.
 ---
 
 # Updating a SAML app in {{ org-full-name }}
+
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -104,7 +105,7 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -212,7 +213,7 @@ To update the service provider configuration in a SAML app:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -224,7 +225,7 @@ To update the service provider configuration in a SAML app:
 
 {% include [saml-app-cert-intro-phrase](../../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 
-You can issue any number of new digital signature verification key certificates for the SAML app at any time. Proceed as follows:
+You can issue any number of new digital signature verification key certificates for the SAML app at any time. To do this:
 
 {% list tabs group=instructions %}
 
@@ -328,7 +329,7 @@ You can issue any number of new digital signature verification key certificates 
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 

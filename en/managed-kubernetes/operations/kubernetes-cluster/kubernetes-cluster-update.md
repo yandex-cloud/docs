@@ -128,7 +128,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -138,9 +138,9 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
 - API {#api}
 
-  To update {{ managed-k8s-name }} cluster parameters, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
+  To update the {{ managed-k8s-name }} cluster parameters, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource or the [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call.
 
-  To edit the settings for sending logs to {{ cloud-logging-name }}, update their values in the `masterSpec.masterLogging` parameter.
+  To edit the settings for sending logs to {{ cloud-logging-name }}, update their values in the `masterSpec.masterLogging` parameter for the REST API, or `master_spec.master_logging`, for the gRPC API.
 
 {% endlist %}
 
@@ -338,7 +338,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -348,7 +348,10 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 - API {#api}
 
-  To update the master resource configuration, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource and provide the `masterSpec.scalePolicy.autoScale.minResourcePresetId` parameter in the request.
+  To update the master resource configuration, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource or the [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following parameter in the request:
+
+  * `masterSpec.scalePolicy.autoScale.minResourcePresetId`: For REST API.
+  * `master_spec.scale_policy.auto_scale.min_resource_preset_id`: For gRPC API.
 
   {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 

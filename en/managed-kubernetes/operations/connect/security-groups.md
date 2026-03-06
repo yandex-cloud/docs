@@ -69,7 +69,7 @@ For the cluster to work correctly, create rules for incoming and outgoing traffi
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
    * Health checks of nodes using ICMP messages from subnets within {{ yandex-cloud }}:
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `ICMP`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
@@ -81,19 +81,19 @@ For the cluster to work correctly, create rules for incoming and outgoing traffi
 1. Add a rule for outgoing service traffic between the master and nodes:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 
-2. Add a rule that allows the master to communicate with pods located on nodes. This is necessary, for example, for successful requests to webhook endpoints in pods. 
-This rule is required in clusters with the Calico [network plugin](../../concepts/network-policy.md) installed or without a CNI installed. In clusters using Cilium CNI, this rule is not necessary.
 
-   Create a rule for outgoing traffic to the cluster CIDR:
-
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — Specify the cluster CIDR, e.g., `10.96.0.0/16`.
+1. If using a cluster without [tunnel mode](../../concepts/network-policy.md#cilium) (Cilium CNI not used), add a rule for outgoing traffic to the cluster CIDR allowing the master to access pods residing on nodes:
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Specify the cluster CIDR, e.g., `10.96.0.0/16`.
+    
+    You need this rule, for example, for successful access to webhook endpoints in pods.
+    
 
 {% note info %}
 
@@ -105,7 +105,7 @@ If using a [highly available master](../../concepts/index.md#master), allow traf
 
 For node groups to run properly, create rules for incoming and outgoing traffic and [apply them to the node groups](#apply):
 
-1. Add the rule for incoming traffic that allows traffic transfer between [pods](../../concepts/index.md#pod) and [services](../../concepts/index.md#service):
+1. Add an incoming traffic rule that allows traffic transfer between [pods](../../concepts/index.md#pod) and [services](../../concepts/index.md#service):
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
@@ -143,7 +143,7 @@ For node groups to run properly, create rules for incoming and outgoing traffic 
 
 ### Allowing traffic for a cluster {#rules-master}
 
-For a cluster to work correctly and allow incoming [connections](./index.md), create rules for incoming and outgoing traffic and [apply them to this cluster](#apply):
+For the cluster to work correctly and to allow incoming [connections](./index.md), create rules for incoming and outgoing traffic and [apply them to the cluster](#apply):
 
 1. Add the rules for incoming traffic that allow connecting to the [master](../../concepts/index.md#master) on ports `{{ port-k8s }}` and `{{ port-https }}`. This will allow you to access the {{ k8s }} API and manage the cluster using `kubectl` and other utilities.
 

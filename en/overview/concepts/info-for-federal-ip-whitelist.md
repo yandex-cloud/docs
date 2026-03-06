@@ -62,7 +62,7 @@ This access arrangement offers some additional benefits: give your L7 load balan
 Below are examples of how you can use a load balancer for access to applications:
 
 * [{#T}](../../tutorials/security/distributed-secured-infrastructure.md)
-* [{#T}](../../tutorials/web/cdn-storage-integration.md)
+* [{#T}](../../tutorials/web/cdn-storage-integration/index.md)
 * [{#T}](../../tutorials/security/alb-with-ddos-protection/index.md)
 * [{#T}](../../tutorials/security/balancer-with-sws-profile/index.md)
 * [{#T}](../../tutorials/security/alb-ingress-with-sws-profile.md)

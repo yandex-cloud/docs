@@ -93,7 +93,7 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 * Apply security groups to any objects that have no group.
 * To apply security groups through {{ TF }}, [set up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation).
 * To use the NGFW, [install](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM) the NGFW on your VM: Check Point.
@@ -159,7 +159,7 @@ You can combine security groups by assigning up to five groups per object for mo
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Create a security group in each {{ vpc-name }} with restricted access rules, so that it can be assigned to cloud objects.
 
@@ -217,7 +217,7 @@ Make sure to only allow access through the ports that your application requires 
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Delete the dangerous rule in each security group or edit it by specifying trusted IPs.
 
@@ -267,7 +267,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Delete](../../../cli/cli-ref/vpc/cli-ref/security-group/index.md) the dangerous rule in each security group or specify trusted IPs.
 
@@ -291,6 +291,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. In the left-hand panel, select ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
       1. Make sure you have security profiles created.
       1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -339,7 +340,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 * [How to create a security profile in {{ sws-name }}](../../../smartwebsecurity/operations/profile-create.md).
 * All [materials](../../../vpc/ddos-protection/index.md) about DDoS protection in {{ yandex-cloud }}.
@@ -411,7 +412,7 @@ Use this service to:
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. [Create a desktop group](../../../cloud-desktop/operations/desktop-groups/create.md).
 1. If you have any specific OS configuration requirements, you can use your own OS image by following the [{#T}](../../../cloud-desktop/operations/images/create-from-compute-linux.md) guide or [create](../../../cloud-desktop/operations/images/create-from-desktop.md) an image based on the existing desktop and reuse it for the group.
@@ -505,7 +506,7 @@ Regardless of which option you select for setting up outbound internet access, b
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 * If any VM has public IPs, make sure they are required. Otherwise, delete an external IP address in the VM settings.
 * If any NAT-Gateway is found, make sure it is required. Otherwise, delete it.
 * If any NAT instance is found, make sure it is required. Otherwise, delete it.

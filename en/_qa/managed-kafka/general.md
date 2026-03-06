@@ -23,7 +23,7 @@ Here is an alternative solution:
 
 #### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
 
-[Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) with the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
+[Create an alert](../../managed-kafka/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mkf-name }} cluster.
 
 For `disk.used_bytes`, use notification thresholds with the following recommended values:
 
@@ -118,3 +118,7 @@ For more information, see [{#T}](../../managed-kafka/tutorials/retention-policy.
 #### What block size is used on the cluster disks? {#block-size}
 
 {% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
+#### Which MirrorMaker connector version is supported by {{ mkf-short-name }}? {#mirrormaker-version}
+
+{{ mkf-name }} supports **MirrorMaker** version 2.

@@ -20,3 +20,4 @@ description: This page provides a list of step-by-step guides for {{ mgl-name }}
 * [{#T}](instance/monitoring.md)
 * [{#T}](omniauth.md)
 * [{#T}](objstorage-integration.md)
+* [{#T}](runner.md)

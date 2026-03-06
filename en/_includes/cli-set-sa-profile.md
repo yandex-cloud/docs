@@ -5,7 +5,7 @@ Configure the CLI to work on behalf of a service account:
 1. Get a list of available service accounts in the default folder:
 
     ```bash
-    yc iam service-accounts list
+    yc iam service-account list
     ```
 
     Result:
@@ -29,7 +29,7 @@ Configure the CLI to work on behalf of a service account:
     * `--output`: Path to the file for saving the authorized key in JSON format. This is a required parameter.
     * `--service-account-name`: Service account name.
 
-     For example:
+     Here is an example:
 
      ```bash
      yc iam key create --output key.json --service-account-name my-service-account
@@ -52,7 +52,7 @@ Configure the CLI to work on behalf of a service account:
     yc config profile create <profile_name>
     ```
 
-1. Specify the authorized key of the service account in the profile configuration:
+1. Specify the service account’s authorized key in the profile configuration:
 
     ```bash
     yc config set service-account-key <key_file_path>

@@ -1,31 +1,18 @@
-# Working with an {{ objstorage-name }} table from a PySpark job using {{ metastore-full-name }} and {{ IBRG }}
+# Working with an {{ IBRG }} table from a PySpark job
 
 
-Integrating {{ msp-full-name }} with [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) and {{ IBRG }} strongly empowers you in managing your data in {{ objstorage-name }} via SQL tables.
+{{ msp-full-name }} features the integrated {{ IBRG }} library. To use {{ IBRG }} in a PySpark job, connect the {{ metastore-name }} server to the {{ msp-full-name }} cluster.
 
-{{ metastore-name }} provides:
-* Centrally storing metadata on databases, tables, and partitions.
-* Readily accessing your data without manually specifying paths and schemas.
-* Conveniently storing table and column statistics for query optimization.
+The {{ IBRG }} format supports:
+* Data versioning and snapshot storage.
+* ACID transactions supporting `UPDATE`, `DELETE`, and `MERGE` operations, as well as the evolution of tables and the partitioning method.
+* Scalability while maintaining high operational performance.
 
-{{ IBRG }} provides:
-* Versioning data and storing snapshots.
-* Running ACID transactions that support `UPDATE`, `DELETE`, and `MERGE` operations, as well as the evolution of tables and the partitioning method.
-* Ensuring scalability while maintaining high operational performance.
+This tutorial demonstrates how to use the {{ IBRG }} table format to create and read metadata snapshots. The {{ IBRG }} table is created in the S3 {{ objstorage-name }}. The {{ msp-full-name }} cluster where the PySpark job runs uses the {{ metastore-name }} global catalog. For more information on connecting to the global catalog, see [this guide](../../../managed-spark/tutorials/metastore-and-spark.md).
 
-In this tutorial, you will learn how to use the following {{ metastore-name }} and {{ IBRG }} features when working with S3 storage from a PySpark job:
+To implement the above example:
 
-* Accessing a table by name.
-
-  For all clusters, {{ metastore-name }} uses a global metadata catalog. The stored metadata can then be used by any app from any {{ SPRK }} cluster connected to that {{ metastore-name }} cluster.
-
-* Creating and reading metadata snapshots.
-
-  {{ IBRG }} commits each write to the table as a new metadata snapshot. Then, you can access these snapshots by specifying a time point or snapshot ID.
-
-To implement the above example, do the following:
-
-1. [Set up the infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Prepare and run a PySpark job](#prepare-job).
 1. [Check the result](#check-out).
 
@@ -42,9 +29,9 @@ The support cost for this solution includes:
 * Fee for the computing resources of {{ metastore-name }} cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md)).
 
 
-## Set up the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 1. [Create a service account](../../../iam/operations/sa/create.md) named `spark-agent` and assign it the [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) role.
 
@@ -66,9 +53,9 @@ Set up the infrastructure:
 
     This will automatically create three subnets in different availability zones.
 
-1. For the {{ SPRK }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` in `integration-network`. Add the following rule to it:
+1. For the {{ msp-full-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `spark-sg` in `integration-network`. Add the following rule to it:
 
-    * For outgoing traffic, to allow {{ SPRK }} cluster connections to {{ metastore-name }}:
+    * For outgoing traffic, to allow {{ msp-full-name }} cluster connections to {{ metastore-name }}:
 
         * Port range: `{{ port-metastore }}`
         * Protocol: `Any`
@@ -98,7 +85,7 @@ Set up the infrastructure:
     * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `integration-network-{{ region-id }}-a`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `metastore-sg`.
 
-1. [Create a {{ SPRK }} cluster](../../../managed-spark/operations/cluster-create.md) with the following parameters:
+1. [Create a {{ msp-full-name }} cluster](../../../managed-spark/operations/cluster-create.md) with the following parameters:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `spark-agent`.
     * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `integration-network`.
@@ -186,4 +173,4 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md). Before deleting your buckets, make sure to [have deleted all objects from those buckets](../../../storage/operations/objects/delete.md).
 1. [{{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
-1. [{{ SPRK }} cluster](../../../managed-spark/operations/cluster-delete.md).
+1. [{{ msp-full-name }} cluster](../../../managed-spark/operations/cluster-delete.md).

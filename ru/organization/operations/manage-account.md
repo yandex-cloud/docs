@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
   1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
   1. Нажмите ![alt](../../_assets/console-icons/person-pencil.svg) **{{ ui-key.yacloud_org.my-account.ProfilePage.edit_action }}**.
-  1. Отредактируйте имя, фамилию и контактную информацию.
+  1. Отредактируйте имя, фамилию, контактную и организационную информацию.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

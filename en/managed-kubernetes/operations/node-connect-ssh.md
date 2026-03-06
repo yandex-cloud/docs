@@ -210,7 +210,7 @@ Here is an example:
 
   Use the [create](../managed-kubernetes/api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Create](../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) gRPC API call.
 
-  Credentials for connecting over SSH are provided in the `nodeTemplate.metadata` parameter in `ssh-keys`.
+  SSH connection credentials are provided in the `nodeTemplate.metadata` parameter for the REST API or in `node_template.metadata` for the gRPC API using the `ssh-keys` key.
 
 {% endlist %}
 
@@ -267,7 +267,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   1. Open the {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](./node-group/node-group-create.md).
+      For more on how to create such a file, see [{#T}](./node-group/node-group-create.md).
 
   1. In the node group description, change the value of the `ssh-keys` metadata key for the `instance_template.metadata` parameter:
 
@@ -298,6 +298,8 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   1. To provide multiple credentials for connecting over SSH, convert the contents of the credentials file to a single line and separate the credentials from each other with a sequence of special CRLF characters (`\r\n`). You cannot use multiline messages in an API request with a JSON body.
 
       Example of converted credentials:
@@ -308,7 +310,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-  1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
+  1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
       * Node group ID in the `nodeGroupId` parameter.
 
@@ -316,7 +318,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
           {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-      * `nodeTemplate.metadata` parameter listing all current node group metadata as `key=value` pairs without any changes.
+      * `nodeTemplate.metadata` listing all existing node group metadata as `key=value` pairs without any changes.
 
           For `ssh-keys`, replace the current value with the line with credentials you created.
 

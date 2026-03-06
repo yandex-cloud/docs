@@ -3727,7 +3727,6 @@ default:
           dashboard-resources:
             button_action-rename-account: Переименовать
             button_bind-cloud: Привязать облако
-            title_clouds: Облака
             title_section-billable: Привязанные облака и сервисы
           dashboard:
             button_go-pay: Перейти на платную версию
@@ -3850,7 +3849,6 @@ default:
         cloud:
           create:
             popup-create-cloud_button_add: Создать
-            popup-create-cloud_label_organization: Организация
           label_acl: Права доступа
           quotas:
             label_quota-name-iam:
@@ -4495,6 +4493,8 @@ default:
           update_dialog:
             field_group_all: Все группы
             field_group_assigned: Только назначенные группы
+            field_nameId_email: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+            field_nameId_persistent: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
       form:
         federation:
           action:

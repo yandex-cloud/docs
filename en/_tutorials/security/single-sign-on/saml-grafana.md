@@ -67,7 +67,7 @@ Then complete the steps below:
 
 #### General settings {#general-settings}
 
-Make sure to enable the **Allow signup** option to automatically create users in Grafana Cloud when they log in via SSO. If this option is disabled, only users who already have a Grafana Cloud account will be able to log in.
+Make sure to enable the **Allow signup** option to automatically create users in Grafana Cloud when they log in via SSO. If this option is off, only users who already have a Grafana Cloud account will be able to log in.
 
 #### Signing requests {#sign-requests}
 
@@ -165,7 +165,7 @@ If users do not have the `login` attribute, add it:
 
 {% endlist %}
 
-If you have configured role mapping in Grafana Cloud, add the user group attribute. To do this:
+If you have configured role mapping in Grafana Cloud, add the user group attribute. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -227,12 +227,12 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. To do this:
+To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.
 1. On the Grafana Cloud sign in page, click **Sign in with SAML**.
 1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.
-1. Make sure you are logged in to Grafana Cloud.
+1. Make sure you have authenticated in Grafana Cloud.
 1. If you have configured role mapping, go to the user profile in Grafana Cloud and make sure the appropriate role is displayed under **Organization**.  
 

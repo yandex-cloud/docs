@@ -17,7 +17,7 @@ The support cost for this solution includes:
 
 * Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* {{ mos-name }} cluster fee that covers the use of computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster fee, which covers the use of computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk storage (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
 * Fee for public IP addresses for {{ mos-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -57,13 +57,13 @@ The support cost for this solution includes:
         * {{ managed-k8s-name }} cluster CIDR.
         * Service account name. The name must be unique within the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
      1. Run `terraform init` in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

@@ -2,33 +2,17 @@
 
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
 
-You can use a {{ maf-full-name }} cluster to automate your work with [{{ msp-full-name }}](../../../managed-spark/index.yaml), including the following operations:
-* Creating {{ SPRK }} clusters.
-* Waiting for clusters to start.
-* Running {{ SPRK }} jobs.
-* Checking the results.
-* Shutting down resources and deleting clusters.
+With a {{ maf-full-name }} cluster, you can automate your [{{ msp-full-name }}](../../../managed-spark/index.yaml) work, including operations like creating {{ msp-full-name }} clusters, running jobs, etc. Do it by creating a [directed acyclic graph (DAG) for jobs](../../../managed-airflow/concepts/index.md). The {{ AF }} cluster will use this DAG to automatically perform all its {{ msp-full-name }}-related actions.
 
-Do it by creating a [directed acyclic graph (DAG) for jobs](../../../managed-airflow/concepts/index.md). The {{ AF }} cluster will use this DAG to automatically perform all its {{ SPRK }}-related actions.
-
-Using {{ SPRK }} via {{ AF }} allows you to:
+This approach allows you to:
 * Run jobs on a schedule to create reports and data snapshots, perform maintenance, metric updates, etc.
 * Build pipelines comprising data analysis, experiments, model fine-tuning, and other tasks.
-* Quickly process massive volumes of data on the fly without having to pay for a permanent infrastructure with high-power resources.
+* Quickly process massive volumes of data without having to pay for a permanent infrastructure with high-power resources.
 
-This tutorial describes the minimum steps for {{ AF }} integration with {{ SPRK }}, while not using any [{{ objstorage-name }}](../../../storage/concepts/index.md) S3 storage or [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md) cluster. In this configuration, the {{ SPRK }} cluster can only work with in-memory data: create temporary dataframes, apply standard transformations and functions, cache results, and use temporary views for SQL queries.
-
-{% note info %}
-
-To work with permanent databases and tables and for long-term storage of results, you need an external {{ objstorage-name }} storage and, if necessary, an {{ metastore-name }} cluster for data management.
-
-{% endnote %}
-
-The {{ AF }} to {{ SPRK }} integration is illustrated with a DAG that performs the following operations:
-
-1. Creating an {{ SPRK }} cluster.
-1. Running a PySpark job.
-1. Deleting the {{ SPRK }} cluster.
+This tutorial demonstrates a use case for a simple DAG, which includes:
+1. Creating a {{ msp-full-name }} cluster.
+1. Running a PySpark job to write messages to a log.
+1. Deleting the cluster.
 
 To implement the above example:
 
@@ -38,6 +22,12 @@ To implement the above example:
 1. [Check the result](#check-out).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+{% note info %}
+
+The {{ msp-full-name }} cluster we create here does not use the S3 [{{ objstorage-name }}](../../../storage/concepts/index.md) or the [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md) global catalog. In this configuration, the {{ msp-full-name }} cluster can only work with in-memory data. To work with permanent databases and tables and for long-term storage of results, connect an external {{ objstorage-name }} and, if necessary, an {{ metastore-name }} cluster for metadata management. For more information, see [this tutorial](../../../managed-spark/tutorials/airflow-automation.md).
+
+{% endnote %}
 
 
 ## Required paid resources {#paid-resources}
@@ -50,7 +40,7 @@ The support cost for this solution includes:
 * Fee for the computing resources of {{ msp-full-name }} cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
 
 
-## Set up the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 In this tutorial uses a simplified infrastructure setup:
 
@@ -60,13 +50,13 @@ In this tutorial uses a simplified infrastructure setup:
 
 This setup is good for testing but does not ensure a sufficient security level for real-world scenarios. To make the solution more secure, adhere to the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access).
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 1. [Create a service account](../../../iam/operations/sa/create.md) named `integration-agent` with the following roles:
 
    * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider): To enable the {{ AF }} cluster to [interact with other resources](../../../managed-airflow/concepts/impersonation.md).
-   * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor): To manage your {{ SPRK }} cluster from a DAG.
-   * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To select the `integration-agent` service account when creating the {{ SPRK }} cluster.
+   * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor): To manage your {{ msp-full-name }} cluster from a DAG.
+   * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To select the `integration-agent` service account when creating the {{ msp-full-name }} cluster.
    * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user): To use the [{{ vpc-full-name }} subnet](../../../vpc/concepts/network.md#subnet) in the {{ AF }} cluster.
    * [logging.editor](../../../iam/roles-reference.md#logging-editor): To work with log groups.
    * [logging.reader](../../../iam/roles-reference.md#logging-reader): To read logs.
@@ -122,9 +112,9 @@ Prepare a script file:
 
 A DAG will have multiple vertices that form a sequence of actions:
 
-1. {{ maf-name }} creates a temporary {{ SPRK }} cluster with settings specified in the DAG.
-1. When the {{ SPRK }} cluster is ready, a PySpark job is run.
-1. Once the job is complete, the temporary {{ SPRK }} cluster is deleted.
+1. {{ maf-name }} creates a temporary {{ msp-full-name }} cluster with settings specified in the DAG.
+1. When the {{ msp-full-name }} cluster is ready, a PySpark job is run.
+1. Once the job is complete, the temporary {{ msp-full-name }} cluster is deleted.
 
 To prepare a DAG:
 
@@ -157,7 +147,7 @@ To prepare a DAG:
 
 
    @task
-   # Step 1: Creating an {{ SPRK }} cluster
+   # Step 1: Creating an {{ msp-full-name }} cluster
    def create_cluster(yc_hook, cluster_spec):
        spark_client = yc_hook.sdk.wrappers.Spark()
        spark_client.create_cluster(cluster_spec)
@@ -184,7 +174,7 @@ To prepare a DAG:
 
 
    @task(trigger_rule="all_done")
-   # Step 3: Deleting the {{ SPRK }} cluster
+   # Step 3: Deleting the {{ msp-full-name }} cluster
    def delete_cluster(yc_hook, cluster_id):
        if cluster_id:
            spark_client = yc_hook.sdk.wrappers.Spark()
@@ -227,10 +217,10 @@ To prepare a DAG:
 
    Where:
 
-   * `FOLDER_ID`: ID of the folder you will create the {{ SPRK }} cluster in.
-   * `SERVICE_ACCOUNT_ID`: ID of the service account you will use to create the {{ SPRK }} cluster.
+   * `FOLDER_ID`: ID of the folder you will create the {{ msp-full-name }} cluster in.
+   * `SERVICE_ACCOUNT_ID`: ID of the service account you will use to create the {{ msp-full-name }} cluster.
    * `SUBNET_IDS`: `datalake-network-{{ region-id }}-a` subnet ID.
-   * `SECURITY_GROUP_IDS`: ID of the security group for the {{ SPRK }} cluster.
+   * `SECURITY_GROUP_IDS`: ID of the security group for the {{ msp-full-name }} cluster.
    * `JOB_NAME`: PySpark job name.
    * `JOB_SCRIPT`: Path to the PySpark job file in the bucket.
    * `JOB_ARGS`: PySpark job arguments.
@@ -272,7 +262,7 @@ To prepare a DAG:
 
 {% note info %}
 
-In the [management console]({{ link-console-main }}), you can monitor the {{ SPRK }} cluster creation, PySpark job completion, and cluster deletion processes.
+In the [management console]({{ link-console-main }}), you can monitor the {{ msp-full-name }} cluster creation, PySpark job completion, and cluster deletion processes.
 
 {% endnote %}
 

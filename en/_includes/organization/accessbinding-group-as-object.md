@@ -24,7 +24,7 @@
 
     To grant access permissions for a user group:
 
-    1. See the description of the CLI role assignment command:
+    1. View the description of the CLI command for assigning roles:
 
         ```bash
         yc organization-manager group add-access-binding --help

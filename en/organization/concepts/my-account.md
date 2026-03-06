@@ -12,7 +12,7 @@ description: '[_My account_]({{ link-my-account }}) is a user''s personal worksp
 * ![alt](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.groups_pqQRu }}**: Viewing user groups.
 * ![alt](../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.activity_kyqSv }}**: Viewing user audit [logs](logs.md).
 
-[What you can do](../../iam/concepts/users/accounts.md) in the _My account_ portal depends on your [account type](../operations/manage-account.md).
+The _My account_ portal's [functionality](../operations/manage-account.md) available to you depends on your [account type](../../iam/concepts/users/accounts.md).
 
 #### See also {#see-also}
 

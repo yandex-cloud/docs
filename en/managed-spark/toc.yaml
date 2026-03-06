@@ -45,16 +45,18 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Automating operations using {{ maf-full-name }}
-        href: tutorials/airflow-automation.md
-      - name: Working with an {{ objstorage-name }} table from a PySpark job
-        href: tutorials/spark-simple-rw-job.md
-      - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
+      - name: Working with {{ objstorage-full-name }} using a local Hive catalog
+        href: tutorials/spark-objstorage-integration.md
+      - name: >-
+          Working with {{ objstorage-full-name }} using a {{ metastore-full-name
+          }} cluster
         href: tutorials/metastore-and-spark.md
+      - name: Working with an {{ IBRG }} table from a PySpark job
+        href: tutorials/spark-simple-rw-job.md
       - name: Running a PySpark job using {{ maf-full-name }}
         href: tutorials/airflow-spark-min.md
-      - name: Using {{ objstorage-full-name }} in {{ msp-name }}
-        href: tutorials/spark-objstorage-integration.md
+      - name: Automating operations using {{ maf-full-name }}
+        href: tutorials/airflow-automation.md
   - name: Concepts
     items:
       - name: Resource relationships

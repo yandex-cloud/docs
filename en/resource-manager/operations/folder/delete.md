@@ -145,7 +145,7 @@ Deletion starts with stopping resources. The folder enters the `PENDING_DELETION
 
 While a folder is `PENDING_DELETION`, your disks, reserved IPs, and other data are still stored and billed. 
 
-While a folder is `DELETION`, you are still charged for paid resources if metrics detect their consumption.
+While a folder is `DELETING`, you are still charged for paid resources if metrics indicate their consumption.
 
 The storage cost is calculated at the previous rate. Track how much the resources cost you in [{{ billing-name }}]({{ link-console-billing }}).
 

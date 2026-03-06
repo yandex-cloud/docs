@@ -67,13 +67,13 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
         * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
         * `federatedUser:<user_ID>`: Federated user ID.
 
-      For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-link }}).
+      To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      
-  The specified user will then get roles in the organization. You can check the new role in the [management console]({{ link-console-main }}).
+  The specified user will then get roles in the organization. You can check the role in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 

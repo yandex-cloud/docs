@@ -45,6 +45,23 @@ Users must repeat the verification with the selected additional authentication f
 
 The organization administrator may [remove](../operations/mfa/manage-verification.md#remove-mfa-factor) an existing user authentication factor. For example, this may be necessary if the user is unable to access the authenticator app or lost their hardware key used for identity verification.
 
+## WebAuthn browser and OS compatibility {#webauthn-support}
+
+To use WebAuthn, make sure it is supported by your browser and OS. The table below lists the earliest browser and OS versions with WebAuthn support. It is also supported in later versions.
+
+#|
+|| **Browser** | **Android 14** | **iOS 16** | **Windows 10** | **macOS 13 (Ventura)** | **Desktop Linux** ||
+|| **Chromium**^1^ | Full support | Full support | Full support^2^ | Full support | Only hardware keys^3^ ||
+|| **Safari** | No information | Full support | No information | Full support | No information ||
+|| **Firefox** | Full support^4^ | Full support | Full support^2^ | Full support^5^ | Only hardware keys ||
+|#
+
+^1^ This also applies to [Chromium](https://{{ lang }}.wikipedia.org/wiki/Chromium)-based Yandex Browser, Google Chrome, Opera, Vivaldi, Brave, and Microsoft Edge.
+^2^ For platform-specific authenticators with Windows Hello only.
+^3^ To use Rutoken in Yandex Browser, you need the Rutoken plugin.
+^4^ Use of biometrics may be restricted on some devices.
+^5^ Platform authenticators, e.g., Touch ID, may not be fully available due to the Gecko engine features.
+
 #### See also {#see-also}
 
 * [{#T}](../operations/mfa/create-policy.md)

@@ -313,6 +313,7 @@ default:
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-console-access-management: https://console.yandex.cloud/iam
+  link-console-ai: https://aistudio.yandex.ru/platform
   link-console-billing: https://center.yandex.cloud/billing/accounts
   link-console-cloud: https://console.yandex.cloud/cloud
   link-console-iam-users: https://console.yandex.cloud/iam?section=users
@@ -326,6 +327,7 @@ default:
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/en/docs
+  link-docs-ai: https://aistudio.yandex.ru/docs/ru/
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-forms-cloudless: https://yandex.ru/support/forms/ru
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
@@ -3725,7 +3727,6 @@ default:
           dashboard-resources:
             button_action-rename-account: Rename
             button_bind-cloud: Link cloud
-            title_clouds: Clouds
             title_section-billable: Linked clouds and services
           dashboard:
             button_go-pay: Upgrade to paid version
@@ -3848,7 +3849,6 @@ default:
         cloud:
           create:
             popup-create-cloud_button_add: Create
-            popup-create-cloud_label_organization: Organization
           label_acl: Access bindings
           quotas:
             label_quota-name-iam:
@@ -4493,6 +4493,8 @@ default:
           update_dialog:
             field_group_all: 'All grous '
             field_group_assigned: Assigned groups only
+            field_nameId_email: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
+            field_nameId_persistent: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
       form:
         federation:
           action:

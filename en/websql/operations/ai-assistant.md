@@ -46,8 +46,7 @@ The AI assistant can [fix](#query-fix) and [optimize](#query-opt) SQL queries fr
 
 ### Fixing {#query-fix}
 
-1. Open [{{ websql-full-name }}]({{ websql-link }}).
-1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) **Connections** section.
+1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. Type `Fix errors in this query` and click ![arrow-up](../../_assets/console-icons/arrow-up.svg).
   
@@ -55,8 +54,7 @@ The AI assistant can [fix](#query-fix) and [optimize](#query-opt) SQL queries fr
 
 ### Optimizing {#query-opt}
 
-1. Open [{{ websql-full-name }}]({{ websql-link }}).
-1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) **Connections** section.
+1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. In the AI assistant window, click the suggested message: `Optimize SQL query`.
     
@@ -68,8 +66,7 @@ The AI assistant helps with [database overview](#db-overview) and [index analysi
 
 ### Database overview {#db-overview}
 
-1. Open [{{ websql-full-name }}]({{ websql-link }}).
-1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) **Connections** section.
+1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. In the AI assistant window, click the suggested message: `Review current database`.
     
@@ -77,8 +74,7 @@ The AI assistant helps with [database overview](#db-overview) and [index analysi
 
 ### Database index analysis {#db-index-analysis}
 
-1. Open [{{ websql-full-name }}]({{ websql-link }}).
-1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) **Connections** section.
+1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. In the AI assistant window, click the suggested message: `Analyze database indexes`.
     
@@ -94,15 +90,13 @@ If you no longer need a chat, you can [delete](#chat-delete) it.
 
 ### Creating a new chat {#chat-create}
 
-1. Open [{{ websql-full-name }}]({{ websql-link }}).
-1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) **Connections** section.
+1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. To start a new chat with the AI assistant, type a message and click ![arrow-up](../../_assets/console-icons/arrow-up.svg).
 
 ### Viewing chat history {#chat-history}
 
-1. Open [{{ websql-full-name }}]({{ websql-link }}).
-1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) **Connections** section.
+1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. In the top-left corner of the AI assistant window, click ![bars](../../_assets/console-icons/bars.svg). You will be directed to the chat management page.
     
@@ -110,8 +104,7 @@ If you no longer need a chat, you can [delete](#chat-delete) it.
 
 ### Deleting a chat {#chat-delete}
 
-1. Open [{{ websql-full-name }}]({{ websql-link }}).
-1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) **Connections** section.
+1. Connect to the database of your choice in the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 1. In the left-hand panel, select ![sparkles-fill](../../_assets/console-icons/sparkles-fill.svg) **AI assistant**. The AI assistant window will open.
 1. In the top-left corner of the AI assistant window, click ![bars](../../_assets/console-icons/bars.svg). You will be directed to the chat management page.
 1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) next to the chat.

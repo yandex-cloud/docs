@@ -13,6 +13,9 @@ description: Контроль данных ({{ dspm-name }}) — это один
 
 {% endnote %}
 
+## Анализ данных {#discovery-mode}
+
+{% include [about-discovery](../../_includes/security-deck/about-discovery.md) %}
 
 ## Сканирование на наличие чувствительной информации {#scanning}
 

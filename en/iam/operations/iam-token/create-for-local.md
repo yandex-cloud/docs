@@ -25,6 +25,18 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
       yc iam create-token
       ```
 
+      Result:
+
+      ```text
+      t1.9euelZrLop7Uz8up********
+      ```
+
+      The value you get is an IAM token. You can copy it, save it to a file, or write it into a variable:
+
+      ```bash
+      export IAM_TOKEN=`<IAM_token>`
+      ```
+
 {% endlist %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}

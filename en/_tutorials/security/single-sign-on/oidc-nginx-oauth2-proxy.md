@@ -173,7 +173,7 @@ To configure application access for your {{ org-name }} users, do the following:
 
   Where:
   
-  * `<OAuth_client_ID>`: OAuth client ID you got when you created it.
+  * `<OAuth_client_ID>`: OAuth client ID you got when creating it.
   * `--redirect-uris`: Authentication endpoint for your test application. For example: `https://example.com/oauth2/callback`.
 
   Result:

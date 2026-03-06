@@ -88,7 +88,7 @@ To configure secure online publication for your services:
 1. [Grant access](../../iam/concepts/access-control/index.md#how-do-i-perform-access-management) to the folder only to IS employees.
 1. [Set up network connectivity](../../vpc/tutorials/multi-folder-vpc.md) between resources from different folders.
 1. [Configure security groups](../../vpc/operations/security-group-create.md) by following [these best practices](#network-requirements).
-1. [Reserve a public IP address](../../vpc/operations/get-static-ip.md) and enabe L3-L4 DDoS protection.
+1. [Reserve a public IP address](../../vpc/operations/get-static-ip.md) and enable L3-L4 DDoS protection.
 1. [Create a security profile](#create-sws-profile).
 1. If using HTTPS, [add a TLS certificate](../../certificate-manager/quickstart/) to {{ certificate-manager-name }}.
 1. [Create an L7 load balancer](#create-alb).
@@ -105,7 +105,8 @@ The chart below shows the L7 load balancer resources you will create and configu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [IS folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
   1. Enter `sws-ddos` as the profile name.

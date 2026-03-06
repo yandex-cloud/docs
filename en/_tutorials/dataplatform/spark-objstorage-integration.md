@@ -3,13 +3,25 @@
 
 In {{ objstorage-full-name }} buckets, you can store both files required to run jobs in a {{ msp-full-name }} cluster and the results of those jobs.
 
-To use {{ objstorage-name }} in {{ msp-name }}:
+{{ msp-full-name }} clusters are pre-configured to work with S3 storages. To use an {{ objstorage-name }} bucket in a PySpark job:
+* Grant the {{ msp-full-name }} cluster service account permission to access the {{ objstorage-name }} bucket.
+* In the job's arguments, specify the path to the folder in the {{ objstorage-name }} bucket.
+
+This guide gives an example of how to use a table in an {{ objstorage-name }} bucket from a PySpark job using a built-in local Hive catalog.
+
+To implement the above example:
 
 1. [Set up your infrastructure](#infra).
 1. [Prepare a PySpark job](#prepare-a-job).
 1. [Check the result](#check-out).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+{% note info %}
+
+With a local Hive catalog, you can access tables by name without specifying a path and use basic Hive features without connecting a {{ metastore-name }} cluster. The metadata stored in the local folder remains inaccessible to other clusters. For an example of using a global folder, see [{#T}](../../managed-spark/tutorials/metastore-and-spark.md).
+
+{% endnote %}
 
 
 ## Required paid resources {#paid-resources}
@@ -20,13 +32,13 @@ The support cost for this solution includes:
 * {{ cloud-logging-name }} fee for the amount of data written and the time of its retention (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
-## Set up the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. [Create a service account](../../iam/operations/sa/create.md) named `spark-agent` for the {{ SPRK }} cluster and assign it the [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) role to enable the {{ SPRK }} cluster to interact with other resources.
+    1. [Create a service account](../../iam/operations/sa/create.md) named `spark-agent` for the {{ msp-full-name }} cluster and assign it the [managed-spark.integrationProvider](../../iam/roles-reference.md#managed-spark-integrationProvider) role to enable the {{ msp-full-name }} cluster to interact with other resources.
 
     1. [Create buckets](../../storage/operations/buckets/create.md):
 
@@ -42,7 +54,7 @@ The support cost for this solution includes:
 
         This will automatically create three subnets in different availability zones.
 
-    1. [Create a {{ msp-name }} cluster](../../managed-spark/operations/cluster-create.md) with the following parameters:
+    1. [Create a {{ msp-full-name }} cluster](../../managed-spark/operations/cluster-create.md) with the following parameters:
 
         * **Service account**: `spark-agent`
         * **Network**: `spark-network`
@@ -52,7 +64,9 @@ The support cost for this solution includes:
 
 ## Prepare a PySpark job {#prepare-a-job}
 
-For a PySpark job, we will use a Python script that is stored in the {{ objstorage-name }} bucket and creates a table named `table_1` in `database_1`. Prepare a script file:
+For a PySpark job, we use a Python script that creates a table named `table_1` in `database_1`. The PySpark job's arguments give the path to the folder the database will be created in. To connect the built-in Hive catalog, your script should specify this Spark session configuration parameter: `spark.sql.catalogImplementation=hive`. The script will be stored in the {{ objstorage-name }} bucket.
+
+Prepare a script file:
 
 {% list tabs group=instructions %}
 
@@ -81,7 +95,7 @@ For a PySpark job, we will use a Python script that is stored in the {{ objstora
 - Management console {#console}
 
     1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
-    1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Wait for the PySpark job you created to change its status to **Done**.
     1. Make sure the `warehouse` folder in `<bucket_for_PySpark_job_output_data>` now contains `database_1`. The data from the new DB is now stored in the {{ objstorage-name }} bucket in JSON format.
 
@@ -96,6 +110,6 @@ Some resources are not free of charge. Delete the resources you no longer need t
 - Management console {#console}
 
     1. [{{ objstorage-name }} buckets](../../storage/operations/buckets/delete.md).
-    1. [{{ SPRK }} cluster](../../managed-spark/operations/cluster-delete.md).
+    1. [{{ msp-full-name }} cluster](../../managed-spark/operations/cluster-delete.md).
 
 {% endlist %}

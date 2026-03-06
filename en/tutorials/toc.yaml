@@ -244,6 +244,8 @@ items:
             href: security/single-sign-on/saml-opensearch-self-managed.md
           - name: '{{ mgl-name }}'
             href: security/single-sign-on/saml-managed-gitlab.md
+          - name: Selectel
+            href: security/single-sign-on/saml-selectel.md
           - name: SonarQube
             href: security/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
@@ -432,7 +434,13 @@ items:
           - name: >-
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
-            href: web/cdn-storage-integration.md
+            items:
+              - name: Overview
+                href: web/cdn-storage-integration/index.md
+              - name: Management console, CLI, and API
+                href: web/cdn-storage-integration/console.md
+              - name: '{{ TF }}'
+                href: web/cdn-storage-integration/terraform.md
           - name: Working with an autoscaling instance group
             items:
               - name: Overview
@@ -747,7 +755,9 @@ items:
                 href: web/wordpress/console.md
               - name: '{{ TF }}'
                 href: web/wordpress/terraform.md
-          - name: WordPress website on a {{ MY }} database
+          - name: Creating a WordPress website using {{ cloud-apps-name }}
+            href: web/wordpress-cloudapp.md
+          - name: WordPress website with a {{ MY }} database
             items:
               - name: Overview
                 href: web/wordpress-mysql/index.md

@@ -6,11 +6,11 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
 * If you prefer not to use {{ oslogin }}, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the following VM access data:
 
-    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
 
         {% note alert %}
 
-        Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+        Do not use `root` or other [OS-reserved usernames](https://github.com/canonical/subiquity/blob/main/reserved-usernames). To perform operations requiring root privileges, use the `sudo` command.
 
         {% endnote %}
 

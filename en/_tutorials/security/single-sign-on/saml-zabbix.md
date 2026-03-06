@@ -270,4 +270,4 @@ To make sure both your SAML app and Zabbix integration work correctly, authentic
 1. If you were logged in to Zabbix, log out.
 1. On the Zabbix authentication page, click **Sign in with Single Sign-On (SAML)**.
 1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user or group they belong to must be added to the application.
-1. Make sure you are logged in to Zabbix.
+1. Make sure you have successfully authenticated in Zabbix.

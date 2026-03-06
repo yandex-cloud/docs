@@ -126,9 +126,11 @@ The user must change this password on their first login to {{ yandex-cloud }}.
 
      For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
-  1. Create the resources:
+  1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will update all the required resources. You can check the updates using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
 
 - API {#api}
 

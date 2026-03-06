@@ -7,6 +7,52 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.194.0 (19/02/26) {#version0.194.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.194.0}
+
+##### {{ compute-name }} {#compute-0.194.0}
+
+In commands for creating VMs on dedicated hosts, added the `kms-key-id` and `kms-key-name` options to the `--attach-local-disk` parameter to connect encrypted local disks to the VMs:
+* `yc compute instance create --attach-local-disk kms-key-id=<KMS_key_ID>`
+* `yc compute instance create-with-container --attach-local-disk kms-key-name=<KMS_key_name>`
+
+## Previous releases {#previous-release}
+
+### Version 0.193.0 (16/02/26) {#version0.193.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.193.0}
+
+##### {{ cloud-registry-name }} {#cloud-registry-0.192.0}
+
+Added commands to manage artifact access permissions in {{ cloud-registry-name }}:
+* `yc cloud-registry artifact list-access-bindings`
+* `yc cloud-registry artifact set-access-bindings`
+* `yc cloud-registry artifact add-access-binding`
+* `yc cloud-registry artifact remove-access-binding`
+
+##### {{ mos-name }} {#mos-0.192.0}
+
+Updated the description of {{ mos-name }} configuration parameters in the following commands:
+* `yc managed-opensearch cluster create`
+* `yc managed-opensearch cluster update`
+
+##### {{ objstorage-name }} {#objstorage-0.192.0}
+
+Added commands to configure object metadata export (S3 Inventory):
+* `yc storage bucket create-inventory-configuration`
+* `yc storage bucket delete-inventory-configuration`
+* `yc storage bucket get-inventory-configuration`
+* `yc storage bucket list-inventory-configurations`
+
+##### {{ mpg-full-name }} {#mpg-0.192.0}
+
+Fixed the issue of duplicate output in the `yc managed-postgresql connect` command.
+
+##### {{ mgp-full-name }} {#mgp-0.192.0}
+
+Fixed the issue of duplicate output in the `yc managed-greenplum connect` command.
+
 ### Version 0.192.0 (12/02/26) {#version0.192.0}
 
 #### Changes to {{ yandex-cloud }} services {#services-0.192.0}
@@ -14,11 +60,8 @@ description: This page presents a list of CLI releases and the updates of each.
 ##### {{ si-name }} {#si-name-0.192.0}
 
 The below workflow management commands now support the `--set-is-public` and `--remove-is-public` parameters to enable or disable public access to a workflow execution:
-
 * `yc serverless workflow create`
 * `yc serverless workflow update`
-
-## Previous releases {#previous-release}
 
 ### Version 0.191.0 (06/02/26) {#version0.191.0}
 
@@ -43,7 +86,7 @@ The below node group management commands now support the `--enable-workload-iden
 Added the `--secret-folder-id` flag for connection create commands, i.e., `yc metadata-hub connection-manager connection create`.
 
 ##### {{ sw-name }}
-Fixed a cron expression example for schedule: 
+Fixed the cron expression example for a schedule: 
   * `yc serverless workflow create`
 
 ### Version 0.189.0 (02/02/26) {#version0.189.0}
