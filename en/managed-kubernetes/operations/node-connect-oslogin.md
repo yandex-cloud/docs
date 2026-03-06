@@ -85,7 +85,7 @@ Set up your cluster node for connection:
 
       1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-          For more information about creating this file, see [{#T}](./node-group/node-group-create.md).
+          For more on how to create such a file, see [{#T}](./node-group/node-group-create.md).
 
       1. Add the `instance_template.metadata` property to the node group description, or change it if it already exists.
 
@@ -122,9 +122,11 @@ Set up your cluster node for connection:
 
     - API {#api}
 
+      {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
       1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-      1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) API method, providing the following in your request:
+      1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
           * Node group ID in the `nodeGroupId` parameter.
 
@@ -265,7 +267,7 @@ Set up your cluster node for connection:
     Where:
 
     * `<path_to_certificate_file>`: Path to the certificate's `Identity` file you saved earlier, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). It is also appended to the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
 
         {% note info %}
 

@@ -146,7 +146,7 @@ When creating a node group, you can configure the following VM parameters:
 
   {% include [placement-groups](../../_includes/managed-kubernetes/placement-groups.md) %}
 
-* Kernel parameters.
+* Kernel parameters:
   * _Safe_ kernel parameters are isolated between pods.
   * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you cannot change unsafe kernel parameters unless you explicitly specified their names when [creating a node group](../operations/node-group/node-group-create.md).
 
@@ -177,7 +177,13 @@ Taints give you the following advantages:
 * When adding nodes to a group, taints are placed on the node automatically.
 * Taints are automatically placed on new nodes when [scaling a node group](autoscale.md).
 
-You can place a taint on a node group when [creating](../operations/node-group/node-group-create.md) or [updating the group](../operations/node-group/node-group-update.md#assign-taints). If you place a taint on a previously created node group or remove a taint from it, such group will be recreated. First, all nodes in the group are deleted, then nodes with the new configuration are added to the group.
+You can place a taint on a node group only when [creating](../operations/node-group/node-group-create.md) it. 
+
+{% note tip %}
+
+You can use {{ TF }} to [add](../operations/node-group/node-group-update.md#assign-taints) or [remove](../operations/node-group/node-group-update.md#remove-taint) a taint for a {{ TF }} node group resource; however, this will also delete the node group itself and recreate it with the new configuration.
+
+{% endnote %}
 
 Each taint has three parts:
 

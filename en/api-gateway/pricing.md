@@ -7,6 +7,10 @@ editable: false
 # {{ api-gw-full-name }} pricing policy
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 

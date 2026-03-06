@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ ydb-full-name }}
 
 
+{% include [pricing-increase-2026-05](../../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 Тарификация {{ ydb-full-name }} отличается в зависимости от режимов использования:
 

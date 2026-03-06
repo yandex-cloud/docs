@@ -42,7 +42,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
       Where:
 
-      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay, e.g., `--delete-after 22h30m50s`.
+      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay. For example: `--delete-after 22h30m50s`.
       
           Specify `0s` to delete the cloud now.
       * `--async`: Asynchronous deletion flag.

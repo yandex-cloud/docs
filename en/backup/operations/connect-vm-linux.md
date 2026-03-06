@@ -47,7 +47,7 @@ To connect a Linux VM to {{ backup-name }}:
 
 {% include [install-agent-linux](../../_includes/backup/operations/install-agent-linux.md) %}
 
-After that, you can link your VM to [backup policies](../concepts/policy.md).
+After successfully installing the agent, you can link your VM to a [backup policy](../concepts/policy.md).
 
 To connect an existing VM to {{ backup-name }}, you can also [take](../../compute/operations/disk-control/create-snapshot.md) snapshots of the VM disks and [create](../../compute/operations/vm-create/create-from-snapshots.md) a new VM based on those snapshots by selecting the backup option.
 
@@ -56,6 +56,7 @@ To connect an existing VM to {{ backup-name }}, you can also [take](../../comput
 {% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}
 
 {% endnote %}
+
 
 #### See also {#see-also}
 

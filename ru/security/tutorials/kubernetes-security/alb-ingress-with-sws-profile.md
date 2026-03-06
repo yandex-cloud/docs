@@ -1,5 +1,4 @@
 ---
-noIndex: true
 canonical: '{{ link-docs }}/tutorials/security/alb-ingress-with-sws-profile'
 ---
 

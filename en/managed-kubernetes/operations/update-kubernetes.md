@@ -42,7 +42,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
 - API {#api}
 
-  To get a list of available versions, use the [list](../../managed-kubernetes/managed-kubernetes/api-ref/Version/list.md) method.
+  To get the list of available versions, use the [list](../managed-kubernetes/api-ref/Version/list.md) REST API method for the [Version](../managed-kubernetes/api-ref/Version) resource or the [VersionService/List](../managed-kubernetes/api-ref/grpc/Version/list.md) gRPC API call.
 
 {% endlist %}
 
@@ -185,7 +185,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -195,9 +195,11 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   Set up auto updates in the `masterSpec.maintenancePolicy` section when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/create.md) or [updating its settings](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md).
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
+  Use the [update](../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Auto update settings in the `masterSpec.maintenancePolicy` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -304,7 +306,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -314,7 +316,10 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -518,7 +523,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -528,9 +533,11 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   You can set up auto updates under `maintenancePolicy` when [creating a {{ managed-k8s-name }} node group](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/create.md) or [updating its settings](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md).
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and provide the following in the request:
+  Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get the [list of groups in the cluster](node-group/node-group-list.md).
   * Auto update settings in the `maintenancePolicy` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -662,7 +669,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -672,7 +679,9 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get the [list of groups in the cluster](node-group/node-group-list.md).
   * Required {{ k8s }} version in the `version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -717,7 +726,9 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * `true` in the `masterSpec.version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -753,7 +764,9 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get the [list of groups in the cluster](node-group/node-group-list.md).
   * `true` in the `version.latestRevision` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -809,15 +822,17 @@ If your cluster is set to update at any time, the required update will take plac
 
   Where:
 
-  * `--delayed-until`: New date and time for the update, in `YYYY-MM-DDThh:mm:ssZ` format. For example, `2026-01-01T21:00:00Z`. This is a required setting.
+  * `--delayed-until`: New date and time for the update, in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is a required setting.
 
   You can [get the {{ managed-k8s-name }} cluster ID with the list of clusters in the folder](./kubernetes-cluster/kubernetes-cluster-list.md).
 
 - API {#api}
 
-  Use the [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/RescheduleMaintenance](../managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md) gRPC API call and provide the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
-  * New date and time for the update, `YYYY-MM-DDThh:mm:ssZ`, in `delayedUntil`. For example: `2026-01-01T21:00:00Z`.
+  * New date and time for the update, `YYYY-MM-DDThh:mm:ssZ`, in `delayedUntil`, e.g., `2026-01-01T21:00:00Z`.
 
 {% endlist %}
 

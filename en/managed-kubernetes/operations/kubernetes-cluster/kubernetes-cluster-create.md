@@ -24,7 +24,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where the new {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will reside.
   1. Create these [service accounts](../../../iam/operations/sa/create.md):
-      * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create resources for your {{ managed-k8s-name }} cluster.
+      * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create {{ managed-k8s-name }} cluster resources.
       * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) registry in [{{ container-registry-full-name }}](../../../container-registry/concepts/index.md). Nodes will use this account to pull the required Docker images from the registry.
 
         If you want to use a [Docker image](../../../cloud-registry/concepts/artifacts/docker.md) registry in [{{ cloud-registry-full-name }}](../../../cloud-registry/concepts/index.md), assign the [cloud-registry.artifacts.puller](../../../cloud-registry/security/index.md#cloud-registry-artifacts-puller) role to the service account.
@@ -103,7 +103,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create resources for your {{ managed-k8s-name }} cluster.
+     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create {{ managed-k8s-name }} cluster resources.
      * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will use this account to pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the registry in {{ container-registry-full-name }}.
      * `--master-location`: [Master](../../concepts/index.md#master) configuration. Specify the availability zone and subnet where the master will reside.
 
@@ -200,7 +200,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   To create a {{ managed-k8s-name }} cluster:
   1. In the configuration file, describe the resources you want to create:
      * {{ managed-k8s-name }} cluster: Cluster description.
-     * [Network](../../../vpc/concepts/network.md#network): Description of the cloud network to host the {{ managed-k8s-name }} cluster. If you already have a suitable network, you do not need to describe it again.
+     * [Network](../../../vpc/concepts/network.md#network): Description of the cloud network to host the {{ managed-k8s-name }} cluster. If you already have a network in place, you do not need to describe it again.
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
@@ -324,7 +324,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
 
-     For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -337,7 +337,9 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - API {#api}
 
-  To create a {{ managed-k8s-name }} cluster, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster) resource.
+  To create a {{ managed-k8s-name }} cluster, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/Cluster/create.md) gRPC API call.
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   The request body depends on the [master type](../../concepts/index.md#master):
 

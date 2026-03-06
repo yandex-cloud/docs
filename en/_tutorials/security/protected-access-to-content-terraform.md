@@ -32,8 +32,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To create an infrastructure using {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
-1. Prepare your infrastructure description files:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Set up your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
 
@@ -45,7 +45,7 @@ To create an infrastructure using {{ TF }}:
           git clone https://github.com/yandex-cloud-examples/yc-cdn-protected-access
           ```
 
-      1. Navigate to the repository directory. Make sure it contains the following files:
+      1. Navigate to the repository directory. It should now contain the following files:
 
           * `yc-cdn-secure-token.tf`: New infrastructure configuration.
           * `yc-cdn-secure-token.auto.tfvars`: User data file.
@@ -79,7 +79,6 @@ To create an infrastructure using {{ TF }}:
               domain_name       = "<domain_name>"
               subdomain_name    = "<CDN_resource_subdomain_prefix>"
               bucket_name       = "<bucket_name>"
-              cdn_cname         = "<CDN_provider_domain_name_value>"
               secure_key        = "<secret_key>"
               ```
 
@@ -87,13 +86,13 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the provider documentation:
+    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Service account [role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
     * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
-    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+    * [Subnet](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
     * [Security group](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
     * VM [disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
     * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
@@ -114,7 +113,6 @@ To create an infrastructure using {{ TF }}:
     * `domain_name`: Your domain name, e.g., `example.com`.
     * `subdomain_name`: Prefix of subdomain for the CDN resource, e.g., `cdn`.
     * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
-    * `cdn_cname`: [Domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) of the {{ cdn-name }} provider for the folder's CDN resources.
     * `secure_key`: Secret key that is a string of 6 to 32 characters. It is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
 
 1. Create the resources:
@@ -140,7 +138,7 @@ To create an infrastructure using {{ TF }}:
 
 To stop paying for the resources you created:
 
-1. Open the `yc-cdn-secure-token.tf` configuration file and delete your infrastructure description from it.
+1. Open the `yc-cdn-secure-token.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

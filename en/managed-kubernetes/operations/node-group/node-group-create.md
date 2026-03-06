@@ -319,7 +319,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-     For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -332,7 +332,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
 - API {#api}
 
-  Call the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) gRPC API call, and provide the following in the request:
   * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can get it with the [list of {{ managed-k8s-name }} clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [{{ managed-k8s-name }} node group configuration](../../concepts/index.md#config) in the `nodeTemplate` parameter.
   * [Network acceleration type](../../../compute/concepts/software-accelerated-network.md) in the `nodeTemplate.networkSettings.type` parameter.

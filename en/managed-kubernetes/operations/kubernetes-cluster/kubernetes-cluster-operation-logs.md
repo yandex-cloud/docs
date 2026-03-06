@@ -12,16 +12,16 @@ Operations enable real-time monitoring of actions with your cluster. This may be
 
 - Management console {#console}
 
-  To view operations with all [{{ k8s }} clusters](../../concepts/index.md#kubernetes-cluster), in the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.k8s.switch_operations }}**. The list that opens also includes operations with the clusters you deleted.
+  To view operations with all [{{ k8s }} clusters](../../concepts/index.md#kubernetes-cluster), select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.k8s.switch_operations }}** in the left-hand panel. The list that opens also includes operations with the clusters you deleted.
 
   You can get a list of operations for a specific cluster:
 
-  1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the cluster you need.
   1. Navigate to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-     You will see a list of operations with the this cluster.
+     You will see the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -46,7 +46,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more details, specify `yaml` or `json` for the output data using the `--format` parameter:
 
   ```bash
   yc managed-kubernetes cluster list-operations <cluster_name_or_ID> --format yaml
@@ -110,7 +110,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
 
 1. [Get a list of operations](#get-operations) for the {{ managed-k8s-name }} cluster.
 1. Copy the operation ID.
-1. Get the operation details:
+1. Get operation details:
 
    {% list tabs group=instructions %}
 
@@ -155,7 +155,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
 
    - API {#api}
 
-     Use the [OperationService/Get](../../managed-kubernetes/api-ref/grpc/Operation/get.md) gRPC API call.
+     Use the [get](../../managed-kubernetes/api-ref/Operation/get.md) REST API method for the [Operation](../../managed-kubernetes/api-ref/Operation/index.md) resource or the [OperationService/Get](../../managed-kubernetes/api-ref/grpc/Operation/get.md) gRPC API call.
 
    {% endlist %}
 

@@ -19,6 +19,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./hide-user-info.md)
 * [{#T}](./delete-org.md)
 * [{#T}](./add-region.md)
+* [{#T}](./manage-branding.md)
 
 ## Managing users {#manage-users}
 

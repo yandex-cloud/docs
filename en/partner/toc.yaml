@@ -5,51 +5,58 @@ items:
   - name: Getting started
     href: quickstart.md
   - name: Partner programs
-    expanded: true
     items:
       - name: Partner program
         items:
           - name: Overview
             href: program/var.md
-          - name: Adding a customer
-            href: program/var-pin-client.md
           - name: Tools
             href: program/var-tools.md
+      - name: Specializations
+        items:
+          - name: Overview
+            href: specializations/index.md
+          - name: Conditions
+            href: specializations/conditions.md
       - name: Referral program
         href: program/referral.md
-  - name: Specializations
-    expanded: true
+  - name: Partner portal
     items:
       - name: Overview
-        href: specializations/index.md
-      - name: Conditions
-        href: specializations/conditions.md
-  - name: Partner portal
-    href: portal.md
-  - name: Step-by-step guides
-    items:
-      - name: Creating a customer account
-        href: operations/create-account.md
-      - name: Granting access to a partner account
-        href: operations/access/partners-account.md
-      - name: Viewing usage details for subaccounts
-        href: operations/get-client-stat.md
-      - name: Suspending services to customers
-        href: operations/stop-client-services.md
-      - name: Linking a cloud to a subaccount
-        href: operations/pin-cloud.md
-      - name: Adding a user to a subaccount
-        href: operations/add-user-sub-account.md
-      - name: Setting up customer quotas
-        href: operations/manage-quotas.md
-  - name: Access management
-    href: security/index.md
+        href: portal.md
+      - name: Step-by-step guides
+        items:
+          - name: Creating a customer account
+            href: operations/create-account.md
+          - name: Adding a customer subaccount
+            href: operations/pin-client.md
+          - name: Granting access to a partner account
+            href: operations/access/partners-account.md
+          - name: Viewing usage details for subaccounts
+            href: operations/get-client-stat.md
+          - name: Suspending services to customers
+            href: operations/stop-client-services.md
+          - name: Linking a cloud to a subaccount
+            href: operations/pin-cloud.md
+          - name: Adding a user to a subaccount
+            href: operations/add-user-sub-account.md
+          - name: Setting up customer quotas
+            href: operations/manage-quotas.md
+          - name: Registering a deal
+            href: operations/deal-registration.md
+          - name: Registering a project
+            href: operations/project-registration.md
+          - name: Requesting a presale
+            href: operations/presale-request.md
+          - name: Getting commissions
+            href: operations/get-bonus.md
+      - name: Access management
+        href: security/index.md
+      - name: Release notes
+        href: release-notes/index.md
   - name: Terms and definitions
     href: terms.md
-  - name: Release notes
-    href: release-notes/index.md
   - name: FAQ
-    expanded: true
     items:
       - name: General questions
         href: qa/general.md

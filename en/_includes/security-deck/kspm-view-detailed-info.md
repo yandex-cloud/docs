@@ -11,8 +11,8 @@ To view detailed information about a specific {{ k8s }} control rule, click the 
   * Date and time of the most recent security check.
   * Check method:
 
-      * `runtime`: Automatic checking of container runtime environments.
-      * `admission`: Automatic {{ k8s }} object checking.
+      * `runtime`: Rule type applied to container runtimes and {{ k8s }} nodes.
+      * `admission`: Rule type applied to {{ k8s }} cluster resources.
   * Details on the monitored features, their configurations, or actions performed with them.
 
 - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}

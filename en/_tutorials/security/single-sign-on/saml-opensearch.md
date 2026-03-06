@@ -18,7 +18,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
 For the users of your organization to be able to access {{ mos-name }}:
 
-1. [Create an app](#create-app).
+1. [Create the app](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
@@ -65,8 +65,8 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
     To set up a {{ org-name }} authentication source:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the required values for these settings:
 
@@ -86,19 +86,19 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
         * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: Attribute that stores a list of roles. Set it to `groups`.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Leave the field empty.
+        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Leave this field empty.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Leave the `0` value.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}**: Make sure to enable this option.
 
-    1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**. Wait for the cluster status to change to `Running`. It may take a few minutes to apply settings.
+    1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**. Wait for the cluster status to change to `Running`. It may take a few minutes to apply the settings.
 
 1. Configure role mapping in {{ OS }}.
 
     To ensure that {{ org-name }} user groups are mapped to {{ OS }} roles during authentication:
 
-    1. Connect to {{ OS }} Dashboards as the `admin` user.
+    1. Connect to {{ OS }} Dashboards as `admin`.
     1. In the left-hand menu, select **{{ OS }} Plugins** → **Security**.
     1. In the left-hand panel, select **Roles**.
     1. Configure role mapping:
@@ -124,7 +124,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
       1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, enter the URL for connection to {{ OS }} Dashboards.
       1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, specify the ACS URL.
 
-        The ACS URL must be in the following format:
+        The ACS URL has the following format:
 
         ```url
         https://c-{{ cluster-id }}.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
@@ -202,7 +202,7 @@ To make sure both your SAML app and {{ mos-name }} integration work correctly, a
 1. If logged in to {{ OS }} Dashboards, log out.
 1. On the {{ OS }} Dashboards authentication page, click **Log in with single sign-on**.
 1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user must be a member of a group added to the app.
-1. Make sure you are logged in to {{ OS }} Dashboards.
+1. Make sure you have successfully authenticated in {{ OS }} Dashboards.
 1. If you have configured role mapping:
      1. Click the user icon in {{ OS }} Dashboards.
      1. Go to **View roles and identities**.

@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ serverless-containers-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 

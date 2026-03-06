@@ -42,6 +42,33 @@ In addition, a bucket configured this way still supports [server-side copy](../.
           * In the **{{ ui-key.yacloud.storage.bucket.policy.field_value }}** field, specify the service connection (private endpoint) ID, e.g., `enpd7rq1s3f5********`.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../cli-install.md) %}
+
+  {% include [default-catalogue](../default-catalogue.md) %}
+
+  1. See the description of the CLI command for updating bucket settings:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+  1. Describe your bucket policy configuration as a JSON [data schema](../../storage/s3/api-ref/policy/scheme.md):
+
+      {% include [policy-scheme-json](../vpc/policy-scheme-json.md) %}
+
+  1. Save the final configuration to a file named `policy.json`.
+  1. Run this command:
+
+      ```bash
+      yc storage bucket update \
+        --name <bucket_name> \
+        --policy-from-file <policy_file_path>
+      ```
+
+      Once the bucket policy is applied, you can access the bucket only from the {{ vpc-short-name }} cloud network in which you created the relevant service connection (private endpoint).
+
 - AWS CLI {#aws-cli}
 
   {% note info %}
@@ -68,6 +95,57 @@ In addition, a bucket configured this way still supports [server-side copy](../.
       ```
 
   Once the bucket policy is applied, you can access the bucket only from the {{ vpc-short-name }} cloud network in which you created the relevant service connection (private endpoint).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  {% include [iam-auth-note](iam-auth-note.md) %}
+
+  {% include [terraform-role](terraform-role.md) %}
+
+  1. Open the {{ TF }} configuration file and specify the policy using the `yandex_storage_bucket_policy` resource:
+
+     ```hcl
+     resource "yandex_storage_bucket_policy" "bpolicy" {
+       bucket = "my-policy-bucket"
+       policy = <<POLICY
+     {
+       "Version": "2012-10-17",
+       "Statement": {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "*",
+         "Resource": [
+           "arn:aws:s3:::<bucket_name>/*",
+           "arn:aws:s3:::<bucket_name>"
+         ],
+         "Condition": {
+           "StringEquals": {
+             "yc:private-endpoint-id": "<connection_ID>"
+           }
+         }
+       }
+     }
+     POLICY
+     }
+     ```
+
+     Where:
+     * `<bucket_name>`: Name of the bucket in {{ objstorage-name }} to which you need to apply the access policy, e.g., `my-s3-bucket`.
+     * `<connection_ID>`: Service connection ID (private endpoint), e.g., `enpd7rq1s3f5********`.
+
+     For more information about `yandex_storage_bucket_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the update using the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+  To configure a bucket policy, use the [update](../../storage/api-ref/Bucket/update.md) REST API method for the [Bucket](../../storage/api-ref/Bucket/index.md) resource, the [BucketService/Update](../../storage/api-ref/grpc/Bucket/update.md) gRPC API call, or the [PutBucketPolicy](../../storage/s3/api-ref/policy/put.md) S3 API method. If the bucket already had a bucket policy configured, it will be completely overwritten once you apply the new policy.
 
 {% endlist %}
 

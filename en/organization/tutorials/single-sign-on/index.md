@@ -14,6 +14,7 @@ description: Setting up integration between {{ org-full-name }} and external app
 * [Zabbix](./saml-zabbix.md)
 * [{{ mos-name }}](./saml-opensearch.md)
 * [{{ OS }}](./saml-opensearch-self-managed.md)
+* [Selectel](./saml-selectel.md)
 * [SonarQube](./saml-sonarqube.md)
 * [OpenVPN Access Server](./saml-ovpn.md)
 * [Configuring single sign-on for applications that do not support SSO](./oidc-nginx-oauth2-proxy.md)

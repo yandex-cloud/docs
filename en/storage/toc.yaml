@@ -1,4 +1,4 @@
-title: Yandex Object Storage
+title: '{{ objstorage-full-name }}'
 href: index.yaml
 items:
   - name: Getting started
@@ -75,8 +75,10 @@ items:
             href: operations/objects/rename-move.md
           - name: Copying objects
             href: operations/objects/copy.md
-          - name: Getting a pre-signed URL to download an object
+          - name: Downloading an object using a pre-signed URL
             href: operations/objects/link-for-download.md
+          - name: Uploading an object using a pre-signed URL
+            href: operations/objects/link-for-upload.md
           - name: Configuring an object lock
             href: operations/objects/edit-object-lock.md
           - name: Deleting an object
@@ -147,8 +149,14 @@ items:
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
-      - name: Integrating an L7 load balancer with CDN and Object Storage
-        href: tutorials/cdn-storage-integration.md
+      - name: Integrating an L7 load balancer with a CDN and {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/cdn-storage-integration/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/cdn-storage-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-storage-integration/terraform.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
@@ -168,8 +176,8 @@ items:
       - name: Using {{ objstorage-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: >-
-          Importing data from {{ objstorage-name }}, processing, and exporting
-          it to {{ mch-name }}
+          Importing, processing, and exporting {{ objstorage-name }} data to {{
+          mch-name }}
         href: tutorials/s3-data-processing-ch.md
       - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
@@ -219,7 +227,11 @@ items:
         href: tutorials/ydb-to-object-storage.md
       - name: Hosting a static Gatsby website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
-      - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
+      - name: Installing WordPress High Availability using {{ cloud-apps-name }}
+        href: tutorials/wordpress-cloudapp.md
+      - name: >-
+          Installing Ghost CMS in {{ objstorage-name }} using {{ cloud-apps-name
+          }}
         href: tutorials/ghost-cms-cloudapp.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         items:
@@ -282,7 +294,7 @@ items:
         href: tutorials/serverless-url-shortener.md
       - name: Storing application runtime logs
         href: tutorials/log-ingestion.md
-      - name: Developing a skill for Alice and a website with authorization
+      - name: Building a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md

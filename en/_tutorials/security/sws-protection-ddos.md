@@ -77,7 +77,7 @@ If the load balancer is managed by an {{ alb-name }} [ingress controller](../../
         To connect another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      In the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab, you will see the connected virtual hosts.
+      You will see the connected virtual hosts under ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
 
 {% endlist %}
 

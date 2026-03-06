@@ -33,6 +33,8 @@ To get a temporary access key:
 1. [Install and configure](../../storage/tools/aws-cli.md) the AWS Command Line Interface (AWS CLI).
 1. Describe the [bucket policy](../../storage/concepts/policy.md) configuration as a [data schema](../../storage/s3/api-ref/policy/scheme.md) in JSON format.
 
+    {% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
+
     {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
     {% cut "Policy example" %}

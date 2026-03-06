@@ -3,17 +3,14 @@
 
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
 
-In {{ maf-full-name }}, you can create a [directed acyclic graph (DAG)](../../../managed-airflow/concepts/index.md) to automate your operations in [{{ msp-full-name }}](../../../managed-spark/index.yaml). Below is an example of a DAG that includes a number of tasks:
+With a {{ maf-full-name }} cluster, you can automate your [{{ msp-full-name }}](../../../managed-spark/index.yaml) work, including operations like creating {{ msp-full-name }} clusters, running jobs, etc. Do it by creating a [directed acyclic graph (DAG) for jobs](../../../managed-airflow/concepts/index.md). The {{ AF }} cluster will use this DAG to automatically perform all its {{ msp-full-name }}-related actions.
 
-1. Create an {{ SPRK }} cluster.
-1. Run a PySpark job.
-1. Delete the {{ SPRK }} cluster.
+This tutorial demonstrates a DAG use case, which includes:
+1. Creating a {{ msp-full-name }} cluster connected to [{{ objstorage-name }}](../../../storage/concepts/index.md) and [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md).
+1. Running a PySpark job to create a table in an {{ objstorage-name }} bucket.
+1. Deleting the {{ msp-full-name }} cluster.
 
-With a DAG like this, a cluster is short-lived. In a cluster, you can engage higher capacity resources and process more data quickly.
-
-In this DAG, an {{ SPRK }} cluster is created. We use a [{{ metastore-full-name }} cluster](../../../metadata-hub/concepts/metastore.md) to store tabular metadata in the example below. The saved metadata can then be used by another {{ SPRK }} cluster.
-
-To use {{ msp-full-name }} in {{ maf-full-name }}:
+To implement the above example:
 
 1. [Set up your infrastructure](#infra).
 1. [Prepare a PySpark job](#prepare-a-job).
@@ -21,6 +18,12 @@ To use {{ msp-full-name }} in {{ maf-full-name }}:
 1. [Check the result](#check-out).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+{% note info %}
+
+Unlike the simple use case from [{#T}](../../../managed-spark/tutorials/airflow-spark-min.md), the {{ msp-full-name }} cluster you create will be integrated with an {{ objstorage-name }} bucket and a global {{ metastore-name }} catalog. This approach allows for building portable and scalable pipelines: {{ maf-name }} takes care of orchestration, {{ msp-full-name }} is the computation layer, {{ objstorage-name }} stores the data, and {{ metastore-name }} manages stores the metadata.
+
+{% endnote %}
 
 
 ## Required paid resources {#paid-resources}
@@ -61,8 +64,8 @@ The example below illustrates two scenarios. Select the one you find most releva
      || **Service account** | **Roles** ||
      || `airflow-agent` for an {{ AF }} cluster |
      * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider): To enable the {{ AF }} cluster to [interact with other resources](../../../managed-airflow/concepts/impersonation.md).
-     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor): To manage an {{ SPRK }} cluster from a DAG.
-     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To specify the `spark-agent` service account when creating an {{ SPRK }} cluster.
+     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor): To manage your {{ msp-full-name }} cluster from a DAG.
+     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To specify the `spark-agent` service account when creating an {{ msp-full-name }} cluster.
      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user): To use the [{{ vpc-full-name }} subnet](../../../vpc/concepts/network.md#subnet) in the {{ AF }} cluster.
      * [logging.editor](../../../iam/roles-reference.md#logging-editor): To work with log groups.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader): To read logs.
@@ -70,8 +73,8 @@ The example below illustrates two scenarios. Select the one you find most releva
      * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about {{ metastore-name }} clusters. ||
      || `metastore-agent` for an {{ metastore-name }} cluster |
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md). ||
-     || `spark-agent` for an {{ SPRK }} cluster |
-     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ SPRK }} cluster to interact with other resources. ||
+     || `spark-agent` for an {{ msp-full-name }} cluster |
+     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ msp-full-name }} cluster to interact with other resources. ||
      |#
 
   1. [Create buckets](../../../storage/operations/buckets/create.md):
@@ -116,9 +119,9 @@ The example below illustrates two scenarios. Select the one you find most releva
         * Destination: `CIDR`
         * CIDR blocks: `0.0.0.0/0`
 
-  1. For the {{ SPRK }} cluster, create a security group named `spark-sg` in `datalake-network`. Add the following rule to it:
+  1. For the {{ msp-full-name }} cluster, create a security group named `spark-sg` in `datalake-network`. Add the following rule to it:
 
-     * For outgoing traffic, to allow {{ SPRK }} cluster connections to {{ metastore-name }}:
+     * For outgoing traffic, to allow {{ msp-full-name }} cluster connections to {{ metastore-name }}:
 
         * Port range: `{{ port-metastore }}`
         * Protocol: `Any`
@@ -150,20 +153,20 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * Simplified setup
 
-  Set up the infrastructure:
+  Set up your infrastructure:
 
   1. [Create a service account](../../../iam/operations/sa/create.md) named `integration-agent` with the following roles:
 
      * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider): To enable the {{ AF }} cluster to [interact with other resources](../../../managed-airflow/concepts/impersonation.md).
-     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor): To manage an {{ SPRK }} cluster from a DAG.
-     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To specify the `spark-agent` service account when creating an {{ SPRK }} cluster.
+     * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor): To manage your {{ msp-full-name }} cluster from a DAG.
+     * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To specify the `spark-agent` service account when creating an {{ msp-full-name }} cluster.
      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user): To use the [{{ vpc-full-name }} subnet](../../../vpc/concepts/network.md#subnet) in the {{ AF }} cluster.
      * [logging.editor](../../../iam/roles-reference.md#logging-editor): To work with log groups.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader): To read logs.
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer): To get operation statuses.
      * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about {{ metastore-name }} clusters.
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md).
-     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ SPRK }} cluster to interact with other resources. 
+     * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ msp-full-name }} cluster to interact with other resources. 
 
   1. [Create a bucket](../../../storage/operations/buckets/create.md) named `<bucket_for_jobs_and_data>` and [grant](../../../storage/operations/buckets/edit-acl.md) `READ and WRITE` permissions to the `integration-agent` service account.
 
@@ -231,9 +234,9 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
 A DAG will have multiple vertices that form a sequence of actions:
 
-1. {{ maf-full-name }} creates a temporary {{ SPRK }} cluster with settings specified in the DAG. This cluster automatically connects to the previously created {{ metastore-name }} cluster.
-1. When the {{ SPRK }} cluster is ready, a PySpark job is run.
-1. Once the job is complete, the temporary {{ SPRK }} cluster is deleted.
+1. {{ maf-full-name }} creates a temporary {{ msp-full-name }} cluster with settings specified in the DAG. This cluster automatically connects to the previously created {{ metastore-name }} cluster.
+1. When the {{ msp-full-name }} cluster is ready, a PySpark job is run.
+1. Once the job is complete, the temporary {{ msp-full-name }} cluster is deleted.
 
 To prepare a DAG:
 
@@ -274,7 +277,7 @@ To prepare a DAG:
 
 
      @task
-     # Step 1: Creating an {{ SPRK }} cluster
+     # Step 1: Creating an {{ msp-full-name }} cluster
      def create_cluster(yc_hook, cluster_spec):
          spark_client = yc_hook.sdk.wrappers.Spark()
          try:
@@ -307,7 +310,7 @@ To prepare a DAG:
 
 
      @task(trigger_rule="all_done")
-     # Step 3: Deleting the {{ SPRK }} cluster
+     # Step 3: Deleting the {{ msp-full-name }} cluster
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -351,17 +354,17 @@ To prepare a DAG:
      Where:
 
      * `YANDEX_CONN_ID`: Connection ID.
-     * `FOLDER_ID`: ID of the folder you will create the {{ SPRK }} cluster in.
-     * `SERVICE_ACCOUNT_ID`: ID of the service account you will use to create the {{ SPRK }} cluster.
+     * `FOLDER_ID`: ID of the folder you will create the {{ msp-full-name }} cluster in.
+     * `SERVICE_ACCOUNT_ID`: ID of the service account you will use to create the {{ msp-full-name }} cluster.
      * `SUBNET_IDS`: Subnet ID.
 
         {% note info %}
       
-        {{ SPRK }} and {{ metastore-name }} must have the same subnet.
+        {{ msp-full-name }} and {{ metastore-name }} must have the same subnet.
       
         {% endnote %}
 
-     * `SECURITY_GROUP_IDS`: ID of the security group for the {{ SPRK }} cluster.
+     * `SECURITY_GROUP_IDS`: ID of the security group for the {{ msp-full-name }} cluster.
      * `METASTORE_CLUSTER_ID`: {{ metastore-name }} cluster ID.
      * `JOB_NAME`: PySpark job name.
      * `JOB_SCRIPT`: Path to the PySpark job file.
@@ -413,7 +416,7 @@ To prepare a DAG:
 
 
      @task
-     # Step 1: Creating an {{ SPRK }} cluster
+     # Step 1: Creating an {{ msp-full-name }} cluster
      def create_cluster(yc_hook, cluster_spec):
          spark_client = yc_hook.sdk.wrappers.Spark()
          try:
@@ -446,7 +449,7 @@ To prepare a DAG:
 
 
      @task(trigger_rule="all_done")
-     # Step 3: Deleting the {{ SPRK }} cluster
+     # Step 3: Deleting the {{ msp-full-name }} cluster
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -490,17 +493,17 @@ To prepare a DAG:
      Where:
 
      * `YANDEX_CONN_ID`: Connection ID.
-     * `FOLDER_ID`: ID of the folder you will create the {{ SPRK }} cluster in.
-     * `SERVICE_ACCOUNT_ID`: ID of the service account you will use to create the {{ SPRK }} cluster.
+     * `FOLDER_ID`: ID of the folder you will create the {{ msp-full-name }} cluster in.
+     * `SERVICE_ACCOUNT_ID`: ID of the service account you will use to create the {{ msp-full-name }} cluster.
      * `SUBNET_IDS`: Subnet ID.
 
         {% note info %}
       
-        {{ SPRK }} and {{ metastore-name }} must have the same subnet.
+        {{ msp-full-name }} and {{ metastore-name }} must have the same subnet.
       
         {% endnote %}
 
-     * `SECURITY_GROUP_IDS`: ID of the security group for the {{ SPRK }} cluster.
+     * `SECURITY_GROUP_IDS`: ID of the security group for the {{ msp-full-name }} cluster.
      * `METASTORE_CLUSTER_ID`: {{ metastore-name }} cluster ID.
      * `JOB_NAME`: PySpark job name.
      * `JOB_SCRIPT`: Path to the PySpark job file.
@@ -526,13 +529,13 @@ To prepare a DAG:
 * High security level
 
   1. To monitor task execution results, click the DAG name.
-  1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that an {{ SPRK }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
+  1. Wait until all three jobs in the DAG get **Success** status. Simultaneously, you can check that an {{ msp-full-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
   1. Make sure `<bucket_for_PySpark_job_output_data>` now contains `database_1`. The data from the new DB is now stored in the {{ objstorage-name }} bucket, and the DB metadata is stored in the {{ metastore-name }} cluster.
 
 * Simplified setup
 
   1. To monitor task execution results, click the DAG name.
-  1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that an {{ SPRK }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
+  1. Wait until all three jobs in the DAG get **Success** status. Simultaneously, you can check that an {{ msp-full-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
   1. Make sure `<bucket_for_jobs_and_data>` now contains `database_1`. The data from the new DB is now stored in the {{ objstorage-name }} bucket, and the DB metadata is stored in the {{ metastore-name }} cluster.
 
 {% endlist %}

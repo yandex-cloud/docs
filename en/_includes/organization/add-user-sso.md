@@ -45,13 +45,13 @@
       * `federation_id`: ID of the federation to add the user to.
       * `name_id`: Name ID of the user.
 
-      For more information about `yandex_organizationmanager_saml_federation_user_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
+      For more information about `yandex_organizationmanager_saml_federation_user_account` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
 
       ```bash
       yc organization-manager federations saml \

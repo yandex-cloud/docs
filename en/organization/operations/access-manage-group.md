@@ -56,7 +56,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
         --id <group_ID>
       ```
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc organization-manager group set-access-bindings --help
@@ -108,16 +108,16 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
       ```bash
       yc organization-manager group set-access-bindings \
         --id <group_ID> \
-        --access-binding role=<role1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role3>,service-account-id=<service_account_ID>
+        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_3>,service-account-id=<service_account_ID>
       ```
 
 - API {#api}
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [setAccessBindings](../api-ref/Group/setAccessBindings.md) method for the [Group](../api-ref/Group/index.md) resource or the [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [setAccessBindings](../api-ref/Group/setAccessBindings.md) method for the [Group](../api-ref/Group/index.md) resource or the [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
    * Role in the `accessBindings[].roleId` parameter.
    * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.

@@ -85,7 +85,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other [reserved usernames](https://github.com/canonical/subiquity/blob/main/reserved-usernames). To perform operations requiring root privileges, use the `sudo` command.
           * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `gta-v-server`.

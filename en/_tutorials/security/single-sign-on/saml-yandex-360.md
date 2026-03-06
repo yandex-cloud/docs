@@ -23,6 +23,7 @@ For the users of your organization to be able to access {{ yandex-360 }}:
     1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `yandex360`.
+
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
@@ -165,7 +166,7 @@ To make sure both your SAML app and {{ yandex-360 }} integration work correctly,
 1. If you were logged in to {{ yandex-360 }}, log out.
 1. On the authentication page, select Single Sign-On (SSO).
 1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user or group they belong to must be added to the application.
-1. Make sure you are logged in to {{ yandex-360 }}.
+1. Make sure you have successfully authenticated in {{ yandex-360 }}.
 
 ### Troubleshooting setup issues {#troubleshooting}
 
@@ -173,7 +174,7 @@ If you have specified incorrect values when setting up the IdP, you will get the
 
 #### email.not_in_response {#email-not-in-response}
 
-Specify attribute names in `User.Firstname`, `User.Surname`, `User.EmailAddress` format. If you specify another format, e.g., `Firstname`, you will not be able to log in.
+Specify attribute names in `User.Firstname`, `User.Surname`, `User.EmailAddress` format. If you specify a different format, such as `Firstname`, you will not be able to authenticate.
 
 #### request_your_admin {#request-your-admin}
 

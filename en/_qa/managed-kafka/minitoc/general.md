@@ -1,4 +1,4 @@
-* [How do I ensure my cluster is fault tolerant?](#cluster-fault-tolerance)
+* [How do I achieve high cluster availability?](#cluster-fault-tolerance)
 
 * [What should I do if I get this or similar error: "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."?](#disk-size)
 
@@ -29,3 +29,5 @@
 * [How do I track message loss in an {{ KF }} topic?](#lost-messages)
 
 * [What block size is used on the cluster disks?](#block-size)
+
+* [Which MirrorMaker connector version is supported by {{ mkf-short-name }}?](#mirrormaker-version)

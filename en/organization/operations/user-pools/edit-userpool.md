@@ -90,7 +90,7 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will update all the required resources. You can check the update in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using the [CLI](../../../cli/):
+     {{ TF }} will update all the required resources. You can check the updates in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp userpool get <pool_ID>

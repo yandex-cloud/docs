@@ -17,5 +17,10 @@
 `guardrails.UpdateDictionary` | Изменение словаря фраз и регулярных выражений в правиле модерации
 `guardrails.UpdateDictionaryItems` | Изменение состава элементов словаря фраз и регулярных выражений в правиле модерации
 `guardrails.UpdateGuardrail` | Изменение правила модерации
+`mcp_hub.CreateMcpGateway` | Создание MCP-сервера
+`mcp_hub.DeleteMcpGateway` | Удаление MCP-сервера
+`mcp_hub.SetMcpGatewayAccessBindings` | Назначение прав доступа для MCP-сервера
+`mcp_hub.UpdateMcpGateway` | Изменение MCP-сервера
+`mcp_hub.UpdateMcpGatewayAccessBindings` | Изменение прав доступа для MCP-сервера
 `tuning.CancelTuning` | Остановка [дообучения] модели
 `tuning.StartTuning` | Запуск дообучения модели

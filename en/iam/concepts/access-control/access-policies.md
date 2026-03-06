@@ -13,13 +13,10 @@ _Access policies_ are a {{ iam-full-name }} mechanism that allows you to manage 
 
 Access policies enforce explicit restrictions, unlike [roles](./roles.md), which grant explicit permissions. The relationships between access policies and roles are as follows:
 
-* Access policies take priority over roles. If an access policy prohibits an action, it will be denied even if the user’s role allows the operation.
-    
-    Access permissions are checked in the following order:
+* To perform an operation, it must be allowed by a role and not prohibited by an access policy. Access permissions are checked in the following order:
 
-    1. The system checks access policies for an explicit restriction to perform the operation. If there is such a restriction, the operation is denied without any further checks.
-    1. In case there is no restriction, the system checks if the user is assigned a role required to perform the operation and allows or denies the operation accordingly.
-
+    1. The system checks if the user is assigned a role required to perform the operation. If they have no such role, the operation is denied without any further checks.
+    1. If the user has the required role, the system checks access policies for an explicit restriction to perform the operation and denies or allows the operation accordingly.
 * Access policies do not replace roles, but add an extra layer of access control. To perform operations, users still require the relevant roles, regardless of the exisiting access policies.
 * {% include [access-policies-roles](../../../_includes/iam/access-policies-roles.md) %}
 

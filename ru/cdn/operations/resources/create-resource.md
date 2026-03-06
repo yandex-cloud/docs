@@ -136,6 +136,8 @@ description: Следуя данной инструкции, вы сможете
 
       * В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}** выберите **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** из выпадающего списка.
 
+        {% include [post-method](../../../_includes/cdn/http-post-method.md) %}
+
         [Подробнее о настройке HTTP-методов](configure-http.md)
   1. Нажмите **Создать и продолжить**.
   1. (опционально) В разделе **Дополнительно**:

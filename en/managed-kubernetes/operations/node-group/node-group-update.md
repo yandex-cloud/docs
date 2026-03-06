@@ -121,7 +121,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   To update a {{ managed-k8s-name }} node group:
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the {{ managed-k8s-name }} node group description properties.
 
      * To change the scaling settings, edit the `scale_policy` section as follows:
@@ -161,7 +161,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -171,7 +171,9 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
 - API {#api}
 
-  To update a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group) properties, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource.
+  To update parameters for a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group), use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call.
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), provide their values in the `nodeTemplate.labels` parameter.
 
@@ -190,7 +192,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of your cluster.
+  1. Click the cluster name.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
@@ -222,7 +224,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource.
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -230,13 +232,17 @@ Alternatively, you can grant internet access permission to {{ managed-k8s-name }
 
 {% note info %}
 
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see [this {{ vpc-full-name }} guide](../../../vpc/concepts/routing.md#internet-routes).
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see [our {{ vpc-full-name }} article](../../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
-## Placing a taint on a node group {#assign-taint}
+## Recreating a node group with a new taint {#assign-taint}
 
-Adding [taints](../../concepts/index.md#taints-tolerations) results in recreation of a {{ managed-k8s-name }} node group. First, all nodes in the group are deleted, then nodes with the taint are added to the group.
+{% note warning %}
+
+Adding [taints](../../concepts/index.md#taints-tolerations) results in removing the current {{ managed-k8s-name }} node group and creating a node group with a new configuration.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -246,7 +252,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. Add the `node_taints` section to the node group description:
 
@@ -273,7 +279,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -281,20 +287,15 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
-- API {#api}
-
-  To place a taint on a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) and provide the following in the request:
-
-  * Taints in the `nodeTaints` parameter.
-  * `nodeTaints` parameter to update in the `updateMask` parameter.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
-
 {% endlist %}
 
-## Removing a taint from a node group {#remove-taint}
+## Recreating a node group without a taint {#remove-taint}
 
-Removing [taints](../../concepts/index.md#taints-tolerations) results in recreation of a {{ managed-k8s-name }} node group. First, all nodes in the group are deleted, then nodes with the new configuration are added to the group.
+{% note warning %}
+
+Removing [taints](../../concepts/index.md#taints-tolerations) results in removing the current {{ managed-k8s-name }} node group and creating a node group with a new configuration.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -304,7 +305,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the taints you no longer need under `node_taints`.
 
@@ -312,22 +313,13 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
-
-- API {#api}
-
-  To remove a taint from a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) and provide the following in the request:
-
-  * New set of taints in the `nodeTaints` parameter. If you want to remove all taints, provide `"nodeTaints": []` in the request.
-  * `nodeTaints` parameter to update in the `updateMask` parameter.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -376,7 +368,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -394,7 +386,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -444,7 +436,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -463,7 +455,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -508,13 +500,13 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. In the {{ managed-k8s-name }} node group description, remove the cloud labels you no longer need under `labels`.
   1. Make sure the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -672,7 +664,7 @@ After you update the metadata, the node group status will temporarily change to 
 
     1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-        Learn how to create this file in [{#T}](./node-group-create.md).
+        For more on how to create this file, see [{#T}](./node-group-create.md).
 
     1. To add, edit, or delete metadata with a specific key, edit the list of keys and values in the `instance_template.metadata` parameter. If there is no such parameter, add it.
 
@@ -707,7 +699,7 @@ After you update the metadata, the node group status will temporarily change to 
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -717,9 +709,11 @@ After you update the metadata, the node group status will temporarily change to 
 
 - API {#api}
 
+    {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
     1. {% include [get-metadata-via-api](../../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-    1. Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
+    1. Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
         * Node group ID in the `nodeGroupId` parameter.
 

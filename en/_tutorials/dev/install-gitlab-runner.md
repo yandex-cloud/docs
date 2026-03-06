@@ -31,22 +31,9 @@ The infrastructure support cost includes:
 
 ## Get a {{ GLR }} token {#gitlab-token}
 
-To configure {{ GLR }} for the whole [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance), proceed as follows ({{ GL }} administrator access required):
+You can get a token when creating a {{ GLR }} in {{ GL }}. You specify this token when [deploying {{ GLR }}](#deploy-glr) on a {{ compute-name }} VM to have a runner authenticated in {{ GL }}.
 
-  1. Open {{ GL }}.
-  1. In the bottom-left corner, click **Admin**. 
-  1. In the left-hand menu, select **CI/CD** → **Runners**.
-  1. Click **New instance runner** and create a new {{ GLR }}.
-  1. Save the value of the `Runner authentication token` parameter.
-
-To set up {{ GLR }} for a project, proceed as follows :
-
-  1. Open {{ GL }}.
-  1. Select a project.
-  1. In the left-hand menu, select **Settings** → **CI/CD**.
-  1. Under **Runners**, click **Expand**.
-  1. Click **New project runner** and create a new {{ GLR }}.
-  1. Save the value of the `Runner authentication token` parameter.
+{% include [get-token](../../_includes/managed-gitlab/get-token.md) %}
 
 ## Deploy {{ GLR }} {#deploy-glr}
 
@@ -106,66 +93,34 @@ You can [install {{ GLR }} manually](#install) or [deploy a runner in the manage
 
 {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
+{% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
+
 The feature of creating runners from the management console is only available for {{ mgl-name }} instances.
 
-1. Select the {{ mgl-name }} instance [created earlier](#infra).
+{% include [runner-create](../../_includes/managed-gitlab/runner-create-console.md) %}
 
-1. Select the **{{ ui-key.yacloud.gitlab.title_runners }}** tab.
+#### Test the runner {#view-runner}
 
-1. Click **{{ ui-key.yacloud.gitlab.button_runners_empty-create }}**.
+{% list tabs %}
 
-1. Enter a name for the runner:
+- In {{ GL }}
 
-    * The name must be 2 to 63 characters long.
-    * It can only contain lowercase Latin letters, numbers, and hyphens.
-    * It must start with a letter and cannot end with a hyphen.
+    * If {{ GLR }} was created for the whole {{ GL }} instance:
+        1. In the bottom-left corner, click **Admin**.
+        1. In the left-hand menu, select **CI/CD** → **Runners**.
+        1. Make sure the new runner is now in the list.
 
-1. Enter the [previously obtained](#gitlab-token) {{ GLR }} token.
+    * If {{ GLR }} was created for a project:
+        1. Open your project.
+        1. In the left-hand menu, select **Settings** → **CI/CD**.
+        1. Under **Runners**, click **Expand**.
+        1. Make sure the new runner has appeared in the **Assigned project runners** section.
 
-1. Select or create a [service account](../../iam/concepts/users/service-accounts.md). This account will be used only to create the VM and will not be linked to it. The service account must have the following roles: `compute.admin`, `vpc.admin`, and `iam.serviceAccounts.user`.
+- In {{ compute-name }}
 
-1. Optionally, add labels for the runner.
+    Make sure the new VMs with the `runner-` name prefix have appeared in the **{{ ui-key.yacloud.compute.instances.label_title }}** section.
 
-1. Under **{{ ui-key.yacloud.gitlab.label_autoscale-section }}**, specify:
-
-    * **{{ ui-key.yacloud.gitlab.field_task-minInstances }}**: Number of workers that are always running and ready to execute jobs. Default value: `1`; minimum: `0`; maximum: `10`.
-    * **{{ ui-key.yacloud.gitlab.field_max-workers }}**: Maximum number of workers that can be created to execute jobs. Default value: `3`; minimum: `1`; maximum: `30`. The maximum number of workers cannot be less than the minimum number.
-    * **{{ ui-key.yacloud.gitlab.field_idle-time-minutes }}**: Maximum idle time after which the additionally created worker will be deleted. Default value: `10`; minimum: `0`.
-    * **{{ ui-key.yacloud.gitlab.field_max-use-count }}**: Maximum number of jobs after which the worker will be deleted. Default value: `100`; minimum: `0`.
-    * **{{ ui-key.yacloud.gitlab.field_capacity-per-instance }}**: Number of parallel jobs per worker. Default value: `1`; minimum: `0`.
-
-    {% note info %}
-
-    Workers are {{ compute-name }} VMs. You pay for them according to the [{{ compute-name }} pricing policy](../../compute/pricing.md).
-
-    {% endnote %}
-
-1. Optionally, add labels for the worker.
-
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select a computing resource configuration.
-
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot disk:
-
-    * Select the [disk type](../../compute/concepts/disk.md#disks_types).
-    * Specify the disk size.
-
-1. Click **{{ ui-key.yacloud.common.create }}**.
-
-1. Make sure the runner works:
-
-    * In {{ GL }}:
-      * If {{ GLR }} was created for the whole {{ GL }} instance:
-          1. In the bottom-left corner, click **Admin**. 
-          1. In the left-hand menu, select **CI/CD** → **Runners**.
-          1. Make sure the new runner is now in the list.
-
-      *  If {{ GLR }} was created for a project:
-          1. Open the project.
-          1. In the left-hand menu, select **Settings** → **CI/CD**.
-          1. Under **Runners**, click **Expand**.
-          1. Make sure the new runner has appeared in the **Assigned project runners** section.
-
-    * In {{ compute-name }}, make sure that new VMs with the `runner-` prefix have appeared.
+{% endlist %}
 
 ## Create a test scenario {#example} 
 
@@ -206,3 +161,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * [{{ GL }} instance](../../managed-gitlab/operations/instance/instance-delete.md)
 * [VM with {{ GLR }}](../../compute/operations/vm-control/vm-delete.md)
 * [Service account](../../iam/operations/sa/delete.md)
+
+### See also {#see-also}
+
+* [{#T}](../../managed-gitlab/concepts/index.md#managed-runners)
+* [{#T}](../../managed-gitlab/operations/runner.md)

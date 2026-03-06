@@ -1,6 +1,6 @@
 * `{{ ui-key.yacloud_org.organization.security-settings.acr_any-mfa_j6PdY }}`. This option allows users to select one of the following additional authentication factor standards:
 
-    * [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)). The acceptable additional authentication factors may include hardware keys such as [Rutoken](https://www.rutoken.ru/) or [YubiKey](https://developers.yubico.com/Passkeys/), [Passkeys](https://www.passkeys.com/) authenticators, platform authenticators such as [Windows Hello](https://www.microsoft.com/en-us/windows/tips/windows-hello), etc.
+    * [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) ([FIDO2](https://en.wikipedia.org/wiki/FIDO_Alliance#FIDO2)). The acceptable additional authentication factors may include hardware keys such as [Rutoken](https://www.rutoken.ru/) or [YubiKey](https://developers.yubico.com/Passkeys/), [Passkeys](https://www.passkeys.com/) authenticators, platform authenticators such as [Windows Hello](https://www.microsoft.com/en-us/windows/tips/windows-hello), etc. Learn more about [WebAuthn browser and OS compatibility](../../organization/concepts/mfa.md#webauthn-support).
 
         {% note warning %}
 

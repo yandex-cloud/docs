@@ -34,7 +34,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 
 - API {#api}
 
-  To get the list of node groups in the default folder, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
+  To get a list of node groups in a folder, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource or the [NodeGroupService/List](../../managed-kubernetes/api-ref/grpc/NodeGroup/list.md) gRPC API call.
 
 {% endlist %}
 
@@ -75,6 +75,6 @@ To access a node group, use the `ID` or `NAME` parameter from the [previous](nod
 
 - API {#api}
 
-  You can get node group details using the [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
+  To get detailed information about a node group, use the [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource or the [NodeGroupService/Get](../../managed-kubernetes/api-ref/grpc/NodeGroup/get.md) gRPC API call.
 
 {% endlist %}

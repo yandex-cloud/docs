@@ -25,7 +25,6 @@ The partner program participants have access to the following tools:
 Deal registration is a partner protection tool that rewards the partner for generating a deal for {{ yandex-cloud }}. You register a deal with a customer who has never worked with {{ yandex-cloud }} before. For registering a deal, you will get up to 15% on top of your [partner bonus](./var.md#premium) for as long as the customer remains linked to you.
 
 
-
 ### Deal registration conditions for the Russia region {#deal-reg-conditions}
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
@@ -59,40 +58,7 @@ Deal registration is a partner protection tool that rewards the partner for gene
 
 
 
-To register a deal:
-
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Partner deal / project application form** link.
-1. Fill out the form. Under **Application data**, in the **Request type** field, select `New customer`.
-1. Click **Submit** and wait for the application to be approved; this may take up to 20 business days.
-
-   {% note info %}
-
-   After your application is approved, you will have 60 days to create a [subaccount](../terms.md#sub-account) and a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) for your customer.
-
-   {% endnote %}
-
-1. Create a customer record on the partner portal:
-
-   1. Log in to the [partner portal]({{ link-cloud-partners }}).
-   1. In the top-right corner, click **Add customer**.
-   1. Complete the **New customers** form with your customer's information.
-   1. Click **Add**. A new customer record with the `Verification required` status will appear in the list of customers on the partner portal.
-
-      After the [partnership is verified](./var-pin-client.md#confirm-partnership), a subaccount will be created for the customer. The target consumption amount is calculated from the date of subaccount creation.
-
-1. Create a new cloud for your customer:
-
-   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
-   1. Select the customer's account from the list and click it.
-   1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **Create cloud**. You will be redirected to the customer's billing account page in {{ billing-name }}.
-   1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud.common.create }}**.
-   1. Enter a name for the cloud.
-   1. In the **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_label_organization }}** field, select the [organization](../../organization/quickstart.md) named `For 'Customer_name' subaccount`.
-   1. Click **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
-
-      You can also [link](../operations/pin-cloud.md) an existing cloud to the customer's subaccount.
+For more on how to create a deal, see [this guide](../operations/deal-registration.md).
 
 
 ## Deal registration as part of a scheduled procurement {#tender}
@@ -134,7 +100,7 @@ You can also register a deal if you have entered into a contract or agreement wi
 
 
 
-You can register a deal as part of a scheduled procurement just like a [regular deal](#deal-reg). When filling out your application, put `Yes` in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data**.
+You can register a deal as part of a scheduled procurement just like a [regular deal](../operations/deal-registration.md). When filling out your application, put `Yes` in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data**.
 
 
 
@@ -155,25 +121,14 @@ Project registration conditions:
   
   {% endnote %}
 
-To register a project:
-
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Partner deal / project application form** link.
-1. Fill out the form. Under **Application data**, in the **Request type** field, select `Customer project`.
-1. Click **Submit** and wait for the application to be approved; this may take up to 20 business days.
+For more on how to create a project, see [this guide](../operations/project-registration.md).
 
 
 ## Presale request {#presale}
 
 You can involve {{ yandex-cloud }} experts to work with your customer by submitting a presale request. You customer can be either a new {{ yandex-cloud }} customer or an existing one.
 
-To submit a presale request:
-
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Presale request form** link.
-1. Complete the form and click **Submit**. A customer manager will contact you within three business days.
+For more on how to submit a presale request, see [this guide](../operations/presale-request.md).
 
 
 ## Quick-start program {#acceleration}

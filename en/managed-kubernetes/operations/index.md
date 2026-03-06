@@ -11,6 +11,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](autoscale.md)
 * [{#T}](apply-tf-provider.md)
 * [{#T}](apply-helm-provider.md)
+* [{#T}](private-registries.md)
 
 ## Connecting to a cluster {#cluster-connect}
 

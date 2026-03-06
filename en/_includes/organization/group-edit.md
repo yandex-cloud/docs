@@ -1,12 +1,12 @@
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
   
-  1. In the row with the [group](../../organization/concepts/groups.md) you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.entity.group.action_edit }}**.
+  1. In the row with the [group](../../organization/concepts/groups.md), click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.entity.group.action_edit }}**.
 
   1. Enter a new name or description for the group.
 
@@ -33,7 +33,7 @@
       ```bash
       yc organization-manager group update \
         --name <group_name> \
-        --new-name <new_name_for_group> \
+        --new-name <new_group_name> \
         --organization-id <organization_ID> \
         --description <group_description>
       ```
@@ -72,11 +72,11 @@
 
      * `description`: New group description.
      * `organization_id`: [ID](../../organization/operations/organization-get-id.md) of the organization the group belongs to.
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc organization-manager group get \

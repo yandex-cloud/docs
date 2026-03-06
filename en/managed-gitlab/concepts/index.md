@@ -47,22 +47,38 @@ You can get started with {{ GLR }} in the following ways:
 
 * [Install {{ GLR }} in a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/applications/gitlab-runner.md).
 * Create a {{ compute-name }} VM and [install {{ GLR }} on it manually](../tutorials/install-gitlab-runner.md#install).
-* [Use the management console to create a runner](../tutorials/install-gitlab-runner.md#create-runner) that will automatically deploy the specified number of {{ compute-name }} VMs.
+* [Create a runner managed by {{ yandex-cloud }}](#managed-runners).
 
-    When creating a runner from the management console, you can select the following 15 to 500 GB disk types for the VM storage:
+### Managed runners {#managed-runners}
 
-    * HDD
-    * SSD
+{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
-    The following computing resource configurations are available:
+{% include [gl-runners-intro](../../_includes/managed-gitlab/gl-runners-intro.md) %}
 
+{% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
+
+You can specify the following managed runner settings:
+* Scaling settings:
+
+    {% include [runner-workers](../../_includes/managed-gitlab/runner-workers.md) %}
+
+* Worker VM settings:
+  * Worker computing resource configuration:
     * 2 vCPUs, 4 GB RAM
     * 2 vCPUs, 8 GB RAM
     * 4 vCPUs, 16 GB RAM
     * 8 vCPUs, 64 GB RAM
     * 16 vCPUs, 128 GB RAM
+  * Disk type (HDD or SSD) and size. For more information, see [{#T}](../../compute/concepts/disk.md#disks-types).
+  * [Service account](../../iam/concepts/users/service-accounts.md).
 
-    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
+    {% include [sa-worker-info](../../_includes/managed-gitlab/sa-worker-info.md) %}
+
+  * [Security group](../../vpc/concepts/security-groups.md).
+
+For more on managed runners, see these pages:
+* [{#T}](../operations/runner.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
 
 ## {{ GL }} Pages {#pages}
 

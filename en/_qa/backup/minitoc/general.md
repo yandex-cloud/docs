@@ -8,6 +8,8 @@
 
 * [Error when connecting to a Windows VM](#windows-connection-issue)
 
+* [Authorization error when installing a {{ backup-name }} agent on a Linux VM](#install-auth-error)
+
 * [How do I update the {{ backup-name }} agent on a VM?](#update-backup-agent)
 
 * [Why are backups disabled after the OS update?](#kernel-update-consequences)

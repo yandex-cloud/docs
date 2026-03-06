@@ -21,16 +21,34 @@ There are multiple options you can use to get an [IAM token](../../concepts/auth
 
 ## Get an IAM token using the CLI {#via-cli}
 
-{% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
+{% list tabs group=instructions %}
 
-Now you can get an IAM token for your service account:
+- CLI {#cli}
+
+  {% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
+
+  Now you can get an IAM token for your service account:
+
+  
+  ```
+  yc iam create-token
+  ```
 
 
-```
-yc iam create-token
-```
 
+  Result:
 
+  ```text
+  t1.9euelZrLop7Uz8up********
+  ```
+
+  The value you get is an IAM token. You can copy it, save it to a file, or write it into a variable:
+
+  ```bash
+  export IAM_TOKEN=`<IAM_token>`
+  ```
+
+{% endlist %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 

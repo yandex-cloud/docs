@@ -1,6 +1,6 @@
 # Connectors
 
-Connectors are {{ KFC }} components [built into {{ mkf-name }}](#supported) for streaming data between {{ KF }} and other data systems. You can use a connector for continuous data migration to and from {{ mkf-name }} clusters. Data in connectors is handled through separate {{ KFC }} *worker threads*. You can learn more about {{ KFC }} in the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connect).
+Connectors are {{ KFC }} components [built into {{ mkf-name }}](#supported) for streaming data between {{ KF }} and other data systems. You can use a connector for continuous data migration to and from {{ mkf-name }} clusters. Data in connectors is handled through separate {{ KFC }} *worker threads*. For more on {{ KFC }}, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connect).
 
 Connectors perform the following functions:
 
@@ -19,11 +19,17 @@ For step-by-step guides on using connectors, see [{#T}](../operations/cluster-co
 
 ### MirrorMaker {#mirrormaker}
 
+{% note info %}
+
+{{ mkf-name }} supports **MirrorMaker** version 2.
+
+{% endnote %}
+
 **MirrorMaker** is used for replicating {{ KF }} topics between clusters.
 
 A worker accesses the broker hosts of a {{ mkf-name }} cluster and replicates the topics specified in the connector filtering template. Depending on the connector's replication factor, it connects to one or more brokers.
 
-Topic names in the target cluster are the same as in the source.
+Topic names in the target cluster cluster match those in the source cluster.
 
 For more information about how MirrorMaker transfers data, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication).
 
