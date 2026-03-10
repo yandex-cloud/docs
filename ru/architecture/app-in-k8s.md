@@ -107,6 +107,8 @@ keywords:
 
 За балансировку нагрузки на веб-приложение в создаваемой инфраструктуре отвечает управляемый сервис {{ alb-name }}. [L7-балансировщик](../application-load-balancer/concepts/application-load-balancer.md) {{ alb-name }} создается сервисом {{ managed-k8s-name }} динамически с помощью объектов [Ingress](../managed-kubernetes/alb-ref/ingress.md). [Ingress-контроллер](../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }} отслеживает изменения объектов Ingress и выполняет соответствующие модификации настроек балансировщика, в том числе его создание и удаление. Ingress входит в [Helm-чарт](https://helm.sh/docs/topics/charts/) установки приложения.
 
+{% include [note-alb](../_includes/managed-kubernetes/note-alb.md) %}
+
 {{ alb-name }} интегрирован с сервисом [{{ certificate-manager-full-name }}](../certificate-manager/index.yaml), который выполняет автоматическое получение сертификатов [Let's Encrypt](https://letsencrypt.org).
 
 ## Возможности расширения и модификации {#scaling-features}

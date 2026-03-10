@@ -45,7 +45,7 @@
 ## Создайте ВМ для WordPress {#create-vm}
 
 Чтобы создать ВМ:
-1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `LAMP` и выберите публичный образ [LAMP](/marketplace/products/yc/lamp), который содержит необходимый набор компонентов: операционную систему семейства Linux, веб-сервер Apache, СУБД {{ MY }} и интерпретатор PHP.
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks_types) и задайте нужный размер.
@@ -87,7 +87,7 @@
 
 Чтобы скопировать публичный IP-адрес ВМ:
 1. Откройте страницу каталога в [консоли управления]({{ link-console-main }}).
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Найдите созданную ВМ и нажмите на ее имя.
 1. В разделе **{{ ui-key.yacloud.compute.instance.overview.section_network }}** скопируйте IP-адрес из поля **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.

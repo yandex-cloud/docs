@@ -3,11 +3,11 @@ Event name | Description
 `ApplyUpdatePrivateCloudConnection` | Applying updates to a private connection to subnets in a VPC or on-prem infrastructure
 `BatchCreateServer` | Leasing several {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md) at the same time
 `CreateImage` | Creating a boot image
-`CreatePrivateCloudConnection` | Creating a [private connection](../../../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
-`CreatePrivateSubnet` | Creating a [private subnet](../../../baremetal/concepts/network.md#private-subnet)
-`CreatePublicSubnet` | Creating a [public subnet](../../../baremetal/concepts/network.md#public-network)
+`CreatePrivateCloudConnection` | Creating a [private connection](../../../baremetal/concepts/private-network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
+`CreatePrivateSubnet` | Creating a [private subnet](../../../baremetal/concepts/private-network.md#private-subnet)
+`CreatePublicSubnet` | Creating a [public subnet](../../../baremetal/concepts/public-network.md)
 `CreateServer` | Leasing a {{ baremetal-name }} server
-`CreateVRF` | Creating a [virtual network segment](../../../baremetal/concepts/network.md#vrf-segment) (VRF)
+`CreateVRF` | Creating a [virtual network segment](../../../baremetal/concepts/private-network.md#vrf-segment) (VRF)
 `DeleteImage` | Deleting a boot image
 `DeletePrivateCloudConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
 `DeletePrivateSubnet` | Deleting a private subnet

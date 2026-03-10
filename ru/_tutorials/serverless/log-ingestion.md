@@ -44,7 +44,7 @@
 ## Создайте бакет для хранения журналов {#create-bucket}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-1. В списке сервисов выберите **{{ objstorage-name }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Нажмите кнопку **Создать бакет**.
 1. Укажите имя бакета.
 1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
@@ -54,7 +54,7 @@
 ## Создайте поток данных {#create-stream}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать поток данных.
-1. Выберите сервис **{{ yds-full-name }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Нажмите кнопку **Создать поток**.
 1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Обновить** для обновления списка баз.
 1. Введите имя потока данных.

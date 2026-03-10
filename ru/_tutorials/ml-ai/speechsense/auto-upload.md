@@ -748,7 +748,7 @@
 1. [Удалите](../../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
 1. Удалите подключениe к базе данных кластера {{ mpg-name }}:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите удалить подключение.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить подключение.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. В строке с подключением `speechsense-upload-metadata-connection` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
@@ -756,7 +756,7 @@
 
 1. Удалите рабочий процесс {{ sw-name }}:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите удалить рабочий процесс.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить рабочий процесс.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. На панели слева выберите ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. В строке с рабочим процессом `wf-speechsense-upload` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.

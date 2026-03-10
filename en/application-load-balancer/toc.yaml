@@ -147,8 +147,14 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
-      - name: Integrating an L7 load balancer with CDN and Object Storage
-        href: tutorials/cdn-storage-integration.md
+      - name: Integrating an L7 load balancer with a CDN and {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/cdn-storage-integration/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/cdn-storage-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-storage-integration/terraform.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
       - name: Terminating TLS connections

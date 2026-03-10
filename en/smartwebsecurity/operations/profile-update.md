@@ -11,12 +11,13 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. In the window that opens, edit the following parameters:
 
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
-      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md): To add a label, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). To add a label, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
       * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
       * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}**: Select or create an [ARL profile](../concepts/arl.md).
       * Select or create a [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests.
@@ -50,7 +51,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
         --description "<profile_description>" \
         --labels <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value> \
         --default-action <action> \
-        --captcha-id <CAPTCHA_ID> \
+        --captcha-id <captcha_ID> \
         --security-rules-file <path_to_file_with_security_rules>
      ```
 
@@ -99,7 +100,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
      resource "yandex_sws_security_profile" "demo-profile-simple" {
        name                             = "<security_profile_name>"
        default_action                   = "DENY"
-       captcha_id                       = "<CAPTCHA_ID>"
+       captcha_id                       = "<captcha_ID>"
        advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
        # Smart Protection rule

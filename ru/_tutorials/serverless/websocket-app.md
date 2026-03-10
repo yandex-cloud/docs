@@ -699,7 +699,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 1. Передайте новые значения в секрет `game-secrets`:
 
     1. В [консоли управления]({{ link-console-main }}) выберите ваш рабочий каталог.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Выберите очередь `capturing-queue`.
     1. Скопируйте значение из поля **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** и сохраните его в переменную `YMQ_CAPTURE_QUEUE_URL`:
 

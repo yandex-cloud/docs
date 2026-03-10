@@ -4,6 +4,8 @@
 
 Для балансировки нагрузки и распределения трафика между приложениями {{ k8s }} используйте [Ingress-контроллер {{ alb-full-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). Он запускает L7-балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере {{ managed-k8s-name }}.
 
+{% include [note-nlb](../../_includes/managed-kubernetes/note-alb.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../cli-install.md) %}

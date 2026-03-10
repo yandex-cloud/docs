@@ -7,7 +7,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и выберите сертификат `joomla-cert`.
+        1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и выберите сертификат `joomla-cert`.
         1. На панели сверху нажмите ![ArrowUpFromLine](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**, выберите вариант `{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}` и нажмите **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**. На ваш компьютер будет скачан файл с сертификатом `certificate.pem`.
         1. Повторите предыдущее действие и скачайте закрытый ключ, выбрав вариант `{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}`. Переименуйте скачанный файл с закрытым ключом в `private_key.pem`.
         1. Сохраните скачанные файлы `certificate.pem` и `private_key.pem` — они понадобятся при настройке веб-сервера.

@@ -24,7 +24,7 @@ You need to set up traffic routing in your infrastructure so that traffic to {{ 
 
 You can set up a point-to-point subnet for public connection using the following methods:
 
-1. Using IPv4 addresses from the {{ yandex-cloud }} [address pool](../../vpc/concepts/ips.md). With this method, {{ yandex-cloud }} assigns a `/31` **point-to-point subnet** to the customer. The customer must use a private BGP ASN to set up BGP peering.
+1. Using IPv4 addresses from the {{ yandex-cloud }} [address pool](../../vpc/concepts/ips.md). With this method, the customer is assigned a `/31` **point-to-point subnet** from the {{ yandex-cloud }} address pool. The customer must use a private BGP ASN to set up BGP peering.
 1. Using private (RFC-1918) or custom public IPv4 addresses. This method is used if the customer plans to announce their custom public IP prefixes via the point-to-point subnet. In this case, the customer must follow the [recommendations](#pub-bgp) for setting up BGP peering listed below.
 
 

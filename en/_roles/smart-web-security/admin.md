@@ -7,6 +7,7 @@ Users with this role can:
 * View info on [ARL profiles](../../smartwebsecurity/concepts/arl.md), as well as create, modify, use, and delete them.
 * View info on [proxy servers](../../smartwebsecurity/concepts/domain-protect.md#proxy), as well as create, modify, and delete them.
 * View info on [lists](../../smartwebsecurity/concepts/lists.md), as well as create, modify, use, and delete them.
+* View info on [response page templates](../../smartwebsecurity/concepts/response-templates.md), as well as create, modify, use, and delete them.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

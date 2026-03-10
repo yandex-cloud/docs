@@ -16,7 +16,7 @@
 1. [Настройте API-шлюз](#config-api-gateway).
 1. [Настройте вебхук для бота](#config-webhook).
 1. [Проверьте работу бота](#check-result).
-1. [Настройте агент под вашу задачу](#customize).
+1. [Настройте агент под вашу задачу](#what-is-next).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -62,7 +62,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
   1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
@@ -130,7 +130,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. Укажите максимальный размер бакета `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -200,7 +201,7 @@
 
 ## Создайте сервисные аккаунты {#create-sa}
 
-Cоздайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
+Создайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
 
 * `sa-apigw` — от его имени будет запускаться [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-name }};
 * `sa-workflows` — от его имени будут выполняться шаги рабочего процесса.
@@ -209,7 +210,8 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта `sa-apigw`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/roles-reference.md) `serverless.workflows.executor`.
@@ -223,6 +225,8 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
   * `{{ roles-yagpt-user }}`
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  1. Если у вас еще нет [jq](https://stedolan.github.io/jq/download/), установите его.
 
   1. Посмотрите описание команды CLI для создания сервисного аккаунта:
 
@@ -458,7 +462,8 @@ steps:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
   1. Выберите способ `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}`.
@@ -568,7 +573,8 @@ paths:
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя API-шлюза. Требования к имени:
 
@@ -630,9 +636,15 @@ paths:
 
 ## Настройте вебхук для бота {#config-webhook}
 
+Если у вас еще нет [cURL](https://curl.haxx.se), установите его.
+
+{% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
+
+Настройте вебхук для бота:
+
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- Bash {#bash}
 
   Выполните команду:
 

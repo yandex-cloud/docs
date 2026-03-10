@@ -40,6 +40,8 @@
         * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}`. Укажите группы безопасности для групп узлов.
 
+    {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -48,8 +50,10 @@
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
     1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-cilium.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cilium-setup/blob/main/k8s-cilium.tf). С помощью файла будут созданы ресурсы:
 
-        * [Сеть](../../vpc/concepts/network.md#network).
-        * [Подсеть](../../vpc/concepts/network.md#subnet).
+        * [Сеть](../../vpc/concepts/network.md#network) и [подсеть](../../vpc/concepts/network.md#subnet).
+
+            {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
         * Кластер {{ managed-k8s-name }}.
         * Группа узлов для кластера.
         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и его группы узлов.

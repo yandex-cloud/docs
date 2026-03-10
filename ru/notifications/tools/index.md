@@ -1,3 +1,8 @@
+---
+title: Поддерживаемые инструменты для работы с {{ cns-name }}
+description: Перечень поддерживаемых инструментов для работы с {{ cns-name }}.
+---
+
 # Поддерживаемые инструменты
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}

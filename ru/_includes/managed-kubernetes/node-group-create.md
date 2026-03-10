@@ -79,6 +79,9 @@
 
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**:
    * Укажите [зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet), в которых вы хотите разместить узлы группы.
+
+       {% include [note-vpc-resources](note-vpc-resources.md) %}
+
    * (Опционально) Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и подсеть.
 
    {% include [autoscaled-node-group-restriction](autoscaled-node-group-restriction.md) %}

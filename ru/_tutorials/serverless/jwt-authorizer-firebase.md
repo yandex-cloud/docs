@@ -65,7 +65,7 @@ Firebase:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите `jwt-api-gw`.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
@@ -301,7 +301,7 @@ Firebase:
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. На странице создания бакета:
         1. Введите имя бакета — `bucket-for-tutorial`.
@@ -397,7 +397,7 @@ Firebase:
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который нужно загрузить объекты.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Нажмите на бакет `bucket-for-tutorial`.
      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите [сгенерированные ранее](#project-prepare) объекты в папке `build`.
      1. Консоль управления отобразит все объекты, выбранные для загрузки, и предложит для каждого из них выбрать [класс хранилища](../../storage/concepts/storage-class.md). Класс хранилища по умолчанию определяется [настройкой бакета](../../storage/concepts/bucket.md#bucket-settings).

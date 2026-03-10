@@ -19,6 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее о других изменениях кластера:
 
+* [Настройка технического обслуживания](cluster-maintenance.md).
 * [Перенос кластера в другую зону доступности](host-migration.md).
 * [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings).
 * [Изменение настроек {{ CH }} на уровне запроса](change-query-level-settings.md).

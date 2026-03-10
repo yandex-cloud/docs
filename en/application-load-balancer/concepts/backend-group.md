@@ -41,7 +41,7 @@ You can only select a backend group's type when creating it. You cannot change t
 
 ## Backend types {#types}
 
-Based on the backend group type, backends can be of the following types:
+Based on the backend group type, there are the following possible types of backends:
 * **{{ ui-key.yacloud.alb.label_proto-http }}**:
 
   * [_Target groups_](target-group.md): IP addresses of {{ compute-name }} VMs that your network applications are running on. Multiple target groups can belong to a single backend. Traffic between all VMs in target groups belonging to the same backend is distributed evenly based on the [backend settings](#settings) and results of [health checks](#health-checks).
@@ -167,7 +167,7 @@ Note that if the backend is configured to use TLS with the target group endpoint
 * [{#T}](../tutorials/tls-termination/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md)
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
 

@@ -12,8 +12,8 @@ You can see the solution architecture in the diagram below:
 
 ![opnsense-failover-cluster](../../_assets/tutorials/opnsense-failover-cluster.svg)
 
-* [Public {{ baremetal-name }} subnet](../../baremetal/concepts/network.md#public-network) of the `{{ region-id }}-m4` [server pool](../../baremetal/concepts/servers.md#server-pools).
-* {{ baremetal-name }} [private subnet](../../baremetal/concepts/network.md#private-subnet): `opnsense-private-subnet-m4`.
+* [Public {{ baremetal-name }} subnet](../../baremetal/concepts/public-network.md) of the `{{ region-id }}-m4` [server pool](../../baremetal/concepts/servers.md#server-pools).
+* {{ baremetal-name }} [private subnet](../../baremetal/concepts/private-network.md#private-subnet): `opnsense-private-subnet-m4`.
 * Two {{ baremetal-name }} servers within the OPNsense cluster: `opnsense-master` and `opnsense-backup`. The configuration examples in this tutorial use OPNsense `25.1`.
 * One {{ baremetal-name }} server running the VMware [ESXi](https://en.wikipedia.org/wiki/VMware_ESXi) virtualization platform: `vmware-esxi`. This tutorial uses ESXi `7.0U3g`.
 * VM running on the `vmware-esxi` server: `opnsense-tester-vm`. This tutorial uses a [Linux Ubuntu 24.04](https://releases.ubuntu.com/24.04/) VM without a graphical user interface (GUI).

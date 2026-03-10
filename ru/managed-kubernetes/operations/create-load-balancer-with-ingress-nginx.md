@@ -41,14 +41,12 @@
       ```
 
    
-   {% note tip %}
-
    Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](../alb-ref/nginx-gwin-migration.md).
-
-   {% endnote %}
 
 
 ## Внешний сетевой балансировщик {#external}
+
+{% include [note-nlb](../../_includes/managed-kubernetes/note-nlb.md) %}
 
 Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру {{ managed-k8s-name }}, должна быть роль `load-balancer.admin`.
 
@@ -72,6 +70,8 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ```
 
 ## Внутренний сетевой балансировщик {#internal}
+
+{% include [note-nlb](../../_includes/managed-kubernetes/note-nlb.md) %}
 
 Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру {{ managed-k8s-name }}, должна быть роль `load-balancer.admin`.
 

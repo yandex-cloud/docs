@@ -1,6 +1,6 @@
 ---
-title: Сценарии использования {{ yds-full-name }}
-description: Различные сценарии использования {{ yds-full-name }} в {{ yandex-cloud }}.
+title: Пошаговые инструкции для работы с {{ yds-full-name }}
+description: Пошаговые инструкции для работы с {{ yds-full-name }} в {{ yandex-cloud }}.
 ---
 
 # Пошаговые инструкции для {{ yds-name }}

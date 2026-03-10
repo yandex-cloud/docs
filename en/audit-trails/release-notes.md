@@ -549,8 +549,8 @@ Added new events for the services:
   --- | ---
   `ApplyUpdatePrivateCloudConnection` | Applying updates to a private connection to subnets in a VPC or on-prem infrastructure
   `CreateImage` | Creating a boot image
-  `CreatePrivateCloudConnection` | Creating a [private connection](../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
-  `CreatePublicSubnet` | Creating a [public subnet](../baremetal/concepts/network.md#public-network)
+  `CreatePrivateCloudConnection` | Creating a [private connection](../baremetal/concepts/private-network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
+  `CreatePublicSubnet` | Creating a [public subnet](../baremetal/concepts/public-network.md)
   `DeleteImage` | Deleting a boot image
   `DeletePrivateCloudConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
   `DeletePublicSubnet` | Deleting a public subnet
@@ -821,7 +821,7 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `CreateExternalConnection` is now `CreatePrivateCloudConnection` | Creating a [private connection](../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
+  `CreateExternalConnection` is now `CreatePrivateCloudConnection` | Creating a [private connection](../baremetal/concepts/private-network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
   `DeleteExternalConnection` is now `DeletePrivateCloudConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
   
   {% endcut %}
@@ -849,10 +849,10 @@ Added new events for the services:
   Event | Description
   --- | ---
   `BatchCreateServer` | Leasing several {{ baremetal-name }} [servers](../baremetal/concepts/servers.md) at the same time
-  `CreateExternalConnection` | Creating a [private connection](../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
-  `CreatePrivateSubnet` | Creating a [private subnet](../baremetal/concepts/network.md#private-subnet)
+  `CreateExternalConnection` | Creating a [private connection](../baremetal/concepts/private-network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
+  `CreatePrivateSubnet` | Creating a [private subnet](../baremetal/concepts/private-network.md#private-subnet)
   `CreateServer` | Leasing a {{ baremetal-name }} server
-  `CreateVRF` | Creating a [virtual network segment](../baremetal/concepts/network.md#vrf-segment) (VRF)
+  `CreateVRF` | Creating a [virtual network segment](../baremetal/concepts/private-network.md#vrf-segment) (VRF)
   `DeleteExternalConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
   `DeletePrivateSubnet` | Deleting a private subnet
   `DeleteVRF` | Deleting a virtual network segment (VRF)

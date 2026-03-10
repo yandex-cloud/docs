@@ -11,6 +11,7 @@ description: Follow this guide to delete a {{ sws-full-name }} profile.
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
@@ -66,7 +67,7 @@ description: Follow this guide to delete a {{ sws-full-name }} profile.
      resource "yandex_sws_security_profile" "demo-profile-simple" {
        name                             = "<security_profile_name>"
        default_action                   = "DENY"
-       captcha_id                       = "<CAPTCHA_ID>"
+       captcha_id                       = "<captcha_ID>"
        advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
        # Smart Protection rule

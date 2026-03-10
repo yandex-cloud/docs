@@ -100,6 +100,8 @@
 
 {% endlist %}
 
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 ### Установите дополнительные зависимости {#prepare}
 
 Установите в локальном окружении:

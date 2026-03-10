@@ -229,11 +229,11 @@ If using the agent in {{ ai-studio-name }}, do the testing in the right-hand **{
 
 1. Use the examples of prompts to respond to which the agent will be analyzing the marked-up data from {{ data-catalog-name }}. It is assumed that the data contains sales-related information:
 
-   * `Write an SQL query to generate YoY sales analytics`
-   * `Find all tables with user payment information`
+   * `Write an SQL query to generate YoY sales analytics`.
+   * `Find all tables with user payment information`.
    * `Which tables are marked as containing sensitive data?`
    * `Where does the customer_transactions table get its data from?`
-   * `Help find the tables needed to calculate the user retention metric`
+   * `Help find the tables needed to calculate the user retention metric`.
    * `Where can I find the website users' behavior data?`
    * `Which data should I use to analyze sales funnel conversion rate?`
-   * `Show all dependencies of the transactions table to see how schema changes affect it`
+   * `Show all dependencies of the transactions table to see how schema changes affect it`.

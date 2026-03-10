@@ -6,6 +6,8 @@
 
 В сервисе {{ managed-k8s-name }} Gateway API запускает [{{ alb-full-name }}](../../application-load-balancer/) и необходимые вспомогательные ресурсы, когда пользователь {{ k8s }} объявляет ресурс `Gateway` в кластере {{ managed-k8s-name }}.
 
+{% include [note-alb](note-alb.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../cli-install.md) %}

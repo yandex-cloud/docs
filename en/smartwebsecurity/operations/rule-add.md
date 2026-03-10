@@ -13,6 +13,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the profile where you want to add a rule.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and in the window that opens:
 
@@ -65,7 +66,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
       resource "yandex_sws_security_profile" "demo-profile-simple" {
         name                             = "<security_profile_name>"
         default_action                   = "DENY"
-        captcha_id                       = "<CAPTCHA_ID>"
+        captcha_id                       = "<captcha_ID>"
         advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
         # Smart Protection rule
@@ -113,7 +114,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc smartwebsecurity security-profile get <security_profile_ID>

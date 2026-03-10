@@ -23,7 +23,7 @@ This information helps you quickly evaluate performance and content of LLM opera
 
 This interface displays a selected LLM agent trace. The displayed data mostly consists of large texts (prompts, model responses, etc.). This allows you to analyze agent traces faster, since texts are key information having direct impact on the operation logic.
 
-The view page displays `service` spans for the given LLM agent. Such services are identified by having at least one attribute in spans with the `gen_ai.*` mask. Spans of other services, such as backends or databases, are hidden. To quickly switch to viewing the entire trace with all its spans, click **Go to traces** at the top of the page.
+The view page displays `service` spans for the given LLM agent. Such services are identified by having at least one attribute in spans with the `gen_ai.*` mask. Spans of other services, e.g., backends or databases, are hidden. To quickly switch to viewing the entire trace with all its spans, click **Go to traces** at the top of the page.
 
 The interface has two areas:
 

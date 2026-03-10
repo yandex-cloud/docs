@@ -23,6 +23,12 @@ items:
             href: operations/operation-connection.md
           - name: Отмена операции
             href: operations/cancel-operation.md
+      - name: Практические руководства
+        items:
+          - name: >-
+              Настройка прав доступа к секрету, созданному {{
+              connection-manager-name }}, для пользователя {{ mpg-name }}
+            href: tutorials/conn-man-secret-access.md
       - name: Концепции
         items:
           - name: Подключение

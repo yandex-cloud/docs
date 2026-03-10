@@ -10,7 +10,7 @@ This tutorial provides an example of setting up a high-availability proxy server
 
 ![bms-vrf-routing-scheme](../../_assets/baremetal/bms-vrf-routing-scheme.svg)
 
-In the `{{ region-id }}-m` availability zone, you will set up an environment of two [private subnets](../../baremetal/concepts/network.md#private-subnet), `subnet-m3` and `subnet-m4`, created in the `{{ region-id }}-m3` and `{{ region-id }}-m4` [server pools](../../baremetal/concepts/servers.md#server-pools), respectively. You will group these subnets into a [virtual network segment](../../baremetal/concepts/network.md#vrf-segment) (VRF) named `vrrp-vrf`.
+In the `{{ region-id }}-m` availability zone, you will set up an environment of two [private subnets](../../baremetal/concepts/private-network.md#private-subnet), `subnet-m3` and `subnet-m4`, created in the `{{ region-id }}-m3` and `{{ region-id }}-m4` [server pools](../../baremetal/concepts/servers.md#server-pools), respectively. You will group these subnets into a [virtual network segment](../../baremetal/concepts/private-network.md#vrf-segment) (VRF) named `vrrp-vrf`.
 
 In `subnet-m3`, you will create two {{ baremetal-name }} servers, `master-server-m3` and `backup-server-m3`, which will have the `MASTER` and `BACKUP` roles, respectively, in the VRRP group. On these two servers, you will run Keepalived and use it to set up a virtual IP address for the server group in the `{{ region-id }}-m3` pool.
 

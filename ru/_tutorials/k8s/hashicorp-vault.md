@@ -97,6 +97,8 @@
 
     {% endlist %}
 
+    {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Установите HashiCorp Vault {#install-vault}

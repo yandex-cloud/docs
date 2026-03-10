@@ -28,7 +28,20 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 
           {% endnote %}
       
-      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** and **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** fields.
+      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** and **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** sections.
+
+          To attach an [additional private subnet](../../concepts/private-network.md#tagged-vlan-subnet) to the server, click **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** in the **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** section and, in the field that appears, select an existing additional subnet or create a new one.
+
+          {% include [additional-private-subnet-dhcp-notice](../../../_includes/baremetal/additional-private-subnet-dhcp-notice.md) %}
+
+          To detach an additional subnet from the server, click ![trash-bin](../../../_assets/console-icons/trash-bin.svg) next to this subnet in the **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** section.
+
+          {% note warning %}
+
+          If you have changed the number or composition of additional private subnets attached to the server, [configure](./set-up-tagged-vlan.md) the network interface in its operating system.
+
+          {% endnote %}
+
       * Optionally, in the **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** field, change the [server's bandwidth](../../concepts/network-restrictions.md#bandwidth-for-pubic-network) package. Available bandwidth packages:
 
           * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`
@@ -74,8 +87,8 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
       * `--description`: New server description. This is an optional setting.
       * `--network-interfaces`: New network settings. This is an optional setting. The possible values are:
         
-        * `private-subnet-id`: ID of the new [private subnet](../../concepts/network.md#private-subnet).
-        * `public-subnet-id`: ID of the new [dedicated public subnet](../../concepts/network.md#public-subnet).
+        * `private-subnet-id`: ID of the new [private subnet](../../concepts/private-network.md#private-subnet).
+        * `public-subnet-id`: ID of the new [dedicated public subnet](../../concepts/public-network.md#public-subnet).
 
       * `--labels`: New server labels. This is an optional setting.
 
@@ -198,8 +211,8 @@ Update server name, description, and network settings:
 
   * `description`: New server description.
   * `networkInterfaces[]`: New network settings. This is an optional parameter. The possible values are:
-    * `privateSubnetId`: ID of the new [private subnet](../../concepts/network.md#private-subnet).
-    * `publicSubnetId`: ID of the new [dedicated public subnet](../../concepts/network.md#public-subnet).
+    * `privateSubnetId`: ID of the new [private subnet](../../concepts/private-network.md#private-subnet).
+    * `publicSubnetId`: ID of the new [dedicated public subnet](../../concepts/public-network.md#public-subnet).
   
   Result:
 

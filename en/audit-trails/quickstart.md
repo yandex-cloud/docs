@@ -1,6 +1,6 @@
 # Getting started with {{ at-name }}
 
-{{ at-name }} collects [audit logs](./concepts/format.md) from {{ yandex-cloud }} resources and uploads them to an {{ objstorage-name }} bucket, a {{ cloud-logging-name }} log group, or a {{ yds-name }} data stream.
+{{ at-name }} collects [audit logs](./concepts/format.md) from {{ yandex-cloud }} resources and uploads them to a [bucket](../storage/concepts/bucket.md) in {{ objstorage-name }}, [log group](../logging/concepts/log-group.md) in {{ cloud-logging-name }}, [stream](../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}, or [bus](../serverless-integrations/concepts/eventrouter/bus.md) in {{ er-full-name }}.
 
 Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
 
@@ -211,13 +211,13 @@ To create your first trail in {{ at-name }} and start the process of management 
 
       {% include [trail-create-tf-descs_part2](../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
+      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
       
-      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../cli/) command:
 
       ```bash
       yc audit-trails trail get <trail_name>

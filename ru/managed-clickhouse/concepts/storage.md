@@ -155,7 +155,7 @@ FROM system.storage_policies;
 
 Можно использовать один либо оба порога. Если заданы оба, порог для незамедлительного увеличения должен быть не меньше, чем для планового.
 
-Для планового увеличения необходимо настроить расписание [окна обслуживания](maintenance.md#maintenance-window).
+Для планового увеличения необходимо [настроить расписание окна обслуживания](../operations/cluster-maintenance.md#set-maintenance-window).
 
 {% include [storage-resize-steps](../../_includes/mdb/mch/storage-resize-steps.md) %}
 

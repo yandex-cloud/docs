@@ -2,6 +2,12 @@
 
 The web search tools allows the model to draw information from open sources for more accurate and relevant date responses. It can search through the entire internet or within a limited list of websites. You can enable the tool in the {{ responses-api }} and {{ realtime-api }}. For the prices, see [{#T}](../../../pricing.md).
 
+{% note tip %}
+
+Each time you call the web search tool, you use your {{ search-api-name }} [synchronous request quotas](../../../../search-api/concepts/limits.md#search-api-quotas). Be mindful of the {{ search-api-name }}'s limitations if using the tool much.
+
+{% endnote %}
+
 With the tool on, the model itself decides whether or not it needs additional information to form a response. To allow the model to search through the internet when generating its responses, specify `web_search` in your request parameters. When connecting the tool via {{ responses-api }}, the following optional parameters are available:
 
 * `allowed_domains`: Array containing up to five domains to search in. If no domains are listed, the model will search through the entire internet. 

@@ -40,7 +40,7 @@ Create a service account you will use to authenticate in the {{ video-name }} AP
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `sa-video-api`.
 
-      The naming requirements are as follows:
+      Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

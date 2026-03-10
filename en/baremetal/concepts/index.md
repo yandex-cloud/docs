@@ -24,11 +24,11 @@ You can lease [servers](servers.md) for a period from one day to a year. When or
 
 ## Network {#network}
 
-All servers have multiple physical network interfaces connected to the [public internet](network.md#public-network) and to a [private network](./network.md#private-network) through different, independent switches which make up a single IP fabric with the spine-leaf topology.
+All servers have multiple physical network interfaces connected to the [public internet](./public-network.md) and to a [private network](./private-network.md) through different, independent switches which make up a single IP fabric with the spine-leaf topology.
 
-In the public network, each server is allocated one public IPv4 address free of charge. You can also lease blocks of [dedicated public subnets](./network.md#public-subnet) of varying sizes and use them to assign addresses to servers. For servers with 10 and 25 Gbps network cards, you can select a daily internet traffic package.
+In the public network, each server is allocated one public IPv4 address free of charge. You can also lease blocks of [dedicated public subnets](./public-network.md#public-subnet) of varying sizes and use them to assign addresses to servers. For servers with 10 and 25 Gbps network cards, you can select a daily internet traffic package.
 
-In a private network, you can group servers at different levels through [private subnets](network.md#private-subnet) (L2, VLAN 802.1Q) and use routing to join them into a [VRF](network.md#vrf-segment) (L3). If required, you can assign multiple private subnets to a single server port (L2, trunk-port 802.1Q) or add static routes to the VRF.
+In a private network, you can group servers at different levels through [private subnets](./private-network.md#private-subnet) (L2, VLAN 802.1Q) and use routing to join them into a [VRF](./private-network.md#vrf-segment) (L3). If required, you can assign multiple private subnets to a single server port (L2, trunk-port 802.1Q) or add static routes to the VRF.
 
 To ensure stable operation of all networks, {{ baremetal-name }} has a number of [limits](network-restrictions.md).
 

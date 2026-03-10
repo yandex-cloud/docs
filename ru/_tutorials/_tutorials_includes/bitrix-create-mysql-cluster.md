@@ -2,7 +2,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-mysql }}**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-mysql }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя кластера, например `Bitrix{{ MY }}`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s3-c2-m8`. Данных характеристик хватит для работы системы «1С-Битрикс».
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выберите [тип хранилища](../../managed-mysql/concepts/storage.md) — `network-ssd` и укажите размер `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.

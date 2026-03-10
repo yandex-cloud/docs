@@ -8260,7 +8260,6 @@ default:
           label_base-rule: Базовое
           label_smart-protection-rule: Smart Protection
           label_waf-rule: Web Application Firewall
-          title_connected-to-the-hosts: Подключенные хосты
           title_security-rules: Правила безопасности
           title_waf-profile: Профиль WAF
         proxy-servers:
@@ -8329,7 +8328,6 @@ default:
         value_complexity-force_hard: Максимальная
         value_complexity-hard: Высокая
         value_complexity-medium: Средняя
-        value_config-standard: Стандартный
         value_pre-check-checkbox: Чекбокс
         value_pre-check-slider: Слайдер
       spark:

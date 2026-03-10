@@ -7,6 +7,22 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.198.0 (09.03.26) {#version0.198.0}
+
+#### Изменения в CLI {#cli} {#cli-0.198.0}
+
+Исправлена проблема, связанная с проверкой обновлений.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.198.0}
+
+##### {{ compute-name }} {#compute-0.198.0}
+
+В команду `yc compute image create` добавлен флаг `--os-nvidia-driver`, который позволяет указать версию драйвера NVIDIA при создании ВМ:
+
+  * `yc compute image create --os-nvidia-driver <nvidia-driver>`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.197.0 (05.03.26) {#version0.197.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.197.0}
@@ -69,8 +85,6 @@ description: На странице представлены релизы CLI, а
 
 * В команду `yc vpc address create` добавлена возможность создания внутренних IPv4-адресов с помощью параметра `--internal-ipv4 subnet=<subnet>`.
 * В `yc vpc address` добавлена команда `list-by-subnet` для листинга адресов по подсети: `yc vpc address list-by-subnet --subnet-id <subnet-id>`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.196.0 (02.03.26) {#version0.196.0}
 
@@ -454,7 +468,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.178.0 (01.12.25) {#version0.178.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ mkf-name }}
 
@@ -468,7 +482,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.177.0 (27.11.25) {#version0.177.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ cr-name }}
 
@@ -570,7 +584,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.175.0 (10.11.25) {#version0.175.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ org-name }}
 
@@ -585,7 +599,7 @@ description: На странице представлены релизы CLI, а
 
 Добавлен параметр `subject-id` в команду `yc init`.
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ alb-name }}
 

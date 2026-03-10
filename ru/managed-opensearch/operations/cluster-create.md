@@ -288,8 +288,8 @@ keywords:
           }
         }
         maintenance_window {
-          type = <тип_технического_обслуживания>
-          day  = <день_недели>
+          type = "<тип_технического_обслуживания>"
+          day  = "<день_недели>"
           hour = <час_дня>
         }
       }
@@ -1037,3 +1037,4 @@ keywords:
 
 
 {% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
+

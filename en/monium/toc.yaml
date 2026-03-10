@@ -5,14 +5,20 @@ items:
     href: quickstart.md
   - name: Overview
     href: overview.md
-  - name: Data collection
+  - name: Data delivery
     items:
       - name: Overview
         href: collector/index.md
-      - name: OpenTelemetry SDK
-        href: collector/otlp-sdk.md
-      - name: OTel Collector
-        href: collector/opentelemetry.md
+      - name: Otel Collector
+        items:
+          - name: Configuring OTel Collector
+            href: collector/opentelemetry.md
+          - name: OpenTelemetry SDK
+            href: collector/otlp-sdk.md
+          - name: Java demo application example
+            href: collector/otel-clinic-example.md
+          - name: '{{ k8s }} demo application example'
+            href: collector/otel-k8s-example.md
       - name: '{{ unified-agent-short-name }}'
         items:
           - name: Overview
@@ -233,16 +239,24 @@ items:
         href: traces/quickstart.md
       - name: Overview
         href: traces/index.md
-      - name: Data collection
+      - name: Instrumentation
         items:
-          - name: Data collection agents
-            href: traces/write/index.md
-          - name: '{{ unified-agent-short-name }}'
-            href: traces/write/python-ua.md
-          - name: OTel Collector
-            href: traces/write/python-otel.md
-      - name: Viewing traces
-        href: traces/operations/traces-explorer.md
+          - name: Instrumentation types
+            href: traces/tools/index.md
+      - name: Working with traces
+        items:
+          - name: Searching for traces
+            href: traces/operations/traces-explorer.md
+          - name: Viewing and analyzing traces
+            href: traces/operations/traces-explorer.md
+          - name: Query language
+            href: traces/operations/traces-explorer.md
+          - name: Critical path analysis
+            href: traces/operations/traces-explorer.md
+          - name: Trace-to-log correlation
+            href: traces/operations/traces-explorer.md
+          - name: Archiving
+            href: traces/operations/traces-explorer.md
       - name: LLM monitoring
         href: traces/operations/llm-traces.md
       - name: Limitations

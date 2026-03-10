@@ -2,7 +2,8 @@
 
 - Интерфейс {{ yq-name }} {#yquery}
 
-  1. Перейдите в [консоль управления]({{link-console-main}}) и откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq }}**.
+  1. Откройте [консоль управления]({{link-console-main}}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. На вкладке **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Создайте соединение со следующими параметрами:
       * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — `forms-connection`.

@@ -1,7 +1,3 @@
----
-canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
----
-
 # Дообучение моделей в {{ ml-platform-name }} Notebooks
 
 Вы можете [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/index) языковые модели {{ foundation-models-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).

@@ -32,7 +32,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
   1. В левой части экрана нажмите на строку с именем каталога, в котором вы хотите развернуть контейнер.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `github-action`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли:
@@ -267,7 +267,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. В списке должен появиться контейнер `demo-serverless-container1`, выберите его.
 
       В блоке **{{ ui-key.yacloud.serverless-containers.section-revisions }}** должна появиться ревизия контейнера, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).

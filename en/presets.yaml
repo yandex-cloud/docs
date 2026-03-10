@@ -8255,7 +8255,6 @@ default:
           label_base-rule: Base
           label_smart-protection-rule: Smart Protection
           label_waf-rule: Web Application Firewall
-          title_connected-to-the-hosts: Connected hosts
           title_security-rules: Security rules
           title_waf-profile: WAF profile
         proxy-servers:
@@ -8324,7 +8323,6 @@ default:
         value_complexity-force_hard: Maximum
         value_complexity-hard: Hard
         value_complexity-medium: Medium
-        value_config-standard: Standard
         value_pre-check-checkbox: Checkbox
         value_pre-check-slider: Slider
       spark:

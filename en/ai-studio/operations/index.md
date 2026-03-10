@@ -77,4 +77,5 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 
 ## General step-by-step guides {#general}
 
+* [{#T}](sdk-migration.md)
 * [{#T}](disable-logging.md)

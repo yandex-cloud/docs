@@ -40,7 +40,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя реестра. Например, `my-registry`.
   1. В поле **{{ ui-key.yacloud.common.password }}** задайте пароль доступа к реестру. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
@@ -58,7 +58,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Выберите реестр, созданный на предыдущем шаге.
   1. В меню слева выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
@@ -89,7 +89,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. В поле **{{ ui-key.yacloud.common.name }}** введите имя функции. Например, `my-device-emulator-function`.
@@ -169,7 +169,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `my-device-emulator-function`.
   1. В меню слева выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В списке **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** выберите `$latest` — последнюю созданную функцию.
@@ -209,7 +209,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера. Например, `my-emulator-function-trigger`.
@@ -235,7 +235,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите раздел **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Создайте функцию:
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -275,7 +275,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `my-monitoring-func`.
   1. В меню слева выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В списке **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** выберите `$latest` — последнюю созданную функцию.
@@ -326,7 +326,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера. Например, `my-monitoring-func-trigger`.
@@ -404,7 +404,7 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
   1. Справа вверху нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
@@ -421,7 +421,7 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
   1. Напротив названия нужного дашборда нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
   1. В нижнем блоке нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
@@ -455,7 +455,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `my-device-emulator-function`.
   1. Нажмите на вкладку **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
   1. В нижней части окна в блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** в поле **{{ ui-key.yacloud_components.forms.label_value }}** замените несколько исходных значений переменных на любые другие.
@@ -478,7 +478,7 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** и посмотрите, как изменились показатели графиков.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** и посмотрите, как изменились показатели графиков.
 
 {% endlist %}
 
@@ -491,7 +491,7 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
   1. В поле **{{ ui-key.yacloud_monitoring.channel.field_name }}** укажите название канала. Например, `my-message-channel`.
@@ -519,7 +519,7 @@
 - Интерфейс {{ monitoring-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя алерта.
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}** нажмите значок ![image](../../_assets/console-icons/plus.svg) и заполните поля:

@@ -6,3 +6,4 @@ Network topologies are implemented as [use cases](../scenarios/index.md) using t
 
 When implementing use cases (network topologies), you can use [{{ interconnect-name }}](../../interconnect/concepts/index.md) resources.
 
+{% include [cross-org-networking](../../_includes/interconnect/cross-org-networking.md) %}

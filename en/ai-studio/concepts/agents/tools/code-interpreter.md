@@ -1,16 +1,18 @@
 ---
 title: '{{ code-interpreter }}'
-description: '{{ code-interpreter }} is a built-in {{ ai-studio-full-name }} tool that allow the model to write and execute Python code in an isolated testing environment.'
+description: '{{ code-interpreter }} is an in-built {{ ai-studio-full-name }} tool allowing the model to write and execute Python code in an isolated test environment.'
 ---
 
 # {{ code-interpreter }}
 
-_{{ code-interpreter }}_ is a built-in {{ ai-studio-full-name }} tool that allows the model to write and execute Python code in an isolated testing environment. It is used for tasks where text reasoning alone is not enough and actual computing is required.
+{% include [note-preview](../../../../_includes/note-preview.md) %}
 
-The tool can be of particular use in the following scenarios:
+_{{ code-interpreter }}_ is an in-built {{ ai-studio-full-name }} tool allowing the model to write and execute Python code in an isolated test environment. It is used for tasks where text reasoning alone is not enough and actual computing is required.
+
+This code execution tool can be of particular use in the following scenarios:
 
 * Data analysis.
-* Programming and logic debugging.
+* Programming and debugging logic.
 * Mathematical calculations.
 * Working with files and images.
 
@@ -20,55 +22,55 @@ The tool can be of particular use in the following scenarios:
 
 ### Python code execution {#run-code}
 
-{{ code-interpreter }} offers the model a full-value Python runtime environment integrated into the reasoning process. Within the same session, the model can:
+{{ code-interpreter }} provides the model with a full-fledged Python runtime environment integrated into the reasoning process. Within a single session, the model can:
 
-* Write Python for your task.
-* Execute the code in an isolated environment.
+* Write Python code to solve a task.
+* Execute the code in an isolated testing environment.
 * Get accurate and deterministic results.
-* Analyze the errors.
-* Edit the code and rerun it until the correct result is achieved.
+* Analyze occurring errors.
+* Edit the code and rerun it until it achieves the correct result.
 
-The tool's key feature is that of being iterative. Code execution is not a one-off action: the model can progressively refine the logic, fix errors, and make the solution more and more sophisticated based on the results of previous runs. This makes {{ code-interpreter }} especially well-suited for tasks that depend on hypothesis testing through calculations, step-by-step analysis, high accuracy, and reproducibility of results.
+Key feature of the tool is that it is iterative. Code execution is not a one-time action: the model can sequentially check the logic, fix errors, and keep building up the solution based on the results of previous runs. This makes {{ code-interpreter }} especially well-suited for tasks that require hypothesis testing through calculations, step-by-step analysis, high accuracy, and result reproducibility.
 
 ### Working with files and data
 
-{{ code-interpreter }} is integrated with the Files API and uses it as its primary file transfer and storage tool.
-The agent can use this tool to:
+{{ code-interpreter }} is integrated with Files API and uses it as the primary tool for transferring and storing files.
+Using this tool, the agent can:
 
-* Load and process files in various formats (CSV, JSON, XLSX, TXT, etc.).
-* Create new files – tables, datasets, reports, charts, and images – while executing code.
-* Use files provided by the user in request input as source data for analysis and computation.
+* Load and process files in various formats, such as CSV, JSON, XLSX, TXT, etc.
+* Create new files, such as tables, datasets, reports, charts, and images during code execution.
+* Use the files provided by the user in the request input as source data for analysis and computing.
 
-All files submitted with the request via the Files API are stored in a [container](#containers) and remain available to the model throughout the container's lifecycle without having to be re-uploaded.
+All files submitted in the request via the Files API are saved to a [container](#containers) and remain available to the model throughout the container's lifecycle without having to be re-uploaded.
 
-Files created by the model are returned as annotations containing the file name and ID (`file_id`). This ID can be used to download the file through the Files API.
+Files created by the model are returned as annotations with the file name and ID (`file_id`). This file ID can be used to download this file through the Files API.
 
 ## Image and chart generation {#media-generation}
 
-The {{ code-interpreter }} does not just compute, it also visualizes the results. You can use the tool to:
+The {{ code-interpreter }} allows not only to perform computations but also visualizes the results. You can use this tool for:
 
-* Create charts of various types.
-* Visualize numeric and categorical data.
-* Visualize intermediate and final results.
+* Creating various types of charts.
+* Visualizing numerical and categorical data.
+* Presenting intermediate and final results in a visual form.
 * Saving visualizations as image files.
 
-The model's output gets saved into full-featured visual artifacts that can be downloaded, used in subsequent processing steps, or displayed directly in the client's UI.
+The results produced by the model are turned into fully-fledged visual artifacts that can be downloaded, used in subsequent processing steps, or displayed directly in the client interface.
 
 ## Containers {#containers}
 
-A container is a fully isolated virtual environment {{ code-interpreter }} executes Python code in. It has no access to external resources and stores temporary data and the state of ongoing calculations internally.
+A container is a fully isolated virtual environment where the {{ code-interpreter }} executes Python code. It has no access to external resources and independently stores temporary data and the state of ongoing calculations.
 
 You can create a container in two ways:
 
-* In automatic mode (Auto): a container is created when the {{ responses-api }} is called with the {{ code-interpreter }} tool and is available at `/v1/containers`. When creating a container, you can specify a list of files to upload.
+* Automatic mode (Auto): a container is created when the {{ responses-api }} is called with the {{ code-interpreter }} tool and is accessible at `/v1/containers`. When creating a container, you can specify a list of files to upload.
 
-  The lifetime is 20 minutes since the last activity. When you restart your calculations, data from the previous request gets deleted.
+  The lifetime is 20 minutes since it was last active. When you restart calculations, data from the previous request is deleted.
   
-* Manually (Explicit): a container is created in advance via the `/v1/containers` endpoint, after which its ID (`container_id`) is provided in the tool's configuration.
+* Manual container creation (Explicit): a container is created in advance via the `/v1/containers` endpoint, after which its ID (`container_id`) is passed in the tool configuration.
 
-  The lifetime since the last activity is user configured via the `expire_after` parameter, but cannot exceed 20 minutes. When you restart your calculations, data from the previous request does not get deleted.
+  The lifetime after the last activity is configured by the user via the `expire_after` parameter, but cannot exceed 20 minutes. When you restart calculations, data from the previous request is not deleted.
 
-Data from all types of containers is automatically uploaded to an external storage through the Files API. File links are available in the `container_file_citation` annotation.
+Data from all types of containers is automatically uploaded to external storage through the Files API. File links are available in the `container_file_citation` annotation.
 
 #### See also {#see-also}
 

@@ -44,7 +44,7 @@
 ## Создайте кластер {{ CH }} {#create-cluster}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
-1. Выберите сервис **{{ mch-name }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Нажмите кнопку **Создать кластер**.
 1. Укажите настройки кластера {{ CH }}:
     1. В блоке **Базовые параметры**:
@@ -66,7 +66,7 @@
 ## Создайте поток данных {#create-stream}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать поток данных.
-1. Выберите сервис **{{ yds-name }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Нажмите кнопку **Создать поток**.
 1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Обновить** для обновления списка баз.
 1. Введите имя потока данных.
@@ -88,7 +88,7 @@
 ## Создайте трансфер {#create-transfer}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать трансфер.
-1. Выберите сервис **{{ data-transfer-full-name }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
 1. Нажмите кнопку **Создать трансфер данных**.
 1. Введите имя трансфера.
 1. Создайте эндпоинт-источник:

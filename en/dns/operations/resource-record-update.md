@@ -5,16 +5,16 @@ description: In this tutorial, you will learn how to update a resource record.
 
 # Updating a resource record
 
-To update a [resource record](../concepts/resource-record.md), do the following:
+You can update the value of a [resource record](../concepts/resource-record.md). To update a record:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
+  1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone from the list.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the resource record you want to update and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Change the record TTL or value.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -81,7 +81,7 @@ To update a [resource record](../concepts/resource-record.md), do the following:
 
 {% endlist %}
 
-A [TXT record](../concepts/resource-record.md#txt) value must be split into 255-character segments (strings) and cannot exceed 1024 characters total.
+The value of resource [TXT records](../concepts/resource-record.md#txt) cannot contain more than 255 characters per line and 1024 characters total. If the new value contains more characters, split it into multiple values.
 
 {% note info %}
 

@@ -30,17 +30,18 @@ To connect a security profile to a virtual host:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Select the security profile you want to connect to the [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Select the security profile you want to connect to the [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host) [{{ alb-full-name }}](../../application-load-balancer/).
   1. Click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** and in the window that opens, select:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
 
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**: You can associate the security profile with multiple virtual hosts at once.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. You can associate the security profile with multiple virtual hosts at once.
 
         To associate the profile with another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. If the selected hosts are already connected to another security profile, confirm the connection.
 
-      In the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab, you will see the connected virtual hosts.
+      You will see the connected virtual hosts under ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
 
 - CLI {#cli}
 
@@ -110,7 +111,7 @@ To connect a security profile to a virtual host:
 
      * `<virtual_host_name>`: Virtual host name from the previous step.
      * `--http-router-name`: HTTP router name. This is a required setting. Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
-     * `--security-profile-id`: Security profile ID. This is a required setting.
+     * `--security-profile-id`: Security profile ID. This is a required parameter.
 
      Result:
 
@@ -195,7 +196,7 @@ To connect a security profile to a virtual host:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select **Domain protection** → **Domains**.
-  1. Select a domain.
+  1. Select a domain. 
   1. Click **Connect a security profile** and select a profile.
 
 {% endlist %}
@@ -208,6 +209,7 @@ To connect a security profile to a virtual host:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Copy the ID of the profile you need.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Specify the [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md) extension when creating an API gateway or in the existing API gateway specification.

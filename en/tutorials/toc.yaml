@@ -757,7 +757,7 @@ items:
                 href: web/wordpress/terraform.md
           - name: Creating a WordPress website using {{ cloud-apps-name }}
             href: web/wordpress-cloudapp.md
-          - name: WordPress website with a {{ MY }} database
+          - name: WordPress website on a {{ MY }} database
             items:
               - name: Overview
                 href: web/wordpress-mysql/index.md
@@ -1739,4 +1739,6 @@ items:
           - name: Creating an AI assistant for Telegram
             hidden: true
             href: ml-ai/tg-bot-assistant.md
+          - name: Integrating the AI data analyst with {{ data-catalog-name }}
+            href: ml-ai/data-catalog-integration.md
 path: en/tutorials/toc.yaml
