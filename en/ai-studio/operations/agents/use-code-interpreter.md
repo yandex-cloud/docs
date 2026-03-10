@@ -5,7 +5,9 @@ description: Follow this guide to complete a task using {{ code-interpreter }} i
 
 # Completing a task with {{ code-interpreter }}
 
-In {{ ai-studio-full-name }}, you can use [{{ code-interpreter }}](../../concepts/agents/tools/code-interpreter.md) to extend the model's functionality so it can write and execute Python code in an isolated test environment. This tool will prove useful in tasks where the model calculates, validates, and transforms data instead of being limited to textual reasoning.
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
+In {{ ai-studio-full-name }}, you can use [{{ code-interpreter }}](../../concepts/agents/tools/code-interpreter.md) to enhance the model's abilities so it can write and execute Python code in a sandboxed environment. This tool will prove useful in tasks where the model calculates, validates, and transforms data instead of being limited to textual reasoning.
 
 {% include [models-for-code-interpreter](../../../_includes/ai-studio/agents/models-for-code-interpreter.md) %}
 
@@ -69,6 +71,7 @@ To use an example:
      stream = client.responses.create(
          model=f"gpt://{YC_FOLDER_ID}/{YC_MODEL}",
          input=prompt,
+         # instructions=instruction,
          tool_choice="auto",
          temperature=0.3,
          tools=[
@@ -103,7 +106,7 @@ To use an example:
              print("\n[Code executed]\n")
          elif event.type == "response.in_progress":
              resp_id = event.response.id
-             print(f"\n[Processing the {resp_id} response]\n")
+             print(f"\n[Processing the {resp_id}] response\n")
 
      print(f"\n\nTask solved: {resp_id}\n")
      print("=" * 50 + "\n")

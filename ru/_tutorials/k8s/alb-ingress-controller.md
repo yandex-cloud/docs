@@ -62,6 +62,9 @@
 В [ресурсе Ingress](../../application-load-balancer/k8s-ref/ingress.md) определяются:
 
 * Параметры L7-балансировщика, которые задаются с помощью аннотаций.
+
+    {% include [note-nlb](../../_includes/managed-kubernetes/note-alb.md) %}
+
 * Правила распределения входящего трафика между [сервисами {{ k8s }}](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
     Сервисы, выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в ресурсе Ingress напрямую или в составе групп бэкендов [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md).

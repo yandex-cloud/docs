@@ -26,7 +26,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
   1. В левой части экрана нажмите на строку с именем каталога, в котором вы хотите развернуть функцию {{ sf-name }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `functions-cicd-sa`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../functions/security/index.md#functions-admin) `{{ roles-functions-admin }}`.
@@ -311,7 +311,7 @@ workflows:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы ранее создали сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. В списке должна появиться функция `test-function-nodejs`, выберите ее.
   1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** должна появиться версия функции, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.

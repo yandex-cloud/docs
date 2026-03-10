@@ -53,3 +53,4 @@ description: Various use cases for machine learning and artificial intelligence 
 * [{#T}](pdf-searchindex-ai-assistant.md)
 * [{#T}](ai-model-ide-integration.md)
 * [{#T}](tg-bot-assistant.md)
+* [{#T}](data-catalog-integration.md)

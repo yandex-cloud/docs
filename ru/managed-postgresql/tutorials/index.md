@@ -26,6 +26,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](yq-federative-queries.md)
 * [{#T}](glibc-collation-issues.md)
 * [{#T}](data-recording.md)
+* [{#T}](conn-man-secret-access.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

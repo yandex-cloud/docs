@@ -502,6 +502,8 @@ items:
             href: events-ref/DisableSnapshotSchedule.md
           - name: DisableZones
             href: events-ref/DisableZones.md
+          - name: DumpMemory
+            href: events-ref/DumpMemory.md
           - name: EnableNode
             href: events-ref/EnableNode.md
           - name: EnableSnapshotSchedule

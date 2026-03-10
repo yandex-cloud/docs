@@ -24,7 +24,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете создавать бакет.
-  1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
+  1. На странице каталога нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/bucket-icon.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя бакета. После настройки бакет будет доступен по двум адресам:
 
      * `http(s)://<имя_бакета>.{{ s3-web-host }}`
@@ -61,7 +61,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен бакет.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и в открывшемся окне выберите созданный ранее бакет.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и в открывшемся окне выберите созданный ранее бакет.
       1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**. В открывшемся окне выберите созданные файлы и подтвердите загрузку.
       1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
@@ -108,7 +108,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать публичную зону.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и в открывшемся окне задайте настройки зоны DNS:
 
       * **{{ ui-key.yacloud.dns.label_zone }}** — укажите ваше зарегистрированное доменное имя. Например: `example.com.`. Значение поля должно заканчиваться точкой.
@@ -128,7 +128,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится публичная зона DNS.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** и выберите созданную ранее зону DNS. 
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** и выберите созданную ранее зону DNS. 
   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}** и в открывшемся окне задайте параметры записи:
 
       * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.

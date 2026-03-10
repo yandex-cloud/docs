@@ -119,6 +119,7 @@
 
   1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
   1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       {% include [pre-configured-profile](../_includes/smartwebsecurity/pre-configured-profile.md) %}
@@ -183,7 +184,7 @@ For security profile configuration guidelines, see [{#T}](tutorials/sws-basic-pr
 
     1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      You will see the associated virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
+      You will see the associated virtual host under under ![cubes-3-overlap](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
 
   * To connect an API gateway:
     1. Under ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**, copy the ID of the profile you need.

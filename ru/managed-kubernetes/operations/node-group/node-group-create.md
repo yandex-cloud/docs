@@ -95,6 +95,8 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
+       {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * `--memory` — количество памяти для узлов {{ managed-k8s-name }}.
      * `--name` — имя группы узлов {{ managed-k8s-name }}.
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
@@ -255,6 +257,8 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * Чтобы создать группу с фиксированным количеством узлов, добавьте блок `fixed_scale`:
 
        ```hcl
@@ -363,6 +367,8 @@ description: Следуя данной инструкции, вы сможете
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов {{ managed-k8s-name }} в параметрах `allocationPolicy`.
 
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
+    {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
   * Параметры [политики развертывания](../../concepts/node-group/deploy-policy.md) (deploy policy):

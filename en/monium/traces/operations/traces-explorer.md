@@ -17,7 +17,7 @@ The tracing interface enables you to:
 
 - Management console {#console}
 
-  1. Set up data delivery, e.g., with the [OTel Collector](../write/python-otel.md).
+  1. Set up data delivery, e.g., with the [OTel Collector](../../collector/opentelemetry.md).
   1. On the [{{ monium-name }} home page]({{ link-monium }}), select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}** on the left.
   1. At the top, set the search interval using the timeline, a preset interval, or by entering the time value directly.
   1. Select **{{ ui-key.yacloud_monitoring.traces.traces-search.mode.traces }}** or **{{ ui-key.yacloud_monitoring.traces.traces-search.mode.spans }}**.

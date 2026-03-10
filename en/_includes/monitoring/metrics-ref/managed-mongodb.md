@@ -16,7 +16,7 @@ dc | [Availability zone](../../../overview/concepts/geo-scope.md)
 
 ## CPU metrics {#managed-mongodb-cpu-metrics}
 
-These metrics show the processor core workload.
+CPU core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -66,37 +66,37 @@ The consumption type goes into the `systag` label.
 | `io.avg.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed |
 | `io.avg.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.avg.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
-| `io.avg.read_time`<br/>`DGAUGE`, milliseconds | Total time spent reading from disk |
-| `io.avg.weighted_io_time`<br/>`DGAUGE`, milliseconds | Total (weighted) time spent on I/O operations |
+| `io.avg.read_time`<br/>`DGAUGE`, ms | Total time spent reading from disk |
+| `io.avg.weighted_io_time`<br/>`DGAUGE`, ms | Total (weighted) time spent on I/O operations |
 | `io.avg.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
 | `io.avg.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second |
 | `io.avg.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
-| `io.avg.write_time`<br/>`DGAUGE`, milliseconds | Total time spent writing to disk |
+| `io.avg.write_time`<br/>`DGAUGE`, ms | Total time spent writing to disk |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
-| `io.disk*.read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk |
+| `io.disk*.read_time`<br/>`DGAUGE`, ms | Average read time for a given disk |
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a given disk; disabled for network drives. | 
-| `io.disk*.weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time for a given disk | 
+| `io.disk*.weighted_io_time`<br/>`DGAUGE`, ms | I/O wait time for a given disk | 
 | `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a given disk | 
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
-| `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
-| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage. |
-| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage. |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `io.disk*.write_time`<br/>`DGAUGE`, ms | Average write time for a given disk | 
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk |
 | `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk |
 | `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
-| `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `read_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk read request latency |
 | `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
 | `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
-| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
-| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `read_throttler_delay`<br/>`DGAUGE`, ms | Histogram of read latency due to exceeded disk quota |
+| `write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency |
 | `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
 | `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
-| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
+| `write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-mongodb-ram-metrics}
 
@@ -256,13 +256,13 @@ The consumption type goes into the `systag` label.
 | `ip_reasmoks`<br/>`DGAUGE`, count | Number of IP packets successfully reassembled | 
 | `ip_reasmreqds`<br/>`DGAUGE`, count | Number of received IP fragments requiring reassembly in the object in question | 
 | `ip_reasmtimeout`<br/>`DGAUGE`, seconds | Maximum time, in seconds, received fragments are kept while awaiting reassembly in the object in question. | 
-| `latency_commands`<br/>`DGAUGE`, milliseconds | Average execution time of database commands |
+| `latency_commands`<br/>`DGAUGE`, ms | Average execution time of database commands |
 | `latency_commands_count`<br/>`DGAUGE`, count | Number of executed database commands |
-| `latency_reads`<br/>`DGAUGE`, milliseconds | Average time per read operation |
+| `latency_reads`<br/>`DGAUGE`, ms | Average time per read operation |
 | `latency_reads_count`<br/>`DGAUGE`, count | Number of read operations |
-| `latency_transactions`<br/>`DGAUGE`, milliseconds | Average transaction execution time |
+| `latency_transactions`<br/>`DGAUGE`, ms | Average transaction execution time |
 | `latency_transactions_count`<br/>`DGAUGE`, count | Number of executed transactions |
-| `latency_writes`<br/>`DGAUGE`, milliseconds | Average time per write operation |
+| `latency_writes`<br/>`DGAUGE`, ms | Average time per write operation |
 | `latency_writes_count`<br/>`DGAUGE`, count | Number of write operations |
 | `low_free`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
 | `low_total`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
@@ -271,7 +271,7 @@ The consumption type goes into the `systag` label.
 | `memory_utilization_by_db_rss`<br/>`DGAUGE`, bytes | Total memory used by database processes | 
 | `memory_utilization_memory_limit`<br/>`DGAUGE`, % | RAM (utilization) limit per database | 
 | `mongocfg-is_alive`<br/>DGAUGE | Health indicator for configuration server host.<br/>`1` if the server is operational, `0` if not. |
-| `mongod-is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if the database host is operational, `0` if not. | 
+| `mongod-is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if the database host is operational, `0` if not | 
 | `mongos_active_migrations_count`<br/>`DGAUGE`, operations | Current number of active chunk migration operations via _mongos_ |
 | `mongos_in_balancer_round`<br/>`DGAUGE` | Indicates whether _mongos_ is involved in current balancing round.<br/>`1` if it is, `0` if not. |
 | `mongos_migrations_failed`<br/>`DGAUGE`, operations | Total number of unsuccessful (terminated with an error) chunk migrations through _mongos_ during the interval |
@@ -285,12 +285,12 @@ The consumption type goes into the `systag` label.
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk
 | `read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
-| `read_latency`<br/>`DGAUGE`, milliseconds | Average time per disk read operation.<br/>`bin` label: Histogram buckets. |
+| `read_latency`<br/>`DGAUGE`, ms | Average time per disk read operation.<br/>`bin` label: Histogram buckets. |
 | `read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
 | `read_ops`<br/>`DGAUGE`, operations per second | Number of disk read operations per second |
 | `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk read operations per second |
-| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Average read delay due to disk throughput limit.<br/>`bin` label: Histogram buckets. |
-| `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
+| `read_throttler_delay`<br/>`DGAUGE`, ms | Average read delay due to disk throughput limit.<br/>`bin` label: Histogram buckets. |
+| `read_time`<br/>`DGAUGE`, ms | Average disk read time | 
 | `shared`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type | 
 | `slab`<br/>`DGAUGE`, bytes | RAM usage, `slab` usage type | 
 | `speed`<br/>`DGAUGE`, bits per second | Maximum network data transfer rate for this interface |
@@ -312,8 +312,8 @@ The consumption type goes into the `systag` label.
 | `tcp_passiveopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `SYN-RCVD` state from `LISTEN` | 
 | `tcp_retranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments sent containing one or more previously transmitted octets. | 
 | `tcp_rtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout for retransmitting unacknowledged octets |
-| `tcp_rtomax`<br/>`DGAUGE`, milliseconds | Maximum TCP retransmission timeout, in milliseconds | 
-| `tcp_rtomin`<br/>`DGAUGE`, milliseconds | Minimum TCP retransmission timeout, in milliseconds | 
+| `tcp_rtomax`<br/>`DGAUGE`, ms | Maximum TCP retransmission timeout, in milliseconds | 
+| `tcp_rtomin`<br/>`DGAUGE`, ms | Minimum TCP retransmission timeout, in milliseconds | 
 | `total`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type | 
 | `udp_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP multicast packets ignored | 
 | `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum. | 
@@ -349,83 +349,83 @@ The consumption type goes into the `systag` label.
 | `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type | 
 | `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type | 
 | `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type | 
-| `weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time | 
+| `weighted_io_time`<br/>`DGAUGE`, ms | I/O wait time | 
 | `write_back`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type | 
 | `write_back_tmp`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
 | `write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk | 
 | `write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
-| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency.<br/>`bin` label: Histogram buckets. | 
+| `write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency.<br/>`bin` label: Histogram buckets. | 
 | `write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk | 
 | `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations | 
 | `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations | 
-| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota.<br/>`bin` label: Histogram buckets. | 
-| `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
+| `write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota.<br/>`bin` label: Histogram buckets. | 
+| `write_time`<br/>`DGAUGE`, ms | Average disk write time | 
 
 
 #### `serverStatus` metrics {#managed-mongodb-serverstatus-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `server_status_admin_asserts.msg_rate`<br/>`DGAUGE`, count | Message assert trigger increment, per second | 
-| `server_status_admin_asserts.regular_rate`<br/>`DGAUGE`, count | Regular assert trigger increment, per second | 
-| `server_status_admin_asserts.user_rate`<br/>`DGAUGE`, count | Custom assert trigger increment, per second | 
+| `server_status_admin_asserts.msg_rate`<br/>`DGAUGE`, count | Message assertion increase per second | 
+| `server_status_admin_asserts.regular_rate`<br/>`DGAUGE`, count | Regular assertion increase per second | 
+| `server_status_admin_asserts.user_rate`<br/>`DGAUGE`, count | User assertion increase per second | 
 | `server_status_admin_connections.available`<br/>`DGAUGE`, count | Number of available connections | 
-| `server_status_admin_connections.current`<br/>`DGAUGE`, count | Number of incoming DB connections | 
+| `server_status_admin_connections.current`<br/>`DGAUGE`, count | Number of incoming database connections | 
 | `server_status_admin_extra_info.page_faults_rate`<br/>`DGAUGE`, count | Number of [page faults](https://en.wikipedia.org/wiki/Page_fault) | 
-| `server_status_admin_globalLock.currentQueue.readers`<br/>`DGAUGE`, count | Number of operations in the current queue waiting for read lock release | 
-| `server_status_admin_globalLock.currentQueue.writers`<br/>`DGAUGE`, count | Number of operations in the current queue waiting for write lock release | 
-| `server_status_admin_metrics.cursor.open.noTimeout`<br/>`DGAUGE`, count | Number of open cursors with `DBQuery.Option.noTimeout` to prevent inactivity timeout | 
+| `server_status_admin_globalLock.currentQueue.readers`<br/>`DGAUGE`, count | Number of operations queued waiting for a read lock | 
+| `server_status_admin_globalLock.currentQueue.writers`<br/>`DGAUGE`, count | Number of operations queued waiting for a write lock | 
+| `server_status_admin_metrics.cursor.open.noTimeout`<br/>`DGAUGE`, count | Number of open cursors with `DBQuery.Option.noTimeout` enabled to prevent inactivity timeout | 
 | `server_status_admin_metrics.cursor.open.pinned`<br/>`DGAUGE`, count | Number of pinned open cursors | 
 | `server_status_admin_metrics.cursor.open.total`<br/>`DGAUGE`, count | Number of open cursors | 
-| `server_status_admin_metrics.document.deleted_rate`<br/>`DGAUGE`, count | Increment of deleted documents, per second | 
-| `server_status_admin_metrics.document.inserted_rate`<br/>`DGAUGE`, count | Increment of inserted documents, per second | 
-| `server_status_admin_metrics.document.returned_rate`<br/>`DGAUGE`, count | Increment of returned documents, per second | 
-| `server_status_admin_metrics.document.updated_rate`<br/>`DGAUGE`, count | Increment of updated documents, per second | 
-| `server_status_admin_metrics.getLastError.wtime.totalMillis_rate`<br/>`DGAUGE`, milliseconds | Increment of milliseconds spent by a database waiting for write acknowledgement, per second | 
-| `server_status_admin_metrics.operation.scanAndOrder_rate`<br/>`DGAUGE`, count | Increment of non-index data sorts, per second | 
-| `server_status_admin_metrics.operation.writeConflicts_rate`<br/>`DGAUGE`, count | Increment of write conflicts, per second | 
-| `server_status_admin_metrics.queryExecutor.scanned_rate`<br/>`DGAUGE`, count | Increment of scanned index keys, per second | 
-| `server_status_admin_metrics.queryExecutor.scannedObjects_rate`<br/>`DGAUGE`, count | Increment of scanned documents, per second | 
-| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, count | Increment of documents deleted using the TTL index, per second. |
-| `server_status_admin_metrics.ttl.passes_rate`<br/>`DGAUGE`, count | Increment of background documents deleted from collections using the TTL index, per second | 
-| `server_status_admin_opLatencies.commands.latency_rate`<br/>`DGAUGE`, microseconds | Rate of DB command execution latency change, per second | 
-| `server_status_admin_opLatencies.commands.ops_rate`<br/>`DGAUGE`, count | Increment of DB collection operations, per second | 
-| `server_status_admin_opLatencies.reads.latency_rate`<br/>`DGAUGE`, microseconds | Change in read command execution latency, per second | 
-| `server_status_admin_opLatencies.reads.ops_rate`<br/>`DGAUGE`, count | Increment of DB collection reads, per second | 
-| `server_status_admin_opLatencies.transactions.latency_rate`<br/>`DGAUGE`, microseconds |Change in transaction latency, per second  | 
-| `server_status_admin_opLatencies.transactions.ops_rate`<br/>`DGAUGE`, count | Increment of database transactions, per second | 
-| `server_status_admin_opLatencies.writes.latency_rate`<br/>`DGAUGE`, microseconds | Change in write command execution latency, per second | 
-| `server_status_admin_opLatencies.writes.ops_rate`<br/>`DGAUGE`, count | Increment of DB collection writes, per second | 
+| `server_status_admin_metrics.document.deleted_rate`<br/>`DGAUGE`, count | Increase in deleted documents per second | 
+| `server_status_admin_metrics.document.inserted_rate`<br/>`DGAUGE`, count | Increase in inserted documents per second | 
+| `server_status_admin_metrics.document.returned_rate`<br/>`DGAUGE`, count | Increase in returned documents per second | 
+| `server_status_admin_metrics.document.updated_rate`<br/>`DGAUGE`, count | Increase in updated documents per second | 
+| `server_status_admin_metrics.getLastError.wtime.totalMillis_rate`<br/>`DGAUGE`, ms | Database write acknowledgement latency growth in milliseconds per second | 
+| `server_status_admin_metrics.operation.scanAndOrder_rate`<br/>`DGAUGE`, count | Increase in non-indexed sorts per second | 
+| `server_status_admin_metrics.operation.writeConflicts_rate`<br/>`DGAUGE`, count | Increase in write conflicts, per second | 
+| `server_status_admin_metrics.queryExecutor.scanned_rate`<br/>`DGAUGE`, count | Increase in scanned index keys per second | 
+| `server_status_admin_metrics.queryExecutor.scannedObjects_rate`<br/>`DGAUGE`, count | Increase in scanned documents per second | 
+| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, count | Increase in documents deleted via TTL index, per second. |
+| `server_status_admin_metrics.ttl.passes_rate`<br/>`DGAUGE`, count | Increase in background deletion jobs for documents in collections with TTL index, per second | 
+| `server_status_admin_opLatencies.commands.latency_rate`<br/>`DGAUGE`, microseconds | Change in database command execution latency per second | 
+| `server_status_admin_opLatencies.commands.ops_rate`<br/>`DGAUGE`, count | Increase in database collection operations per second | 
+| `server_status_admin_opLatencies.reads.latency_rate`<br/>`DGAUGE`, microseconds | Change in read command execution latency per second | 
+| `server_status_admin_opLatencies.reads.ops_rate`<br/>`DGAUGE`, count | Increase in database collection reads per second | 
+| `server_status_admin_opLatencies.transactions.latency_rate`<br/>`DGAUGE`, microseconds |Change in transaction latency per second  | 
+| `server_status_admin_opLatencies.transactions.ops_rate`<br/>`DGAUGE`, count | Increase in transaction count per second | 
+| `server_status_admin_opLatencies.writes.latency_rate`<br/>`DGAUGE`, microseconds | Change in write command execution latency per second | 
+| `server_status_admin_opLatencies.writes.ops_rate`<br/>`DGAUGE`, count | Increase in database collection writes per second | 
 | `server_status_admin_repl.secondary`<br/>`DGAUGE`, count | Number of secondary nodes in the replica set | 
-| `server_status_admin_opcounters.command_rate`<br/>`DGAUGE`, count | Increment of DB commands, per second, other than `insert`, `update`, and `delete` | 
-| `server_status_admin_opcounters.delete_rate`<br/>`DGAUGE`, count | Increment of `delete` operations in the DB, per second | 
-| `server_status_admin_opcounters.getmore_rate`<br/>`DGAUGE`, count | Increment of `getmore` operations in the DB, per second | 
-| `server_status_admin_opcounters.insert_rate`<br/>`DGAUGE`, count | Increment of `insert` operations in the DB, per second | 
-| `server_status_admin_opcounters.query_rate`<br/>`DGAUGE`, count | Increment of `query` operations in the DB, per second | 
-| `server_status_admin_opcounters.update_rate`<br/>`DGAUGE`, count | Increment of `update` operations in the DB, per second | 
-| `server_status_admin_opcountersRepl.command_rate`<br/>`DGAUGE`, count | Increment of replicated DB commands, per second | 
-| `server_status_admin_opcountersRepl.delete_rate`<br/>`DGAUGE`, count | Increment of replicated `delete` operations in the DB, per second | 
-| `server_status_admin_opcountersRepl.getmore_rate`<br/>`DGAUGE`, count | Increment of replicated `getmore` operations in the DB, per second | 
-| `server_status_admin_opcountersRepl.insert_rate`<br/>`DGAUGE`, count | Increment of replicated `insert` operations in the DB, per second | 
-| `server_status_admin_opcountersRepl.query_rate`<br/>`DGAUGE`, count | Increment of replicated `query` operations in the DB, per second | 
-| `server_status_admin_opcountersRepl.update_rate`<br/>`DGAUGE`, count | Increment of replicated `update` operations in the DB, per second | 
-| `server_status_admin_wiredTiger.cache.bytes_currently_in_the_cache`<br/>`DGAUGE`, bytes | Size of the `WiredTiger` cache used | 
+| `server_status_admin_opcounters.command_rate`<br/>`DGAUGE`, count | Increase in database commands per second, other than `insert`, `update`, and `delete` | 
+| `server_status_admin_opcounters.delete_rate`<br/>`DGAUGE`, count | Increase in `delete` operations per second | 
+| `server_status_admin_opcounters.getmore_rate`<br/>`DGAUGE`, count | Increase in `getmore` operations per second | 
+| `server_status_admin_opcounters.insert_rate`<br/>`DGAUGE`, count | Increase in `insert` operations per second | 
+| `server_status_admin_opcounters.query_rate`<br/>`DGAUGE`, count | Increase in `query` operations per second | 
+| `server_status_admin_opcounters.update_rate`<br/>`DGAUGE`, count | Increase in `update` operations per second | 
+| `server_status_admin_opcountersRepl.command_rate`<br/>`DGAUGE`, count | Increase in replicated database commands per second | 
+| `server_status_admin_opcountersRepl.delete_rate`<br/>`DGAUGE`, count | Increase in replicated `delete` operations per second | 
+| `server_status_admin_opcountersRepl.getmore_rate`<br/>`DGAUGE`, count | Increase in replicated `getmore` operations per second | 
+| `server_status_admin_opcountersRepl.insert_rate`<br/>`DGAUGE`, count | Increase in replicated `insert` operations per second | 
+| `server_status_admin_opcountersRepl.query_rate`<br/>`DGAUGE`, count | Increase in replicated `query` operations per second | 
+| `server_status_admin_opcountersRepl.update_rate`<br/>`DGAUGE`, count | Increase in replicated `update` operations per second | 
+| `server_status_admin_wiredTiger.cache.bytes_currently_in_the_cache`<br/>`DGAUGE`, bytes | `WiredTiger` cache used | 
 | `server_status_admin_wiredTiger.cache.maximum_bytes_configured`<br/>`DGAUGE`, bytes | Maximum configured cache size | 
-| `server_status_admin_wiredTiger.cache.modified_pages_evicted_rate`<br/>`DGAUGE`, count | Increment of modified RAM pages evicted, per second | 
+| `server_status_admin_wiredTiger.cache.modified_pages_evicted_rate`<br/>`DGAUGE`, count | Increase in dirty memory pages evicted per second | 
 | `server_status_admin_wiredTiger.cache.tracked_dirty_bytes_in_the_cache`<br/>`DGAUGE`, bytes | Dirty cache size | 
-| `server_status_admin_wiredTiger.cache.unmodified_pages_evicted_rate`<br/>`DGAUGE`, count | Increment of unmodified RAM pages evicted, per second | 
+| `server_status_admin_wiredTiger.cache.unmodified_pages_evicted_rate`<br/>`DGAUGE`, count | Increase in clean memory pages evicted per second | 
 | `server_status_admin_wiredTiger.concurrentTransactions.read.out`<br/>`DGAUGE`, count | Number of tickets used for concurrent read transactions | 
 | `server_status_admin_wiredTiger.concurrentTransactions.read.totalTickets`<br/>`DGAUGE`, count | Number of tickets available for concurrent read transactions | 
 | `server_status_admin_wiredTiger.concurrentTransactions.write.out`<br/>`DGAUGE`, count | Number of tickets used for concurrent write transactions | 
 | `server_status_admin_wiredTiger.concurrentTransactions.write.totalTickets`<br/>`DGAUGE`, count | Number of tickets available for concurrent write transactions | 
 | `server_status_admin_wiredTiger.transaction.transaction_begins`<br/>`DGAUGE`, count | Number of running transactions | 
 | `server_status_admin_wiredTiger.transaction.transaction_begins_rate`<br/>`DGAUGE`, units per second | Transaction start speed |
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_max_time_msecs`<br/>`DGAUGE`, milliseconds | Maximum checkpoint creation time | 
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_min_time_msecs`<br/>`DGAUGE`, milliseconds | Minimum checkpoint creation time |  
-| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, milliseconds | Most recent checkpoint creation time | 
-| `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, count | Committed transaction increment, per second | 
-| `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, count | Rolled back transaction increment, per second | 
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_max_time_msecs`<br/>`DGAUGE`, ms | Maximum checkpoint creation time | 
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_min_time_msecs`<br/>`DGAUGE`, ms | Minimum checkpoint creation time |  
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, ms | Most recent checkpoint creation time | 
+| `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, count | Increase in committed transactions per second | 
+| `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, count | Increase in rolled back transactions per second | 
 | `top_readLock_time_rate`<br/>`DGAUGE`, milliseconds/s | Total read lock retention time per second.<br/>`ns` label: Namespace. |
 | `top_writeLock_time_rate`<br/>`DGAUGE`, milliseconds/s | Total write lock retention time per second.<br/>`ns` label: Namespace. |
 
@@ -434,9 +434,9 @@ The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
-| `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Host read availability.<br/>Returns `1` if the host service is available for read operations, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Host write availability.<br/>Returns `1` if the host service is available for write operations, `0` if not. |
 | `latest_backup_sec`<br/>`DGAUGE`, seconds | Time since the most recent successful backup |
-| `oplog-diff`<br/>`DGAUGE`, milliseconds | Operation log size | 
-| `oplog-maxSize`<br/>`DGAUGE`, bytes | Maximum size of the operation log | 
+| `oplog-diff`<br/>`DGAUGE`, ms | Operation log size | 
+| `oplog-maxSize`<br/>`DGAUGE`, bytes | Maximum operation log size | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, seconds | Replication lag |

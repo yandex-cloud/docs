@@ -1,6 +1,6 @@
 1. Get an IAM token for a [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), or [local account](../../iam/operations/iam-token/create-for-local.md). Make sure to include the folder ID in the `folderId` field in the body of each request.
 
- Provide the token in the `Authorization` header of each request in the following format:
+    Provide the token in the `Authorization` header of each request in the following format:
 
     ```yaml
     Authorization: Bearer <IAM_token>

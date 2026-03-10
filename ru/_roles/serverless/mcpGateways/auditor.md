@@ -1,1 +1,1 @@
-Роль `serverless.mcpGateways.auditor` позволяет просматривать информацию об [MCP-серверах]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index#servers) и назначенных [правах доступа]({{ link-docs }}/iam/concepts/access-control/roles) к ним.
+Роль `serverless.mcpGateways.auditor` позволяет просматривать информацию об [MCP-серверах]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers) и назначенных [правах доступа]({{ link-docs }}/iam/concepts/access-control/roles) к ним.

@@ -1,3 +1,8 @@
+---
+title: Получить информацию об имеющихся Helm-чартах в репозитории {{ container-registry-name }}
+description: Следуя данной инструкции, вы можете получить список Helm-чартов в репозитории {{ container-registry-name }}.
+---
+
 # Получить информацию об имеющихся Helm-чартах
 
 Вы можете получить список [Helm-чартов](https://helm.sh/docs/topics/charts/) в репозитории {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).

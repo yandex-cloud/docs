@@ -4,15 +4,17 @@
 || Type of limit | Value ||
 || Number of [servers](../baremetal/concepts/servers.md)
 `baremetal.servers.count` for businesses | 5 ||
-|| Number of [servers](../baremetal/concepts/servers.md)
+|| Number of servers
 `baremetal.servers.count` for individuals^1^ | 2 ||
-|| Number of [VRFs](../baremetal/concepts/network#vrf-segment)
+|| Number of [VRFs](../baremetal/concepts/private-network.md#vrf-segment)
 `baremetal.vrfs.count` | 20 ||
 || Number of images
 `baremetal.images.count` | 10 ||
-|| Number of private subnets
+|| Number of [private subnets](../baremetal/concepts/private-network.md#private-subnet)
 `baremetal.privateSubnets.count` | 2 ||
-|| Number of dedicated public subnets
+|| Number of private subnets you can associate with a single server
+`baremetal.privateSubnetsPerServerInterface.count` | 1 ||
+|| Number of [dedicated public subnets](../baremetal/concepts/public-network.md#public-subnet)
 `baremetal.dedicatedPublicSubnets.count` | 1 ||
 || Number of pools in dedicated public subnets
 `baremetal.dedicatedPublicSubnetsHardwarePools.count` | 1 ||

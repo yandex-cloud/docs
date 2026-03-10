@@ -1,5 +1,7 @@
 # {{ interconnect-name }} overview
 
+{% include [cross-org-networking](../../_includes/interconnect/cross-org-networking.md) %}
+
 {{ interconnect-name }} is designed to set up IP network connectivity between customer on-premise infrastructure resources and {{ yandex-cloud }} resources.
 
 Example of setting up IP network connectivity as part of {{ interconnect-name }}:

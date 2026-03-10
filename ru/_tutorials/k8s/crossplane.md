@@ -91,6 +91,8 @@
 
    {% endlist %}
 
+   {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Установите Crossplane в кластер {{ k8s }}](../../managed-kubernetes/operations/applications/crossplane.md).

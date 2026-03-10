@@ -1,4 +1,4 @@
-# Conversations API
+# Managing context of a text conversation
 
 To manage context when using with the Responses API, you can [join responses](../../operations/agents/manage-context.md#previous-response), [provide message history](../../operations/agents/manage-context.md#manual) with each request, or [use the _Conversations API_](../../operations/agents/manage-context.md#conversations-api) to store a conversation as a long-lived object with a stable ID.
 

@@ -1255,6 +1255,10 @@ items:
         href: dataplatform/postgresql-to-opensearch.md
       - name: Решение проблем с сортировкой строк в {{ PG }} после обновления glibc
         href: dataplatform/postgresql-glibc-collation-issues.md
+      - name: >-
+          Настройка прав доступа к секрету, созданному {{
+          connection-manager-name }}, для пользователя {{ mpg-name }}
+        href: dataplatform/conn-man-secret-access.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}

@@ -18,7 +18,7 @@ To lease a server in a stock configuration:
   1. {% include [server-lease-step1](../../../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. {% include [server-lease-step3](../../../_includes/baremetal/instruction-steps/server-lease-step3.md) %}
-  1. In the server configuration window that opens:
+  1. In the server configuration window that opens, do the following:
 
       1. {% include [server-lease-step4](../../../_includes/baremetal/instruction-steps/server-lease-step4.md) %}
       1. {% include [server-lease-step5](../../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -204,8 +204,8 @@ Lease a server with a public OS image:
   * `rentalPeriodId`: Server lease period. The possible values are `1-day`, `1-month`, `3-months`, `6-months` or `1-year`.
   * `networkInterfaces[]`: Network interfaces:
     * `id`: Network interface ID. It is not specified when creating a server.
-    * `privateSubnetId`: [Private subnet](../../concepts/network.md#private-subnet) ID.
-    * `publicSubnetId`: [Dedicated public subnet](../../concepts/network.md#public-subnet) ID. This is an optional parameter.
+    * `privateSubnetId`: [Private subnet](../../concepts/private-network.md#private-subnet) ID.
+    * `publicSubnetId`: [Dedicated public subnet](../../concepts/public-network.md#public-subnet) ID. This is an optional parameter.
 
       {% note warning %}
 

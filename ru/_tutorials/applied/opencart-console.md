@@ -25,7 +25,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ compute-short-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenCart` и выберите публичный образ [OpenCart](/marketplace/products/yc/opencart-3).
@@ -83,7 +83,7 @@
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Кластер {{ MY }}**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите пункт **Кластер {{ MY }}**.
   1. Укажите имя кластера, например, `opencart`.
   1. В блоке **Класс хоста** выберите `s2.micro`. Данных характеристик хватит для работы системы без особых нагрузок.
   1. В блоке **База данных** укажите:
@@ -118,6 +118,6 @@
 1. Если вы использовали БД {{ MY }}, то [удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md) (в примере кластер БД создается с именем `opencart`).
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Выберите сервис **{{ vpc-short-name }}** в вашем каталоге.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
 1. Перейдите на вкладку **IP-адреса**.
 1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.

@@ -47,7 +47,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать рабочие процессы.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
@@ -140,7 +140,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ранее создали сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}** и в открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `tracker-oauth-token`.
@@ -180,7 +180,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы ранее создали сервисный аккаунт и секрет.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
         1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого будете отправлять письма. Например: `example.com`.
 
@@ -222,7 +222,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный адрес.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** и выберите нужный адрес.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** и выберите нужный адрес.
         1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_run-verification }}**. Если TXT-запись создана корректно, статус проверки на странице адреса изменится на `Success`.
 
             Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи.
@@ -517,7 +517,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся созданные ранее ресурсы — сервисный аккаунт, секрет и адрес {{ postbox-name }}.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** и в открывшемся окне:
 
@@ -538,7 +538,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный рабочий процесс {{ sw-name }}.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
     1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.start }}**. Будет запущен созданный ранее рабочий процесс, его выполнение может занять несколько минут.
@@ -562,7 +562,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся созданные ресурсы.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Подтвердите удаление.
@@ -577,7 +577,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный адрес {{ postbox-name }}.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. В строке с нужным адресом {{ postbox-name }} нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Подтвердите удаление.
 

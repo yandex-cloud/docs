@@ -225,6 +225,7 @@
 1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакетов {{ objstorage-name }}, созданных при установке приложения, так как удалять можно только пустые бакеты.
 1. Удалите установленное приложение WordPress High Availability:
 
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором установлено приложение.
    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
    1. Найдите установленное приложение WordPress High Availability в списке.
    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) рядом с приложением и выберите **{{ ui-key.yacloud.common.delete }}**.

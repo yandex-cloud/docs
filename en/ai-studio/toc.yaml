@@ -39,11 +39,11 @@ items:
     items:
       - name: Overview of AI agents
         href: concepts/agents/index.md
-      - name: Voice agents
-        href: concepts/agents/realtime.md
       - name: Text-based agents
         href: concepts/agents/text-agents.md
-      - name: Conversations API
+      - name: Voice agents
+        href: concepts/agents/realtime.md
+      - name: Managing conversation context
         href: concepts/agents/conversations-api.md
       - name: '{{ code-interpreter }}'
         href: concepts/agents/tools/code-interpreter.md
@@ -1136,6 +1136,8 @@ items:
     items:
       - name: About {{ ml-sdk-full-name }}
         href: sdk/index.md
+      - name: Migrating from Yandex Cloud ML SDK to {{ ml-sdk-full-name }}
+        href: operations/sdk-migration.md
       - name: SDK reference
         items:
           - name: Overview

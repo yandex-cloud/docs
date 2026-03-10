@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to create a private subnet and
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [private subnet](../concepts/network.md#private-subnet).
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [private subnet](../concepts/private-network.md#private-subnet).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
@@ -24,7 +24,7 @@ description: In this tutorial, you will learn how to create a private subnet and
   1. Optionally, configure routing to allow communication with servers from other [pools](../concepts/servers.md#server-pools):
 
      1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-     1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select an existing [VRF](../concepts/network.md#vrf-segment) or create a new one.
+     1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select an existing [VRF](../concepts/private-network.md#vrf-segment) or create a new one.
      1. In the **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** field, specify the subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
      1. In the **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** field, specify the gateway IP address for routing traffic from this subnet to other VRF-connected subnets.
      
@@ -43,7 +43,7 @@ description: In this tutorial, you will learn how to create a private subnet and
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the command for creating a [private subnet](../concepts/network.md#private-subnet):
+  1. View the description of the command for creating a [private subnet](../concepts/private-network.md#private-subnet):
 
      ```bash
      yc baremetal private-subnet create --help
@@ -69,7 +69,7 @@ description: In this tutorial, you will learn how to create a private subnet and
      * `--description`: Subnet description. This is an optional setting.
      * `--labels`: Subnet labels. This is an optional setting.
      * `--vrf-options`: Routing settings for communication with servers from other pools. This is an optional setting. Possible settings:
-       * `vrf-id`: ID of the [virtual network segment (VRF)](../concepts/network.md#vrf-segment).
+       * `vrf-id`: ID of the [virtual network segment (VRF)](../concepts/private-network.md#vrf-segment).
        * `vrf-name`: VRF name.
        * `cidr`: Subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
        * `gateway-ip`: Gateway IP address for routing traffic from this subnet to other VRF-connected subnets. This is an optional setting.
@@ -165,7 +165,7 @@ Create a private subnet with a VRF, CIDR, default gateway, and IP address range:
     
   * `description`: Subnet description. This is an optional parameter.
   * `labels`: Subnet labels. This is an optional parameter.
-  * `vrfId`: ID of the [virtual network segment (VRF)](../concepts/network.md#vrf-segment).
+  * `vrfId`: ID of the [virtual network segment (VRF)](../concepts/private-network.md#vrf-segment).
   * `cidr`: Subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
   * `gatewayIp`: Gateway IP address. This is an optional parameter.
   * `startIp`, `endIp`: Address range for DHCP. This is an optional parameter.

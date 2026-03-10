@@ -26,7 +26,7 @@ items:
             href: operations/servers/server-kvm.md
           - name: Stopping and starting a server
             href: operations/servers/server-stop-and-start.md
-          - name: Cancel a server lease
+          - name: Canceling a server lease
             href: operations/servers/server-lease-cancel.md
           - name: Uploading a custom OS image
             href: operations/image-upload.md
@@ -42,6 +42,8 @@ items:
                 href: operations/servers/reinstall-os-from-marketplace.md
               - name: Reinstalling the OS from your ISO image
                 href: operations/servers/reinstall-os-from-own-image.md
+          - name: Setting up a secondary private subnet
+            href: operations/servers/set-up-tagged-vlan.md
           - name: Configuring the MC-LAG aggregation group
             href: operations/servers/set-up-mc-lag.md
           - name: Resetting a password on the server
@@ -87,6 +89,10 @@ items:
         items:
           - name: Overview
             href: concepts/network.md
+          - name: Public network
+            href: concepts/public-network.md
+          - name: Private network
+            href: concepts/private-network.md
           - name: DHCP
             href: concepts/dhcp.md
           - name: MC-LAG

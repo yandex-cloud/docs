@@ -17,10 +17,6 @@ variable "bucket_name" {
   type = string
 }
 
-variable "cdn_cname" {
-  type = string
-}
-
 variable "secure_key" {
   type = string
 }
@@ -48,7 +44,7 @@ locals {
   origin_gp_name   = "my-origin-group"
 }
 
-# Configuring a provider 
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -83,13 +79,13 @@ resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
   service_account_id = "${yandex_iam_service_account.ig-sa.id}"
 }
 
-# Create network
+# Creating a network
 
 resource "yandex_vpc_network" "webserver-network" {
   name = local.network_name
 }
 
-# Create subnet
+# Creating a subnet
 
 resource "yandex_vpc_subnet" "webserver-subnet-b" {
   name           = local.subnet_name
@@ -143,7 +139,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = "fd8jtn9i7e9ha5q25niu"
 }
 
-# Creating a VM instance
+# Creating a VM
 
 resource "yandex_compute_instance" "mywebserver" {
   name        = local.vm_name
@@ -180,7 +176,7 @@ resource "yandex_dns_zone" "my-domain-zone" {
 
 # Creating a type A resource record for the web server
 
-resource "yandex_dns_recordset" "rsА1" {
+resource "yandex_dns_recordset" "rsA1" {
   zone_id = yandex_dns_zone.my-domain-zone.id
   name    = "${yandex_dns_zone.my-domain-zone.zone}"
   type    = "A"
@@ -291,6 +287,6 @@ resource "yandex_dns_recordset" "cdn-cname" {
   name    = "${yandex_cdn_resource.my-resource.cname}."
   type    = "CNAME"
   ttl     = 600
-  data    = [var.cdn_cname]
+  data    = [yandex_cdn_resource.my-resource.provider_cname]
 }
 ```

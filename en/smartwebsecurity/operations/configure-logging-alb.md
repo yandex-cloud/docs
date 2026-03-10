@@ -41,6 +41,12 @@ To get started with {{ sws-name }} logs:
 
 ## Enable logging {#enable-logging}
 
+{% note info %}
+
+To enable or disable [logging](../../smartwebsecurity/concepts/logging.md) on a load balancer, you must have the `alb.editor` [role](../../application-load-balancer/security/index.md#alb-editor) or higher for the load balancer [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), as well as the `logging.writer` [role](../../logging/security/index.md#logging-writer) or higher for the target [log group](../../logging/concepts/log-group.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-logging-short-name }} {#logging}
@@ -59,7 +65,7 @@ To get started with {{ sws-name }} logs:
 
 - {{ at-name }} {#at}
 
-  You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, or data stream in {{ yds-name }}. In this guide, we will set up logging of events to a log group.
+  You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, data stream in {{ yds-name }}, or bus in {{ er-name }}. In this guide, we will set up logging of events to a log group.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

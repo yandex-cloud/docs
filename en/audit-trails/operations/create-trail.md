@@ -8,9 +8,16 @@ description: Follow this tutorial to create {{ at-full-name }} to register and s
 
 You can create a trail that will upload both [management](../concepts/format.md) and [data](../concepts/format-data-plane.md) event audit logs into one of the [destination objects](../concepts/trail.md#target):
 
-* [{{ objstorage-full-name }}](../../storage/) bucket.
-* [{{ cloud-logging-full-name }}](../../logging/) group.
-* [{{ yds-full-name }}](../../data-streams/) data stream.
+* [{{ objstorage-full-name }}](../../storage/index.yaml) bucket.
+* [{{ cloud-logging-full-name }}](../../logging/index.yaml) group.
+* [{{ yds-full-name }}](../../data-streams/index.yaml) data stream.
+* [{{ er-full-name }}](../../serverless-integrations/index.yaml) bus.
+
+{% note info %}
+
+Currently, you can only create a trail with the **{{ ui-key.yacloud.audit-trails.label_eventRouter }}** destination object using the [management console]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/index.yaml), and [API](../../api-design-guide/index.yaml).
+
+{% endnote %}
 
 ## Getting started {#before-you-begin}
 
@@ -20,60 +27,73 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
 - {{ objstorage-name }} bucket {#bucket}
 
-    1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access the audit logs will be uploaded to.
+  1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access the audit logs will be uploaded to.
+  1. (Optional) Enable encryption for the bucket:
 
-    1. (Optional) Enable encryption for the bucket:
+      [Make sure](../../iam/operations/roles/get-assigned-roles.md) the account you are going to use to create an encryption key for the bucket has the `kms.editor` [role](../../kms/security/index.md#kms-editor) for the folder.
+  1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
+  1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
-        [Make sure](../../iam/operations/roles/get-assigned-roles.md) the account you are going to use to create an encryption key for the bucket has the `kms.editor` role for the folder.
+      * [storage.uploader](../../storage/security/index.md#storage-uploader) for the [bucket](../../storage/concepts/bucket.md).
+      * [kms.keys.encrypter](../../kms/security/index.md#kms-keys-encrypter) for the bucket [encryption key](../../kms/concepts/key.md).
 
-    1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
+          This role is only required if encryption was enabled for the bucket.
 
-    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
-        * `storage.uploader` for a bucket.
-        * `kms.keys.encrypter` for a bucket encryption key.
-
-            This role is only required if encryption has been enabled for the bucket.
-
-        {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
-
-    1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
 - {{ cloud-logging-name }} log group {#logging}
 
-    1. [Create a log group](../../logging/operations/create-group.md) the audit logs will be uploaded to.
+  1. [Create a log group](../../logging/operations/create-group.md) the audit logs will be uploaded to.
+  1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
+  1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
-    1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
+      * [logging.writer](../../logging/security/index.md#logging-writer) for the [log group](../../logging/concepts/log-group.md).
 
-    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
-        * `logging.writer` for the log group.
-
-        {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
-
-    1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
 - {{ yds-name }} {#data-streams}
 
-    1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream) the audit logs will be uploaded to.
+  1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream) the audit logs will be uploaded to.
 
-        {% note tip %}
+      {% note tip %}
 
-        We recommend enabling [autopartitioning](../../data-streams/concepts/glossary.md#autopartitioning) on the target data stream.
+      We recommend enabling [autopartitioning](../../data-streams/concepts/glossary.md#autopartitioning) on the target data stream.
 
-        When overloading individual [shards](../../data-streams/concepts/glossary.md#shard) or the entire [stream](../../data-streams/concepts/glossary.md#stream-concepts), some events may get lost. Autopartitioning automatically adds shards as needed and distributes the workloads to avoid losses. If autopartitioning is disabled, remember to manually check and increase the number of shards.
+      When overloading individual [shards](../../data-streams/concepts/glossary.md#shard) or the entire [stream](../../data-streams/concepts/glossary.md#stream-concepts), some events may get lost. Autopartitioning automatically adds shards as needed and distributes the workloads to avoid losses. If autopartitioning is disabled, remember to manually check and increase the number of shards.
 
-        {% endnote %}
+      {% endnote %}
 
-    1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
+  1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
+  1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
 
-    1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
+      * [yds.writer](../../data-streams/security/index.md#yds-writer) for the [data stream](../../data-streams/concepts/glossary.md#stream-concepts).
 
-        * `yds.writer` for a data stream.
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
-        {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
-    1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
+- {{ er-name }} bus {#eventrouter}
+
+  1. [Create](../../serverless-integrations/operations/eventrouter/bus/create.md) a {{ er-full-name }} bus.
+
+      {% note info %}
+
+      Currently, you can only create an {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) with the `{{ at-name }}` source type in the [management console]({{ link-console-main }}) when creating or editing a trail, or using the [{{ er-name }} API](../../serverless-integrations/eventrouter/api-ref/Connector/create.md).
+
+      {% endnote %}
+
+  1. [Create a service account](../../iam/operations/sa/create.md) for the trail.
+  1. [Assign to the service account these roles](../../iam/operations/sa/assign-role-for-sa.md) for the trail to collect and upload logs:
+
+      * [serverless.eventrouter.supplier](../../serverless-integrations/security/eventrouter.md#serverless-eventrouter-supplier) for the folder where the {{ er-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md) resides.
+
+      {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
+
+  1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
 {% endlist %}
 
@@ -83,69 +103,70 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-    1. Enter a trail name. It must be unique within the folder.
-    1. (Optional) Enter a description for your trail.
-    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, select one of the destination objects and specify its settings:
+  1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. Enter a trail name. It must be unique within the folder.
+  1. (Optional) Enter a description for your trail.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, select one of the destination objects and specify its settings:
 
-        * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}**: Uploading audit logs to an {{ objstorage-name }} bucket. Recommended for long-term data storage. Configure log storage settings:
+      * **{{ ui-key.yacloud.audit-trails.label_objectStorage }}**: Uploading audit logs to an {{ objstorage-name }} bucket. Recommended for long-term data storage. Configure log storage settings:
 
-            * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the bucket you [created earlier](#before-you-begin).
-            * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: [Prefix](../concepts/format.md#log-file-name) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+          * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket you [created earlier](#before-you-begin).
+          * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: [Prefix](../concepts/format.md#log-file-name) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
-                {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+              {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-            * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Bucket encryption key. You only need to select it if encryption has been enabled for your bucket.
+          * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Bucket encryption key. You only need to select it if encryption was enabled for the bucket.
+      * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Log group you [created earlier](#before-you-begin). Audit logs will be uploaded into this log group. Recommended for quick log collection and analysis.
+      * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Data stream you [created earlier](#before-you-begin). Audit logs will be uploaded into this stream. Recommended for streaming logs to other services or systems.
+      * **{{ ui-key.yacloud.audit-trails.label_eventRouter }}**: {{ er-name }} bus connector. Recommended for detailed analysis of logs and their subsequent sending to various handlers and systems depending on the conditions specified in the bus.
 
-        * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**: Specify the name of the log group you [created earlier](#before-you-begin). Audit logs will be uploaded into this log group. Recommended for quick log collection and analysis.
+          In the **Connector** field, select the {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) with the `{{ at-name }}` source type or click **{{ ui-key.yacloud.common.create }}** to create a new connector in the bus.
 
-        * **{{ ui-key.yacloud.audit-trails.label_dataStream }}**: Specify the name of the data stream you [created earlier](#before-you-begin). Audit logs will be uploaded into this stream. Recommended for streaming logs to other services or systems.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the [previously created](#before-you-begin) service account the trail will operate under.
 
-    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the [previously created](#before-you-begin) service account the trail will operate under.
+  1. Enable and configure event collection from one or two levels. Such events will end up in the audit logs.
 
-    1. Enable and configure event collection from one or two levels. Such events will end up in the audit logs.
+      To configure **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
 
-        To configure **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
+      1. Select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
 
-        1. Select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
+          The permissions of the service account you [created earlier](#before-you-begin) must allow collecting logs from the specified scope.
 
-            The permissions of the service account [created earlier](#before-you-begin) must allow log collection from the specified scope.
+      1. Depending on the log collection scope, select the clouds or folders to collect events from:
 
-        1. Depending on the selected log collection scope, select specific clouds or folders to collect events from:
+          * For the `Organization` collection scope, from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** drop-down list, select one or more clouds to collect events from.
 
-            * For the `Organization` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** drop-down list one or more clouds to collect events from.
+              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all clouds in the organization.
 
-                Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all clouds in the organization.
+          * For the `Cloud` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** drop-down list one or more folders to collect events from.
 
-            * For the `Cloud` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** drop-down list one or more folders to collect events from.
+              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all folders in the cloud.
 
-                Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all folders in the cloud.
+      To configure **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
 
-        To configure **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
+      1. Select one or more services to collect events from.
 
-        1. Select one or more services to collect events from.
+      1. For each such service, select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
 
-        1. For each such service, select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
+          The permissions of the service account you [created earlier](#before-you-begin) must allow collecting logs from the specified scope.
 
-            The permissions of the service account [created earlier](#before-you-begin) must allow log collection from the specified scope.
+      1. Depending on the log collection scope, select the clouds or folders to collect events from:
 
-        1. Depending on the selected log collection scope, select specific clouds or folders to collect events from:
+          * For the `Organization` collection scope, from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** drop-down list, select one or more clouds to collect events from.
 
-            * For the `Organization` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** drop-down list one or more clouds to collect events from.
+              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all clouds in the organization.
 
-                Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all clouds in the organization.
+          * For the `Cloud` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** drop-down list one or more folders to collect events from.
 
-            * For the `Cloud` collection scope, select from the **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** drop-down list one or more folders to collect events from.
+              Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all folders in the cloud.
 
-                Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all folders in the cloud.
+      1. For each such service, select one of the following filters by [events](../concepts/events-data-plane.md#dns):
 
-        1. For each such service, select one of the following filters by [events](../concepts/events-data-plane.md#dns):
-
-            * `Receive all`: To collect all events within the service.
-            * `Selected`: To collect only the selected events. Proceed to select the events.
-            * `Exclude`: To collect all events except for the selected ones. Proceed to select the events.
+          * `Receive all`: To collect all events within the service.
+          * `Selected`: To collect only the selected events. Proceed to select the events.
+          * `Exclude`: To collect all events except for the selected ones. Proceed to select the events.
 
 - CLI {#cli}
 
@@ -192,7 +213,6 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
                   ```bash
                   yc storage bucket list
                   ```
-
               * `object_prefix`: [Prefix](../../storage/concepts/object.md#folder) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
                   {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
@@ -205,6 +225,9 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
               * `stream_name`: Name of the data stream you [created earlier](#before-you-begin). You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
               * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
               * `codec`: Event compression method when writing to {{ yds-name }}. The possible values are `RAW` (no compression, default), `GZIP`, and `ZSTD`. Enable compression if you expect an event flow greater than 1 MB/s.
+          * `eventrouter`: Uploading logs to a {{ er-full-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md):
+
+              * `eventrouter_connector_id`: {{ er-name }} bus [connector](../../serverless-integrations/concepts/eventrouter/connector.md) ID with the `{{ at-name }}` source type.
       * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account you created [earlier](#before-you-begin).
 
       {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
@@ -241,6 +264,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
     --destination-yds-stream <YDS_name> \
     --destination-yds-database-id <YDS_database_ID> \
     --destination-yds-codec <event_compression_method> \
+    --destination-eventrouter-connector-id <bus_connector_ID> \
     --filter-all-folder-id <folder_ID> \
     --filter-all-cloud-id <cloud_ID> \
     --filter-all-organisation-id <organization_ID> \
@@ -281,7 +305,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc audit-trails trail get <trail_name>

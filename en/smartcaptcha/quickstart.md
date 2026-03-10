@@ -1,17 +1,18 @@
 ---
 title: Getting started with {{ captcha-full-name }}
-description: Follow this guide to create and set up a CAPTCHA.
+description: Quickly integrate a CAPTCHA into your website in four simple steps.
 ---
 
 # Getting started with {{ captcha-full-name }}
 
-To get started:
+{{ captcha-full-name }}: Service for protection against bots and automated attacks.
 
-1. [Create a CAPTCHA](#creat-captcha).
-1. [Get keys](#get-keys).
-1. [Add the widget to the page](#add-widget).
-1. [Check the user response](#check-answer).
+To add a CAPTCHA to your HTML page:
 
+1. [Create a CAPTCHA](#create-captcha) in {{ yandex-cloud }}.
+1. [Copy keys](#get-keys) from the CAPTCHA info page.
+1. [Add the CAPTCHA widget code](#add-widget) to your HTML page.
+1. [Check the user's response](#check-answer) by sending a POST request.
 
 ## Getting started {#before-begin}
 
@@ -19,7 +20,7 @@ To get started:
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 
 
-## Create a CAPTCHA {#creat-captcha}
+## Create a CAPTCHA {#create-captcha}
 
 {% include [user-data-to-ml](../_includes/smartcaptcha/user-data-to-ml.md) %}
 
@@ -31,28 +32,19 @@ To get started:
     1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
-       ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
+    1. Enter a name for the CAPTCHA, e.g., `sm-captcha`.
+    1. List the sites the CAPTCHA will be on, e.g., `my-shop.com`.
+    1. Do not edit the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** field.
+    1. Select the default CAPTCHA settings (or keep the current ones):
+       1. [Main challenge](./concepts/tasks.md#main-task): The challenge the user will see first.
+       1. [Additional challenge](./concepts/tasks.md#additional-task): The challenge the user will be offered if the service finds the results of the main one suspicious, or if the CAPTCHA is at maximum difficulty.
+       1. Select the [difficulty level](./concepts/tasks.md#task-difficulty), `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
 
-    1. Enter a CAPTCHA name. Follow these naming requirements:
+         You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to show different CAPTCHAs to different users. In this example, you will configure a single default CAPTCHA for all users.
 
-        {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
+       ![step9-10](../_assets/smartcaptcha/quickstart/step9-10.png)
 
-    1. Optionally, disable [domain name validation](./concepts/domain-validation.md).
-    1. Specify a list of sites where the CAPTCHA will be placed.
-    1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
-
-       ![screen02](../_assets/smartcaptcha/quickstart/screen02.png)
-
-    1. Set up a default CAPTCHA:
-       1. Select the [main challenge](./concepts/tasks.md#main-task) type.
-       1. Select the [additional challenge](./concepts/tasks.md#additional-task) type.
-       1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
-
-    1. You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to display different CAPTCHAs to different users. In this example, you will configure a single default CAPTCHA for all users.
-    1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
     1. Click **{{ ui-key.yacloud.common.create }}**.
-
-       ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
 
 {% endlist %}
 
@@ -62,24 +54,22 @@ To get started:
 {% list tabs group=instructions %}
 
 - Management console {#console}
+    
+    After creating a CAPTCHA, select it from the list and copy the two keys:
+    * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}**: To add a {{ captcha-name }} widget to the your website or HTML page.
+    * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**: To [check the user response](#check-answer).
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
-    1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
-    1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
+    Store them in a secure place.
 
-    ![screen04](../_assets/smartcaptcha/quickstart/screen04.png)
+    ![step4-get-keys](../_assets/smartcaptcha/quickstart/step4-get-keys.png)
 
 {% endlist %}
-
-With the client key, you can [add a {{ captcha-name }} widget](#add-widget) to your page. You will need the server key to [check the user response](#check-answer).
-
 
 ## Add the widget to the page {#add-widget}
 
 Add the widget automatically:
 
-1. Add the JS script to the user page. To do this, place the following code anywhere on the page, e.g., inside the `<head>` tag:
+1. Add the JS script to your HTML page. To do this, place the following code anywhere on the page, e.g., inside the `<head>` tag:
 
     ```html
     <script src="https://{{ captcha-domain }}/captcha.js" defer></script>
@@ -87,7 +77,7 @@ Add the widget automatically:
 
     The `captcha.js` script will automatically find all `div` elements with the `smart-captcha` class and install the widget in them.
 
-1. Add an empty container (a `div` element) to the page so that the `captcha.js` script loads the widget to it:
+1. Add an empty container (`div` element) for the CAPTCHA widget to the page:
 
     ```html
     <div
@@ -97,14 +87,16 @@ Add the widget automatically:
     ></div>
     ```
 
+    Where `<client_key>` is the key you copied after creating the CAPTCHA.
+
     {% include [info-container-height](../_includes/smartcaptcha/info-container-height.md) %}
 
-The **I’m not a robot** button will appear on the page. The service will check the user request after the user clicks the button. If the request seems suspicious, the service will ask the user to perform an action.
-
+The **I’m not a robot** button will appear on the page. When a user clicks the button, {{ captcha-name }} will validate their request.
+If the request seems suspicious, {{ captcha-name }} will ask the user to solve a CAPTCHA challenge.
 
 ## Check the user response {#check-answer}
 
-After the check, the user is given a unique token. The token is inserted into the `<input type="hidden" name="smart-token" value="<token>"` element inside the widget container. For example:
+After the CAPTCHA verification, the user is issued a unique token placed into the CAPTCHA widget container on the HTML page as `<input>`:
 
 ```html
 <div id="captcha-container" class="smart-captcha" ...>
@@ -113,7 +105,7 @@ After the check, the user is given a unique token. The token is inserted into th
 </div>
 ```
 
-To validate the token, send a POST request to `https://{{ captcha-domain }}/validate` specifying the parameters in `x-www-form-urlencoded` format:
+To validate the token, send a POST request to `https://{{ captcha-domain }}/validate` providing the following parameters in `x-www-form-urlencoded` format:
 
 ```
 secret=<server_key>&token=<token>&ip=<user_IP_address>
@@ -123,12 +115,18 @@ Where:
 
 {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
-In its response, the service will return a JSON object containing the `status` and `message` fields. If the `status` field value is `ok`, the `host` field is added to the JSON object. It shows on what website the validation was passed. For response examples, see [User validation](concepts/validation.md#service-response).
-
-
 Example of the token validation function:
 
 {% list tabs group=programming_language %}
+
+- cURL {#curl}
+
+    ```bash
+    curl -X POST https://{{ captcha-domain }}/validate \
+      -d "secret=<server_key>" \
+      -d "token=<token_from_form>" \
+      -d "ip=<user_IP_address>"
+    ```
 
 - Node.js {#node}
 
@@ -186,7 +184,7 @@ Example of the token validation function:
             callback(true);
         });
     
-        // Write the POST data to the request body
+        // Writing the POST data to the request body
         req.write(postData);
         req.end();
     }
@@ -233,7 +231,7 @@ Example of the token validation function:
         return $resp->status === "ok";
     }
 
-    $token = "<token>"; //For example, $_POST['smart-token'];
+    $token = "<token>"; // For example, $_POST['smart-token'];
     if (check_captcha($token)) {
         echo "Passed\n";
     } else {
@@ -276,7 +274,29 @@ Example of the token validation function:
 
 {% endlist %}
 
+In its response, the service will return a JSON object containing the following fields:
 
-## What's next {#whats-next}
+* `status`: Validation result, `ok` or `failed`. If the validation is successful, the JSON object is updated with the `host` field indicating the website where validation took place.
+* `message`: Validation message, e.g., `Token invalid or expired`.
+  
+For response examples, see [User validation](concepts/validation.md#service-response).
 
-* Read more [about connection methods](./concepts/widget-methods.md) for the {{ captcha-name }} widget.
+## FAQ {#faq}
+
+**How do I test a CAPTCHA?**
+
+Open the CAPTCHA page in incognito mode or use a VPN to increase the chance of getting a challenge.
+
+**How do I customize the CAPTCHA appearance?**
+
+See [Advanced widget settings](./concepts/widget-methods.md).
+
+**What should I do if a CAPTCHA does not appear?**
+
+Make sure the domain is listed among the allowed websites in the CAPTCHA settings.
+
+## Useful links {#links}
+
+* [Widget rendering methods](./concepts/widget-methods.md)
+* [Style customization options](./concepts/captcha-variants.md)
+* [API Reference](./api-ref/)

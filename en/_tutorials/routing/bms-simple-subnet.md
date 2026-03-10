@@ -1,10 +1,10 @@
 # Establishing network connectivity in a {{ baremetal-full-name }} private subnet
 
-If you set up routing for a [private subnet](../../baremetal/concepts/network.md#private-subnet) and assigned it a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), the network interfaces of [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) connected to this subnet will get IP addresses from the range specified in the subnet’s CIDR settings via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol).
+If you set up routing for a [private subnet](../../baremetal/concepts/private-network.md#private-subnet) and assigned it a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), the network interfaces of [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) connected to this subnet will get IP addresses from the range specified in the subnet’s CIDR settings via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol).
 
 However, if you did not set up routing for a private subnet, this subnet functions as an [OSI](https://en.wikipedia.org/wiki/OSI_model) L2 network, where DHCP does not work, and you need to assign IP addresses manually in the server network interface settings to establish network connectivity. 
 
-This is because the DHCP server becomes part of a private subnet only once the subnet is routable and connected to a [virtual network segment](../../baremetal/concepts/network.md#vrf-segment) (VRF).
+This is because the DHCP server becomes part of a private subnet only once the subnet is routable and connected to a [virtual network segment](../../baremetal/concepts/private-network.md#vrf-segment) (VRF).
 
 {% note info %}
 

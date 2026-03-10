@@ -20,7 +20,7 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### {{ model-gallery-name }} {#rules-model-gallery}
+### {{ model-gallery-name }} {#rules-generating}
 
 The cost of using the models depends on the [operating mode](concepts/generation/index.md#working-mode) and the number of [tokens](concepts/generation/tokens.md) for different consumption types:
 
@@ -47,7 +47,37 @@ Tool tokens include all uncached tokens stored in the message history at the tim
 {% include [usd-common-sync](../_pricing/ai-studio/usd-common-instance-async.md) %}
 
 
-#### Batch mode {#batch-instance}
+{#example-generating}
+
+{% cut "Example of cost calculation for a model in synchronous mode" %}
+
+> Request parameters:
+> * Instruction: "Analyze the provided text and edit it in a thorough and competent way. Your task is to fix all grammar, spelling, style, and punctuation errors without altering the original meaning and structure of the utterance. Preserve the original word order and do not introduce any extra clarifications, explanations, or re-phrasing that can change the tonality or content of the text. Your edits must be the bare minimum of what is required to make the sentence correct from the Russian language perspective. Make sure that all words are used in their normative form and that punctuation follows the literary standards."
+> * Request text: "Newral networgs optimice bussines pracesses thei reduse the loud on tecnical sapport spid up dokument prufreading data analyses and procesing generait riports in minuts, and fourcast demand."
+> * The model's response: "Neural networks optimize business processes: they reduce the load on technical support, speed up document verification, data analysis and processing, generate reports in minutes, and forecast demand."
+> Input character count: 782
+
+
+{% include [usd-generating-sync](../_pricing_examples/ai-studio/usd-generating-sync.md) %}
+
+{% endcut %}
+
+{% cut "Example of cost calculation for a model in asynchronous mode" %}
+
+> Request parameters:
+> * Number of prompt tokens: 115
+> * Number of response tokens: 1,500
+> * Model: {{ gpt-pro }}
+> * Model operating mode: Asynchronous
+
+
+
+{% include [usd-generating-pro](../_pricing_examples/ai-studio/usd-generating-pro.md) %}
+
+
+{% endcut %}
+
+#### Using models in batch mode {#batch}
 
 With models in batch mode, the minimum cost per run is 200,000 tokens.
 
@@ -77,7 +107,7 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 #### Text vectorization {#rules-embedding}
 
-The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization. [{{ billing-name }}](../billing/operations/check-charges.md) breaks down the creation of embeddings in _vectorization units_. One unit equals one token.
+The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization. [{{ billing-name }}](../billing/operations/check-charges.md) breaks down the creation of embeddings in _vectorization units_. 
 
 
 
@@ -196,7 +226,7 @@ The search index size is rounded up to the nearest whole gigabyte.
 
 {% include [note-preview](../_includes/note-preview.md) %}
 
-At the Preview stage, [MCP servers](./concepts/mcp-hub/index.md#servers) are free of charge. However, you may still be charged for tools created in MCP servers, such as [{{ sf-full-name }} function invocations](../functions/pricing.md#invoke).
+At the Preview stage, [MCP servers](./concepts/mcp-hub/index.md#servers) are free of charge. However, you may still be charged for tools created in MCP servers, such as [{{ sf-full-name }} invocations](../functions/pricing.md#invoke).
 
 When using external APIs, such as [Kontur.Focus](./concepts/mcp-hub/templates.md#kontur) or [amoCRM](./concepts/mcp-hub/templates.md#amocrm), you are charged directly by our respective partner.
 

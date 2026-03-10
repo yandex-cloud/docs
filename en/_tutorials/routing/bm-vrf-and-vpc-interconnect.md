@@ -3,7 +3,7 @@
 
 [{{ interconnect-full-name }}](../../interconnect/index.yaml)-based network connectivity in {{ baremetal-full-name }} enables access to [CIDRs](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) of {{ vpc-name }} private subnets in a cloud infrastructure and/or CIDRs of private subnets in an on-prem infrastructure.
 
-In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a private {{ baremetal-full-name }} [subnet](../../baremetal/concepts/network.md#private-network) and a {{ compute-full-name }} [VM](../../compute/concepts/vm.md) located in a subnet of a {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network).
+In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a private {{ baremetal-full-name }} [subnet](../../baremetal/concepts/private-network.md) and a {{ compute-full-name }} [VM](../../compute/concepts/vm.md) located in a subnet of a {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network).
 
 Similarly, you can set up network connectivity with your on-prem resources located in private subnets within your own network infrastructure.
 
@@ -43,7 +43,7 @@ The cost of supporting an infrastructure for network connectivity between {{ bar
 
 Create the {{ yandex-cloud }} infrastructure you will use to set up network connectivity.
 
-To configure {{ interconnect-name }} in {{ baremetal-name }}, you will need a private routable [subnet](../../baremetal/concepts/network.md#private-subnet) and a [VRF segment](../../baremetal/concepts/network.md#vrf-segment) in {{ baremetal-name }}, a [cloud network](../../vpc/concepts/network.md#network) with one or more {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet), as well as a routing instance with at least one [announced](../../interconnect/concepts/priv-con.md#prc-announce) {{ vpc-short-name }} private subnet prefix.
+To configure {{ interconnect-name }} in {{ baremetal-name }}, you will need a private routable [subnet](../../baremetal/concepts/private-network.md#private-subnet) and a [VRF segment](../../baremetal/concepts/private-network.md#vrf-segment) in {{ baremetal-name }}, a [cloud network](../../vpc/concepts/network.md#network) with one or more {{ vpc-name }} [subnets](../../vpc/concepts/network.md#subnet), as well as a routing instance with at least one [announced](../../interconnect/concepts/priv-con.md#prc-announce) {{ vpc-short-name }} private subnet prefix.
 
 To check network connectivity, you will need a {{ baremetal-name }} server and a {{ compute-name }} VM.
 
@@ -197,7 +197,7 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
 ## Create a private connection {#create-prc}
 
-Once the routing instance has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/network.md#private-connection-to-vpc) in {{ baremetal-name }}:
+Once the routing instance has been created in your folder, create a [private {{ interconnect-name }} connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
@@ -272,7 +272,7 @@ A network connectivity check assumes that:
 
 ### Test network connectivity between a private {{ vpc-short-name }} subnet and a private {{ baremetal-name }} subnet {#check-vm-to-bms}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. In the terminal, run the `ping` command to make sure you can access `server-m3` by its private IP address:
 
       ```bash

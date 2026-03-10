@@ -6,11 +6,11 @@ Servers come either in one of the [stock configurations](./server-configurations
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
-## Server lease {#server-lease}
+## Renting servers {#server-lease}
 
 You can lease a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
 
-You can lease a custom-configured server for one month, six months, or one year.
+You can lease a [custom-configured](./server-custom-configurations.md) server for one month, six months, or one year.
 
 ## Server access {#server-access}
 
@@ -36,8 +36,8 @@ When leasing a sever, you can select your configurations based on redundant powe
 
 Any {{ baremetal-name }} server [configuration](./server-configurations.md) includes at least two [network interfaces](https://en.wikipedia.org/wiki/Network_interface_controller):
 
-* [Public](./network.md#public-network) network interface.
-* [Private](./network.md#private-network) network interface.
+* [Public](./public-network.md) network interface.
+* [Private](./private-network.md) network interface.
 
 In total, there may be more than two network interfaces:
 * In configurations with 10 Gbps and 25 Gbp NICs, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
@@ -46,6 +46,12 @@ In total, there may be more than two network interfaces:
 * In configurations with the [MC-LAG](./mc-lag.md) network connection redundancy, the server uses not one but two network interfaces at once to connect to each of the networks.
 
     Network interfaces connected to the same network are combined into aggregation groups at the OS level, which increases the network connection speed and ensures fault tolerance.
+
+{% note info %}
+
+You can [attach](../operations/servers/set-up-tagged-vlan.md) several [private subnets](./private-network.md#private-subnet) to the server's network interface (or MC-LAG aggregation group) connected to a [private network](./private-network.md) at the same time.
+
+{% endnote %}
 
 ## Server statuses {#server-status}
 

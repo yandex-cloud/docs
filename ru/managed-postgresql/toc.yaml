@@ -149,6 +149,10 @@ items:
         href: tutorials/glibc-collation-issues.md
       - name: Запись данных с устройства в базу данных
         href: tutorials/data-recording.md
+      - name: >-
+          Настройка прав доступа к секрету, созданному {{
+          connection-manager-name }}, для пользователя {{ mpg-name }}
+        href: tutorials/conn-man-secret-access.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}

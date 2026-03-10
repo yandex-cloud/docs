@@ -13,6 +13,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the profile where you want to delete a [rule](../concepts/rules.md).
   1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) next to the rule in question and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
@@ -284,7 +285,7 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
       resource "yandex_sws_security_profile" "demo-profile-simple" {
         name                             = "<security_profile_name>"
         default_action                   = "DENY"
-        captcha_id                       = "<CAPTCHA_ID>"
+        captcha_id                       = "<captcha_ID>"
         advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
         # Smart Protection rule
@@ -326,13 +327,13 @@ You can delete basic rules, as well as Smart Protection and WAF rules, from a [s
       }
       ```
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc smartwebsecurity security-profile get <security_profile_ID>

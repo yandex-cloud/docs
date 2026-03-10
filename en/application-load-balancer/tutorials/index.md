@@ -11,7 +11,7 @@ description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](../tools/gwin/ingress-gwin-migration.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
-* [{#T}](cdn-storage-integration.md)
+* [{#T}](cdn-storage-integration/index.md)
 * [{#T}](blue-green-canary-deployment.md)
 * [{#T}](tls-termination/index.md)
 * [{#T}](logging.md)

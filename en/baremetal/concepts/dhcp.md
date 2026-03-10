@@ -1,6 +1,6 @@
 # DHCP in a {{ baremetal-full-name }} network
 
-In public ([ephemeral](./network.md#ephemeral-public-subnet)) and [private](./network.md#private-subnet) subnets, you can use [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) to automatically configure IP addressing parameters on server interfaces. If the server OS is installed from {{ marketplace-short-name }} images, getting IP addresses via DHCP is enabled by default on all physical interfaces of the server.
+In public ([ephemeral](./public-network.md#ephemeral-public-subnet)) and [private](./private-network.md#private-subnet) subnets, you can use [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) to automatically configure IP addressing parameters on server interfaces. If the server OS is installed from {{ marketplace-short-name }} images, getting IP addresses via DHCP is enabled by default on all physical interfaces of the server.
 
 {% note warning %}
 
@@ -29,7 +29,7 @@ Depending on the {{ baremetal-name }} server's selected network settings, the pu
 
 ### DHCP in an ephemeral public subnet {#dhcp-ephemeral-public-subnet}
 
-If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its public subnet is [ephemeral](./network.md#ephemeral-public-subnet), and its network interface connected to that subnet will get an IPv4 address from the range of {{ baremetal-full-name }} public IP addresses.
+If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its public subnet is [ephemeral](./public-network.md#ephemeral-public-subnet), and its network interface connected to that subnet will get an IPv4 address from the range of {{ baremetal-full-name }} public IP addresses.
 
 To activate DHCP in an ephemeral public subnet, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}** when leasing a {{ baremetal-name }} server. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to update the DHCP server settings in such a subnet later on.
 
@@ -47,7 +47,7 @@ Here is an example:
 
 ### DHCP in a dedicated public subnet {#dhcp-public-subnet}
 
-If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, its public subnet is [dedicated](./network.md#public-subnet) and its network interface connected to that subnet can get an IPv4 address from the range of addresses associated with the selected dedicated subnet.
+If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-from-dedicated-subnet }}`, its public subnet is [dedicated](./public-network.md#public-subnet) and its network interface connected to that subnet can get an IPv4 address from the range of addresses associated with the selected dedicated subnet.
 
 Dedicated public subnets do not have a DHCP server. Therefore, on the network interface of a server connected to such a subnet, you should manually configure a static IP address from the subnet’s range of public IP addresses and set the default gateway address. 
 

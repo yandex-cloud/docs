@@ -17,6 +17,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your [security profile](../concepts/profiles.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select one of these creation options:
       * **{{ ui-key.yacloud.smart-web-security.title_default-template }}**: This is a recommended option.
@@ -36,7 +37,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
   1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
-
+  
   1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** and configure logging:
      1. In the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** field, select the logs to write: **{{ cloud-logging-name }}** and **{{ at-name }}**.
      1. For {{ cloud-logging-name }}, select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your logs.
@@ -82,7 +83,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
         --description "<profile_description>" \
         --labels <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value> \
         --default-action <action> \
-        --captcha-id <CAPTCHA_ID> \
+        --captcha-id <captcha_ID> \
         --security-rules-file <path_to_file_with_rules>
      ```
 
@@ -124,7 +125,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
       resource "yandex_sws_security_profile" "demo-profile-simple" {
         name                             = "<security_profile_name>"
         default_action                   = "DENY"
-        captcha_id                       = "<CAPTCHA_ID>"
+        captcha_id                       = "<captcha_ID>"
         advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
         # Smart Protection rule
@@ -181,7 +182,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
       If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 

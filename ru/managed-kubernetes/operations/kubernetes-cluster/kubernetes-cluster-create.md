@@ -86,6 +86,8 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
+        {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * `--public-ip` — флаг, который указывает, если кластеру {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
 
        {% include [nat-instance-restriction](../../../_includes/managed-kubernetes/nat-instance-restriction.md) %}
@@ -205,6 +207,9 @@ description: Следуя данной инструкции, вы сможете
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
      * [Подсети](../../../vpc/concepts/network.md#subnet) — описание подсетей, к которым будут подключены хосты кластера {{ managed-k8s-name }}. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * [Сервисный аккаунт](#before-you-begin) для кластера {{ managed-k8s-name }} и [узлов](../../concepts/index.md#node-group) и [настройки роли]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) для этого аккаунта. При необходимости создайте отдельные [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для кластера {{ managed-k8s-name }} и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
 
      >Пример структуры конфигурационного файла:
@@ -266,7 +271,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% note info %}
 
-      Облачные метки для кластера {{ k8s }} составляются по определенным [правилам](../../concepts/index.md#cluster-labels).
+     Облачные метки для кластера {{ k8s }} составляются по определенным [правилам](../../concepts/index.md#cluster-labels).
 
      {% endnote %}
 
@@ -312,7 +317,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% note warning %}
 
-      Контроллер сетевых политик Calico и туннельный режим Cilium нельзя включить одновременно. Их также нельзя включить после создания кластера.
+     Контроллер сетевых политик Calico и туннельный режим Cilium нельзя включить одновременно. Их также нельзя включить после создания кластера.
 
      {% endnote %}
 
@@ -346,6 +351,8 @@ description: Следуя данной инструкции, вы сможете
   * Для базового мастера передайте в запросе один параметр `masterSpec.locations`.
   * Для высокодоступного мастера, который размещается в трех зонах доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите разные зоны доступности и подсети.
   * Для высокодоступного мастера, который размещается в одной зоне доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите одинаковую зону доступности и подсеть.
+
+  {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
   {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 

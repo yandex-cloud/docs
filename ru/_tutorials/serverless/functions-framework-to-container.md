@@ -59,7 +59,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `serverless-containers-sa`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../container-registry/security/index.md#container-registry-images-puller) `container-registry.images.puller`.
@@ -129,7 +129,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы ранее создали сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. В поле **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** задайте имя реестра: `functions-framework-registry`.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
@@ -506,7 +506,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся созданные ранее ресурсы.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя контейнера: `my-first-function`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

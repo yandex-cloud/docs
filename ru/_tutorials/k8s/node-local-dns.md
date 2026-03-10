@@ -88,6 +88,8 @@ DNS-запросы перенаправляются в локальный кеш
 
 {% endlist %}
 
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 ### Подготовьте окружение {#prepare-env}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}

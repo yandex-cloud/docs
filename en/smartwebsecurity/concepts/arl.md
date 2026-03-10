@@ -24,16 +24,7 @@ An ARL rule has these settings available:
 
 ## Traffic conditions {#traffic-conditions}
 
-An ARL rule may impose a limit on incoming HTTP requests for all traffic or traffic satisfying certain conditions.
-
-[Conditions](conditions.md) are defined by the following parameters:
-
-* `IP`: IP address, address range, or address region of clients, list of addresses, or [ASNs](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) subject to the rule.
-* `Request path`: Path or part of the path the request was sent to.
-* `Host`: Domain name the request was sent to.
-* `HTTP method`: Method or set of methods the request belongs to.
-* `HTTP header`: Request header parameters.
-* `Cookie`: String in cookie files.
+An ARL rule can set a limit on incoming HTTP requests for all traffic and traffic satisfying certain [conditions](conditions.md).
 
 ## Request counting {#requests-counting}
 
@@ -62,7 +53,7 @@ You can opt for the following actions:
 
    Use this option if you need to limit peak load while maintaining maximum application availability. This action does not require request grouping.
 
-* Temporarily block all requests: All requests will be denied for the period you specify, You can block requests for a period from 1 second to 24 hours. The block duration is fixed, regardless of the remaining limit period. Access is automatically restored after the block expires.
+* Temporarily block all requests: All requests will be denied for the period you specify, You can block requests for the period from 1 second to 24 hours. The block duration is fixed, regardless of the remaining limit period. Access is automatically restored after the block expires.
 
    Use this action to provide enhanced protection against bots, scrapers, brute-force attacks, or spam, prioritizing reliability over availability. For example, it is a good fit for login pages or message submission forms. This action requires request grouping.
 

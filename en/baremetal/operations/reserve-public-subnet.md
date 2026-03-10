@@ -5,9 +5,9 @@ description: Follow this guide to order a dedicated public subnet in {{ baremeta
 
 # Ordering a dedicated public subnet
 
-A [dedicated public subnet](../concepts/network.md#public-subnet) is a public subnet made up of an IP address range that will be available to your servers in the selected [pools](../concepts/servers.md#server-pools).
+A [dedicated public subnet](../concepts/public-network.md#public-subnet) is a public subnet made up of an IP address range that will be available to your servers in the selected [pools](../concepts/servers.md#server-pools).
 
-You can lease a new dedicated public subnet or convert an existing [ephemeral public subnet](../concepts/network.md#ephemeral-public-subnet) to a dedicated one.
+You can lease a new dedicated public subnet or convert an existing [ephemeral public subnet](../concepts/public-network.md#ephemeral-public-subnet) to a dedicated one.
 
 ### Leasing a new dedicated public subnet {#reserve-new-subnet}
 
@@ -15,7 +15,7 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to reserve a [dedicated public subnet](../concepts/network.md#public-subnet).
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to reserve a [dedicated public subnet](../concepts/public-network.md#public-subnet).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.baremetal.label_public-subnets }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-public-subnet-full }}**.
@@ -33,7 +33,7 @@ You can lease a new dedicated public subnet or convert an existing [ephemeral pu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the command for leasing a new [dedicated public subnet](../concepts/network.md#public-subnet):
+  1. View the description of the command for leasing a new [dedicated public subnet](../concepts/public-network.md#public-subnet):
 
      ```bash
      yc baremetal public-subnet create --help

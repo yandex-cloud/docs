@@ -21,6 +21,8 @@ items:
                 href: operations/change-server-level-settings.md
               - name: На уровне запроса
                 href: operations/change-query-level-settings.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Получение патч-версии {{ CH }}
             href: operations/cluster-patch-version.md
           - name: Обновление версии {{ CH }}

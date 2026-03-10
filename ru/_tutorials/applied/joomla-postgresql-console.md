@@ -29,7 +29,7 @@
   1. Создайте облачную сеть:
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `joomla-network`.
       1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -57,7 +57,7 @@
   1. Создайте группу безопасности `joomla-sg` для виртуальной машины:
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** задайте имя `joomla-sg`.
       1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите созданную ранее сеть `joomla-network`.
@@ -91,7 +91,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
    1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите `{{ region-id }}-b` и нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
@@ -103,7 +103,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на странице каталога, в котором вы создаете инфраструктуру, нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![cpu](../../_assets/console-icons/cpu.svg) `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В [консоли управления]({{ link-console-main }}) на странице каталога, в котором вы создаете инфраструктуру, нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![cpu](../../_assets/console-icons/cpu.svg) `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 24.04` и выберите публичный образ [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите зону доступности `{{ region-id }}-b`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -156,7 +156,7 @@ ns1.{{ dns-ns-host-sld }}.
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** и нажмите **{{ ui-key.yacloud.dns.button_zone-create }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** и нажмите **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Задайте настройки зоны, соответствующие вашему домену:
 
       1. **{{ ui-key.yacloud.dns.label_zone }}** — доменная зона. Название зоны должно заканчиваться точкой. Например, название доменной зоны `example.com.` соответствует домену `example.com`. Чтобы создать доменную зону с нелатинскими символами, используйте кодировку [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode).
@@ -176,7 +176,7 @@ ns1.{{ dns-ns-host-sld }}.
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите созданную ранее DNS-зону `joomla-zone` и нажмите **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Задайте параметры записи:
       1. В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
@@ -200,7 +200,7 @@ ns1.{{ dns-ns-host-sld }}.
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Нажмите **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите `{{ ui-key.yacloud.certificate-manager.action_request }}`.
       1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите `joomla-cert`.
       1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена. Например: `example.com`.
@@ -216,7 +216,7 @@ ns1.{{ dns-ns-host-sld }}.
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
         1. В списке сертификатов выберите `joomla-cert`.
         1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** выберите `CNAME-запись`.
         1. В секции ниже нажмите **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** и в открывшемся окне нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -231,7 +231,7 @@ ns1.{{ dns-ns-host-sld }}.
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на странице каталога, в котором вы создаете инфраструктуру, нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите  `{{ ui-key.yacloud.iam.folder.dashboard.value_managed-postgresql }}`.
+  1. В [консоли управления]({{ link-console-main }}) на странице каталога, в котором вы создаете инфраструктуру, нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_managed-postgresql }}`.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя кластера — `joomla-pg-cluster`.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите версию СУБД — `17`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите подходящий вам класс [хоста](../../managed-postgresql/concepts/instance-types.md).

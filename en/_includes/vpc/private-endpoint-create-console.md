@@ -6,7 +6,7 @@
 
      {% include [name-format](../../_includes/name-format.md) %}
 
-1. (Optional) In the **{{ ui-key.yacloud.vpc.private-endpoint.field_description }}** field, add a description.
+1. Optionally, in the **{{ ui-key.yacloud.vpc.private-endpoint.field_description }}** field, add a description.
 1. Optionally, add [labels](../../storage/concepts/tags.md):
 
    1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.

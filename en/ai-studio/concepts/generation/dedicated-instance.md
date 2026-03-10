@@ -21,7 +21,7 @@ All deployed models are accessible via an API compatible with [{{ openai }}](../
 || **Qwen 2.5 VL 32B Instruct**
 [Model card](https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct) | 32,768 | [Apache 2.0]({{ license-apache }}) license ||
 || **Qwen 2.5 7B Instruct** 
-[Model card](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) | 32,768 | [Qwen license](https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE) ||
+[Model card](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) | 32,768 | [Apache 2.0]({{ license-apache }}) license ||
 || **Gemma 3 4B it**
 [Model card](https://huggingface.co/google/gemma-3-4b-it) | 131,072 | [Gemma Terms of Use]({{ license-gemma }})  ||
 || **Gemma 3 12B it**
@@ -34,7 +34,7 @@ All deployed models are accessible via an API compatible with [{{ openai }}](../
 
 Each model may be available for deployment in several configurations: **S**, **M**, or **L**. Each configuration guarantees specific values ​​of TTFT (_time to first token_), _Latency_ (time it takes to generate a response), and TPS (_tokens per second_) for requests with different context lengths.
 
-The figure below shows the dependence of latency and the number of tokens processed by the model on the number of parallel generations (_Concurrency_ in the figure): up to a certain point, the more generations the model processes in parallel, the longer the generation will last, and the more tokens will be generated per second.
+The figure below shows the dependence of latency and the number of tokens processed by the model on the number of parallel generations (Concurrency in the figure): up to a certain point, the more generations the model processes in parallel, the longer the generation will last, and the more tokens will be generated per second.
 
 ![instances](../../../_assets/ai-studio/instances-chart.svg)
 

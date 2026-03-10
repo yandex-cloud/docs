@@ -19,7 +19,7 @@
 1. Настройте БД:
    1. В поле **Сервер** укажите полное доменное имя созданной вами БД. Чтобы его узнать:
       1. В [консоли управления]({{ link-console-main }}) перейдите в новой вкладке браузера на страницу каталога.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. В открывшемся окне выберите созданный ранее кластер `BitrixMySQL`.
       1. В меню слева выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
       1. В поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** подведите курсор к имени хоста (вида `rc1c-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер** должно быть указано имя вида `rc1c-cfazv1db********.{{ dns-zone }}`.

@@ -1,3 +1,8 @@
+---
+title: Получить информацию об имеющихся Helm-чартах в реестре {{ cloud-registry-name }}
+description: Следуя данной инструкции, вы можете получить список Helm-чартов в реестре {{ cloud-registry-name }}.
+---
+
 # Получить информацию об имеющихся Helm-чартах
 
 Вы можете получить список [Helm-чартов](https://helm.sh/docs/topics/charts/) в [реестре](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).

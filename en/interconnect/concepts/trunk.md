@@ -145,7 +145,7 @@ This option is used when the customer does not have their own equipment at the p
 
 ![trunk-over-sp-l3vpn](../../_assets/interconnect/interconnect-trn-3.svg)
 
-This option is used when the customer does not have their own equipment at the point of presence. In this case, the following applies:
+This option is used when the customer does not have their own equipment at the point of presence. For this operation, the following requirements apply:
 
 * An 802.1Q trunk is set up at the point of presence via a telecom provider.
 * An 802.1Q trunk is set up between the telecom provider equipment at the point of presence and the {{ yandex-cloud }} equipment.

@@ -1,3 +1,8 @@
+---
+title: Удалить Helm-чарт из репозитория {{ container-registry-name }}
+description: Следуя данной инструкции, вы можете удалить Helm-чарт из репозитория {{ container-registry-name }}.
+---
+
 # Удалить Helm-чарт из реестра
 
 Вы можете удалять [Helm-чарты](https://helm.sh/docs/topics/charts/) в репозитории {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).

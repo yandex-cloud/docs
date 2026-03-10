@@ -1,6 +1,6 @@
 # Deploying a web application on {{ baremetal-full-name }} servers with an L7 load balancer and {{ sws-full-name }} protection
 
-In this tutorial, you will deploy a web application on {{ baremetal-full-name }} [servers](../../baremetal/concepts/servers.md). To evenly distribute load across the application hosts, you will configure an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) in {{ alb-full-name }}. A {{ sws-full-name }} [profile](../../smartwebsecurity/concepts/profiles.md) will ensure protection of your web application from bots, DDoS, and web attacks. A {{ interconnect-full-name }} [routing instance](../../cloud-router/concepts/routing-instance.md) will provide a [private connection](../../interconnect/concepts/priv-con.md) between the {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network) and the {{ baremetal-full-name }} [private network](../../baremetal/concepts/network.md#private-network).
+In this tutorial, you will deploy a web application on {{ baremetal-full-name }} [servers](../../baremetal/concepts/servers.md). To evenly distribute load across the application hosts, you will configure an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) in {{ alb-full-name }}. A {{ sws-full-name }} [profile](../../smartwebsecurity/concepts/profiles.md) will ensure protection of your web application from bots, DDoS, and web attacks. A {{ interconnect-full-name }} [routing instance](../../cloud-router/concepts/routing-instance.md) will provide a [private connection](../../interconnect/concepts/priv-con.md) between the {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network) and the {{ baremetal-full-name }} [private network](../../baremetal/concepts/private-network.md).
 
 You can see the solution architecture in the diagram below:
 
@@ -10,7 +10,7 @@ Where:
 * {{ baremetal-name }} infrastructure components:
 
     * Private subnet in the `{{ region-id }}-m4` [server pool](../../baremetal/concepts/servers.md#server-pools): `subnet-m4`.
-    * [Virtual network segment](../../baremetal/concepts/network.md#vrf-segment) (VRF), `my-vrf`.
+    * [Virtual network segment](../../baremetal/concepts/private-network.md#vrf-segment) (VRF), `my-vrf`.
     * Two {{ baremetal-name }} servers, `alb-back-0` and `alb-back-1`, hosting the deployed application in the `{{ region-id }}-m4` server pool.
 * {{ interconnect-name }} `Routing Instance` for connectivity between the {{ vpc-name }} and {{ baremetal-name }} networks.
 * [{{ vpc-name }}](../../vpc/index.yaml) infrastructure components:
@@ -171,7 +171,7 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
 ## Set up your {{ baremetal-name }} environment {#setup-baremetal}
 
-Configure the {{ baremetal-name }} infrastructure. In this step, you will create a [virtual network segment (VRF)](../../baremetal/concepts/network.md#vrf-segment) and [private subnet](../../baremetal/concepts/network.md#private-subnet), configure a [private connection](../../baremetal/concepts/network.md#private-connection-to-vpc) to the cloud network, and lease two {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md).
+Configure the {{ baremetal-name }} infrastructure. In this step, you will create a [virtual network segment (VRF)](../../baremetal/concepts/private-network.md#vrf-segment) and [private subnet](../../baremetal/concepts/private-network.md#private-subnet), configure a [private connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) to the cloud network, and lease two {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md).
 
 ### Create a VRF segment and a private subnet {#setup-vrf}
 
@@ -202,7 +202,7 @@ Create a VRF segment and a private subnet in the `{{ region-id }}-m4` [server po
 
 ### Configure a private connection to your cloud network {#connect-to-vpc}
 
-Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/network.md#private-connection-to-vpc) in {{ baremetal-name }}:
+Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/private-network.md#private-connection-to-vpc) in {{ baremetal-name }}:
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
@@ -635,7 +635,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select `sws-demo-profile` you created earlier.
+  1. In the left-hand panel, click ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select the `sws-demo-profile` you created earlier.
   1. In the top panel, click ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** and in the window that opens:
 
       1. Select `demo-alb-bms`.
@@ -643,7 +643,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
       1. Select the `http-vh` virtual host.
       1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      Information about the connected virtual host will appear on the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab of the {{ sws-name }} profile overview page.
+      Information about the connected virtual host will appear in the ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** section of the {{ sws-name }} profile overview page.
 
 {% endlist %}
 

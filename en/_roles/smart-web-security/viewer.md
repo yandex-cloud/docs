@@ -7,6 +7,7 @@ Users with this role can:
 * View info on [ARL profiles](../../smartwebsecurity/concepts/arl.md).
 * View info on [proxy servers](../../smartwebsecurity/concepts/domain-protect.md#proxy).
 * View info on [lists](../../smartwebsecurity/concepts/lists.md).
+* View info on [response page templates](../../smartwebsecurity/concepts/response-templates.md).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

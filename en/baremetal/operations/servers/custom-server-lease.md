@@ -5,7 +5,7 @@ description: Follow this guide to lease a {{ baremetal-full-name }} server in a 
 
 # Leasing a custom-configured server
 
-You can [configure](../../concepts/server-configurations.md#custom) your server yourself. Proceed as follows:
+You can [configure](../../concepts/server-configurations.md#custom) your server yourself. To do this:
 
 ## Getting started {#before-you-begin}
 
@@ -34,7 +34,7 @@ You can [configure](../../concepts/server-configurations.md#custom) your server 
           There must be at least one group consisting of at least two disks on the server.
 
           You can add more disk groups of other form factors. Do it by clicking ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.baremetal.addDiskButton }}**.
-      1. Under **{{ ui-key.yacloud_components.baremetal.networkLabel }}**, select the server's network card connection speed for [public](../../concepts/network.md#public-network) and [private](../../concepts/network.md#private-network) networks, and whether MC-LAG [aggregation groups](../../concepts/mc-lag.md) must be provided on the server.
+      1. Under **{{ ui-key.yacloud_components.baremetal.networkLabel }}**, select the server's network card connection speed for [public](../../concepts/public-network.md) and [private](../../concepts/private-network.md) networks, and whether MC-LAG [aggregation groups](../../concepts/mc-lag.md) must be provided on the server.
       1. Select the [server pool](../../concepts/servers.md#server-pools) the server will be in under **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}**.
       1. Under **{{ ui-key.yacloud_components.baremetal.withReserve }}**, specify whether [redundant power supply](../../concepts/servers.md#server-power-supply) is required.
       1. Click **{{ ui-key.yacloud.common.continue }}**.

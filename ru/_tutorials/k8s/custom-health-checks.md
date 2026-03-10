@@ -80,7 +80,7 @@ L7-балансировщик автоматически проверяет ра
 
    1. Укажите в файле `k8s-custom-health-checks.tf`:
 
-      * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
+      * `folder_id` — идентификатор облачного каталога как в настройках провайдера.
       * `k8s_version` — версия {{ k8s }}. Доступные версии перечислены в разделе [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -98,6 +98,8 @@ L7-балансировщик автоматически проверяет ра
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
+
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
 ### Установите Ingress-контроллер {{ alb-name }} {#install-alb-ingress-controller}
 
@@ -341,6 +343,8 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
    1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
 
       В режиме реального времени записываются и отображаются логи о создании балансировщика. Если возникла ошибка во время создания, она появится в логах.
+
+   {% include [note-alb](../../_includes/managed-kubernetes/note-alb.md) %}
 
 ## Проверьте результат {#check-result}
 

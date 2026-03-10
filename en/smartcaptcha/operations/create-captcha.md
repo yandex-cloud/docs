@@ -10,7 +10,7 @@ description: Follow this guide to create a CAPTCHA.
 When creating a CAPTCHA, you can:
 
 * Connect a CAPTCHA to multiple websites.
-* Set up the CAPTCHA appearance, such as background, states, errors, and the **I'm not a robot** button style.
+* Set up the CAPTCHA appearance, such as background, states, errors, the **I'm not a robot** button style, and color theme (dark or light).
 * Select the type and difficulty level of a CAPTCHA challenge.
 * Show various CAPTCHA options based on the incoming request properties, such as use different CAPTCHA for the users from different countries.
 
@@ -24,28 +24,28 @@ When creating a CAPTCHA, you can:
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
   1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
-     ![screen01](../../_assets/smartcaptcha/create-captcha/screen01.png)
-
   1. Specify the **{{ ui-key.yacloud.common.name }}** of the CAPTCHA you are creating:
 
       {% include [name-format](../../_includes/smartcaptcha/name-format.md) %}
 
+  1. Optionally, add [labels](../../resource-manager/concepts/labels.md):
+
+     1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+     1. Enter a label in `key: value` format.
+     1. Press **Enter**.
   1. Optionally, select [**{{ ui-key.yacloud.smartcaptcha.label_no-hostname-check }}**](../concepts/domain-validation.md).
   1. Specify **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}** as IP addresses or domain names without `http`/`https` or `/` at the end, e.g., `example.com`.
 
      The CAPTCHA will also be valid for all subdomains of the specified domain names.
 
   1. Set up the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** of the **I'm not a robot** button and the challenge window:
-     * `{{ ui-key.yacloud.smartcaptcha.value_config-standard }}`: Default appearance
-     * `Gray`
-     * `Dark theme`
-     * `Blue`
+     * Optionally, enable **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.PresetsSection.label_enable-dynamic-theme_tme9P }}** if you want to dynamically set the CAPTCHA color theme based on your browser’s theme.
 
-      Under **Customize style**, you can set custom properties for the challenge window and other elements through the form or style description in `JSON` format.
+     * Under **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.StyleSection.label_section-customization-light_tL96w }}** and **{{ ui-key.yacloud.smartcaptcha.CaptchaSettingsForm.StyleSection.label_section-customization-dark_dMJ2m }}**, you can set custom properties for the challenge window and other elements through the form or style description in `JSON` format.
 
       All changes will be displayed in the preview window.
 
-     ![screen02](../../_assets/smartcaptcha/create-captcha/screen02.png)
+     ![step4-8](../../_assets/smartcaptcha/create-captcha/step4-8.png)
 
   1. Configure the **Challenge options**. You can only specify the default CAPTCHA or add other [options](../concepts/captcha-variants.md) if you want to show different CAPTCHAs for different requests.
   
@@ -88,11 +88,13 @@ When creating a CAPTCHA, you can:
 
      1. Add other CAPTCHA options and rules for incoming traffic in a similar way.
 
+     ![step10-11](../../_assets/smartcaptcha/create-captcha/step10-11.png)
+
   1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
    
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-     ![screen03](../../_assets/smartcaptcha/create-captcha/screen03.png)
+     ![step12-13](../../_assets/smartcaptcha/create-captcha/step12-13.png)
 
   The CAPTCHA will appear on the service page under **{{ ui-key.yacloud.smartcaptcha.label_captcha-settings-list }}**.
 
@@ -161,7 +163,7 @@ When creating a CAPTCHA, you can:
        ```
  
        Where:
-       * `uuid`: Unique ID of the challenge option.
+       * `uuid`: Unique challenge option ID.
        * `description`: Challenge option description. 
        * `complexity`: Difficulty level of the challenge the user will get.
        * `pre_check_type`: Type of the main challenge the user will get.
@@ -186,7 +188,7 @@ When creating a CAPTCHA, you can:
        - name: <rule_2_name>
          priority: "<rule_2_priority>"
          description: <rule_2_description>
-         override_variant_uuid: <challenge_variant_ID>
+         override_variant_uuid: <challenge_option_ID>
          condition:
            source_ip:
              geo_ip_match:
@@ -202,7 +204,7 @@ When creating a CAPTCHA, you can:
          Rules are checked in the ascending priority order, starting from `1`, `2`, etc. If traffic matches multiple rules, the first rule to trigger will apply.
  
        * `description`: Rule description. This is an optional setting.
-       * `override_variant_uuid`: ID of the challenge option to show if the traffic matches the rule. If the parameter is not specified, the user will get the default challenge.
+       * `override_variant_uuid`: ID of the challenge option you get if the traffic is in line with the rule. If the parameter is not specified, the user will get the default challenge.
        * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional setting.
  
        {% endcut %}
@@ -241,8 +243,8 @@ When creating a CAPTCHA, you can:
        * `SILHOUETTES`: Silhouettes.
        * `KALEIDOSCOPE`: Kaleidoscope.
      * `allowed_sites`: List of hosts as IP addresses or domain names without `http`/`https` or `/` at the end, e.g., `example.com`. The CAPTCHA will also be valid for all subdomains of the specified domain names. This is an optional setting.
-     * `override_variant`: Section containing the challenge [option](../concepts/captcha-variants.md) description. This is an optional setting.
-       * `uuid`: Unique ID of the challenge option.
+     * `override_variant`: Section with the challenge [option](../concepts/captcha-variants.md) description. This is an optional setting.
+       * `uuid`: Unique challenge option ID.
        * `description`: Challenge option description. This is an optional setting.
        * `complexity`: Difficulty level of the challenge the user will get.
        * `pre_check_type`: Type of the main challenge the user will get.
@@ -254,7 +256,7 @@ When creating a CAPTCHA, you can:
          Rules are checked in the ascending priority order, starting from `1`, `2`, etc. If traffic matches multiple rules, the first rule to trigger will apply.
 
        * `description`: Rule description. This is an optional setting.
-       * `override_variant_uuid`: ID of the challenge option to show if the traffic matches the rule. If the parameter is not specified, the user will get the default challenge.
+       * `override_variant_uuid`: ID of the challenge option you get if the traffic is in line with the rule. If the parameter is not specified, the user will get the default challenge.
        * `condition`: One or more [conditions for the incoming traffic](../concepts/captcha-variants.md#traffic-conditions). This is an optional setting.
 
      For more information about `yandex_smartcaptcha_captcha` properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
@@ -364,25 +366,25 @@ Create a CAPTCHA with rules for incoming traffic and the following test specific
   * Challenge difficulty: `HARD`.
   * Main challenge type: `SLIDER`.
   * Additional challenge type: `IMAGE_TEXT`.
-* Parameters of the first challenge option:
+* First challenge option settings:
   * Unique option ID: `variant-1`.
   * Option description: `Simple variant`.
   * Challenge difficulty: `EASY`.
   * Main challenge type: `CHECKBOX`.
   * Additional challenge type: `SILHOUETTES`.
-* Parameters of the second challenge option:
+* Second challenge option settings:
   * Unique option ID: `variant-2`.
   * Option description: `Hard variant`.
   * Challenge difficulty: `HARD`.
   * Main challenge type: `SLIDER`.
   * Additional challenge type: `KALEIDOSCOPE`.
-* First rule parameters for incoming traffic:
+* First incoming traffic rule settings:
   * Rule name: `rule-1`.
   * Rule priority: `11`.
   * Rule description: `My first security rule`.
   * Challenge option ID: `variant-1`.
-  * Conditions for incoming traffic: The host matches `example.com` or `example.net`.
-* Second rule parameters for incoming traffic:
+  * Conditions for incoming traffic: host matches `example.com` or `example.net`.
+* Second incoming traffic rule settings:
   * Rule name: `rule-2`.
   * Rule priority: `12`.
   * Rule description: `My second security rule`.
@@ -453,7 +455,7 @@ Create a CAPTCHA with rules for incoming traffic and the following test specific
 
 - {{ TF }} {#tf}
 
-  1. In the {{ TF }} configuration file, describe the resource parameters, including the challenge options and rules for incoming traffic:
+  1. In the {{ TF }} configuration file, describe the resource parameters, including the challenge options and incoming traffic rules:
 
      ```hcl
      resource "yandex_smartcaptcha_captcha" "advanced-captcha" {

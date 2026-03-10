@@ -18,7 +18,7 @@ Analyzing {{ sws-full-name }} logs enables you to:
   In this mode, the system does not block user requests but logs rule matches.
 
 * View the number of blocked and allowed requests, evaluate and adjust rule performance.
-* View detailed request information and identify false positives.
+* View detailed request information and and identify false positives.
 * Investigate security incidents.
 
 You can set up logging in {{ sws-full-name }} using either [{{ cloud-logging-full-name }}](../../logging/) or [{{ at-full-name }}](../../audit-trails/).
@@ -42,6 +42,12 @@ To get started with {{ sws-name }} logs:
 ## Enable logging {#enable-logging}
 
 You can enable logging when [creating a security profile](profile-create.md) or later, when editing it:
+
+{% note info %}
+
+To enable or disable [logging](../concepts/logging.md) in a security profile, you need the `smart-web-security.editor` [role](../security/index.md#smart-web-security-editor) or higher for the security profile [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), as well as the `logging.writer` [role](../../logging/security/index.md#logging-writer) or higher for the target [log group](../../logging/concepts/log-group.md).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -68,7 +74,7 @@ You can enable logging when [creating a security profile](profile-create.md) or 
 
 - {{ at-name }} {#at}
 
-  You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, or data stream in {{ yds-name }}. In this guide, we will set up logging of events to a log group.
+  You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, data stream in {{ yds-name }}, or bus in {{ er-name }}. In this guide, we will set up logging of events to a log group.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
