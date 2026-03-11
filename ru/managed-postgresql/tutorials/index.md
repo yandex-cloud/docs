@@ -27,6 +27,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](glibc-collation-issues.md)
 * [{#T}](data-recording.md)
 * [{#T}](conn-man-secret-access.md)
+* [{#T}](job-pyspark-secret-access.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

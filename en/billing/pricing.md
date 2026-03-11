@@ -78,6 +78,7 @@ The cost of billable services is calculated based on the amount of consumed reso
 * [{{ myt-full-name }}](../managed-ytsaurus/pricing.md)
 * [{{ message-queue-full-name }}](../message-queue/pricing.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
+* [{{ monium-name }}](../monium/pricing.md)
 * [{{ monitoring-full-name }}](../monitoring/pricing.md)
     * [{{ monitoring-short-name }} API](../monitoring/pricing.md#monitoring-api)
     * [{{ prometheus-name }} Remote API](../monitoring/pricing.md#prometheus-remote-api)

@@ -28,10 +28,10 @@ meta:
 links:
   - title: Начало работы
     description: Узнайте как развернуть сервис на своем оборудовании
-    href: quickstart
+    href: quickstart.md
   - title: Системные требования
     description: Узнайте системные требования для SpeechKit Hybrid
-    href: system-requirements
+    href: system-requirements.md
   - title: Синтез речи
     description: Как развернуть сервис преобразования текста в речь
     href: tts/
@@ -40,7 +40,7 @@ links:
     href: stt/
   - title: Мониторинг
     description: Сбор и хранение метрик
-    href: monitoring
+    href: monitoring.md
   - title: Использование API
     description: Узнайте об аутентификации в API и ознакомьтесь со справочниками API
-    href: auth
+    href: auth.md

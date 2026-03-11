@@ -58,6 +58,10 @@ Rules for checking cloud resource configuration.
 
 {% include [appsec.use-waf](../../_security-deck-rules/rules/cspm/appsec.use-waf.md) %}
 
+{% include [appsec.secure-registry](../../_security-deck-rules/rules/cspm/appsec.secure-registry.md) %}
+
+{% include [aws-token](../../_security-deck-rules/rules/cspm/aws-token.md) %}
+
 {% include [compute.snapshot](../../_security-deck-rules/rules/cspm/compute.snapshot.md) %}
 
 {% include [crypto.certificate-validity](../../_security-deck-rules/rules/cspm/crypto.certificate-validity.md) %}
@@ -86,13 +90,21 @@ Rules for checking cloud resource configuration.
 
 {% include [db.db-deletion-protection](../../_security-deck-rules/rules/cspm/db.db-deletion-protection.md) %}
 
+{% include [cookie-timeout.organization](../../_security-deck-rules/rules/cspm/cookie-timeout.organization.md) %}
+
 {% include [k8s.audit-logs](../../_security-deck-rules/rules/cspm/k8s.audit-logs.md) %}
 
 {% include [k8s.backup](../../_security-deck-rules/rules/cspm/k8s.backup.md) %}
 
 {% include [k8s.kubernetes-safe-config](../../_security-deck-rules/rules/cspm/k8s.kubernetes-safe-config.md) %}
 
+{% include [k8s.network-firewall-scope](../../_security-deck-rules/rules/cspm/k8s.network-firewall-scope.md) %}
+
+{% include [k8s.network-policy](../../_security-deck-rules/rules/cspm/k8s.network-policy.md) %}
+
 {% include [k8s.version-update](../../_security-deck-rules/rules/cspm/k8s.version-update.md) %}
+
+{% include [iam.group-membership-admin](../../_security-deck-rules/rules/cspm/iam.group-membership-admin.md) %}
 
 {% include [network.db-ip](../../_security-deck-rules/rules/cspm/network.db-ip.md) %}
 
@@ -108,6 +120,8 @@ Rules for checking cloud resource configuration.
 
 {% include [network.recursive-dns-resolvers](../../_security-deck-rules/rules/cspm/network.recursive-dns-resolvers.md) %}
 
+{% include [network.serverless-uses-vpc](../../_security-deck-rules/rules/cspm/network.serverless-uses-vpc.md) %}
+
 {% include [network.ydb-public](../../_security-deck-rules/rules/cspm/network.ydb-public.md) %}
 
 {% include [o11y.application-logs-audited](../../_security-deck-rules/rules/cspm/o11y.application-logs-audited.md) %}
@@ -118,9 +132,17 @@ Rules for checking cloud resource configuration.
 
 {% include [o11y.os-logs-audited](../../_security-deck-rules/rules/cspm/o11y.os-logs-audited.md) %}
 
+{% include [o11y.data-plane-events](../../_security-deck-rules/rules/cspm/o11y.data-plane-events.md) %}
+
 {% include [procedure.admin-secrets-leak-mitigation](../../_security-deck-rules/rules/cspm/procedure.admin-secrets-leak-mitigation.md) %}
 
 {% include [procedure.organization-contacts](../../_security-deck-rules/rules/cspm/procedure.organization-contacts.md) %}
 
 {% include [runtime.vm-environment-integrity](../../_security-deck-rules/rules/cspm/runtime.vm-environment-integrity.md) %}
+
+{% include [s3.used-object-lock](../../_security-deck-rules/rules/cspm/s3.used-object-lock.md) %}
+
+{% include [trusted-ip](../../_security-deck-rules/rules/cspm/trusted-ip.md) %}
+
+{% include [trusted-ip-k8s](../../_security-deck-rules/rules/cspm/trusted-ip-k8s.md) %}
 

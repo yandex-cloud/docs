@@ -134,7 +134,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя сервисного аккаунта, например, `sa-terraform`.
 
@@ -142,15 +142,14 @@
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    1. Назначьте аккаунту [роль](../../iam/concepts/access-control/roles.md) администратора:
 
          1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите облако.
-         1. Перейдите на вкладку **Права доступа**.
-         1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg).
-         1. Нажмите кнопку **Изменить роли**.
-         1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `admin`. 
+         1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+         1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+         1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `admin`. 
 
 - CLI {#cli}
 

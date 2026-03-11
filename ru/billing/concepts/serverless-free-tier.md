@@ -38,6 +38,7 @@ Free tier распространяется на сервисы:
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ message-queue-full-name }}](#message-queue)
+* [{{ monium-name }}](#monium)
 * [{{ monitoring-full-name }}](#monitoring)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ yq-full-name }}](#yq)
@@ -175,6 +176,16 @@ Free tier распространяется на сервисы:
 {% include [not-charged-queue.md](../../_includes/pricing/price-formula/not-charged-queue.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../message-queue/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+## {{ monium-name }} {#monium}
+
+[{{ monium-name }}](../../monium/quickstart.md) — платформа для наблюдения и анализа работы сервисов {{ yandex-cloud }} или вашей инфраструктуры и приложений.
+
+{% include [not-charged-monium.md](../../_includes/pricing/price-formula/not-charged-monium.md) %}
+
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../monium/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

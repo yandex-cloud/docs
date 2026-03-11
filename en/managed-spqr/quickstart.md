@@ -86,7 +86,7 @@ To get started:
 
          If you plan to connect to the cluster from the internet, enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** for the hosts.
 
-1. Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}**, enable **{{ ui-key.yacloud.spqr.field_coordinator }}** and specify the coordinator host configuration.
+1. Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}** specify the coordinator host configuration.
 1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
 
     * Database name. It must be unique within the folder.

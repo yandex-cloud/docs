@@ -71,7 +71,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например, `sa-terraform`.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -110,10 +110,9 @@
    - Консоль управления {#console}
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg).
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `admin`.
+      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}
 
@@ -286,7 +285,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Выберите сервис **{{ network-load-balancer-name }}** и перейдите на страницу сетевого балансировщика `route-switcher-lb-...`.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** и перейдите на страницу сетевого балансировщика `route-switcher-lb-...`.
       1. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов имеет статус `Healthy`. 
 
    {% endlist %}
@@ -317,9 +316,9 @@
    - Консоль управления {#console}
   
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. В списке ВМ выберите `test-vm`.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+      1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
       1. Дождитесь полной загрузки операционной системы.
 
    {% endlist %}
@@ -366,7 +365,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
@@ -408,7 +407,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный в каталог.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Выберите ВМ `nat-a` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 

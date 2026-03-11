@@ -22,6 +22,12 @@ description: Следуя данной инструкции, вы узнаете
   1. В блоке **{{ ui-key.yacloud_org.dspm.scan-jobs.field_data-sources }}** выберите нужный источник данных с бакетами [{{ objstorage-name }}](../../../storage/).
 
       При необходимости [создайте](./create-data-source.md) новый источник данных.
+      
+      {% note info %}
+
+      Если доступ бакету контролируется [политикой](../../../storage/security/policy.md#conditional-writes-policy), разрешите доступ к IP-адресам {{ sd-name }} в настройках политики бакета. Список адресов см. в разделе [Диапазоны публичных IP-адресов](../../../overview/concepts/public-ips.md#security-deck-ips).
+
+      {% endnote %}
 
   1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться сканирование. При необходимости нажмите **{{ ui-key.yacloud_org.iam.folder.service-accounts.dialog_select-service-account_create-new-action }}**, чтобы создать новый сервисный аккаунт.
 

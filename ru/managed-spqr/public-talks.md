@@ -33,6 +33,12 @@ description: Видеозаписи конференций и вебинаров
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+### 2026 год {#2026-conf-and-webinars}
+
+* Запуск {{ mspqr-full-name }} в Public Preview.
+
+  * [Запись вебинара](https://www.youtube.com/watch?v=CJue0zzvbLA).
+
 ### 2024: Saint HighLoad++ {#highload-2024}
 
 * Балансировка нагрузки шардированного {{ PG }} не своими руками.

@@ -53,6 +53,8 @@ items:
             href: operations/resources/labeling.md
           - name: Настройка выделенной IP-адресации
             href: operations/resources/dedicated-ip-addressing.md
+          - name: Настройка профиля безопасности TLS
+            href: operations/resources/configure-tls-profile.md
           - name: Удалить ресурс
             href: operations/resources/delete-resource.md
           - name: Посмотреть статистику ресурса

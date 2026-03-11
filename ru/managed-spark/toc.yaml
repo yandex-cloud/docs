@@ -63,6 +63,10 @@ items:
         href: tutorials/spark-simple-rw-job.md
       - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
         href: tutorials/airflow-spark-min.md
+      - name: >-
+          Использование секрета {{ lockbox-name }} в PySpark-задании для
+          подключения к {{ mpg-full-name }}
+        href: tutorials/job-pyspark-secret-access.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: tutorials/airflow-automation.md
   - name: Концепции

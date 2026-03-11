@@ -17,6 +17,7 @@ keywords:
 * [Управление хостами кластера](cluster-hosts.md)
 * [Управление шардами](shards.md)
 * [Подключение к базе данных](connect.md)
+* [Управление резервными копиями](cluster-backups.md)
 * [Техническое обслуживание](cluster-maintenance.md)
 * [Просмотр логов кластера](cluster-logs.md)
 * [Удаление кластера](cluster-delete.md)
