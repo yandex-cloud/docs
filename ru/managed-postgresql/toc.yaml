@@ -150,6 +150,10 @@ items:
       - name: Запись данных с устройства в базу данных
         href: tutorials/data-recording.md
       - name: >-
+          Подключение к {{ mpg-name }} из PySpark-задания в {{ msp-full-name }}
+          с использованием секрета {{ lockbox-name }}
+        href: tutorials/job-pyspark-secret-access.md
+      - name: >-
           Настройка прав доступа к секрету, созданному {{
           connection-manager-name }}, для пользователя {{ mpg-name }}
         href: tutorials/conn-man-secret-access.md

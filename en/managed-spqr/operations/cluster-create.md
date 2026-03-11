@@ -51,7 +51,7 @@ keywords:
         * For standard sharding, specify the infrastructure host configuration under **{{ ui-key.yacloud.spqr.section_infra }}**.
         * For advanced sharding, specify the router host configuration under **{{ ui-key.yacloud.spqr.section_router }}**.
 
-            Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}**, enable **{{ ui-key.yacloud.spqr.field_coordinator }}** and specify the coordinator host configuration.
+            Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}** specify the coordinator host configuration.
 
         To specify your computing resource configuration:
 

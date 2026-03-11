@@ -18,6 +18,8 @@ items:
         href: operations/cluster-hosts.md
       - name: Управление шардами
         href: operations/shards.md
+      - name: Управление резервными копиями
+        href: operations/cluster-backups.md
       - name: Техническое обслуживание
         href: operations/cluster-maintenance.md
       - name: Просмотр логов кластера

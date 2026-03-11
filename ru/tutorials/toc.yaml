@@ -1256,6 +1256,10 @@ items:
       - name: Решение проблем с сортировкой строк в {{ PG }} после обновления glibc
         href: dataplatform/postgresql-glibc-collation-issues.md
       - name: >-
+          Использование секрета {{ lockbox-name }} в PySpark-задании для
+          подключения к {{ mpg-full-name }}
+        href: dataplatform/job-pyspark-secret-access.md
+      - name: >-
           Настройка прав доступа к секрету, созданному {{
           connection-manager-name }}, для пользователя {{ mpg-name }}
         href: dataplatform/conn-man-secret-access.md
@@ -1359,6 +1363,10 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: >-
+          Использование секрета {{ lockbox-name }} в PySpark-задании для
+          подключения к {{ mpg-full-name }}
+        href: dataplatform/job-pyspark-secret-access.md
       - name: Запуск PySpark-задания в {{ myt-full-name }}
         href: dataplatform/yt-run-spark-job.md
   - name: Продукты Microsoft в {{ yandex-cloud }}

@@ -72,6 +72,22 @@ The final cost of a custom configuration depends on the server components you se
 
 #### Server configurations at reduced prices {#promo}
 
+##### Reduced prices from 09/03/2026 to 17/04/2026 {#09-03-17-04-2026}
+
+You can rent servers with these configuration options until March 31, 2026, or as long as they are available. The price is valid once you complete the purchase and for the entire period of use. You can use the servers you rented at a discounted price until you cancel your rent on your own. Once you cancel, you will not be able to get a server at a discounted price again.
+
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|baremetal }}']}
+    skuIds={['{{ pc|baremetal.server.bf261_i502.1_day }}', '{{ pc|baremetal.server.bf261_i502.1_month }}', '{{ pc|baremetal.server.bf261_i502.3_month }}', '{{ pc|baremetal.server.bf261_i502.6_month }}', '{{ pc|baremetal.server.bf261_i502.12_month }}', '{{ pc|baremetal.server.bf261_i203.1_day }}', '{{ pc|baremetal.server.bf261_i203.1_month }}', '{{ pc|baremetal.server.bf261_i203.3_month }}', '{{ pc|baremetal.server.bf261_i203.6_month }}', '{{ pc|baremetal.server.bf261_i203.12_month }}', '{{ pc|baremetal.server.bf261_i206.1_day }}', '{{ pc|baremetal.server.bf261_i206.1_month }}', '{{ pc|baremetal.server.bf261_i206.3_month }}', '{{ pc|baremetal.server.bf261_i206.6_month }}', '{{ pc|baremetal.server.bf261_i206.12_month }}', '{{ pc|baremetal.server.bf261_i208.1_day }}', '{{ pc|baremetal.server.bf261_i208.1_month }}', '{{ pc|baremetal.server.bf261_i208.3_month }}', '{{ pc|baremetal.server.bf261_i208.6_month }}', '{{ pc|baremetal.server.bf261_i208.12_month }}', '{{ pc|baremetal.server.bf261_i302.1_day }}', '{{ pc|baremetal.server.bf261_i302.1_month }}', '{{ pc|baremetal.server.bf261_i302.3_month }}', '{{ pc|baremetal.server.bf261_i302.6_month }}', '{{ pc|baremetal.server.bf261_i302.12_month }}', '{{ pc|baremetal.server.bf261_i216.1_day }}', '{{ pc|baremetal.server.bf261_i216.1_month }}', '{{ pc|baremetal.server.bf261_i216.3_month }}', '{{ pc|baremetal.server.bf261_i216.6_month }}', '{{ pc|baremetal.server.bf261_i216.12_month }}', '{{ pc|baremetal.server.bf261_i215.1_day }}', '{{ pc|baremetal.server.bf261_i215.1_month }}', '{{ pc|baremetal.server.bf261_i215.3_month }}', '{{ pc|baremetal.server.bf261_i215.6_month }}', '{{ pc|baremetal.server.bf261_i215.12_month }}', '{{ pc|baremetal.server.bf261_i209.1_day }}', '{{ pc|baremetal.server.bf261_i209.1_month }}', '{{ pc|baremetal.server.bf261_i209.3_month }}', '{{ pc|baremetal.server.bf261_i209.6_month }}', '{{ pc|baremetal.server.bf261_i209.12_month }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
 ##### Reduced prices from 27/11/2025 to 29/12/2025 {#27-11-19-12-2025}
 
 You can rent servers with these configuration options until December 29, 2025, or as long as they are available. The price is valid once you complete the purchase and for the entire period of use. You can use the servers you rented at a discounted price until you cancel your rent on your own. Once you cancel, you will not be able to get a server at a discounted price again.

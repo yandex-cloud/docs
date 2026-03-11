@@ -4,7 +4,11 @@
 
 #### Можно ли изменить срок хранения автоматических резервных копий? {#backup-retain-days}
 
-При [создании](../../managed-postgresql/operations/cluster-create.md) или [изменении](../../managed-postgresql/operations/update.md#change-additional-settings) кластера можно задать срок хранения автоматических резервных копий.
+Вы можете задать срок хранения автоматических резервных копий:
+
+* При [создании](../../managed-postgresql/operations/cluster-create.md) или [изменении](../../managed-postgresql/operations/update.md#change-additional-settings) кластера. Возможные значения: от 7 до 60 дней.
+
+* При [создании](../../managed-postgresql/operations/backup-retention-policies.md#create-policy) политик резервного копирования. Возможные значения: от 7 до 1095 дней (до трех лет).
 
 #### Нужен ли плагин wal2json, если выполняется только реплицирование, но не копирование данных? {#wal2json}
 

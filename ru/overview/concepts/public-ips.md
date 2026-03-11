@@ -43,6 +43,12 @@
 {% include [sws-ip-list](../../_includes/sws-ips.md) %}
 
 
+### {{ sd-name }} {#security-deck-ips}
+
+#### {{ dspm-name }} {#dspm}
+
+{% include [security-deck-dspm-ip-ru](../../_includes/public-ip/ru/security-deck-dspm.md) %}
+
 
 ## Адреса, используемые {{ yandex-cloud }} для работы сервисов {#yandex-cloud-ips}
 

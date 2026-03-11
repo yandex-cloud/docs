@@ -71,6 +71,22 @@ editable: false
 
 #### Конфигурации серверов по сниженным ценам {#promo}
 
+##### Сниженные цены с 09.03.2026 до 17.04.2026 {#09-03-17-04-2026}
+
+Арендовать данные конфигурации можно до 31.03.2026 или пока они есть в наличии. Цена действительна с момента приобретения на весь срок использования. Вы можете использовать арендованные по сниженной цене серверы до тех пор, пока самостоятельно не отмените их аренду. Получить повторно сервер по сниженной цене нельзя.
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|baremetal }}']}
+    skuIds={['{{ pc|baremetal.server.bf261_i502.1_day }}', '{{ pc|baremetal.server.bf261_i502.1_month }}', '{{ pc|baremetal.server.bf261_i502.3_month }}', '{{ pc|baremetal.server.bf261_i502.6_month }}', '{{ pc|baremetal.server.bf261_i502.12_month }}', '{{ pc|baremetal.server.bf261_i203.1_day }}', '{{ pc|baremetal.server.bf261_i203.1_month }}', '{{ pc|baremetal.server.bf261_i203.3_month }}', '{{ pc|baremetal.server.bf261_i203.6_month }}', '{{ pc|baremetal.server.bf261_i203.12_month }}', '{{ pc|baremetal.server.bf261_i206.1_day }}', '{{ pc|baremetal.server.bf261_i206.1_month }}', '{{ pc|baremetal.server.bf261_i206.3_month }}', '{{ pc|baremetal.server.bf261_i206.6_month }}', '{{ pc|baremetal.server.bf261_i206.12_month }}', '{{ pc|baremetal.server.bf261_i208.1_day }}', '{{ pc|baremetal.server.bf261_i208.1_month }}', '{{ pc|baremetal.server.bf261_i208.3_month }}', '{{ pc|baremetal.server.bf261_i208.6_month }}', '{{ pc|baremetal.server.bf261_i208.12_month }}', '{{ pc|baremetal.server.bf261_i302.1_day }}', '{{ pc|baremetal.server.bf261_i302.1_month }}', '{{ pc|baremetal.server.bf261_i302.3_month }}', '{{ pc|baremetal.server.bf261_i302.6_month }}', '{{ pc|baremetal.server.bf261_i302.12_month }}', '{{ pc|baremetal.server.bf261_i216.1_day }}', '{{ pc|baremetal.server.bf261_i216.1_month }}', '{{ pc|baremetal.server.bf261_i216.3_month }}', '{{ pc|baremetal.server.bf261_i216.6_month }}', '{{ pc|baremetal.server.bf261_i216.12_month }}', '{{ pc|baremetal.server.bf261_i215.1_day }}', '{{ pc|baremetal.server.bf261_i215.1_month }}', '{{ pc|baremetal.server.bf261_i215.3_month }}', '{{ pc|baremetal.server.bf261_i215.6_month }}', '{{ pc|baremetal.server.bf261_i215.12_month }}', '{{ pc|baremetal.server.bf261_i209.1_day }}', '{{ pc|baremetal.server.bf261_i209.1_month }}', '{{ pc|baremetal.server.bf261_i209.3_month }}', '{{ pc|baremetal.server.bf261_i209.6_month }}', '{{ pc|baremetal.server.bf261_i209.12_month }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
 ##### Сниженные цены с 27.11.2025 до 29.12.2025 {#27-11-19-12-2025}
 
 Арендовать данные конфигурации можно до 29.12.2025 или пока они есть в наличии. Цена действительна с момента приобретения на весь срок использования. Вы можете использовать арендованные по сниженной цене серверы до тех пор, пока самостоятельно не отмените их аренду. Получить повторно сервер по сниженной цене нельзя.

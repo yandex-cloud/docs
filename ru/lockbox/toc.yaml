@@ -78,6 +78,10 @@ items:
         href: tutorials/bucket-to-bucket-copying.md
       - name: Безопасная передача пароля в скрипт инициализации
         href: tutorials/secure-password-script.md
+      - name: >-
+          Использование секрета в PySpark-задании для подключения к {{
+          mpg-full-name }}
+        href: tutorials/job-pyspark-secret-access.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

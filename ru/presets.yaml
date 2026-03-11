@@ -1485,6 +1485,54 @@ default:
         12_month: dn25hwpkrssemaq7vhw5
         3_month: dn24i3flk7h7us7ereho
         6_month: dn2zadeby6pmzuwge6cf
+      bf261_i203:
+        1_day: dn26a35wnvxwa5sgmu7t
+        1_month: dn2byn2wdoaxyjww5gdc
+        12_month: dn2hdvjj3vzgxfqb3ufr
+        3_month: dn2rhz4o25an5dfbsuh3
+        6_month: dn2tqk4xny5nne2zudct
+      bf261_i206:
+        1_day: dn26jtblnavigreh6b66
+        1_month: dn2fvnfjytafpwgch77a
+        12_month: dn2ljuma6jkt2ljhmml2
+        3_month: dn2i3aosxrrlbr6o7fit
+        6_month: dn27gbr3i2s354nf6pjc
+      bf261_i208:
+        1_day: dn2ccunv5arpgsgpyhzh
+        1_month: dn2tlnntuwqj3ajlu36f
+        12_month: dn26woblcyic2w2jkxls
+        3_month: dn2r5og6a3rktscvyt3u
+        6_month: dn2wd4haaztuyp23ddvf
+      bf261_i209:
+        1_day: dn2o5zr2wju3h4igd7pr
+        1_month: dn2wpntyyyjp74snjwto
+        12_month: dn22225727nosasxpx7x
+        3_month: dn2mdisqxt7ovcghhqxf
+        6_month: dn2w4l2apfrkoziy3q5y
+      bf261_i215:
+        1_day: dn2f7gymv2zkuqdkw5zd
+        1_month: dn2buics75hq2s2kpgqp
+        12_month: dn2stcjgbglx5sltdmt5
+        3_month: dn2cqmk6cjzipg3q4yrp
+        6_month: dn2hgvcfcpmhnbnt47gq
+      bf261_i216:
+        1_day: dn2azxgn2mxg54yg5nez
+        1_month: dn2cz5wqhjypentqpoiw
+        12_month: dn2tvmid7ri7e6mzrdwj
+        3_month: dn2bkjhmcb7m5dwkb775
+        6_month: dn2hibmi2r6x7sclto7b
+      bf261_i302:
+        1_day: dn2enmbd76owfw7smwra
+        1_month: dn2lskpe3xu5d7jadhj7
+        12_month: dn2y2e3cozywf6367wsw
+        3_month: dn2s7lb3kkq4ev3bgjlp
+        6_month: dn24qijoyjjcduohp7f6
+      bf261_i502:
+        1_day: dn26bqijeboutklaqbzn
+        1_month: dn2uuzaajwzdmsh4kluk
+        12_month: dn2ajehb5v5zgudjtf7n
+        3_month: dn2cym764mbfzb5ocdyi
+        6_month: dn2ddsgk7wsbw7d2zuol
       ha_i302_s_10g:
         1_day: dn2c2vkpanbck1rpp6l8
         1_month: dn26an39ra4lmdlcoea8
@@ -4738,7 +4786,7 @@ default:
           section:
             certificates: Сертификаты
         user:
-          action_edit-user: Редактировать атрибуты
+          action_edit-user: Редактировать
           field_user-email: Электронная почта
           field_user-familyname: Фамилия
           field_user-givenname: Имя
@@ -8387,7 +8435,6 @@ default:
             summarization-label_rm8oc: Обработка результатов
       spqr:
         console_password: Пароль для консоли Sharded PostgreSQL
-        field_coordinator: Координатор
         section_coordinator: Координатор
         section_hosts: Хосты
         section_infra: Инфраструктура
