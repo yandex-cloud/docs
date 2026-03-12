@@ -43,7 +43,11 @@ Possible property names:
 
 - `public-subnet-name`: Specifies the name of the public subnet that the interface will be part of.
 
-- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface. ||
+- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface.
+
+- `tagged-subnet-ids`: Specifies the IDs of the additional private subnets to be assigned as VLAN-tagged subinterfaces.
+
+- `tagged-subnet-names`: Specifies the names of the additional private subnets to be assigned as VLAN-tagged subinterfaces. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||

@@ -359,22 +359,22 @@
          get:
            x-yc-apigateway-integration:
              type: object_storage
-             bucket: <имя_бакета> # <-- имя бакета
+             bucket: <имя_бакета>
              object: index.html # <-- имя html-файла
              presigned_redirect: false
-             service_account: <service_account_id> # <-- ID сервисного аккаунта
+             service_account_id: <идентификатор_сервисного_аккаунта>
            operationId: static
        /shorten:
          post:
            x-yc-apigateway-integration:
              type: cloud_functions
-             function_id: <function_id> # <-- ID функции
+             function_id: <идентификатор_функции>
            operationId: shorten
        /r/{id}:
          get:
            x-yc-apigateway-integration:
              type: cloud_functions
-             function_id: <function_id> # <-- ID функции
+             function_id: <идентификатор_функции>
            operationId: redirect
            parameters:
            - description: id of the url
@@ -390,8 +390,8 @@
      {% endcut %}
 
      Внесите правки в код спецификации:
-     * Замените `<service_account_id>` на идентификатор созданного ранее сервисного аккаунта.
-     * Замените `<function_id>` на идентификатор созданной ранее функции.
+     * Замените `<идентификатор_сервисного_аккаунта>` на идентификатор созданного ранее сервисного аккаунта.
+     * Замените `<идентификатор_функции>` на идентификатор созданной ранее функции.
      * Замените `<имя_бакета>` на имя созданного ранее бакета.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Нажмите на имя созданного API-шлюза.

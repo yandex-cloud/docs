@@ -3902,6 +3902,9 @@ default:
             label_quota-name-iam:
               serviceAccounts:
                 count: Number of service accounts
+        folder:
+          dashboard:
+            label_compute: Compute Cloud
     yacloud_components:
       acl:
         action:
@@ -4374,6 +4377,10 @@ default:
           dashboard-info:
             section_contract: Information about the agreement
             title_main: Account information
+          detail:
+            button_create-periodic-export: Periodic export
+            button_download-details: Export usage details
+            popup-export_button_download: Download
           entities:
             label_title: Clouds and services
             label_type: Type
@@ -5407,6 +5414,11 @@ default:
           field_files-filters: File filters
           field_inclusion-masks: Only backup files that meet the following criteria
           field_multivolume-snapshot: Multivolume snapshot
+        PolicyForm:
+          PrePostDataCommandCardBlock:
+            field_post-data-command-enabled_rXvwj: Run the command after data capture
+            field_pre-data-command-enabled_sZ45C: Run the command before data capture
+            field_pre-post-data-command_mmRTZ: Commands before and after data capture
         title_backup: Backups
         title_linked-recourses: Attached resources
         title_select-vm-backup-policies-row: Backup policies
@@ -5872,6 +5884,8 @@ default:
           button_new-bindings: Assign roles
           button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
+          label_access-bindings-in-iam:
+            serviceAccount: Access bindings to the service account
           label_bindings: Roles
           label_service-account: Service account
           label_subject: User

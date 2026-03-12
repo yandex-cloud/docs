@@ -31,6 +31,8 @@ The minimum billing unit of outgoing traffic is 1 GB.
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+### Video hosting {#hosting}
+
 
 
 <MDX>
@@ -43,10 +45,31 @@ The minimum billing unit of outgoing traffic is 1 GB.
 </MDX>
 
 
+### Streams {#streams}
 
-### Cost calculation example {#price-example}
+{% note warning %}
 
-Let’s assume you need to calculate the monthly cost for using {{ video-name }} as per the following data:
+Prices take effect on March 23, 2026.
+
+{% endnote %}
+
+When using [streams](concepts/streams.md), you are charged for the following:
+
+* Transcoding: Fee for converting the stream video content.
+* Storage: Fee for storing stream recordings.
+* Outgoing traffic: Fee for transmitting video content from the {{ yandex-cloud }} CDN servers to the internet, see [Video hosting](#hosting).
+
+
+
+{% include [usd.md](../_pricing/video/usd-streams.md) %}
+
+
+
+## Cost calculation examples {#price-example}
+
+### Video hosting cost {#hosting-example}
+
+Let's assume you need to calculate the monthly cost for using {{ video-name }} as per the following data:
 
 * Number of uploaded videos: `10 items`.
 * Duration of each video: `10 minutes`.
@@ -60,4 +83,17 @@ We also assume that the videos (both the original and the streaming content) are
 
 
 {% include notitle [usd-video.md](../_pricing_examples/video/usd-video.md) %}
+
+
+### Streams cost {#stream-example}
+
+Let's assume you need to calculate the monthly cost for a stream as per the following data:
+
+* Stream duration: `60 minutes`.
+* Stream recording size: `3 GB`.
+* Outgoing traffic (total size of the transmitted content when viewed): `20 GB`.
+
+
+
+{% include notitle [usd-streams.md](../_pricing_examples/video/usd-streams.md) %}
 

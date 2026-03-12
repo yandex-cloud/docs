@@ -17,6 +17,8 @@ IngressBackendGroup is a Gwin custom resource for configuring backend groups in 
   * [LoadBalancingConfig](#loadbalancingconfig)
   * [SessionAffinity](#sessionaffinity)
   * [BackendTLS](#backendtls)
+  * [IngressBackendGroupAttach](#ingressbackendgroupattach)
+  * [BackendGroupAttach](#backendgroupattach)
 * [IngressBackendGroupStatus](#ingressbackendgroupstatus)
 
 ## Cheatsheet
@@ -38,6 +40,7 @@ metadata:
 spec:
   # Type of the backend group (HTTP, GRPC or STREAM)
   type: HTTP
+
   # Session affinity configuration
   sessionAffinity:
     connection:
@@ -47,6 +50,14 @@ spec:
       ttl: "3600s"
     header:
       name: "X-Session-ID"
+
+  # Attach to existing ALB infrastructure
+  attach:
+    backendGroup:
+      id: "backend-group-id-1"  # existing backend group ID
+      dontUpdatePaths: ["name", "description"]  # fields not to update
+    ingressClass: "yandex-cloud-ingress"  # ingress class filter
+
   # List of backends
   backends:
     - name: "primary-backend"
@@ -131,6 +142,7 @@ IngressBackendGroupSpec defines the desired state of IngressBackendGroup.
 | type | **string** <br> Type of the backend group. Enum: `HTTP`, `GRPC`, `STREAM`. <br> Example: `HTTP` |
 | sessionAffinity | **[SessionAffinity](#sessionaffinity)** <br> Session affinity configuration for the backend group <br> For details about the concept, see [documentation](https://yandex.cloud/en/docs/application-load-balancer/concepts/backend-group#session-affinity). |
 | backends | **[[]IngressBackend](#ingressbackend)** <br> List of backends that the backend group consists of. Minimum: 1 backend required. |
+| attach | **[IngressBackendGroupAttach](#ingressbackendgroupattach)** <br> Configures backend group attachment to existing cloud resources. |
 
 ### IngressBackend
 
@@ -320,6 +332,28 @@ Health check TLS settings work the same way, but are configured separately.
 |-------|-------------|
 | id | **string** <br> Cloud certificate ID. <br> Example: `fpq6gvvm6piu********` |
 | bytes | **string** <br> X.509 certificate contents in PEM format. <br> Example: `-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----` |
+
+## IngressBackendGroupAttach
+
+IngressBackendGroupAttach configures ingress backend group attachment to existing cloud resources.
+
+*Appears in*: [IngressBackendGroupSpec](#ingressbackendgroupspec)
+
+| Field | Description |
+|-------|-------------|
+| ingressClass | **string** <br> Specifies the ingress class that should manage this backend group. If specified and the corresponding ingressClass is not managed by the controller, the backend group is ignored. This is useful for advanced scenarios where multiple controllers might be present. <br> Example: `yandex-cloud-ingress` |
+| backendGroup | **[BackendGroupAttach](#backendgroupattach)** <br> Configures attachment to an existing cloud backend group. |
+
+## BackendGroupAttach
+
+BackendGroupAttach configures attachment to an existing cloud backend group.
+
+*Appears in*: [IngressBackendGroupAttach](#ingressbackendgroupattach)
+
+| Field | Description |
+|-------|-------------|
+| id | **string** <br> Cloud backend group ID that should be managed by this ingress backend group. The controller will attach to this existing backend group instead of creating a new one. <br> Example: `backend-group-id-1` |
+| dontUpdatePaths | **[]string** <br> Specifies which fields should NOT be updated by the controller. Default is "name" - the controller doesn't touch the group name. <br> Example: `["name", "description"]` |
 
 ## IngressBackendGroupStatus
 

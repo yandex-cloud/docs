@@ -38,6 +38,8 @@ RoutePolicy is a Gwin custom resource for configuring route-level policies in Ya
   * [Principal](#principal)
   * [HeaderPrincipal](#headerprincipal)
   * [IPPrincipal](#ipprincipal)
+  * [RouteRuleAttach](#routeruleattach)
+  * [BackendGroupAttach](#backendgroupattach)
 * [RoutePolicyStatus](#routepolicystatus)
 
 ## Cheatsheet
@@ -163,7 +165,6 @@ spec:
           substitute: "\\2/instance/\\1"  # substitution with capture groups
       
       # Security
-      securityProfileID: "security-profile-1"  # WAF profile for routes
       rbac:
         action: "ALLOW"  # default RBAC action
         principals:
@@ -175,6 +176,13 @@ spec:
             check-ip:
               ip:
                 remoteIp: "10.0.0.0/8"
+      
+      # Attach to existing ALB infrastructure
+      attach:
+        backendGroup:
+          id: "backend-group-id-1"  # existing backend group ID
+          dontUpdatePaths: ["name", "description"]  # fields not to update
+        gatewayClass: "yandex-cloud-gateway"  # gateway class filter
     
     # Specific rule settings (conflict with global settings is an error)
     rule:
@@ -182,6 +190,9 @@ spec:
         backends:
           balancing:
             mode: "LEAST_REQUEST"  # per-rule balancing
+        attach:
+          backendGroup:
+            id: "rule-backend-group-id"  # per-rule attach
         ...
 
     # Common hosts settings (applies to all hosts)
@@ -296,8 +307,8 @@ Route rule configuration that combines backend group and route settings.
 | rateLimit | **[RateLimit](#ratelimit)** <br> Rate limit configuration applied for route. |
 | hostRewrite | **[HostRewrite](#hostrewrite)** <br> Host header rewriting configuration. |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
+| attach | **[RouteRuleAttach](#routeruleattach)** <br> Configures route rule attachment to existing cloud resources. |
 
 
 ### Backend
@@ -499,7 +510,6 @@ Application Load Balancer route configuration.
 | timeout | **string** <br> Overall timeout for HTTP connection between load balancer and backend. Default: `60s`. <br> Example: `60s` |
 | idleTimeout | **string** <br> Idle timeout for HTTP connection. <br> Example: `300s` |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
 
 ### RouteALBHTTP
@@ -635,3 +645,36 @@ IP-based principal matching configuration.
 | Field | Description |
 |-------|-------------|
 | remoteIp | **string** <br> IP address or CIDR block for matching client IP. <br> Example: `10.0.0.0/8` |
+
+## RouteRuleAttach
+
+RouteRuleAttach configures route rule attachment to existing backend group.
+
+*Appears in:* [RouteRule](#routerule)
+
+| Field | Description |
+|-------|-------------|
+| gatewayClass | **string** <br> Specifies the gateway class that should manage this route rule. If specified and the corresponding gatewayClass is not managed by the controller, the route rule is ignored. This is useful for advanced scenarios where multiple controllers might be present. <br> Example: `yandex-cloud-gateway` |
+| backendGroup | **[BackendGroupAttach](#backendgroupattach)** <br> Configures attachment to an existing cloud backend group. |
+
+## BackendGroupAttach
+
+BackendGroupAttach configures attachment to an existing cloud backend group.
+
+*Appears in:* [RouteRuleAttach](#routeruleattach)
+
+| Field | Description |
+|-------|-------------|
+| id | **string** <br> Cloud backend group ID that should be managed by this route rule. The controller will attach to this existing backend group instead of creating a new one. <br> Example: `backend-group-id-1` |
+| dontUpdatePaths | **[]string** <br> Specifies which fields should NOT be updated by the controller. Default is "name" - the controller doesn't touch the group name. <br> Example: `["name", "description"]` |
+
+## RoutePolicyStatus
+
+RoutePolicyStatus defines the observed state of RoutePolicy.
+
+*Appears in:* [RoutePolicy](#cheatsheet)
+
+| Field | Description |
+|-------|-------------|
+| conditions | **[]Condition** <br> Current state conditions of the route policy. |
+| attachedRoutes | **int32** <br> Number of currently attached routes. |

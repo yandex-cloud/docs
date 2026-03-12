@@ -157,7 +157,6 @@ metadata:
     gwin.yandex.cloud/rules.hostRewrite.replace: "grpc.backend.example.com"  # static host replacement
     
     # Security
-    gwin.yandex.cloud/rules.securityProfileID: "security-profile-1"  # WAF profile for routes
     gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
     
     # Rate limiting
@@ -271,7 +270,6 @@ Health check TLS settings work the same way, but are configured separately.
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/rules.securityProfileID` <br> _(string)_ <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | `gwin.yandex.cloud/hosts.securityProfileID` <br> _(string)_ <br> Security profile ID for host-level protection. <br> Example: `host-security-profile-1` |
 
 #### Rate limiting

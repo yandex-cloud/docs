@@ -29,7 +29,7 @@ Name of the Application load balancer. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--listener-name` | `string`
 
-Name of the listener to add/update SNI match to. ||
+Name of the listener to add/update the SNI match to. ||
 || `--sni-name` | `string`
 
 Name of the SNI match to add/update. ||
@@ -38,7 +38,11 @@ Name of the SNI match to add/update. ||
 Server name to match. ||
 || `--certificate-id` | `value[,value]`
 
-Certificate ID for SNI match. ||
+Certificate ID for the SNI match. ||
+|| `--require-client-certificate` | Require client certificate for the SNI match. ||
+|| `--client-certificates-trusted-ca-file` | `string`
+
+Trusted CA filename (PEM) for the specified listener. ||
 || `--allow-http10` | Allow HTTP1.0 for SNI match. ||
 || `--rewrite-request-id` | Rewrite incoming x-request-id header with new value for SNI match. ||
 || `--http2-options` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`

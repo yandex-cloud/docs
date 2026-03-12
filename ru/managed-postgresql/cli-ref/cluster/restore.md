@@ -61,7 +61,7 @@ Possible property names:
 || `--yandexquery-access` | Allow access for Yandex Query ||
 || `--postgresql-version` | `string`
 
-Version of PostgreSQL used in the cluster. Values: 16, 15, 14, 13, 12, 11, 10, 14-1c, 13-1c, 12-1c, 11-1c, 10-1c ||
+Version of PostgreSQL used in the cluster. Values: 18, 17, 16, 15, 14, 13, 18-1c, 17-1c, 16-1c, 15-1c, 14-1c, 13-1c ||
 || `--resource-preset` | `string`
 
 ID of the preset for computational resources available to a host (CPU, memory etc.). ||

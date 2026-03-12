@@ -225,7 +225,6 @@ metadata:
     gwin.yandex.cloud/directResponse.my-response.responseBody.text: "Hello World"  # response body text
     
     # Security
-    gwin.yandex.cloud/rules.securityProfileID: "security-profile-1"  # WAF profile for routes
     gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
     
     # Host rewriting
@@ -501,7 +500,6 @@ Direct response actions can be referenced by Ingress path backends using `kind: 
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/rules.securityProfileID` <br> _(string)_ <br> [Security profile](https://yandex.cloud/en/docs/smartwebsecurity/) ID for route-level protection. <br> Example: `security-profile-1` |
 | `gwin.yandex.cloud/hosts.securityProfileID` <br> _(string)_ <br> [Security profile](https://yandex.cloud/en/docs/smartwebsecurity/) ID for host-level protection. <br> Example: `host-security-profile-1` |
 
 #### Rate limiting

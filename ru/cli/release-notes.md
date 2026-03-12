@@ -7,6 +7,23 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.199.0 (12.03.26) {#version0.199.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.199.0}
+
+##### {{ mch-name }} {#mch-01.199.0}
+
+В команду `managed-clickhouse cluster add-zookeeper` добавлена возможность указывать тип хоста:
+
+* `yc managed-clickhouse cluster add-zookeeper --host type=<host_type>`
+
+##### {{ mpg-name }} {#mpg-01.199.0}
+
+* Удалены устаревшие и неподдерживаемые версии {{ PG }}: 9.6, 10, 10-1c, 11, 11-1c, 12, 12-1c.
+* При создании кластера {{ mpg-name }} командой `yc managed-postgresql cluster create` по умолчанию используется версия 16.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.198.0 (09.03.26) {#version0.198.0}
 
 #### Изменения в CLI {#cli} {#cli-0.198.0}
@@ -19,9 +36,7 @@ description: На странице представлены релизы CLI, а
 
 В команду `yc compute image create` добавлен флаг `--os-nvidia-driver`, который позволяет указать версию драйвера NVIDIA при создании ВМ:
 
-  * `yc compute image create --os-nvidia-driver <nvidia-driver>`
-
-## Предыдущие релизы {#previous-release}
+* `yc compute image create --os-nvidia-driver <nvidia-driver>`
 
 ### Версия 0.197.0 (05.03.26) {#version0.197.0}
 
@@ -135,15 +150,16 @@ description: На странице представлены релизы CLI, а
 #### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ mmg-name }}
-* Добавлены настройки автоскейлинга и окна обслуживания для команд create и restore
-  * yc managed-mongodb cluster create
-  * restore --maintenance-window --disk-size-autoscaling
 
+Добавлены настройки автоскейлинга и окна обслуживания для команд create и restore
+* `yc managed-mongodb cluster create`
+* `restore --maintenance-window --disk-size-autoscaling`
 
 ##### {{ mrd-name }}
-* Добавлены настройки автоскейлинга и окна обслуживания для команд create и restore
-  * yc managed-redis cluster create
-  * restore --maintenance-window --disk-size-autoscaling
+
+Добавлены настройки автоскейлинга и окна обслуживания для команд create и restore
+* `yc managed-redis cluster create`
+* `restore --maintenance-window --disk-size-autoscaling`
 
 ### Версия 0.194.0 (19.02.26) {#version0.194.0}
 

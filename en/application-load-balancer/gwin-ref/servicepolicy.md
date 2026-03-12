@@ -10,6 +10,10 @@ ServicePolicy provides the same functionality as [Service](./service.md) annotat
   * [LabelSelector](#labelselector)
   * [LabelSelectorRequirement](#labelselectorrequirement)
   * [Service](#service)
+  * [ServiceTargets](#servicetargets)
+  * [ServiceTargetsNode](#servicetargetsnode)
+  * [ServiceAttach](#serviceattach)
+  * [TargetGroupAttach](#targetgroupattach)
 * [ServicePolicyStatus](#servicepolicystatus)
 
 ## Cheatsheet
@@ -48,6 +52,13 @@ spec:
       node:
         onlyWithPods: true  # only nodes with pods
         addressType: InternalIP  # address type
+    
+    # Attach to existing ALB infrastructure
+    attach:
+      targetGroup:
+        id: "target-group-id-1"  # existing target group ID
+        dontUpdatePaths: ["name", "description"]  # fields not to update
+      gatewayClass: "yandex-cloud-gateway"  # gateway class filter
 ```
 
 | Field | Description |
@@ -116,6 +127,7 @@ Service policy configuration that applies to Service targets.
 | Field | Description |
 |-------|-------------|
 | targets | **[ServiceTargets](#servicetargets)** <br> Configures how ALB should select and address Service endpoints |
+| attach | **[ServiceAttach](#serviceattach)** <br> Configures service attachment to existing cloud resources |
 
 ## ServiceTargets
 
@@ -141,6 +153,28 @@ ServiceTargetsNode contains configuration specific to Node-type targets. This co
 |-------|-------------|
 | onlyWithPods | **boolean** <br> Controls whether to include only nodes that have pods for this service. When true (default), only nodes running pods that match the service selector are used as targets <br> Example: `true` |
 | addressType | **string** <br> Specifies which node address type to use for ALB targets. `InternalIP` uses node's internal IP address (default), `ExternalIP` uses node's external IP address <br> Example: `InternalIP` |
+
+## ServiceAttach
+
+Service attachment configuration for connecting to existing cloud resources.
+
+*Appears in:* [Service](#service)
+
+| Field | Description |
+|-------|-------------|
+| gatewayClass | **string** <br> Specifies the gateway class that should manage this service. If specified and the corresponding gatewayClass is not managed by the controller, the service is ignored. This is useful for advanced scenarios where multiple controllers might be present <br> Example: `yandex-cloud-gateway` |
+| targetGroup | **[TargetGroupAttach](#targetgroupattach)** <br> Configures attachment to an existing cloud target group |
+
+## TargetGroupAttach
+
+Target group attachment configuration for connecting to existing cloud target groups.
+
+*Appears in:* [ServiceAttach](#serviceattach)
+
+| Field | Description |
+|-------|-------------|
+| id | **string** <br> Cloud target group ID that should be managed by this service. The controller will attach to this existing target group instead of creating a new one <br> Example: `target-group-id-1` |
+| dontUpdatePaths | **[]string** <br> Specifies which fields should NOT be updated by the controller. Default is "name" - the controller doesn't touch the group name <br> Example: `["name", "description"]` |
 
 ## ServicePolicyStatus
 

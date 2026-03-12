@@ -11,9 +11,13 @@
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
   1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. Справа вверху нажмите **Еще** и выберите **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
-  1. Выберите промежуток времени, за который хотите получить детализацию.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.popup-csv_button_download }}**.
+  1. Справа вверху нажмите **Ещё** и выберите **{{ ui-key.yacloud_org.billing.account.detail.button_download-details }}**.
+  1. В открывшемся окне выберите:
+     * Формат выгрузки — `CSV` или `PDF`.
+     * Промежуток времени, за который хотите получить детализацию.
+     * Язык отображения названий продуктов — `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.billing.account.detail.popup-export_button_download }}**.
 
 {% endlist %}
 
@@ -41,13 +45,13 @@
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}**:
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** укажите имя бакета, где будет храниться CSV-файл с детализацией.
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_locale }}** выберите язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_detail-type }}** выберите тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. Справа вверху нажмите **Ещё** и выберите **{{ ui-key.yacloud_org.billing.account.detail.button_create-periodic-export }}**.
+  1. В открывшемся окне укажите:
+     * Имя бакета, где будет храниться CSV-файл с детализацией.
+     * Название папки для файла. Последний символ должен быть `/`.
+     * Язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
          {% note tip %}
 

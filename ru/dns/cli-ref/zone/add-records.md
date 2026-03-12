@@ -23,6 +23,9 @@ DNS zone id. ||
 
 DNS zone name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--description` | `string`
+
+description for the records to add. If a record with specified name and type is already present, its description will be overwritten (with an empty string if this flag is not set). ||
 || `--record` | `"<NAME> [TTL] <TYPE> <DATA>"`
 
 record to add in format "&lt;NAME&gt; [TTL] &lt;TYPE&gt; &lt;DATA&gt;". If record with specified name and type is already present no error will be shown. ||

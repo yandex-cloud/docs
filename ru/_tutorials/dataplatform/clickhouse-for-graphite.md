@@ -127,7 +127,7 @@
 
     {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-1. Получите SSL-сертификат:
+1. Получите [SSL-сертификат](../../glossary/ssl-certificate.md):
 
     ```bash
     sudo mkdir --parents {{ crt-local-dir }} && \

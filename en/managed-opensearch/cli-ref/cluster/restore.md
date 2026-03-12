@@ -85,6 +85,8 @@ Possible property names:
 
 - `fielddata-cache-size`: The maximum size of the field data cache.
 
+- `search-max-buckets`: The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
 - `reindex-remote-whitelist`: Allowed remote hosts ||
 || `--keystore-settings` | `key=value[,key=value...]`
 

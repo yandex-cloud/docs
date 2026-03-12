@@ -55,7 +55,7 @@ description: В этой инструкции вы научитесь созда
 
 1. Если вы используете [группы безопасности](../vpc/concepts/security-groups.md) для облачной сети, [настройте их](operations/connect/index.md#configure-security-groups), чтобы был разрешен весь необходимый трафик между кластером {{ mmy-name }} и хостом, с которого выполняется подключение.
 
-1. Для подключения к серверу БД получите SSL-сертификат:
+1. Для подключения к серверу БД получите [SSL-сертификат](../glossary/ssl-certificate):
 
    {% include [install-certificate](../_includes/mdb/mmy/install-certificate.md) %}
 

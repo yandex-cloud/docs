@@ -67,6 +67,15 @@ Possible property names:
 
 - `requests-per-ip`: Use rate limit for requests groupped by client ip address. ||
 || `--disable-security-profile` | Disables security profile for the route. ||
+|| `--ccf-header` | `string`
+
+Specifies header with the provided client certificate's (if it is validated by the configured trusted CA). ||
+|| `--ccf-issuer` | `string`
+
+Specifies header with the provided client certificate's issuer (if it is validated by the configured trusted CA). ||
+|| `--ccf-subject` | `string`
+
+Specifies header with the provided client certificate's subject (if it is validated by the configured trusted CA). ||
 |#
 
 #### Global Flags

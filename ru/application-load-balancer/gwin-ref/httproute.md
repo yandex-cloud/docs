@@ -196,7 +196,6 @@ metadata:
     gwin.yandex.cloud/rules.hostRewrite.replace: "backend.example.com"  # static host replacement
     
     # Security
-    gwin.yandex.cloud/rules.securityProfileID: "security-profile-1"  # WAF profile for routes
     gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
     
     # Rate limiting
@@ -218,10 +217,16 @@ metadata:
     gwin.yandex.cloud/rules.rbac.principals.admin.any.any: "true"  # match any request
     gwin.yandex.cloud/hosts.rbac.action: "DENY"  # host-level RBAC action
     
+    # Attach to existing ALB infrastructure
+    gwin.yandex.cloud/rules.attach.backendGroup.id: "backend-group-id-1"  # existing backend group ID
+    gwin.yandex.cloud/rules.attach.backendGroup.dontUpdatePaths: "name,description"  # fields not to update
+    gwin.yandex.cloud/rules.attach.gatewayClass: "yandex-cloud-gateway"  # gateway class filter
+    
     # Rule-specific configuration (conflict with global settings is an error)
     gwin.yandex.cloud/rule.api-rule.backends.balancing.mode: "LEAST_REQUEST"  # per-rule balancing
     gwin.yandex.cloud/rule.api-rule.timeout: "30s"  # per-rule timeout
     gwin.yandex.cloud/rule.api-rule.idleTimeout: "120s"  # per-rule idle timeout
+    gwin.yandex.cloud/rule.api-rule.attach.backendGroup.id: "rule-backend-group-id"  # per-rule attach
 ```
 
 ### Annotations reference
@@ -342,7 +347,6 @@ Health check TLS settings work the same way, but are configured separately.
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/rules.securityProfileID` <br> _(string)_ <br> [Security profile](https://yandex.cloud/en/docs/smartwebsecurity/) ID for route-level protection. <br> Example: `security-profile-1` |
 | `gwin.yandex.cloud/hosts.securityProfileID` <br> _(string)_ <br> [Security profile](https://yandex.cloud/en/docs/smartwebsecurity/) ID for host-level protection. <br> Example: `host-security-profile-1` |
 
 #### Rate limiting
@@ -383,6 +387,20 @@ Where:
 | `gwin.yandex.cloud/rules.rbac.principals.{group}.{principal}.any` <br> _(boolean)_ <br> Match any request for route RBAC. <br> Example: `true` |
 | `gwin.yandex.cloud/hosts.rbac.action` <br> _(string)_ <br> Action when principals match (ALLOW/DENY) for host access control. <br> Example: `DENY` |
 
+#### Attach Configuration
+
+{% note info %}
+
+Attach configuration applies to individual route rules, not the entire HTTPRoute resource. Each rule can be attached to a different existing backend group.
+
+{% endnote %}
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rules.attach.backendGroup.id` <br> _(string)_ <br> Cloud backend group ID that should be managed by this route rule. The controller will attach to this existing backend group instead of creating a new one. <br> Example: `backend-group-id-1` |
+| `gwin.yandex.cloud/rules.attach.backendGroup.dontUpdatePaths` <br> _(string list)_ <br> Specifies which fields should NOT be updated by the controller. Default is "name" - the controller doesn't touch the group name. <br> Example: `name,description`, `none` |
+| `gwin.yandex.cloud/rules.attach.gatewayClass` <br> _(string)_ <br> Specifies the gateway class that should manage this route rule. If specified and the corresponding gatewayClass is not managed by the controller, the route rule is ignored. This is useful for advanced scenarios where multiple controllers might be present. <br> Example: `yandex-cloud-gateway` |
+
 #### Rule-specific configuration
 
 {% note info %}
@@ -398,6 +416,7 @@ For example: `gwin.yandex.cloud/rule.api-rule.backends.balancing.mode: "LEAST_RE
 | `gwin.yandex.cloud/rule.{rule-name}.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for specific rule. <br> Example: `LEAST_REQUEST` |
 | `gwin.yandex.cloud/rule.{rule-name}.timeout` <br> _(duration)_ <br> Timeout for specific rule. <br> Example: `30s` |
 | `gwin.yandex.cloud/rule.{rule-name}.idleTimeout` <br> _(duration)_ <br> Idle timeout for specific rule. <br> Example: `120s` |
+| `gwin.yandex.cloud/rule.{rule-name}.attach.backendGroup.id` <br> _(string)_ <br> Cloud backend group ID for specific rule attachment. <br> Example: `backend-group-id-1` |
 
 ## HTTPRouteSpec
 
