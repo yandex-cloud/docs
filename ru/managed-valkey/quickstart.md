@@ -103,7 +103,7 @@ description: В этой инструкции вы научитесь созда
 
     - Подключение с SSL {#with-ssl}
 
-        1. Получите SSL-сертификат:
+        1. Получите [SSL-сертификат](../glossary/ssl-certificate.md):
 
             {% include [unix-certificate](../_includes/mdb/mvk/unix-certificate.md) %}
 

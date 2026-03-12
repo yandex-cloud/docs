@@ -325,6 +325,8 @@ items:
             href: cli-ref/address/get.md
           - name: list
             href: cli-ref/address/list.md
+          - name: list-by-subnet
+            href: cli-ref/address/list-by-subnet.md
           - name: list-operations
             href: cli-ref/address/list-operations.md
           - name: move

@@ -25,13 +25,7 @@ kind: Service
 metadata:
   name: example-service
   namespace: example-ns
-  annotations:  # see annotations example below
-    gwin.yandex.cloud/targets.type: "Node"
-    gwin.yandex.cloud/targets.ipFamily: "IPv4"
-    gwin.yandex.cloud/targets.cidrs: "10.0.0.0/8,172.16.0.0/12"
-    gwin.yandex.cloud/targets.albZoneMatch: "true"
-    gwin.yandex.cloud/targets.node.onlyWithPods: "true"
-    gwin.yandex.cloud/targets.node.addressType: "InternalIP"
+  annotations: ... # see annotations example below
 spec:
   type: NodePort  # service type for Gwin backends
   selector:
@@ -82,6 +76,11 @@ metadata:
     # Node-specific configuration (when targets.type is "Node")
     gwin.yandex.cloud/targets.node.onlyWithPods: "true"  # Only nodes with pods
     gwin.yandex.cloud/targets.node.addressType: "InternalIP"  # Address type
+    
+    # Attach to existing ALB infrastructure
+    gwin.yandex.cloud/attach.targetGroup.id: "target-group-id-1"  # Existing target group ID
+    gwin.yandex.cloud/attach.targetGroup.dontUpdatePaths: "name,description"  # Fields not to update
+    gwin.yandex.cloud/attach.gatewayClass: "yandex-cloud-gateway"  # Gateway class filter
 ```
 
 ### Annotations reference
@@ -101,6 +100,14 @@ metadata:
 |------------|
 | `gwin.yandex.cloud/targets.node.onlyWithPods` <br> _(boolean)_ <br> Controls whether to include only nodes that have pods for this service. When true (default), only nodes running pods that match the service selector are used as targets. <br> Example: `true` |
 | `gwin.yandex.cloud/targets.node.addressType` <br> _(string)_ <br> Specifies which node address type to use for ALB targets. InternalIP uses node's internal IP address (default), ExternalIP uses node's external IP address. <br> Example: `InternalIP` |
+
+#### Attach Configuration
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/attach.targetGroup.id` <br> _(string)_ <br> Cloud target group ID that should be managed by this service. The controller will attach to this existing target group instead of creating a new one. <br> Example: `target-group-id-1` |
+| `gwin.yandex.cloud/attach.targetGroup.dontUpdatePaths` <br> _(string list)_ <br> Specifies which fields should NOT be updated by the controller. Default is "name" - the controller doesn't touch the group name. <br> Example: `name,description`, `none` |
+| `gwin.yandex.cloud/attach.gatewayClass` <br> _(string)_ <br> Specifies the gateway class that should manage this service. If specified and the corresponding gatewayClass is not managed by the controller, the service is ignored. This is useful for advanced scenarios where multiple controllers might be present. <br> Example: `yandex-cloud-gateway` |
 
 ## ServiceSpec
 

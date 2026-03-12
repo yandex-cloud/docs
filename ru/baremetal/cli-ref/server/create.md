@@ -45,7 +45,11 @@ Possible property names:
 
 - `public-subnet-name`: Specifies the name of the public subnet that the interface will be part of.
 
-- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface. ||
+- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface.
+
+- `tagged-subnet-ids`: Specifies the IDs of the additional private subnets to be assigned as VLAN-tagged subinterfaces.
+
+- `tagged-subnet-names`: Specifies the names of the additional private subnets to be assigned as VLAN-tagged subinterfaces. ||
 || `--configuration-id` | `string`
 
 Specifies a textual configuration id of the server. ||

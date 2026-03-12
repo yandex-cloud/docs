@@ -209,7 +209,6 @@ spec:
         remove: ["Server", "X-Powered-By"]  # remove response headers
       
       # Security
-      securityProfileID: "security-profile-1"  # WAF profile for routes
       rbac:
         action: "ALLOW"  # default RBAC action
         principals:
@@ -322,7 +321,6 @@ Ingress rule configuration that combines backend group and route settings.
 | prefixRewrite | **string** <br> Replaces URL paths in HTTP/gRPC requests. With pathType Exact, the entire path is replaced; with pathType Prefix, only the matching prefix is rewritten. <br> Example: `/new-prefix` |
 | modifyRequestHeaders | **[HeaderModifier](#headermodifier)** <br> Specifies how to modify HTTP request headers before forwarding to backends. |
 | modifyResponseHeaders | **[HeaderModifier](#headermodifier)** <br> Specifies how to modify HTTP response headers before returning to clients. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](./gatewaypolicy.md#rbac)** <br> RBAC access control configuration. |
 
 ### VirtualHost
@@ -569,7 +567,6 @@ Application Load Balancer route configuration.
 | timeout | **string** <br> Overall timeout for HTTP connection between load balancer and backend. Default: `60s`. <br> Example: `60s` |
 | idleTimeout | **string** <br> Idle timeout for HTTP connection. <br> Example: `300s` |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](./gatewaypolicy.md#rbac)** <br> RBAC access control configuration. |
 
 ### RouteALBHTTP

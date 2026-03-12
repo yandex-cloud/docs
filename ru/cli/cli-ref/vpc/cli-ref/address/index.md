@@ -28,6 +28,8 @@ Aliases:
 
 - [yc vpc address list](list.md) — List addresses in a folder.
 
+- [yc vpc address list-by-subnet](list-by-subnet.md) — List addresses in a subnet.
+
 - [yc vpc address list-operations](list-operations.md) — List operations for an address.
 
 - [yc vpc address move](move.md) — Move an address to another folder.

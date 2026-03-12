@@ -33,6 +33,15 @@ External ipv4 address specification.
 Possible property names:
 
 - `zone`: Specifies the zone. ||
+|| `--internal-ipv4` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Internal ipv4 address specification.
+
+Possible property names:
+
+- `address`: Specifies desired address.
+
+- `subnet`: Specifies the subnet. ||
 || `--deletion-protection` | Specifies if address protected from deletion. ||
 || `--dns-record` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 

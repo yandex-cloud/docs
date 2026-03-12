@@ -38,6 +38,9 @@ A list of product license IDs. Used for billing purposes. ||
 || `--os-type` | `string`
 
 OS type (optional). Values: 'linux', 'windows' ||
+|| `--os-nvidia-driver` | `string`
+
+NVIDIA driver version for the image ||
 || `--source-image-name` | `string`
 
 A source image used to create the image. ||

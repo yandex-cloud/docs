@@ -24,6 +24,8 @@ Syntax:
 
   - [yc vpc address list](address/list.md) — List addresses in a folder.
 
+  - [yc vpc address list-by-subnet](address/list-by-subnet.md) — List addresses in a subnet.
+
   - [yc vpc address list-operations](address/list-operations.md) — List operations for an address.
 
   - [yc vpc address move](address/move.md) — Move an address to another folder.

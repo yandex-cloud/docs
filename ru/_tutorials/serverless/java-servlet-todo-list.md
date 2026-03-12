@@ -258,7 +258,7 @@
              bucket: <бакет>
              object: index.html
              presigned_redirect: false
-             service_account: <сервисный_аккаунт>
+             service_account_id: <идентификатор_сервисного_аккаунта>
            operationId: static
        /add:
           post:
@@ -283,7 +283,7 @@
        Где:
 
        * `bucket` — имя бакета, в котором лежит файл `index.html`.
-       * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
+       * `service_account_id` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
        * Блок `/add`, параметр `function_id` — идентификатор функции `add-task`.
        * Блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`.
        * Блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.
@@ -307,7 +307,7 @@
              bucket: <бакет>
              object: index.html
              presigned_redirect: false
-             service_account: <сервисный_аккаунт>
+             service_account_id: <идентификатор_сервисного_аккаунта>
            operationId: static
        /add:
          post:
@@ -332,7 +332,7 @@
      Где:
 
      * `bucket` — имя бакета, в котором лежит файл `index.html`.
-     * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
+     * `service_account_id` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
      * Блок `/add`, параметр `function_id` — идентификатор функции `add-task`.
      * Блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`.
      * Блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.

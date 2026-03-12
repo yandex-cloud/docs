@@ -151,7 +151,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы использовать SSL-соединение, получите сертификат:
+Чтобы использовать [SSL-соединение](../../../glossary/ssl-certificate.md), получите сертификат:
 
 {% include [install-certificate](../../../_includes/mdb/mgp/install-certificate.md) %}
 

@@ -40,6 +40,8 @@ Possible property names:
 
 - `zone-id`: ID of the availability zone where the new host should reside.
 
+- `type`: Type of the host to be created. Supported values: 'zookeeper', 'keeper'.
+
 - `subnet-id`: ID of the subnet that the host should be created in.
 
 - `subnet-name`: Name of the subnet that the host should be created in. ||

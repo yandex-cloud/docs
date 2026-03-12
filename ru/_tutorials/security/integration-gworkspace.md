@@ -57,7 +57,7 @@
 
       1. В поле **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** укажите время, в течение которого браузер не будет требовать у пользователя повторной аутентификации.
   
-      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** скопируйте ссылку, указанную в поле **Идентификатор объекта** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
+      1. В поле **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** скопируйте ссылку, указанную в поле **Идентификатор объекта (Entity ID)** на странице **Сведения о поставщике услуг идентификации Google** в Google Workspace. Формат ссылки:
 
           ```text
           https://accounts.google.com/o/saml2?idpid=<идентификатор_SAML-приложения>

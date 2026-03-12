@@ -3902,6 +3902,9 @@ default:
             label_quota-name-iam:
               serviceAccounts:
                 count: Количество сервисных аккаунтов
+        folder:
+          dashboard:
+            label_compute: Compute Cloud
     yacloud_components:
       acl:
         action:
@@ -4374,6 +4377,10 @@ default:
           dashboard-info:
             section_contract: Информация о договоре
             title_main: Информация об аккаунте
+          detail:
+            button_create-periodic-export: Регулярный экспорт
+            button_download-details: Выгрузить детализацию
+            popup-export_button_download: Скачать
           entities:
             label_title: Облака и сервисы
             label_type: Тип
@@ -5410,6 +5417,11 @@ default:
             Выполнять резервное копирование только файлов, соответствующих
             следующим критериям
           field_multivolume-snapshot: Одновременное создание снимков нескольких томов
+        PolicyForm:
+          PrePostDataCommandCardBlock:
+            field_post-data-command-enabled_rXvwj: Выполнение команды после захвата данных
+            field_pre-data-command-enabled_sZ45C: Выполнение команды до захвата данных
+            field_pre-post-data-command_mmRTZ: Команды до и после захвата данных
         title_backup: Резервное копирование
         title_linked-recourses: Привязанные ресурсы
         title_select-vm-backup-policies-row: Политики резервного копирования
@@ -5875,6 +5887,8 @@ default:
           button_new-bindings: Назначить роли
           button_remove-bindings: Отозвать роли
           label_access-bindings: Права доступа
+          label_access-bindings-in-iam:
+            serviceAccount: Права доступа к сервисному аккаунту
           label_bindings: Роли
           label_service-account: Сервисный аккаунт
           label_subject: Пользователь

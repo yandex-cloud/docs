@@ -30,6 +30,8 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+### Хостинг видео {#hosting}
+
 
 <MDX>
   <PriceList
@@ -42,8 +44,39 @@ editable: false
 
 
 
+### Трансляции {#streams}
 
-### Пример расчета стоимости {#price-example}
+{% note warning %}
+
+Цены начинают действовать с 23 марта 2026 года.
+
+{% endnote %}
+
+При использовании [трансляций](concepts/streams.md) оплачиваются:
+
+* Транскодирование — плата за преобразование видеопотока трансляции.
+* Хранение — плата за хранение записей трансляций.
+* Исходящий трафик — плата за передачу видео с CDN-серверов {{ yandex-cloud }} в интернет, см. [Хостинг видео](#hosting).
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub.md](../_pricing/video/rub-streams.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/video/kzt-streams.md) %}
+
+{% endlist %}
+
+
+
+
+## Примеры расчета {#price-example}
+
+### Стоимость хостинга видео {#hosting-example}
 
 Вычислим стоимость услуг сервиса в месяц по следующим данным:
 
@@ -66,6 +99,29 @@ editable: false
 - Расчет в тенге {#prices-kzt}
 
   {% include notitle [kzt-video.md](../_pricing_examples/video/kzt-video.md) %}
+
+{% endlist %}
+
+
+
+### Стоимость трансляций {#stream-example}
+
+Вычислим стоимость трансляции в месяц по следующим данным:
+
+* Длительность трансляции — `60 минут`.
+* Объем записи трансляции — `3 ГБ`.
+* Исходящий трафик (общий объем передачи видео зрителям) — `20 ГБ`.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include notitle [rub-streams.md](../_pricing_examples/video/rub-streams.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include notitle [kzt-streams.md](../_pricing_examples/video/kzt-streams.md) %}
 
 {% endlist %}
 

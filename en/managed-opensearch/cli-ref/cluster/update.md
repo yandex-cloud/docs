@@ -29,6 +29,9 @@ Defines the maximum product of fields and terms that are queryable simultaneousl
 || `--fielddata-cache-size` | `string`
 
 The maximum size of the field data cache. ||
+|| `--search-max-buckets` | `int`
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535 ||
 || `--reindex-remote-whitelist` | `value[,value]`
 
 Allowed remote hosts ||

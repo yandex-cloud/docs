@@ -16,6 +16,20 @@
 
     {% endnote %}
 
+* (Опционально) В блоке **{{ ui-key.yacloud.backup.PolicyForm.PrePostDataCommandCardBlock.field_pre-post-data-command_mmRTZ }}** задайте действия, которые {{ backup-name }} будет выполнять непосредственно до и после захвата данных (создания снимка). Для этого включите опцию **{{ ui-key.yacloud.backup.PolicyForm.PrePostDataCommandCardBlock.field_pre-data-command-enabled_sZ45C }}** и/или **{{ ui-key.yacloud.backup.PolicyForm.PrePostDataCommandCardBlock.field_post-data-command-enabled_rXvwj }}** и задайте настройки:
+
+    * **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-cmd }}** — команда или путь к исполняемому файлу, которые требуется выполнить (запустить). Например: `/usr/bin/pg_start_backup.sh`.
+    * **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-workdir }}** — рабочая директория выполнения команды (запуска файла). Например: `/var/lib/postgresql/`.
+    * **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-args }}** — параметры командной строки, которые будут применяться при выполнении команды (запуске файла). Например: `--flush-all`.
+    * Включите опцию **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-stop-on-error }}**, чтобы создание резервной копии останавливалось при возникновении ошибки выполнения команды (запуска файла).
+
+    {% note info %}
+
+    Команды выполняются максимально близко к моменту создания снимка — непосредственно перед и сразу после захвата данных.
+    В каждую политику можно добавить не более одной команды каждого типа.
+
+    {% endnote %}
+
 * (Опционально) В блоке **{{ ui-key.yacloud.backup.policy-form.field_action-on-task-failure }}** укажите настройки резервного копирования в случае сбоя копирования:
 
     * **{{ ui-key.yacloud.backup.policy-form.field_attempts-qty }}** — максимальное количество попыток. При достижении максимального количества повторных попыток операция будет считаться неуспешной. Попытки будут прекращены, как только операция будет успешно выполнена или по достижении указанного количества попыток, в зависимости от того, что наступит раньше.

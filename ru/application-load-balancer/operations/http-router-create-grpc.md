@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать HTTP-роутер для gRPC-трафика
 
-Чтобы создать [HTTP-роутер](../concepts/http-router.md) и добавить в него [маршрут](../concepts/http-router.md#routes):
+Чтобы создать [HTTP-роутер](../concepts/http-router.md) и добавить в него [маршрут](../concepts/http-router.md#routes) для [gRPC-трафика](../../glossary/grpc.md):
 
 {% list tabs group=instructions %}
 
