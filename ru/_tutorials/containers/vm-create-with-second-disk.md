@@ -52,6 +52,7 @@
        --create-disk name=data-disk,size=10,device-name=coi-data \
        --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
        --ssh-key <путь_к_открытой_части_SSH-ключа> \
+       --service-account-name <имя_сервисного_аккаунта> \
        --docker-compose-file docker-compose.yaml
      ```
 
@@ -66,6 +67,7 @@
        * `subnet-name` — имя [подсети](../../vpc/concepts/network.md#subnet), в которой будет размещена ВМ.
        * `nat-ip-version` — способ назначения [публичного IPv4-адреса](../../vpc/concepts/ips.md).
      * `--ssh-key` — путь к файлу с [открытым ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--docker-compose-file` — YAML-файл со спецификацией контейнера.
 
      После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).

@@ -49,7 +49,7 @@
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
        --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
-       --service-account-name default-sa \
+       --service-account-name <имя_сервисного_аккаунта> \
        --docker-compose-file docker-compose.yaml
      ```
 
@@ -62,7 +62,7 @@
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
      * `--network-interface` — сетевые настройки ВМ.
-     * `--service-account-name` — имя сервисного аккаунта.
+     * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--docker-compose-file` — YAML-файл со спецификацией контейнеров.
 
      После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).

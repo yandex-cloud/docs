@@ -2,7 +2,7 @@
 
 Политика удаления [Docker-образов](docker-image.md) позволяет задать [правила](#lifecycle-rules), в соответствии с которыми Docker-образы будут удаляться автоматически.
 
-[Задать политику удаления](../operations/lifecycle-policy/lifecycle-policy-create.md) можно с помощью интерфейса командной строки [{{ yandex-cloud }} CLI](../../cli/).
+Как задать правила, читайте в разделе [Создать политику удаления](../operations/lifecycle-policy/lifecycle-policy-create.md).
 
 {% note warning %}
 

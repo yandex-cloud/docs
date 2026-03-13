@@ -1,3 +1,3 @@
 For example, if the price per 10,000 `GET` operations in standard storage per month is {{ sku|USD|storage.api.get.standard|pricingRate.10|string }}, with 245,000 operations per month, your total monthly cost of data operations will be:
 
-> ((245,000 − 100,000) / 10,000) × {{ sku|USD|storage.api.get.standard|pricingRate.10|string }} = (145,000 / 10,000) × {{ sku|USD|storage.api.get.standard|pricingRate.10|string }} = {% calc [currency=USD] round(((145000 / 10000) × {{ sku|USD|storage.api.get.standard|pricingRate.10|number }}) × 100) / 100 %}
+> ((245,000 − 100,000) / 10,000) × {{ sku|USD|storage.api.get.standard|pricingRate.10|string }} = (145,000 / 10,000) × {{ sku|USD|storage.api.get.standard|pricingRate.10|string }} = {% calc [currency=USD] (145000 / 10000) × {{ sku|USD|storage.api.get.standard|pricingRate.10|number }} %}

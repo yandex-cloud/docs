@@ -24,13 +24,13 @@ Gwin — инструмент для управления балансировщ
 
 1. {% include [cli-install](../../cli-install.md) %}
 
-   {% include [default-catalogue](../../default-catalogue.md) %}
+    {% include [default-catalogue](../../default-catalogue.md) %}
 
 1. {% include [configure-sg-manual](../security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [configure-sg-alb-manual](../security-groups/configure-sg-alb-manual.md) %}
+    {% include [configure-sg-alb-manual](../security-groups/configure-sg-alb-manual.md) %}
 
-   {% include [sg-common-warning](../security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../security-groups/sg-common-warning.md) %}
 
 1. [Создайте кластер](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}. При создании укажите группы безопасности, подготовленные ранее.
 
@@ -38,24 +38,62 @@ Gwin — инструмент для управления балансировщ
 
 1. {% include [kubectl-install](../kubectl-install.md) %}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), от имени которого контроллер будет создавать ресурсы {{ alb-name }}, и [назначьте ему роли](../../../iam/operations/sa/assign-role-for-sa.md) на каталог:
+1. [Создайте сервисный аккаунт {{ iam-short-name }}](../../../iam/operations/sa/create.md), от имени которого контроллер будет создавать ресурсы {{ alb-name }}, и [назначьте ему роли](../../../iam/operations/sa/assign-role-for-sa.md) на каталог:
 
-   * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов {{ alb-name }}.
-   * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin) — для управления внешней сетевой связностью.
-   * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — если используются облачные сертификаты, зарегистрированные в сервисе [{{ certificate-manager-full-name }}](../../../certificate-manager/).
-   * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager-editor) — если используются сертификаты кластера {{ managed-k8s-name }}. В этом случае контроллер создает соответствующие им облачные сертификаты.
-   * [compute.viewer](../../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
-   * [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer) — чтобы контроллер мог определить, в какой сети нужно развернуть L7-балансировщик.
-   * (опционально) [smart-web-security.editor](../../../smartwebsecurity/security/index.md#smart-web-security-editor) — для подключения [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }} к виртуальному хосту L7-балансировщика.
-   * (опционально) [logging.writer](../../../logging/security/index.md#logging-writer) — если в ресурсе [Gateway](../../../managed-kubernetes/alb-ref/gateway.md) указана [лог-группа](../../../logging/concepts/log-group.md) для записи логов L7-балансировщика в {{ cloud-logging-full-name }}.
+    * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов {{ alb-name }}.
+    * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin) — для управления внешней сетевой связностью.
+    * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — при использовании облачных сертификатов, зарегистрированных в сервисе [{{ certificate-manager-full-name }}](../../../certificate-manager/).
+    * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager-editor) — при использовании сертификатов кластеров {{ managed-k8s-name }}. В этом случае контроллер создает соответствующие им облачные сертификаты.
+    * [compute.viewer](../../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
+    * [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer) — для определения, в какой сети контроллеру нужно развернуть L7-балансировщик.
+    * (опционально) [smart-web-security.editor](../../../smartwebsecurity/security/index.md#smart-web-security-editor) — для подключения [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }} к виртуальному хосту L7-балансировщика.
+    * (опционально) [logging.writer](../../../logging/security/index.md#logging-writer) — при указании в ресурсе [Gateway](../../../managed-kubernetes/alb-ref/gateway.md) [лог-группы](../../../logging/concepts/log-group.md) для записи логов L7-балансировщика в {{ cloud-logging-full-name }}.
 
-1. [Создайте авторизованный ключ доступа](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
+1. Выберите способ аутентификации Gwin в API {{ yandex-cloud }} для создания и управления балансировщиками нагрузки {{ alb-full-name }}.
 
-    ```bash
-    yc iam key create \
-      --service-account-name <имя_сервисного_аккаунта> \
-      --output sa-key.json
-    ```
+    Аутентификация осуществляется с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) с ограниченным сроком жизни. Получить IAM-токен изнутри кластера можно следующими инструментами:
+    * [Федерация сервисных аккаунтов](../../../iam/concepts/workload-identity.md) (Workload Identity Federation) — связь между внешними системами и {{ yandex-cloud }} по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) без использования долгоживущих ключей. Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
+    * [Авторизованный ключ](../../../iam/concepts/authorization/key.md) — ключ с алгоритмом шифрования RSA-2048 или RSA-4096 с неограниченным сроком жизни.
+
+    {% list tabs group=authentication %}
+
+    - Федерация сервисных аккаунтов {#wlif}
+
+      1. [Настройте](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md) поддержку федерации сервисных аккаунтов в кластере и группе узлов.
+      1. [Создайте](../../../iam/operations/wlif/setup-wlif.md#create-wlif) федерацию сервисных аккаунтов:
+          * В качестве **{{ ui-key.yacloud.iam.federations.field_issuer }}** и **{{ ui-key.yacloud.iam.federations.field_audiences }}** используйте значение **{{ ui-key.yacloud.k8s.cluster.overview.label_ident-and-access-management-issuer }}**, полученное при настройке кластера.
+          * В качестве **{{ ui-key.yacloud.iam.federations.field_jwks }}** используйте значение **{{ ui-key.yacloud.k8s.cluster.overview.label_ident-and-access-management-jwks-uri }}**, полученное при настройке кластера.
+      1. [Привяжите](../../../iam/operations/wlif/setup-wlif.md#create-federated-credential) сервисный аккаунт {{ iam-short-name }} к федерации.
+
+          В качестве идентификатора внешнего субъекта используйте следующее значение:
+          
+          ```text
+          system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_{{ k8s }}>
+          ```
+
+          Где:
+          * `<пространство_имен>` — пространство имен кластера, в которое вы хотите установить Gwin.
+          * `<имя_сервисного_аккаунта_{{ k8s }}>` — имя сервисного аккаунта {{ k8s }} для Gwin. По умолчанию — `gwin`.
+
+            {% note tip %}
+
+            Чтобы переопределить имя сервисного аккаунта {{ k8s }} для Gwin, при [установке с помощью Helm-чарта](#helm-install) используйте параметр `--set controller.names.serviceAccount=<имя_сервисного_аккаунта_{{ k8s }}>`.
+
+            {% endnote %}
+
+      Подробнее см. на странице [{#T}](../../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md).
+
+    - Авторизованный ключ {#authorized-key}
+
+      [Создайте](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для сервисного аккаунта {{ iam-short-name }} в формате JSON и сохраните его в файл `sa-key.json`:
+
+      ```bash
+      yc iam key create \
+        --service-account-name <имя_сервисного_аккаунта_{{ iam-short-name }}> \
+        --output sa-key.json
+      ```
+
+    {% endlist %}
 
 ## Установите Gwin {#install}
 
@@ -65,12 +103,12 @@ Gwin — инструмент для управления балансировщ
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gwin](/marketplace/products/yc/gwin) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-
-   * **Пространство имен** — создайте новое [пространство имен](../../../managed-kubernetes/concepts/index.md#namespace) (например, `gwin-space`). Если вы оставите пространство имен по умолчанию, Gwin может работать некорректно.
-   * **Название приложения** — укажите название приложения.
-   * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать Gwin.
-   * **Ключ сервисного аккаунта** — скопируйте содержимое файла `sa-key.json`.
-
+    * **Пространство имен** — создайте новое [пространство имен](../../../managed-kubernetes/concepts/index.md#namespace) (например, `gwin-space`). Если вы оставите пространство имен по умолчанию, Gwin может работать некорректно.
+    * **Название приложения** — укажите название приложения.
+    * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать Gwin.
+1. В зависимости от того, какой способ аутентификации вы выбрали, укажите один из параметров:
+    * **Ключ сервисного аккаунта** — скопируйте содержимое файла `sa-key.json`.
+    * **Сервисный аккаунт, привязанный к WLIF** — выберите сервисный аккаунт {{ iam-short-name }}, настроенный ранее.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -78,23 +116,43 @@ Gwin — инструмент для управления балансировщ
 
 1. {% include [helm-install](../helm-install.md) %}
 
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с контроллером Gwin выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с контроллером Gwin в зависимости от выбранного способа аутентификации выполните команду:
 
-    ```bash
-    helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
-      --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
-      --untar \
-    helm install \
-      --namespace <пространство_имен> \
-      --create-namespace \
-      --set controller.folderId=<идентификатор_каталога> \
-      --set-file controller.ycServiceAccount.secret.value=./sa-key.json \
-      gwin ./gwin-chart
-    ```
+    {% list tabs group=authentication %}
 
-      Если вы укажете в параметре `namespace` пространство имен по умолчанию, Gwin может работать некорректно. Рекомендуется указывать значение, отличное от всех существующих пространств имен (например, `gwin-space`).
+    - Федерация сервисных аккаунтов {#wlif}
 
-      Идентификатор каталога можно запросить со [списком каталогов в облаке](../../../resource-manager/operations/folder/get-id.md).
+      ```bash
+      helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
+        --untar \
+      helm install \
+        --namespace <пространство_имен> \
+        --create-namespace \
+        --set controller.folderId=<идентификатор_каталога> \
+        --set controller.ycServiceAccount.workloadIdentityFederation.serviceAccountID=<идентификатор_сервисного_аккаунта_{{ iam-short-name }}> \
+        gwin ./gwin-chart
+      ```
+
+    - Авторизованный ключ {#authorized-key}
+
+      ```bash
+      helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
+        --untar \
+      helm install \
+        --namespace <пространство_имен> \
+        --create-namespace \
+        --set controller.folderId=<идентификатор_каталога> \
+        --set-file controller.ycServiceAccount.secret.value=./sa-key.json \
+        gwin ./gwin-chart
+      ```
+
+    {% endlist %}
+
+    Если вы укажете в параметре `namespace` пространство имен по умолчанию, Gwin может работать некорректно. Рекомендуется указывать значение, отличное от всех существующих пространств имен (например, `gwin-space`).
+
+    Идентификатор каталога можно запросить со [списком каталогов в облаке](../../../resource-manager/operations/folder/get-id.md).
 
 ## Подготовьте тестовое приложение {#create-test-app}
 

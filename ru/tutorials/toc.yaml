@@ -1181,6 +1181,8 @@ items:
         href: dataplatform/mmy-to-mgp.md
       - name: Настройка политики индексов в {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
+      - name: Настройка политики холодного хранилища в {{ mos-name }}
+        href: dataplatform/opensearch-cold-storage-policy.md
       - name: >-
           Миграция данных в {{ mos-name }} из стороннего кластера {{ OS }} с
           помощью {{ data-transfer-name }}

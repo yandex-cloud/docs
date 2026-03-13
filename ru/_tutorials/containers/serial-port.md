@@ -107,7 +107,8 @@
           --zone {{ region-id }}-a \
           --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
           --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
-          --create-boot-disk image-id=$IMAGE_ID
+          --create-boot-disk image-id=$IMAGE_ID \
+          --service-account-name <имя_сервисного_аккаунта>
         ```
 
         Где:
@@ -118,6 +119,7 @@
 
             {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
         * `--create-boot-disk` — идентификатор образа для создания загрузочного диска.
+        * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
 
         После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).
      1. Проверьте результат.

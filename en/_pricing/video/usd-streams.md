@@ -1,4 +1,4 @@
-Service | Price, without VAT
-----|-----
-Cloud Video. Stream video transcoding (per 1 minute) | $0.0213
-Cloud Video. Stream video storage (per 1 GB per month) | $0.0181
+Service | Price | Billing unit
+----|----|----
+Cloud Video. Broadcast video transcoding | $0.0213 | Minute
+Cloud Video. Broadcast video storage | $0.0000251 | GB × hour

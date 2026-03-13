@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Платежный аккаунт](../concepts/billing-account.md) прошел активацию (находится в [статусе](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`).
 1. Пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
    * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако;
-   * [billing.accounts.editor](../security/index.md##billing-accounts-editor) и выше в платежном аккаунте.
+   * [billing.accounts.editor](../security/index.md#billing-accounts-editor) и выше в платежном аккаунте.
 
 ## Как привязать облако {#bind-cloud}
 

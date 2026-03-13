@@ -1,3 +1,3 @@
 | Услуга | Стоимость использования в месяц, вкл. НДС |
 | --- | --- |
-| 1 рабочий узел KSPM | 8 133,00 ₽ |
+| 1 рабочий узел KSPM | {{ sku|RUB|security_deck.kspm.nodes|pricingRate.2|string }} |

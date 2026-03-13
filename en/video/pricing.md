@@ -45,7 +45,7 @@ The minimum billing unit of outgoing traffic is 1 GB.
 </MDX>
 
 
-### Streams {#streams}
+### Broadcasts {#streams}
 
 {% note warning %}
 
@@ -53,7 +53,7 @@ Prices take effect on March 23, 2026.
 
 {% endnote %}
 
-When using [streams](concepts/streams.md), you are charged for the following:
+When using [broadcasts](concepts/streams.md), you are charged for the following:
 
 * Transcoding: Fee for converting the stream video content.
 * Storage: Fee for storing stream recordings.

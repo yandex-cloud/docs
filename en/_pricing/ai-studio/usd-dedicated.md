@@ -1,4 +1,4 @@
-The price per 1 unit for a dedicated instance is $0.0083333 without VAT.
+The price per 1 unit for a dedicated instance is {{ sku|USD|foundation_models.inference.v1|string }} without VAT.
 
 | Model | Price per 1 hour,</br>**S** configuration, <br>without VAT | Price per 1 hour,</br>**M** configuration, <br>without VAT | Price per 1 hour</br>**L** configuration, <br>without VAT |
 |---|---|---|---|

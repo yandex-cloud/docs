@@ -36,7 +36,7 @@
     - `name=cpu_usage`
     - `resource_id=*`
     - `resource_type=vm`
-1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**, и на странице отобразится график
+1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**, и на странице отобразится график.
 1. Вверху рядом с именем дашборда введите имя виджета, например, `CPU on all hosts`.
 1. Справа вверху нажмите **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
 1. Вернитесь на страницу редактирования дашборда: вверху нажмите заголовок дашборда, который указали ранее.

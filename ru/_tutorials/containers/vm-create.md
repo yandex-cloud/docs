@@ -43,6 +43,7 @@
       * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-privileged }}**, чтобы процессы Docker-контейнера получили доступ ко всем ресурсам ВМ.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите сервисный аккаунт, созданный [ранее](#before-you-begin).
   1. Настройте остальные параметры ВМ по [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
 
 - CLI с помощью параметров {#cli}
@@ -65,7 +66,7 @@
        --name my-vm \
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
-       --service-account-name my-robot \
+       --service-account-name <имя_сервисного_аккаунта> \
        --create-boot-disk size=30 \
        --public-ip \
        --platform standard-v3 \
@@ -81,7 +82,7 @@
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * `--service-account-name` — имя сервисного аккаунта.
+     * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--create-boot-disk size` — размер загрузочного диска.
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
@@ -144,7 +145,7 @@
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
-       --service-account-name my-service-account \
+       --service-account-name <имя_сервисного_аккаунта> \
        --public-ip
      ```
 
@@ -157,7 +158,7 @@
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
-     * `--service-account-name` — имя сервисного аккаунта.
+     * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
 
      Результат:

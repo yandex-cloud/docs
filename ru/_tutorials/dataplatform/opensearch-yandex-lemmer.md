@@ -72,24 +72,7 @@
 
 1. Проверьте подключение к кластеру с помощью утилиты [cURL](https://curl.haxx.se/):
 
-    {% include [default-connstring](../../_includes/mdb/mos/default-connstring.md) %}
-
-    FQDN хоста можно получить со [списком хостов в кластере](../../managed-opensearch/operations/host-groups.md#list-hosts).
-
-    При успешном подключении будет выведено похожее сообщение:
-
-    ```bash
-    {
-      "name" : "....{{ dns-zone }}",
-      "cluster_name" : "...",
-      "cluster_uuid" : "...",
-      "version" : {
-      "distribution" : "opensearch",
-      ...
-      },
-      "tagline" : "The OpenSearch Project: https://opensearch.org/"
-    }
-    ```
+    {% include [default-connstring](../../_tutorials/_tutorials_includes/opensearch/check-connection.md) %}
 
 ## Выполните поиск без использования yandex-lemmer {#search-without-yandex-lemmer}
 
