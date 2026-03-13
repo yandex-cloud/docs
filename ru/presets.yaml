@@ -1871,6 +1871,19 @@ default:
         provisioned_rcu: dn2kg3kak19fubcmerdh
         requests: dn2f1mpij5h7573tqjdt
         storage: dn2iqvpuvujh28ggku9h
+  sku|KZT|ai:
+    datasphere:
+      computing:
+        v1|number: 0.0067
+        v1|string: "0,0067\_₸"
+      datasets:
+        v1|number: 0.0067
+      deployment|number: 0.0067
+      disk:
+        v1|number: 0.0067
+      jobs|number: 0.0067
+      models:
+        v1|number: 0.0067
   sku|KZT|airflow:
     cluster:
       generic:
@@ -1973,6 +1986,9 @@ default:
   sku|KZT|datalens:
     users:
       v1|string: "4\_950,00\_₸"
+  sku|KZT|datasphere:
+    docker|number: 0.0067
+    filestores|number: 0.0067
   sku|KZT|datatransfer:
     compute:
       cpu:
@@ -2010,6 +2026,10 @@ default:
     users:
       101-500|number: 2536.65
       501-1000|number: 2276.87
+  sku|KZT|iot:
+    mqtt|pricingRate:
+      100000|number: 0.000644
+      1000000|number: 0.000582
   sku|KZT|kms:
     api:
       asymmetric:
@@ -2192,6 +2212,9 @@ default:
         text:
           v1|number: 2386.29
           v1|string: "2\_386,29\_₸"
+    kspm:
+      nodes|pricingRate:
+        2|string: "41\_426,88\_₸"
   sku|KZT|serverless:
     containers:
       compute:
@@ -2345,6 +2368,14 @@ default:
       128k:
         12h|number: 0.75
         12h|string: "0,75\_₸"
+    v1:
+      serverless:
+        requests|pricingRate:
+          1|string: "119,58\_₸"
+        requests|string: Не тарифицируется
+        storage|pricingRate:
+          720|string: "0,1661\_₸"
+        storage|string: Не тарифицируется
   sku|KZT|yq:
     network:
       ingress:
@@ -2387,6 +2418,19 @@ default:
         v3|number: 7.05
       ram:
         v3|number: 1.88
+  sku|RUB|ai:
+    datasphere:
+      computing:
+        v1|number: 0.001318
+        v1|string: "0,001318\_₽"
+      datasets:
+        v1|number: 0.001318
+      deployment|number: 0.001318
+      disk:
+        v1|number: 0.001318
+      jobs|number: 0.001318
+      models:
+        v1|number: 0.001318
   sku|RUB|airflow:
     cluster:
       generic:
@@ -2490,6 +2534,9 @@ default:
     users:
       v1|number: 990
       v1|string: "990,00\_₽"
+  sku|RUB|datasphere:
+    docker|number: 0.001318
+    filestores|number: 0.001318
   sku|RUB|datatransfer:
     compute:
       cpu:
@@ -2545,6 +2592,10 @@ default:
           monthly_usage:
             v1|number: 2363
             v1|string: "2\_363,00\_₽"
+  sku|RUB|iot:
+    mqtt|pricingRate:
+      100000|number: 0.000126
+      1000000|number: 0.000114
   sku|RUB|kms:
     api:
       asymmetric:
@@ -2719,6 +2770,9 @@ default:
           50|number: 59.98
           50|string: "59,98\_₽"
   sku|RUB|security_deck:
+    access_transparency:
+      subscription:
+        v1|string: "71\_167,00\_₽"
     cspm:
       resources|string: "590,00\_₽"
     dspm:
@@ -2729,6 +2783,9 @@ default:
         text:
           v1|number: 468.48
           v1|string: "468,48\_₽"
+    kspm:
+      nodes|pricingRate:
+        2|string: "8\_133,00\_₽"
   sku|RUB|serverless:
     containers:
       compute:
@@ -2890,6 +2947,14 @@ default:
       128k:
         12h|number: 0.1464
         12h|string: "0,1464\_₽"
+    v1:
+      serverless:
+        requests|pricingRate:
+          1|string: "23,48\_₽"
+        requests|string: Не тарифицируется
+        storage|pricingRate:
+          720|string: "0,0326\_₽"
+        storage|string: Не тарифицируется
   sku|RUB|yq:
     network:
       ingress:
@@ -2933,6 +2998,18 @@ default:
       ram:
         v3|number: 0.37
   sku|USD|ai:
+    datasphere:
+      computing:
+        v1|number: 0.0000108
+        v1|string: "0,0000108\_$"
+      datasets:
+        v1|number: 0.0000108
+      deployment|number: 0.0000108
+      disk:
+        v1|number: 0.0000108
+      jobs|number: 0.0000108
+      models:
+        v1|number: 0.0000108
     mt:
       detect|string: "4,10\_$"
       translate|string: "4,10\_$"
@@ -2945,6 +3022,149 @@ default:
         vcpu:
           v1|number: 0.0225
           v1|string: "0,0225\_$"
+  sku|USD|aistudio:
+    index_storage|string: "0,0869\_$"
+    text_generation:
+      cached_tokens:
+        sync:
+          aliceai-llm|string: "0,0041\_$"
+          deepseek-3:
+            2|string: "0,001066\_$"
+          gemma-3-27b-it|string: "0,0033\_$"
+          gpt-oss-120b|string: "0,002459\_$"
+          gpt-oss-20b|string: "0,000820\_$"
+          qwen3-235b-a22b-fp8|string: "0,0041\_$"
+          speech-realtime|string: "0,001639\_$"
+          yandexgpt-5-lite|string: "0,001639\_$"
+          yandexgpt-5-pro|string: "0,0098\_$"
+          yandexgpt-5:
+            1-pro|string: "0,0066\_$"
+      input_tokens:
+        async:
+          aliceai-llm|string: "0,002049\_$"
+          yandexgpt-5-lite|string: "0,000820\_$"
+          yandexgpt-5-pro|number: 0.005
+          yandexgpt-5-pro|string: "0,0050\_$"
+          yandexgpt-5:
+            1-pro|string: "0,003361\_$"
+        batch:
+          deepseek-r1-distill-llama-70b|string: "0,0050\_$"
+          deepseek-r1-distill-qwen-32b|string: "0,003361\_$"
+          deepseek-vl2-tiny|string: "0,000820\_$"
+          deepseek-vl2|string: "0,003361\_$"
+          gemma-3-12b-it|string: "0,001639\_$"
+          gemma-3-1b-it|string: "0,000820\_$"
+          gemma-3-27b-it|string: "0,003361\_$"
+          gemma-3-4b-it|string: "0,000820\_$"
+          llama3:
+            1-70b-instruct|string: "0,0050\_$"
+            3-70b-instruct|string: "0,0050\_$"
+          phi-4|string: "0,001639\_$"
+          qwen2-vl-7b-instruct|string: "0,000820\_$"
+          qwen2:
+            5-32b-instruct|string: "0,003361\_$"
+            5-72b-instruct|string: "0,0050\_$"
+            5-7b-instruct|string: "0,000820\_$"
+            5-vl-32b-instruct|string: "0,003361\_$"
+            5-vl-7b-instruct|string: "0,000820\_$"
+          qwen3-0:
+            6b|string: "0,000820\_$"
+          qwen3-1:
+            7b|string: "0,000820\_$"
+          qwen3-14b|string: "0,001639\_$"
+          qwen3-235b-a22b|string: "0,05\_$"
+          qwen3-30b-a3b|string: "0,003361\_$"
+          qwen3-32b|string: "0,003361\_$"
+          qwen3-4b|string: "0,000820\_$"
+          qwen3-8b|string: "0,000820\_$"
+          qwq-32b|string: "0,003361\_$"
+        sync:
+          aliceai-llm|number: 0.0041
+          aliceai-llm|string: "0,0041\_$"
+          deepseek-3:
+            2|string: "0,0041\_$"
+          gemma-3-27b-it|string: "0,0033\_$"
+          gpt-oss-120b|string: "0,002459\_$"
+          gpt-oss-20b|string: "0,000820\_$"
+          qwen3-235b-a22b-fp8|number: 0.0041
+          qwen3-235b-a22b-fp8|string: "0,0041\_$"
+          speech-realtime|string: "0,0066\_$"
+          yandexgpt-5-lite|string: "0,001639\_$"
+          yandexgpt-5-pro|string: "0,0098\_$"
+          yandexgpt-5:
+            1-pro|number: 0.0066
+            1-pro|string: "0,0066\_$"
+      output_tokens:
+        async:
+          aliceai-llm|string: "0,0084\_$"
+          yandexgpt-5-lite|string: "0,000820\_$"
+          yandexgpt-5-pro|string: "0,0050\_$"
+          yandexgpt-5:
+            1-pro|string: "0,003361\_$"
+        batch:
+          deepseek-r1-distill-llama-70b|string: "0,0050\_$"
+          deepseek-r1-distill-qwen-32b|string: "0,003361\_$"
+          deepseek-vl2-tiny|string: "0,000820\_$"
+          deepseek-vl2|string: "0,003361\_$"
+          gemma-3-12b-it|string: "0,001639\_$"
+          gemma-3-1b-it|string: "0,000820\_$"
+          gemma-3-27b-it|string: "0,003361\_$"
+          gemma-3-4b-it|string: "0,000820\_$"
+          llama3:
+            1-70b-instruct|string: "0,0050\_$"
+            3-70b-instruct|string: "0,0050\_$"
+          phi-4|string: "0,001639\_$"
+          qwen2-vl-7b-instruct|string: "0,000820\_$"
+          qwen2:
+            5-32b-instruct|string: "0,003361\_$"
+            5-72b-instruct|string: "0,0050\_$"
+            5-7b-instruct|string: "0,000820\_$"
+            5-vl-32b-instruct|string: "0,003361\_$"
+            5-vl-7b-instruct|string: "0,000820\_$"
+          qwen3-0:
+            6b|string: "0,000820\_$"
+          qwen3-1:
+            7b|string: "0,000820\_$"
+          qwen3-14b|string: "0,001639\_$"
+          qwen3-235b-a22b|string: "0,05\_$"
+          qwen3-30b-a3b|string: "0,003361\_$"
+          qwen3-32b|string: "0,003361\_$"
+          qwen3-4b|string: "0,000820\_$"
+          qwen3-8b|string: "0,000820\_$"
+          qwq-32b|string: "0,003361\_$"
+        sync:
+          aliceai-llm|number: 0.0098
+          aliceai-llm|string: "0,0098\_$"
+          deepseek-3:
+            2|string: "0,0066\_$"
+          gemma-3-27b-it|string: "0,0033\_$"
+          gpt-oss-120b|string: "0,002459\_$"
+          gpt-oss-20b|string: "0,000820\_$"
+          qwen3-235b-a22b-fp8|number: 0.0041
+          qwen3-235b-a22b-fp8|string: "0,0041\_$"
+          speech-realtime|string: "0,0066\_$"
+          yandexgpt-5-lite|string: "0,001639\_$"
+          yandexgpt-5-pro|string: "0,0098\_$"
+          yandexgpt-5:
+            1-pro|number: 0.0066
+            1-pro|string: "0,0066\_$"
+      tool_tokens:
+        sync:
+          aliceai-llm|string: "0,001066\_$"
+          deepseek-3:
+            2|string: "0,001066\_$"
+          gemma-3-27b-it|string: "0,0033\_$"
+          gpt-oss-120b|string: "0,002459\_$"
+          gpt-oss-20b|string: "0,000820\_$"
+          qwen3-235b-a22b-fp8|string: "0,0041\_$"
+          speech-realtime|string: "0,001639\_$"
+          yandexgpt-5-lite|string: "0,001639\_$"
+          yandexgpt-5-pro|string: "0,0098\_$"
+          yandexgpt-5:
+            1-pro|string: "0,001639\_$"
+    tool:
+      filesearch|number: 0.002459
+      mcp|string: Не тарифицируется
   sku|USD|alb:
     balancer:
       active|number: 0.02
@@ -3038,6 +3258,9 @@ default:
   sku|USD|datalens:
     users:
       v1|string: "8,25\_$"
+  sku|USD|datasphere:
+    docker|number: 0.0000108
+    filestores|number: 0.0000108
   sku|USD|datatransfer:
     compute:
       cpu:
@@ -3063,10 +3286,14 @@ default:
   sku|USD|foundation_models:
     image_generation:
       v1|string: "0,0183\_$"
+    inference:
+      v1|string: "0,0083\_$"
     realtime_audio:
       input:
+        v1|number: 0.000217
         v1|string: "0,000217\_$"
       output:
+        v1|number: 0.000167
         v1|string: "0,000167\_$"
     text_classification:
       v1|string: "0,001250\_$"
@@ -3090,6 +3317,10 @@ default:
     users:
       101-500|number: 4.08
       501-1000|number: 3.66
+  sku|USD|iot:
+    mqtt|pricingRate:
+      100000|number: 0.000001037
+      1000000|number: 9.36e-7
   sku|USD|kms:
     api:
       asymmetric:
@@ -3297,6 +3528,9 @@ default:
         text:
           v1|number: 3.84
           v1|string: "3,84\_$"
+    kspm:
+      nodes|pricingRate:
+        2|string: "66,66\_$"
   sku|USD|serverless:
     containers:
       compute:
@@ -3348,8 +3582,24 @@ default:
     tts_gpu:
       v1|number: 11
       v1|string: "11,00\_$"
+    tts_hosting:
+      brand_voice_lite:
+        v1|pricingRate:
+          1|string: "750,00\_$"
+          2|string: "666,66\_$"
+          3|string: "583,33\_$"
+          4|string: "500,00\_$"
+          5|string: "416,66\_$"
+        v1|string: "833,33\_$"
+      full_brand_voice:
+        v1|string: Не тарифицируется
+    tts_training:
+      brand_voice_lite:
+        v1|string: "75,00\_$"
     tts:
       v3_bvcc_request:
+        v1|string: "0,001333\_$"
+      v3_bvlite_request:
         v1|string: "0,001333\_$"
       v3_bvprem_request:
         v1|string: "0,001333\_$"
@@ -3479,6 +3729,9 @@ default:
       v1|string: "0,01\_$"
     vehicle_certificate_text_detection:
       v1|string: "0,0058\_$"
+  sku|USD|yandexaistudio:
+    requests:
+      agent|string: "7,50\_$"
   sku|USD|ydb:
     v1:
       serverless:
@@ -3494,6 +3747,14 @@ default:
       128k:
         12h|number: 0.0012
         12h|string: "0,0012\_$"
+    v1:
+      serverless:
+        requests|pricingRate:
+          1|string: "0,1924\_$"
+        requests|string: Не тарифицируется
+        storage|pricingRate:
+          720|string: "0,000267\_$"
+        storage|string: Не тарифицируется
   sku|USD|yt:
     compute-nodes:
       cpu:
@@ -5159,6 +5420,9 @@ default:
         label_ai-assistant-open: AI-ассистент
       airflow:
         button_create-cluster: Создать кластер
+        cluster:
+          overview:
+            title_resource-webserver: Веб-сервер
         field_lockbox: Использовать Lockbox Secret Backend
         section_accesses: Настройки доступа
         section_airflow-configuration: Конфигурация Airflow
@@ -7133,6 +7397,8 @@ default:
           popup-confirm_button_delete: Удалить
         custom-resources:
           label_tab-resources: Ресурсы
+        IAMService:
+          section-title_4Cx2E: Управление идентификацией и доступом
         MaintenanceSection:
           maintenance-window-field-with-none-option_tx5Wn: Частота обновлений / Отключение
         namespaces:
@@ -7595,6 +7861,7 @@ default:
             label_status: Статус
             label_title: Обзор
             label_version: Версия
+            label_web-server-url: Перейти
             section_additional: Дополнительные настройки
             section_configuration: Настройки
             section_resource: Ресурсы

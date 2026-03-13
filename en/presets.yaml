@@ -1871,6 +1871,19 @@ default:
         provisioned_rcu: dn2kg3kak19fubcmerdh
         requests: dn2f1mpij5h7573tqjdt
         storage: dn2iqvpuvujh28ggku9h
+  sku|KZT|ai:
+    datasphere:
+      computing:
+        v1|number: 0.0067
+        v1|string: ₸0.0067
+      datasets:
+        v1|number: 0.0067
+      deployment|number: 0.0067
+      disk:
+        v1|number: 0.0067
+      jobs|number: 0.0067
+      models:
+        v1|number: 0.0067
   sku|KZT|airflow:
     cluster:
       generic:
@@ -1973,6 +1986,9 @@ default:
   sku|KZT|datalens:
     users:
       v1|string: ₸4950.00
+  sku|KZT|datasphere:
+    docker|number: 0.0067
+    filestores|number: 0.0067
   sku|KZT|datatransfer:
     compute:
       cpu:
@@ -2010,6 +2026,10 @@ default:
     users:
       101-500|number: 2536.65
       501-1000|number: 2276.87
+  sku|KZT|iot:
+    mqtt|pricingRate:
+      100000|number: 0.000644
+      1000000|number: 0.000582
   sku|KZT|kms:
     api:
       asymmetric:
@@ -2192,6 +2212,9 @@ default:
         text:
           v1|number: 2386.29
           v1|string: ₸2386.29
+    kspm:
+      nodes|pricingRate:
+        2|string: ₸41426.88
   sku|KZT|serverless:
     containers:
       compute:
@@ -2345,6 +2368,14 @@ default:
       128k:
         12h|number: 0.75
         12h|string: ₸0.75
+    v1:
+      serverless:
+        requests|pricingRate:
+          1|string: ₸119.58
+        requests|string: Free
+        storage|pricingRate:
+          720|string: ₸0.1661
+        storage|string: Free
   sku|KZT|yq:
     network:
       ingress:
@@ -2387,6 +2418,19 @@ default:
         v3|number: 7.05
       ram:
         v3|number: 1.88
+  sku|RUB|ai:
+    datasphere:
+      computing:
+        v1|number: 0.001318
+        v1|string: ₽0.001318
+      datasets:
+        v1|number: 0.001318
+      deployment|number: 0.001318
+      disk:
+        v1|number: 0.001318
+      jobs|number: 0.001318
+      models:
+        v1|number: 0.001318
   sku|RUB|airflow:
     cluster:
       generic:
@@ -2490,6 +2534,9 @@ default:
     users:
       v1|number: 990
       v1|string: ₽990.00
+  sku|RUB|datasphere:
+    docker|number: 0.001318
+    filestores|number: 0.001318
   sku|RUB|datatransfer:
     compute:
       cpu:
@@ -2545,6 +2592,10 @@ default:
           monthly_usage:
             v1|number: 2363
             v1|string: ₽2363.00
+  sku|RUB|iot:
+    mqtt|pricingRate:
+      100000|number: 0.000126
+      1000000|number: 0.000114
   sku|RUB|kms:
     api:
       asymmetric:
@@ -2719,6 +2770,9 @@ default:
           50|number: 59.98
           50|string: ₽59.98
   sku|RUB|security_deck:
+    access_transparency:
+      subscription:
+        v1|string: ₽71167.00
     cspm:
       resources|string: ₽590.00
     dspm:
@@ -2729,6 +2783,9 @@ default:
         text:
           v1|number: 468.48
           v1|string: ₽468.48
+    kspm:
+      nodes|pricingRate:
+        2|string: ₽8133.00
   sku|RUB|serverless:
     containers:
       compute:
@@ -2890,6 +2947,14 @@ default:
       128k:
         12h|number: 0.1464
         12h|string: ₽0.1464
+    v1:
+      serverless:
+        requests|pricingRate:
+          1|string: ₽23.48
+        requests|string: Free
+        storage|pricingRate:
+          720|string: ₽0.0326
+        storage|string: Free
   sku|RUB|yq:
     network:
       ingress:
@@ -2933,6 +2998,18 @@ default:
       ram:
         v3|number: 0.37
   sku|USD|ai:
+    datasphere:
+      computing:
+        v1|number: 0.0000108
+        v1|string: $0.0000108
+      datasets:
+        v1|number: 0.0000108
+      deployment|number: 0.0000108
+      disk:
+        v1|number: 0.0000108
+      jobs|number: 0.0000108
+      models:
+        v1|number: 0.0000108
     mt:
       detect|string: $4.10
       translate|string: $4.10
@@ -2945,6 +3022,149 @@ default:
         vcpu:
           v1|number: 0.0225
           v1|string: $0.0225
+  sku|USD|aistudio:
+    index_storage|string: $0.0869
+    text_generation:
+      cached_tokens:
+        sync:
+          aliceai-llm|string: $0.0041
+          deepseek-3:
+            2|string: $0.001066
+          gemma-3-27b-it|string: $0.0033
+          gpt-oss-120b|string: $0.002459
+          gpt-oss-20b|string: $0.000820
+          qwen3-235b-a22b-fp8|string: $0.0041
+          speech-realtime|string: $0.001639
+          yandexgpt-5-lite|string: $0.001639
+          yandexgpt-5-pro|string: $0.0098
+          yandexgpt-5:
+            1-pro|string: $0.0066
+      input_tokens:
+        async:
+          aliceai-llm|string: $0.002049
+          yandexgpt-5-lite|string: $0.000820
+          yandexgpt-5-pro|number: 0.005
+          yandexgpt-5-pro|string: $0.0050
+          yandexgpt-5:
+            1-pro|string: $0.003361
+        batch:
+          deepseek-r1-distill-llama-70b|string: $0.0050
+          deepseek-r1-distill-qwen-32b|string: $0.003361
+          deepseek-vl2-tiny|string: $0.000820
+          deepseek-vl2|string: $0.003361
+          gemma-3-12b-it|string: $0.001639
+          gemma-3-1b-it|string: $0.000820
+          gemma-3-27b-it|string: $0.003361
+          gemma-3-4b-it|string: $0.000820
+          llama3:
+            1-70b-instruct|string: $0.0050
+            3-70b-instruct|string: $0.0050
+          phi-4|string: $0.001639
+          qwen2-vl-7b-instruct|string: $0.000820
+          qwen2:
+            5-32b-instruct|string: $0.003361
+            5-72b-instruct|string: $0.0050
+            5-7b-instruct|string: $0.000820
+            5-vl-32b-instruct|string: $0.003361
+            5-vl-7b-instruct|string: $0.000820
+          qwen3-0:
+            6b|string: $0.000820
+          qwen3-1:
+            7b|string: $0.000820
+          qwen3-14b|string: $0.001639
+          qwen3-235b-a22b|string: $0.05
+          qwen3-30b-a3b|string: $0.003361
+          qwen3-32b|string: $0.003361
+          qwen3-4b|string: $0.000820
+          qwen3-8b|string: $0.000820
+          qwq-32b|string: $0.003361
+        sync:
+          aliceai-llm|number: 0.0041
+          aliceai-llm|string: $0.0041
+          deepseek-3:
+            2|string: $0.0041
+          gemma-3-27b-it|string: $0.0033
+          gpt-oss-120b|string: $0.002459
+          gpt-oss-20b|string: $0.000820
+          qwen3-235b-a22b-fp8|number: 0.0041
+          qwen3-235b-a22b-fp8|string: $0.0041
+          speech-realtime|string: $0.0066
+          yandexgpt-5-lite|string: $0.001639
+          yandexgpt-5-pro|string: $0.0098
+          yandexgpt-5:
+            1-pro|number: 0.0066
+            1-pro|string: $0.0066
+      output_tokens:
+        async:
+          aliceai-llm|string: $0.0084
+          yandexgpt-5-lite|string: $0.000820
+          yandexgpt-5-pro|string: $0.0050
+          yandexgpt-5:
+            1-pro|string: $0.003361
+        batch:
+          deepseek-r1-distill-llama-70b|string: $0.0050
+          deepseek-r1-distill-qwen-32b|string: $0.003361
+          deepseek-vl2-tiny|string: $0.000820
+          deepseek-vl2|string: $0.003361
+          gemma-3-12b-it|string: $0.001639
+          gemma-3-1b-it|string: $0.000820
+          gemma-3-27b-it|string: $0.003361
+          gemma-3-4b-it|string: $0.000820
+          llama3:
+            1-70b-instruct|string: $0.0050
+            3-70b-instruct|string: $0.0050
+          phi-4|string: $0.001639
+          qwen2-vl-7b-instruct|string: $0.000820
+          qwen2:
+            5-32b-instruct|string: $0.003361
+            5-72b-instruct|string: $0.0050
+            5-7b-instruct|string: $0.000820
+            5-vl-32b-instruct|string: $0.003361
+            5-vl-7b-instruct|string: $0.000820
+          qwen3-0:
+            6b|string: $0.000820
+          qwen3-1:
+            7b|string: $0.000820
+          qwen3-14b|string: $0.001639
+          qwen3-235b-a22b|string: $0.05
+          qwen3-30b-a3b|string: $0.003361
+          qwen3-32b|string: $0.003361
+          qwen3-4b|string: $0.000820
+          qwen3-8b|string: $0.000820
+          qwq-32b|string: $0.003361
+        sync:
+          aliceai-llm|number: 0.0098
+          aliceai-llm|string: $0.0098
+          deepseek-3:
+            2|string: $0.0066
+          gemma-3-27b-it|string: $0.0033
+          gpt-oss-120b|string: $0.002459
+          gpt-oss-20b|string: $0.000820
+          qwen3-235b-a22b-fp8|number: 0.0041
+          qwen3-235b-a22b-fp8|string: $0.0041
+          speech-realtime|string: $0.0066
+          yandexgpt-5-lite|string: $0.001639
+          yandexgpt-5-pro|string: $0.0098
+          yandexgpt-5:
+            1-pro|number: 0.0066
+            1-pro|string: $0.0066
+      tool_tokens:
+        sync:
+          aliceai-llm|string: $0.001066
+          deepseek-3:
+            2|string: $0.001066
+          gemma-3-27b-it|string: $0.0033
+          gpt-oss-120b|string: $0.002459
+          gpt-oss-20b|string: $0.000820
+          qwen3-235b-a22b-fp8|string: $0.0041
+          speech-realtime|string: $0.001639
+          yandexgpt-5-lite|string: $0.001639
+          yandexgpt-5-pro|string: $0.0098
+          yandexgpt-5:
+            1-pro|string: $0.001639
+    tool:
+      filesearch|number: 0.002459
+      mcp|string: Free
   sku|USD|alb:
     balancer:
       active|number: 0.02
@@ -3038,6 +3258,9 @@ default:
   sku|USD|datalens:
     users:
       v1|string: $8.25
+  sku|USD|datasphere:
+    docker|number: 0.0000108
+    filestores|number: 0.0000108
   sku|USD|datatransfer:
     compute:
       cpu:
@@ -3063,10 +3286,14 @@ default:
   sku|USD|foundation_models:
     image_generation:
       v1|string: $0.0183
+    inference:
+      v1|string: $0.0083
     realtime_audio:
       input:
+        v1|number: 0.000217
         v1|string: $0.000217
       output:
+        v1|number: 0.000167
         v1|string: $0.000167
     text_classification:
       v1|string: $0.001250
@@ -3090,6 +3317,10 @@ default:
     users:
       101-500|number: 4.08
       501-1000|number: 3.66
+  sku|USD|iot:
+    mqtt|pricingRate:
+      100000|number: 0.000001037
+      1000000|number: 9.36e-7
   sku|USD|kms:
     api:
       asymmetric:
@@ -3297,6 +3528,9 @@ default:
         text:
           v1|number: 3.84
           v1|string: $3.84
+    kspm:
+      nodes|pricingRate:
+        2|string: $66.66
   sku|USD|serverless:
     containers:
       compute:
@@ -3348,8 +3582,24 @@ default:
     tts_gpu:
       v1|number: 11
       v1|string: $11.00
+    tts_hosting:
+      brand_voice_lite:
+        v1|pricingRate:
+          1|string: $750.00
+          2|string: $666.66
+          3|string: $583.33
+          4|string: $500.00
+          5|string: $416.66
+        v1|string: $833.33
+      full_brand_voice:
+        v1|string: Free
+    tts_training:
+      brand_voice_lite:
+        v1|string: $75.00
     tts:
       v3_bvcc_request:
+        v1|string: $0.001333
+      v3_bvlite_request:
         v1|string: $0.001333
       v3_bvprem_request:
         v1|string: $0.001333
@@ -3479,6 +3729,9 @@ default:
       v1|string: $0.01
     vehicle_certificate_text_detection:
       v1|string: $0.0058
+  sku|USD|yandexaistudio:
+    requests:
+      agent|string: $7.50
   sku|USD|ydb:
     v1:
       serverless:
@@ -3494,6 +3747,14 @@ default:
       128k:
         12h|number: 0.0012
         12h|string: $0.0012
+    v1:
+      serverless:
+        requests|pricingRate:
+          1|string: $0.1924
+        requests|string: Free
+        storage|pricingRate:
+          720|string: $0.000267
+        storage|string: Free
   sku|USD|yt:
     compute-nodes:
       cpu:
@@ -5160,6 +5421,9 @@ default:
         label_ai-assistant-open: AI Assistant
       airflow:
         button_create-cluster: Create a cluster
+        cluster:
+          overview:
+            title_resource-webserver: Web server
         field_lockbox: Use Lockbox Secret Backend
         section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
@@ -7128,6 +7392,8 @@ default:
           popup-confirm_button_delete: Delete
         custom-resources:
           label_tab-resources: Resources
+        IAMService:
+          section-title_4Cx2E: Identity and access management
         MaintenanceSection:
           maintenance-window-field-with-none-option_tx5Wn: Maintenance frequency / Disable
         namespaces:
@@ -7590,6 +7856,7 @@ default:
             label_status: Status
             label_title: Overview
             label_version: Version
+            label_web-server-url: Go to web server
             section_additional: Advanced settings
             section_configuration: Configuration
             section_resource: Resources

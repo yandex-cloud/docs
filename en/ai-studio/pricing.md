@@ -192,26 +192,12 @@ The cost of using text-based agents consists of the following:
 
 #### Invoking tools in agents {#rules-tools}
 
-{% note info %}
-
-The cost of File Search invocations will change on March 12, 2026.
-
-{% endnote %}
-
 
 
 {% include [usd-tools](../_pricing/ai-studio/usd-tools.md) %}
 
 
 ### {{ ai-search-name }} {#ai-search}
-
-Until March 12, 2026, storing search indexes and files uploaded to {{ ai-studio-name }} will be free or charge.
-
-{% note info %}
-
-The pricing policy below comes into effect on March 12, 2026.
-
-{% endnote %}
 
 The search index size is rounded up to the nearest whole gigabyte.
 

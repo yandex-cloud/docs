@@ -61,6 +61,8 @@ items:
     items:
       - name: Настройка политики индексов в {{ mos-name }}
         href: tutorials/opensearch-index-policy.md
+      - name: Настройка политики холодного хранилища в {{ mos-name }}
+        href: tutorials/opensearch-cold-storage-policy.md
       - name: Загрузка логов из {{ at-name }}
         hidden: true
         href: tutorials/trails-to-opensearch.md

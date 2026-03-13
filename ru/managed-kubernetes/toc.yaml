@@ -149,6 +149,11 @@ items:
           - name: Управление доступом к кластеру {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
           - name: >-
+              Поддержка федерации сервисных аккаунтов {{ iam-short-name }} в
+              кластере {{ k8s }}
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md
+          - name: >-
               Получение списка доступных конфигураций мастера в кластере {{ k8s
               }}
             href: >-

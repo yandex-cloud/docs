@@ -22,11 +22,11 @@ When you delete a table row, the statistics will include the deletion of records
 
 For a single-vector request to an index of the [`vector_kmeans_tree`](https://ydb.tech/docs/ru/dev/vector-indexes?version=main#kmeans-tree-type) type, reading takes several stages:
 
-1. **Navigating the index tree.**  
+1. **Navigating the index tree.**
    At each of the `levels` tree levels, [`KMeansTreeSearchTopSize`](https://ydb.tech/docs/ru/yql/reference/syntax/select/vector_index?version=main#kmeanstreesearchtopsize) clusters (each containing `clusters` subclusters) are selected from the existing clusters.
    As a result, the total number of required readings at this stage is around ${KMeansTreeSearchTopSize} * {levels} * {clusters}$.
 
-1. **Processing final candidates.**  
+1. **Processing final candidates.**
    At the lowest index tree level, all rows from the selected clusters get processed.
    The number of readings at this stage is around ${KMeansTreeSearchTopSize} * N / {clusters}^{levels}$ (in a balanced tree, where `N` is the total number of rows).
    If you do not use a [covering index](https://ydb.tech/docs/ru/concepts/secondary_indexes#covering), a row will be additionally read from the main table for each candidate record found via the index.

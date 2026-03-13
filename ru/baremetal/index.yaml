@@ -59,6 +59,17 @@ meta:
     - keyword: '{{ baremetal-name }}'
     - keyword: сервер в {{ yandex-cloud }}
     - keyword: '{{ baremetal-name }} в {{ yandex-cloud }}'
+    - keyword: baremetal
+    - keyword: bare metal
+    - keyword: бареметал
+    - keyword: дедик
+    - keyword: кастом
+    - keyword: dedicated server
+    - keyword: dedic
+    - keyword: выделенный сервер
+    - keyword: сервер под заказ
+    - keyword: custom server
+    - keyword: конфигуратор
 links:
   - title: Начало работы
     description: Арендуйте свой первый сервер

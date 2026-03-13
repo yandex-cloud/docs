@@ -31,7 +31,7 @@
 
     - Вручную {#manual}
 
-        1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
+        1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к любой группе хостов.
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
@@ -76,24 +76,7 @@
 
 1. Проверьте подключение к кластеру с помощью утилиты [cURL](https://curl.haxx.se/):
 
-    {% include [default-connstring](../../_includes/mdb/mos/default-connstring.md) %}
-
-    FQDN хоста можно получить со [списком хостов в кластере](../../managed-opensearch/operations/host-groups.md#list-hosts).
-
-    При успешном подключении будет выведено похожее сообщение:
-
-    ```bash
-    {
-      "name" : "....{{ dns-zone }}",
-      "cluster_name" : "...",
-      "cluster_uuid" : "...",
-      "version" : {
-      "distribution" : "opensearch",
-      ...
-      },
-      "tagline" : "The OpenSearch Project: https://opensearch.org/"
-    }
-    ```
+    {% include [default-connstring](../../_tutorials/_tutorials_includes/opensearch/check-connection.md) %}
 
 ## Создайте политику {#create-policy}
 
@@ -104,7 +87,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_plugins/_ism/policies/rollover_policy' \
+        --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_plugins/_ism/policies/rollover_policy' \
         --data '
             {
                 "policy": {
@@ -148,7 +131,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_index_template/ism_rollover?pretty' \
+        --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_index_template/ism_rollover?pretty' \
         --data '
             {
                 "index_patterns": ["log*"],
@@ -169,7 +152,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/log-000001?pretty' \
+        --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/log-000001?pretty' \
         --data '
             {
                 "aliases": {
@@ -187,7 +170,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_plugins/_ism/explain/log-000001?pretty'
+        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_plugins/_ism/explain/log-000001?pretty'
     ```
 
     В результатах будет выведено похожее сообщение:
@@ -215,7 +198,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/log/_doc?pretty' \
+        --request POST 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/log/_doc?pretty' \
         --data '
             {
                 "num": "101",
@@ -231,7 +214,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET '<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_cat/indices?pretty'
+        --request GET '<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/indices?pretty'
     ```
 
     5 минут — это время по умолчанию, через которое повторяется проверка условий политики.

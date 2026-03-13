@@ -286,7 +286,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Условная переадресация запросов {#redirects-on-conditions}
 
-Используя правила маршрутизации, можно перенаправлять запросы в соответствии с префиксами имен объектов или HTTP-кодами ответов. Вы можете перенаправить на другую веб-страницу запрос к удаленному объекту или перенаправить запросы, возвращающие ошибку. В сервисе действуют [лимиты](../../concepts/limits.md#storage-limits) на максимальное количество правил для условной переадресации запросов.
+  С помощью правил переадресации можно перенаправить на другую веб-страницу запросы к удаленным объектам или запросы, возвращающие ошибку. Переадресация происходит в соответствии с условием, состоящим из префикса ключа объекта и HTTP-кода ответа. В сервисе действуют [лимиты](../../concepts/limits.md#storage-limits) на максимальное количество правил для условной переадресации запросов.
 
 {% list tabs group=instructions %}
 
@@ -301,6 +301,9 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите как минимум одно условие переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** — HTTP-код, которым {{ objstorage-name }} должен был бы ответить на запрос без переадресации.
       * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. [Подробнее о ключах и устройстве статического сайта](#static-site-information).
+    
+     {% include [redirect-order](../../../_includes/storage/redirect-order.md) %}
+    
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}** задайте параметры переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**, по которому должен быть отправлен переадресованный запрос.
       * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** хоста, на который должны перенаправляться запросы, удовлетворившие условию.
@@ -358,6 +361,8 @@ description: Следуя данной инструкции, вы сможете
      
        * `httpErrorCodeReturnedEquals` — HTTP-код ответа.
        * `keyPrefixEquals` — префикс ключа объекта.
+
+       {% include [redirect-order](../../../_includes/storage/redirect-order.md) %}
        
      * `redirect` — настройки перенаправления:
      
