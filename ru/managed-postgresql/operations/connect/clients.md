@@ -33,14 +33,16 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Подключитесь к базе данных:
 
       ```bash
-      psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
+      psql "host=<список_хостов_кластера> \
             port=6432 \
             sslmode=disable \
             dbname=<имя_БД> \
             user=<имя_пользователя> \
             target_session_attrs=read-write"
       ```
-
+ 
+      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}    
+ 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
   1. Для проверки успешности подключения выполните запрос:
@@ -54,6 +56,8 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Подключитесь к базе данных:
 
       {% include [default-connstring](../../../_includes/mdb/mpg/default-connstring.md) %}
+  
+      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -83,11 +87,13 @@ sudo apt update && sudo apt install --yes postgresql-client
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
+           --host=<список_хостов> `
            --port={{ port-mpg }} `
            --username=<имя_пользователя> `
            <имя_БД>
      ```
+
+     {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}     
 
      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -109,11 +115,13 @@ sudo apt update && sudo apt install --yes postgresql-client
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
+        --host=<список_хостов> `
         --port={{ port-mpg }} `
         --username<имя_пользователя> `
         <имя_БД>
       ```
+
+      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 

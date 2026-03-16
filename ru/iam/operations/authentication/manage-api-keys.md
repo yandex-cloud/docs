@@ -11,6 +11,8 @@ description: Из статьи вы узнаете, как создавать и
 
 ## Создать API-ключ {#create-api-key}
 
+{% include [access-control-sa-apikey-notice](../../../_includes/iam/access-control-sa-apikey-notice.md) %}
+
 Чтобы создать API-ключ сервисного аккаунта:
 
 {% list tabs group=instructions %}

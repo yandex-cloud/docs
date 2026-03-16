@@ -5,6 +5,8 @@ description: "Сервисный аккаунт\_— аккаунт, от име
 
 # Сервисные аккаунты
 
+{% include [access-control-sa-general-notice](../../../_includes/iam/access-control-sa-general-notice.md) %}
+
 {% include [sa-def](../../_includes_service/sa-def.md) %}
 
 ## Зачем нужны сервисные аккаунты {#sa-usage}

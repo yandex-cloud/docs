@@ -5,6 +5,8 @@ description: ID-токен — специальный токен, выдавае
 
 # ID-токен сервисного аккаунта
 
+{% include [access-control-sa-idtoken-notice](../../../_includes/iam/access-control-sa-idtoken-notice.md) %}
+
 [ID-токен](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) — специальный короткоживущий токен, выдаваемый [сервисному аккаунту](../users/service-accounts.md) и необходимый для аутентификации от имени этого сервисного аккаунта в сторонней системе, поддерживающей аутентификацию по стандарту [OIDC](https://openid.net/specs/openid-connect-core-1_0.html).
 
 ID-токен создается на стороне {{ yandex-cloud }} и используется для обмена на токен доступа во внешней системе. Срок действия ID-токена составляет один час. Использовать ID-токен для аутентификации при обращении к [API {{ yandex-cloud }}](../../../api-design-guide/index.yaml) нельзя.

@@ -290,8 +290,6 @@ items:
           Как узнать о потреблении оперативной памяти виртуальными машинами в {{
           compute-name }}
         href: compute/how-to/view-ram-usage-in-monitoring.md
-      - name: Как создавать виртуальные машины с несколькими сетевыми интерфейсами
-        href: compute/how-to/creating-instances-with-multiple-network-interfaces.md
       - name: Как уменьшить объем диска виртуальной машины
         href: compute/how-to/shrink-instance-disk.md
       - name: Как экспортировать образы дисков виртуальных машин {{ compute-name }}

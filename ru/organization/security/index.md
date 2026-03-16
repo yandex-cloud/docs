@@ -8,6 +8,12 @@
 
 Подробнее об управлении доступом в {{ yandex-cloud }} читайте в документации {{ iam-full-name }} в разделе [{#T}](../../iam/concepts/access-control/index.md).
 
+{% note info %}
+
+Даже если [операция](../../api-design-guide/concepts/about-async.md) с ресурсами [сервисов](../../overview/concepts/services.md) {{ yandex-cloud }} разрешена [ролью](../../iam/concepts/access-control/roles.md), ее выполнение может быть заблокировано, если на [организацию](../../organization/concepts/organization.md) назначена [политика авторизации](../../iam/concepts/access-control/access-policies.md), запрещающая эту операцию.
+
+{% endnote %}
+
 ## На какие ресурсы можно назначить роль {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}

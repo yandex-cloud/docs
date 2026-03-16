@@ -7,6 +7,49 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.199.0 (16.03.26) {#version0.199.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ compute-name }}
+
+Добавлен параметр `--os-nvidia-driver` в команду создания образа:
+
+```bash
+yc compute image create --os-nvidia-driver <nvidia-driver>
+```
+
+##### {{ mos-name }}
+
+Добавлен параметр конфигурации `http-max-initial-line-length` в команды управления кластером:
+* `yc managed-opensearch cluster create`;
+* `yc managed-opensearch cluster update`.
+
+
+##### {{ mch-name }}
+
+В команду `add-zookeeper` добавлена возможность указывать тип хоста:
+
+```bash
+yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
+```
+
+##### {{ mpg-name }}
+
+Из команды создания кластера `yc managed-postgresql cluster create` удалены устаревшие версии PostgreSQL (9.6, 10, 10-1c, 11, 11-1c, 12, 12-1c), версия по умолчанию изменена на `16`.
+
+##### {{ mmy-name }}
+
+* Добавлена команда `yc managed-mysql database update` для обновления баз данных. 
+* Поддержана защита от удаления `deletion protection` для баз данных MySQL.
+
+##### {{ captcha-name }}
+
+Сервис {{ captcha-name }} добавлен в бета-дерево команд и доступен по команде `yc beta smartcaptcha`.
+
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.199.0 (12.03.26) {#version0.199.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.199.0}
@@ -21,8 +64,6 @@ description: На странице представлены релизы CLI, а
 
 * Удалены устаревшие и неподдерживаемые версии {{ PG }}: 9.6, 10, 10-1c, 11, 11-1c, 12, 12-1c.
 * При создании кластера {{ mpg-name }} командой `yc managed-postgresql cluster create` по умолчанию используется версия 16.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.198.0 (09.03.26) {#version0.198.0}
 
@@ -126,19 +167,19 @@ description: На странице представлены релизы CLI, а
 ##### {{ mmg-name }}
 Добавлены настройки автоскейлинга и окна обслуживания для команд `create` и `restore`:
 * `yc managed-mongodb cluster create`;
-* `restore --maintenance-window --disk-size-autoscaling`.
+* `yc managed-mongodb cluster restore --maintenance-window --disk-size-autoscaling`.
 
 
 ##### {{ mpg-name }}
 * Добавлены настройки автоскейлинга и окна обслуживания для команд `create` и `restore`:
   * `yc managed-postgresql cluster create`;
-  * `restore --maintenance-window --disk-size-autoscaling`.
-* Удален флаг для выключения autofailover.
+  * `yc managed-postgresql cluster restore --maintenance-window --disk-size-autoscaling`.
+* Удален флаг для выключения `autofailover`.
 
 ##### {{ mrd-name }}
 Добавлены настройки автоскейлинга и окна обслуживания для команд `create` и `restore`:
   * `yc managed-redis cluster create`;
-  * `restore --maintenance-window --disk-size-autoscaling`.
+  * `yc managed-redis cluster restore --maintenance-window --disk-size-autoscaling`.
 
 ##### {{ managed-k8s-name }}
 В методы управления NodeGroup добавлены параметры '--reserved-instance-pool-id' и '--variables', которые позволяют указать пулы резервов ВМ и пользовательские переменные соответственно:
@@ -151,9 +192,9 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ mmg-name }}
 
-Добавлены настройки автоскейлинга и окна обслуживания для команд create и restore
-* `yc managed-mongodb cluster create`
-* `restore --maintenance-window --disk-size-autoscaling`
+Добавлены настройки автоскейлинга и окна обслуживания для команд `create` и `restore`:
+* `yc managed-mongodb cluster create`;
+* `yc managed-mongodb cluster restore --maintenance-window --disk-size-autoscaling`.
 
 ##### {{ mrd-name }}
 
@@ -238,7 +279,7 @@ description: На странице представлены релизы CLI, а
 Добавлен флаг `--secret-folder-id` для команд создания подключения `yc metadata-hub connection-manager connection create`.
 
 ##### {{ sw-name }}
-Исправлен пример cron-выражения для расписания: 
+Исправлен пример cron-выражения для расписания:
   * `yc serverless workflow create`
 
 ### Версия 0.189.0 (02.02.26) {#version0.189.0}
@@ -246,7 +287,8 @@ description: На странице представлены релизы CLI, а
 #### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ connection-manager-name }}
-Добавлен флаг `--secret-folder-id` для команд создания подключения.
+Добавлен флаг `--secret-folder-id` для команд создания подключения:
+  * `yc metadata-hub connection-manager connection create`
 
 ### Версия 0.188.0 (26.01.26) {#version0.188.0}
 
@@ -338,14 +380,14 @@ description: На странице представлены релизы CLI, а
 ##### {{ objstorage-name }} {#objstorage-name-0.183.0}
 
 * В команду `yc storage bucket update` добавлены следующие параметры:
-  * `--disable-statickey-auth=<true_или_false>` — управление возможностью аутентификации в бакете с помощью статических ключей.
+  * `--disable-statickey-auth=<true_или_false>` — управление возможностью аутентификации в бакете с помощью статических ключей;
   * `--private-endpoints-force-cloudconsole-access=<true_или_false>` — управление возможностью доступа из консоли управления к бакету, доступ к которому разрешен только из сервисных подключений {{ vpc-short-name }}.
  
 ##### {{ mtr-name }} {#mtr-name-0.183.0}
 
 * Добавлены команды для создания и обновления каталогов {{ GP }} в {{ mtr-name }}:
-* `yc managed trino catalog create greenplum`;
-* `yc managed trino catalog update greenplum`.
+  * `yc managed-trino catalog create greenplum`;
+  * `yc managed-trino catalog update greenplum`.
 
 ### Версия 0.182.0 (15.12.25) {#version0.182.0}
 
@@ -438,8 +480,8 @@ description: На странице представлены релизы CLI, а
 ##### {{ mtr-short-name }}
 
 * Добавлены команды для создания и обновления каталога {{ TR }} с коннектором {{ MY }} для {{ mtr-name }}:
-  * `yc managed trino catalog create mysql`;
-  * `yc managed trino catalog update mysql`.
+  * `yc managed-trino catalog create mysql`;
+  * `yc managed-trino catalog update mysql`.
 
 ##### {{ org-name }}
 
@@ -794,7 +836,7 @@ description: На странице представлены релизы CLI, а
 
 Добавлены команды для создания и обновления Hudi каталогов для {{ mtr-name }}:
   * `yc managed-trino catalog create hudi`;
-  * `yc managed trino catalog update hudi`.
+  * `yc managed-trino catalog update hudi`.
 
 ##### {{ myt-name }}
 
@@ -955,7 +997,7 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ managed-k8s-name }}
 
-Добавлен параметр `--enable-workload-identity-federation`, который позволяет включать [федерацию сервисных аккаунтов](../iam/concepts/workload-identity.md) (Workload Identity Federation).
+Добавлен параметр `--enable-workload-identity-federation`, который позволяет включать [федерацию сервисных аккаунтов](../iam/concepts/workload-identity.md) (Workload Identity Federation):
 
 Параметр добавлен в команды:
 * `yc managed-kubernetes cluster create`;

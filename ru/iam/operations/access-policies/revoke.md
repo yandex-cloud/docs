@@ -1,15 +1,15 @@
 ---
-title: Отозвать у ресурса политику авторизации
-description: Из статьи вы узнаете, как отозвать политику авторизации {{ iam-full-name }} у каталога, облака или организации.
+title: Удалить политику авторизации, созданную для ресурса
+description: Из статьи вы узнаете, как удалить политику авторизации {{ iam-full-name }} каталога, облака или организации.
 ---
 
-# Отзыв политики авторизации
+# Удаление политики авторизации
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-Вы можете отозвать политику авторизации у [каталога](#folder), [облака](#cloud) или [организации](#organization).
+Вы можете удалить политику авторизации, созданную для [каталога](#folder), [облака](#cloud) или [организации](#organization).
 
 {% note info %}
 
@@ -17,15 +17,15 @@ description: Из статьи вы узнаете, как отозвать по
 
 {% endnote %}
 
-## Отозвать политику авторизации у каталога {#folder}
+## Удалить политику авторизации, созданную для каталога {#folder}
 
 {% include [access-policies-revoke-folder](../../../_includes/iam/access-policies-revoke-folder.md) %}
 
-## Отозвать политику авторизации у облака {#cloud}
+## Удалить политику авторизации, созданную для облака {#cloud}
 
 {% include [access-policies-revoke-cloud](../../../_includes/iam/access-policies-revoke-cloud.md) %}
 
-## Отозвать политику авторизации у организации {#organization}
+## Удалить политику авторизации, созданную для организации {#organization}
 
 {% include [access-policies-revoke-org](../../../_includes/iam/access-policies-revoke-org.md) %}
 

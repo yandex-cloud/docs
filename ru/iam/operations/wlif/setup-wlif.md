@@ -5,7 +5,7 @@ description: С помощью этой инструкции вы научите
 
 # Настройка федерации сервисных аккаунтов
 
-{% include [move-groups-api](../../../_includes/iam/wlif-instructions-intro.md) %}
+{% include [wlif-instructions-intro](../../../_includes/iam/wlif-instructions-intro.md) %}
 
 Чтобы настроить аутентификацию в API {{ yandex-cloud }} через федерацию сервисных аккаунтов:
 
@@ -164,6 +164,12 @@ description: С помощью этой инструкции вы научите
 {% endlist %}
 
 ## Создайте привязку {#create-federated-credential}
+
+{% note warning %}
+
+{% include [access-control-sa-wlif-notice](../../../_includes/iam/access-control-wlif-notice.md) %}
+
+{% endnote %}
 
 Привязка — это связь, настроенная между федерацией сервисных аккаунтов, одним сервисным аккаунтом {{ yandex-cloud }} и одним внешним субъектом. Привязки необходимы для идентификации внешних субъектов в {{ iam-full-name }}.
 

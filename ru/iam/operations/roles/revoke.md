@@ -1,5 +1,11 @@
 # Отзыв роли на ресурс
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 Если вы хотите запретить [субъекту](../../concepts/access-control/index.md#subject) доступ к ресурсу, отзовите у него соответствующие роли на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
 
 

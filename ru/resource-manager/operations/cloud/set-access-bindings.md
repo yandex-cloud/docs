@@ -1,7 +1,12 @@
 # Настройка прав доступа к облаку
 
-Чтобы предоставить пользователю доступ к ресурсам в облаке, назначьте ему [роль](../../../iam/concepts/access-control/roles.md) на это облако.
+{% note info %}
 
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
+Чтобы предоставить пользователю доступ к ресурсам в облаке, назначьте ему роль на это облако.
 
 ## Назначить роль на облако {#access-to-user}
 

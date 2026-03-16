@@ -71,10 +71,10 @@
        --public-ip \
        --platform standard-v3 \
        --container-name=my-app \
-       --container-image={{ registry }}/mirror/ubuntu:20.04 \
+       --container-image={{ registry }}/mirror/ubuntu:24.04 \
        --container-command=sleep \
        --container-arg="1000" \
-       --container-env=KEY1=VAL1,KEY2=VAL2 \
+       --container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"',KEY4=VALUE4,KEY5=VALUE5 \
        --container-privileged
       ```
 
@@ -93,6 +93,8 @@
      * `--container-command` — команда, которая будет выполнена при запуске Docker-контейнера.
      * `--container-arg` — параметры для команды, указанной с помощью `--container-command`.
      * `--container-env` — переменные окружения, доступные внутри Docker-контейнера.
+
+        Группы пар `ключ:значение` передавайте одновременно в одинарных и двойных кавычках. Например, `--container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"'`.
      * `--container-privileged` — запуск Docker-контейнера в привилегированном режиме.
 
      Результат:

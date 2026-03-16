@@ -101,7 +101,8 @@ editable: false
       "string"
     ],
     "metadataSerialPortEnable": "string",
-    "metadataOsloginEnable": "string"
+    "metadataOsloginEnable": "string",
+    "metadata": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -280,4 +281,5 @@ A list of messages that carry the error details. ||
 || metadataKeys[] | **string** ||
 || metadataSerialPortEnable | **string** ||
 || metadataOsloginEnable | **string** ||
+|| metadata | **object** (map<**string**, **string**>) ||
 |#

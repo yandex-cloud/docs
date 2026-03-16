@@ -1618,6 +1618,7 @@
     * `ru-central1-a`
     * `ru-central1-b`
     * `ru-central1-d`
+    * `ru-central1-e`
   
 
   * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
@@ -1638,7 +1639,7 @@
     --version 3.9 \
     --network-id enpc6eqfhmj2******** \
     --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
-    --zone-ids ru-central1-a,ru-central1-b,ru-central1-d \
+    --zone-ids ru-central1-a,ru-central1-b,ru-central1-d,ru-central1-e \
     --brokers-count 1 \
     --resource-preset s2.micro \
     --disk-size 10 \
@@ -1667,6 +1668,7 @@
     * `ru-central1-a`
     * `ru-central1-b`
     * `ru-central1-d`
+    * `ru-central1-e`
   
   * С [классом хостов](../concepts/instance-types.md) `s2.micro`.
   * С хранилищем на сетевых HDD-дисках (`network-hdd`) объемом `10` ГБ.
@@ -1686,7 +1688,7 @@
     config {
       version          = "3.9"
       brokers_count    = 1
-      zones            = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
+      zones            = ["ru-central1-a", "ru-central1-b", "ru-central1-d", "ru-central1-e"]
       assign_public_ip = true
       
       kafka {

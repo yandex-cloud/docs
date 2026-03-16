@@ -10,6 +10,7 @@ _Зона доступности_ — это инфраструктура вну
 * `{{ region-id }}-a`;
 * `{{ region-id }}-b`;
 * `{{ region-id }}-d` — рекомендуемая зона для новых проектов;
+* `{{ region-id }}-e`;
 * `{{ region-id }}-m` — отдельная зона сервиса [{{ baremetal-full-name }}](../../baremetal/index.yaml).
 
 

@@ -4,6 +4,8 @@
 
 Эта инструкция для [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и пользователей с ролью [администратора](./roles-reference.md#admin) на облако или каталог. Пользователи с ролью [`editor`](./roles-reference.md#editor) тоже могут создавать сервисные аккаунты, но не могут назначать роли, поэтому не смогут разрешить сервисному аккаунту выполнение операций в {{ yandex-cloud }}.
 
+{% include [access-control-sa-general-notice](../_includes/iam/access-control-sa-general-notice.md) %}
+
 Проверка наличия необходимых ролей описана в разделе [Перед началом работы](#before-you-begin).
 
 Вы научитесь:

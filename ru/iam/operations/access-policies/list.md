@@ -1,15 +1,15 @@
 ---
-title: Получить список доступных политик авторизации
-description: Из статьи вы узнаете, как получить список политик авторизации {{ iam-full-name }}, которые доступны вам для назначения на ресурсы {{ yandex-cloud }}.
+title: Получить список доступных шаблонов политик авторизации
+description: Из статьи вы узнаете, как получить список шаблонов политик авторизации {{ iam-full-name }}, которые доступны вам для назначения на ресурсы {{ yandex-cloud }}.
 ---
 
-# Получение списка поддерживаемых политик авторизации
+# Получение списка поддерживаемых шаблонов политик авторизации
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-Чтобы получить список [поддерживаемых](../../concepts/access-control/access-policies.md#supported-policies) политик авторизации:
+Чтобы получить список [поддерживаемых шаблонов](../../concepts/access-control/access-policies.md#supported-policies) политик авторизации:
 
 {% list tabs group=instructions %}
 
@@ -47,6 +47,15 @@ description: Из статьи вы узнаете, как получить сп
   |                                                    |                                                         | to the organization            |
   | organization.denyUserListing                       | organization-deny-user-listing                          | Deny listing of users in the   |
   |                                                    |                                                         | organization                   |
+  | serverless.restrictPrivateNetworkInvocation        | serverless-restrict-private-network-invocation          | Restrict serverless functions  |
+  |                                                    |                                                         | and containers invocation from |
+  |                                                    |                                                         | private vpc networks (by vpc   |
+  |                                                    |                                                         | network ids and/or by private  |
+  |                                                    |                                                         | vpc addresses)                 |
+  | serverless.restrictPublicInvocation                | serverless-restrict-public-invocation                   | Restrict serverless functions  |
+  |                                                    |                                                         | and containers invocation      |
+  |                                                    |                                                         | from public ip addresses by    |
+  |                                                    |                                                         | whitelist                      |
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
   ```
 

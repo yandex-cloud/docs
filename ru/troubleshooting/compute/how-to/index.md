@@ -3,7 +3,6 @@
 * [Варианты миграции образа виртуальной машины в {{ yandex-cloud }}](possible-vm-migration-scenarios.md)
 * [Как узнать о потреблении оперативной памяти виртуальными машинами в {{ compute-name }}](view-ram-usage-in-monitoring.md)
 * [Как уменьшить объем диска виртуальной машины](shrink-instance-disk.md)
-* [Как создавать виртуальные машины с несколькими сетевыми интерфейсами](creating-instances-with-multiple-network-interfaces.md)
 * [Как настроить GUI и графическое окружение на виртуальных машин с Linux](access-gui-and-xorg-on-linux-vm.md)
 * [Как экспортировать образы дисков виртуальных машин {{ compute-name }}](export-disk-image.md)
 * [Как перенести виртуальную машину между разными каталогами или облаками](transfer-vm-between-clouds.md)

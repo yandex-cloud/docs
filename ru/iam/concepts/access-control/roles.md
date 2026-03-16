@@ -1,5 +1,11 @@
 # Роли
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 _Роль_ — это набор разрешений, который определяет допустимые операции с ресурсами в {{ yandex-cloud }}.
 
 Роли бывают двух типов:
