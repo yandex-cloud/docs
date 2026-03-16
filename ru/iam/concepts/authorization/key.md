@@ -6,6 +6,8 @@ description: Из статьи вы узнаете, что такое автор
 # Авторизованные ключи
 
 
+{% include [access-control-sa-authkey-notice](../../../_includes/iam/access-control-sa-authkey-notice.md) %}
+
 _Авторизованные ключи_ — это ключи с алгоритмом шифрования RSA-2048 или RSA-4096 с неограниченным сроком жизни. Такие ключи используются при [запросе](../../operations/iam-token/create-for-sa.md#via-cli) на получение [IAM-токена](./iam-token.md) для сервисного аккаунта. При этом использовать авторизованные ключи непосредственно для аутентификации в [API {{ yandex-cloud }}](../../../api-design-guide/index.yaml) нельзя.
 
 В результате [запроса](../../operations/authentication/manage-authorized-keys.md#create-authorized-key) на получение авторизованного ключа вы получите JSON-файл, содержащий открытую и закрытую части ключа. Сохраните этот файл — повторно получить его будет невозможно.

@@ -11,6 +11,8 @@ description: Из статьи вы узнаете, как создавать и
 
 ## Создать авторизованный ключ {#create-authorized-key}
 
+{% include [access-control-sa-authkey-notice](../../../_includes/iam/access-control-sa-authkey-notice.md) %}
+
 Чтобы создать авторизованный ключ сервисного аккаунта:
 
 {% list tabs group=instructions %}

@@ -6,6 +6,8 @@ description: Из статьи вы узнаете, зачем нужен ста
 # Статические ключи доступа, совместимые с AWS API
 
 
+{% include [access-control-sa-statickey-notice](../../../_includes/iam/access-control-sa-statickey-notice.md) %}
+
 Статический ключ доступа необходим для аутентификации [сервисного аккаунта](../users/service-accounts.md) в [AWS-совместимых API](#supported-services).
 
 Статический ключ состоит из двух частей:

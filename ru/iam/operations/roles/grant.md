@@ -21,6 +21,12 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы выбрать роли, обратитесь к [их справочнику](../../roles-reference.md).
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 ## Назначить роль на каталог или облако {#cloud-or-folder}
 
 {% list tabs group=instructions %}

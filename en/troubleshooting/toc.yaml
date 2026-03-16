@@ -278,8 +278,6 @@ items:
         href: compute/how-to/migrate-data-from-hdd-to-ssd.md
       - name: "How to get details about\_RAM consumption for {{ compute-name }} VMs"
         href: compute/how-to/view-ram-usage-in-monitoring.md
-      - name: How to create VMs with multiple network interfaces
-        href: compute/how-to/creating-instances-with-multiple-network-interfaces.md
       - name: How to reduce the VM disk size
         href: compute/how-to/shrink-instance-disk.md
       - name: How to export {{ compute-name }} VM disk images

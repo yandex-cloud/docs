@@ -1,4 +1,4 @@
-Чтобы посмотреть список политик авторизации, назначенных на [организацию](../../organization/concepts/organization.md):
+Чтобы посмотреть список политик авторизации, созданных для [организации](../../organization/concepts/organization.md):
 
 {% list tabs group=instructions %}
 
@@ -6,7 +6,7 @@
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  Выполните команду, указав имя или [идентификатор](../../organization/operations/organization-get-id.md) организации, для которой вы хотите посмотреть назначенные политики:
+  Выполните команду, указав имя или [идентификатор](../../organization/operations/organization-get-id.md) организации, для которой вы хотите посмотреть созданные политики:
 
   ```bash
   yc organization-manager organization list-access-policy-bindings <имя_или_идентификатор_организации>

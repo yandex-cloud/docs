@@ -239,6 +239,8 @@ items:
         href: concepts/indexes.md
       - name: Ограничения для команд SQL
         href: concepts/sql-limits.md
+      - name: Политика поддержки версий {{ PG }}
+        href: concepts/update-policy.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

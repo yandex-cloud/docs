@@ -6,6 +6,12 @@ description: В статье приведен полный справочник 
 # Справочник ролей {{ yandex-cloud }}
 
 
+{% note warning %}
+
+{% include [access-control-vs-roles-notice](../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 ## Примитивные роли {#primitive-roles}
 
 На диаграмме показано, какие примитивные роли есть в {{ yandex-cloud }} и как они наследуют разрешения друг друга. Например, в роль `{{ roles-editor }}` входят все разрешения роли `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.

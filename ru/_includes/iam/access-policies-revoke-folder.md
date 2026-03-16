@@ -1,4 +1,4 @@
-Чтобы отозвать политику авторизации, назначенную на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder):
+Чтобы удалить политику авторизации, созданную для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
 {% list tabs group=instructions %}
 
@@ -6,20 +6,20 @@
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. [Получите](../../resource-manager/operations/folder/manage-access-policies.md#view-assigned) список идентификаторов политик авторизации, назначенных на каталог.
+  1. [Получите](../../resource-manager/operations/folder/manage-access-policies.md#view-assigned) список идентификаторов шаблонов политик авторизации, назначенных на каталог.
   1. Выполните команду:
 
       ```bash
       yc resource-manager folder unbind-access-policy \
         --name <имя_каталога> \
-        --access-policy-template-id=<идентификатор_политики_авторизации>
+        --access-policy-template-id=<идентификатор_шаблона_политики>
       ```
 
       Где:
 
-      * `--name` — имя каталога, у которого вы хотите отозвать политику. Вместо имени каталога вы можете указать его [идентификатор](../../resource-manager/operations/folder/get-id.md) в параметре `--id`.
-      * `--access-policy-template-id` — идентификатор политики авторизации, которую вы хотите отозвать у указанного каталога.
-  1. [Убедитесь](../../resource-manager/operations/folder/manage-access-policies.md#view-assigned), что политика была отозвана.
+      * `--name` — имя каталога, для которого вы хотите удалить политику. Вместо имени каталога вы можете указать его [идентификатор](../../resource-manager/operations/folder/get-id.md) в параметре `--id`.
+      * `--access-policy-template-id` — идентификатор шаблона политики авторизации, которую вы хотите удалить для указанного каталога.
+  1. [Убедитесь](../../resource-manager/operations/folder/manage-access-policies.md#view-assigned), что политика была удалена.
 
 - API {#api}
 

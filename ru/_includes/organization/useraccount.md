@@ -6,6 +6,12 @@
 
 Приглашать в организацию новых пользователей с аккаунтом на Яндексе и удалять такие приглашения могут пользователи с любой из следующих [ролей](../../organization/security/index.md): `organization-manager.passportUserAdmin`, `organization-manager.admin` или `organization-manager.organizations.owner`.
 
+{% note info %}
+
+Приглашение в организацию пользователей с аккаунтом на Яндексе может быть запрещено [политикой авторизации](../../iam/concepts/access-control/access-policies.md) `organization.denyMemberInvitation`, назначенной на [организацию](../../organization/concepts/organization.md).
+
+{% endnote %}
+
 ### Отправьте приглашение {#send-invitation}
 
 {% list tabs group=instructions %}

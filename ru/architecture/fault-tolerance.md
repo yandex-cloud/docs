@@ -23,7 +23,7 @@ keywords:
 
 На данный момент в {{ yandex-cloud }} доступны следующие регионы:
 
-* **Россия** (ru-central1): зоны доступности `ru-central1-a`, `ru-central1-b` и `ru-central1-d`;
+* **Россия** (ru-central1): зоны доступности `ru-central1-a`, `ru-central1-b`, `ru-central1-d` и `ru-central1-e`;
 * **Казахстан** (kz1): зона доступности `kz1-a`.
 
 Внутри региона обеспечивается прямая сетевая (IP) связность между зонами доступности, общие [API](../overview/api.md), [SLA](../overview/sla.md) и единые [тарифы](../../prices) на облачные услуги.

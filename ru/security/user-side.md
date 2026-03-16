@@ -37,6 +37,8 @@ Cookie впоследствии используется сервисом {{ iam
 * Статические ключи, которые используются для доступа к сервисам {{ message-queue-short-name }} (YMQ) и {{ objstorage-full-name }}. Копия статических ключей выдается пользователю сразу после их создания сервисом {{ iam-short-name }}. Статические ключи хранятся в сервисе {{ iam-short-name }} и нужны для проверки целостности запросов к YMQ и {{ objstorage-full-name }}. См. раздел [Статические ключи доступа, совместимые с AWS API](../iam/concepts/authorization/access-key.md). 
 * API-ключи, которые служат для доступа к API {{ yandex-cloud }}. API-ключи используются в некоторых сервисах для упрощенной аутентификации. См. раздел [API-ключ](../iam/concepts/authorization/api-key.md). 
 
+{% include [access-control-sa-general-notice](../_includes/iam/access-control-sa-general-notice.md) %}
+
 ## Сетевая безопасность {#network-sec}
 
 Для защиты облачной сети инфраструктуры, размещенной в {{ yandex-cloud }}, рекомендуется управлять входящим и исходящим интернет-трафиком, а также разделять виртуальные сети среды {{ yandex-cloud }} на сегменты исходя из задач.

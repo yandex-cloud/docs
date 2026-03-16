@@ -6,6 +6,8 @@ description: Из статьи вы узнаете, что такое API-клю
 # API-ключ
 
 
+{% include [access-control-sa-apikey-notice](../../../_includes/iam/access-control-sa-apikey-notice.md) %}
+
 _API-ключ_ — секретный ключ, используемый только для упрощенной аутентификации [сервисных аккаунтов](../users/service-accounts.md) в API {{ yandex-cloud }}.
 
 {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}

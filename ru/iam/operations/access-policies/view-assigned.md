@@ -1,15 +1,15 @@
 ---
-title: Посмотреть назначенные на ресурс политики авторизации
-description: Из статьи вы узнаете, как посмотреть политики авторизации {{ iam-full-name }}, назначенные на каталог, облако или организацию.
+title: Посмотреть политики авторизации, созданные для ресурса
+description: Из статьи вы узнаете, как посмотреть политики авторизации {{ iam-full-name }}, созданные для каталога, облака или организации.
 ---
 
-# Просмотр назначенных политик авторизации
+# Просмотр политик авторизации, созданных для ресурса
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-Политики авторизации могут быть назначены на [каталог](#folder), [облако](#cloud) или [организацию](#organization).
+Политики авторизации могут быть созданы для [каталога](#folder), [облака](#cloud) или [организации](#organization).
 
 {% note info %}
 
@@ -17,15 +17,15 @@ description: Из статьи вы узнаете, как посмотреть 
 
 {% endnote %}
 
-## Просмотр политик авторизации, назначенных на каталог {#folder}
+## Просмотр политик авторизации, созданных для каталога {#folder}
 
 {% include [access-policies-view-assigned-folder](../../../_includes/iam/access-policies-view-assigned-folder.md) %}
 
-## Просмотр политик авторизации, назначенных на облако {#cloud}
+## Просмотр политик авторизации, созданных для облака {#cloud}
 
 {% include [access-policies-view-assigned-cloud](../../../_includes/iam/access-policies-view-assigned-cloud.md) %}
 
-## Просмотр политик авторизации, назначенных на организацию {#organization}
+## Просмотр политик авторизации, созданных для организации {#organization}
 
 {% include [access-policies-view-assigned-org](../../../_includes/iam/access-policies-view-assigned-org.md) %}
 

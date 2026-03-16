@@ -25,3 +25,5 @@ curl \
   --header "Authorization: Bearer $(yc iam create-token)" \
   https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```
+
+{% include [call-limited-by-access-policies-notice](../../_includes/serverless-containers/call-limited-by-access-policies-notice.md) %}

@@ -35,13 +35,19 @@ apiPlayground:
             description: |-
               **enum** (Type)
               Required field. A type of the interval.
-              - `FULL`
-              - `INCREMENTAL`
+              - `BACKUP`
+              - `RETENTION`
+              - `RECOVERY`
+              - `APPLY_POLICY`
+              - `REVOKE_POLICY`
             type: string
             enum:
               - TYPE_UNSPECIFIED
-              - FULL
-              - INCREMENTAL
+              - BACKUP
+              - RETENTION
+              - RECOVERY
+              - APPLY_POLICY
+              - REVOKE_POLICY
           count:
             description: |-
               **string** (int64)
@@ -312,13 +318,19 @@ apiPlayground:
               **enum** (Type)
               BackupSet type -- one of incr, full, differential or auto.
               if custom scheme is used the BackupSet type should be specified
-              - `FULL`
-              - `INCREMENTAL`
+              - `BACKUP`
+              - `RETENTION`
+              - `RECOVERY`
+              - `APPLY_POLICY`
+              - `REVOKE_POLICY`
             type: string
             enum:
               - TYPE_UNSPECIFIED
-              - FULL
-              - INCREMENTAL
+              - BACKUP
+              - RETENTION
+              - RECOVERY
+              - APPLY_POLICY
+              - REVOKE_POLICY
         oneOf:
           - required:
               - time

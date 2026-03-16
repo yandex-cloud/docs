@@ -15,6 +15,12 @@ description: Следуя данной инструкции, вы сможете
 
 [Узнайте](../../concepts/access-control/resources-with-access-control.md), на какие ресурсы можно назначать роли.
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 Чтобы посмотреть назначенные роли:
 
 {% list tabs group=instructions %}

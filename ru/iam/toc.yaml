@@ -41,13 +41,13 @@ items:
             href: operations/sa/delete.md
       - name: Политики авторизации
         items:
-          - name: Получение списка поддерживаемых политик
+          - name: Получение списка шаблонов политик
             href: operations/access-policies/list.md
-          - name: Назначение политики на ресурс
+          - name: Создание политики для ресурса
             href: operations/access-policies/assign.md
-          - name: Просмотр назначенных на ресурс политик
+          - name: Просмотр политик, созданных для ресурса
             href: operations/access-policies/view-assigned.md
-          - name: Отзыв политики
+          - name: Удаление политики
             href: operations/access-policies/revoke.md
       - name: Роли
         items:
@@ -147,10 +147,10 @@ items:
         items:
           - name: Обзор
             href: concepts/access-control/index.md
-          - name: Политики авторизации
-            href: concepts/access-control/access-policies.md
           - name: Роли
             href: concepts/access-control/roles.md
+          - name: Политики авторизации
+            href: concepts/access-control/access-policies.md
           - name: Системные группы
             href: concepts/access-control/system-group.md
           - name: Публичные группы

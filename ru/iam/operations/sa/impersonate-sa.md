@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы узнаете
 
 # Использование имперсонации
 
+{% note warning %}
+
+{% include [access-control-impersonation-notice](../../../_includes/iam/access-control-impersonation-notice.md) %}
+
+{% endnote %}
+
 [Имперсонация](../../concepts/access-control/impersonation.md) позволяет пользователю выполнять действия от имени [сервисного аккаунта](../../concepts/users/service-accounts.md) с помощью параметра `--impersonate-service-account-id` в команде [{{ yandex-cloud }} CLI](../../../cli/index.yaml).
 
 {% note info %}

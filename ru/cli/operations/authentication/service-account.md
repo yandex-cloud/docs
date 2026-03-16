@@ -11,6 +11,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
+{% note warning %}
+
+Создание сервисных аккаунтов и их [ключей](../../../iam/concepts/users/service-accounts.md#sa-key) может быть запрещено [политиками авторизации](../../../iam/concepts/access-control/access-policies.md) на уровне [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организации](../../../organization/concepts/organization.md).
+
+{% endnote %}
+
 Узнайте как аутентифицироваться в {{ yandex-cloud }} CLI:
 
 * [От имени сервисного аккаунта с помощью имперсонации](#use-impersonation). Использование [имперсонации](../../../iam/concepts/access-control/impersonation.md) является рекомендованным и наиболее безопасным способом аутентифицироваться в {{ yandex-cloud }} CLI.

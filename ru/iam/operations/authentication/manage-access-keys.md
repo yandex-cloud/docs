@@ -11,6 +11,8 @@ description: Из статьи вы узнаете, как создавать и
 
 ## Создать статический ключ доступа {#create-access-key}
 
+{% include [access-control-sa-statickey-notice](../../../_includes/iam/access-control-sa-statickey-notice.md) %}
+
 Чтобы создать статический ключ доступа сервисного аккаунта:
 
 {% list tabs group=instructions %}

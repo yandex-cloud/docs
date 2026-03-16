@@ -5,6 +5,8 @@
 
 ## Создать эфемерный ключ доступа {#create}
 
+{% include [access-control-sa-ephemeralkey-notice](./access-control-sa-ephemeralkey-notice.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}

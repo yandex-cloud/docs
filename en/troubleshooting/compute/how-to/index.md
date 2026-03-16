@@ -3,7 +3,6 @@
 * [Options for migrating a VM image to {{ yandex-cloud }}](possible-vm-migration-scenarios.md)
 * [How to get details about RAM consumption for {{ compute-name }} VM instances](view-ram-usage-in-monitoring.md)
 * [How to reduce the size of a VM disk](shrink-instance-disk.md)
-* [How to create VMs with multiple network interfaces](creating-instances-with-multiple-network-interfaces.md)
 * [How to set up GUI and graphical environment on Linux VMs](access-gui-and-xorg-on-linux-vm.md)
 * [How to export {{ compute-name }} VM disk images](export-disk-image.md)
 * [How to move a VM across folders or clouds](transfer-vm-between-clouds.md)
