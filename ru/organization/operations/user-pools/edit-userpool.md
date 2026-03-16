@@ -21,6 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Задайте новый [домен](../../concepts/domains.md), который будет использоваться, если к пулу не привязаны другие домены.
   1. Добавьте или удалите метки.
+  1. Измените данные, доступные для редактирования пользователями на портале [Мой аккаунт](../../concepts/my-account.md).
   1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
 - CLI {#cli}
@@ -71,6 +72,12 @@ description: Следуя данной инструкции, вы сможете
        labels            = {
          <ключ> = "<значение>"
        }
+       user_settings {
+          allow_edit_self_contacts = <true_или_false>
+          allow_edit_self_info = <true_или_false>
+          allow_edit_self_login = <true_или_false>
+          allow_edit_self_password = <true_или_false>
+       }
      }
      ```
 
@@ -83,6 +90,11 @@ description: Следуя данной инструкции, вы сможете
      * `description` — новое описание пула пользователей.
      * `default_subdomain` — новый [домен](../../concepts/domains.md) по умолчанию. Будет использоваться, если к пулу не привязаны другие домены.
      * `labels` — новый список [меток](../../../resource-manager/concepts/labels.md).
+     * `user_settings` — доступные для изменения пользовательские данные на портале [Мой аккаунт](../../concepts/my-account.md). Включает следующие опции:
+       * `allow_edit_self_contacts` — изменение контактной информации.
+       * `allow_edit_self_info` — изменение персональных данных.
+       * `allow_edit_self_login` — изменение логина.
+       * `allow_edit_self_password` — изменение пароля.
 
      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 

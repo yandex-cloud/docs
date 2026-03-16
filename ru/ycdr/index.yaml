@@ -14,9 +14,18 @@ meta:
     Сервис {{ ycdr-full-name }} собирает данные о настройках инфраструктуры
     ваших сервисов в {{ yandex-cloud }}.
 links:
+  - title: Начало работы
+    description: Создайте первое расследование и выполните KQL-запрос
+    href: quickstart.md
   - title: Концепции
     description: Узнайте о концепциях и ресурсах сервиса
     href: concepts/
+  - title: Пошаговые инструкции
+    description: Инструкции по созданию расследований и работе с запросами
+    href: operations/
+  - title: Справочник KQL
+    description: Описание синтаксиса языка запросов KQL
+    href: kql-reference.md
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

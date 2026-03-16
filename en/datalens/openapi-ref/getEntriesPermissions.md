@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Returns the specified DataLens entries permissions.
-
 ```
-POST https://api.datalens.yandex.net/rpc/getEntriesPermissions
+POST https://api.datalens.tech/rpc/getEntriesPermissions
 ```
 
 ## Body parameters
@@ -28,7 +26,7 @@ POST https://api.datalens.yandex.net/rpc/getEntriesPermissions
 ||Field | Description ||
 || entryIds[] | **string**
 
-Required field. ID of the entries to get permissions for. ||
+Required field.  ||
 |#
 
 ## Response {#200}

@@ -987,6 +987,26 @@ items:
         items:
           - name: Overview
             href: openapi-ref/index.md
+          - name: createCollection
+            href: openapi-ref/createCollection.md
+          - name: deleteCollection
+            href: openapi-ref/deleteCollection.md
+          - name: deleteCollections
+            href: openapi-ref/deleteCollections.md
+          - name: getCollectionBreadcrumbs
+            href: openapi-ref/getCollectionBreadcrumbs.md
+          - name: getCollection
+            href: openapi-ref/getCollection.md
+          - name: getCollectionContent
+            href: openapi-ref/getCollectionContent.md
+          - name: getRootCollectionPermissions
+            href: openapi-ref/getRootCollectionPermissions.md
+          - name: moveCollection
+            href: openapi-ref/moveCollection.md
+          - name: moveCollections
+            href: openapi-ref/moveCollections.md
+          - name: updateCollection
+            href: openapi-ref/updateCollection.md
           - name: getConnection
             href: openapi-ref/getConnection.md
           - name: createConnection
@@ -1021,10 +1041,36 @@ items:
             href: openapi-ref/getQlChart.md
           - name: deleteQLChart
             href: openapi-ref/deleteQlChart.md
+          - name: updateQLChart
+            href: openapi-ref/updateQlChart.md
+          - name: createQLChart
+            href: openapi-ref/createQlChart.md
           - name: getWizardChart
             href: openapi-ref/getWizardChart.md
           - name: deleteWizardChart
             href: openapi-ref/deleteWizardChart.md
+          - name: updateWizardChart
+            href: openapi-ref/updateWizardChart.md
+          - name: createWizardChart
+            href: openapi-ref/createWizardChart.md
+          - name: createWorkbook
+            href: openapi-ref/createWorkbook.md
+          - name: deleteWorkbook
+            href: openapi-ref/deleteWorkbook.md
+          - name: deleteWorkbooks
+            href: openapi-ref/deleteWorkbooks.md
+          - name: getWorkbook
+            href: openapi-ref/getWorkbook.md
+          - name: getWorkbooksList
+            href: openapi-ref/getWorkbooksList.md
+          - name: moveWorkbook
+            href: openapi-ref/moveWorkbook.md
+          - name: moveWorkbooks
+            href: openapi-ref/moveWorkbooks.md
+          - name: updateWorkbook
+            href: openapi-ref/updateWorkbook.md
+          - name: getWorkbookEntries
+            href: openapi-ref/getWorkbookEntries.md
           - name: getEditorChart
             href: openapi-ref/getEditorChart.md
           - name: deleteEditorChart
@@ -1033,12 +1079,34 @@ items:
             href: openapi-ref/createEditorChart.md
           - name: updateEditorChart
             href: openapi-ref/updateEditorChart.md
+          - name: createEmbed
+            href: openapi-ref/createEmbed.md
+          - name: listEmbeds
+            href: openapi-ref/listEmbeds.md
+          - name: deleteEmbed
+            href: openapi-ref/deleteEmbed.md
+          - name: updateEmbed
+            href: openapi-ref/updateEmbed.md
           - name: getEntriesPermissions
             href: openapi-ref/getEntriesPermissions.md
+          - name: createEmbeddingSecret
+            href: openapi-ref/createEmbeddingSecret.md
+          - name: listEmbeddingSecrets
+            href: openapi-ref/listEmbeddingSecrets.md
+          - name: deleteEmbeddingSecret
+            href: openapi-ref/deleteEmbeddingSecret.md
+          - name: getEmbeddingSecret
+            href: openapi-ref/getEmbeddingSecret.md
           - name: getAuditEntriesUpdates
             href: openapi-ref/getAuditEntriesUpdates.md
+          - name: updateCollectionAccessBindings
+            href: openapi-ref/updateCollectionAccessBindings.md
+          - name: createFolder
+            href: openapi-ref/createFolder.md
           - name: listDirectory
             href: openapi-ref/listDirectory.md
+          - name: updateWorkbookAccessBindings
+            href: openapi-ref/updateWorkbookAccessBindings.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

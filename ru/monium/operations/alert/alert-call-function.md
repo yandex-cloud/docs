@@ -79,19 +79,19 @@ description: Следуя данной инструкции, вы сможете
 
             def handler(event, context):
                 alert = event # сохраним event в переменную alert для удобства
-                required_attributes = ["alertId", "status"] # массив с обязательными входными параметрами в формате JSON
+                required_attributes = ["alertId", "alertStatus"] # массив с обязательными входными параметрами в формате JSON
                 
                 # если на вход функции не передан JSON или в нем отсутствуют нужные параметры, функция не выполняется
-                if not alert or all(attr in required_attributes for attr in alert):
+                if not alert or not all(attr in alert for attr in required_attributes):
                     return
                 
                 result = None
                 # если функция вызвана, когда алерт в статусе ALARM, отправляем запрос на адрес WEBHOOK_ALARM_URL
                 # если функция вызвана, когда алерт в статусе OK, отправляем запрос на адрес WEBHOOK_OK_URL
                 # при других статусах алерта ничего не вызываем
-                if alert["status"] == "ALARM":
+                if alert["alertStatus"] == "ALARM":
                     result = webhook(WEBHOOK_ALARM_URL, alert["alertId"])
-                elif alert["status"] == "OK":
+                elif alert["alertStatus"] == "OK":
                     result = webhook(WEBHOOK_OK_URL, alert["alertId"])
                 else:
                     pass
@@ -165,7 +165,7 @@ description: Следуя данной инструкции, вы сможете
         "alertId": "<идентификатор_алерта>",
         "alertName": "alert-function",
         "folderId": "<идентификатор_каталога>",
-        "status": "OK"
+        "alertStatus": "OK"
       }
       ```
 

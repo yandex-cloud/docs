@@ -9,7 +9,7 @@ editable: false
 Returns the specified connection.
 
 ```
-POST https://api.datalens.yandex.net/rpc/getConnection
+POST https://api.datalens.tech/rpc/getConnection
 ```
 
 ## Body parameters
@@ -18,8 +18,9 @@ POST https://api.datalens.yandex.net/rpc/getConnection
 
 ```json
 {
-  "connectionId": "string" ,
+  "connectionId": "string",
   "workbookId": "string | null",
+  "bindedDatasetId": "string | null",
   "rev_id": "string"
 }
 ```
@@ -32,16 +33,21 @@ Required field. ID of the connection to return. You can find it in the connectio
 || workbookId | **string \| null**
 
 ID of the workbook the connection belongs to. If navigation across folders is enabled and the connection belongs to a folder, the value must be `null`. ||
+|| bindedDatasetId | **string \| null** 
+
+ID of the binded dataset. If there is no binded dataset, the value must be `null`. ||
 || rev_id | **string** 
 
-Version ID for the connection. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/concepts/connection/versioning).
+Version ID for the connection.
 
 If the field is empty, you will get the current version of the connection. ||
 |#
 
 ## Response {#200}
 
-**HTTP Code: 200 - OK**
+**HTTP Code: 200**
+
+Response
 
 **Response schema: application/json**
 
@@ -65,12 +71,23 @@ If the field is empty, you will get the current version of the connection. ||
       "type": "appmetrica_api",
       "updated_at": "string"
     },
-    // For CHYT with authentication by OAuth token connections
+    // For Bigquery connections
     {
-      "additional_cluster": "string",
-      "alias": "string",
       "cache_ttl_sec": "integer | null",
-      "cluster": "string",
+      "created_at": "string",
+      "credentials": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "project_id": "string",
+      "raw_sql_level": "string",
+      "type": "bigquery",
+      "updated_at": "string"
+    },
+    // For Bitrix24 connections
+    {
+      "cache_ttl_sec": "integer | null",
       "created_at": "string",
       "data_export_forbidden": "unknown",
       "description": "string | null",
@@ -80,19 +97,13 @@ If the field is empty, you will get the current version of the connection. ||
         "string": "unknown"
       },
       "name": "string",
-      "raw_sql_level": "string",
+      "portal": "string",
       "token": "string",
-      "type": "ch_over_yt",
+      "type": "bitrix24",
       "updated_at": "string"
     },
-    // For CHYT with authentication as user connections
     {
-      "additional_cluster": "string",
-      "alias": "string",
-      "cache_ttl_sec": "integer | null",
-      "cluster": "string",
       "created_at": "string",
-      "data_export_forbidden": "unknown",
       "description": "string | null",
       "id": "string",
       "key": "string",
@@ -100,11 +111,145 @@ If the field is empty, you will get the current version of the connection. ||
         "string": "unknown"
       },
       "name": "string",
-      "raw_sql_level": "string",
-      "type": "ch_over_yt_user_auth",
+      "type": "ch_billing_analytics",
       "updated_at": "string"
     },
-    // For ClickHouse connections
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_bumpy_roads",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_covid",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_demo",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_dtp",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_gkh",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_horeca",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_samples",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_transparency",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "type": "ch_frozen_weather",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "mp_product_id": "string",
+      "name": "string",
+      "type": "ch_geo_filtered",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "token": "string",
+      "type": "ch_ya_music_podcast_stats",
+      "updated_at": "string"
+    },
+    {
+      "alias": "string",
+      "cache_ttl_sec": "integer | null",
+      "created_at": "string",
+      "data_export_forbidden": "unknown",
+      "description": "string | null",
+      "host": "string",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "port": "integer",
+      "raw_sql_level": "string",
+      "secure": "boolean",
+      "token": "string",
+      "type": "chyt",
+      "updated_at": "string"
+    },
     {
       "cache_ttl_sec": "integer | null",
       "connection_manager_cloud_id": "string | null",
@@ -134,7 +279,32 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "username": "string | null"
     },
-    // For Greenplum connections
+    {
+      "access_token": "string",
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "type": "equeo",
+      "updated_at": "string"
+    },
+    {
+      "access_token": "string",
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "type": "extractor1c",
+      "updated_at": "string"
+    },
     {
       "cache_ttl_sec": "integer | null",
       "created_at": "string",
@@ -160,7 +330,6 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "username": "string"
     },
-    // For Google Sheets connections
     {
       "cache_ttl_sec": "integer | null",
       "created_at": "string",
@@ -176,7 +345,6 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "url": "string"
     },
-    // For API Connector connections
     {
       "allowed_methods": [
         "string"
@@ -195,11 +363,22 @@ If the field is empty, you will get the current version of the connection. ||
       "port": "integer",
       "secret_headers": "object | null",
       "secure": "boolean",
-      "tvm_dst_id": "integer | null",
       "type": "json_api",
       "updated_at": "string"
     },
-    // For Yandex Metrica API connections
+    {
+      "access_token": "string",
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "type": "kontur_market",
+      "updated_at": "string"
+    },
     {
       "accuracy": "number | null",
       "counter_id": "string",
@@ -216,7 +395,36 @@ If the field is empty, you will get the current version of the connection. ||
       "type": "metrika_api",
       "updated_at": "string"
     },
-    // For Microsoft SQL Server connections
+    {
+      "cache_ttl_sec": "integer | null",
+      "cloud_id": "string | null",
+      "created_at": "string",
+      "delegation_is_set": "boolean | null",
+      "description": "string | null",
+      "folder_id": "string",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "service_account_id": "string",
+      "type": "monitoring",
+      "updated_at": "string"
+    },
+    {
+      "access_token": "string",
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "type": "moysklad",
+      "updated_at": "string"
+    },
     {
       "cache_ttl_sec": "integer | null",
       "created_at": "string",
@@ -237,7 +445,6 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "username": "string"
     },
-    // For MySQL connections
     {
       "cache_ttl_sec": "integer | null",
       "connection_manager_cloud_id": "string | null",
@@ -266,7 +473,6 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "username": "string | null"
     },
-    // For Oracle Database connections
     {
       "cache_ttl_sec": "integer | null",
       "created_at": "string",
@@ -290,7 +496,6 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "username": "string"
     },
-    // For PostgreSQL connections
     {
       "cache_ttl_sec": "integer | null",
       "connection_manager_cloud_id": "string | null",
@@ -320,7 +525,6 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "username": "string | null"
     },
-    // For Prometheus connections
     {
       "cache_ttl_sec": "integer | null",
       "created_at": "string",
@@ -342,22 +546,6 @@ If the field is empty, you will get the current version of the connection. ||
       "updated_at": "string",
       "username": "string | null"
     },
-    // For Monitoring connections
-    {
-      "cache_ttl_sec": "integer | null",
-      "created_at": "string",
-      "description": "string | null",
-      "host": "string",
-      "id": "string",
-      "key": "string",
-      "meta": {
-        "string": "unknown"
-      },
-      "name": "string",
-      "type": "solomon",
-      "updated_at": "string"
-    },
-    // For DataLens Usage Tracking connections
     {
       "created_at": "string",
       "description": "string | null",
@@ -367,29 +555,140 @@ If the field is empty, you will get the current version of the connection. ||
         "string": "unknown"
       },
       "name": "string",
-      "type": "usage_tracking_ya_team",
+      "token": "string",
+      "type": "smb_heatmaps",
       "updated_at": "string"
     },
-    // For YDB connections
     {
-      "auth_type": "string | null",
-      "cache_ttl_sec": "integer | null",
+      "account_name": "string",
+      "client_id": "string",
+      "client_secret": "string",
       "created_at": "string",
       "data_export_forbidden": "unknown",
       "db_name": "string",
       "description": "string | null",
-      "host": "string",
       "id": "string",
       "key": "string",
       "name": "string",
+      "raw_sql_level": "string",
+      "refresh_token": "string",
+      "refresh_token_expire_time": "string | null",
+      "schema": "string",
+      "type": "snowflake",
+      "updated_at": "string",
+      "user_name": "string",
+      "user_role": "string | null",
+      "warehouse": "string"
+    },
+    {
+      "created_at": "string",
+      "data_export_forbidden": "unknown",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "project_id": "string",
+      "type": "speechsense",
+      "updated_at": "string"
+    },
+    {
+      "auth_type": "unknown",
+      "cache_ttl_sec": "integer | null",
+      "cloud_id": "string | null",
+      "created_at": "string",
+      "data_export_forbidden": "unknown",
+      "db_name": "string | null",
+      "delegation_is_set": "boolean | null",
+      "description": "string | null",
+      "folder_id": "string | null",
+      "host": "string",
+      "id": "string",
+      "jwt": "string | null",
+      "key": "string",
+      "listing_sources": "unknown",
+      "mdb_cluster_id": "string | null",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "password": "string | null",
+      "port": "integer | null",
+      "raw_sql_level": "string",
+      "service_account_id": "string | null",
+      "ssl_ca": "unknown",
+      "ssl_enable": "unknown",
+      "type": "trino",
+      "updated_at": "string",
+      "username": "string | null"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "type": "usage_analytics_detailed",
+      "updated_at": "string"
+    },
+    {
+      "created_at": "string",
+      "description": "string | null",
+      "id": "string",
+      "key": "string",
+      "meta": {
+        "string": "unknown"
+      },
+      "name": "string",
+      "type": "usage_analytics_light",
+      "updated_at": "string"
+    },
+    {
+      "auth_type": "string | null",
+      "cache_ttl_sec": "integer | null",
+      "cloud_id": "string | null",
+      "created_at": "string",
+      "data_export_forbidden": "unknown",
+      "db_name": "string",
+      "delegation_is_set": "boolean | null",
+      "description": "string | null",
+      "folder_id": "string",
+      "host": "string",
+      "id": "string",
+      "key": "string",
+      "mdb_cluster_id": "string | null",
+      "mdb_folder_id": "string | null",
+      "name": "string",
       "port": "integer",
       "raw_sql_level": "string",
+      "service_account_id": "string",
       "ssl_ca": "unknown",
       "ssl_enable": "unknown",
       "token": "string | null",
       "type": "ydb",
       "updated_at": "string",
       "username": "string | null"
+    },
+    {
+      "cache_ttl_sec": "integer | null",
+      "cloud_id": "string | null",
+      "created_at": "string",
+      "data_export_forbidden": "unknown",
+      "delegation_is_set": "boolean | null",
+      "description": "string | null",
+      "folder_id": "string",
+      "id": "string",
+      "key": "string",
+      "name": "string",
+      "raw_sql_level": "string",
+      "service_account_id": "string",
+      "type": "yq",
+      "updated_at": "string"
     }
   ]
 }
@@ -397,948 +696,1072 @@ If the field is empty, you will get the current version of the connection. ||
 
 One of:
 
-> If the AppMetrica connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-appmetrica).
-
 #|
 ||Field | Description ||
-|| accuracy | **number \| null**
-
-Accuracy of the metric data. ||
+|| accuracy | **number \| null** ||
 || counter_id | **string**
 
-Required field. AppMetrica counter (app) ID. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
-|| id | **string**
-
-Unique identifier of the connection. ||
-|| key | **string**
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>)
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
+Required field.  ||
 || token | **string**
 
-Required field. OAuth token of the connection. ||
-|| type | **appmetrica_api** (const)
-
-Type of the connection. ||
-|| updated_at | **string**
-
-Timestamp when the connection was last updated. ||
+Required field.  ||
+|| type | **appmetrica_api** (const) ||
+|| updated_at | **string** ||
 |#
 
-> If the CHYT with authentication by OAuth token connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/chyt/create-chyt).
+>
 
 #|
 ||Field | Description ||
-|| additional_cluster | **string**
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| credentials | **string**
 
-Backup cluster from the connection. ||
-|| alias | **string**
-
-Required field. CHYT clique alias. ||
-|| cache_ttl_sec | **integer \| null** 
-
-Cache time-to-live in seconds. ||
-|| cluster | **string**
-
-Required field. Cluster from the connection. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string**
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>)
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
 || name | **string**
 
-Required field. Name of the connection. ||
+Required field.  ||
+|| project_id | **string**
+
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **bigquery** (const) ||
+|| updated_at | **string** ||
+|#
 
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
+>
+
+#|
+||Field | Description ||
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| portal | **string**
+
+Required field.  ||
 || token | **string**
 
-Required field. OAuth token from the connection. ||
-|| type | **ch_over_yt** (const) ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+Required field.  ||
+|| type | **bitrix24** (const) ||
+|| updated_at | **string** ||
 |#
 
-> If the CHYT with authentication as user connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/chyt/create-chyt).
+>
 
 #|
 ||Field | Description ||
-|| additional_cluster | **string** 
-
-Backup cluster from the connection. ||
-|| alias | **string**
-
-Required field. CHYT clique alias. ||
-|| cache_ttl_sec | **integer \| null** 
-
-Cache time-to-live in seconds. ||
-|| cluster | **string**
-
-Required field. Cluster from the connection. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| raw_sql_level | **enum**
-
-Raw SQL level:
-
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| type | **ch_over_yt_user_auth** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+Required field.  ||
+|| type | **ch_billing_analytics** (const) ||
+|| updated_at | **string** ||
 |#
 
-> If the ClickHouse connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-clickhouse).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
 
-Cache time-to-live in seconds. ||
-|| connection_manager_cloud_id | **string \| null** 
+Required field.  ||
+|| raw_sql_level | **enum**
 
-ID of the cloud where the connection to the cluster was created in Connection Manager. ||
-|| connection_manager_connection_id | **string \| null** 
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_bumpy_roads** (const) ||
+|| updated_at | **string** ||
+|#
 
-Connection ID from Connection Manager. ||
-|| connection_manager_delegation_is_set | **boolean \| null** 
+>
 
-Type of connection management. If true, connections are created automatically by a managed database cluster. Else connections are created by a user or a third-party service. ||
-|| connection_manager_folder_id | **string \| null** 
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
 
-ID of the folder where the connection to the cluster was created in Connection Manager. ||
-|| created_at | **string**
+Required field.  ||
+|| raw_sql_level | **enum**
 
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_covid** (const) ||
+|| updated_at | **string** ||
+|#
 
-Indicates if data export is forbidden. ||
-|| db_name | **string \| null** 
+>
 
-Database name. ||
-|| description | **string \| null** 
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
 
-Description of the connection. ||
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_demo** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_dtp** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_gkh** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_horeca** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_samples** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_transparency** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **ch_frozen_weather** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| mp_product_id | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| type | **ch_geo_filtered** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| token | **string**
+
+Required field.  ||
+|| type | **ch_ya_music_podcast_stats** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| alias | **string**
+
+Required field.  ||
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| description | **string \| null** ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| mdb_cluster_id | **string \| null** 
-
-ID of the MDB cluster. ||
-|| mdb_folder_id | **string \| null** 
-
-ID of the MDB folder. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| password | **string \| null** 
-
-Password for the connection. ||
+Required field.  ||
 || port | **integer**
 
-Required field. Connection port. The default port is 8443. ||
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| secure | **boolean** ||
+|| token | **string**
 
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| readonly | **integer** 
-
-Read-only flag. ||
-|| secure | **unknown** 
-
-Secure connection flag. ||
-|| ssl_ca | **unknown** 
-
-SSL certificate authority. ||
-|| type | **clickhouse** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
-|| username | **string \| null** 
-
-Username for the connection. ||
+Required field.  ||
+|| type | **chyt** (const) ||
+|| updated_at | **string** ||
 |#
 
-> If the Greenplum connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-greenplum).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
+|| cache_ttl_sec | **integer \| null** ||
+|| connection_manager_cloud_id | **string \| null** ||
+|| connection_manager_connection_id | **string \| null** ||
+|| connection_manager_delegation_is_set | **boolean \| null** ||
+|| connection_manager_folder_id | **string \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string \| null** ||
+|| description | **string \| null** ||
+|| host | **string**
 
-Cache time-to-live in seconds. ||
-|| created_at | **string** 
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| mdb_cluster_id | **string \| null** ||
+|| mdb_folder_id | **string \| null** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
 
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
+Required field.  ||
+|| password | **string \| null** ||
+|| port | **integer**
 
-Indicates if data export is forbidden. ||
-|| db_name | **string \| null** 
+Required field.  ||
+|| raw_sql_level | **enum**
 
-Database name. ||
-|| description | **string \| null** 
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| readonly | **integer** ||
+|| secure | **unknown** ||
+|| ssl_ca | **unknown** ||
+|| type | **clickhouse** (const) ||
+|| updated_at | **string** ||
+|| username | **string \| null** ||
+|#
 
-Description of the connection. ||
+>
+
+#|
+||Field | Description ||
+|| access_token | **string**
+
+Required field.  ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| type | **equeo** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| access_token | **string**
+
+Required field.  ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| type | **extractor1c** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string \| null** ||
+|| description | **string \| null** ||
 || enforce_collate | **enum**
 
-Mode of setting collate in a query:
-- `auto` — Default setting is used, DataLens decides whether to enable the `en_US` locale.
-- `on` — DataLens setting is used, the `en_US` locale is specified for individual expressions in a query.
-- `off` — Applies the default setting. DataLens uses database-level locale settings. ||
+- `auto`
+- `on`
+- `off` ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| mdb_cluster_id | **string \| null** 
-
-ID of the MDB cluster. ||
-|| mdb_folder_id | **string \| null** 
-
-ID of the MDB folder. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| mdb_cluster_id | **string \| null** ||
+|| mdb_folder_id | **string \| null** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
+Required field.  ||
 || password | **string**
 
-Required field. Password for the connection. ||
+Required field.  ||
 || port | **integer**
 
-Required field. Connection port. ||
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
-
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| ssl_ca | **unknown** 
-
-SSL certificate authority. ||
-|| ssl_enable | **unknown** 
-
-SSL flag. ||
-|| type | **greenplum** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| ssl_ca | **unknown** ||
+|| ssl_enable | **unknown** ||
+|| type | **greenplum** (const) ||
+|| updated_at | **string** ||
 || username | **string**
 
-Required field. Username for the connection. ||
+Required field.  ||
 |#
 
-> If the Google Sheets connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-google-sheets).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
-
-Cache time-to-live in seconds. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| type | **gsheets** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+Required field.  ||
+|| type | **gsheets** (const) ||
+|| updated_at | **string** ||
 || url | **string**
 
-Required field. Path to the Google Sheets file. ||
+Required field.  ||
 |#
 
-> If the API Connector connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-api-connector).
+>
 
 #|
 ||Field | Description ||
 || allowed_methods[] | **enum**
 
-Required field. A method to send an HTTP request to the API. The available methods are:
+Required field. 
 
 - `GET`
 - `POST` ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| path | **string \| null** 
-
-Path to the API (part of the URL without a protocol, host name, or port). ||
-|| plain_headers | **object \| null** 
-
-Public request headers represented by key-value pair. ||
+Required field.  ||
+|| path | **string \| null** ||
+|| plain_headers | **object \| null** ||
 || port | **integer**
 
-Required field. Connection port. ||
-|| secret_headers | **object \| null** 
-
-Private request headers represented by key-value pair. For private headers value will return `null`. ||
-|| secure | **boolean** 
-
-Secure connection flag. ||
-|| tvm_dst_id | **integer \| null** 
-ID for TVM authentication. ||
-|| type | **json_api** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+Required field.  ||
+|| secret_headers | **object \| null** ||
+|| secure | **boolean** ||
+|| type | **json_api** (const) ||
+|| updated_at | **string** ||
 |#
 
-> If the Yandex Metrica API connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-api-connector).
+>
 
 #|
 ||Field | Description ||
-|| accuracy | **number \| null** 
+|| access_token | **string**
 
-Accuracy of the metric data. ||
+Required field.  ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| type | **kontur_market** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| accuracy | **number \| null** ||
 || counter_id | **string**
 
-Required field. AppMetrica counter (app) ID. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
+Required field.  ||
 || token | **string**
 
-Required field. OAuth token from the connection. ||
-|| type | **metrika_api** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+Required field.  ||
+|| type | **metrika_api** (const) ||
+|| updated_at | **string** ||
 |#
 
-> If the Microsoft SQL Server connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-mssql-server).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
+|| cache_ttl_sec | **integer \| null** ||
+|| cloud_id | **string \| null**
 
-Cache time-to-live in seconds. ||
-|| created_at | **string** 
+Required field.  ||
+|| created_at | **string** ||
+|| delegation_is_set | **boolean \| null** ||
+|| description | **string \| null** ||
+|| folder_id | **string**
 
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| db_name | **string \| null** 
-
-Database name. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
-|| host | **string**
-
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
+Required field.  ||
+|| service_account_id | **string**
+
+Required field.  ||
+|| type | **monitoring** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| access_token | **string**
+
+Required field.  ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| type | **moysklad** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string \| null** ||
+|| description | **string \| null** ||
+|| host | **string**
+
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
 || password | **string**
 
-Required field. Password for the connection. ||
+Required field.  ||
 || port | **integer**
 
-Required field. Connection port. ||
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
-
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| type | **mssql** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| type | **mssql** (const) ||
+|| updated_at | **string** ||
 || username | **string**
 
-Required field. Username for the connection. ||
+Required field.  ||
 |#
 
-> If the MySQL connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-mysql).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
-
-Cache time-to-live in seconds. ||
-|| connection_manager_cloud_id | **string \| null** 
-
-ID of the cloud where the connection to the cluster was created in Connection Manager. ||
-|| connection_manager_connection_id | **string \| null** 
-
-Connection ID from Connection Manager. ||
-|| connection_manager_delegation_is_set | **boolean \| null** 
-
-Type of connection management. If true, connections are created automatically by a managed database cluster. Else connections are created by a user or a third-party service. ||
-|| connection_manager_folder_id | **string \| null** 
-
-ID of the folder where the connection to the cluster was created in Connection Manager. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| db_name | **string \| null** 
-
-Database name. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
+|| cache_ttl_sec | **integer \| null** ||
+|| connection_manager_cloud_id | **string \| null** ||
+|| connection_manager_connection_id | **string \| null** ||
+|| connection_manager_delegation_is_set | **boolean \| null** ||
+|| connection_manager_folder_id | **string \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string \| null** ||
+|| description | **string \| null** ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| mdb_cluster_id | **string \| null** 
-
-ID of the MDB cluster. ||
-|| mdb_folder_id | **string \| null** 
-
-ID of the MDB folder. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| mdb_cluster_id | **string \| null** ||
+|| mdb_folder_id | **string \| null** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| password | **string \| null** 
-
-Password for the connection. ||
+Required field.  ||
+|| password | **string \| null** ||
 || port | **integer**
 
-Required field. Connection port. ||
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
-
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| ssl_ca | **unknown** 
-
-SSL certificate authority. ||
-|| ssl_enable | **unknown** 
-
-SSL flag. ||
-|| type | **mysql** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
-|| username | **string \| null** 
-
-Username for the connection. ||
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| ssl_ca | **unknown** ||
+|| ssl_enable | **unknown** ||
+|| type | **mysql** (const) ||
+|| updated_at | **string** ||
+|| username | **string \| null** ||
 |#
 
-> If the Oracle connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-oracle).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
-
-Cache time-to-live in seconds. ||
-|| created_at | **string**
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
 || db_connect_method | **enum**
 
-Required field. Specified service name or the system ID of the database.
+Required field. 
 
-- `sid` — system ID.
-- `service_name` — service name. ||
-|| db_name | **string \| null** 
-
-Database name. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
+- `sid`
+- `service_name` ||
+|| db_name | **string \| null** ||
+|| description | **string \| null** ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
+Required field.  ||
 || password | **string**
 
-Required field. Password for the connection. ||
+Required field.  ||
 || port | **integer**
 
-Required field. Connection port. ||
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
-
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| ssl_ca | **unknown** 
-
-SSL certificate authority. ||
-|| ssl_enable | **unknown** 
-
-SSL flag. ||
-|| type | **oracle** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| ssl_ca | **unknown** ||
+|| ssl_enable | **unknown** ||
+|| type | **oracle** (const) ||
+|| updated_at | **string** ||
 || username | **string**
 
-Required field. Username for the connection. ||
+Required field.  ||
 |#
 
-> If the PostgreSQL connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-postgresql).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
-
-Cache time-to-live in seconds. ||
-|| connection_manager_cloud_id | **string \| null** 
-
-ID of the cloud where the connection to the cluster was created in Connection Manager. ||
-|| connection_manager_connection_id | **string \| null** 
-
-Connection ID from Connection Manager. ||
-|| connection_manager_delegation_is_set | **boolean \| null** 
-
-Type of connection management. If true, connections are created automatically by a managed database cluster. Else connections are created by a user or a third-party service. ||
-|| connection_manager_folder_id | **string \| null** 
-
-ID of the folder where the connection to the cluster was created in Connection Manager. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| db_name | **string \| null** 
-
-Database name. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
+|| cache_ttl_sec | **integer \| null** ||
+|| connection_manager_cloud_id | **string \| null** ||
+|| connection_manager_connection_id | **string \| null** ||
+|| connection_manager_delegation_is_set | **boolean \| null** ||
+|| connection_manager_folder_id | **string \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string \| null** ||
+|| description | **string \| null** ||
 || enforce_collate | **enum**
 
-Mode of setting collate in a query:
-- `auto` — Default setting is used, DataLens decides whether to enable the `en_US` locale.
-- `on` — DataLens setting is used, the `en_US` locale is specified for individual expressions in a query.
-- `off` — Applies the default setting. DataLens uses database-level locale settings. ||
+- `auto`
+- `on`
+- `off` ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| mdb_cluster_id | **string \| null** 
-
-ID of the MDB cluster. ||
-|| mdb_folder_id | **string \| null** 
-
-ID of the MDB folder. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| mdb_cluster_id | **string \| null** ||
+|| mdb_folder_id | **string \| null** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| password | **string \| null** 
-
-Password for the connection. ||
+Required field.  ||
+|| password | **string \| null** ||
 || port | **integer**
 
-Required field. Connection port. ||
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
-
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| ssl_ca | **unknown** 
-
-SSL certificate authority. ||
-|| ssl_enable | **unknown** 
-
-SSL flag. ||
-|| type | **postgres** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
-|| username | **string \| null** 
-
-Username for the connection. ||
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| ssl_ca | **unknown** ||
+|| ssl_enable | **unknown** ||
+|| type | **postgres** (const) ||
+|| updated_at | **string** ||
+|| username | **string \| null** ||
 |#
 
-> If the Prometheus connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-prometheus).
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
-
-Cache time-to-live in seconds. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
-|| db_name | **string \| null** 
-
-Database name. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
+|| cache_ttl_sec | **integer \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string \| null** ||
+|| description | **string \| null** ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| password | **string \| null** 
-
-Password for the connection. ||
+Required field.  ||
+|| password | **string \| null** ||
 || path | **string \| null** ||
 || port | **integer**
 
-Required field. Connection port. ||
-|| secure | **boolean** 
-
-Secure connection flag. ||
-|| type | **promql** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
-|| username | **string \| null** 
-
-Username for the connection. ||
+Required field.  ||
+|| secure | **boolean** ||
+|| type | **promql** (const) ||
+|| updated_at | **string** ||
+|| username | **string \| null** ||
 |#
 
-> If the Monitoring connection was retrieved.
+>
 
 #|
 ||Field | Description ||
-|| cache_ttl_sec | **integer \| null** 
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
 
-Cache time-to-live in seconds. ||
-|| created_at | **string** 
+Required field.  ||
+|| token | **string**
 
-Timestamp when the connection was created. ||
-|| description | **string \| null** 
+Required field.  ||
+|| type | **smb_heatmaps** (const) ||
+|| updated_at | **string** ||
+|#
 
-Description of the connection. ||
+>
+
+#|
+||Field | Description ||
+|| account_name | **string**
+
+Required field.  ||
+|| client_id | **string**
+
+Required field.  ||
+|| client_secret | **string**
+
+Required field.  ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string**
+
+Required field.  ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| refresh_token | **string** ||
+|| refresh_token_expire_time | **string \| null** (date-time) ||
+|| schema | **string**
+
+Required field.  ||
+|| type | **snowflake** (const) ||
+|| updated_at | **string** ||
+|| user_name | **string**
+
+Required field.  ||
+|| user_role | **string \| null** ||
+|| warehouse | **string**
+
+Required field.  ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| project_id | **string**
+
+Required field.  ||
+|| type | **speechsense** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| auth_type | **unknown** ||
+|| cache_ttl_sec | **integer \| null** ||
+|| cloud_id | **string \| null** ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| db_name | **string \| null** ||
+|| delegation_is_set | **boolean \| null** ||
+|| description | **string \| null** ||
+|| folder_id | **string \| null** ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
+Required field.  ||
+|| id | **string** ||
+|| jwt | **string \| null** ||
+|| key | **string** ||
+|| listing_sources | **unknown**
 
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+Required field.  ||
+|| mdb_cluster_id | **string \| null** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| type | **solomon** (const) 
+Required field.  ||
+|| password | **string \| null** ||
+|| port | **integer \| null** ||
+|| raw_sql_level | **enum**
 
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| service_account_id | **string \| null** ||
+|| ssl_ca | **unknown** ||
+|| ssl_enable | **unknown** ||
+|| type | **trino** (const) ||
+|| updated_at | **string** ||
+|| username | **string \| null** ||
 |#
 
-> If the Usage Tracking connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/concepts/datalens-usage-analytics).
+>
 
 #|
 ||Field | Description ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| description | **string \| null** 
-
-Description of the connection. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
-|| meta | **object** (map<**string**, **unknown**>) 
-
-Metadata associated with the connection. ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
 || name | **string**
 
-Required field. Name of the connection. ||
-|| type | **usage_tracking_ya_team** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
+Required field.  ||
+|| type | **usage_analytics_detailed** (const) ||
+|| updated_at | **string** ||
 |#
 
-> If the YDB connection was retrieved. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/operations/connection/create-ydb).
+>
+
+#|
+||Field | Description ||
+|| created_at | **string** ||
+|| description | **string \| null** ||
+|| id | **string** ||
+|| key | **string** ||
+|| meta | **object** (map<**string**, **unknown**>) ||
+|| name | **string**
+
+Required field.  ||
+|| type | **usage_analytics_light** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
 
 #|
 ||Field | Description ||
 || auth_type | **enum**
 
-Authentication type:
-- `anonymous` — anonymously.
-- `password` — with password.
-- `oauth` — with OAuth token.
-- `null` — not specified. ||
-|| cache_ttl_sec | **integer \| null** 
+- `anonymous`
+- `password`
+- `oauth`
+- `null` ||
+|| cache_ttl_sec | **integer \| null** ||
+|| cloud_id | **string \| null**
 
-Cache time-to-live in seconds. ||
-|| created_at | **string** 
-
-Timestamp when the connection was created. ||
-|| data_export_forbidden | **unknown** 
-
-Indicates if data export is forbidden. ||
+Required field.  ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
 || db_name | **string**
 
-Required field. Database name. ||
-|| description | **string \| null** 
+Required field.  ||
+|| delegation_is_set | **boolean \| null** ||
+|| description | **string \| null** ||
+|| folder_id | **string**
 
-Description of the connection. ||
+Required field.  ||
 || host | **string**
 
-Required field. Host name. ||
-|| id | **string** 
-
-Unique identifier of the connection. ||
-|| key | **string** 
-
-Key used to identify the connection. Indicates the path and name of the connection. ||
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| mdb_cluster_id | **string \| null** ||
+|| mdb_folder_id | **string \| null** ||
 || name | **string**
 
-Required field. Name of the connection. ||
+Required field.  ||
 || port | **integer**
 
-Required field. Connection port. ||
+Required field.  ||
 || raw_sql_level | **enum**
 
-Raw SQL level:
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| service_account_id | **string**
 
-- `off` — The option is disabled.
-- `subselect` — Allowed subqueries in datasets.
-- `template` — Allowed subqueries in datasets and source parameterization.
-- `dashsql` — Allowed subqueries in datasets, source parameterization, and QL charts. ||
-|| ssl_ca | **unknown** 
-
-SSL certificate authority. ||
-|| ssl_enable | **unknown** 
-
-SSL flag. ||
-|| token | **string \| null** 
-
-OAuth token from the connection. ||
-|| type | **ydb** (const) 
-
-Type of the connection. ||
-|| updated_at | **string** 
-
-Timestamp when the connection was last updated. ||
-|| username | **string \| null** 
-
-Username for the connection. ||
+Required field.  ||
+|| ssl_ca | **unknown** ||
+|| ssl_enable | **unknown** ||
+|| token | **string \| null** ||
+|| type | **ydb** (const) ||
+|| updated_at | **string** ||
+|| username | **string \| null** ||
 |#
 
-> The response is empty.
+>
+
+#|
+||Field | Description ||
+|| cache_ttl_sec | **integer \| null** ||
+|| cloud_id | **string \| null**
+
+Required field.  ||
+|| created_at | **string** ||
+|| data_export_forbidden | **unknown** ||
+|| delegation_is_set | **boolean \| null** ||
+|| description | **string \| null** ||
+|| folder_id | **string**
+
+Required field.  ||
+|| id | **string** ||
+|| key | **string** ||
+|| name | **string**
+
+Required field.  ||
+|| raw_sql_level | **enum**
+
+- `off`
+- `subselect`
+- `template`
+- `dashsql` ||
+|| service_account_id | **string**
+
+Required field.  ||
+|| type | **yq** (const) ||
+|| updated_at | **string** ||
+|#
+
+>
 
 #|
 ||Field | Description ||

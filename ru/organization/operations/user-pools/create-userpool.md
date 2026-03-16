@@ -24,6 +24,7 @@ description: Следуя данной инструкции, вы сможете
      1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
      1. Введите метку в формате `ключ: значение`.
      1. Нажмите **Enter**.
+  1. (Опционально) В поле **{{ ui-key.yacloud_org.form.userpool.caption.settings-data }}** выберите пользовательские настройки, доступные для изменения на портале [Мой аккаунт](../../concepts/my-account.md). По умолчанию разрешено управление паролем.
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.userpool.create.action.create }}**.
 
 - CLI {#cli}
@@ -77,6 +78,12 @@ description: Следуя данной инструкции, вы сможете
        labels            = {
          <ключ> = "<значение>"
        }
+       user_settings {
+          allow_edit_self_contacts = <true_или_false>
+          allow_edit_self_info = <true_или_false>
+          allow_edit_self_login = <true_или_false>
+          allow_edit_self_password = <true_или_false>
+       }
      }
      ```
 
@@ -90,6 +97,11 @@ description: Следуя данной инструкции, вы сможете
      * `description` — описание пула пользователей. Необязательный параметр.
      * `default_subdomain` — [домен](../../concepts/domains.md) по умолчанию. Будет использоваться, если к пулу не привязаны другие домены.
      * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
+     * `user_settings` — доступные для изменения пользовательские данные на портале [Мой аккаунт](../../concepts/my-account.md). По умолчанию разрешено управление паролем. Необязательный параметр. Включает следующие опции:
+       * `allow_edit_self_contacts` — изменение контактной информации.
+       * `allow_edit_self_info` — изменение персональных данных.
+       * `allow_edit_self_login` — изменение логина.
+       * `allow_edit_self_password` — изменение пароля.
 
      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_userpool` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 

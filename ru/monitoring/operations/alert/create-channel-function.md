@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
     "alertId": "",
     "alertName": "",
     "folderId": "",
-    "status": "",
+    "alertStatus": "",
     "annotations": {
         "key1": "value1",
         "key2": "value2"
@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
 * `alertId` — идентификатор сработавшего алерта, текст;
 * `alertName` — имя сработавшего алерта, текст;
 * `folderId` — идентификатор каталога, в котором сработал алерт, текст;
-* `status` — [статус алерта](../../concepts/alerting/alert.md#alert-statuses), текст;
+* `alertStatus` — [статус алерта](../../concepts/alerting/alert.md#alert-statuses), текст;
 * `annotations` — значения аннотаций сработавшего алерта, словарь значений `key:value`.
 
 Пример вызова функции см. в разделе [{#T}](alert-call-function.md).
