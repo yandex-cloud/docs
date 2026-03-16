@@ -31,6 +31,12 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить атрибуты {#edit-profile}
 
+{% note info %}
+
+Изменение атрибутов доступно, если это разрешено администратором пула.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
@@ -44,6 +50,12 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 ## Изменить пароль {#edit-password}
+
+{% note info %}
+
+Изменение пароля доступно, если это разрешено администратором пула.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

@@ -1269,12 +1269,6 @@ default:
         12_month: dn2av9k1sknc85mfbpk6
         3_month: dn2g53dcfhivbid4ejgu
         6_month: dn2st70gmnb1ug7m8d5b
-      ba_i112_10s_10g:
-        1_day: dn2hyjtrp3vgilnh2ybl
-        1_month: dn24cev2jtdqmo5tlu7p
-        12_month: dn2wgzwoap24plq6fx5k
-        3_month: dn2fuzc4hbvfextbc5bf
-        6_month: dn2brdwfeshpk3jyuexn
       ba_i200_h:
         1_day: dn2g773c1s243adit5gr
         1_month: dn2s7fs0s1chg0ehqd9v
@@ -4847,6 +4841,7 @@ default:
         userpool:
           caption:
             domain: Default domain
+            settings-data: Data available for editing
           create:
             action:
               create: Create userpool
@@ -5186,6 +5181,20 @@ default:
             alertSinkLabel_gvxBa: Alert Sinks
             connectorsLabel_2NoP9: Connectors
             workspacesLabel_kZyU1: Workspaces
+        siem:
+          action_delete_wM5k5: Delete
+          action_insert_into_query_kR3x1: Insert into query
+          action_new_folder_qmx81: New folder
+          action_new_query_from_template_pL7m2: New query from template
+          action_rename_vN4w3: Rename
+          cell-result-action-launch_v9v5f: Launch
+          cell-result-action-share_i1khy: Share
+          cell-result-canceled_fqtbJ: Canceled
+          cell-result-running_4S3Mi: Running
+          my_8uT22: Personal
+          template_type_global_qSrVE: Global
+          template_type_local_77J2t: Instance
+          title_ap766: Save query as template
         workspaces:
           ConnectorAddField:
             addNewConnector: Create connector
@@ -5238,6 +5247,33 @@ default:
           WorkspaceStandardsForm:
             modules_title_s8LDi: Control modules
             standards_title_dBBXP: Rule sets
+        ycdr:
+          InvestigationPageLayout:
+            copy_wiAxw: Create copy
+            fieldDescription_wiAxw: Description
+            fieldModified: Modified
+            information_cZr8L: Information
+            newQuery_mzeBV: New query
+          InvestigationsPage:
+            create-investigation_iCPUP: New investigation
+          preset_last_1_hour_s5Gq5: Last hour
+          preset_last_12_hours_s5Gq5: Last 12 hours
+          preset_last_3_hours_s5Gq5: Last 3 hours
+          preset_last_30_minutes_s5Gq5: Last 30 minutes
+          preset_last_5_minutes_s5Gq5: Last 5 minutes
+          preset_last_6_hours_s5Gq5: Last 6 hours
+          preset_last_day_s5Gq5: Last day
+          query-data-panel:
+            datasets-type-lookup_dTpLk: Lookup table
+            schema-insert-action_iNs1A: Insert into query
+            schema-search-placeholder_sSrch: Search fields
+            tab-datasets_dSt4K: Datasets
+            tab-schema_sChm1: Database schema
+            tab-templates_tPl3Q: Templates
+            title_xK9v2: Query data
+          query-placeholder_auE1D: Enter a query using KQL syntax, or select a template query
+          YcdrPageLayout:
+            investigations_wYxSe: Investigations
       shared:
         components:
           severity_high_cahHH: High severity

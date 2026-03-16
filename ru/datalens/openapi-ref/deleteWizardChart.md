@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Deletes the specified wizard chart.
-
 ```
-POST https://api.datalens.yandex.net/rpc/deleteWizardChart
+POST https://api.datalens.tech/rpc/deleteWizardChart
 ```
 
 ## Body parameters
@@ -26,12 +24,14 @@ POST https://api.datalens.yandex.net/rpc/deleteWizardChart
 ||Field | Description ||
 || chartId | **string**
 
-Required field. ID of the wizard chart to delete. ||
+Required field.  ||
 |#
 
 ## Response {#200}
 
 **HTTP Code: 200**
+
+Response
 
 **Response schema: application/json**
 

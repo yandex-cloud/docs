@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Creates the specified dashboard.
-
 ```
-POST https://api.datalens.yandex.net/rpc/createDashboard
+POST https://api.datalens.tech/rpc/createDashboard
 ```
 
 ## Body parameters
@@ -18,182 +16,100 @@ POST https://api.datalens.yandex.net/rpc/createDashboard
 
 ```json
 {
-  "key": "string",
-  "data": {
-    "counter": "integer",
-    "salt": "string",
-    "schemeVersion": "number",
-    "tabs": [
-      {
-        "id": "string",
-        "title": "string",
-        "items": [
-          {
-            "<allOf>": [
-              {
-                "id": "string",
-                "namespace": "string",
-                "type": "string"
-              },
-              "unknown"
-            ]
-          }
-        ],
-        "layout": [
-          {
-            "i": "string",
-            "h": "number",
-            "w": "number",
-            "x": "number",
-            "y": "number",
-            "parent": "string"
-          }
-        ],
-        "connections": [
-          {
-            "from": "string",
-            "to": "string",
-            "kind": "string"
-          }
-        ],
-        "aliases": {
-          "default": [
-            "array"
-          ]
-        }
-      }
-    ],
-    "settings": {
-      "autoupdateInterval": "unknown",
-      "maxConcurrentRequests": "unknown",
-      "loadPriority": "string",
-      "silentLoading": "boolean",
-      "dependentSelectors": "boolean",
-      "globalParams": {
-        "string": "unknown"
-      },
-      "hideTabs": "boolean",
-      "hideDashTitle": "boolean",
-      "expandTOC": "boolean",
-      "assistantEnabled": "boolean"
-    },
-    "supportDescription": "string",
-    "accessDescription": "string"
-  },
-  "meta": {
-    "string": "unknown"
-  },
-  "links": {
-    "string": "string"
-  },
-  "workbookId": "string",
-  "lockToken": "string",
+  "entry": "unknown",
   "mode": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| key | **string**
-
-Required field. Key of the dashboard entry. Indicates the path and name of the dashboard. ||
-|| data | **[Data](#Data)**
-
-Required field. Dashboard data structure. ||
-|| meta | **object** (map<**string**, **unknown**>)
-
-Metadata associated with the dashboard. ||
-|| links | **object** (map<**string**, **string**>)
-
-Information about configured links on the dashboard. For details about dashboard links, see [documentation](https://docs.yandex-team.ru/cloud/datalens/dashboard/link). ||
-|| workbookId | **string** 
-
-ID of the workbook the dashboard belongs to. ||
-|| lockToken | **string** ||
+|| entry | All of **[Entry0](#Entry0)** & **[Entry1](#Entry1)** ||
 || mode | **enum**
 
-Required field.
+Required field. 
 
 - `save`
 - `publish` ||
 |#
 
-## Data {#Data}
+## Entry0 {#Entry0}
 
-Dashboard data structure.
+#|
+||Field | Description ||
+|| data | **[Data](#Data)**
+
+Required field.  ||
+|| meta | **object \| null**
+
+Required field.  ||
+|| annotation | **[Annotation](#Annotation)**
+
+Required field.  ||
+|#
+
+## Data {#Data}
 
 #|
 ||Field | Description ||
 || counter | **integer**
 
-Required field. Counter for the dashboard. ||
+Required field.  ||
 || salt | **string**
 
-Required field. Salt used for data hashing. ||
-|| schemeVersion | **enum**
-
-- `8` ||
+Required field.  ||
 || tabs[] | **[TabsItem](#TabsItem)**
 
-Required field. List of dashboard tabs. ||
+Required field.  ||
 || settings | **[Settings](#Settings)**
 
-Required field. Dashboard settings. ||
-|| supportDescription | **string** 
-
-Description for the window before contacting support. ||
-|| accessDescription | **string** 
-
-Access error message for the dashboard. ||
+Required field.  ||
+|| supportDescription | **string** ||
+|| accessDescription | **string** ||
 |#
 
 ## TabsItem {#TabsItem}
-
-Information about dashboard tab.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the dashboard tab. ||
+Required field.  ||
 || title | **string**
 
-Required field. Title of the dashboard tab. ||
+Required field.  ||
 || items[] | **unknown**
 
-Required field. List of tab items. ||
+Required field.  ||
 || layout[] | **[LayoutItem](#LayoutItem)**
 
-Required field. Layout configuration for the tab. ||
+Required field.  ||
 || connections[] | **[ConnectionsItem](#ConnectionsItem)**
 
-Required field. Connections used in tab items. ||
+Required field.  ||
 || aliases | **[Aliases](#Aliases)**
 
-Required field. Aliases for the tab. ||
+Required field.  ||
 |#
 
 ## LayoutItem {#LayoutItem}
-
-Layout configuration for the tab.
 
 #|
 ||Field | Description ||
 || i | **string**
 
-Required field. Identifier for the layout item. ||
+Required field.  ||
 || h | **number**
 
-Required field. Height of the layout item. ||
+Required field.  ||
 || w | **number**
 
-Required field. Width of the layout item. ||
+Required field.  ||
 || x | **number**
 
-Required field. X coordinate of the layout item. ||
+Required field.  ||
 || y | **number**
 
-Required field. Y coordinate of the layout item. ||
+Required field.  ||
 || parent | **string** ||
 |#
 
@@ -223,42 +139,47 @@ Required field.
 
 ## Settings {#Settings}
 
-Information about dashboard settings.
+#|
+||Field | Description ||
+|| autoupdateInterval | Any of **number** \| **null** \| **null** ||
+|| maxConcurrentRequests | Any of **number** \| **null** \| **null** ||
+|| loadPriority | **enum**
+
+- `charts`
+- `selectors` ||
+|| silentLoading | **boolean**
+
+Required field.  ||
+|| dependentSelectors | **boolean**
+
+Required field.  ||
+|| globalParams | **object** (map<**string**, **unknown**>) ||
+|| hideTabs | **boolean**
+
+Required field.  ||
+|| hideDashTitle | **boolean** ||
+|| expandTOC | **boolean**
+
+Required field.  ||
+|| assistantEnabled | **boolean** ||
+|#
+
+## Annotation {#Annotation}
 
 #|
 ||Field | Description ||
-|| autoupdateInterval | Any of **number** \| **null** \| **null** 
+|| description | **string**
 
-Auto-update interval setting. ||
-|| maxConcurrentRequests | Any of **number** \| **null** \| **null** 
+Required field.  ||
+|#
 
-Maximum concurrent requests. ||
-|| loadPriority | **enum**
+## Entry1 {#Entry1}
 
-Widget display order on a mobile device:
-
-- `charts` — to load charts at first.
-- `selectors` — to load selectors at first. ||
-|| silentLoading | **boolean**
-
-Required field. Silent loading flag. ||
-|| dependentSelectors | **boolean**
-
-Required field. Dependent selectors flag. ||
-|| globalParams | **object** (map<**string**, **unknown**>) 
-
-Global parameters. ||
-|| hideTabs | **boolean**
-
-Required field. Hide tabs flag. ||
-|| hideDashTitle | **boolean** 
-Hide dashboard title flag. ||
-|| expandTOC | **boolean**
-
-Required field. Expand table of contents flag. ||
-|| assistantEnabled | **boolean** 
-
-Neuroanalyst enabled flag. ||
+#|
+||Field | Description ||
+|| key | **string** ||
+|| workbookId | **string** ||
+|| name | **string** ||
 |#
 
 ## Response {#200}
@@ -271,178 +192,185 @@ Response
 
 ```json
 {
-  "key": "unknown",
-  "workbookId": "unknown",
-  "data": {
-    "counter": "integer",
-    "salt": "string",
-    "schemeVersion": "number",
-    "tabs": [
-      {
-        "id": "string",
-        "title": "string",
-        "items": [
-          {
-            "<allOf>": [
-              {
-                "id": "string",
-                "namespace": "string",
-                "type": "string"
-              },
-              "unknown"
+  "entry": {
+    "annotation": "object | null",
+    "createdAt": "string",
+    "createdBy": "string",
+    "data": {
+      "counter": "integer",
+      "salt": "string",
+      "schemeVersion": "number",
+      "tabs": [
+        {
+          "id": "string",
+          "title": "string",
+          "items": [
+            {
+              "<allOf>": [
+                {
+                  "id": "string",
+                  "namespace": "string",
+                  "type": "string"
+                },
+                "unknown"
+              ]
+            }
+          ],
+          "layout": [
+            {
+              "i": "string",
+              "h": "number",
+              "w": "number",
+              "x": "number",
+              "y": "number",
+              "parent": "string"
+            }
+          ],
+          "connections": [
+            {
+              "from": "string",
+              "to": "string",
+              "kind": "string"
+            }
+          ],
+          "aliases": {
+            "default": [
+              "array"
             ]
           }
-        ],
-        "layout": [
-          {
-            "i": "string",
-            "h": "number",
-            "w": "number",
-            "x": "number",
-            "y": "number",
-            "parent": "string"
-          }
-        ],
-        "connections": [
-          {
-            "from": "string",
-            "to": "string",
-            "kind": "string"
-          }
-        ],
-        "aliases": {
-          "default": [
-            "array"
-          ]
         }
-      }
-    ],
-    "settings": {
-      "autoupdateInterval": "unknown",
-      "maxConcurrentRequests": "unknown",
-      "loadPriority": "string",
-      "silentLoading": "boolean",
-      "dependentSelectors": "boolean",
-      "globalParams": {
-        "string": "unknown"
+      ],
+      "settings": {
+        "autoupdateInterval": "unknown",
+        "maxConcurrentRequests": "unknown",
+        "loadPriority": "string",
+        "silentLoading": "boolean",
+        "dependentSelectors": "boolean",
+        "globalParams": {
+          "string": "unknown"
+        },
+        "hideTabs": "boolean",
+        "hideDashTitle": "boolean",
+        "expandTOC": "boolean",
+        "assistantEnabled": "boolean"
       },
-      "hideTabs": "boolean",
-      "hideDashTitle": "boolean",
-      "expandTOC": "boolean",
-      "assistantEnabled": "boolean"
+      "supportDescription": "string",
+      "accessDescription": "string"
     },
-    "supportDescription": "string",
-    "accessDescription": "string"
-  },
-  "meta": {
-    "string": "string"
-  },
-  "links": {
-    "string": "string"
-  },
-  "entryId": "string",
-  "scope": "string",
-  "public": "boolean",
-  "isFavorite": "boolean",
-  "createdAt": "string",
-  "createdBy": "string",
-  "updatedAt": "string",
-  "updatedBy": "string",
-  "revId": "string",
-  "savedId": "string",
-  "publishedId": "string",
-  "type": "string"
+    "entryId": "string",
+    "hidden": "boolean",
+    "key": "unknown",
+    "links": "object | null",
+    "meta": "object | null",
+    "public": "boolean",
+    "publishedId": "string | null",
+    "revId": "string",
+    "savedId": "string",
+    "scope": "string",
+    "tenantId": "string",
+    "type": "string",
+    "updatedAt": "string",
+    "updatedBy": "string",
+    "version": "number",
+    "workbookId": "unknown"
+  }
 }
 ```
 
 #|
 ||Field | Description ||
-|| key | Any of **null** \| **string** \| **null** 
+|| entry | **[Entry](#Entry)**
 
-Key of the dashboard entry. Indicates the path and name of the dashboard. ||
-|| workbookId | Any of **null** \| **string** \| **null** 
+Required field.  ||
+|#
 
-ID of the workbook the dashboard belongs to. ||
-|| data | **[Data](#Data-1)**
+## Entry {#Entry}
 
-Required field. Dashboard data structure. ||
-|| meta | **object** (map<**string**, **string**>)
-
-Required field. Metadata associated with the dashboard. ||
-|| links | **object** (map<**string**, **string**>) 
-
-Information about configured links on the dashboard. For details about dashboard links, see [documentation](https://docs.yandex-team.ru/cloud/datalens/dashboard/link). ||
-|| entryId | **string**
-
-Required field. Unique identifier of the dashboard entry. ||
-|| scope | **enum**
-
-Required field. Type of the entry.
-
-For dashboards takes value:
-
-- `dash` ||
-|| public | **boolean**
-
-Required field. Indicates if the dashboard is public. ||
-|| isFavorite | **boolean**
-
-Required field. Indicates if the dashboard is marked as favorite. ||
+#|
+||Field | Description ||
+|| annotation | **object \| null** ||
 || createdAt | **string**
 
-Required field. Timestamp when the dashboard was created. ||
+Required field.  ||
 || createdBy | **string**
 
-Required field. User who created the dashboard. ||
-|| updatedAt | **string**
+Required field.  ||
+|| data | **[Data](#Data-1)**
 
-Required field. Timestamp when the dashboard was last updated. ||
-|| updatedBy | **string**
+Required field.  ||
+|| entryId | **string**
 
-Required field. User who last updated the dashboard. ||
+Required field.  ||
+|| hidden | **boolean**
+
+Required field.  ||
+|| key | Any of **null** \| **string** \| **null** ||
+|| links | **object \| null** ||
+|| meta | **object \| null**
+
+Required field.  ||
+|| public | **boolean**
+
+Required field.  ||
+|| publishedId | **string \| null**
+
+Required field.  ||
 || revId | **string**
 
-Required field. Revision ID of the dashboard. ||
+Required field.  ||
 || savedId | **string**
 
-Required field. ID of the saved version of the dashboard. ||
-|| publishedId | **string**
+Required field.  ||
+|| scope | **enum**
 
-Required field. ID of the published version of the dashboard. ||
+Required field. 
+
+- `dash` ||
+|| tenantId | **string**
+
+Required field.  ||
 || type | **enum**
 
 Required field. 
 
 - `` ||
+|| updatedAt | **string**
+
+Required field.  ||
+|| updatedBy | **string**
+
+Required field.  ||
+|| version | **enum**
+
+Required field. 
+
+- `1` ||
+|| workbookId | Any of **null** \| **string** \| **null** ||
 |#
 
 ## Data {#Data-1}
-
-Dashboard data structure.
 
 #|
 ||Field | Description ||
 || counter | **integer**
 
-Required field. Counter for the dashboard. ||
+Required field.  ||
 || salt | **string**
 
-Required field. Salt used for data hashing. ||
+Required field.  ||
 || schemeVersion | **enum**
+
+Required field. 
 
 - `8` ||
 || tabs[] | **[TabsItem](#TabsItem-1)**
 
-Required field. List of dashboard tabs. ||
+Required field.  ||
 || settings | **[Settings](#Settings-1)**
 
-Required field. Dashboard settings. ||
-|| supportDescription | **string** 
-
-Description for the window before contacting support. ||
-|| accessDescription | **string** 
-
-Access error message for the dashboard. ||
+Required field.  ||
+|| supportDescription | **string** ||
+|| accessDescription | **string** ||
 |#
 
 ## TabsItem {#TabsItem-1}
@@ -451,48 +379,44 @@ Access error message for the dashboard. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the dashboard tab. ||
+Required field.  ||
 || title | **string**
 
-Required field. Title of the dashboard tab. ||
+Required field.  ||
 || items[] | **unknown**
 
-Required field. List of tab items. ||
+Required field.  ||
 || layout[] | **[LayoutItem](#LayoutItem-1)**
 
-Required field. Layout configuration for the tab. ||
+Required field.  ||
 || connections[] | **[ConnectionsItem](#ConnectionsItem-1)**
 
-Required field. Connections used in tab items. ||
+Required field.  ||
 || aliases | **[Aliases](#Aliases-1)**
 
-Required field. Aliases for the tab. ||
+Required field.  ||
 |#
 
 ## LayoutItem {#LayoutItem-1}
-
-Layout configuration for the tab.
 
 #|
 ||Field | Description ||
 || i | **string**
 
-Required field. Identifier for the layout item. ||
+Required field.  ||
 || h | **number**
 
-Required field. Height of the layout item. ||
+Required field.  ||
 || w | **number**
 
-Required field. Width of the layout item. ||
+Required field.  ||
 || x | **number**
 
-Required field. X coordinate of the layout item. ||
+Required field.  ||
 || y | **number**
 
-Required field. Y coordinate of the layout item. ||
-|| parent | **string** 
-
-Parent item identifier. ||
+Required field.  ||
+|| parent | **string** ||
 |#
 
 ## ConnectionsItem {#ConnectionsItem-1}
@@ -521,41 +445,27 @@ Required field.
 
 ## Settings {#Settings-1}
 
-Information about dashboard settings.
-
 #|
 ||Field | Description ||
-|| autoupdateInterval | Any of **number** \| **null** \| **null** 
-
-Auto-update interval setting. ||
-|| maxConcurrentRequests | Any of **number** \| **null** \| **null** 
-
-Maximum concurrent requests. ||
+|| autoupdateInterval | Any of **number** \| **null** \| **null** ||
+|| maxConcurrentRequests | Any of **number** \| **null** \| **null** ||
 || loadPriority | **enum**
 
-Widget display order on a mobile device:
-
-- `charts` — to load charts at first.
-- `selectors` — to load selectors at first. ||
+- `charts`
+- `selectors` ||
 || silentLoading | **boolean**
 
-Required field. Silent loading flag. ||
+Required field.  ||
 || dependentSelectors | **boolean**
 
-Required field. Dependent selectors flag ||
-|| globalParams | **object** (map<**string**, **unknown**>) 
-
-Global parameters. ||
+Required field.  ||
+|| globalParams | **object** (map<**string**, **unknown**>) ||
 || hideTabs | **boolean**
 
-Required field. Hide tabs flag. ||
-|| hideDashTitle | **boolean**
-
-Hide dashboard title flag. ||
+Required field.  ||
+|| hideDashTitle | **boolean** ||
 || expandTOC | **boolean**
 
-Required field. Expand table of contents flag. ||
-|| assistantEnabled | **boolean** 
-
-Neuroanalyst enabled flag. ||
+Required field.  ||
+|| assistantEnabled | **boolean** ||
 |#

@@ -1,7 +1,9 @@
 # Как создать бота в Telegram
 
 
-С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram, который будет отвечать на сообщения в чате.
+В этом руководстве вы создадите [бота](../../glossary/chat-bot.md) для Telegram с помощью serverless-технологий. Бот сможет отвечать на сообщения и отправлять изображения.
+
+Для хранения статических ресурсов используется [{{ objstorage-full-name }}](../../storage/). [{{ api-gw-full-name }}](../../api-gateway/) принимает запросы пользователей и перенаправляет их для обработки в [{{ sf-full-name }}](../../functions/).
 
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjsucpfkw2e4zdzy2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -31,8 +33,8 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md));
-* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
+* плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
 
 ## Подготовьте ресурсы {#create-resources}
@@ -47,16 +49,16 @@
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
 
-Зарегистрируйте вашего бота в Telegram и получите токен.
+Зарегистрируйте вашего бота в Telegram и получите токен:
 
-1. Для регистрации нового бота запустите бота [BotFather](https://t.me/BotFather) и отправьте команду:
+1. Запустите бота [BotFather](https://t.me/BotFather) и отправьте команду:
 
     ```
     /newbot
     ```
 
-1. В поле `name` укажите имя создаваемого бота, например `Serverless Hello Telegram Bot`. Это имя увидят пользователи при общении с ботом.
-1. В поле `username` укажите имя пользователя создаваемого бота, например `ServerlessHelloTelegramBot`. По имени пользователя можно будет найти бота в Telegram. Имя пользователя должно оканчиваться на `...Bot` или `..._bot`.
+1. Введите и отправьте имя создаваемого бота, например `Serverless Hello Telegram Bot`. Это имя увидят пользователи при общении с ботом.
+1. Введите и отправьте имя пользователя создаваемого бота, например `ServerlessHelloTelegramBot`. По имени пользователя можно будет найти бота в Telegram. Имя пользователя должно оканчиваться на `...Bot` или `..._bot`.
 
     В результате вы получите токен. Сохраните его, он потребуется в дальнейшем.
 
@@ -124,7 +126,7 @@
 
 ## Создайте API-шлюз {#create-gateway}
 
-Создайте и сконфигурируйте [API-шлюз](../../api-gateway/concepts/index.md).
+Для взаимодействия бота с функцией создайте и сконфигурируйте [API-шлюз](../../api-gateway/concepts/index.md).
 
 {% list tabs group=instructions %}
 
@@ -152,13 +154,13 @@
               service_account_id: <идентификатор_сервисного_аккаунта>
             operationId: static
       ```
-      
+
       Где:
       * `bucket` — имя бакета;
       * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, оно потребуется в дальнейшем.
+  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, оно потребуется при создании функции.
 
 {% endlist %}
 
@@ -221,7 +223,7 @@
 
   1. Укажите следующие параметры:
 
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `nodejs16`;
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `Node.js / 16` или выше;
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`;
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
 
@@ -234,101 +236,108 @@
 
 ## Настройте связь между функцией и Telegram-ботом {#function-bind-bot}
 
-{% list tabs group=instructions %}
+1. Измените спецификацию API-шлюза:
 
-- Консоль управления {#console}
+    {% list tabs group=instructions %}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Выберите API-шлюз `for-serverless-hello-telegram-bot`.
-  1. Измените спецификацию API-шлюза — после имеющихся строчек кода добавьте секцию `fshtb-function`:
+    - Консоль управления {#console}
 
-      ```yml
-        /fshtb-function:
-          post:
-            x-yc-apigateway-integration:
-              type: cloud_functions
-              function_id: <идентификатор_функции>
-            operationId: fshtb-function
-      ```
-      
-      Где `function_id` — идентификатор функции `fshtb-function`.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+      1. Выберите API-шлюз `for-serverless-hello-telegram-bot`.
+      1. Измените спецификацию API-шлюза — после имеющихся строчек кода добавьте секцию `fshtb-function`:
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
-  1. Выполните запрос в терминале:
-
-      * Linux, macOS:
-
-          ```bash
-          curl \
-            --request POST \
-            --url https://api.telegram.org/bot<токен_бота>/setWebhook \
-            --header 'content-type: application/json' \
-            --data '{"url": "<домен_API-шлюза>/fshtb-function"}'
+          ```yml
+            /fshtb-function:
+              post:
+                x-yc-apigateway-integration:
+                  type: cloud_functions
+                  function_id: <идентификатор_функции>
+                operationId: fshtb-function
           ```
     
-      * Windows (cmd):
+          Где `function_id` — идентификатор функции `fshtb-function`.
 
-          ```bash
-          curl ^
-            --request POST ^
-            --url https://api.telegram.org/bot<токен_бота>/setWebhook ^
-            --header "content-type: application/json" ^
-            --data "{\"url\": \"<домен_API-шлюза>/fshtb-function\"}"
-          ```
+      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
-      * Windows (PowerShell):
-      
-          ```powershell
-          curl.exe `
-            --request POST `
-            --url https://api.telegram.org/bot<токен_бота>/setWebhook `
-            --header '"content-type: application/json"' `
-            --data '"{ \"url\": \"<домен_API-шлюза>/fshtb-function\" }"'
-          ``` 
+    {% endlist %}
 
-      Где:
+1. Выполните запрос в терминале:
 
-      * `<токен_бота>` — токен Telegram-бота.
-      * `<домен_API-шлюза>` — служебный домен API-шлюза.
+    {% list tabs group=operating_system %}
 
-      Результат:
+    - Bash {#bash}
 
       ```bash
-      {"ok":true,"result":true,"description":"Webhook was set"}
+      curl \
+        --request POST \
+        --url https://api.telegram.org/bot<токен_бота>/setWebhook \
+        --header 'content-type: application/json' \
+        --data '{"url": "<домен_API-шлюза>/fshtb-function"}'
       ```
 
-{% endlist %}
+    - CMD {#cmd}
+
+      ```cmd
+      curl ^
+        --request POST ^
+        --url https://api.telegram.org/bot<токен_бота>/setWebhook ^
+        --header "content-type: application/json" ^
+        --data "{\"url\": \"<домен_API-шлюза>/fshtb-function\"}"
+      ```
+
+    - PowerShell {#powershell}
+
+      ```powershell
+      curl.exe `
+        --request POST `
+        --url https://api.telegram.org/bot<токен_бота>/setWebhook `
+        --header '"content-type: application/json"' `
+        --data '"{ \"url\": \"<домен_API-шлюза>/fshtb-function\" }"'
+      ```
+
+    {% endlist %}
+
+    Где:
+
+    * `<токен_бота>` — токен Telegram-бота.
+    * `<домен_API-шлюза>` — служебный домен API-шлюза.
+
+    Результат:
+
+    ```bash
+    {"ok":true,"result":true,"description":"Webhook was set"}
+    ```
+
 
 ## Проверьте работу Telegram-бота {#test-bot}
 
-Поговорите с ботом:
-
-1. Откройте Telegram и найдите бота по имени пользователя `username`, созданному ранее.
+1. Откройте Telegram и найдите бота по имени пользователя, созданному [ранее](#create-bot).
 1. Отправьте в чат сообщение `/start`.
 
     Бот должен ответить:
-    
+
     ```text
     Hello.
     My name Serverless Hello Telegram Bot
     I'm working on Cloud Function in the Yandex Cloud.
     ```
 
-1. Отправьте в чат сообщение `/help`. 
-    
+1. Отправьте в чат сообщение `/help`.
+
     Бот должен ответить:
-    
+
     ```text
     Hello, <username>.
     I can say Hello and nothing more
     ```
 
-1. Отправьте в чат любое текстовое сообщение. Бот должен в ответ прислать изображение и сообщение: `Hello, <username>`.
+1. Отправьте в чат любое текстовое сообщение. В ответ бот должен прислать изображение и сообщение: `Hello, <username>`.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
-* [удалите функцию](../../functions/operations/function/function-delete.md);
-* [удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md);
-* [удалите бакет](../../storage/operations/buckets/delete.md).
+Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
+
+* [Удалите функцию](../../functions/operations/function/function-delete.md).
+* [Удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).
+* [Удалите бакет](../../storage/operations/buckets/delete.md).
