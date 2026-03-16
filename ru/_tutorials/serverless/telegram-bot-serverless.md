@@ -1,14 +1,10 @@
 # Как создать бота в Telegram
 
-
 С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram, который будет отвечать на сообщения в чате.
-
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjsucpfkw2e4zdzy2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 [Смотреть видео на YouTube](https://www.youtube.com/watch?v=C2Ahit2EBo0).
-
-
 
 Чтобы создать бота:
 
@@ -40,10 +36,10 @@
 1. Клонируйте [репозиторий](https://sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless) с исходным кодом, необходимым для создания бота, для этого в терминале выполните команду [git](https://git-scm.com/):
 
     ```bash
-    git clone https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless.git
+    git clone [https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless.git](https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless.git)
     ```
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `{{ roles-editor }}` и `{{ roles-functions-invoker }}` на ваш каталог. 
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `{{ roles-editor }}` и `{{ roles-functions-invoker }}` на ваш каталог.
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
 
@@ -51,7 +47,7 @@
 
 1. Для регистрации нового бота запустите бота [BotFather](https://t.me/BotFather) и отправьте команду:
 
-    ```
+    ```text
     /newbot
     ```
 
@@ -62,7 +58,7 @@
 
 1. Установите иконку для бота — файл `sayhello.png` из сохраненного архива. Отправьте боту BotFather команду:
 
-    ```
+    ```text
     /setuserpic
     ```
 
@@ -182,12 +178,14 @@
       const { Telegraf } = require('telegraf');
 
       const bot = new Telegraf(process.env.BOT_TOKEN);
-      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
-      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
+
+      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`));
+
+      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`));
+
       bot.on('text', (ctx) => {
           ctx.replyWithPhoto({url: '<домен_API-шлюза>/sayhello.png'});
           ctx.reply(`Hello, ${ctx.message.from.username}`);
-
       });
 
       module.exports.handler = async function (event, context) {
@@ -262,7 +260,7 @@
           ```bash
           curl \
             --request POST \
-            --url https://api.telegram.org/bot<токен_бота>/setWebhook \
+            --url [https://api.telegram.org/bot](https://api.telegram.org/bot)<токен_бота>/setWebhook \
             --header 'content-type: application/json' \
             --data '{"url": "<домен_API-шлюза>/fshtb-function"}'
           ```
@@ -272,7 +270,7 @@
           ```bash
           curl ^
             --request POST ^
-            --url https://api.telegram.org/bot<токен_бота>/setWebhook ^
+            --url [https://api.telegram.org/bot](https://api.telegram.org/bot)<токен_бота>/setWebhook ^
             --header "content-type: application/json" ^
             --data "{\"url\": \"<домен_API-шлюза>/fshtb-function\"}"
           ```
@@ -282,9 +280,9 @@
           ```powershell
           curl.exe `
             --request POST `
-            --url https://api.telegram.org/bot<токен_бота>/setWebhook `
+            --url [https://api.telegram.org/bot](https://api.telegram.org/bot)<токен_бота>/setWebhook `
             --header '"content-type: application/json"' `
-            --data '"{ \"url\": \"<домен_API-шлюза>/fshtb-function\" }"'
+            --data '{ "url": "<домен_API-шлюза>/fshtb-function" }'
           ``` 
 
       Где:
@@ -294,7 +292,7 @@
 
       Результат:
 
-      ```bash
+      ```json
       {"ok":true,"result":true,"description":"Webhook was set"}
       ```
 
