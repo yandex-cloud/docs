@@ -5,7 +5,7 @@ description: This article describes the fields for the FoundationModelsCall inte
 
 # FoundationModelsCall
 
-Integration with [{{ foundation-models-full-name }}](../../../../../ai-studio/).
+Integration with [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/).
 
 The `generate`, `classify`, `fewShotClassify`, and `vision` fields are mutually exclusive: you can use only one of them.
 
@@ -25,11 +25,11 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Yes | `0.3` | No | With a higher temperature, you get a more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
 `maxTokens` | `integer` | Yes | `5.0` | No | Maximum number of tokens to generate. Allows limiting the model's response if needed.
-`json` | `string` | No | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }}](../../../../../ai-studio/operations/generation/create-prompt.md#request) documentation.
+`json` | `string` | No | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }}]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request) documentation.
 `messages` | [FoundationModelsGenerate.Messages[]](#FoundationModelsGenerateMessages) | No | `[]` | No | Context for the model, as a list of input messages.
-`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | No | No  | No | Reasoning mode. For more information, see [this {{ foundation-models-name }} article](../../../../../ai-studio/concepts/generation/chain-of-thought.md).
+`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | No | No  | No | Reasoning mode. For more information, see [this {{ foundation-models-name }} article]({{ link-docs-ai }}ai-studio/concepts/generation/chain-of-thought).
 `jsonSchema` | `string` | No | No | Yes | Model's JSON-formatted response
-`jsonObject` | `boolean` | No | No | No | If `true`, the model returns a response as a JSON object. Otherwise, the response is formatted using Markdown. For more information, see [this {{ foundation-models-name }} article](../../../../../ai-studio/concepts/generation/structured-output.md).
+`jsonObject` | `boolean` | No | No | No | If `true`, the model returns a response as a JSON object. Otherwise, the response is formatted using Markdown. For more information, see [this {{ foundation-models-name }} article]({{ link-docs-ai }}ai-studio/concepts/generation/structured-output).
 
 ## FoundationModelsGenerate.Messages object {#FoundationModelsGenerateMessages}
 
@@ -41,8 +41,8 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Yes | No | No | Message sender ID. The available values are `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
-`text` | `string` | Yes | No | Yes | Message text. For more information, see [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
+`role` | `string` | Yes | No | No | Message sender ID. The available values are `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
+`text` | `string` | Yes | No | Yes | Message text. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
 
 ## FoundationModelsGenerate.ReasoningOptions object {#FoundationModelsGenerateReasoningOptions}
 
@@ -100,7 +100,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Yes | `0.3` | No | With a higher temperature, you get a more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
 `maxTokens` | `integer` | Yes | `5.0` | No | Maximum number of tokens to generate. Allows limiting the model's response if needed.
-`json` | `string` | No | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }} documentation](../../../../../ai-studio/operations/generation/create-prompt.md#request).
+`json` | `string` | No | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }} documentation]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request).
 `messages` | [FoundationModelsVision.Messages[]](#FoundationModelsVisionMessages) | No | `[]` | No | Context for the model, as a list of input messages.
 
 ## FoundationModelsVision.Messages object {#FoundationModelsVisionMessages}
@@ -113,8 +113,8 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Yes | No | No | Message sender ID. The available values are `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md). If the `images` field is not empty, specify `role: user`.
-`text` | `string` | Yes | No | Yes | Message text. For more information, see [TextGeneration.completion](../../../../../ai-studio/text-generation/api-ref/TextGeneration/completion.md).
+`role` | `string` | Yes | No | No | Message sender ID. The available values are `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion). If the `images` field is not empty, specify `role: user`.
+`text` | `string` | Yes | No | Yes | Message text. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
 `images` | [FoundationModelsVision.Image](#FoundationModelsVisionImage) | No | No | No | Images to add to the message.
 
 ## FoundationModelsVision.Image {#FoundationModelsVisionImage}
@@ -133,7 +133,7 @@ The `url` and `objectStorage` fields are mutually exclusive: you can use only on
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
 `url` | `string` | No | No | Yes | Publicly accessible image URL
-`objectStorage` | [FoundationModelsVision.ObjectStorage](FoundationModelsVisionObjectStorage) | No | No | No | Image from an {{ objstorage-name }} [bucket](../../../../../storage/concepts/bucket.md)
+`objectStorage` | [FoundationModelsVision.ObjectStorage](#FoundationModelsVisionObjectStorage) | No | No | No | Image from an {{ objstorage-name }} [bucket](../../../../../storage/concepts/bucket.md)
 
 ## FoundationModelsVision.ObjectStorage {#FoundationModelsVisionObjectStorage}
 

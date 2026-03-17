@@ -15,3 +15,4 @@ description: Различные сценарии использования {{ m
 * [{#T}](test-vms-creation-via-gitlab-ci.md)
 * [{#T}](tracker-integration.md)
 * [{#T}](argo-cd.md)
+* [{#T}](mlops-ml-registry.md)

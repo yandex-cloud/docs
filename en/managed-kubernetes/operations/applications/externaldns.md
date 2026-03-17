@@ -31,7 +31,8 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ExternalDNS with a plugin for {{ dns-full-name }}](/marketplace/products/yc/externaldns) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -40,7 +41,7 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
    * **Service account key**: Paste the contents of the `key.json` file or create a new authorized key for the service account. The service account must have the `dns.editor` [role](../../../iam/concepts/access-control/roles.md).
    * **Folder ID**: Specify the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) hosting the [{{ dns-name }} zone](../../../dns/concepts/dns-zone.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

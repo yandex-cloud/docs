@@ -26,7 +26,7 @@
 | Maximum number of words per request | {{ search-api-request-w }} |
 | Minimum processing time for a request in deferred mode | 5 minutes |
 | Maximum retention time of deferred request results | 12 hours |
-| **Requests with [generative response](../search-api/concepts/generative-response.md)** | |
+| **Requests with generative response** | |
 | Maximum number of websites per request | 5 |
 | Maximum number of hosts per request | 5 |
 | Maximum number of pages per request | 10 |

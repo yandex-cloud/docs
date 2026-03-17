@@ -15,11 +15,11 @@ editable: false
 The applicable {{ sd-name }} pricing depends on the module you are using:
 
 * [Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) is free of charge.
-* [For {{ dspm-name }})](concepts/dspm.md), see [below](#dspm-rules).
-* For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
-* For [{{ k8s }}® Security Posture Management (KSPM)](./concepts/kspm.md), see [below](#kspm-rules).
-* [{{ cspm-name }}](concepts/cspm.md), see [Cloud Security Posture Management ({{ cspm-name }})](#cspm-rules) below.
-* [AI assistant](./concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
+* For [{{ dspm-name }}](concepts/dspm.md), see [below](#dspm-rules).
+* For [{{ atr-name }}](concepts/access-transparency.md), see [below](#atr-rules).
+* For [{{ k8s }}® Security Posture Management (KSPM)](concepts/kspm.md), see [below](#kspm-rules).
+* For [Cloud Security Posture Management ({{ cspm-name }})](concepts/cspm.md), see [below](#cspm-rules).
+* [AI assistant](concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
 
@@ -43,13 +43,13 @@ The cost for using {{ k8s }}® Security Posture Management (KSPM) is monthly-bas
 
 ### Cloud Security Posture Management ({{ cspm-name }}) {#cspm-rules}
 
-The cost of using the {{ cspm-name }} module is calculated monthly and depends on the standard selected in the environment for infrastructure checking and the number of resources included in the check. All standards are charged except for the [{{ yandex-cloud }} Security Baseline](concepts/standard-compliance/yc-security-baseline.md).
+Your Cloud Security Posture Management ({{ cspm-name }}) charge is calculated monthly and depends on the infrastructure inspection standard selected for the environment and the number of resources covered by the inspection. All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).
 
-Each environment is charged separately, even if resources overlap between them.
+Each environment is billed separately, even if their resources overlap.
 
-Inactive resources are also charged.
+Inactive resources are also billable.
 
-The price does not depend on the duration of the calendar month.
+The price does not depend on the number of days in the calendar month.
 
 ## Prices for the Russia region {#prices}
 
@@ -104,5 +104,4 @@ The monthly price is based on 720 hours per month.
 
 
 {% include notitle [usd.md](../_pricing/security-deck/cspm/usd.md) %}
-
 

@@ -3,7 +3,7 @@ title: How to delete created resources in {{ ydb-full-name }}
 description: Follow this guide to delete the resources you created.
 ---
 
-# Deletе the resources you created
+# Delete the resources you created
 
 If you no longer need the `series` table, delete it:
 

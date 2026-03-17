@@ -4,9 +4,9 @@ canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
 
 # Model fine-tuning in {{ ml-platform-name }} Notebooks
 
-You can [fine-tune](../../ai-studio/concepts/tuning/index.md) language models enabled by {{ foundation-models-full-name }} through APIs or {{ ml-sdk-name }} to better understand the specific features of your tasks. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
+You can [fine-tune]({{ link-docs-ai }}ai-studio/concepts/tuning/index) {{ foundation-models-full-name }} language models for them to understand your tasks better via the API or {{ ml-sdk-name }}. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
 
-In this tutorial, you will fine-tune a model in {{ ml-platform-name }} using the SDK. You can also clone the [repository](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) and run the notebook locally by changing the [authentication settings](../../ai-studio/sdk/index.md).
+In this tutorial, you will fine-tune a model in {{ ml-platform-name }} using the SDK. You can also clone the [repository](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) and run the notebook locally by changing the [authentication settings]({{ link-docs-ai }}ai-studio/sdk/index).
 
 To fine-tune a model:
 
@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost for fine-tuning a model includes:
 
 * Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for [text generation](../../ai-studio/pricing.md) by the model.
+* Fee for [text generation]({{ link-docs-ai }}ai-studio/pricing) by the model.
 
 ## Set up your infrastructure {#infra}
 
@@ -107,7 +107,7 @@ To get the API key and folder ID from the notebook, create [secrets](../../datas
 
 ## Fine-tune the model {#fine-tuning}
 
-You will run the fine-tuning code from the {{ ml-platform-name }} notebook. The [fine-tuning data](../../ai-studio/concepts/resources/dataset.md#generating) is stored in [JSON Lines](https://jsonlines.org/) format.
+You will run the fine-tuning code from the {{ ml-platform-name }} notebook. The [fine-tuning data]({{ link-docs-ai }}ai-studio/concepts/resources/dataset#generating) is stored in [JSON Lines](https://jsonlines.org/) format.
 
 1. Open the notebook with the code by following the link below:
 

@@ -1632,13 +1632,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdb_offline_mode_disable_lag | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag value.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || range_optimizer_max_mem_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on memory consumption for the range optimizer.
@@ -2296,13 +2296,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdb_offline_mode_disable_lag | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || range_optimizer_max_mem_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on memory consumption for the range optimizer.
@@ -2934,13 +2934,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdb_offline_mode_disable_lag | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || range_optimizer_max_mem_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on memory consumption for the range optimizer.

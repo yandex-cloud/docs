@@ -8,12 +8,13 @@ description: Follow this guide to install VictoriaLogs.
 
 [VictoriaLogs](https://docs.victoriametrics.com/victorialogs/) is a solution for collecting, storing, and analyzing logs, installed in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster). With VictoriaLogs, you can:
 
-* Collect app logs using various log collectors.
-* Analyze logs using the LogsQL query language.
+* Collect application logs using various log collectors.
+* Analyze logs with LogsQL.
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [VictoriaLogs](/marketplace/products/yc/victoria-logs) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -28,7 +29,7 @@ description: Follow this guide to install VictoriaLogs.
       --namespace <application_namespace>
    ```
 
-1. Make sure the VictoriaLogs web interface is accessible by opening `http://localhost:30000`.
+1. Make sure you can access the VictoriaLogs web UI at `http://localhost:30000`.
 
 ## Installation using a Helm chart {#helm-install}
 

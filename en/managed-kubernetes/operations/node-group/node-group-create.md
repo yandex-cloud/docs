@@ -58,7 +58,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --version <{{ k8s }}_version_on_group_nodes> \
        --node-name <node_name_template> \
        --node-taints <taints> \
-       --container-network-settings pod-mtu=<MTU_value_for_group_pods>
+       --container-network-settings pod-mtu=<MTU_value_for_group_pods> \
+       --max-expansion <node_group_expansion_limit> \
+       --max-unavailable <unavailable_nodes_limit>
      ```
 
      Where:
@@ -118,6 +120,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
      * `--node-taints`: {{ k8s }} [taints](../../concepts/index.md#taints-tolerations). You can specify multiple values.
      * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with the Calico or Cilium network policy controllers.
+     * [Deployment policy](../../concepts/node-group/deploy-policy.md) parameters:
+
+        {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
 
      Result:
 
@@ -334,7 +339,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
   {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
-  Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) gRPC API call, and provide the following in the request:
+  Use the [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) gRPC API call, and provide the following in the request:
   * [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can get it with the [list of {{ managed-k8s-name }} clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [{{ managed-k8s-name }} node group configuration](../../concepts/index.md#config) in the `nodeTemplate` parameter.
   * [Network acceleration type](../../../compute/concepts/software-accelerated-network.md) in the `nodeTemplate.networkSettings.type` parameter.
@@ -360,6 +365,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
+  * [Deployment policy](../../concepts/node-group/deploy-policy.md) parameters:
+
+    {% include [deploy-policy-parameters-api](../../../_includes/managed-kubernetes/deploy-policy/parameters-api.md) %}
+
   * List of settings to update in the `updateMask` parameter.
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
@@ -423,8 +432,9 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 * [Disk size](../../../compute/concepts/disk.md#maximum-disk-size): 64 GB.
 * [Disk type](../../../compute/concepts/disk.md#disks_types): `network-ssd`.
 * Number of nodes: One.
-* Number of nodes {{ managed-k8s-name }} can create in the group when [updating](../../concepts/release-channels-and-updates.md#node-group) it: Up to three.
-* Number of nodes {{ managed-k8s-name }} can delete from the group when updating it: Up to one.
+* [Deployment policy](../../concepts/node-group/deploy-policy.md):
+    * Maximum number of nodes by which you can expand the group when modifying or updating it: `3`.
+    * Maximum number of nodes that may be unavailable while the group is being modified or updated: `1`.
 * RAM: 2 GB.
 * [Update](../../concepts/release-channels-and-updates.md#updates) time: From 22:00 to 08:00 UTC.
 * [Network acceleration](../../../compute/concepts/software-accelerated-network.md) type: `standard` (no acceleration).

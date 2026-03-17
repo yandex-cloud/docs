@@ -27,7 +27,7 @@ If you run containers using the `docker compose` command, add or edit the servic
 | License server | `POSTGRES_PASSWORD`                      | Password to access the DB server of the consumption metric storage.                                                                                               |
 | License server | `POSTGRES_USER`                          | Username for the DB server of the consumption metric storage.                                                                                                 |
 | License server | `PROMETHEUS_PORT`                        | {{ prometheus-name }} port for [sending the service's metrics](monitoring.md). The default value is `8003`.                                                  |
-| License server | `STATIC_API_KEY`                         | [API key](../iam/concepts/authorization/api-key.md) for authentication on the gateway for incoming consumption metrics in the [Cloud Billing licensing model](architecture.md#billing). |
+| License server | `STATIC_API_KEY`                         | [API key]({{ link-docs }}/iam/concepts/authorization/api-key) for authentication on the gateway for incoming consumption metrics in the [Cloud Billing licensing model](architecture.md#billing). |
 | License server | `UPSTREAM_ASR_PROXY_PORT`                | Port for handling incoming requests for the STT server. Used by Envoy. The default value is `8080`.                                                    |
 | License server | `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` | Speech recognition service registration port. The default value is `8087`.                                                                              |
 | License server | `UPSTREAM_TTS_PROXY_PORT`                | Port for handling incoming requests for the TTS server. Used by Envoy. The default value is `9080`.                                                    |
@@ -35,14 +35,14 @@ If you run containers using the `docker compose` command, add or edit the servic
 
 ## Reserved ports {#reserved-ports}
 
-There are ports in the service that you cannot configure:
+The service features ports that cannot be configured:
 
 * License server: Port for responses from Envoy, `8086`.
 * STT/TTS server: Monitoring port, `17002`.
 
 ## Run component command example {#cmd-example}
 
-The example assumes that the license server runs on host `172.10.19.12` with port `8083` to register an STT application. To run the STT server, use this command:
+The example assumes that the license server runs on host `172.10.19.12` with port `8083` to register an STT application. To run the STT server, execute this command:
 
 ```bash
 docker run -it \

@@ -17,11 +17,13 @@ Ephemeral public subnets are assigned to servers with **{{ ui-key.yacloud.bareme
 
 When leasing a {{ baremetal-name }} server, you can enable the [DHCP server](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet. To do this, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to change the DHCP server settings in such subnet later.
 
+{% include [public-subnet-cidr-details](../../_includes/baremetal/public-subnet-cidr-details.md) %}
+
+You can [convert](../operations/reserve-public-subnet.md#transform-ephemeral-to-dedicated) an ephemeral public subnet to a [dedicated public subnet](#public-subnet) of size `/31`; this dedicated public subnet of size `/31` will be resolving the default gateway's IP address and the server's public address in the same way as the ephemeral subnet.
+
 The lifecycle of an ephemeral public subnet depends on the lifecycle of the server this subnet is assigned to. When a server lease is cancelled, the ephemeral public subnet assigned to it will be automatically deleted and the server’s public IPv4 address will be released back to the {{ baremetal-name }} address pool.
 
-You can [convert](../operations/reserve-public-subnet.md#transform-ephemeral-to-dedicated) an ephemeral public subnet to a [dedicated public subnet](#public-subnet) of size `/31`.
-
-## Dedicated public subnet {#public-subnets}
+## Dedicated public subnet {#public-subnet}
 
 A _dedicated public subnet_ is a public subnet made up of an IP address range that will be available to your servers in the selected [pools](./servers.md#server-pools). The IP address range is assigned to the dedicated public subnet automatically.
 
@@ -30,23 +32,53 @@ You can [order](../operations/reserve-public-subnet.md) a dedicated public subne
 | Subnet size | Total number of IP addresses | Available IP addresses |
 | --- | --- | --- |
 | `/31`^1^ | 2 | 1 |
-| `/29` | 8 | 6 |
-| `/28` | 16 | 14 |
-| `/27`^2^ | 32 | 30 |
-| `/26`^2^ | 64 | 62 |
-| `/25`^2^ | 128 | 126 |
-| `/24`^2^ | 256 | 254 |
+| `/29` | 8 | 5 |
+| `/28` | 16 | 13 |
+| `/27`^2^ | 32 | 29 |
+| `/26`^2^ | 64 | 61 |
+| `/25`^2^ | 128 | 125 |
+| `/24`^2^ | 256 | 253 |
 
 ^1^ You can order a public subnet of size `/31` only by [converting](../operations/reserve-public-subnet.md#transform-ephemeral-to-dedicated) an [ephemeral public subnet](#ephemeral-public-subnet).
 ^2^ To order public subnets with sizes `/27`, `/26`, `/25`, and `/24`, [contact]({{ link-console-support }}/tickets/create) support.
+
+When you cancel the lease of a server which has a dedicated public subnet assigned to it, its public IPv4 address is released back to the dedicated public subnet’s address pool so you can later use it for another server.
+
+In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing.md). The minimum lease period for a dedicated public subnet is one month, so you cannot delete such a subnet during the first month after the order date.
+
+## IP address distribution in public subnets {#address-distribution}
 
 {% include [public-subnet-no-dhcp](../../_includes/baremetal/public-subnet-no-dhcp.md) %}
 
 {% include [public-subnet-address-info](../../_includes/baremetal/public-subnet-address-info.md) %}
 
-When you cancel the lease of a server which has a dedicated public subnet assigned to it, its public IPv4 address is released back to the dedicated public subnet’s address pool so you can later use it for another server.
+Within a dedicated public subnet range, IP addresses are distributed as follows:
 
-In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing.md). The minimum lease period for a dedicated public subnet is one month, so you cannot delete such a subnet during the first month after the order date.
+{% list tabs %}
+
+- Subnets of size `/31`
+
+  * First IP address in the range is the default gateway address.
+  * Second IP address in the range is the address available for assignment to the network interface.
+
+  {% include [public-subnet-cidr-31-example](../../_includes/baremetal/public-subnet-cidr-31-example.md) %}
+
+- Subnets of size `/29` or more
+
+  * First IP address in the range is the subnet address.
+  * Second IP address in the range is the default gateway address.
+  * Third to second-last addresses in the range are addresses available for assignment to network interfaces.
+  * Last IP address in the range is the [broadcast](https://en.wikipedia.org/wiki/Broadcast_address) (`broadcast`) address.
+
+  Here is an example:
+
+  * Subnet CIDR: `198.51.100.104/29`.
+  * Network IP address: `198.51.100.104`.
+  * Default gateway IP address: `198.51.100.105`.
+  * Available addresses: From `198.51.100.106` to `198.51.100.110`.
+  * Broadcast address: `198.51.100.111`.
+
+{% endlist %}
 
 #### See also {#see-also}
 

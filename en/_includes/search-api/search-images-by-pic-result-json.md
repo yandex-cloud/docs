@@ -1,1 +1,0 @@
-The search results in [JSON format](../../search-api/concepts/image-search.md#json-response-format) will be saved to a file named `result.json`.

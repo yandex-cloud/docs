@@ -43,7 +43,7 @@ To create a VM:
       On VMs with {{ oslogin }} access enabled, provide your custom SSH keys through [metadata](../../concepts/metadata/sending-metadata.md).
 
       {% endnote %}
-
+  1. {% include [section-backup](../../../_includes/compute/create/section-backup.md) %} 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for your VM:
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -105,7 +105,7 @@ To create a VM:
 
       Where:
 
-      * `--name`: VM name. Follow these naming requirements:
+      * `--name`: VM name. The naming requirements are as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -225,7 +225,7 @@ To create a VM:
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -233,7 +233,7 @@ To create a VM:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
      {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 

@@ -7,10 +7,26 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Создание реестра
-        href: operations/registry/create.md
-      - name: Создание политики жизненного цикла
-        href: operations/lifecycle-policy/create.md
+      - name: Управление реестром
+        items:
+          - name: Создание реестра
+            href: operations/registry/create.md
+          - name: Управление правами доступа к реестру
+            items:
+              - name: Посмотреть роли, назначенные на реестр
+                href: operations/registry/list-role.md
+              - name: Назначить роль
+                href: operations/registry/add-role.md
+              - name: Отозвать роль
+                href: operations/registry/remove-role.md
+          - name: Политика доступа для IP-адресов
+            items:
+              - name: Получить информацию о политике доступа
+                href: operations/registry/list-access-policy.md
+              - name: Настроить политику доступа
+                href: operations/registry/create-access-policy.md
+              - name: Удалить политику доступа
+                href: operations/registry/remove-access-policy.md
       - name: Управление артефактами
         items:
           - name: Docker-образ
@@ -57,6 +73,8 @@ items:
                 href: operations/binary/push.md
               - name: Скачать binary-артефакт из реестра
                 href: operations/binary/pull.md
+      - name: Создание политики жизненного цикла
+        href: operations/lifecycle-policy/create.md
   - name: Практические руководства
     items:
       - name: >-

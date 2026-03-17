@@ -66,6 +66,17 @@ Change any argument in `external_ipv4_address` will cause an address recreate.
   - `zone_id` (String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
+- `internal_ipv4_address` [Block]. Specification of internal IPv4 address.
+
+{% note warning %}
+
+Change any argument in `internal_ipv4_address` will cause an address recreate.
+
+{% endnote %}
+
+
+  - `address` (*Read-Only*) (String). Allocated IP address.
+  - `subnet_id` (**Required**)(String). Subnet ID from which the address will be allocated.
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
 - `reserved` (*Read-Only*) (Bool). `false` means that address is ephemeral.

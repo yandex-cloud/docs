@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
    ...
    remote_read:
      ...
-     - url: '<URL>' # предоставляется по запросу
+     - url: 'https://{{ api-host-monitoring-1 }}/prometheus/workspaces/<Идентификатор_воркспейса>/api/v1/read'
        bearer_token: '<API-ключ>'
        # Или через файл (рекомендуется):
        # bearer_token_file: '<имя_файла_с_API-ключом>'

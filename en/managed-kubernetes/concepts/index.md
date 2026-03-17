@@ -135,7 +135,19 @@ A _node group_ is a {{ compute-full-name }} [instance group](../../compute/conce
 
 See also the [description of instance groups during a zonal incident and our mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
 
-### Configuration {#config}
+For a node group, you can specify the following settings:
+* Name and description
+* [{{ k8s }} version](./k8s-supported-versions.md)
+* [Node group cloud labels](../../resource-manager/concepts/labels.md)
+* [Scaling parameters](./node-group/cluster-autoscaler.md)
+* [Deployment policy](./node-group/deploy-policy.md)
+* [{#T}](#config)
+* [{#T}](#taints-tolerations)
+* [{#T}](#node-labels)
+
+For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is available as a container runtime environment.
+
+### VM configuration {#config}
 
 
 When creating a node group, you can configure the following VM parameters:
@@ -159,14 +171,6 @@ When creating a node group, you can configure the following VM parameters:
   For more information about kernel parameters, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
 You can create groups with different configurations in a single {{ k8s }} cluster and spread them across multiple availability zones.
-
-For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is available as a container runtime environment.
-
-### Connecting to group nodes {#node-connect-ssh}
-
-You can connect to nodes in a group in the following ways:
-* Via an SSH client using a standard SSH key pair, see [{#T}](../operations/node-connect-ssh.md).
-* Via an SSH client and the CLI using {{ oslogin }}, see [{#T}](../operations/node-connect-oslogin.md).
 
 ### Taints and tolerations {#taints-tolerations}
 
@@ -274,6 +278,12 @@ You can group nodes in {{ managed-k8s-name }} using _node labels_. There are two
   For more information about adding and deleting {{ k8s }} labels, see [{#T}](../operations/node-group/node-label-management.md). Adding or deleting a label will not result in the node group recreation.
 
 You can use both types of labels concurrently, e.g., when [creating a node group](../operations/node-group/node-group-create.md) via the CLI or {{ TF }}.
+
+### Connecting to group nodes {#node-connect-ssh}
+
+You can connect to nodes in a group in the following ways:
+* Via an SSH client using a standard SSH key pair, see [{#T}](../operations/node-connect-ssh.md).
+* Via an SSH client and the CLI using {{ oslogin }}, see [{#T}](../operations/node-connect-oslogin.md).
 
 ## Pod {#pod}
 

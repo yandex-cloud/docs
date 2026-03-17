@@ -30,1259 +30,6 @@ apiPlayground:
             $ref: '#/definitions/HostSpec'
       additionalProperties: false
     definitions:
-      PostgresqlHostConfig9_6:
-        type: object
-        properties:
-          recoveryMinApplyDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          sharedBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          workMem:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          replacementSortTuples:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempFileLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          backendFlushAfter:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 2048, inclusive.
-            type: string
-            format: int64
-          oldSnapshotThreshold:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxStandbyStreamingDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          constraintExclusion:
-            description: |-
-              **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
-            type: string
-            enum:
-              - CONSTRAINT_EXCLUSION_UNSPECIFIED
-              - CONSTRAINT_EXCLUSION_ON
-              - CONSTRAINT_EXCLUSION_OFF
-              - CONSTRAINT_EXCLUSION_PARTITION
-          cursorTupleFraction:
-            description: '**number** (double)'
-            type: number
-            format: double
-          fromCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          joinCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          forceParallelMode:
-            description: |-
-              **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
-            type: string
-            enum:
-              - FORCE_PARALLEL_MODE_UNSPECIFIED
-              - FORCE_PARALLEL_MODE_ON
-              - FORCE_PARALLEL_MODE_OFF
-              - FORCE_PARALLEL_MODE_REGRESS
-          clientMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinErrorStatement:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinDurationStatement:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          logCheckpoints:
-            description: '**boolean**'
-            type: boolean
-          logConnections:
-            description: '**boolean**'
-            type: boolean
-          logDisconnections:
-            description: '**boolean**'
-            type: boolean
-          logDuration:
-            description: '**boolean**'
-            type: boolean
-          logErrorVerbosity:
-            description: |-
-              **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
-            type: string
-            enum:
-              - LOG_ERROR_VERBOSITY_UNSPECIFIED
-              - LOG_ERROR_VERBOSITY_TERSE
-              - LOG_ERROR_VERBOSITY_DEFAULT
-              - LOG_ERROR_VERBOSITY_VERBOSE
-          logLockWaits:
-            description: '**boolean**'
-            type: boolean
-          logStatement:
-            description: |-
-              **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
-            type: string
-            enum:
-              - LOG_STATEMENT_UNSPECIFIED
-              - LOG_STATEMENT_NONE
-              - LOG_STATEMENT_DDL
-              - LOG_STATEMENT_MOD
-              - LOG_STATEMENT_ALL
-          logTempFiles:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          searchPath:
-            description: '**string**'
-            type: string
-          rowSecurity:
-            description: '**boolean**'
-            type: boolean
-          defaultTransactionIsolation:
-            description: |-
-              **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
-            type: string
-            enum:
-              - TRANSACTION_ISOLATION_UNSPECIFIED
-              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
-              - TRANSACTION_ISOLATION_READ_COMMITTED
-              - TRANSACTION_ISOLATION_REPEATABLE_READ
-              - TRANSACTION_ISOLATION_SERIALIZABLE
-          statementTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          lockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          idleInTransactionSessionTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 0 to 2147483647, inclusive.
-            type: string
-            format: int64
-          byteaOutput:
-            description: |-
-              **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
-            type: string
-            enum:
-              - BYTEA_OUTPUT_UNSPECIFIED
-              - BYTEA_OUTPUT_HEX
-              - BYTEA_OUTPUT_ESCAPED
-          xmlbinary:
-            description: |-
-              **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
-            type: string
-            enum:
-              - XML_BINARY_UNSPECIFIED
-              - XML_BINARY_BASE64
-              - XML_BINARY_HEX
-          xmloption:
-            description: |-
-              **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
-            type: string
-            enum:
-              - XML_OPTION_UNSPECIFIED
-              - XML_OPTION_DOCUMENT
-              - XML_OPTION_CONTENT
-          ginPendingListLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          deadlockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          maxLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxPredLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          arrayNulls:
-            description: '**boolean**'
-            type: boolean
-          backslashQuote:
-            description: |-
-              **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
-            type: string
-            enum:
-              - BACKSLASH_QUOTE_UNSPECIFIED
-              - BACKSLASH_QUOTE
-              - BACKSLASH_QUOTE_ON
-              - BACKSLASH_QUOTE_OFF
-              - BACKSLASH_QUOTE_SAFE_ENCODING
-          defaultWithOids:
-            description: '**boolean**'
-            type: boolean
-          escapeStringWarning:
-            description: '**boolean**'
-            type: boolean
-          loCompatPrivileges:
-            description: '**boolean**'
-            type: boolean
-          operatorPrecedenceWarning:
-            description: '**boolean**'
-            type: boolean
-          quoteAllIdentifiers:
-            description: '**boolean**'
-            type: boolean
-          standardConformingStrings:
-            description: '**boolean**'
-            type: boolean
-          synchronizeSeqscans:
-            description: '**boolean**'
-            type: boolean
-          transformNullEquals:
-            description: '**boolean**'
-            type: boolean
-          exitOnError:
-            description: '**boolean**'
-            type: boolean
-          seqPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          randomPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          sqlInheritance:
-            description: |-
-              **boolean**
-              This option has been removed in PostgreSQL 10.
-            type: boolean
-          effectiveIoConcurrency:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1000, inclusive.
-            type: string
-            format: int64
-          effectiveCacheSize:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1048576 to 549755813888, inclusive.
-            type: string
-            format: int64
-      PostgresqlHostConfig10_1C:
-        type: object
-        properties:
-          recoveryMinApplyDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          sharedBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          workMem:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          replacementSortTuples:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempFileLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          backendFlushAfter:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 2048, inclusive.
-            type: string
-            format: int64
-          oldSnapshotThreshold:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxStandbyStreamingDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          constraintExclusion:
-            description: |-
-              **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
-            type: string
-            enum:
-              - CONSTRAINT_EXCLUSION_UNSPECIFIED
-              - CONSTRAINT_EXCLUSION_ON
-              - CONSTRAINT_EXCLUSION_OFF
-              - CONSTRAINT_EXCLUSION_PARTITION
-          cursorTupleFraction:
-            description: '**number** (double)'
-            type: number
-            format: double
-          fromCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          joinCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          forceParallelMode:
-            description: |-
-              **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
-            type: string
-            enum:
-              - FORCE_PARALLEL_MODE_UNSPECIFIED
-              - FORCE_PARALLEL_MODE_ON
-              - FORCE_PARALLEL_MODE_OFF
-              - FORCE_PARALLEL_MODE_REGRESS
-          clientMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinErrorStatement:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinDurationStatement:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          logCheckpoints:
-            description: '**boolean**'
-            type: boolean
-          logConnections:
-            description: '**boolean**'
-            type: boolean
-          logDisconnections:
-            description: '**boolean**'
-            type: boolean
-          logDuration:
-            description: '**boolean**'
-            type: boolean
-          logErrorVerbosity:
-            description: |-
-              **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
-            type: string
-            enum:
-              - LOG_ERROR_VERBOSITY_UNSPECIFIED
-              - LOG_ERROR_VERBOSITY_TERSE
-              - LOG_ERROR_VERBOSITY_DEFAULT
-              - LOG_ERROR_VERBOSITY_VERBOSE
-          logLockWaits:
-            description: '**boolean**'
-            type: boolean
-          logStatement:
-            description: |-
-              **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
-            type: string
-            enum:
-              - LOG_STATEMENT_UNSPECIFIED
-              - LOG_STATEMENT_NONE
-              - LOG_STATEMENT_DDL
-              - LOG_STATEMENT_MOD
-              - LOG_STATEMENT_ALL
-          logTempFiles:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          searchPath:
-            description: '**string**'
-            type: string
-          rowSecurity:
-            description: '**boolean**'
-            type: boolean
-          defaultTransactionIsolation:
-            description: |-
-              **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
-            type: string
-            enum:
-              - TRANSACTION_ISOLATION_UNSPECIFIED
-              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
-              - TRANSACTION_ISOLATION_READ_COMMITTED
-              - TRANSACTION_ISOLATION_REPEATABLE_READ
-              - TRANSACTION_ISOLATION_SERIALIZABLE
-          statementTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          lockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          idleInTransactionSessionTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 0 to 2147483647, inclusive.
-            type: string
-            format: int64
-          byteaOutput:
-            description: |-
-              **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
-            type: string
-            enum:
-              - BYTEA_OUTPUT_UNSPECIFIED
-              - BYTEA_OUTPUT_HEX
-              - BYTEA_OUTPUT_ESCAPED
-          xmlbinary:
-            description: |-
-              **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
-            type: string
-            enum:
-              - XML_BINARY_UNSPECIFIED
-              - XML_BINARY_BASE64
-              - XML_BINARY_HEX
-          xmloption:
-            description: |-
-              **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
-            type: string
-            enum:
-              - XML_OPTION_UNSPECIFIED
-              - XML_OPTION_DOCUMENT
-              - XML_OPTION_CONTENT
-          ginPendingListLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          deadlockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          maxLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxPredLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          arrayNulls:
-            description: '**boolean**'
-            type: boolean
-          backslashQuote:
-            description: |-
-              **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
-            type: string
-            enum:
-              - BACKSLASH_QUOTE_UNSPECIFIED
-              - BACKSLASH_QUOTE
-              - BACKSLASH_QUOTE_ON
-              - BACKSLASH_QUOTE_OFF
-              - BACKSLASH_QUOTE_SAFE_ENCODING
-          defaultWithOids:
-            description: '**boolean**'
-            type: boolean
-          escapeStringWarning:
-            description: '**boolean**'
-            type: boolean
-          loCompatPrivileges:
-            description: '**boolean**'
-            type: boolean
-          operatorPrecedenceWarning:
-            description: '**boolean**'
-            type: boolean
-          quoteAllIdentifiers:
-            description: '**boolean**'
-            type: boolean
-          standardConformingStrings:
-            description: '**boolean**'
-            type: boolean
-          synchronizeSeqscans:
-            description: '**boolean**'
-            type: boolean
-          transformNullEquals:
-            description: '**boolean**'
-            type: boolean
-          exitOnError:
-            description: '**boolean**'
-            type: boolean
-          seqPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          randomPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          enableBitmapscan:
-            description: '**boolean**'
-            type: boolean
-          enableHashagg:
-            description: '**boolean**'
-            type: boolean
-          enableHashjoin:
-            description: '**boolean**'
-            type: boolean
-          enableIndexscan:
-            description: '**boolean**'
-            type: boolean
-          enableIndexonlyscan:
-            description: '**boolean**'
-            type: boolean
-          enableMaterial:
-            description: '**boolean**'
-            type: boolean
-          enableMergejoin:
-            description: '**boolean**'
-            type: boolean
-          enableNestloop:
-            description: '**boolean**'
-            type: boolean
-          enableSeqscan:
-            description: '**boolean**'
-            type: boolean
-          enableSort:
-            description: '**boolean**'
-            type: boolean
-          enableTidscan:
-            description: '**boolean**'
-            type: boolean
-          maxParallelWorkers:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          maxParallelWorkersPerGather:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          timezone:
-            description: '**string**'
-            type: string
-          effectiveIoConcurrency:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1000, inclusive.
-            type: string
-            format: int64
-          effectiveCacheSize:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1048576 to 549755813888, inclusive.
-            type: string
-            format: int64
-      PostgresqlHostConfig10:
-        type: object
-        properties:
-          recoveryMinApplyDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          sharedBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          workMem:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          replacementSortTuples:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempFileLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          backendFlushAfter:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 2048, inclusive.
-            type: string
-            format: int64
-          oldSnapshotThreshold:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxStandbyStreamingDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          constraintExclusion:
-            description: |-
-              **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
-            type: string
-            enum:
-              - CONSTRAINT_EXCLUSION_UNSPECIFIED
-              - CONSTRAINT_EXCLUSION_ON
-              - CONSTRAINT_EXCLUSION_OFF
-              - CONSTRAINT_EXCLUSION_PARTITION
-          cursorTupleFraction:
-            description: '**number** (double)'
-            type: number
-            format: double
-          fromCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          joinCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          forceParallelMode:
-            description: |-
-              **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
-            type: string
-            enum:
-              - FORCE_PARALLEL_MODE_UNSPECIFIED
-              - FORCE_PARALLEL_MODE_ON
-              - FORCE_PARALLEL_MODE_OFF
-              - FORCE_PARALLEL_MODE_REGRESS
-          clientMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinErrorStatement:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinDurationStatement:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          logCheckpoints:
-            description: '**boolean**'
-            type: boolean
-          logConnections:
-            description: '**boolean**'
-            type: boolean
-          logDisconnections:
-            description: '**boolean**'
-            type: boolean
-          logDuration:
-            description: '**boolean**'
-            type: boolean
-          logErrorVerbosity:
-            description: |-
-              **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
-            type: string
-            enum:
-              - LOG_ERROR_VERBOSITY_UNSPECIFIED
-              - LOG_ERROR_VERBOSITY_TERSE
-              - LOG_ERROR_VERBOSITY_DEFAULT
-              - LOG_ERROR_VERBOSITY_VERBOSE
-          logLockWaits:
-            description: '**boolean**'
-            type: boolean
-          logStatement:
-            description: |-
-              **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
-            type: string
-            enum:
-              - LOG_STATEMENT_UNSPECIFIED
-              - LOG_STATEMENT_NONE
-              - LOG_STATEMENT_DDL
-              - LOG_STATEMENT_MOD
-              - LOG_STATEMENT_ALL
-          logTempFiles:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          searchPath:
-            description: '**string**'
-            type: string
-          rowSecurity:
-            description: '**boolean**'
-            type: boolean
-          defaultTransactionIsolation:
-            description: |-
-              **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
-            type: string
-            enum:
-              - TRANSACTION_ISOLATION_UNSPECIFIED
-              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
-              - TRANSACTION_ISOLATION_READ_COMMITTED
-              - TRANSACTION_ISOLATION_REPEATABLE_READ
-              - TRANSACTION_ISOLATION_SERIALIZABLE
-          statementTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          lockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          idleInTransactionSessionTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 0 to 2147483647, inclusive.
-            type: string
-            format: int64
-          byteaOutput:
-            description: |-
-              **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
-            type: string
-            enum:
-              - BYTEA_OUTPUT_UNSPECIFIED
-              - BYTEA_OUTPUT_HEX
-              - BYTEA_OUTPUT_ESCAPED
-          xmlbinary:
-            description: |-
-              **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
-            type: string
-            enum:
-              - XML_BINARY_UNSPECIFIED
-              - XML_BINARY_BASE64
-              - XML_BINARY_HEX
-          xmloption:
-            description: |-
-              **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
-            type: string
-            enum:
-              - XML_OPTION_UNSPECIFIED
-              - XML_OPTION_DOCUMENT
-              - XML_OPTION_CONTENT
-          ginPendingListLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          deadlockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          maxLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxPredLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          arrayNulls:
-            description: '**boolean**'
-            type: boolean
-          backslashQuote:
-            description: |-
-              **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
-            type: string
-            enum:
-              - BACKSLASH_QUOTE_UNSPECIFIED
-              - BACKSLASH_QUOTE
-              - BACKSLASH_QUOTE_ON
-              - BACKSLASH_QUOTE_OFF
-              - BACKSLASH_QUOTE_SAFE_ENCODING
-          defaultWithOids:
-            description: '**boolean**'
-            type: boolean
-          escapeStringWarning:
-            description: '**boolean**'
-            type: boolean
-          loCompatPrivileges:
-            description: '**boolean**'
-            type: boolean
-          operatorPrecedenceWarning:
-            description: '**boolean**'
-            type: boolean
-          quoteAllIdentifiers:
-            description: '**boolean**'
-            type: boolean
-          standardConformingStrings:
-            description: '**boolean**'
-            type: boolean
-          synchronizeSeqscans:
-            description: '**boolean**'
-            type: boolean
-          transformNullEquals:
-            description: '**boolean**'
-            type: boolean
-          exitOnError:
-            description: '**boolean**'
-            type: boolean
-          seqPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          randomPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          enableBitmapscan:
-            description: '**boolean**'
-            type: boolean
-          enableHashagg:
-            description: '**boolean**'
-            type: boolean
-          enableHashjoin:
-            description: '**boolean**'
-            type: boolean
-          enableIndexscan:
-            description: '**boolean**'
-            type: boolean
-          enableIndexonlyscan:
-            description: '**boolean**'
-            type: boolean
-          enableMaterial:
-            description: '**boolean**'
-            type: boolean
-          enableMergejoin:
-            description: '**boolean**'
-            type: boolean
-          enableNestloop:
-            description: '**boolean**'
-            type: boolean
-          enableSeqscan:
-            description: '**boolean**'
-            type: boolean
-          enableSort:
-            description: '**boolean**'
-            type: boolean
-          enableTidscan:
-            description: '**boolean**'
-            type: boolean
-          maxParallelWorkers:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          maxParallelWorkersPerGather:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          timezone:
-            description: '**string**'
-            type: string
-          effectiveIoConcurrency:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1000, inclusive.
-            type: string
-            format: int64
-          effectiveCacheSize:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1048576 to 549755813888, inclusive.
-            type: string
-            format: int64
       PostgresqlHostConfig11:
         type: object
         properties:
@@ -1335,9 +82,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -1363,9 +110,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -1375,17 +122,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -1403,17 +150,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -1431,17 +178,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -1477,9 +224,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -1492,10 +239,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -1516,10 +263,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -1549,8 +298,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -1559,8 +308,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -1569,8 +318,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -1603,436 +352,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
-            type: string
-            enum:
-              - BACKSLASH_QUOTE_UNSPECIFIED
-              - BACKSLASH_QUOTE
-              - BACKSLASH_QUOTE_ON
-              - BACKSLASH_QUOTE_OFF
-              - BACKSLASH_QUOTE_SAFE_ENCODING
-          defaultWithOids:
-            description: '**boolean**'
-            type: boolean
-          escapeStringWarning:
-            description: '**boolean**'
-            type: boolean
-          loCompatPrivileges:
-            description: '**boolean**'
-            type: boolean
-          operatorPrecedenceWarning:
-            description: '**boolean**'
-            type: boolean
-          quoteAllIdentifiers:
-            description: '**boolean**'
-            type: boolean
-          standardConformingStrings:
-            description: '**boolean**'
-            type: boolean
-          synchronizeSeqscans:
-            description: '**boolean**'
-            type: boolean
-          transformNullEquals:
-            description: '**boolean**'
-            type: boolean
-          exitOnError:
-            description: '**boolean**'
-            type: boolean
-          seqPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          randomPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          enableBitmapscan:
-            description: '**boolean**'
-            type: boolean
-          enableHashagg:
-            description: '**boolean**'
-            type: boolean
-          enableHashjoin:
-            description: '**boolean**'
-            type: boolean
-          enableIndexscan:
-            description: '**boolean**'
-            type: boolean
-          enableIndexonlyscan:
-            description: '**boolean**'
-            type: boolean
-          enableMaterial:
-            description: '**boolean**'
-            type: boolean
-          enableMergejoin:
-            description: '**boolean**'
-            type: boolean
-          enableNestloop:
-            description: '**boolean**'
-            type: boolean
-          enableSeqscan:
-            description: '**boolean**'
-            type: boolean
-          enableSort:
-            description: '**boolean**'
-            type: boolean
-          enableTidscan:
-            description: '**boolean**'
-            type: boolean
-          maxParallelWorkers:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          maxParallelWorkersPerGather:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          timezone:
-            description: '**string**'
-            type: string
-          effectiveIoConcurrency:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1000, inclusive.
-            type: string
-            format: int64
-          effectiveCacheSize:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1048576 to 549755813888, inclusive.
-            type: string
-            format: int64
-      PostgresqlHostConfig11_1C:
-        type: object
-        properties:
-          recoveryMinApplyDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          sharedBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          workMem:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempFileLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          backendFlushAfter:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 2048, inclusive.
-            type: string
-            format: int64
-          oldSnapshotThreshold:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxStandbyStreamingDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          constraintExclusion:
-            description: |-
-              **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
-            type: string
-            enum:
-              - CONSTRAINT_EXCLUSION_UNSPECIFIED
-              - CONSTRAINT_EXCLUSION_ON
-              - CONSTRAINT_EXCLUSION_OFF
-              - CONSTRAINT_EXCLUSION_PARTITION
-          cursorTupleFraction:
-            description: '**number** (double)'
-            type: number
-            format: double
-          fromCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          joinCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          forceParallelMode:
-            description: |-
-              **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
-            type: string
-            enum:
-              - FORCE_PARALLEL_MODE_UNSPECIFIED
-              - FORCE_PARALLEL_MODE_ON
-              - FORCE_PARALLEL_MODE_OFF
-              - FORCE_PARALLEL_MODE_REGRESS
-          clientMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinErrorStatement:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinDurationStatement:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          logCheckpoints:
-            description: '**boolean**'
-            type: boolean
-          logConnections:
-            description: '**boolean**'
-            type: boolean
-          logDisconnections:
-            description: '**boolean**'
-            type: boolean
-          logDuration:
-            description: '**boolean**'
-            type: boolean
-          logErrorVerbosity:
-            description: |-
-              **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
-            type: string
-            enum:
-              - LOG_ERROR_VERBOSITY_UNSPECIFIED
-              - LOG_ERROR_VERBOSITY_TERSE
-              - LOG_ERROR_VERBOSITY_DEFAULT
-              - LOG_ERROR_VERBOSITY_VERBOSE
-          logLockWaits:
-            description: '**boolean**'
-            type: boolean
-          logStatement:
-            description: |-
-              **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
-            type: string
-            enum:
-              - LOG_STATEMENT_UNSPECIFIED
-              - LOG_STATEMENT_NONE
-              - LOG_STATEMENT_DDL
-              - LOG_STATEMENT_MOD
-              - LOG_STATEMENT_ALL
-          logTempFiles:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          searchPath:
-            description: '**string**'
-            type: string
-          rowSecurity:
-            description: '**boolean**'
-            type: boolean
-          defaultTransactionIsolation:
-            description: |-
-              **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
-            type: string
-            enum:
-              - TRANSACTION_ISOLATION_UNSPECIFIED
-              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
-              - TRANSACTION_ISOLATION_READ_COMMITTED
-              - TRANSACTION_ISOLATION_REPEATABLE_READ
-              - TRANSACTION_ISOLATION_SERIALIZABLE
-          statementTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          lockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          idleInTransactionSessionTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 0 to 2147483647, inclusive.
-            type: string
-            format: int64
-          byteaOutput:
-            description: |-
-              **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
-            type: string
-            enum:
-              - BYTEA_OUTPUT_UNSPECIFIED
-              - BYTEA_OUTPUT_HEX
-              - BYTEA_OUTPUT_ESCAPED
-          xmlbinary:
-            description: |-
-              **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
-            type: string
-            enum:
-              - XML_BINARY_UNSPECIFIED
-              - XML_BINARY_BASE64
-              - XML_BINARY_HEX
-          xmloption:
-            description: |-
-              **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
-            type: string
-            enum:
-              - XML_OPTION_UNSPECIFIED
-              - XML_OPTION_DOCUMENT
-              - XML_OPTION_CONTENT
-          ginPendingListLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          deadlockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          maxLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxPredLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          arrayNulls:
-            description: '**boolean**'
-            type: boolean
-          backslashQuote:
-            description: |-
-              **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -2187,9 +510,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -2215,9 +538,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -2227,17 +550,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -2255,17 +578,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -2283,17 +606,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -2329,9 +652,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -2344,10 +667,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -2368,10 +691,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -2401,8 +726,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -2411,8 +736,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -2421,8 +746,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -2455,436 +780,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
-            type: string
-            enum:
-              - BACKSLASH_QUOTE_UNSPECIFIED
-              - BACKSLASH_QUOTE
-              - BACKSLASH_QUOTE_ON
-              - BACKSLASH_QUOTE_OFF
-              - BACKSLASH_QUOTE_SAFE_ENCODING
-          defaultWithOids:
-            description: '**boolean**'
-            type: boolean
-          escapeStringWarning:
-            description: '**boolean**'
-            type: boolean
-          loCompatPrivileges:
-            description: '**boolean**'
-            type: boolean
-          operatorPrecedenceWarning:
-            description: '**boolean**'
-            type: boolean
-          quoteAllIdentifiers:
-            description: '**boolean**'
-            type: boolean
-          standardConformingStrings:
-            description: '**boolean**'
-            type: boolean
-          synchronizeSeqscans:
-            description: '**boolean**'
-            type: boolean
-          transformNullEquals:
-            description: '**boolean**'
-            type: boolean
-          exitOnError:
-            description: '**boolean**'
-            type: boolean
-          seqPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          randomPageCost:
-            description: '**number** (double)'
-            type: number
-            format: double
-          enableBitmapscan:
-            description: '**boolean**'
-            type: boolean
-          enableHashagg:
-            description: '**boolean**'
-            type: boolean
-          enableHashjoin:
-            description: '**boolean**'
-            type: boolean
-          enableIndexscan:
-            description: '**boolean**'
-            type: boolean
-          enableIndexonlyscan:
-            description: '**boolean**'
-            type: boolean
-          enableMaterial:
-            description: '**boolean**'
-            type: boolean
-          enableMergejoin:
-            description: '**boolean**'
-            type: boolean
-          enableNestloop:
-            description: '**boolean**'
-            type: boolean
-          enableSeqscan:
-            description: '**boolean**'
-            type: boolean
-          enableSort:
-            description: '**boolean**'
-            type: boolean
-          enableTidscan:
-            description: '**boolean**'
-            type: boolean
-          maxParallelWorkers:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          maxParallelWorkersPerGather:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1024, inclusive.
-            type: string
-            format: int64
-          timezone:
-            description: '**string**'
-            type: string
-          effectiveIoConcurrency:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 1000, inclusive.
-            type: string
-            format: int64
-          effectiveCacheSize:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1048576 to 549755813888, inclusive.
-            type: string
-            format: int64
-      PostgresqlHostConfig12_1C:
-        type: object
-        properties:
-          recoveryMinApplyDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          sharedBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempBuffers:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          workMem:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          tempFileLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          backendFlushAfter:
-            description: |-
-              **string** (int64)
-              Acceptable values are 0 to 2048, inclusive.
-            type: string
-            format: int64
-          oldSnapshotThreshold:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxStandbyStreamingDelay:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          constraintExclusion:
-            description: |-
-              **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
-            type: string
-            enum:
-              - CONSTRAINT_EXCLUSION_UNSPECIFIED
-              - CONSTRAINT_EXCLUSION_ON
-              - CONSTRAINT_EXCLUSION_OFF
-              - CONSTRAINT_EXCLUSION_PARTITION
-          cursorTupleFraction:
-            description: '**number** (double)'
-            type: number
-            format: double
-          fromCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          joinCollapseLimit:
-            description: |-
-              **string** (int64)
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          forceParallelMode:
-            description: |-
-              **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
-            type: string
-            enum:
-              - FORCE_PARALLEL_MODE_UNSPECIFIED
-              - FORCE_PARALLEL_MODE_ON
-              - FORCE_PARALLEL_MODE_OFF
-              - FORCE_PARALLEL_MODE_REGRESS
-          clientMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinMessages:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinErrorStatement:
-            description: |-
-              **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
-            type: string
-            enum:
-              - LOG_LEVEL_UNSPECIFIED
-              - LOG_LEVEL_DEBUG5
-              - LOG_LEVEL_DEBUG4
-              - LOG_LEVEL_DEBUG3
-              - LOG_LEVEL_DEBUG2
-              - LOG_LEVEL_DEBUG1
-              - LOG_LEVEL_LOG
-              - LOG_LEVEL_NOTICE
-              - LOG_LEVEL_WARNING
-              - LOG_LEVEL_ERROR
-              - LOG_LEVEL_FATAL
-              - LOG_LEVEL_PANIC
-          logMinDurationStatement:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          logCheckpoints:
-            description: '**boolean**'
-            type: boolean
-          logConnections:
-            description: '**boolean**'
-            type: boolean
-          logDisconnections:
-            description: '**boolean**'
-            type: boolean
-          logDuration:
-            description: '**boolean**'
-            type: boolean
-          logErrorVerbosity:
-            description: |-
-              **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
-            type: string
-            enum:
-              - LOG_ERROR_VERBOSITY_UNSPECIFIED
-              - LOG_ERROR_VERBOSITY_TERSE
-              - LOG_ERROR_VERBOSITY_DEFAULT
-              - LOG_ERROR_VERBOSITY_VERBOSE
-          logLockWaits:
-            description: '**boolean**'
-            type: boolean
-          logStatement:
-            description: |-
-              **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
-            type: string
-            enum:
-              - LOG_STATEMENT_UNSPECIFIED
-              - LOG_STATEMENT_NONE
-              - LOG_STATEMENT_DDL
-              - LOG_STATEMENT_MOD
-              - LOG_STATEMENT_ALL
-          logTempFiles:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          searchPath:
-            description: '**string**'
-            type: string
-          rowSecurity:
-            description: '**boolean**'
-            type: boolean
-          defaultTransactionIsolation:
-            description: |-
-              **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
-            type: string
-            enum:
-              - TRANSACTION_ISOLATION_UNSPECIFIED
-              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
-              - TRANSACTION_ISOLATION_READ_COMMITTED
-              - TRANSACTION_ISOLATION_REPEATABLE_READ
-              - TRANSACTION_ISOLATION_SERIALIZABLE
-          statementTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          lockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-            type: string
-            format: int64
-          idleInTransactionSessionTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 0 to 2147483647, inclusive.
-            type: string
-            format: int64
-          byteaOutput:
-            description: |-
-              **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
-            type: string
-            enum:
-              - BYTEA_OUTPUT_UNSPECIFIED
-              - BYTEA_OUTPUT_HEX
-              - BYTEA_OUTPUT_ESCAPED
-          xmlbinary:
-            description: |-
-              **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
-            type: string
-            enum:
-              - XML_BINARY_UNSPECIFIED
-              - XML_BINARY_BASE64
-              - XML_BINARY_HEX
-          xmloption:
-            description: |-
-              **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
-            type: string
-            enum:
-              - XML_OPTION_UNSPECIFIED
-              - XML_OPTION_DOCUMENT
-              - XML_OPTION_CONTENT
-          ginPendingListLimit:
-            description: |-
-              **string** (int64)
-              in bytes.
-            type: string
-            format: int64
-          deadlockTimeout:
-            description: |-
-              **string** (int64)
-              in milliseconds.
-              Acceptable values are 1 to 2147483647, inclusive.
-            type: string
-            format: int64
-          maxLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          maxPredLocksPerTransaction:
-            description: '**string** (int64)'
-            type: string
-            format: int64
-          arrayNulls:
-            description: '**boolean**'
-            type: boolean
-          backslashQuote:
-            description: |-
-              **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -3039,9 +938,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -3067,9 +966,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -3079,17 +978,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3107,17 +1006,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3135,17 +1034,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3181,9 +1080,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -3196,10 +1095,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -3220,10 +1119,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -3253,8 +1154,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -3263,8 +1164,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -3273,8 +1174,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -3307,10 +1208,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -3465,9 +1366,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -3493,9 +1394,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -3505,17 +1406,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3533,17 +1434,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3561,17 +1462,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3607,9 +1508,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -3622,10 +1523,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -3646,10 +1547,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -3679,8 +1582,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -3689,8 +1592,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -3699,8 +1602,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -3733,10 +1636,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -3891,9 +1794,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -3919,9 +1822,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -3931,17 +1834,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3959,17 +1862,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -3987,17 +1890,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -4033,9 +1936,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -4048,10 +1951,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -4072,10 +1975,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -4105,8 +2010,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -4115,8 +2020,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -4125,8 +2030,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -4159,10 +2064,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -4321,9 +2226,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -4349,9 +2254,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -4361,17 +2266,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -4389,17 +2294,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -4417,17 +2322,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -4463,9 +2368,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -4478,10 +2383,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -4502,10 +2407,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -4535,8 +2442,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -4545,8 +2452,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -4555,8 +2462,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -4589,10 +2496,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -4751,9 +2658,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -4779,9 +2686,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -4791,17 +2698,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -4819,17 +2726,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -4847,17 +2754,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -4893,9 +2800,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -4908,10 +2815,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -4932,10 +2839,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -4965,8 +2874,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -4975,8 +2884,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -4985,8 +2894,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -5019,10 +2928,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -5181,9 +3090,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -5209,9 +3118,9 @@ apiPlayground:
           forceParallelMode:
             description: |-
               **enum** (ForceParallelMode)
-              - `FORCE_PARALLEL_MODE_ON`
-              - `FORCE_PARALLEL_MODE_OFF`
-              - `FORCE_PARALLEL_MODE_REGRESS`
+              - `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+              - `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+              - `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state.
             type: string
             enum:
               - FORCE_PARALLEL_MODE_UNSPECIFIED
@@ -5221,17 +3130,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -5249,17 +3158,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -5277,17 +3186,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -5323,9 +3232,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -5338,10 +3247,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -5362,10 +3271,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -5395,8 +3306,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -5405,8 +3316,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -5415,8 +3326,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -5449,10 +3360,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -5611,9 +3522,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -5639,9 +3550,9 @@ apiPlayground:
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_ON`
-              - `DEBUG_PARALLEL_QUERY_OFF`
-              - `DEBUG_PARALLEL_QUERY_REGRESS`
+              - `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+              - `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+              - `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN)
             type: string
             enum:
               - DEBUG_PARALLEL_QUERY_UNSPECIFIED
@@ -5651,17 +3562,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -5679,17 +3590,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -5707,17 +3618,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -5753,9 +3664,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -5768,10 +3679,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -5792,10 +3703,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -5825,8 +3738,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -5835,8 +3748,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -5845,8 +3758,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -5879,10 +3792,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -6041,9 +3954,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -6069,9 +3982,9 @@ apiPlayground:
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_ON`
-              - `DEBUG_PARALLEL_QUERY_OFF`
-              - `DEBUG_PARALLEL_QUERY_REGRESS`
+              - `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+              - `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+              - `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN)
             type: string
             enum:
               - DEBUG_PARALLEL_QUERY_UNSPECIFIED
@@ -6081,17 +3994,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6109,17 +4022,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6137,17 +4050,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6183,9 +4096,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -6198,10 +4111,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -6222,10 +4135,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -6255,8 +4170,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -6265,8 +4180,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -6275,8 +4190,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -6309,10 +4224,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -6467,9 +4382,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -6495,9 +4410,9 @@ apiPlayground:
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_ON`
-              - `DEBUG_PARALLEL_QUERY_OFF`
-              - `DEBUG_PARALLEL_QUERY_REGRESS`
+              - `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+              - `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+              - `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN)
             type: string
             enum:
               - DEBUG_PARALLEL_QUERY_UNSPECIFIED
@@ -6507,17 +4422,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6535,17 +4450,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6563,17 +4478,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6609,9 +4524,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -6624,10 +4539,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -6648,10 +4563,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -6682,8 +4599,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -6692,8 +4609,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -6702,8 +4619,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -6736,10 +4653,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -6894,9 +4811,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -6922,9 +4839,9 @@ apiPlayground:
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_ON`
-              - `DEBUG_PARALLEL_QUERY_OFF`
-              - `DEBUG_PARALLEL_QUERY_REGRESS`
+              - `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+              - `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+              - `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN)
             type: string
             enum:
               - DEBUG_PARALLEL_QUERY_UNSPECIFIED
@@ -6934,17 +4851,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6962,17 +4879,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -6990,17 +4907,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -7036,9 +4953,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -7051,10 +4968,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -7075,10 +4992,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -7109,8 +5028,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -7119,8 +5038,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -7129,8 +5048,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -7163,10 +5082,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -7321,9 +5240,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -7349,9 +5268,9 @@ apiPlayground:
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_ON`
-              - `DEBUG_PARALLEL_QUERY_OFF`
-              - `DEBUG_PARALLEL_QUERY_REGRESS`
+              - `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+              - `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+              - `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN)
             type: string
             enum:
               - DEBUG_PARALLEL_QUERY_UNSPECIFIED
@@ -7361,17 +5280,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -7389,17 +5308,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -7417,17 +5336,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -7463,9 +5382,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -7478,10 +5397,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -7502,10 +5421,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -7536,8 +5457,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -7546,8 +5467,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -7556,8 +5477,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -7590,10 +5511,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -7748,9 +5669,9 @@ apiPlayground:
           constraintExclusion:
             description: |-
               **enum** (ConstraintExclusion)
-              - `CONSTRAINT_EXCLUSION_ON`
-              - `CONSTRAINT_EXCLUSION_OFF`
-              - `CONSTRAINT_EXCLUSION_PARTITION`
+              - `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+              - `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+              - `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses.
             type: string
             enum:
               - CONSTRAINT_EXCLUSION_UNSPECIFIED
@@ -7776,9 +5697,9 @@ apiPlayground:
           debugParallelQuery:
             description: |-
               **enum** (DebugParallelQuery)
-              - `DEBUG_PARALLEL_QUERY_ON`
-              - `DEBUG_PARALLEL_QUERY_OFF`
-              - `DEBUG_PARALLEL_QUERY_REGRESS`
+              - `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+              - `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+              - `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN)
             type: string
             enum:
               - DEBUG_PARALLEL_QUERY_UNSPECIFIED
@@ -7788,17 +5709,17 @@ apiPlayground:
           clientMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -7816,17 +5737,17 @@ apiPlayground:
           logMinMessages:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -7844,17 +5765,17 @@ apiPlayground:
           logMinErrorStatement:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_DEBUG5`
-              - `LOG_LEVEL_DEBUG4`
-              - `LOG_LEVEL_DEBUG3`
-              - `LOG_LEVEL_DEBUG2`
-              - `LOG_LEVEL_DEBUG1`
-              - `LOG_LEVEL_LOG`
-              - `LOG_LEVEL_NOTICE`
-              - `LOG_LEVEL_WARNING`
-              - `LOG_LEVEL_ERROR`
-              - `LOG_LEVEL_FATAL`
-              - `LOG_LEVEL_PANIC`
+              - `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+              - `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+              - `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+              - `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+              - `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+              - `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+              - `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -7890,9 +5811,9 @@ apiPlayground:
           logErrorVerbosity:
             description: |-
               **enum** (LogErrorVerbosity)
-              - `LOG_ERROR_VERBOSITY_TERSE`
-              - `LOG_ERROR_VERBOSITY_DEFAULT`
-              - `LOG_ERROR_VERBOSITY_VERBOSE`
+              - `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+              - `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+              - `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred.
             type: string
             enum:
               - LOG_ERROR_VERBOSITY_UNSPECIFIED
@@ -7905,10 +5826,10 @@ apiPlayground:
           logStatement:
             description: |-
               **enum** (LogStatement)
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -7929,10 +5850,12 @@ apiPlayground:
           defaultTransactionIsolation:
             description: |-
               **enum** (TransactionIsolation)
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -7963,8 +5886,8 @@ apiPlayground:
           byteaOutput:
             description: |-
               **enum** (ByteaOutput)
-              - `BYTEA_OUTPUT_HEX`
-              - `BYTEA_OUTPUT_ESCAPED`
+              - `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+              - `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only.
             type: string
             enum:
               - BYTEA_OUTPUT_UNSPECIFIED
@@ -7973,8 +5896,8 @@ apiPlayground:
           xmlbinary:
             description: |-
               **enum** (XmlBinary)
-              - `XML_BINARY_BASE64`
-              - `XML_BINARY_HEX`
+              - `XML_BINARY_BASE64`: Base64 encoding.
+              - `XML_BINARY_HEX`: Hexadecimal encoding.
             type: string
             enum:
               - XML_BINARY_UNSPECIFIED
@@ -7983,8 +5906,8 @@ apiPlayground:
           xmloption:
             description: |-
               **enum** (XmlOption)
-              - `XML_OPTION_DOCUMENT`
-              - `XML_OPTION_CONTENT`
+              - `XML_OPTION_DOCUMENT`: XML document.
+              - `XML_OPTION_CONTENT`: XML fragment.
             type: string
             enum:
               - XML_OPTION_UNSPECIFIED
@@ -8017,10 +5940,10 @@ apiPlayground:
           backslashQuote:
             description: |-
               **enum** (BackslashQuote)
-              - `BACKSLASH_QUOTE`
-              - `BACKSLASH_QUOTE_ON`
-              - `BACKSLASH_QUOTE_OFF`
-              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+              - `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+              - `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+              - `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters.
             type: string
             enum:
               - BACKSLASH_QUOTE_UNSPECIFIED
@@ -8130,135 +6053,95 @@ apiPlayground:
       ConfigHostSpec:
         type: object
         properties:
-          postgresqlConfig_9_6:
-            description: |-
-              **[PostgresqlHostConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig9_6)**
-              Configuration for a host with PostgreSQL 9.6 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-            $ref: '#/definitions/PostgresqlHostConfig9_6'
-          postgresqlConfig_10_1c:
-            description: |-
-              **[PostgresqlHostConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C)**
-              Configuration for a host with PostgreSQL 10 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-            $ref: '#/definitions/PostgresqlHostConfig10_1C'
-          postgresqlConfig_10:
-            description: |-
-              **[PostgresqlHostConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10)**
-              Configuration for a host with PostgreSQL 10 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-            $ref: '#/definitions/PostgresqlHostConfig10'
           postgresqlConfig_11:
             description: |-
               **[PostgresqlHostConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11)**
               Configuration for a host with PostgreSQL 11 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig11'
-          postgresqlConfig_11_1c:
-            description: |-
-              **[PostgresqlHostConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C)**
-              Configuration for a host with PostgreSQL 11 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-            $ref: '#/definitions/PostgresqlHostConfig11_1C'
           postgresqlConfig_12:
             description: |-
               **[PostgresqlHostConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12)**
               Configuration for a host with PostgreSQL 12 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig12'
-          postgresqlConfig_12_1c:
-            description: |-
-              **[PostgresqlHostConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C)**
-              Configuration for a host with PostgreSQL 12 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-            $ref: '#/definitions/PostgresqlHostConfig12_1C'
           postgresqlConfig_13:
             description: |-
               **[PostgresqlHostConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13)**
               Configuration for a host with PostgreSQL 13 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig13'
           postgresqlConfig_13_1c:
             description: |-
               **[PostgresqlHostConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C)**
               Configuration for a host with PostgreSQL 13 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig13_1C'
           postgresqlConfig_14:
             description: |-
               **[PostgresqlHostConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14)**
               Configuration for a host with PostgreSQL 14 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig14'
           postgresqlConfig_14_1c:
             description: |-
               **[PostgresqlHostConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C)**
               Configuration for a host with PostgreSQL 14 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig14_1C'
           postgresqlConfig_15:
             description: |-
               **[PostgresqlHostConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15)**
               Configuration for a host with PostgreSQL 15 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig15'
           postgresqlConfig_15_1c:
             description: |-
               **[PostgresqlHostConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C)**
               Configuration for a host with PostgreSQL 15 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig15_1C'
           postgresqlConfig_16:
             description: |-
               **[PostgresqlHostConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16)**
               Configuration for a host with PostgreSQL 16 server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig16'
           postgresqlConfig_16_1c:
             description: |-
               **[PostgresqlHostConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C)**
               Configuration for a host with PostgreSQL 16 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig16_1C'
           postgresqlConfig_17:
             description: |-
               **[PostgresqlHostConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17)**
               Configuration for a host with PostgreSQL 17 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig17'
           postgresqlConfig_17_1c:
             description: |-
               **[PostgresqlHostConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C)**
               Configuration for a host with PostgreSQL 17 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig17_1C'
           postgresqlConfig_18:
             description: |-
               **[PostgresqlHostConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18)**
               Configuration for a host with PostgreSQL 18 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig18'
           postgresqlConfig_18_1c:
             description: |-
               **[PostgresqlHostConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C)**
               Configuration for a host with PostgreSQL 18 1C server deployed.
-              Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+              Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
             $ref: '#/definitions/PostgresqlHostConfig18_1C'
         oneOf:
           - required:
-              - postgresqlConfig_9_6
-          - required:
-              - postgresqlConfig_10_1c
-          - required:
-              - postgresqlConfig_10
-          - required:
               - postgresqlConfig_11
           - required:
-              - postgresqlConfig_11_1c
-          - required:
               - postgresqlConfig_12
-          - required:
-              - postgresqlConfig_12_1c
           - required:
               - postgresqlConfig_13
           - required:
@@ -8366,204 +6249,7 @@ The maximum string length in characters is 50. ||
       "replicationSource": "string",
       "priority": "string",
       "configSpec": {
-        // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
-        "postgresqlConfig_9_6": {
-          "recoveryMinApplyDelay": "string",
-          "sharedBuffers": "string",
-          "tempBuffers": "string",
-          "workMem": "string",
-          "replacementSortTuples": "string",
-          "tempFileLimit": "string",
-          "backendFlushAfter": "string",
-          "oldSnapshotThreshold": "string",
-          "maxStandbyStreamingDelay": "string",
-          "constraintExclusion": "string",
-          "cursorTupleFraction": "number",
-          "fromCollapseLimit": "string",
-          "joinCollapseLimit": "string",
-          "forceParallelMode": "string",
-          "clientMinMessages": "string",
-          "logMinMessages": "string",
-          "logMinErrorStatement": "string",
-          "logMinDurationStatement": "string",
-          "logCheckpoints": "boolean",
-          "logConnections": "boolean",
-          "logDisconnections": "boolean",
-          "logDuration": "boolean",
-          "logErrorVerbosity": "string",
-          "logLockWaits": "boolean",
-          "logStatement": "string",
-          "logTempFiles": "string",
-          "searchPath": "string",
-          "rowSecurity": "boolean",
-          "defaultTransactionIsolation": "string",
-          "statementTimeout": "string",
-          "lockTimeout": "string",
-          "idleInTransactionSessionTimeout": "string",
-          "byteaOutput": "string",
-          "xmlbinary": "string",
-          "xmloption": "string",
-          "ginPendingListLimit": "string",
-          "deadlockTimeout": "string",
-          "maxLocksPerTransaction": "string",
-          "maxPredLocksPerTransaction": "string",
-          "arrayNulls": "boolean",
-          "backslashQuote": "string",
-          "defaultWithOids": "boolean",
-          "escapeStringWarning": "boolean",
-          "loCompatPrivileges": "boolean",
-          "operatorPrecedenceWarning": "boolean",
-          "quoteAllIdentifiers": "boolean",
-          "standardConformingStrings": "boolean",
-          "synchronizeSeqscans": "boolean",
-          "transformNullEquals": "boolean",
-          "exitOnError": "boolean",
-          "seqPageCost": "number",
-          "randomPageCost": "number",
-          "sqlInheritance": "boolean",
-          "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
-        },
-        "postgresqlConfig_10_1c": {
-          "recoveryMinApplyDelay": "string",
-          "sharedBuffers": "string",
-          "tempBuffers": "string",
-          "workMem": "string",
-          "replacementSortTuples": "string",
-          "tempFileLimit": "string",
-          "backendFlushAfter": "string",
-          "oldSnapshotThreshold": "string",
-          "maxStandbyStreamingDelay": "string",
-          "constraintExclusion": "string",
-          "cursorTupleFraction": "number",
-          "fromCollapseLimit": "string",
-          "joinCollapseLimit": "string",
-          "forceParallelMode": "string",
-          "clientMinMessages": "string",
-          "logMinMessages": "string",
-          "logMinErrorStatement": "string",
-          "logMinDurationStatement": "string",
-          "logCheckpoints": "boolean",
-          "logConnections": "boolean",
-          "logDisconnections": "boolean",
-          "logDuration": "boolean",
-          "logErrorVerbosity": "string",
-          "logLockWaits": "boolean",
-          "logStatement": "string",
-          "logTempFiles": "string",
-          "searchPath": "string",
-          "rowSecurity": "boolean",
-          "defaultTransactionIsolation": "string",
-          "statementTimeout": "string",
-          "lockTimeout": "string",
-          "idleInTransactionSessionTimeout": "string",
-          "byteaOutput": "string",
-          "xmlbinary": "string",
-          "xmloption": "string",
-          "ginPendingListLimit": "string",
-          "deadlockTimeout": "string",
-          "maxLocksPerTransaction": "string",
-          "maxPredLocksPerTransaction": "string",
-          "arrayNulls": "boolean",
-          "backslashQuote": "string",
-          "defaultWithOids": "boolean",
-          "escapeStringWarning": "boolean",
-          "loCompatPrivileges": "boolean",
-          "operatorPrecedenceWarning": "boolean",
-          "quoteAllIdentifiers": "boolean",
-          "standardConformingStrings": "boolean",
-          "synchronizeSeqscans": "boolean",
-          "transformNullEquals": "boolean",
-          "exitOnError": "boolean",
-          "seqPageCost": "number",
-          "randomPageCost": "number",
-          "enableBitmapscan": "boolean",
-          "enableHashagg": "boolean",
-          "enableHashjoin": "boolean",
-          "enableIndexscan": "boolean",
-          "enableIndexonlyscan": "boolean",
-          "enableMaterial": "boolean",
-          "enableMergejoin": "boolean",
-          "enableNestloop": "boolean",
-          "enableSeqscan": "boolean",
-          "enableSort": "boolean",
-          "enableTidscan": "boolean",
-          "maxParallelWorkers": "string",
-          "maxParallelWorkersPerGather": "string",
-          "timezone": "string",
-          "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
-        },
-        "postgresqlConfig_10": {
-          "recoveryMinApplyDelay": "string",
-          "sharedBuffers": "string",
-          "tempBuffers": "string",
-          "workMem": "string",
-          "replacementSortTuples": "string",
-          "tempFileLimit": "string",
-          "backendFlushAfter": "string",
-          "oldSnapshotThreshold": "string",
-          "maxStandbyStreamingDelay": "string",
-          "constraintExclusion": "string",
-          "cursorTupleFraction": "number",
-          "fromCollapseLimit": "string",
-          "joinCollapseLimit": "string",
-          "forceParallelMode": "string",
-          "clientMinMessages": "string",
-          "logMinMessages": "string",
-          "logMinErrorStatement": "string",
-          "logMinDurationStatement": "string",
-          "logCheckpoints": "boolean",
-          "logConnections": "boolean",
-          "logDisconnections": "boolean",
-          "logDuration": "boolean",
-          "logErrorVerbosity": "string",
-          "logLockWaits": "boolean",
-          "logStatement": "string",
-          "logTempFiles": "string",
-          "searchPath": "string",
-          "rowSecurity": "boolean",
-          "defaultTransactionIsolation": "string",
-          "statementTimeout": "string",
-          "lockTimeout": "string",
-          "idleInTransactionSessionTimeout": "string",
-          "byteaOutput": "string",
-          "xmlbinary": "string",
-          "xmloption": "string",
-          "ginPendingListLimit": "string",
-          "deadlockTimeout": "string",
-          "maxLocksPerTransaction": "string",
-          "maxPredLocksPerTransaction": "string",
-          "arrayNulls": "boolean",
-          "backslashQuote": "string",
-          "defaultWithOids": "boolean",
-          "escapeStringWarning": "boolean",
-          "loCompatPrivileges": "boolean",
-          "operatorPrecedenceWarning": "boolean",
-          "quoteAllIdentifiers": "boolean",
-          "standardConformingStrings": "boolean",
-          "synchronizeSeqscans": "boolean",
-          "transformNullEquals": "boolean",
-          "exitOnError": "boolean",
-          "seqPageCost": "number",
-          "randomPageCost": "number",
-          "enableBitmapscan": "boolean",
-          "enableHashagg": "boolean",
-          "enableHashjoin": "boolean",
-          "enableIndexscan": "boolean",
-          "enableIndexonlyscan": "boolean",
-          "enableMaterial": "boolean",
-          "enableMergejoin": "boolean",
-          "enableNestloop": "boolean",
-          "enableSeqscan": "boolean",
-          "enableSort": "boolean",
-          "enableTidscan": "boolean",
-          "maxParallelWorkers": "string",
-          "maxParallelWorkersPerGather": "string",
-          "timezone": "string",
-          "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
-        },
+        // Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
         "postgresqlConfig_11": {
           "recoveryMinApplyDelay": "string",
           "sharedBuffers": "string",
@@ -8633,145 +6319,7 @@ The maximum string length in characters is 50. ||
           "effectiveIoConcurrency": "string",
           "effectiveCacheSize": "string"
         },
-        "postgresqlConfig_11_1c": {
-          "recoveryMinApplyDelay": "string",
-          "sharedBuffers": "string",
-          "tempBuffers": "string",
-          "workMem": "string",
-          "tempFileLimit": "string",
-          "backendFlushAfter": "string",
-          "oldSnapshotThreshold": "string",
-          "maxStandbyStreamingDelay": "string",
-          "constraintExclusion": "string",
-          "cursorTupleFraction": "number",
-          "fromCollapseLimit": "string",
-          "joinCollapseLimit": "string",
-          "forceParallelMode": "string",
-          "clientMinMessages": "string",
-          "logMinMessages": "string",
-          "logMinErrorStatement": "string",
-          "logMinDurationStatement": "string",
-          "logCheckpoints": "boolean",
-          "logConnections": "boolean",
-          "logDisconnections": "boolean",
-          "logDuration": "boolean",
-          "logErrorVerbosity": "string",
-          "logLockWaits": "boolean",
-          "logStatement": "string",
-          "logTempFiles": "string",
-          "searchPath": "string",
-          "rowSecurity": "boolean",
-          "defaultTransactionIsolation": "string",
-          "statementTimeout": "string",
-          "lockTimeout": "string",
-          "idleInTransactionSessionTimeout": "string",
-          "byteaOutput": "string",
-          "xmlbinary": "string",
-          "xmloption": "string",
-          "ginPendingListLimit": "string",
-          "deadlockTimeout": "string",
-          "maxLocksPerTransaction": "string",
-          "maxPredLocksPerTransaction": "string",
-          "arrayNulls": "boolean",
-          "backslashQuote": "string",
-          "defaultWithOids": "boolean",
-          "escapeStringWarning": "boolean",
-          "loCompatPrivileges": "boolean",
-          "operatorPrecedenceWarning": "boolean",
-          "quoteAllIdentifiers": "boolean",
-          "standardConformingStrings": "boolean",
-          "synchronizeSeqscans": "boolean",
-          "transformNullEquals": "boolean",
-          "exitOnError": "boolean",
-          "seqPageCost": "number",
-          "randomPageCost": "number",
-          "enableBitmapscan": "boolean",
-          "enableHashagg": "boolean",
-          "enableHashjoin": "boolean",
-          "enableIndexscan": "boolean",
-          "enableIndexonlyscan": "boolean",
-          "enableMaterial": "boolean",
-          "enableMergejoin": "boolean",
-          "enableNestloop": "boolean",
-          "enableSeqscan": "boolean",
-          "enableSort": "boolean",
-          "enableTidscan": "boolean",
-          "maxParallelWorkers": "string",
-          "maxParallelWorkersPerGather": "string",
-          "timezone": "string",
-          "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
-        },
         "postgresqlConfig_12": {
-          "recoveryMinApplyDelay": "string",
-          "sharedBuffers": "string",
-          "tempBuffers": "string",
-          "workMem": "string",
-          "tempFileLimit": "string",
-          "backendFlushAfter": "string",
-          "oldSnapshotThreshold": "string",
-          "maxStandbyStreamingDelay": "string",
-          "constraintExclusion": "string",
-          "cursorTupleFraction": "number",
-          "fromCollapseLimit": "string",
-          "joinCollapseLimit": "string",
-          "forceParallelMode": "string",
-          "clientMinMessages": "string",
-          "logMinMessages": "string",
-          "logMinErrorStatement": "string",
-          "logMinDurationStatement": "string",
-          "logCheckpoints": "boolean",
-          "logConnections": "boolean",
-          "logDisconnections": "boolean",
-          "logDuration": "boolean",
-          "logErrorVerbosity": "string",
-          "logLockWaits": "boolean",
-          "logStatement": "string",
-          "logTempFiles": "string",
-          "searchPath": "string",
-          "rowSecurity": "boolean",
-          "defaultTransactionIsolation": "string",
-          "statementTimeout": "string",
-          "lockTimeout": "string",
-          "idleInTransactionSessionTimeout": "string",
-          "byteaOutput": "string",
-          "xmlbinary": "string",
-          "xmloption": "string",
-          "ginPendingListLimit": "string",
-          "deadlockTimeout": "string",
-          "maxLocksPerTransaction": "string",
-          "maxPredLocksPerTransaction": "string",
-          "arrayNulls": "boolean",
-          "backslashQuote": "string",
-          "defaultWithOids": "boolean",
-          "escapeStringWarning": "boolean",
-          "loCompatPrivileges": "boolean",
-          "operatorPrecedenceWarning": "boolean",
-          "quoteAllIdentifiers": "boolean",
-          "standardConformingStrings": "boolean",
-          "synchronizeSeqscans": "boolean",
-          "transformNullEquals": "boolean",
-          "exitOnError": "boolean",
-          "seqPageCost": "number",
-          "randomPageCost": "number",
-          "enableBitmapscan": "boolean",
-          "enableHashagg": "boolean",
-          "enableHashjoin": "boolean",
-          "enableIndexscan": "boolean",
-          "enableIndexonlyscan": "boolean",
-          "enableMaterial": "boolean",
-          "enableMergejoin": "boolean",
-          "enableNestloop": "boolean",
-          "enableSeqscan": "boolean",
-          "enableSort": "boolean",
-          "enableTidscan": "boolean",
-          "maxParallelWorkers": "string",
-          "maxParallelWorkersPerGather": "string",
-          "timezone": "string",
-          "effectiveIoConcurrency": "string",
-          "effectiveCacheSize": "string"
-        },
-        "postgresqlConfig_12_1c": {
           "recoveryMinApplyDelay": "string",
           "sharedBuffers": "string",
           "tempBuffers": "string",
@@ -9727,668 +7275,76 @@ Configuration of a PostgreSQL server for the host. ||
 
 #|
 ||Field | Description ||
-|| postgresqlConfig_9_6 | **[PostgresqlHostConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig9_6)**
-
-Configuration for a host with PostgreSQL 9.6 server deployed.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
-|| postgresqlConfig_10_1c | **[PostgresqlHostConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C)**
-
-Configuration for a host with PostgreSQL 10 1C server deployed.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
-|| postgresqlConfig_10 | **[PostgresqlHostConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10)**
-
-Configuration for a host with PostgreSQL 10 server deployed.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_11 | **[PostgresqlHostConfig11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11)**
 
 Configuration for a host with PostgreSQL 11 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
-|| postgresqlConfig_11_1c | **[PostgresqlHostConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C)**
-
-Configuration for a host with PostgreSQL 11 1C server deployed.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_12 | **[PostgresqlHostConfig12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12)**
 
 Configuration for a host with PostgreSQL 12 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
-|| postgresqlConfig_12_1c | **[PostgresqlHostConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C)**
-
-Configuration for a host with PostgreSQL 12 1C server deployed.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_13 | **[PostgresqlHostConfig13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13)**
 
 Configuration for a host with PostgreSQL 13 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_13_1c | **[PostgresqlHostConfig13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig13_1C)**
 
 Configuration for a host with PostgreSQL 13 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_14 | **[PostgresqlHostConfig14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14)**
 
 Configuration for a host with PostgreSQL 14 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_14_1c | **[PostgresqlHostConfig14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig14_1C)**
 
 Configuration for a host with PostgreSQL 14 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_15 | **[PostgresqlHostConfig15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15)**
 
 Configuration for a host with PostgreSQL 15 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_15_1c | **[PostgresqlHostConfig15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig15_1C)**
 
 Configuration for a host with PostgreSQL 15 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_16 | **[PostgresqlHostConfig16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16)**
 
 Configuration for a host with PostgreSQL 16 server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_16_1c | **[PostgresqlHostConfig16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig16_1C)**
 
 Configuration for a host with PostgreSQL 16 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_17 | **[PostgresqlHostConfig17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17)**
 
 Configuration for a host with PostgreSQL 17 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_17_1c | **[PostgresqlHostConfig17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig17_1C)**
 
 Configuration for a host with PostgreSQL 17 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_18 | **[PostgresqlHostConfig18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18)**
 
 Configuration for a host with PostgreSQL 18 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 || postgresqlConfig_18_1c | **[PostgresqlHostConfig18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig18_1C)**
 
 Configuration for a host with PostgreSQL 18 1C server deployed.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
-|#
-
-## PostgresqlHostConfig9_6 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig9_6}
-
-Options and structure of `PostgresqlHostConfig` reflects parameters of a PostgreSQL
-configuration file. Detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/9.6/runtime-config.html).
-
-#|
-||Field | Description ||
-|| recoveryMinApplyDelay | **string** (int64)
-
-in milliseconds. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| replacementSortTuples | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| backendFlushAfter | **string** (int64)
-
-Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| sqlInheritance | **boolean**
-
-This option has been removed in PostgreSQL 10. ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|#
-
-## PostgresqlHostConfig10_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10_1C}
-
-Options and structure of `PostgresqlHostConfig` reflects PostgreSQL configuration file
-parameters whose detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
-
-#|
-||Field | Description ||
-|| recoveryMinApplyDelay | **string** (int64)
-
-in milliseconds. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| replacementSortTuples | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| backendFlushAfter | **string** (int64)
-
-Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|#
-
-## PostgresqlHostConfig10 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig10}
-
-Options and structure of `PostgresqlHostConfig` reflects PostgreSQL configuration file
-parameters whose detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
-
-#|
-||Field | Description ||
-|| recoveryMinApplyDelay | **string** (int64)
-
-in milliseconds. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| replacementSortTuples | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| backendFlushAfter | **string** (int64)
-
-Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`. ||
 |#
 
 ## PostgresqlHostConfig11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11}
@@ -10423,9 +7379,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -10435,48 +7391,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -10486,25 +7442,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -10518,16 +7476,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -10541,201 +7499,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|#
-
-## PostgresqlHostConfig11_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig11_1C}
-
-Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
-parameters which detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
-
-#|
-||Field | Description ||
-|| recoveryMinApplyDelay | **string** (int64)
-
-in milliseconds. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| backendFlushAfter | **string** (int64)
-
-Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -10805,9 +7572,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -10817,48 +7584,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -10868,25 +7635,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -10900,16 +7669,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -10923,201 +7692,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|#
-
-## PostgresqlHostConfig12_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig12_1C}
-
-Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
-parameters which detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
-
-#|
-||Field | Description ||
-|| recoveryMinApplyDelay | **string** (int64)
-
-in milliseconds. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| backendFlushAfter | **string** (int64)
-
-Acceptable values are 0 to 2048, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -11187,9 +7765,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -11199,48 +7777,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -11250,25 +7828,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -11282,16 +7862,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -11305,10 +7885,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -11378,9 +7958,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -11390,48 +7970,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -11441,25 +8021,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -11473,16 +8055,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -11496,10 +8078,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -11569,9 +8151,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -11581,48 +8163,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -11632,25 +8214,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -11664,16 +8248,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -11687,10 +8271,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -11764,9 +8348,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -11776,48 +8360,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -11827,25 +8411,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -11859,16 +8445,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -11882,10 +8468,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -11959,9 +8545,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -11971,48 +8557,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12022,25 +8608,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12054,16 +8642,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12077,10 +8665,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -12154,9 +8742,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12166,48 +8754,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12217,25 +8805,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12249,16 +8839,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12272,10 +8862,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -12349,9 +8939,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12361,51 +8951,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12415,25 +9005,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12447,16 +9039,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12470,10 +9062,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -12547,9 +9139,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12559,51 +9151,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12613,25 +9205,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12645,16 +9239,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12668,10 +9262,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -12744,9 +9338,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12756,51 +9350,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12810,25 +9404,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12844,16 +9440,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12867,10 +9463,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -12943,9 +9539,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12955,51 +9551,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -13009,25 +9605,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -13043,16 +9641,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -13066,10 +9664,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -13142,9 +9740,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -13154,51 +9752,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -13208,25 +9806,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -13242,16 +9842,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -13265,10 +9865,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -13341,9 +9941,9 @@ Acceptable values are 0 to 2048, inclusive. ||
 in milliseconds. ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -13353,51 +9953,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -13407,25 +10007,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -13441,16 +10043,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -13464,10 +10066,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||

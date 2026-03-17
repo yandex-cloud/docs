@@ -1,1 +1,1 @@
-`--filter`: record filter settings, for example, `message.hostname='node1.{{ dns-zone }}'`.
+`--filter`: Record filter settings, e.g., `message.hostname='node1.{{ dns-zone }}'`.

@@ -9,7 +9,8 @@ description: Follow this guide to get a list of available master configurations 
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top-right corner of the page. This will open the cluster editing page.  
     1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**, expand the **{{ ui-key.yacloud.k8s.clusters.create.label_master-computing-resources }}** section.
 

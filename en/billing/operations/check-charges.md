@@ -5,7 +5,7 @@ description: Follow this guide to view service usage details.
 
 # View service usage details
 
-You can view charts and tables with information about {{ yandex-cloud }} service usage. To do this:
+You can view charts and tables with information about {{ yandex-cloud }} service usage. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -52,6 +52,12 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - By labels {#labels}
 
+  {% note info %}
+
+  As of February 10, 2026, usage details filtered by labels are sorted by label creation date, not resources.
+
+  {% endnote %}
+
   You can view usage details by [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. Any details available for the selected label in the cloud will be displayed in the chart, and the table below it will specify all the values corresponding to the selected label.
   You can also view details by a specific value of the label you select for one or more products in different folders of the selected cloud:
   1. Click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** (by default, all products in all clouds and available folders are selected). The selected elements have a mark next to their name. 
@@ -72,7 +78,7 @@ You can configure the charts to display the following:
 {% include [currency](../_includes/currency.md) %}
 
 
-## Interpreting the chart {#graph}
+## Interpreting a chart {#graph}
 
 The chart shows how data changed over time.
 The number of details and their values depend on the selected detail depth, chart type, and filters:
@@ -96,7 +102,7 @@ In the table, all data is presented as the total amount for the specified period
 
 The number of columns in the table depends on the selected detail depth. See a description of columns below.
 
-Name | Description
+Field | Description
 ----- | -----
 {{ ui-key.yacloud_billing.billing.account.detail.column_cloud-name }} | Name of the cloud the resources were consumed in. <br/>Shown only if you select details by cloud.
 {{ ui-key.yacloud_billing.billing.account.detail.column_service }} | Name of the service the resources were consumed in. <br/>Shown only if you select details by service/product.

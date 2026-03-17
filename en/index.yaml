@@ -4,7 +4,7 @@ meta:
   noIndex: true
 description: []
 links:
-  - title: Yandex Cloud API
+  - title: API Yandex Cloud
     description: Yandex Cloud API architecture
     href: api-design-guide/
   - title: API Gateway
@@ -38,7 +38,7 @@ links:
     description: Connecting to Yandex Cloud resources via a dedicated link
     href: interconnect/
   - title: Cloud Router
-    description: Creating network topologies
+    description: Managing network topologies
     href: cloud-router/
   - title: Cloud Logging
     description: Logs of services and user applications
@@ -46,9 +46,6 @@ links:
   - title: Cloud Notification Service
     description: Service for sending notifications
     href: notifications/
-  - title: Cloud Router
-    description: Service for managing network topologies
-    href: cloud-router/
   - title: Cloud Video
     description: Video hosting and online streaming
     href: video/
@@ -56,7 +53,7 @@ links:
     description: Virtual machines and disks
     href: compute/
   - title: Container Registry
-    description: Docker image management
+    description: Managing Docker images
     href: container-registry/
   - title: Cloud Registry
     description: Managing artifacts
@@ -70,6 +67,9 @@ links:
   - title: DataLens
     description: Data visualization and analytics
     href: datalens/
+  - title: Data Streams
+    description: Managing data streams in real time
+    href: data-streams/
   - title: Data Transfer
     description: A tool for database migration
     href: data-transfer/
@@ -77,9 +77,7 @@ links:
     description: A service for developing ML models
     href: datasphere/
   - title: Yandex Cloud Detection and Response
-    description: >-
-      Service that monitors and responds to Yandex Cloud infrastructure
-      incidents.
+    description: Monitoring and incident response in Yandex Cloud
     href: ycdr/
   - title: Cloud CDN
     description: Content delivery network (CDN)
@@ -87,15 +85,17 @@ links:
   - title: Cloud DNS
     description: Domain name management
     href: dns/
+  - title: Getting started
+    description: >-
+      Step-by-step guides on how to get a smooth start and explore Yandex Cloud
+      features
+    href: getting-started/
   - title: Trial period
     description: Description of the Yandex Cloud trial period
     href: getting-started/free-trial/concepts/quickstart
   - title: Cloud Functions
     description: Run code as a function
     href: functions/
-  - title: '{{ foundation-models-name }}'
-    description: Generative ML models
-    href: ai-studio/
   - title: Identity and Access Management
     description: Identification and cloud resource access control
     href: iam/
@@ -111,6 +111,9 @@ links:
   - title: Yandex Lockbox
     description: Creating and storing secrets
     href: lockbox/
+  - title: Yandex Neurosupport
+    description: YandexGPT-based support agent assistant
+    href: neurosupport/
   - title: Managed Service for Apache Airflow™
     description: Apache Airflow™ cluster management
     href: managed-airflow/
@@ -121,7 +124,7 @@ links:
     description: Apache Spark™ cluster management
     href: managed-spark/
   - title: Managed Service for Sharded PostgreSQL
-    description: Sharded PostgreSQL cluster management
+    description: Shared PostgreSQL cluster management
     href: managed-spqr/
   - title: Managed Service for ClickHouse
     description: ClickHouse database management
@@ -148,7 +151,7 @@ links:
     description: PostgreSQL database management
     href: managed-postgresql/
   - title: Managed Service for Trino
-    description: Managing the Trino distributed analytical SQL engine
+    description: Managing a distributed analytical SQL Trino engine
     href: managed-trino/
   - title: '{{ mrd-full-name }}'
     description: Valkey™ database management
@@ -156,9 +159,6 @@ links:
   - title: Yandex Cloud Marketplace
     description: Tools and solutions by leading vendors
     href: marketplace/
-  - title: MDB
-    description: A group of database management services
-    href: mdb/
   - title: Message Queue
     description: Message queues for applications
     href: message-queue/
@@ -172,7 +172,7 @@ links:
     description: Metric collection and visualization
     href: monitoring/
   - title: Network Load Balancer
-    description: Network load balancers
+    description: Tools for network load balancing
     href: network-load-balancer/
   - title: Identity Hub
     description: Cloud services for corporate clients
@@ -195,26 +195,27 @@ links:
   - title: Serverless Integrations
     description: Integrations across Yandex Cloud services
     href: serverless-integrations/
+  - title: Stackland
+    description: Managing Kubernetes on-premises
+    href: stackland/
   - title: Yandex Cloud tutorials
     description: Guides for handling various tasks using cloud services
     href: tutorials/
-  - title: '{{ search-api-name }}'
-    description: >-
-      This service allows you to send requests to the Yandex search database and
-      get responses over the API.
-    href: search-api/
   - title: SmartCaptcha
     description: A tool for query verification
     href: smartcaptcha/
+  - title: Security in Yandex Cloud
+    description: Recommendations on how to build a secure infrastructure in Yandex Cloud
+    href: security/
+  - title: Security Deck
+    description: Data security tools
+    href: security-deck/
   - title: Smart Web Security
     description: Advanced DDoS attack protection service
     href: smartwebsecurity/
   - title: '{{ src-full-name }}'
-    description: A platform for developing source code
+    description: Source code development platform
     href: sourcecraft/
-  - title: '{{ speechkit-name }}'
-    description: Speech recognition and speech synthesis technologies
-    href: speechkit/
   - title: SpeechSense
     description: Speech analytics
     href: speechsense/
@@ -224,12 +225,6 @@ links:
   - title: Yandex Cloud technical support description
     description: Technical support terms and conditions
     href: support/
-  - title: Translate
-    description: Machine translation with support for over 90 languages
-    href: translate/
-  - title: Vision
-    description: Image analysis using machine learning models
-    href: vision/
   - title: Virtual Private Cloud
     description: Cloud-based network management
     href: vpc/

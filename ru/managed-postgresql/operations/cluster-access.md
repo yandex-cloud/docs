@@ -207,6 +207,58 @@ description: Следуя данной инструкции, вы настрои
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
+- {{ TF }} {#tf}
+
+  {% note info %}
+
+  Для назначения ролей на кластер {{ mpg-name }} используйте ресурс `yandex_mdb_postgresql_cluster_iam_binding` с параметром `members`.
+     
+  {% endnote %}
+
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ mpg-name }}.
+ 
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+ 
+  1. Добавьте описание ресурса:
+   
+     ```hcl
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<локальное_имя_ресурса>" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "<роль>"
+       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+     }
+     ```
+
+     Где:
+
+     * `cluster_id` — идентификатор кластера.
+     * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-postgresql.editor`.
+     * `members` — массив типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+   
+       Например:
+       
+       * `serviceAccount:${yandex_iam_service_account.mpg_sa.id}`,
+       * `userAccount:ajerq94v************`,
+       * `system:allAuthenticatedUsers`.
+
+       {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/):
+   
+     ```bash
+     {{ yc-mdb-pg }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+     ```
+
 {% endlist %}
 
 ## Назначить несколько ролей {#set-access-bindings}
@@ -380,6 +432,64 @@ description: Следуя данной инструкции, вы настрои
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
+- {{ TF }} {#tf}
+
+  {% note info %}
+   
+  Для назначения ролей на кластер {{ mpg-name }} используйте ресурс `yandex_mdb_postgresql_cluster_iam_binding` с параметром `members`.
+   
+  {% endnote %}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+ 
+     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте описание ресурсов:
+   
+     ```hcl
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<локальное_имя_ресурса_1>" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "<роль_1>"
+       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+     }
+
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<локальное_имя_ресурса_2>" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "<роль_2>"
+       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+     }
+     ```
+
+     Где:
+
+     * `cluster_id` — идентификатор кластера.
+     * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-postgresql.editor`.
+     * `members` — массив типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+   
+       Например:
+       
+       * `serviceAccount:${yandex_iam_service_account.mpg_sa.id}`,
+       * `userAccount:ajerq94v************`,
+       * `system:allAuthenticatedUsers`.
+
+       {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/):
+   
+     ```bash
+     {{ yc-mdb-pg }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+     ```
+
 {% endlist %}
 
 ## Отозвать роль {#remove-access-binding}
@@ -509,6 +619,44 @@ description: Следуя данной инструкции, вы настрои
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
+
+- {{ TF }} {#tf}
+
+  {% note info %}
+
+  Для отзыва ролей на кластер {{ mpg-name }} используйте ресурс `yandex_mdb_postgresql_cluster_iam_binding` с параметром `members`.
+
+  {% endnote %}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+ 
+     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+  1. Найдите описание ресурса с ролью, которую вы хотите отозвать, и удалите его:
+   
+     ```hcl
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "<локальное_имя_ресурса>" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "<роль>"
+       members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+     }
+     ```
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_postgresql_cluster_iam_binding).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/):
+   
+     ```bash
+     {{ yc-mdb-pg }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+     ```
 
 {% endlist %}
 
@@ -719,5 +867,35 @@ description: Следуя данной инструкции, вы настрои
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.postgresql.v1.ClusterService.ListAccessBindings
       ```
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+ 
+     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте описание ресурсов:
+
+     ```hcl
+     resource "yandex_resourcemanager_folder_iam_member" "mpg-viewer-account-iam" {
+       folder_id   = "<идентификатор_каталога>"
+       role        = "managed-postgresql.viewer"
+       member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
+     }
+
+     resource "yandex_mdb_postgresql_cluster_iam_binding" "mpg-cluster-api-editor" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "managed-postgresql.editor"
+       members    = ["serviceAccount:<идентификатор_сервисного_аккаунта>"]
+     }
+     ```
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 {% endlist %}

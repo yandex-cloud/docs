@@ -43,13 +43,15 @@ Apart from the conditions that are common for all specializations, each speciali
 
   * Successful interview with a {{ yandex-cloud }} architect.
 
-* [ML and AI](./index.md#ml-spec)
+* [ML & AI](./index.md#ml-spec)
 
   You need to meet one of the following conditions:
 
-  * You have implemented at least one project using [{{ brand-voice-premium }}](../../speechkit/tts/brand-voice/index.md#premium).
-  * You have implemented at least one project using [{{ brand-voice-core }}](../../speechkit/tts/brand-voice/index.md#ss).
-  * You have implemented one or more projects using [{{ brand-voice-cc }}](../../speechkit/tts/brand-voice/index.md#cc) with consumption exceeding ₽100,000 per month, excluding VAT and partner rewards.
+
+  * You have implemented at least one project using [{{ brand-voice-premium }}]({{ link-docs-ai }}speechkit/tts/brand-voice/index#premium).
+  * You have implemented at least one project using [{{ brand-voice-core }}]({{ link-docs-ai }}speechkit/tts/brand-voice/index#ss).
+  * You have implemented one or more projects using [{{ brand-voice-cc }}]({{ link-docs-ai }}speechkit/tts/brand-voice/index#cc) with consumption exceeding ₽100,000 per month, excluding VAT and partner rewards.
+
 
 * [Security Compliance](./index.md#secom-spec)
 

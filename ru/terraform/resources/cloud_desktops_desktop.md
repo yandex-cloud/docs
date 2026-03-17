@@ -75,6 +75,7 @@ resource "yandex_cloud_desktops_desktop_group" "desktop_group" {
 // desktop
 resource "yandex_cloud_desktops_desktop" "desktop" {
 	name 				= "desktop-name"
+	description 		= "My cloud desktop"
 	desktop_group_id 	= yandex_cloud_desktops_desktop_group.desktop_group.desktop_group_id
 	
 	network_interface = {
@@ -99,6 +100,7 @@ resource "yandex_cloud_desktops_desktop" "desktop" {
 
 - `desktop_group_id` (**Required**)(String). The id of the Desktop Group to which the Desktop belongs
 - `desktop_id` (*Read-Only*) (String). The id of the Desktop
+- `description` (String). Description of the desktop. Maximum length is 1024 characters.
 - `id` (*Read-Only*) (String). Import ID
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `members` [Block]. The list of members which can use the Desktop

@@ -38,8 +38,9 @@
   * [{{ GP }}](../managed-greenplum/quickstart.md).
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Copy and replicate the data between databases using {{ data-transfer-name }}](../data-transfer/quickstart.md).
-* Machine learning:
-  * [Convert text to speech and vice versa using {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
-  * [Translate text in {{ translate-name }}](../translate/quickstart.md).
-  * [Analyze an image using computer vision in {{ vision-name }}](../vision/quickstart.md).
+* AI:
+  * [Convert text to speech and vice versa using {{ speechkit-name }}]({{ link-docs-ai }}/speechkit/quickstart/index).
+  * [Translate text in {{ translate-name }}]({{ link-docs-ai }}/translate/quickstart).
+  * [Analyze an image using computer vision in {{ vision-name }}]({{ link-docs-ai }}/vision/quickstart).
   * [Train and launch your machine learning models in {{ ml-platform-name }}](../datasphere/quickstart.md).
+  * [Create an AI agent for your business]({{ link-docs-ai }})

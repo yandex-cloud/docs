@@ -8,15 +8,12 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
-  ai-playground: AI Playground
-  ai-search-name: AI Search
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
   alerts-name: Алерты
-  alice-ai: Alice AI LLM
   all-mdb:
     max-databases: 1000
   allowed-captcha-request: /tmgrdfrend.*
@@ -51,8 +48,6 @@ default:
   api-host-monium: ingest.monium.yandex.cloud
   api-host-operation: operation.api.cloud.yandex.net
   api-host-quota-manager: quota-manager.api.cloud.yandex.net
-  api-host-sk: api.cloud.yandex.net
-  api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
@@ -79,15 +74,9 @@ default:
   billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=ru
   bitrix24-name: Битрикс24
   brand-voice-cc: Brand Voice Call Center
-  brand-voice-cc-name: SpeechKit Brand Voice Call Center
   brand-voice-core: Brand Voice Self Service
-  brand-voice-core-name: SpeechKit Brand Voice Self Service
-  brand-voice-full-name: Yandex SpeechKit Brand Voice
-  brand-voice-lite: Brand Voice Lite
-  brand-voice-lite-name: SpeechKit Brand Voice Lite
   brand-voice-name: SpeechKit Brand Voice
   brand-voice-premium: Brand Voice Premium
-  brand-voice-premium-name: SpeechKit Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
@@ -197,6 +186,8 @@ default:
   ds-nb: DataSphere Notebook
   ds-node-endpoint: node-api.datasphere.yandexcloud.net
   dspm-name: DSPM
+  dsvm-name: Data Science Virtual Machine
+  dsvm-short-name: DSVM
   dt-copy-regular: Периодическое
   dt-copy-regular-incremental: Периодическое инкрементальное
   dt-copy-snapshot: Однократное
@@ -245,7 +236,6 @@ default:
   grafana-name: Grafana
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
-  grpcio-tools-version: 1.46.3
   highfreq-ice-lake: Intel Ice Lake Compute-Optimized
   host-class: s2.micro
   host-name: rc1a-goh2a9tr********
@@ -288,10 +278,7 @@ default:
   kraft-short-name: KRaft
   lang: ru
   lets-encrypt: Let's Encrypt®
-  license-apache: https://choosealicense.com/licenses/apache-2.0/
-  license-gemma: https://ai.google.dev/gemma/terms
   license-manager: License Manager
-  license-mit: https://opensource.org/license/mit
   link-adfs: >-
     https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
@@ -363,7 +350,6 @@ default:
       docs: https://www.elastic.co/guide/en
     helm:
       install: https://helm.sh/ru/docs/intro/install/
-  llama: Llama
   load-testing-full-name: Yandex Load Testing
   load-testing-name: Load Testing
   local-ssd-v3-max: 5888 ГБ
@@ -374,7 +360,6 @@ default:
   logging-endpoint-ingester: ingester.logging.yandexcloud.net
   logging-endpoint-reader: reader.logging.yandexcloud.net
   login-example: login@yandex.ru
-  lora: LoRA
   maf-full-name: Yandex Managed Service for Apache Airflow™
   maf-name: Managed Service for Apache Airflow™
   maf-short-name: Managed Service for Apache Airflow™
@@ -397,9 +382,6 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
-  meta-disclaimer: >-
-    Llama создана компанией Meta. Meta признана экстремистской организацией, ее
-    деятельность в России запрещена.
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
@@ -451,7 +433,6 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
-  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -572,7 +553,6 @@ default:
   quota-manager-name: Cloud Quota Manager
   quota-manager-short-name: Quota Manager
   RD: Redis
-  realtime-api: Realtime API
   realtime-model: speech-realtime-250923
   region-id: ru-central1
   registry: cr.yandex
@@ -580,7 +560,6 @@ default:
   resmgr-name: Resource Manager
   resmgr-short-name: Resource Manager
   responses-api: Responses API
-  retrieval-tool-name: Retrieval
   RMQ: RabbitMQ
   roles-admin: admin
   roles-alb-editor: alb.editor
@@ -631,23 +610,18 @@ default:
   roles-organization-owner: organization-manager.organizations.owner
   roles-resource-manager-admin: resource-manager.admin
   roles-resource-manager-editor: resource-manager.editor
-  roles-search-api-executor: search-api.executor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
-  roles-speechkit-tts: ai.speechkit-tts.user
   roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
   roles-speechsense-data-viewer: Data viewer
   roles-speechsense-editor: Editor
   roles-speechsense-viewer: Viewer
-  roles-translate-user: ai.translate.user
   roles-viewer: viewer
-  roles-vision-user: ai.vision.user
   roles-vpc-admin: vpc.admin
   roles-vpc-private-admin: vpc.privateAdmin
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-user: vpc.user
-  roles-yaart-user: ai.imageGeneration.user
   roles-yagpt-user: ai.languageModels.user
   roles:
     data-catalog:
@@ -809,7 +783,6 @@ default:
   si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
-  sk-operations-host: operation.api.cloud.yandex.net
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
@@ -897,14 +870,12 @@ default:
   translate-name: Translate
   translate-short-name: Translate
   trino-service-address: 10.248.0.0/13
-  tts-cc-quality: 8 кГц
   tts-v3-count: 250 символов
   tts-v3-time: 24 секунды
   unified-agent-full-name: Yandex Unified Agent
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
-  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player
@@ -922,7 +893,6 @@ default:
   wiki-full-name: Яндекс Вики
   wiki-name: Вики
   wiki-short-name: Wiki
-  wordstat-name: Wordstat
   ya-360: Яндекс 360 для бизнеса
   ya-oauth-url: https://oauth.yandex.ru
   yagpt-full-name: YandexGPT API
@@ -3004,9 +2974,6 @@ default:
       jobs|number: 0.0000108
       models:
         v1|number: 0.0000108
-    mt:
-      detect|string: "4,10\_$"
-      translate|string: "4,10\_$"
   sku|USD|airflow:
     cluster:
       generic:
@@ -3016,149 +2983,6 @@ default:
         vcpu:
           v1|number: 0.0225
           v1|string: "0,0225\_$"
-  sku|USD|aistudio:
-    index_storage|string: "0,0869\_$"
-    text_generation:
-      cached_tokens:
-        sync:
-          aliceai-llm|string: "0,0041\_$"
-          deepseek-3:
-            2|string: "0,001066\_$"
-          gemma-3-27b-it|string: "0,0033\_$"
-          gpt-oss-120b|string: "0,002459\_$"
-          gpt-oss-20b|string: "0,000820\_$"
-          qwen3-235b-a22b-fp8|string: "0,0041\_$"
-          speech-realtime|string: "0,001639\_$"
-          yandexgpt-5-lite|string: "0,001639\_$"
-          yandexgpt-5-pro|string: "0,0098\_$"
-          yandexgpt-5:
-            1-pro|string: "0,0066\_$"
-      input_tokens:
-        async:
-          aliceai-llm|string: "0,002049\_$"
-          yandexgpt-5-lite|string: "0,000820\_$"
-          yandexgpt-5-pro|number: 0.005
-          yandexgpt-5-pro|string: "0,0050\_$"
-          yandexgpt-5:
-            1-pro|string: "0,003361\_$"
-        batch:
-          deepseek-r1-distill-llama-70b|string: "0,0050\_$"
-          deepseek-r1-distill-qwen-32b|string: "0,003361\_$"
-          deepseek-vl2-tiny|string: "0,000820\_$"
-          deepseek-vl2|string: "0,003361\_$"
-          gemma-3-12b-it|string: "0,001639\_$"
-          gemma-3-1b-it|string: "0,000820\_$"
-          gemma-3-27b-it|string: "0,003361\_$"
-          gemma-3-4b-it|string: "0,000820\_$"
-          llama3:
-            1-70b-instruct|string: "0,0050\_$"
-            3-70b-instruct|string: "0,0050\_$"
-          phi-4|string: "0,001639\_$"
-          qwen2-vl-7b-instruct|string: "0,000820\_$"
-          qwen2:
-            5-32b-instruct|string: "0,003361\_$"
-            5-72b-instruct|string: "0,0050\_$"
-            5-7b-instruct|string: "0,000820\_$"
-            5-vl-32b-instruct|string: "0,003361\_$"
-            5-vl-7b-instruct|string: "0,000820\_$"
-          qwen3-0:
-            6b|string: "0,000820\_$"
-          qwen3-1:
-            7b|string: "0,000820\_$"
-          qwen3-14b|string: "0,001639\_$"
-          qwen3-235b-a22b|string: "0,05\_$"
-          qwen3-30b-a3b|string: "0,003361\_$"
-          qwen3-32b|string: "0,003361\_$"
-          qwen3-4b|string: "0,000820\_$"
-          qwen3-8b|string: "0,000820\_$"
-          qwq-32b|string: "0,003361\_$"
-        sync:
-          aliceai-llm|number: 0.0041
-          aliceai-llm|string: "0,0041\_$"
-          deepseek-3:
-            2|string: "0,0041\_$"
-          gemma-3-27b-it|string: "0,0033\_$"
-          gpt-oss-120b|string: "0,002459\_$"
-          gpt-oss-20b|string: "0,000820\_$"
-          qwen3-235b-a22b-fp8|number: 0.0041
-          qwen3-235b-a22b-fp8|string: "0,0041\_$"
-          speech-realtime|string: "0,0066\_$"
-          yandexgpt-5-lite|string: "0,001639\_$"
-          yandexgpt-5-pro|string: "0,0098\_$"
-          yandexgpt-5:
-            1-pro|number: 0.0066
-            1-pro|string: "0,0066\_$"
-      output_tokens:
-        async:
-          aliceai-llm|string: "0,0084\_$"
-          yandexgpt-5-lite|string: "0,000820\_$"
-          yandexgpt-5-pro|string: "0,0050\_$"
-          yandexgpt-5:
-            1-pro|string: "0,003361\_$"
-        batch:
-          deepseek-r1-distill-llama-70b|string: "0,0050\_$"
-          deepseek-r1-distill-qwen-32b|string: "0,003361\_$"
-          deepseek-vl2-tiny|string: "0,000820\_$"
-          deepseek-vl2|string: "0,003361\_$"
-          gemma-3-12b-it|string: "0,001639\_$"
-          gemma-3-1b-it|string: "0,000820\_$"
-          gemma-3-27b-it|string: "0,003361\_$"
-          gemma-3-4b-it|string: "0,000820\_$"
-          llama3:
-            1-70b-instruct|string: "0,0050\_$"
-            3-70b-instruct|string: "0,0050\_$"
-          phi-4|string: "0,001639\_$"
-          qwen2-vl-7b-instruct|string: "0,000820\_$"
-          qwen2:
-            5-32b-instruct|string: "0,003361\_$"
-            5-72b-instruct|string: "0,0050\_$"
-            5-7b-instruct|string: "0,000820\_$"
-            5-vl-32b-instruct|string: "0,003361\_$"
-            5-vl-7b-instruct|string: "0,000820\_$"
-          qwen3-0:
-            6b|string: "0,000820\_$"
-          qwen3-1:
-            7b|string: "0,000820\_$"
-          qwen3-14b|string: "0,001639\_$"
-          qwen3-235b-a22b|string: "0,05\_$"
-          qwen3-30b-a3b|string: "0,003361\_$"
-          qwen3-32b|string: "0,003361\_$"
-          qwen3-4b|string: "0,000820\_$"
-          qwen3-8b|string: "0,000820\_$"
-          qwq-32b|string: "0,003361\_$"
-        sync:
-          aliceai-llm|number: 0.0098
-          aliceai-llm|string: "0,0098\_$"
-          deepseek-3:
-            2|string: "0,0066\_$"
-          gemma-3-27b-it|string: "0,0033\_$"
-          gpt-oss-120b|string: "0,002459\_$"
-          gpt-oss-20b|string: "0,000820\_$"
-          qwen3-235b-a22b-fp8|number: 0.0041
-          qwen3-235b-a22b-fp8|string: "0,0041\_$"
-          speech-realtime|string: "0,0066\_$"
-          yandexgpt-5-lite|string: "0,001639\_$"
-          yandexgpt-5-pro|string: "0,0098\_$"
-          yandexgpt-5:
-            1-pro|number: 0.0066
-            1-pro|string: "0,0066\_$"
-      tool_tokens:
-        sync:
-          aliceai-llm|string: "0,001066\_$"
-          deepseek-3:
-            2|string: "0,001066\_$"
-          gemma-3-27b-it|string: "0,0033\_$"
-          gpt-oss-120b|string: "0,002459\_$"
-          gpt-oss-20b|string: "0,000820\_$"
-          qwen3-235b-a22b-fp8|string: "0,0041\_$"
-          speech-realtime|string: "0,001639\_$"
-          yandexgpt-5-lite|string: "0,001639\_$"
-          yandexgpt-5-pro|string: "0,0098\_$"
-          yandexgpt-5:
-            1-pro|string: "0,001639\_$"
-    tool:
-      filesearch|number: 0.002459
-      mcp|string: Не тарифицируется
   sku|USD|alb:
     balancer:
       active|number: 0.02
@@ -3277,25 +3101,6 @@ default:
           v1|pricingRate:
             1|number: 0.29
             1|string: "0,29\_$"
-  sku|USD|foundation_models:
-    image_generation:
-      v1|string: "0,0183\_$"
-    inference:
-      v1|string: "0,0083\_$"
-    realtime_audio:
-      input:
-        v1|number: 0.000217
-        v1|string: "0,000217\_$"
-      output:
-        v1|number: 0.000167
-        v1|string: "0,000167\_$"
-    text_classification:
-      v1|string: "0,001250\_$"
-    text_embedding:
-      v1|number: 0.000083
-      v1|string: "0,000083\_$"
-    text_generation:
-      v1|number: 0
   sku|USD|gitlab:
     backup|month|number: 0.0173
     backup|month|string: "0,0173\_$"
@@ -3488,25 +3293,6 @@ default:
           2|string: "0,66\_$"
           50|number: 0.49
           50|string: "0,49\_$"
-  sku|USD|searchapi:
-    generative:
-      requests:
-        v3|number: 0.0417
-    requests:
-      async:
-        v3|number: 0.25
-        v3|string: "0,25\_$"
-      image:
-        sync:
-          v3|string: "7,50\_$"
-      night:
-        async:
-          v3|string: "0,21\_$"
-        sync:
-          v3|string: "3,00\_$"
-      sync:
-        v3|number: 4
-        v3|string: "4,00\_$"
   sku|USD|security_deck:
     access_transparency:
       subscription:
@@ -3563,43 +3349,6 @@ default:
         vcpu:
           v2|number: 0.0129
           v2|string: "0,0129\_$"
-  sku|USD|speechkit:
-    stt_long_running_deferred:
-      v1|number: 0.000021
-      v1|string: "0,000021\_$"
-    stt_long_running:
-      v1|number: 0.000083
-      v1|string: "0,000083\_$"
-    stt:
-      v1|number: 0.001333
-      v1|string: "0,001333\_$"
-    tts_gpu:
-      v1|number: 11
-      v1|string: "11,00\_$"
-    tts_hosting:
-      brand_voice_lite:
-        v1|pricingRate:
-          1|string: "750,00\_$"
-          2|string: "666,66\_$"
-          3|string: "583,33\_$"
-          4|string: "500,00\_$"
-          5|string: "416,66\_$"
-        v1|string: "833,33\_$"
-      full_brand_voice:
-        v1|string: Не тарифицируется
-    tts_training:
-      brand_voice_lite:
-        v1|string: "75,00\_$"
-    tts:
-      v3_bvcc_request:
-        v1|string: "0,001333\_$"
-      v3_bvlite_request:
-        v1|string: "0,001333\_$"
-      v3_bvprem_request:
-        v1|string: "0,001333\_$"
-      v3_request:
-        v1|number: 0.001333
-        v1|string: "0,001333\_$"
   sku|USD|speechsense:
     analysis:
       assistant:
@@ -3708,24 +3457,6 @@ default:
       vod:
         v1|number: 0.009
         v1|string: "0,0090\_$"
-  sku|USD|vision_ocr:
-    driver_license_text_detection:
-      v1|string: "0,0058\_$"
-    handwriting_and_printed_text_detection:
-      v1|string: "0,0125\_$"
-    license_plates:
-      v1|string: "0,001083\_$"
-    passport_text_detection:
-      v1|string: "0,0058\_$"
-    printed_text_detection:
-      v1|string: "0,001083\_$"
-    text_and_table_text_detection:
-      v1|string: "0,01\_$"
-    vehicle_certificate_text_detection:
-      v1|string: "0,0058\_$"
-  sku|USD|yandexaistudio:
-    requests:
-      agent|string: "7,50\_$"
   sku|USD|ydb:
     v1:
       serverless:
@@ -4043,7 +3774,6 @@ default:
             button_create-periodic-export: Регулярный экспорт
             button_download-csv: Выгрузить в CSV
             button_export: Экспорт детализации
-            button_move-to-datalens: Подробная детализация в DataLens
             column_cloud-name: Облако
             column_cost: Стоимость потребления
             column_credit: Скидка
@@ -6050,7 +5780,9 @@ default:
       cloud-registry:
         action_registry-create: Создать реестр
         registries:
+          button_update-ip-permissions-full: Настроить доступ
           registry-kind_docker: Docker
+        title_ip-permissions: Доступ для IP-адресов
         title_registries: Реестры
       cloud-shell:
         label_service: Cloud Shell
@@ -6298,9 +6030,6 @@ default:
           button_internal-address-reserve: Зарезервировать
           field_internal-ipv4-address: Внутренний IPv4 адрес
           label_internal-address-title: IP-адрес
-        ip-address-form:
-          label_button-save: Сохранить
-          label_field-search-type: Тип поиска
         key-values-input:
           label_key: Ключ
           label_value: Значение
@@ -6363,9 +6092,6 @@ default:
           button_action-delete-cloud_3simi: Удалить облако
         FolderActions:
           button_action-delete-folder_mu24C: Удалить каталог
-        JsonSchemaField:
-          mode_json-schema_5eGi4: JSON-схема
-          mode_wysiwyg_v3RqJ: Форма
       compute:
         attach-disk:
           button_attach: Подключить
@@ -6751,8 +6477,6 @@ default:
       dashboard:
         dashboard_j9z5M: Дашборд
         DashboardPage:
-          AiStudioSection:
-            section_title_1sDGx: AI Studio
           CloudInfoDialog:
             title_cloud-info-dialog_ddcbY: Информация об облаке
           CloudInfoTooltip:
@@ -6880,17 +6604,6 @@ default:
           field_spark-job-type: Spark
           label_job-logs: Логи выполнения задания
         switch_operations: Операции
-      dataset:
-        create: Создать датасет
-        dataset: Датасет
-        datasets: Датасеты
-        select-from-created: Выбрать из существующих
-        text-classification-multiclass-key-value: Многоклассовая классификация
-        text-classification-multiclass:
-          short-title: Многоклассовая
-        text-classification-multilabel-key-value: Классификация c несколькими метками
-        text-classification-multilabel:
-          short-title: C несколькими метками
       dns:
         button_add-record: Добавить запись
         button_record-set-create: Создать запись
@@ -7269,14 +6982,12 @@ default:
             label_postbox: Cloud Postbox
             label_products: Все сервисы
             label_schema-registry: Schema Registry
-            label_search-api: Yandex Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
             label_serverless-integrations: Serverless Integrations
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_smartwebsecurity: Smart Web Security
-            label_speechkit: SpeechKit
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
@@ -8257,19 +7968,6 @@ default:
         SchemaRegistry:
           Namespaces:
             label_create-namespace-action_kTxW4: Создать пространство имён
-      search-api:
-        overview:
-          label_button-edit: Редактировать
-        test-query:
-          label_button-run-test: Запустить тест
-          label_field-body: Тело запроса
-          label_field-method: Метод запроса
-          label_field-query: Текст поискового запроса
-          label_search_type-international: Международный
-          label_search_type-russian: Русский
-          label_search_type-turkish: Турецкий
-          label_section-url: Поисковый запрос
-          label_title: Тестирование запросов
       serverless-containers:
         button_create-container: Создать контейнер
         button_deploy-revision: Создать ревизию
@@ -8704,52 +8402,6 @@ default:
         label_metastore: Metastore-сервер
         section_driver: Конфигурация драйвера
         section_executor: Конфигурация исполнителя
-      speechkit-common:
-        brand-voice_51nd8: Brand Voice Lite
-        brand-voice_button_activate_47zAB: Активировать
-        brand-voice_create-dataset_option_title_record-audio_jvUMz: Записать аудиофайлы
-        brand-voice_create-dataset_option_title_upload-audio_4D15S: Добавить аудиофайлы
-        brand-voice_create-dataset_option_title_upload-zip_nFtBR: Загрузить ZIP-архив
-        brand-voice_section_title_voice-usage_15pws: Использование голоса
-        button_create-dataset_nLanW: Создать датасет
-        button_create-voice_nkMBz: Создать голос
-      speechkit:
-        help-speech-synthesis:
-          context_pauses-title: Паузы
-          context_phonemes-title: Фонемы
-          context_word-stress-title: Ударение
-          context_word-title: Акцент на слове
-        label_playground: SpeechKit Playground
-        speech-synthesis:
-          field_audio: Формат аудио
-          field_language: Язык
-          field_pitch-shift: Высота голоса
-          field_role: Амплуа
-          field_speed: Скорость речи
-          field_voice: Голос
-          label_button_playback: Синтезировать и воспроизвести
-          label_synthesis-settings: Настройки синтеза
-        speech-to-text-v2:
-          label_button_start-recognition: Распознать
-          recognition-params-section_title_1EDuy: Параметры распознавания
-        speech-to-text:
-          field_language: Язык
-          field_literature-text: Литературный текст
-          field_profanity-filter: Фильтрация обсценной лексики
-          field_text-normalization: Нормализация текста
-          label_language-auto: Автоматически
-        SpeechToTextFormV2:
-          ClassificationField:
-            classification-label_6C7VV: Классификаторы
-          InstructionField:
-            label_htJqL: Инструкция
-            type-select-label_cLWcs: Формат результата
-          SpeakerLabelingForm:
-            field_speaker-grouping_2eSt9: Группировка фраз дикторов
-            field_speaker-splitting_dqi2d: Определение дикторов
-          SummarizationField:
-            add-instruction-button_kdko4: Добавить инструкцию
-            summarization-label_rm8oc: Обработка результатов
       spqr:
         console_password: Пароль для консоли Sharded PostgreSQL
         section_coordinator: Координатор
@@ -8961,17 +8613,6 @@ default:
         rbac-catalog-match-by-name-regexp: Имя (регулярное выражение)
         section_rbac: Настройки доступа
         title_catalogs: Каталоги
-      tuning:
-        addition-params: Дополнительные параметры
-        classification: Классификация
-        classification-task: Тип классификации
-        embedding: Эмбеддинг
-        embedding-type: Тип эмбеддингов
-        generation: Генерация
-        start-tuning: Начать дообучение
-        task: Задача
-        train-model: Дообучить модель
-        tunings: Дообучение моделей
       ui:
         metadata-hub:
           data-catalog:
@@ -9155,27 +8796,6 @@ default:
         switch_route-tables: Таблицы маршрутизации
         title_network-map-page: Карта облачной сети
       yagpt:
-        aspect-ratio-key-value: Соотношение сторон
-        experiments-page-subtitle: Эксперименты
-        file-search: Поиск по файлам
-        foundation-models:
-          playground:
-            text-generation:
-              title: Генерация текста
-        instruction: Инструкция
-        label_seed: Зерно
-        label_temperature-text: Температура
-        model: Модель
-        model-using: Использование модели
-        playground: AI Playground
-        settings: Настройки
-        speechkit:
-          services:
-            speech-synthesys:
-              title: Синтез речи
-            stt:
-              title: Распознавание речи
-        use-context: Использовать контекст
         YaGPT:
           agent_instruction_9oe6q: Инструкция
           AgentForm:
@@ -9191,79 +8811,27 @@ default:
           ConnectMcpTools:
             add-mcp-tool_dyEgv: Добавить инструменты
           create-agent_1txyW: Создать агента
-          create-instance_3Ltog: Развернуть инстанс
-          CreateExperiment:
-            foundation-models_playground_image-generation_title_rZxwV: Генерация изображений
-            foundation-models_playground_text-generation_title_xpmcC: Генерация текста
-            foundation-models_playground_text-generation-with-context_title_uYBhM: Генерация текста с учетом контекста
           CreateMcpServerForm:
             access-type_aPzxZ: Доступ
             access-type_private_b4gkg: Приватный
-            access-type_public_inkAF: Публичный
             form-view_connect_bS8yQ: Подключить
-            form-view_create_8RLHn: Создать
-            newtwork_enable_ndkhL: Указать сеть
             service-account_h3ujf: Сервисный аккаунт
             tools_gkQfS: Инструменты
             type_dZSaw: Способ добавления
-          FunctionCallToolCard:
-            function-tool_vSycC: Cloud Functions
-          FunctionCallToolForm:
-            function_nqzGL: Функция
-            instruct-for-agent_qcH1R: Инструкция для агента
-            tool-name_wys4v: Имя инструмента
-          HttpCallTool:
-            http-tool_7afuQ: HTTPS-запрос
-          HttpCallToolCallParams:
-            http-call-tool-call-params_body_pbgxV: Тело запроса
-            http-call-tool-call-params_headers_8ziH9: Заголовки запроса
-            http-call-tool-call-params_query_aWDHd: Query-параметры
-            http-call-tool-call-params_tBsF4: Параметры HTTPS-метода
-          HttpCallToolForm:
-            auth-type_service-account_wB63B: Сервисный аккаунт
-            auth-type_use-authorization-header_io1Qx: Токен доступа
-            extra_3crF8: Дополнительные параметры
-            instruct-for-agent_gXCHg: Инструкция для агента
-            method_delete_dzg1G: DELETE
-            method_get_rrb42: GET
-            method_head_1gdE5: HEAD
-            method_options_oi6ea: OPTIONS
-            method_patch_qxnSP: PATCH
-            method_post_omtdL: POST
-            method_wzMu6: Метод
-            tool-name_1jNyn: Имя инструмента
-            url_w32Uc: URL
-          instances-title_j9Cpb: Инстансы
           mcp-servers-list-title_snWTf: MCP-серверы
           mcp-tool_all-tools_gZA6P: Поведение по умолчанию для всех инструментов
           mcp-tool_require-approval-policy_never_qPvRW: Подтверждение не нужно
           McpCallToolForm:
             add_47STV: Добавить
-            add-header_bbBV5: Добавить заголовок
             add-tools_ih6PU: Добавление инструментов
-            auth-header_h6kre: Заголовок авторизации
             connect_xY9Zw: Подключиться
-            headers_wBENR: Заголовки
             mcp-authorization_header_fdGKe: Токен доступа
-            mcp-authorization_no-authorization_iqvfQ: Без авторизации
             transport_q3nD6: Транспорт
-            transport_sse_55Cwp: HTTP with SSE
             transport_streamable_eV7Rb: Streamable HTTP
             url_bUhZ1: URL
           McpServersList:
             label_create-mcp-gateway_3o3Vu: Создать MCP-сервер
           name_hTzhB: Имя
-          navigation-group_agents_eDBFf: Agent Atelier
-          ToolParams:
-            tool-params_d87zq: Параметры инструмента
-          Tools:
-            add-tool_86ss3: Добавить инструмент
-          WorkflowCallToolCard:
-            workflow-tool_k663q: Workflows
-          WorkflowCallToolForm:
-            instruct-for-agent_3aVyw: Инструкция для агента
-            tool-name_1by52: Имя инструмента
-            workflow_oHNAL: Рабочий процесс
       ydb:
         browse:
           button_create: Создать

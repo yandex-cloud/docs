@@ -158,7 +158,7 @@ items:
         hidden: true
       - name: Configuring alerts and dashboards in {{ monitoring-name }}
         href: security/alerts-monitoring.md
-      - name: Uploading audit logs to MaxPatrol SIEM
+      - name: Exporting audit logs to MaxPatrol SIEM
         href: security/maxpatrol.md
       - name: Uploading audit logs to Splunk SIEM
         href: security/export-logs-to-splunk.md
@@ -757,7 +757,7 @@ items:
                 href: web/wordpress/terraform.md
           - name: Creating a WordPress website using {{ cloud-apps-name }}
             href: web/wordpress-cloudapp.md
-          - name: WordPress website on a {{ MY }} database
+          - name: WordPress website with a {{ MY }} database
             items:
               - name: Overview
                 href: web/wordpress-mysql/index.md
@@ -1086,7 +1086,7 @@ items:
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Migrating data to {{ mmg-name }}
         href: dataplatform/storedoc-data-migration.md
-      - name: Migrating {{ mmg-name }} cluster from 4.4 to 6.0
+      - name: Migrating {{ mmg-name }} cluster from version 4.4 to 6.0
         href: dataplatform/storedoc-versions.md
       - name: Sharding {{ SD }} collections
         href: dataplatform/storedoc-sharding.md
@@ -1189,7 +1189,7 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Migrating a database from {{ mpg-name }}
         href: dataplatform/outbound-replication.md
-      - name: Migrating a {{ mpg-name }} cluster to another version
+      - name: Migrating a {{ mpg-name }} cluster to a different version
         href: dataplatform/postgresql-versions.md
       - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
@@ -1240,7 +1240,7 @@ items:
           data-transfer-full-name }}
         href: dataplatform/opensearch-to-greenplum.md
       - name: >-
-          Creating an external table from an {{ objstorage-name }} bucket table
+          Creating an external table from a {{ objstorage-name }} bucket table
           using a configuration file
         href: dataplatform/mgp-config-server-for-s3.md
       - name: Getting data from external sources using named queries in {{ GP }}
@@ -1590,8 +1590,8 @@ items:
           speechkit-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
       - name: >-
-          Connecting to {{ ydb-short-name }} from a {{ sf-name }} function in
-          Python
+          Connecting to {{ ydb-short-name }} from a {{ sf-name }} Python
+          function
         href: serverless/connect-from-cf.md
       - name: >-
           Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
@@ -1728,17 +1728,9 @@ items:
       - name: Using {{ foundation-models-full-name }} generative models
         items:
           - name: >-
-              Implementing an AI assistant with search capabilities for PDF
-              files with complex formatting
-            hidden: true
-            href: ml-ai/pdf-searchindex-ai-assistant.md
-          - name: >-
               Integrating generative models into Visual Studio Code as a coding
               assistant
             href: ml-ai/ai-model-ide-integration.md
-          - name: Creating an AI assistant for Telegram
-            hidden: true
-            href: ml-ai/tg-bot-assistant.md
           - name: Integrating the AI data analyst with {{ data-catalog-name }}
             href: ml-ai/data-catalog-integration.md
 path: en/tutorials/toc.yaml

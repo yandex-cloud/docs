@@ -46,6 +46,13 @@ apiPlayground:
             **[ShardConfigSpec](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec)**
             New configuration for the specified shard.
           $ref: '#/definitions/ShardConfigSpec'
+        allowHostRecreation:
+          description: |-
+            **boolean**
+            Allows or denies re-creation of replicas during update of shard configuration. The option must be enabled for
+            configuration changes including disk type change.
+            NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost.
+          type: boolean
       additionalProperties: false
     definitions:
       AccessControlImprovements:
@@ -2676,7 +2683,8 @@ The maximum string length in characters is 63. Value must match the regular expr
         "diskSizeLimit": "string"
       }
     }
-  }
+  },
+  "allowHostRecreation": "boolean"
 }
 ```
 
@@ -2695,6 +2703,11 @@ The rest of the fields will be reset to the default. ||
 || configSpec | **[ShardConfigSpec](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec)**
 
 New configuration for the specified shard. ||
+|| allowHostRecreation | **boolean**
+
+Allows or denies re-creation of replicas during update of shard configuration. The option must be enabled for
+configuration changes including disk type change.
+NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
 |#
 
 ## ShardConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec}

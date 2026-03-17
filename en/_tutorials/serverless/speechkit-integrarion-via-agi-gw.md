@@ -5,7 +5,7 @@ With serverless technology, you can create your own integration with {{ yandex-c
 
 In this tutorial, you will create a custom setup with an [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [API gateway](../../api-gateway/concepts/index.md) with [HTTP integration](../../api-gateway/concepts/extensions/http.md). 
 
-The users' speech synthesis requests run through the API gateway that uses HTTP integration to call the [{{ speechkit-name }} API](../../speechkit/concepts/api.md) and retrieve the synthesized speech from {{ speechkit-name }}.
+The users' speech synthesis requests run through the API gateway that uses HTTP integration to call the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api) and retrieve the synthesized speech from {{ speechkit-name }}.
 
 To set up {{ speechkit-name }} speech synthesis using {{ api-gw-full-name }}:
 
@@ -27,12 +27,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The new infrastructure support cost includes:
 
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* Fee for using {{ speechkit-name }} (see [{{ speechkit-name }} pricing](../../speechkit/pricing.md)).
+* Fee for using {{ speechkit-name }} (see [{{ speechkit-name }} pricing]({{ link-docs-ai }}speechkit/pricing)).
 
 
 ## Create a service account {#create-service-account}
 
-[Create](../../iam/operations/sa/create.md) a service account named `speechkit-sa` with the `ai.speechkit-tts.user` [role](../../speechkit/security/index.md#ai-speechkit-tts-user) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are creating your infrastructure:
+[Create](../../iam/operations/sa/create.md) a service account named `speechkit-sa` with the `ai.speechkit-tts.user` [role]({{ link-docs-ai }}speechkit/security/index#ai-speechkit-tts-user) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are creating your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -171,7 +171,7 @@ curl --verbose \
 
 After you run the above command, the system will save the synthesized speech to the `audio.mp3` file in the current directory. You can listen to the output file in your browser, e.g., [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
 
-To learn more about the format of the text provided in the `-d` parameter, see [this {{ speechkit-full-name }} article](../../speechkit/tts/request.md).
+To learn more about the format of the text provided in the `-d` parameter, see [this {{ speechkit-full-name }} article]({{ link-docs-ai }}speechkit/tts/request).
 
 
 ## How to delete the resources you created {#clear-out}

@@ -23,6 +23,7 @@ data "yandex_cloud_desktops_desktop" "data_desktop_by_name" {
 
 - `desktop_group_id` (**Required**)(String). The id of the Desktop Group to which the Desktop belongs
 - `desktop_id` (*Read-Only*) (String). The id of the Desktop
+- `description` (*Read-Only*) (String). Description of the desktop.
 - `folder_id` (String). The folder containing the Desktop
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `members` [Block]. The list of members which can use the Desktop

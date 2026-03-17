@@ -1,0 +1,1 @@
+You do not have to use a service account when creating a VM using the [management console]({{ link-console-main }}). However, the user creating the VM must have the `backup.user` [role](../../backup/security/index.md#backup-user) or higher for the folder in which the VM is created.

@@ -369,7 +369,8 @@ Modifies the specified shard.
         "disk_size_limit": "google.protobuf.Int64Value"
       }
     }
-  }
+  },
+  "allow_host_recreation": "google.protobuf.BoolValue"
 }
 ```
 
@@ -393,6 +394,11 @@ Field mask that specifies which attributes of the ClickHouse shard should be upd
 || config_spec | **[ShardConfigSpec](#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec)**
 
 New configuration for the specified shard. ||
+|| allow_host_recreation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows or denies re-creation of replicas during update of shard configuration. The option must be enabled for
+configuration changes including disk type change.
+NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
 |#
 
 ## ShardConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ShardConfigSpec}

@@ -419,7 +419,8 @@ Updates the specified ClickHouse cluster.
     "string"
   ],
   "deletion_protection": "bool",
-  "network_id": "string"
+  "network_id": "string",
+  "allow_host_recreation": "google.protobuf.BoolValue"
 }
 ```
 
@@ -473,6 +474,11 @@ Deletion Protection inhibits deletion of the cluster ||
 ID of the network to move the cluster to.
 
 The maximum string length in characters is 50. ||
+|| allow_host_recreation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for
+configuration changes including disk type change.
+NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec}

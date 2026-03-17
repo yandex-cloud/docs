@@ -1,1 +1,0 @@
-Get an [API key](../../iam/concepts/authorization/api-key.md) for the [service account](../../iam/concepts/users/service-accounts.md) you are going to use to work with the [{{ realtime-api }}](../../ai-studio/concepts/agents/realtime.md#realtime-api). For more information, see [{#T}](../../ai-studio/operations/get-api-key.md).

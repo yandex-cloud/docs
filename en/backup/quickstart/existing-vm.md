@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `backup.editor` [role](../security/index.md#backup-editor) to it. 
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `backup.user` [role](../security/index.md#backup-user) or higher. 
 1. Link the new [service account](../../iam/concepts/users/service-accounts.md) to the VM you are connecting to {{ backup-name }}:
 
     {% include [connect-sa-to-vm-intro](../../_includes/connect-sa-to-vm-intro.md) %}

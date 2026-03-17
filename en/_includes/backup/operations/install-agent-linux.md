@@ -38,6 +38,6 @@
 
     {% note info %}
 
-    If you get the `Failed to parse cloudbackup from instance attributes IAM token and instance registration id are empty, unable to provide authorization` error, make sure the VM has a service account with the `backup.editor` [role](../../../backup/security/index.md#backup-editor) [assigned](../../../backup/operations/connect-vm-linux.md#connect-sa-to-vm).
+    If you get the `Failed to parse cloudbackup from instance attributes IAM token and instance registration id are empty, unable to provide authorization` error, make sure the VM has a service account with the `backup.user` [role](../../../backup/security/index.md#backup-user) or higher [assigned](../../../backup/operations/connect-vm-linux.md#connect-sa-to-vm).
 
     {% endnote %}

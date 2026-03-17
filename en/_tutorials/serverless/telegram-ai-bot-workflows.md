@@ -1,7 +1,7 @@
 # How to create a Telegram bot with AI agent support using {{ sw-full-name }}
 
 
-With serverless technologies, you can create a Telegram bot with [text generation model](../../ai-studio/concepts/generation/models.md) support based on [{{ foundation-models-full-name }}](../../ai-studio/).
+With serverless technologies, you can create a Telegram bot with [text generation model]({{ link-docs-ai }}ai-studio/concepts/generation/models) support based on [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/).
 
 In this tutorial, you will create a bot which provides movie recommendations based on user preferences. To do this, you will implement data storage in [{{ objstorage-full-name }}](../../storage/) and [{{ lockbox-full-name }}](../../lockbox/), configure bot logic in [{{ sw-full-name }}](../../serverless-integrations/) and set up a webhook using [{{ api-gw-full-name }}](../../api-gateway/).
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of Telegram bot support includes:
 
-* Text generation fee (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
+* Text generation fee (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
@@ -76,7 +76,7 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the token for acces
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI create secret command:
+  1. View the description of the CLI command for creating a secret:
 
       ```bash
       yc lockbox secret create --help
@@ -132,7 +132,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Enter the bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+  1. Enter a name for the bucket following the [naming conventions](../../storage/concepts/bucket.md#naming).
   1. Specify the maximum bucket size: `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -155,7 +155,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
       Where:
 
-      * `--name`: Bucket name consistent with the following [naming conventions](../../storage/concepts/bucket.md#naming).
+      * `--name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
       * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md).
       * `--max-size`: Maximum bucket size, in bytes.
 
@@ -189,7 +189,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
   Where:
 
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-  * `--bucket`: Bucket name consistent with the following [naming conventions](../../storage/concepts/bucket.md#naming).
+  * `--bucket`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
 
 - API {#api}
 
@@ -230,7 +230,7 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
       yc iam service-account create --help
       ```
 
-  1. Create service accounts:
+  1. Create these service accounts:
 
       ```bash
       yc iam service-account create --name sa-apigw
@@ -324,7 +324,7 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
 
 - API {#api}
 
-  Create service accounts:
+  Create these service accounts:
 
   * `sa-apigw` with the `serverless.workflows.executor` role.
   * `sa-workflows` with the following roles:
@@ -449,7 +449,7 @@ Where:
 * `<bucket_name>`: Name of the bucket you [created earlier](#create-bucket).
 * `<secret_ID>`: ID of the secret you [created earlier](#create-secret).
 
-This example uses the {{ gpt-pro }} text model (`name: yandexgpt`). You can use [another model](../../ai-studio/concepts/generation/models.md#generation) available in synchronous mode in {{ foundation-models-name }}.
+This example uses the {{ gpt-pro }} (`name: yandexgpt`) text model. You can use [another model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) available in synchronous mode in {{ foundation-models-name }}.
 
 
 ### Create a workflow {#create-workflow}

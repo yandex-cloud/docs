@@ -40,7 +40,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ datalens-full-name }}](../../datalens/index.yaml)                           | Data visualization and analytics | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ ml-platform-full-name }}](../../datasphere/index.yaml)                      | Full-cycle ML development service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md)           | Protection from DDoS attacks | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ foundation-models-full-name }}](../../ai-studio/index.yaml)         | Service providing large generative models for businesses | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/index)         | Service providing large generative models for businesses | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ iam-full-name }}](../../iam/index.yaml)                                     | Cloud resource access management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ iot-full-name }}](../../iot-core/index.yaml)                                | IoT service that provides two-way messaging between registries and devices over the MQTT protocol | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ kms-full-name }}](../../kms/index.yaml)                                     | Encryption key management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -70,17 +70,17 @@ There are different service packages available in different [regions](region.md)
 | [{{ objstorage-full-name }}](../../storage/index.yaml)                          | All-purpose scalable cloud-based object storage | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ yq-full-name }}](../../query/index.yaml)                                    | Service for running queries using the common SQL dialect | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml)                     | Cloud resource management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ search-api-full-name }}](../../search-api/index.yaml)                       | Search query service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/index.yaml)                       | Search query service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ sd-full-name }}](../../security-deck/index.yaml)                            | {{ preview-stage }} Cloud security management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ si-full-name }}](../../serverless-integrations/index.yaml)                  | {{ preview-stage }} Service for configuring and managing integrations using serverless technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml)                        | System user identification service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ sws-full-name }}](../../smartwebsecurity/index.yaml)                        | Service for protection against DDoS attacks and bots at the application level (L7) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml)              | Speech recognition and synthesis technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/index)              | Speech recognition and synthesis technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ speechsense-full-name }}](../../speechsense/index.yaml)                     | Speech analytics service for analyzing voice and text communication channels | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ translate-full-name }}](../../translate/index.yaml)                         | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ translate-full-name }}]({{ link-docs-ai }}translate/index)                         | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ vpc-full-name }}](../../vpc/index.yaml)                                     | Cloud network management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ vision-full-name }}](../../vision/index.yaml)                               | Computer vision service for image text and PDF recognition | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ vision-full-name }}]({{ link-docs-ai }}vision/index)                               | Computer vision service for image text and PDF recognition | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ websql-full-name }}](../../websql/index.yaml)                               | Service for connecting to managed database clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 
 ## How to enable services {#enable}

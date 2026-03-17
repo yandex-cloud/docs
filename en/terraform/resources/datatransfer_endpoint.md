@@ -122,7 +122,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -178,7 +177,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -240,7 +238,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -254,6 +251,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
         - `unescape_string_values` (Bool). Unescape string values
         - `data_schema` [Block]. Data parsing scheme
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
           - `fields` [Block]. Description of the data schema in the array of `fields` structure
             - `fields` [Block]. Description of the column schema in the array of `fields` structure
               - `key` (Bool). Mark field as Primary Key
@@ -268,6 +266,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
         - `unescape_string_values` (Bool). Unescape string values
         - `data_schema` [Block]. Data parsing scheme
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
           - `fields` [Block]. Description of the data schema in the array of `fields` structure
             - `fields` [Block]. Description of the column schema in the array of `fields` structure
               - `key` (Bool). Mark field as Primary Key
@@ -317,7 +316,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -389,7 +387,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -440,7 +437,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -487,7 +483,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -558,7 +553,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -604,7 +598,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -697,7 +690,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -772,6 +764,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
         - `unescape_string_values` (Bool). Unescape string values
         - `data_schema` [Block]. Data parsing scheme
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
           - `fields` [Block]. Description of the data schema in the array of `fields` structure
             - `fields` [Block]. Description of the column schema in the array of `fields` structure
               - `key` (Bool). Mark field as Primary Key
@@ -786,6 +779,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
         - `unescape_string_values` (Bool). Unescape string values
         - `data_schema` [Block]. Data parsing scheme
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
           - `fields` [Block]. Description of the data schema in the array of `fields` structure
             - `fields` [Block]. Description of the column schema in the array of `fields` structure
               - `key` (Bool). Mark field as Primary Key

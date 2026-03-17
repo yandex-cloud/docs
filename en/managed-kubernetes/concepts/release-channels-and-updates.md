@@ -68,22 +68,13 @@ For more information, see [Updating a cluster](../operations/update-kubernetes.m
 
 #### Node group {#node-group}
 
-You can update a {{ managed-k8s-name }} node group with additional resources allocated by creating nodes with a new configuration.
+The {{ k8s }} version is [updated](../operations/update-kubernetes.md#node-group-upgrade) on group nodes in line with the [deploy policy](./node-group/deploy-policy.md). This policy applies not only during {{ k8s }} version upgrades but also when [editing](../operations/node-group/node-group-update.md) node group settings.
 
-{% note warning %}
+The cluster's behavior will vary depending on how the policy is configured:
 
-For a successful update with additional resources, you should have enough [quotas](limits.md) to create one additional {{ managed-k8s-name }} node.
+{% include [deploy-policy-concept-behavior](../../_includes/managed-kubernetes/deploy-policy/concept-behavior.md) %}
 
-{% endnote %}
-
-The {{ managed-k8s-name }} node group update algorithm is as follows:
-1. An updated node is created with the configuration specified for the entire {{ managed-k8s-name }} node group.
-1. All the [pods](index.md#pod) are [evicted](node-group/node-drain.md) from one of the old {{ managed-k8s-name }} nodes based on the pre-defined `PodDisruptionBudgets` policy. Then the node is deleted.
-1. The process is repeated until all the {{ managed-k8s-name }} nodes in the group are updated.
-
-This ensures that the number of nodes in the group never falls below the number specified when creating a {{ managed-k8s-name }} node group.
-
-You can specify the maximum number of [VM instances](../../compute/concepts/vm.md) by which you can expand or reduce the size of the {{ managed-k8s-name }} group when updating it. For more information, see [Updating a node group](../operations/update-kubernetes.md#node-group-upgrade).
+For more information, see [{#T}](../operations/node-group/node-group-update.md#configure-deploy-policy).
 
 #### Certificates {#certificates}
 

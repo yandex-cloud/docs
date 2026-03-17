@@ -120,11 +120,11 @@ items:
         href: security/alerts-roles.md
   - name: Pricing policy
     href: pricing.md
-  - name: Rule Reference
+  - name: Rule reference
     items:
       - name: Overview
         href: rules-reference/index.md
-      - name: All Rules
+      - name: All rules
         href: rules-reference/all.md
       - name: CSPM
         href: rules-reference/cspm.md

@@ -32,7 +32,8 @@ To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a vari
 
    - Management console {#console}
 
-     1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the name of the {{ managed-k8s-name }} cluster.
 
      The unique ID of the {{ managed-k8s-name }} cluster will appear in the **{{ ui-key.yacloud.common.id }}** field.

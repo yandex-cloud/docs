@@ -351,6 +351,8 @@ items:
         items:
           - name: Node group autoscaling
             href: concepts/node-group/cluster-autoscaler.md
+          - name: Node group deploy policy
+            href: concepts/node-group/deploy-policy.md
           - name: Evicting pods from nodes
             href: concepts/node-group/node-drain.md
           - name: Dynamic resource allocation for a node

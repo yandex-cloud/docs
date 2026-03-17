@@ -21,9 +21,10 @@ data "yandex_cloud_desktops_image" "desktop_image_by_folder_and_name" {
 
 ## Arguments & Attributes Reference
 
+- `description` (*Read-Only*) (String). Description of the image.
 - `folder_id` (String). ID of the folder that the image belongs to.
 - `id` (String). ID of the image to get.
-- `labels` (*Read-Only*) (Map Of String). Description of the image.
+- `labels` (*Read-Only*) (Map Of String). Labels of the image.
 - `name` (String). Name of the image.
 
 

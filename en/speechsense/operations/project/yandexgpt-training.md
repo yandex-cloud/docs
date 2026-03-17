@@ -5,7 +5,7 @@ description: Follow this guide to enable or disable {{ yagpt-name }} training fo
 
 # {{ yagpt-name }} training
 
-[{{ yagpt-name }}](../../../ai-studio/concepts/generation/models.md) is used in {{ speechsense-name }} [dialogs](../../concepts/dialogs.md) for data analysis. To increase the analysis quality, e.g., assign semantics tags or perform audio recognition, {{ yagpt-name }} models can be trained on your project data.
+[{{ yagpt-name }}]({{ link-docs-ai }}/ai-studio/concepts/generation/models) is used in {{ speechsense-name }} [dialogs](../../concepts/dialogs.md) for data analysis. To increase the analysis quality, e.g., assign semantics tags or perform audio recognition, {{ yagpt-name }} models can be trained on your project data.
 
 Starting September 1, 2025, {{ yagpt-name }} training is enabled by default in new projects. You can [disable](#disable-yandexgpt-training) it if you prefer to opt out. For projects created before September 1, 2025, you need to [enable](#enable-yandexgpt-training) {{ yagpt-name }} training manually.
 
@@ -17,7 +17,7 @@ To enable or disable {{ yagpt-name }} training, you need the `{{ roles-speechsen
 
 {% note warning %}
 
-By enabling [{{ yagpt-name }}](../../../ai-studio/concepts/generation/models.md) training for a project, you allow using your project’s data for model training. [Learn more about how we process data](https://yandex.com/legal/cloud_terms_speechsense/).
+By enabling [{{ yagpt-name }}]({{ link-docs-ai }}/ai-studio/concepts/generation/models) training for a project, you allow using your project’s data for model training. [Learn more about how we process data](https://yandex.com/legal/cloud_terms_speechsense/).
 
 {% endnote %}
 

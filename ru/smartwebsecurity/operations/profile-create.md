@@ -174,7 +174,7 @@ description: Следуя данной инструкции, вы сможете
       * `advanced_rate_limiter_profile_id` — идентификатор [ARL профиля безопасности](../concepts/arl.md). Необязательный параметр.
       * `security_rule` — описание [правила](../concepts/rules.md) безопасности:
          * `name` — имя правила безопасности.
-         * `priority` — [приоритет](../concepts/rules.md) правила. Возможные значения от 1 до 1000000.
+         * `priority` — [приоритет](../concepts/rules.md#rules-order) правила. Возможные значения — от 1 до 1000000.
          * `smart_protection` — описание [правила Smart Protection](../concepts/rules.md#smart-protection-rules), включенное для всего трафика, с указанным типом действия в параметре `mode`.
             * `mode` — [действие правила](../concepts/rules.md#rule-action). Возможные значения: `FULL` — полная защита (подозрительные запросы отправляются на капчу) или `API` — защита API (подозрительные запросы блокируются).
          * `waf` — описание правила Web Application Firewall. Чтобы добавить правило WAF, сначала надо [создать профиль WAF](waf-profile-create.md). Необязательный блок параметров, содержит:
