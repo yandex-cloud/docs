@@ -95,6 +95,13 @@ apiPlayground:
             ID of the network to move the cluster to.
             The maximum string length in characters is 50.
           type: string
+        allowHostRecreation:
+          description: |-
+            **boolean**
+            Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for
+            configuration changes including disk type change.
+            NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost.
+          type: boolean
       additionalProperties: false
     definitions:
       AccessControlImprovements:
@@ -2983,7 +2990,8 @@ The maximum string length in characters is 50. ||
     "string"
   ],
   "deletionProtection": "boolean",
-  "networkId": "string"
+  "networkId": "string",
+  "allowHostRecreation": "boolean"
 }
 ```
 
@@ -3038,6 +3046,11 @@ Deletion Protection inhibits deletion of the cluster ||
 ID of the network to move the cluster to.
 
 The maximum string length in characters is 50. ||
+|| allowHostRecreation | **boolean**
+
+Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for
+configuration changes including disk type change.
+NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec}

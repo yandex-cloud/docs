@@ -1642,13 +1642,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag value.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -2306,13 +2306,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -2944,13 +2944,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.

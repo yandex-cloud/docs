@@ -25,7 +25,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Select the {{ managed-k8s-name }} cluster to create a node group for.
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
      1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -137,7 +137,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
      1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-        For more on how to create this file, see [{#T}](node-group-create.md).
+        For more on how to create such a file, see [{#T}](node-group-create.md).
      1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
         ```hcl
@@ -177,7 +177,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the {{ managed-k8s-name }} cluster.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Select the {{ managed-k8s-name }} cluster where you created the node group.
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
      1. Open the page of one of the {{ managed-k8s-name }} nodes and navigate to the **{{ ui-key.yacloud.k8s.node.overview.label_labels }}** tab. The tab lists the system and user {{ k8s }} node labels.
@@ -264,7 +264,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
 
   1. In the node group description, add the `node_labels` section:
 
@@ -337,7 +337,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the {{ k8s }} labels you no longer need from `node_labels`.
 

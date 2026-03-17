@@ -1,0 +1,1 @@
+To create a new VM with a {{ backup-name }} connection, your account must have the `backup.user` [role](../../backup/security/index.md#backup-user) or higher for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are creating the VM in.

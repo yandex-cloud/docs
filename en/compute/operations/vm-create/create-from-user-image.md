@@ -52,6 +52,7 @@ Make sure the image you upload has the `READY` status.
   1. {% include [section-platform](../../../_includes/compute/create/section-platform.md) %}
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
+  1. {% include [section-backup](../../../_includes/compute/create/section-backup.md) %} 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for the VM:
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -120,7 +121,7 @@ Make sure the image you upload has the `READY` status.
       ```
 
       Where:
-      * `--name`: VM name. Follow these naming requirements:
+      * `--name`: VM name. The naming requirements are as follows:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -134,7 +135,7 @@ Make sure the image you upload has the `READY` status.
           {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
       * `--create-boot-disk`: VM boot disk settings:
-          * `name`: Boot disk name. Follow these naming requirements:
+          * `name`: Boot disk name. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -252,7 +253,7 @@ Make sure the image you upload has the `READY` status.
       Where:
 
       * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
-          * `name`: Disk name. Follow these naming requirements:
+          * `name`: Disk name. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -261,7 +262,7 @@ Make sure the image you upload has the `READY` status.
           * `size`: Disk size in GB.
           * `image_id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
       * `yandex_compute_instance`: VM description.
-          * `name`: VM name. Follow these naming requirements:
+          * `name`: VM name. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
 

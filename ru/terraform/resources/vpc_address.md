@@ -37,6 +37,28 @@ resource "yandex_vpc_address" "vpnaddr" {
   }
 }
 ```
+```terraform
+//
+// Create a new VPC internal IPv4 Address.
+// The address can be used in compute_instance, vpc_private_endpoint or lb_network_load_balancer resources.
+//
+resource "yandex_vpc_address" "internal_addr" {
+  name = "internalAddress"
+
+  internal_ipv4_address {
+    subnet_id = yandex_vpc_subnet.foo.id
+  }
+}
+
+// Auxiliary resources for VPC Address
+resource "yandex_vpc_network" "foo" {}
+
+resource "yandex_vpc_subnet" "foo" {
+  zone           = "ru-central1-a"
+  network_id     = yandex_vpc_network.foo.id
+  v4_cidr_blocks = ["10.5.0.0/24"]
+}
+```
 
 ## Arguments & Attributes Reference
 
@@ -81,6 +103,17 @@ Change any argument in `external_ipv4_address` will cause an address recreate.
   - `ddos_protection_provider` (String). Enable DDOS protection. Possible values are: `qrator`
   - `outgoing_smtp_capability` (String). Wanted outgoing smtp capability.
   - `zone_id` (String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
+- `internal_ipv4_address` [Block]. Specification of internal IPv4 address.
+
+{% note warning %}
+
+Change any argument in `internal_ipv4_address` will cause an address recreate.
+
+{% endnote %}
+
+
+  - `address` (*Read-Only*) (String). Allocated IP address.
+  - `subnet_id` (**Required**)(String). Subnet ID from which the address will be allocated.
 
 ## Import
 

@@ -36,7 +36,7 @@
   1. {% include [section-platform](create/section-platform.md) %}
   1. {% include [network-settings](create/section-network.md) %}
   1. {% include [section-access](create/section-access.md) %}
-
+  1. {% include [section-backup](create/section-backup.md) %} 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for the VM:
 
       {% include [name-format](../name-format.md) %}
@@ -80,7 +80,7 @@
 
       Where:
 
-      * `--name`: VM name. Follow these naming requirements:
+      * `--name`: VM name. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 

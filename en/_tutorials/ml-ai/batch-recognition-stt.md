@@ -1,7 +1,7 @@
 # Regular recognition of audio files from {{ objstorage-full-name }}
 
 
-The {{ speechkit-short-name }} [asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md) is integrated with {{ objstorage-full-name }}. Therefore, you can set up automatic recognition of audio files of [supported formats](../../speechkit/formats.md) that are regularly uploaded to an {{ objstorage-name }} bucket. A cloud function in {{ sf-full-name }} regularly checks the bucket for audio files and sends them to the {{ speechkit-short-name }} API for recognition. The recognition result and status are saved to the same {{ objstorage-name }} bucket.
+The {{ speechkit-short-name }} [asynchronous recognition API]({{ link-docs-ai }}speechkit/stt/api/transcribation-api) is integrated with {{ objstorage-full-name }}. Therefore, you can set up automatic recognition of audio files of [supported formats]({{ link-docs-ai }}speechkit/formats) that are regularly uploaded to an {{ objstorage-name }} bucket. A cloud function in {{ sf-full-name }} regularly checks the bucket for audio files and sends them to the {{ speechkit-short-name }} API for recognition. The recognition result and status are saved to the same {{ objstorage-name }} bucket.
 
 To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 
@@ -19,7 +19,7 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key to access the service account.
 1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-name }} bucket named `asr-batch-bucket` in the service account folder.
 1. Open `asr-batch-bucket`, click **{{ ui-key.yacloud.storage.bucket.button_create }}**, and specify `input` in the **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name}}** field.
-1. [Upload](../../storage/operations/objects/upload.md#simple) the `config.json` file with the specified [recognition language](../../speechkit/stt/models.md#languages) to the bucket's `input` folder. The file only contains one setting:
+1. [Upload](../../storage/operations/objects/upload.md#simple) the `config.json` file with the specified [recognition language]({{ link-docs-ai }}speechkit/stt/models#languages) to the bucket's `input` folder. The file only contains one setting:
 
    ```json
    {
@@ -86,10 +86,10 @@ The trigger you created will fire once a minute and invoke the [cloud function](
 ## Test the function {#check-function}
 
 1. In the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and open `asr-batch-bucket`.
-1. [Upload](../../storage/operations/objects/upload.md#simple) audio files of any [supported format](../../speechkit/formats.md) to the `input` folder.
+1. [Upload](../../storage/operations/objects/upload.md#simple) audio files of any [supported format]({{ link-docs-ai }}speechkit/formats) to the `input` folder.
 1. Wait a few minutes and make sure the bucket now contains the `log` and `out` folders.
 1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an auxiliary file named `<audio_file_name>.json` (e.g., `audio.mp3.json`). The `"done": "false"` parameter in the file indicates the recognition process is not completed.
-1. Check the recognition result in the `out` folder. The result is saved to a JSON file named `<audio_file_name>.json` (e.g., `audio.mp3.json`). To learn more about the recognition result format, see [Asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md#get-result-response).
+1. Check the recognition result in the `out` folder. The result is saved to a JSON file named `<audio_file_name>.json` (e.g., `audio.mp3.json`). To learn more about the recognition result format, see [Asynchronous recognition API]({{ link-docs-ai }}speechkit/stt/api/transcribation-api#get-result-response).
 
 {% note info %}
 
@@ -100,7 +100,8 @@ You can monitor the progress of the script in the [logs](../../functions/operati
 
 #### See also {#see-also}
 
-* [{#T}](../../speechkit/stt/api/transcribation-api.md)
-* [{#T}](../../speechkit/stt/api/transcribation-lpcm.md)
-* [{#T}](../../speechkit/stt/api/transcribation-ogg.md)
+
+* [Asynchronous recognition API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-api)
+* [Asynchronous recognition of LPCM audio files using the API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-lpcm)
+* [Asynchronous recognition of OggOpus audio files using the API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-ogg)
 

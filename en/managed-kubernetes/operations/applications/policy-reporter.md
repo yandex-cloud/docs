@@ -45,7 +45,8 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Policy reporter](/marketplace/products/yc/policy-reporter) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -60,7 +61,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
      * **Endpoint YDS**: Specify the {{ yds-name }} [stream](../../../data-streams/concepts/glossary.md#stream-concepts) endpoint.
      * **YDS stream name**: Specify the {{ yds-name }} stream name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -94,9 +95,9 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
    Command parameters:
 
-   * `ui.enabled`: Enabling the Policy Reporter UI, either `true` or `false`.
-   * `target.s3.enabled`: Exporting to {{ objstorage-name }}, either `true` or `false`.
-   * `target.kinesis.enabled`: Exporting to {{ yds-name }}, either `true` or `false`.
+   * `ui.enabled`: Enabling the Policy Reporter UI. The possible values are `true` or `false`.
+   * `target.s3.enabled`: Exporting to {{ objstorage-name }}. The possible values are `true` or `false`.
+   * `target.kinesis.enabled`: Exporting to {{ yds-name }}. The possible values are `true` or `false`.
 
    The `target.s3.bucket` and `serviceaccountawskeyvalue` parameters are only required if export to {{ objstorage-name }} is enabled (`target.s3.enabled=true`), while the `target.kinesis.endpoint` and `target.kinesis.streamName` parameters, if export to {{ yds-name }} is enabled (`target.kinesis.enabled=true`).
 

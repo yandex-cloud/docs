@@ -34,7 +34,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- |--- | --- | --- | ---
-`name`| `string` | No | `yagpt` | No | Model name. [List of available models](../../../../../ai-studio/concepts/generation/models.md#generation).
+`name`| `string` | No | `yagpt` | No | Model name. [List of available models]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
 ## KnowledgeSource object {#KnowledgeSource}
 
@@ -94,8 +94,8 @@ The `useServiceAccount` and `token` fields are mutually exclusive: you can use o
 || Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description ||
 || `endpoint`| `string` | Yes | No | No | MCP server URL. For example: `https://mcp.example.com/sse`. ||
 || `transport`| `string` | Yes | No | No | Transport mechanism type for interacting with the MCP server. Available types:
-* `STREAMABLE`: Your AI ​agent receives updates (events) from the server with no need for a persistent HTTP connection. Data exchange between the AI ​agent and the server is bidirectional.
-* `SSE`: Your AI ​agent receives updates from the server over a persistent HTTP connection. Data is only transmitted from the server to the AI ​agent.
+* `STREAMABLE`: Your AI ​agent receives updates (events) from the server with no need for a persistent HTTP connection. Data exchange between the AI agent and the server is bidirectional.
+* `SSE`: Your AI agent receives updates from the server over a persistent HTTP connection. Data is only transmitted from the server to the AI ​agent.
 * `UNSPECIFIED`: Transport mechanism type is not specified. ||
 || `useServiceAccount`| `bool` | No | No | No | If set to:
 * `true`: To authenticate with the MCP server, the agent will use the [IAM token](../../../../../iam/concepts/authorization/iam-token.md) of the [service account](../../../../../iam/concepts/users/service-accounts.md) associated with the workflow.

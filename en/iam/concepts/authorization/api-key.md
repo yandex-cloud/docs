@@ -33,23 +33,23 @@ Additionally, when creating an API key, you can limit its validity period. You c
 Available scopes are listed below:
 
 
-* `yc.ai.foundationModels.execute`: To send requests to [{{ assistant-api }}](../../../ai-studio/assistants/api-ref/index.md), [Image Generation API](../../../ai-studio/image-generation/api-ref/index.md), [Text Generation API](../../../ai-studio/text-generation/api-ref/index.md), [{{ speechkit-name }} API](../../../speechkit/concepts/api.md), [{{ translate-full-name }} API](../../../translate/concepts/api.md), and [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
-* `yc.ai.imageGeneration.execute`: To send requests to image generation models in {{ foundation-models-full-name }} via the [Image Generation API](../../../ai-studio/image-generation/api-ref/index.md).
-* `yc.ai.languageModels.execute`: To send requests to text generation models in {{ foundation-models-full-name }} via the [Text Generation API](../../../ai-studio/text-generation/api-ref/index.md).
-* `yc.ai.speechkitStt.execute`: To [recognize speech](../../../speechkit/stt/index.md) via the [{{ speechkit-name }} API](../../../speechkit/concepts/api.md).
-* `yc.ai.speechkitTts.execute`: To [synthesize speech](../../../speechkit/tts/index.md) via the [{{ speechkit-name }} API](../../../speechkit/concepts/api.md).
-* `yc.ai.translate.execute`: To translate text via the [{{ translate-full-name }} API](../../../translate/concepts/api.md).
-* `yc.ai.vision.execute`: To perform optical text recognition via the [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
+* `yc.ai.foundationModels.execute`: To send requests to [{{ assistant-api }}]({{ link-docs-ai }}ai-studio/assistants/api-ref/index), [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index), [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index), [{{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api) API, [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/api) API, and [{{ vision-name }} API]({{ link-docs-ai }}vision/ocr/api-ref/index).
+* `yc.ai.imageGeneration.execute`: To send requests to image generation models in {{ foundation-models-full-name }} via the [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index).
+* `yc.ai.languageModels.execute`: To send requests to text generation models in {{ foundation-models-full-name }} via the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
+* `yc.ai.speechkitStt.execute`: To [recognize speech]({{ link-docs-ai }}speechkit/stt/index) via the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api).
+* `yc.ai.speechkitTts.execute`: To [synthesize speech]({{ link-docs-ai }}speechkit/tts/index) via the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api).
+* `yc.ai.translate.execute`: To translate text via the [{{ translate-full-name }} API]({{ link-docs-ai }}translate/concepts/api).
+* `yc.ai.vision.execute`: To perform optical text recognition via the [{{ vision-name }} API]({{ link-docs-ai }}vision/ocr/api-ref/index).
 * `yc.datasphere.community-projects.manageResource`: To manage [project](../../../datasphere/concepts/project.md) resources via the [{{ ml-platform-full-name }} API](../../../datasphere/api-ref/overview.md).
 * `yc.logging.write`: To write logs to [log groups](../../../logging/concepts/log-group.md) via the [{{ cloud-logging-full-name }} API](../../../logging/api-ref/authentication.md).
 * `yc.managed-ytsaurus.cluster.use`: To work with [clusters](../../../managed-ytsaurus/concepts/component-types.md) via the [{{ myt-full-name }} API](../../../managed-ytsaurus/api-ref/authentication.md).
 * `yc.monitoring.manage`: To view and write data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
 * `yc.monitoring.read`: To view data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
 * `yc.postbox.send`: To send emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
-* `yc.search-api.execute`: To send search queries to [{{ search-api-name }}](../../../search-api/api-ref/index.md).
+* `yc.search-api.execute`: To send search queries to [{{ search-api-name }}]({{ link-docs-ai }}search-api/api-ref/index).
 * `yc.serverless.containers.invoke`: To invoke containers via the [{{ serverless-containers-short-name }} API](../../../serverless-containers/containers/api-ref/index.md).
 * `yc.serverless.functions.invoke`: To invoke functions via the [{{ sf-short-name }} API](../../../functions/functions/api-ref/index.md).
-* `yc.serverless.mcpGateways.invoke`: To invoke MCP servers via the [{{ mcp-hub-name }} {{ foundation-models-full-name }}](../../../ai-studio/concepts/mcp-hub/index.md).
+* `yc.serverless.mcpGateways.invoke`: To invoke MCP servers via the [{{ foundation-models-full-name }} {{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index).
 * `yc.speech-sense.use`: To work with {{ speechsense-name }} [resources](../../../speechsense/concepts/resources-hierarchy.md) via the [{{ speechsense-full-name }} API](../../../speechsense/api-ref/authentication.md).
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
@@ -74,12 +74,12 @@ The following services support authentication based on API keys:
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
 * [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
-* [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
+* [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/operations/auth)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)
-* [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
+* [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
 * [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
-* [{{ translate-full-name }}](../../../translate/api-ref/authentication.md)
-* [{{ vision-full-name }}](../../../vision/api-ref/authentication.md)
+* [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/authentication)
+* [{{ vision-full-name }}]({{ link-docs-ai }}vision/api-ref/authentication)
 * {{ yds-full-name }}: [Kafka API](../../../data-streams/kafkaapi/index.md).
 * {{ ydb-full-name }}: Only in {{ PG }}-compatible mode. Use a suitable [authentication method](../../../ydb/operations/connection.md#auth) for other modes.
 * [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md): Within [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).

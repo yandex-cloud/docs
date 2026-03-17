@@ -2,16 +2,26 @@ title: Архитектурные решения
 href: index.yaml
 noIndex: true
 items:
-  - name: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
-    href: fault-tolerance.md
-  - name: >-
-      Развертывание веб-приложения в отказоустойчивой конфигурации в {{
-      yandex-cloud }}
-    href: app-in-k8s.md
-  - name: Тестирование отказоустойчивости в {{ yandex-cloud }}
+  - name: Отказоустойчивость
+    expanded: true
     items:
-      - name: Тестирование инфраструктуры на основе {{ alb-name }}
-        href: testing-zone-failure-for-alb.md
-      - name: Тестирование инфраструктуры на основе {{ network-load-balancer-name }}
-        href: testing-zone-failure.md
+      - name: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
+        href: fault-tolerance.md
+      - name: >-
+          Развертывание веб-приложения в отказоустойчивой конфигурации в {{
+          yandex-cloud }}
+        href: app-in-k8s.md
+      - name: Тестирование отказоустойчивости в {{ yandex-cloud }}
+        items:
+          - name: Тестирование инфраструктуры на основе {{ alb-name }}
+            href: testing-zone-failure-for-alb.md
+          - name: >-
+              Тестирование инфраструктуры на основе {{
+              network-load-balancer-name }}
+            href: testing-zone-failure.md
+  - name: MLOps
+    expanded: true
+    items:
+      - name: Управление MLOps в {{ mgl-name }}
+        href: mlops-in-managed-gitlab.md
 path: ru/architecture/toc.yaml

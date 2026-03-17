@@ -42,9 +42,9 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Azure Synapse Analytics | [{{ mgp-full-name }}](../../managed-greenplum/) |
 | Azure Virtual Desktop | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
-| Cognitive Services: Language | [{{ translate-full-name }}](../../translate/) |
-| Cognitive Services: Speech | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
-| Cognitive Services: Vision | [{{ vision-full-name }}](../../vision/) |
+| Cognitive Services: Language | [{{ translate-full-name }}]({{ link-docs-ai }}translate/) |
+| Cognitive Services: Speech | [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/) |
+| Cognitive Services: Vision | [{{ vision-full-name }}]({{ link-docs-ai }}vision/) |
 | Communication Services | [{{ cns-full-name }}](../../notifications/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | ExpressRoute | [{{ interconnect-full-name }}](../../interconnect/) |

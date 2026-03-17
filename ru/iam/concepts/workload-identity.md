@@ -75,4 +75,5 @@ _Привязка_ — это связь, настроенная между фе
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/wlif-github-integration.md)
+* [{#T}](../tutorials/wlif-managed-k8s-integration.md)
 * [{#T}](../tutorials/wlif-k8s-integration.md)

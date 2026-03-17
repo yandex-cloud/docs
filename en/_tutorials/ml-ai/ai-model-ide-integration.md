@@ -10,14 +10,14 @@ The Roo Code extension is only available in Visual Studio Code.
 
 To use models as an assistant in the code editor:
 
-1. [Set up the infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Create an API key for the service account](#create-key).
 1. [Connect to the model](#connection).
 1. [Test the model](#test).
 
-The infrastructure support fee for connecting to the model from the code editor includes a text generation fee (see the [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
+The infrastructure support fee for connecting to the model from the code editor includes a text generation fee (see the [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 
-## Set up the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 ### Create a folder {#create-folder}
 
@@ -43,7 +43,7 @@ You will need this [service account](../../iam/concepts/users/service-accounts.m
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `ai-model-user`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` [role](../../ai-studio/security/index.md#languageModels-user) to the service account.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` [role]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) to the service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -59,7 +59,7 @@ To enable the code editor to access the model, create an API key.
   1. In the [management console]({{ link-console-main }}), navigate to `aistudio`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select `ai-model-user`.
+  1. In the list that opens, select the `ai-model-user` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select `yc.ai.languageModels.execute`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -89,7 +89,7 @@ To enable the code editor to access the model, create an API key.
      1. In the **Model** field, specify the model URI in `gpt://<folder_ID>/<model_ID>/latest` format, where:
 
          * `<folder_ID>`: `aistudio` [folder ID](../../resource-manager/operations/folder/get-id.md).
-         * `<model_ID>`: [Model ID](../../ai-studio/concepts/generation/models.md). For example: `qwen3-235b-a22b-fp8` or `gpt-oss-120b`.
+         * `<model_ID>`: [Model ID]({{ link-docs-ai }}ai-studio/concepts/generation/models), e.g., `qwen3-235b-a22b-fp8` or `gpt-oss-120b`.
 
          {% note info %}
 
@@ -108,7 +108,7 @@ To enable the code editor to access the model, create an API key.
      1. In the **Model** field, specify the model URI in `gpt://<folder_ID>/<model_ID>/latest` format, where:
 
          * `<folder_ID>`: `aistudio` [folder ID](../../resource-manager/operations/folder/get-id.md).
-         * `<model_ID>`: [Model ID](../../ai-studio/concepts/generation/models.md). For example: `qwen3-235b-a22b-fp8` or `gpt-oss-120b`.
+         * `<model_ID>`: [Model ID]({{ link-docs-ai }}ai-studio/concepts/generation/models), e.g., `qwen3-235b-a22b-fp8` or `gpt-oss-120b`.
      1. Click **Go!**.
 
      {% endcut %}

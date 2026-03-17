@@ -7,7 +7,7 @@ description: The {{ sd-full-name }} AI assistant is a source of recommendations 
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-The {{ sd-name }} AI assistant is a source of recommendations on how to set up your {{ yandex-cloud }} services for security and make sure your infrastructure complies with security requirements. The AI assistant is built around a fine-tuned {{ yagpt-name }} [model](../../ai-studio/concepts/generation/models.md) and draws information from the internal knowledge base and {{ yandex-cloud }} [documentation](../../index.yaml).
+The {{ sd-name }} AI assistant is a source of recommendations on how to set up your {{ yandex-cloud }} services for security and make sure your infrastructure complies with security requirements. The AI assistant is built around a fine-tuned {{ yagpt-name }} [model]({{ link-docs-ai }}ai-studio/concepts/generation/models) and draws information from the internal knowledge base and {{ yandex-cloud }} [documentation](../../index.yaml).
 
 ## Integration with alerts
 

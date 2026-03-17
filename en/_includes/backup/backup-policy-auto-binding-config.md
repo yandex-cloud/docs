@@ -24,7 +24,7 @@ resource "yandex_iam_service_account" "my_sa" {
 
 resource "yandex_resourcemanager_folder_iam_member" "my_binding" {
   folder_id = yandex_iam_service_account.my_sa.folder_id
-  role      = "backup.editor"
+  role      = "backup.user"
   member    = "serviceAccount:${yandex_iam_service_account.my_sa.id}"
 }
 

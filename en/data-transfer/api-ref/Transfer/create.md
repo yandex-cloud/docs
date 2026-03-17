@@ -59,6 +59,9 @@ apiPlayground:
           type: object
           additionalProperties:
             type: string
+        regularSnapshot:
+          description: '**[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)**'
+          $ref: '#/definitions/RegularSnapshot'
         transformation:
           description: '**[Transformation](#yandex.cloud.datatransfer.v1.Transformation)**'
           $ref: '#/definitions/Transformation'
@@ -94,6 +97,20 @@ apiPlayground:
               Number of workers in parallel replication.
             type: string
             format: int64
+          flavor:
+            description: |-
+              **enum** (Flavor)
+              - `SMALL`
+              - `MEDIUM`
+              - `LARGE`
+              - `TINY`
+            type: string
+            enum:
+              - FLAVOR_UNSPECIFIED
+              - SMALL
+              - MEDIUM
+              - LARGE
+              - TINY
           uploadShardParams:
             description: |-
               **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**
@@ -110,6 +127,119 @@ apiPlayground:
         oneOf:
           - required:
               - ycRuntime
+      IncrementalTable:
+        type: object
+        properties:
+          tableNamespace:
+            description: '**string**'
+            type: string
+          tableName:
+            description: '**string**'
+            type: string
+          cursorColumn:
+            description: '**string**'
+            type: string
+          initialState:
+            description: '**string**'
+            type: string
+      RetryConfig:
+        type: object
+        properties:
+          maxAttempts:
+            description: |-
+              **string** (int64)
+              Number of attempts to retry regular snapshot in case of failure. Applicable only
+              for cloud installation.
+            type: string
+            format: int64
+      RegularSnapshotSettings:
+        type: object
+        properties:
+          schedule:
+            description: |-
+              **enum** (RegularSnapshotScheduleInterval)
+              User predefined periods to schedule regular snapshots:
+              REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN,
+              REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR, etc.
+              only one of schedule or cron_expression should be set
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_30MIN`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_2HOUR`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_3HOUR`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_6HOUR`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_8HOUR`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_12HOUR`
+              - `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_DAY`
+            type: string
+            enum:
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_UNSPECIFIED
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_30MIN
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_2HOUR
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_3HOUR
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_6HOUR
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_8HOUR
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_12HOUR
+              - REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_DAY
+          tables:
+            description: |-
+              **[IncrementalTable](#yandex.cloud.datatransfer.v1.IncrementalTable)**
+              Incremental tables configuration for regular snapshot.
+              If not empty, each snapshot will copy only data changed since last snapshot
+              based on cursor column value.
+            type: array
+            items:
+              $ref: '#/definitions/IncrementalTable'
+          cronExpression:
+            description: |-
+              **string**
+              Use a cron expression to schedule transfer regular snapshots in UTC time.
+              The used cron expression format is 5 columns specifying the execution time
+              (minute, hour, day, month, day of the week),
+              they can contain a numeric list separated by commas, a range of numbers
+              separated by a hyphen, symbols * or /.
+              only one of schedule or cron_expression should be set
+            type: string
+          incrementDelaySeconds:
+            description: |-
+              **string** (int64)
+              Wait for transaction completion time, in seconds
+              Set load delay time to insure that current transactions on source are completed
+              and thus full data is visible for snapshot.
+              This may be useful if source cannot guarantee that cursor values grows
+              monotonically -
+              due to transaction race or well-known problem that serial id sequence does not
+              actually guarantee the order
+            type: string
+            format: int64
+          retryConfig:
+            description: |-
+              **[RetryConfig](#yandex.cloud.datatransfer.v1.RegularSnapshotSettings.RetryConfig)**
+              Regular snapshot retries, only for cloud installation
+            $ref: '#/definitions/RetryConfig'
+      RegularSnapshotDisabled:
+        type: object
+        properties: {}
+      RegularSnapshot:
+        type: object
+        properties:
+          settings:
+            description: |-
+              **[RegularSnapshotSettings](#yandex.cloud.datatransfer.v1.RegularSnapshotSettings)**
+              Includes only one of the fields `settings`, `disabled`.
+            $ref: '#/definitions/RegularSnapshotSettings'
+          disabled:
+            description: |-
+              **object**
+              Includes only one of the fields `settings`, `disabled`.
+            $ref: '#/definitions/RegularSnapshotDisabled'
+        oneOf:
+          - required:
+              - settings
+          - required:
+              - disabled
       TablesFilter:
         type: object
         properties:
@@ -462,6 +592,7 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
     // Includes only one of the fields `ycRuntime`
     "ycRuntime": {
       "jobCount": "string",
+      "flavor": "string",
       "uploadShardParams": {
         "jobCount": "string",
         "processCount": "string"
@@ -472,6 +603,27 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
   "type": "string",
   "name": "string",
   "labels": "object",
+  "regularSnapshot": {
+    // Includes only one of the fields `settings`, `disabled`
+    "settings": {
+      "schedule": "string",
+      "tables": [
+        {
+          "tableNamespace": "string",
+          "tableName": "string",
+          "cursorColumn": "string",
+          "initialState": "string"
+        }
+      ],
+      "cronExpression": "string",
+      "incrementDelaySeconds": "string",
+      "retryConfig": {
+        "maxAttempts": "string"
+      }
+    },
+    "disabled": "object"
+    // end of the list of possible fields
+  },
   "transformation": {
     "transformers": [
       {
@@ -622,6 +774,7 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
     // Includes only one of the fields `ycRuntime`
     "ycRuntime": {
       "jobCount": "string",
+      "flavor": "string",
       "uploadShardParams": {
         "jobCount": "string",
         "processCount": "string"
@@ -664,6 +817,7 @@ Transfer labels as `key:value` pairs.
 
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
+|| regularSnapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 || dataObjects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 || replicationRuntime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
@@ -687,6 +841,12 @@ YC Runtime parameters for the transfer
 || jobCount | **string** (int64)
 
 Number of workers in parallel replication. ||
+|| flavor | **enum** (Flavor)
+
+- `SMALL`
+- `MEDIUM`
+- `LARGE`
+- `TINY` ||
 || uploadShardParams | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**
 
 Parallel snapshot parameters ||
@@ -704,6 +864,87 @@ Number of workers. ||
 || processCount | **string** (int64)
 
 Number of threads. ||
+|#
+
+## RegularSnapshot {#yandex.cloud.datatransfer.v1.RegularSnapshot}
+
+#|
+||Field | Description ||
+|| settings | **[RegularSnapshotSettings](#yandex.cloud.datatransfer.v1.RegularSnapshotSettings)**
+
+Includes only one of the fields `settings`, `disabled`. ||
+|| disabled | **object**
+
+Includes only one of the fields `settings`, `disabled`. ||
+|#
+
+## RegularSnapshotSettings {#yandex.cloud.datatransfer.v1.RegularSnapshotSettings}
+
+Regular snapshot settings
+
+#|
+||Field | Description ||
+|| schedule | **enum** (RegularSnapshotScheduleInterval)
+
+User predefined periods to schedule regular snapshots:
+REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN,
+REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR, etc.
+only one of schedule or cron_expression should be set
+
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_30MIN`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_2HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_3HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_6HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_8HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_12HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_DAY` ||
+|| tables[] | **[IncrementalTable](#yandex.cloud.datatransfer.v1.IncrementalTable)**
+
+Incremental tables configuration for regular snapshot.
+If not empty, each snapshot will copy only data changed since last snapshot
+based on cursor column value. ||
+|| cronExpression | **string**
+
+Use a cron expression to schedule transfer regular snapshots in UTC time.
+The used cron expression format is 5 columns specifying the execution time
+(minute, hour, day, month, day of the week),
+they can contain a numeric list separated by commas, a range of numbers
+separated by a hyphen, symbols * or /.
+only one of schedule or cron_expression should be set ||
+|| incrementDelaySeconds | **string** (int64)
+
+Wait for transaction completion time, in seconds
+Set load delay time to insure that current transactions on source are completed
+and thus full data is visible for snapshot.
+This may be useful if source cannot guarantee that cursor values grows
+monotonically -
+due to transaction race or well-known problem that serial id sequence does not
+actually guarantee the order ||
+|| retryConfig | **[RetryConfig](#yandex.cloud.datatransfer.v1.RegularSnapshotSettings.RetryConfig)**
+
+Regular snapshot retries, only for cloud installation ||
+|#
+
+## IncrementalTable {#yandex.cloud.datatransfer.v1.IncrementalTable}
+
+#|
+||Field | Description ||
+|| tableNamespace | **string** ||
+|| tableName | **string** ||
+|| cursorColumn | **string** ||
+|| initialState | **string** ||
+|#
+
+## RetryConfig {#yandex.cloud.datatransfer.v1.RegularSnapshotSettings.RetryConfig}
+
+#|
+||Field | Description ||
+|| maxAttempts | **string** (int64)
+
+Number of attempts to retry regular snapshot in case of failure. Applicable only
+for cloud installation. ||
 |#
 
 ## Transformation {#yandex.cloud.datatransfer.v1.Transformation}

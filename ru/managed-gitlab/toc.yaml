@@ -71,6 +71,8 @@ items:
         href: tutorials/loadtesting-gitlab-ci.md
       - name: Интеграция с Argo CD
         href: tutorials/argo-cd.md
+      - name: Управление жизненным циклом MLOps с помощью ML Registry
+        href: tutorials/mlops-ml-registry.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

@@ -1,6 +1,6 @@
-# Recognizing text in image archives in {{ vision-full-name }}
+# Recognizing text in image archives using {{ vision-full-name }}
 
-Using [{{ vision-name }}](../../vision/) and [{{ objstorage-full-name }}](../../storage/), you can manage image text recognition and store both the source image archive and recognition results.
+Using [{{ vision-name }}]({{ link-docs-ai }}vision/) and [{{ objstorage-full-name }}](../../storage/), you can manage image text recognition and store both the source image archive and recognition results.
 
 To configure a text recognition infrastructure using {{ vision-name }} and automatically export the results to {{ objstorage-name }}:
 
@@ -23,8 +23,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure costs for image recognition and data storage include:
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for data storage in a [bucket](../../storage/operations/index.md) and data [operations](../../storage/concepts/bucket.md) (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing](../../vision/pricing.md)).
+* Fee for a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
 
 ## Create a bucket {#create-bucket}
 
@@ -37,7 +37,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
   1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you will perform the operations.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Enter a name for the bucket as per the [naming conventions](../../storage/concepts/bucket.md#naming).
+  1. Enter a name for the bucket following the [naming conventions](../../storage/concepts/bucket.md#naming).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -71,7 +71,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. Follow these naming requirements:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -149,7 +149,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       ```
 
       Where:
-      * `--role`: Role you want to assign.
+      * `--role`: Role to assign.
       * `--subject serviceAccount`: Service account ID.
   1. Create a [static access key](../../iam/concepts/authorization/access-key.md) for your service account:
 

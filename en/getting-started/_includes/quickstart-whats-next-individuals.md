@@ -84,13 +84,13 @@ Get started with {{ yandex-cloud }}:
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}](../../ai-studio/index.yaml):
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/index):
 
-  * [{{ gpt-lite }} and {{ gpt-pro }}](../../ai-studio/quickstart/yandexgpt.md).
+  * [{{ gpt-lite }} and {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt).
 
     Leverage {{ yagpt-name }} to generate text synchronously without additional context.
 
-  * [{{ yandexart-name }}](../../ai-studio/operations/generation/yandexart-request.md).
+  * [{{ yandexart-name }}]({{ link-docs-ai }}ai-studio/operations/generation/yandexart-request).
 
     Leverage {{ yandexart-name }} to generate images.
 
@@ -102,7 +102,7 @@ Get started with {{ yandex-cloud }}:
 
   Upload an audio recording or a chat transcript, run speech recognition, and analyze the results. 
 
-* [{{ speechkit-full-name }}](../../speechkit/quickstart/index.md).
+* [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/quickstart/index).
 
   Explore the speech recognition and synthesis capabilities in {{ speechkit-name }}.
 

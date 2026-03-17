@@ -20,7 +20,7 @@ Thumbor features:
 
 1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 1. [Upload images to the bucket](../../../storage/operations/objects/upload.md#simple).
-1. [Create a service account](../../../iam/operations/sa/create.md) for Thumbor to run.
+1. [Create a service account](../../../iam/operations/sa/create.md) for Thumbor.
 1. Create a [static key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) and save it to a file named `sa-key.json`:
 
    ```bash
@@ -37,7 +37,8 @@ Thumbor features:
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ k8s }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Thumbor](/marketplace/products/yc/thumbor) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -115,7 +116,8 @@ Thumbor features:
 
 - Management console {#console}
 
-  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Get the IP address of the load balancer with the following description: `cluster <your_cluster_name>, service <namespace>/thumbor`.
   1. In the browser address bar, open `http://<load_balancer_IP_address>/unsafe/<image_name_in_bucket>`.
 

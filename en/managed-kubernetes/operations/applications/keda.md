@@ -22,7 +22,7 @@ KEDA application:
    yc iam service-account create --name keda-sa
    ```
 
-1. [Assign](../../../iam/operations/roles/grant.md) the `monitoring.viewer` role to the service account you created previously.
+1. [Assign](../../../iam/operations/roles/grant.md) the `monitoring.viewer` role to the service account you created earlier:
 
    ```bash
    yc resource-manager folder add-access-binding \
@@ -31,7 +31,7 @@ KEDA application:
      --role monitoring.viewer
    ```
 
-   You can fetch the folder ID with the [list of folders](../../../resource-manager/operations/folder/get-id.md).
+   You can get the folder ID with the [list of folders](../../../resource-manager/operations/folder/get-id.md).
 
 1. [Create an authorized key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account you created earlier and save it to a file named `authorized-key.json`:
 
@@ -49,16 +49,17 @@ KEDA application:
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [KEDA with {{ monitoring-full-name }} support](/marketplace/products/yc/keda) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), `keda-system`. If you keep the default namespace, KEDA may work incorrectly.
+   * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace) named `keda-system`. If you keep the default namespace, KEDA may work incorrectly.
    * **Application name**: Specify the application name.
    * **Service account key**: Copy the contents of the `authorized-key.json` file to this field.
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application status to change to `Deployed`.
+1. Wait for the application to change its status to `Deployed`.
 1. Create the `ScaledObject` resource with these resource autoscaling settings:
 
    ```yaml
@@ -77,12 +78,12 @@ KEDA application:
      - type: external
        metadata:
          scalerAddress: keda-external-scaler-yc.keda-system.svc.cluster.local:8080
-         query: <Yandex_Monitoring_metrics_request>
+         query: <Yandex_Monitoring_metric_request>
          folderId: "<folder_ID>"
          targetValue: "<target_metric_value>"
          downsampling.disabled: <enable_data_decimation_mode>
          downsampling.gridAggregation: "<data_aggregation_function>"
-         downsampling.gridInterval: "<decimation_time_window>"
+         downsampling.gridInterval: "<downsampling_time_window>"
          downsampling.maxPoints: <maximum_number_of_points>
          downsampling.gapFilling: <data_filling>
 
@@ -101,19 +102,19 @@ KEDA application:
    * `folderId`: [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the provider will run.
    * `targetValue`: Target metric value, exceeding which adds a pod for the replica.
 
-   Decimation (`downsampling`) parameters. For autoscaling to work, you need to select at least one of these parameters:
-   * `downsampling.gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The possible values are: `MAX`, `MIN`, `SUM`, `AVG`, `LAST`, `COUNT`. The default value is `AVG`.
+   Downsampling parameters. For autoscaling to work, you need to select at least one of these parameters:
+   * `downsampling.gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The possible values are `MAX`, `MIN`, `SUM`, `AVG`, `LAST`, or `COUNT`. The default value is `AVG`.
    * `downsampling.gapFilling`: Settings for filling in missing data:
-     * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value.
+     * `NULL`: Returns `null` as the metric value, and `timestamp` as the timestamp value.
      * `NONE`: Returns no values.
      * `PREVIOUS`: Returns the value from the previous data point.
-   * `downsampling.maxPoints`: Maximum number of points to receive in response to a request. The value of this parameter must be greater than `10`.
-   * `downsampling.gridInterval`: Time window (grid) width in milliseconds. It is used for decimating: Data points within this time window are merged into a single value using the selected aggregation function. The value of this parameter must be greater than `0`.
-   * `downsampling.disabled`: Disable data decimation. The possible values are: `true` or `false`.
+   * `downsampling.maxPoints`: Maximum number of points to receive in a request response. The value of this parameter must be greater than `10`.
+   * `downsampling.gridInterval`: Time window (grid) width in milliseconds. It is used for downsampling: points inside the window are merged into a single one using the aggregation function. The value of this parameter must be greater than `0`.
+   * `downsampling.disabled`: Disable data downsampling; The possible values are `true` or `false`.
 
      {% note info %}
 
-     Use only one of these parameters: `downsampling.maxPoints`, `downsampling.gridInterval`, or `downsampling.disabled`. For more information about decimation parameters, see the [API documentation](../../../monitoring/api-ref/MetricsData/read.md).
+     Use only one of these parameters: `downsampling.maxPoints`, `downsampling.gridInterval`, or `downsampling.disabled`. For more information about downsampling parameters, see [this API guide](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
 
@@ -122,15 +123,15 @@ KEDA application:
    * `timeWindowOffset`: Delay in calculating the function in the time window.
 
    Logging parameters:
-   * `logLevel`: Logging level. The possible values are: `debug`, `info`, `warn`, `error`, `none`. The default value is `info`.
-   * `logMetrics`: Enable {{ monitoring-name }} request logging: `true` or `false`. The default value is `false`.
-   * `logAggregation`: Enable data aggregation logging: `true` or `false`. The default value is `false`.
+   * `logLevel`: Logging level, The possible values are `debug`, `info`, `warn`, `error`, and `none`. The default value is `info`.
+   * `logMetrics`: Allow logging of {{ monitoring-name }} requests, `true` or `false`. The default value is `false`.
+   * `logAggregation`: Allow data aggregation logging, `true` or `false`. The default value is `false`.
 
    For more information on the `ScaledObject` resource parameters, see the [project's guide on Github](https://github.com/yandex-cloud/yc-keda-external-scaler).
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with KEDA, run this command:
 

@@ -1,0 +1,1 @@
+If you encounter difficulties getting or using a grant, [create a support ticket]({{ link-console-support }}).

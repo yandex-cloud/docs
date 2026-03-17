@@ -1,1 +1,0 @@
-The request character count includes spaces and special characters (HTML tags, escape characters, etc.). The cost of an empty request is equal to the cost of one character.

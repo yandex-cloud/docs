@@ -16,7 +16,7 @@ To set up integration with {{ data-catalog-name }} in {{ ai-studio-name }}:
 
 ### Required paid resources {#paid-resources}
 
-The integration infrastructure cost includes a fee for {{ agents-atelier-name }} based on the number of tokens in request and response (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)). You start paying for the agent as soon as you activate it.
+The integration infrastructure cost includes a fee for {{ agents-atelier-name }} based on the number of tokens in request and response (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). You start paying for the agent as soon as you activate it.
 
 
 ## Set up your infrastructure {#infra}
@@ -69,7 +69,7 @@ Create a resource folder to host your metadata catalog.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. Click **{{ ui-key.yacloud.data-catalog.label_create-catalog }}**.
-    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the catalog name, `test-sales`.
+    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the catalog name: `test-sales`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
     {% include [ai-on](../../_includes/metadata-hub/data-catalog-ai-markup-on.md) %}
@@ -150,7 +150,7 @@ Create a resource folder to host your metadata catalog.
 
          * **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.transport_q3nD6 }}**: **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.transport_streamable_eV7Rb }}**.
 
-         * **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.url_bUhZ1 }}**: `https://datacatalog-consumer.mcp.cloud.yandex.net/mcp`
+         * **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.url_bUhZ1 }}**: `https://datacatalog-consumer.mcp.cloud.yandex.net/mcp`.
 
          * **Authorization type**: `{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.mcp-authorization_header_fdGKe }}`.
 

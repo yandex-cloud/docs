@@ -8,7 +8,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you do not have an account yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. [Assign](../iam/operations/roles/grant.md) the `speech-sense.spaces.creator` role to your {{ yandex-cloud }} account.
@@ -53,7 +53,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% endcut %}
 
-1. Create a project by clicking **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}** on the space page, entering a name for the project, and adding a connection to it. For each connection, you can select filtering rules based on its metadata and the [{{ gpt-pro }}](../ai-studio/concepts/generation/index.md) criteria. With filters, you can ensure that only the dialogs you need are added to the project. After adding all required connections and configuring filters, click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+1. Create a project by clicking **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}** on the space page, entering a name for the project, and adding a connection to it. For each connection, you can select filtering rules based on its metadata and the [{{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) criteria. With filters, you can ensure that only the dialogs you need are added to the project. After adding all required connections and configuring filters, click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
 
 ## Upload your data {#upload-data}
 

@@ -1,13 +1,14 @@
 ---
-title: '{{ yandex-cloud }} role reference'
-description: The article provides a full reference and description of roles for {{ yandex-cloud }} services.
+title: Role reference {{ yandex-cloud }}
+description: This article provides a full reference and description of roles for {{ yandex-cloud }} services.
 ---
 
-# {{ yandex-cloud }} role reference
+# Role reference {{ yandex-cloud }}
+
 
 ## Primitive roles {#primitive-roles}
 
-The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of the `{{ roles-viewer }}` role. You can find the description of each role under the chart.
+The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role inherits all the `{{ roles-viewer }}` role permissions. You can find role descriptions below the diagram.
 
 ![image](../_assets/iam/security/primitive-roles-hierarchy.svg)
 
@@ -90,7 +91,7 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
 
-For more information, see [Access management in {{ yandex-cloud }} partner program](../partner/security/index.md).
+For more information, see [Managing access in the {{ yandex-cloud }} partner program](../partner/security/index.md).
 
 
 ## {{ api-gw-full-name }} {#api-gateway-roles}
@@ -261,7 +262,7 @@ For more information, see [{#T}](../cloud-router/security/index.md).
 
 {% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
 
-#### certificate-manager.editor {#certificate-manager.editor}
+#### certificate-manager.editor {#certificate-manager-editor}
 
 {% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
 
@@ -285,6 +286,10 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../_roles/backup/viewer.md) %}
+
+#### backup.user {#backup-user}
+
+{% include [backup.user](../_roles/backup/user.md) %}
 
 #### backup.editor {#backup-editor}
 
@@ -314,6 +319,7 @@ For more information, see [{#T}](../backup/security/index.md).
 #### billing.accounts.accountant {#billing-accounts-accountant}
 
 {% include [billing.accounts.accountant](../_roles/billing/accounts/accountant.md) %}
+
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../_roles/billing/accounts/editor.md) %}
@@ -851,7 +857,7 @@ For more information, see [{#T}](../compute/security/index.md).
 
 {% include [connection-manager.admin](../_roles/connection-manager/admin.md) %}
 
-For more information, see [Access management in {{ connection-manager-name }}](../metadata-hub/security/index.md).
+Learn more in [Access management in {{ connection-manager-name }}](../metadata-hub/security/index.md).
 
 
 ## {{ container-registry-full-name }} {#cr-roles}
@@ -974,23 +980,23 @@ For more information, see [{#T}](../datalens/security/roles.md).
 
 {% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
 
-#### managed-metastore.auditor {#managed-metastore-auditor}
+#### {{ roles.metastore.auditor }} {#managed-metastore-auditor}
 
 {% include [managed-metastore.auditor](../_roles/managed-metastore/auditor.md) %}
 
-#### managed-metastore.viewer {#managed-metastore-viewer}
+#### {{ roles.metastore.viewer }} {#managed-metastore-viewer}
 
 {% include [managed-metastore.viewer](../_roles/managed-metastore/viewer.md) %}
 
-#### managed-metastore.editor {#managed-metastore-editor}
+#### {{ roles.metastore.editor }} {#managed-metastore-editor}
 
 {% include [managed-metastore.editor](../_roles/managed-metastore/editor.md) %}
 
-#### managed-metastore.admin {#managed-metastore-admin}
+#### {{ roles.metastore.admin }} {#managed-metastore-admin}
 
 {% include [managed-metastore.admin](../_roles/managed-metastore/admin.md) %}
 
-#### managed-metastore.integrationProvider {#managed-metastore-integrationProvider}
+#### {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
 
 {% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
 
@@ -1050,7 +1056,7 @@ For more information, see [{#T}](../data-proc/security/index.md).
 For more information, see [{#T}](../datasphere/security/index.md).
 
 
-## {{ ycdr-full-name }} roles {#ycdr-roles}
+## {{ ycdr-full-name }} {#ycdr-roles}
 
 #### ycdr.admin {#ycdr-admin}
 
@@ -1283,6 +1289,25 @@ For more information, see [{#T}](../iot-core/security/index.md).
 
 {% include [ai-models-admin](../_roles/ai/models/admin.md) %}
 
+#### ai.guardrails.auditor {#ai-guardrails-auditor}
+
+{% include [ai.guardrails.auditor](../_roles/ai/guardrails/auditor.md) %}
+
+#### ai.guardrails.viewer {#ai-guardrails-viewer}
+
+{% include [ai.guardrails.viewer](../_roles/ai/guardrails/viewer.md) %}
+
+#### ai.guardrails.user {#ai-guardrails-user}
+
+{% include [ai.guardrails.user](../_roles/ai/guardrails/user.md) %}
+
+#### ai.guardrails.editor {#ai-guardrails-editor}
+
+{% include [ai.guardrails.editor](../_roles/ai/guardrails/editor.md) %}
+
+#### ai.guardrails.admin {#ai-guardrails-admin}
+
+{% include [ai.guardrails.admin](../_roles/ai/guardrails/admin.md) %}
 
 #### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
 
@@ -1308,7 +1333,7 @@ For more information, see [{#T}](../iot-core/security/index.md).
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
-For more information, see [{#T}](../ai-studio/security/index.md).
+Learn more in [Access management in {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -1475,9 +1500,6 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 
 {% include [managed-kafka.viewer](../_roles/managed-kafka/viewer.md) %}
 
-#### managed-kafka.restorer {#managed-kafka-restorer}
-
-{% include [managed-kafka.restorer](../_roles/managed-kafka/restorer.md) %}
 
 #### managed-kafka.editor {#managed-kafka-editor}
 
@@ -1492,6 +1514,35 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 {% include [managed-kafka.interfaceUser](../_roles/managed-kafka/interfaceUser.md) %}
 
 For more information, see [{#T}](../managed-kafka/security/index.md).
+
+
+## {{ msp-full-name }} {#msp-roles}
+
+#### managed-spark.auditor {#managed-spark-auditor}
+
+{% include [managed-spark.auditor](../_roles/managed-spark/auditor.md) %}
+
+#### managed-spark.viewer {#managed-spark-viewer}
+
+{% include [managed-spark.viewer](../_roles/managed-spark/viewer.md) %}
+
+#### managed-spark.user {#managed-spark-user}
+
+{% include [managed-spark.user](../_roles/managed-spark/user.md) %}
+
+#### managed-spark.editor {#managed-spark-editor}
+
+{% include [managed-spark.editor](../_roles/managed-spark/editor.md) %}
+
+#### managed-spark.admin {#managed-spark-admin}
+
+{% include [managed-spark.admin](../_roles/managed-spark/admin.md) %}
+
+#### managed-spark.integrationProvider {#managed-spark-integrationProvider}
+
+{% include [managed-spark.integrationProvider](../_roles/managed-spark/integrationProvider.md) %}
+
+For more information, see [{#T}](../managed-spark/security.md).
 
 
 ## {{ mch-full-name }} {#managed-clickhouse-roles}
@@ -1606,7 +1657,7 @@ For more information, see [{#T}](../managed-greenplum/security/index.md).
 For more information, see [{#T}](../managed-kubernetes/security/index.md).
 
 
-## {{ mmg-full-name }} {#managed-mongodb-roles}
+## {{ mmg-full-name }} {#storedoc-roles}
 
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 
@@ -1764,8 +1815,6 @@ For more information, see [{#T}](../managed-spqr/security.md).
 For more information, see [{#T}](../managed-valkey/security/index.md).
 
 
-
-
 ## {{ mms-full-name }} {#mms-roles}
 
 #### managed-sqlserver.auditor {#managed-sqlserver-auditor}
@@ -1787,6 +1836,60 @@ For more information, see [{#T}](../managed-valkey/security/index.md).
 #### managed-sqlserver.admin {#managed-sqlserver-admin}
 
 {% include [managed-sqlserver.admin](../_roles/managed-sqlserver/admin.md) %}
+
+
+## {{ mtr-full-name }} {#mtr-roles}
+
+#### managed-trino.auditor {#managed-trino-auditor}
+
+{% include [managed-trino.auditor](../_roles/managed-trino/auditor.md) %}
+
+#### managed-trino.viewer {#managed-trino-viewer}
+
+{% include [managed-trino.viewer](../_roles/managed-trino/viewer.md) %}
+
+#### managed-trino.user {#managed-trino-user}
+
+{% include [managed-trino.user](../_roles/managed-trino/user.md) %}
+
+#### managed-trino.editor {#managed-trino-editor}
+
+{% include [managed-trino.editor](../_roles/managed-trino/editor.md) %}
+
+#### managed-trino.admin {#managed-trino-admin}
+
+{% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
+
+#### managed-trino.integrationProvider {#managed-trino-integrationProvider}
+
+{% include [managed-trino.integrationProvider](../_roles/managed-trino/integrationProvider.md) %}
+
+For more information, see [{#T}](../managed-trino/security.md).
+
+
+## {{ myt-full-name }} {#myt-roles}
+
+#### managed-ytsaurus.auditor {#managed-ytsaurus-auditor}
+
+{% include [managed-ytsaurus.auditor](../_roles/managed-ytsaurus/auditor.md) %}
+
+#### managed-ytsaurus.viewer {#managed-ytsaurus-viewer}
+
+{% include [managed-ytsaurus.viewer](../_roles/managed-ytsaurus/viewer.md) %}
+
+#### managed-ytsaurus.user {#managed-ytsaurus-user}
+
+{% include [managed-ytsaurus.user](../_roles/managed-ytsaurus/user.md) %}
+
+#### managed-ytsaurus.editor {#managed-ytsaurus-editor}
+
+{% include [managed-ytsaurus.editor](../_roles/managed-ytsaurus/editor.md) %}
+
+#### managed-ytsaurus.admin {#managed-ytsaurus-admin}
+
+{% include [managed-ytsaurus.admin](../_roles/managed-ytsaurus/admin.md) %}
+
+For more information, see [{#T}](../managed-ytsaurus/security/index.md).
 
 
 ## {{ ydb-full-name }} {#ydb-roles}
@@ -1982,12 +2085,12 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 
 {% include [searchapi-admin](../_roles/search-api/admin.md) %}
 
-For more information, see [{#T}](../search-api/security/index.md).
+Learn more in [Access management in {{ search-api-full-name }}]({{ link-docs-ai }}search-api/security/index).
 
 
 ## {{ sd-full-name }} {#security-deck-roles}
 
-### General {{ sd-full-name }} roles {#general-sd-roles}
+### Common {{ sd-name }} roles {#general-sd-roles}
 
 #### security-deck.worker {#security-deck-worker}
 
@@ -2009,9 +2112,9 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 {% include [security-deck.admin](../_roles/security-deck/admin.md) %}
 
-For more information, see [General {{ sd-full-name }} roles](../security-deck/security/index.md).
+For more information, see [Common {{ sd-full-name }} roles](../security-deck/security/index.md).
 
-### {{ dspm-name }} roles {#dspm-roles}
+### Data Security Posture Management ({{ dspm-name }}) service roles {#dspm-roles}
 
 #### dspm.worker {#dspm-worker}
 
@@ -2037,9 +2140,9 @@ For more information, see [General {{ sd-full-name }} roles](../security-deck/se
 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
-For more information, see [Access management in {{ dspm-name }}](../security-deck/security/dspm-roles.md).
+Learn more in [Access management in {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
-### KSPM roles {#kspm-roles}
+### {{ k8s }}® Security Posture Management (KSPM) service roles {#kspm-roles}
 
 #### kspm.worker {#kspm-worker}
 
@@ -2061,9 +2164,9 @@ For more information, see [Access management in {{ dspm-name }}](../security-dec
 
 {% include [kspm.admin](../_roles/kspm/admin.md) %}
 
-For more information, see [Access management in KSPM](../security-deck/security/kspm-roles.md).
+Learn more in [Access management in KSPM](../security-deck/security/kspm-roles.md).
 
-### {{ cspm-name }} roles {#cspm-roles}
+### Cloud Security Posture Management ({{ cspm-name }}) service roles {#cspm-roles}
 
 #### cspm.worker {#cspm-worker}
 
@@ -2085,9 +2188,9 @@ For more information, see [Access management in KSPM](../security-deck/security/
 
 {% include [cspm.admin](../_roles/cspm/admin.md) %}
 
-For more information, see [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
+Learn more in [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
 
-### Access Transparency roles {#access-transparency-roles}
+### Service roles for {{ atr-name }} data analysis {#access-transparency-roles}
 
 #### access-transparency.viewer {#access-transparency-viewer}
 
@@ -2109,9 +2212,9 @@ For more information, see [Access management in {{ cspm-name }}](../security-dec
 
 {% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
 
-For more information, see [Access management in Access Transparency](../security-deck/security/access-transparency-roles.md).
+Learn more in [Access management in {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
 
-### {{ alerts-name }} roles {#alerts-roles}
+### Service roles for {{ alerts-name }} {#alerts-roles}
 
 #### security-deck.alertSinks.user {#security-deck-alertSinks-user}
 
@@ -2176,9 +2279,10 @@ For more information, see [Access management in Alerts](../security-deck/securit
 
 For more information, see [{#T}](../serverless-containers/security/index.md).
 
+
 ## {{ si-full-name }} {#serverless-integrations-roles}
 
-### {{ er-full-name }} roles {#eventrouter-roles}
+### {{ er-full-name }} service roles {#eventrouter-roles}
 
 #### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
 
@@ -2200,9 +2304,9 @@ For more information, see [{#T}](../serverless-containers/security/index.md).
 
 {% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
 
-For more information, see [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
+Learn more in [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
 
-### {{ sw-full-name }} roles {#workflows-roles}
+### {{ sw-full-name }} service roles {#workflows-roles}
 
 #### serverless.workflows.auditor {#serverless-workflows-auditor}
 
@@ -2224,7 +2328,8 @@ For more information, see [Access management in {{ er-name }}](../serverless-int
 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
-For more information, see [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
+Learn more in [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
+
 
 ## {{ captcha-full-name }} {#captcha-roles}
 
@@ -2282,7 +2387,7 @@ For more information, see [{#T}](../smartwebsecurity/security/index.md).
 
 {% include [speechkit-tts-user](../_roles/ai/speechkit-tts/user.md) %}
 
-For more information, see [{#T}](../speechkit/security/index.md).
+Learn more in [Access management in {{ speechkit-name }}]({{ link-docs-ai }}speechkit/security/index).
 
 
 ## {{ speechsense-full-name }} {#speechsense-roles}
@@ -2324,7 +2429,7 @@ For more information, see [{#T}](../speechsense/security/index.md).
 
 {% include [translate-user](../_roles/ai/translate/user.md) %}
 
-For more information, see [{#T}](../translate/security/index.md).
+Learn more in [Access management in {{ translate-name }}]({{ link-docs-ai }}translate/security/index).
 
 
 ## {{ vpc-full-name }} {#vpc-roles}
@@ -2402,7 +2507,7 @@ For more information, see [{#T}](../vpc/security/index.md).
 
 {% include [vision-user](../_roles/ai/vision/user.md) %}
 
-For more information, see [{#T}](../vision/security/index.md).
+Learn more in [Access management in {{ vision-name }}]({{ link-docs-ai }}vision/security/index).
 
 
 ## {{ websql-full-name }} {#websql-roles}

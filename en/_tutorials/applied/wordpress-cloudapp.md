@@ -1,18 +1,8 @@
----
-title: Setting up WordPress
-description: Setting up WordPress using {{ cloud-apps-name }} in {{ yandex-cloud }}.
-keywords:
-  - wordpress
-  - cloudapp
-  - setting up wordpress
-  - wordpress cloudapp
----
 
-# Installing WordPress High Availability using {{ cloud-apps-name }}
 
-In this tutorial, you will install and configure [WordPress](https://wordpress.org/), a content management system equally suitable for personal blogs and large-scale media and commercial projects. You will deploy [{{ cloud-apps-name }}](../../cloud-apps/) on a virtual machine with all required resources autoconfigured, including a [{{ mmy-full-name }}](../../managed-mysql/) database, a web server, and [{{ postbox-name }}](../../postbox/) integration.
+In this tutorial, you will set up [WordPress](https://wordpress.org/), a content management system suitable for both personal blogs and large media and commercial projects. You will deploy [{{ cloud-apps-name }}](../../cloud-apps/) on a virtual machine with all required resources autoconfigured, including a [{{ mmy-full-name }}](../../managed-mysql/) database, a web server, and [{{ postbox-name }}](../../postbox/) integration.
 
-To install WordPress:
+To set up WordPress:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a {{ vpc-short-name }} network and subnets](#create-network).
@@ -34,9 +24,9 @@ The cost of support for the new infrastructure includes:
 
 * Fee for VM usage and data storage on disk (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for public DNS zone usage and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
-* Fee for computing resources allocated to hosts, storage and backup size (see [{{ mmy-full-name }} pricing](../../managed-mysql/pricing.md)).
+* Fee for computing resources allocated to hosts, size of storage and backups (see [{{ mmy-full-name }} pricing](../../managed-mysql/pricing.md)).
 * Fee for using a bucket to store media files (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for storage of and operations with secrets (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* Fee for secret storage and operations (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for outgoing emails (see [{{ postbox-full-name }} pricing](../../postbox/pricing.md)).
 
 ## Create a {{ vpc-short-name }} network and subnets {#create-network}
@@ -95,7 +85,7 @@ The cost of support for the new infrastructure includes:
 
       Where:
 
-      * `--network-id`: Cloud network ID. When creating a subnet, specify the cloud network for the subnet and CIDR.
+      * `--network-id`: Cloud network ID. When creating a subnet, specify the cloud network and the CIDR block.
       * `--zone`: Subnet availability zone.
       * `--range`: List of internal IPv4 addresses specified for this subnet, such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is /28, and the maximum subnet size is /16. Only IPv4 is supported.
 
@@ -111,7 +101,7 @@ The cost of support for the new infrastructure includes:
 
   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
-  To create subnets in the `{{ region-id }}-a` and `{{ region-id }}-d` availability zones, use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call, and provide the following in your request:
+  To create subnets in the `{{ region-id }}-a` and `{{ region-id }}-d` availability zones, use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call, and provide the following in the request:
 
   * ID of the folder the subnet will reside in, in the `folderId` parameter.
   * ID of the network the subnet will be placed in, in the `networkId` parameter.
@@ -211,7 +201,7 @@ Create a public DNS zone and delegate your domain to it. For more about delegati
   1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, paste the {{ mmy-full-name }} database password.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  Similarly, create a secret named `wp-admin-password-secret` that will store the WordPress admin password. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `wp_admin_password`.
+  Similarly, create a secret named `wp-admin-password-secret` to store the WordPress admin password. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `wp_admin_password`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -242,13 +232,13 @@ Create a public DNS zone and delegate your domain to it. For more about delegati
       - db_password
   ```
 
-  Similarly, create a secret that will store the WordPress admin password. Specify `wp_admin_password` in the `key` parameter.
+  Similarly, create a secret to store the WordPress admin password. Specify `wp_admin_password` in the `key` parameter.
 
 - API {#api}
 
   To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
 
-  Specify `db_password` in the `key` parameter for the key to contain the {{ mmy-full-name }} database password. Specify `wp_admin_password` for the key to store the WordPress administrator password.
+  Specify `db_password` in the `key` parameter that contains the key with the {{ mmy-full-name }} database password. Use `wp_admin_password` as the key to store the WordPress administrator password.
 
 {% endlist %}
 
@@ -278,7 +268,7 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
      * Service account with the `admin` role for the folder, or select `Auto` to have the service account created when installing the application.
      * DNS zone ID.
      * Site subdomain for WordPress. This is an optional property. By default, the subdomain is empty. The website domain is formed by adding a subdomain to the DNS zone domain.
-     * Mail sender. This is an optional property. The default is `noreply@website_domain`. Used to set up SMTP via {{ postbox-name }}.
+     * Mail sender. This is an optional property. The default is `noreply@website_domain`. It is used to set up SMTP via {{ postbox-name }}.
      * WordPress administrator username: Username for the WordPress admin account. This is an optional property. The default value is `admin`.
 
        {% note warning %}
@@ -301,29 +291,29 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
 
   1. Click **{{ ui-key.yacloud.cloud-apps.button_install }}**.
 
-     In the window that opens, you will see the resources that will be created when installing the application. As soon as all resources are created, the VM will start configuring the website, installing plugins, and issuing TLS certificates. Wait for the installation to complete. This may take five to ten minutes.
+     In the window that opens, you will see the resources that will be created while installing the application. Once all resources are created, the VM will start configuring the website, installing plugins, and issuing TLS certificates. Wait for the installation to complete. This may take five to ten minutes.
 
 {% endlist %}
 
 {% note info %}
 
-Automatic installation of the app creates a {{ postbox-name }} [address](../../postbox/concepts/glossary.md#adress) and a DNS record for its verification.
+Installing the app automatically creates a {{ postbox-name }} [address](../../postbox/concepts/glossary.md#adress) and DNS record for its verification.
 
 {% endnote %}
 
 ## Configure WordPress {#configure-wordpress}
 
-1. In your browser, open the main website address: `https://<website_domain>`, where `<website_domain>` is the main website subdomain or the DNS zone domain, if no subdomain was provided.
+1. In your browser, open the main website address: `https://<website_domain>`, where `<website_domain>` is the main website subdomain, or the DNS zone domain if no subdomain was provided.
 
 1. In your browser, open the admin dashboard address: `https://<website_domain>/wp-admin`.
 
 1. Log in to the admin dashboard using:
    * **Username**: Admin username you provided when installing the application.
-   * **Password**: Admin password. If you did not specify a secret containing the admin password in the application settings, you can find the password value in the secret that was generated automatically during the installation. The secret name is `wp-admin-password-secret`.
+   * **Password**: Admin password. If you did not specify a secret containing the admin password in the application settings, you can find the password value in the secret that was generated automatically during installation. The secret name is `wp-admin-password-secret`.
 
       {% note info %}
 
-      If you forget the password, you can recover it via the standard WordPress password reset form using the admin email address specified during installation.
+      If you forget the password, you can reset it via the standard WordPress password reset form using the admin email address specified during installation.
 
       {% endnote %}
 
@@ -333,7 +323,7 @@ Once you log in, you will be redirected to the WordPress admin dashboard page wh
 
 Make sure WordPress is working correctly:
 
-1. In your browser, open the main website subdomain, if specified during installation. Otherwise, open the DNS zone domain. You should see the WordPress home page.
+1. In your browser, open the main website subdomain if you specified it during installation. Otherwise, open the DNS zone domain. You should see the WordPress home page.
 
 1. Create a test post:
 
@@ -347,8 +337,8 @@ Make sure WordPress is working correctly:
 1. Test email notifications:
 
    1. In the admin dashboard, go to the settings section.
-   1. Try recovering the password using the **"Lost your password?"** function.
-   1. Check the mailbox you specified for the password reset email.
+   1. Try resetting the password using **Lost your password?**.
+   1. Check the mailbox you specified for the password recovery email.
 
    {% note info %}
 
@@ -360,8 +350,8 @@ Make sure WordPress is working correctly:
 
    1. In the admin dashboard, go to **Plugins**.
    1. Make sure the following plugins are installed:
-      * **S3 Uploads**: For integration with **{{ objstorage-full-name }}** to store media files.
-      * **WP Mail SMTP**: For integration with **{{ postbox-full-name }}** to send email notifications.
+      * **S3 Uploads**: To enable integration with **{{ objstorage-full-name }}** for storing media files.
+      * **WP Mail SMTP**: To enable integration with **{{ postbox-full-name }}** for sending email notifications.
 
 1. Open the database admin dashboard domain in your browser:
 
@@ -376,8 +366,8 @@ Make sure WordPress is working correctly:
 
 To shut down the resources you created and stop paying for them:
 
-1. Delete the {{ postbox-name }} address and the associated DNS record because they will not be deleted after you delete the application.
-1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} buckets created when installing the application because non-empty buckets cannot be deleted.
+1. Delete the {{ postbox-name }} address and the associated DNS record as they persist even after the application is deleted.
+1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} buckets created when installing the application, as non-empty buckets cannot be deleted.
 1. Delete WordPress High Availability:
 
    1. In the [management console]({{ link-console-main }}), select the folder the application is installed in.

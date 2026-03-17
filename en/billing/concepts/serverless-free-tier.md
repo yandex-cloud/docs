@@ -105,7 +105,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ container-registry-full-name }} {#cr}
 
-[{{ container-registry-full-name }}](../../container-registry/quickstart/) is a service for storing and distributing Docker images.
+[{{ container-registry-full-name }}](../../container-registry/quickstart/) offers storage and distribution of Docker images.
 
 {% include [not-charged-cr.md](../../_includes/pricing/price-formula/not-charged-cr.md) %}
 
@@ -185,16 +185,6 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-## {{ monium-full-name }} {#monium}
-
-[{{ monium-name }}](../../monium/quickstart.md) is a platform you can use to monitor and analyze {{ yandex-cloud }} services or your own infrastructure and applications.
-
-{% include [not-charged-monium.md](../../_includes/pricing/price-formula/not-charged-monium.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate](../../monium/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
 ## {{ monitoring-full-name }} {#monitoring}
 
 [{{ monitoring-full-name }}](../../monitoring/quickstart.md) is a tool used to collect and store metrics and also present them as charts on dashboards.
@@ -270,7 +260,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## Examples of cost calculations with free tier {#examples}
 
-Usage cost is calculated based on the pricing plans of the relevant service and does not include the amount of services provided for free. See the examples below.
+Usage cost is calculated based on the pricing plans of the relevant service and does not include the amount of services provided for free. Here is an example:
 
 ### Calculation of function usage cost {#function-example}
 

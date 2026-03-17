@@ -11,7 +11,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Amazon API Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
 | Amazon Athena | [{{ yq-full-name }}](../../query/) |
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
-| Amazon CloudSearch | [{{ search-api-full-name }}](../../search-api/) |
+| Amazon CloudSearch | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/) |
 | Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |
 | Amazon CloudWatch Logs | [{{ cloud-logging-full-name }}](../../logging/) |
 | Amazon CodeArtifact | [{{ cloud-registry-full-name }}](../../cloud-registry/) |
@@ -31,11 +31,11 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Amazon Managed Workflows for Apache Airflow | [{{ maf-full-name }}](../../managed-airflow/) |
 | Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Amazon OpenSearch Service | [{{ mos-full-name }}](../../managed-opensearch/) |
-| Amazon Polly, Amazon Transcribe | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
+| Amazon Polly, Amazon Transcribe | [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
 | Amazon RDS for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Amazon RDS for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
-| Amazon Rekognition | [{{ vision-full-name }}](../../vision/) |
+| Amazon Rekognition | [{{ vision-full-name }}]({{ link-docs-ai }}vision/) |
 | Amazon Route 53 | [{{ dns-full-name }}](../../dns/) |
 | Amazon S3 | [{{ objstorage-full-name }}](../../storage/) |
 | Amazon SageMaker | [{{ ml-platform-full-name }}](../../datasphere/) |
@@ -43,7 +43,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |
 | Amazon SNS | [{{ cns-full-name }}](../../notifications/) |
 | Amazon Transcribe, Amazon Kinesis | [{{ speechsense-full-name }}](../../speechsense/) |
-| Amazon Translate | [{{ translate-full-name }}](../../translate/) |
+| Amazon Translate | [{{ translate-full-name }}]({{ link-docs-ai }}translate/) |
 | Amazon Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
 | Amazon WorkSpaces | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | AWS App Runner | [{{ cloud-apps-full-name }}](../../cloud-apps/) |

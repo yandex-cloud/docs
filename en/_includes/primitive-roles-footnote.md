@@ -1,1 +1,2 @@
-For more information about primitive roles, see the [{{ yandex-cloud }} role reference](../iam/roles-reference.md#primitive-roles).
+For more information on primitive roles, see the [{{ yandex-cloud }} role reference](../iam/roles-reference.md#primitive-roles).
+

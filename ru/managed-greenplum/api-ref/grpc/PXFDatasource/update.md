@@ -186,7 +186,6 @@ The maximum string length in characters is 200. Value must match the regular exp
 
 JDBC driver class in Java. The possible values are the following:
 
-* `com.simba.athena.jdbc.Driver`
 * `com.clickhouse.jdbc.ClickHouseDriver`
 * `com.ibm.as400.access.AS400JDBCDriver`
 * `com.microsoft.sqlserver.jdbc.SQLServerDriver`
@@ -758,7 +757,6 @@ The maximum string length in characters is 200. Value must match the regular exp
 
 JDBC driver class in Java. The possible values are the following:
 
-* `com.simba.athena.jdbc.Driver`
 * `com.clickhouse.jdbc.ClickHouseDriver`
 * `com.ibm.as400.access.AS400JDBCDriver`
 * `com.microsoft.sqlserver.jdbc.SQLServerDriver`

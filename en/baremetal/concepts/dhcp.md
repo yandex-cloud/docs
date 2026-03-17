@@ -31,19 +31,9 @@ Depending on the {{ baremetal-name }} server's selected network settings, the pu
 
 If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its public subnet is [ephemeral](./public-network.md#ephemeral-public-subnet), and its network interface connected to that subnet will get an IPv4 address from the range of {{ baremetal-full-name }} public IP addresses.
 
-To activate DHCP in an ephemeral public subnet, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}** when leasing a {{ baremetal-name }} server. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to update the DHCP server settings in such a subnet later on.
+To activate DHCP in an ephemeral public subnet, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}** when leasing a {{ baremetal-name }} server. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to change the DHCP server settings in such subnet later.
 
-If DHCP is disabled in an ephemeral public subnet or on the server's [network interface](./servers.md#network-interfaces) connected to such a subnet, and obtaining an address via DHCP is disabled, consider the following when configuring that interface:
-
-* The subnet the server's public IP address is in has a subnet prefix length of `31` bits and consists of these two addresses: the default gateway IP address and the host IP address.
-* The gateway IP address is specified under **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** in the **{{ ui-key.yacloud.baremetal.title_section-server-public-network_p7Zhj }}** section on the server information page.
-* The host IP address is greater than the gateway IP address by one.
-
-Here is an example:
-
-* Subnet CIDR: `198.51.100.110/31`.
-* Default gateway IP address: `198.51.100.110`.
-* Server public IP address: `198.51.100.111`.
+{% include [public-subnet-cidr-details](../../_includes/baremetal/public-subnet-cidr-details.md) %}
 
 ### DHCP in a dedicated public subnet {#dhcp-public-subnet}
 

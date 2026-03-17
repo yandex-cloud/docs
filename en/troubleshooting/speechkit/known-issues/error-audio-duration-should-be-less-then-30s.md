@@ -12,6 +12,6 @@ This happens even if the uploaded audio file is shorter than 30 seconds.
 
 ## Solution {#issue-resolution}
 
-The cause of the error is that the codec of the file uploaded for recognition is not supported. For OGG files, {{ speechkit-name }} only supports the [Opus codec](../../../speechkit/formats.md#OggOpus).
+The cause of the error is that the codec of the file uploaded for recognition is not supported. For OGG files, {{ speechkit-name }} only supports the [Opus codec]({{ link-docs-ai }}/speechkit/formats).
 
 For proper recognition, you need to upload data encoded by this codec.

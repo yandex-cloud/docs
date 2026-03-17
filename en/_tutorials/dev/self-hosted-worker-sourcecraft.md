@@ -84,14 +84,14 @@ The cost of supporting a self-hosted worker infrastructure includes:
     | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
     **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
     | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-    || Inbound
+    || Ingress
     | `Access to VM from`
     `the internet`
     | `0-65535`
     | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
     | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
     | `0.0.0.0/0` ||
-    || Outbound
+    || Egress
     | `VM access to`
     `the internet`
     | `0-65535`

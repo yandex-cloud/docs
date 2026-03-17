@@ -1,9 +1,19 @@
 ---
 title: '{{ backup-full-name }} release notes'
-description: This section contains {{ backup-name }} release notes.
+description: This section contains the {{ backup-name }} release notes.
 ---
 
 # {{ backup-full-name }} release notes
+
+## Q4 2025 {#q4-2025}
+
+* Implemented the ability to [create](./operations/create-vm.md), via the management console, a VM connected to {{ backup-name }} without linking a service account.
+* Added support for new [backup policy](./concepts/policy.md) settings:
+  * pre-data capture command `"prePostCommands":"type":"PRE_DATA_COMMAND"`
+  * post-data capture command `"prePostCommands":"type":"POST_DATA_COMMAND"`
+
+  These are similar to the pre- and post-backup commands; however, they are executed as close as possible to the backup snapshot.
+* Added a [quota](./concepts/limits.md) for the number of {{ baremetal-name }} servers connected to {{ backup-name }} per cloud.
 
 ## Q3 2025 {#q3-2025}
 

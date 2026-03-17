@@ -103,19 +103,22 @@ The maximum string length in characters is 50. ||
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
             "search_max_buckets": "google.protobuf.Int64Value",
-            "reindex_remote_whitelist": "string"
+            "reindex_remote_whitelist": "string",
+            "http_max_initial_line_length": "google.protobuf.StringValue"
           },
           "user_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
             "search_max_buckets": "google.protobuf.Int64Value",
-            "reindex_remote_whitelist": "string"
+            "reindex_remote_whitelist": "string",
+            "http_max_initial_line_length": "google.protobuf.StringValue"
           },
           "default_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
             "search_max_buckets": "google.protobuf.Int64Value",
-            "reindex_remote_whitelist": "string"
+            "reindex_remote_whitelist": "string",
+            "http_max_initial_line_length": "google.protobuf.StringValue"
           }
         },
         // end of the list of possible fields
@@ -514,9 +517,6 @@ OpenSearch server configuration settings.
 || max_clause_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Defines the maximum product of fields and terms that are queryable simultaneously.
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-New thread pools use the updated value.
 
 Default value: **1024**.
 
@@ -553,6 +553,15 @@ Allowed remote hosts
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
+|| http_max_initial_line_length | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+
+Default value: **4kb**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings). ||
 |#
 
 ## Dashboards {#yandex.cloud.mdb.opensearch.v1.Dashboards}

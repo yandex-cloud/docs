@@ -11,7 +11,7 @@ description: This guide describes how to use an AI assistant to analyze database
 
 {% endnote %}
 
-{{ websql-name }} features an integrated [AI assistant](../../ai-studio/concepts/assistant/index.md) you can use to:
+{{ websql-name }} features an integrated [AI assistant]({{ link-docs-ai }}ai-studio/concepts/assistant/index) you can use to:
 
 * [Generate SQL queries](#db-query) from natural language descriptions.
 * [Fix](#query-fix) SQL queries from your [query editor](query-executor.md).

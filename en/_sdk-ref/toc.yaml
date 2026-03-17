@@ -1,0 +1,182 @@
+items:
+  - name: Overview
+    href: sdk-ref/index.md
+  - name: SDK
+    items:
+      - name: Overview
+        href: sdk-ref/sync/sdk.md
+      - name: Models domain
+        href: sdk-ref/sync/models/domain.md
+      - name: Assistants domain
+        href: sdk-ref/sync/assistants.md
+      - name: Tools domain
+        href: sdk-ref/sync/tools.md
+      - name: Files domain
+        href: sdk-ref/sync/files.md
+      - name: Threads domain
+        href: sdk-ref/sync/threads.md
+      - name: Runs domain
+        href: sdk-ref/sync/runs.md
+      - name: Search indexes domain
+        href: sdk-ref/sync/search_indexes.md
+      - name: Search API domain
+        href: sdk-ref/sync/search_api.md
+      - name: Datasets domain
+        href: sdk-ref/sync/datasets.md
+      - name: Tuning domain
+        href: sdk-ref/sync/tuning.md
+      - name: Batch domain
+        href: sdk-ref/sync/batch.md
+      - name: Chat domain
+        href: sdk-ref/sync/chat/domain.md
+      - name: SpheechKit domain
+        href: sdk-ref/sync/speechkit/domain.md
+  - name: Async SDK
+    items:
+      - name: Overview
+        href: sdk-ref/async/sdk.md
+      - name: Models domain
+        href: sdk-ref/async/models/domain.md
+      - name: Assistants domain
+        href: sdk-ref/async/assistants.md
+      - name: Tools domain
+        href: sdk-ref/async/tools.md
+      - name: Files domain
+        href: sdk-ref/async/files.md
+      - name: Threads domain
+        href: sdk-ref/async/threads.md
+      - name: Runs domain
+        href: sdk-ref/async/runs.md
+      - name: Search indexes domain
+        href: sdk-ref/async/search_indexes.md
+      - name: Search API domain
+        href: sdk-ref/async/search_api.md
+      - name: Datasets domain
+        href: sdk-ref/async/datasets.md
+      - name: Tuning domain
+        href: sdk-ref/async/tuning.md
+      - name: Batch domain
+        href: sdk-ref/async/batch.md
+      - name: Chat domain
+        href: sdk-ref/async/chat/domain.md
+      - name: SpheechKit domain
+        href: sdk-ref/async/speechkit/domain.md
+  - name: Authentication
+    href: sdk-ref/auth.md
+  - name: Types
+    items:
+      - name: Overview
+        href: sdk-ref/types/index.md
+      - name: Assistant types
+        href: sdk-ref/types/assistants.md
+      - name: Tools
+        href: sdk-ref/types/tools.md
+      - name: Operation
+        href: sdk-ref/types/operation.md
+      - name: Tuning
+        href: sdk-ref/types/tuning.md
+      - name: Result types for models
+        href: sdk-ref/types/model_results.md
+      - name: Datasets
+        href: sdk-ref/types/datasets.md
+      - name: Search API
+        href: sdk-ref/types/search_api.md
+      - name: Messages
+        href: sdk-ref/types/message.md
+      - name: Run types
+        href: sdk-ref/types/runs.md
+      - name: Search index types
+        href: sdk-ref/types/search_indexes.md
+      - name: Other types
+        href: sdk-ref/types/other.md
+      - name: Batch
+        href: sdk-ref/types/batch.md
+      - name: Speechkit
+        href: sdk-ref/types/speechkit.md
+  - name: Request retries
+    href: sdk-ref/retry.md
+  - name: Base classes
+    href: sdk-ref/internals/bases.md
+    hidden: true
+  - name: Other types
+    href: sdk-ref/types/other.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/sync/models/completions.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/sync/models/text_embeddings.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/sync/models/text_classifiers.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/sync/models/image_generation.md
+    hidden: true
+  - name: Assistant types
+    href: sdk-ref/types/assistants.md
+    hidden: true
+  - name: Search API
+    href: sdk-ref/types/search_api.md
+    hidden: true
+  - name: Tools
+    href: sdk-ref/types/tools.md
+    hidden: true
+  - name: Messages
+    href: sdk-ref/types/message.md
+    hidden: true
+  - name: Run types
+    href: sdk-ref/types/runs.md
+    hidden: true
+  - name: Search index types
+    href: sdk-ref/types/search_indexes.md
+    hidden: true
+  - name: Operation
+    href: sdk-ref/types/operation.md
+    hidden: true
+  - name: Datasets
+    href: sdk-ref/types/datasets.md
+    hidden: true
+  - name: Tuning
+    href: sdk-ref/types/tuning.md
+    hidden: true
+  - name: Batch
+    href: sdk-ref/types/batch.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/sync/chat/completions.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/sync/chat/text_embeddings.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/sync/speechkit/text_to_speech.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/async/models/completions.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/async/models/text_embeddings.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/async/models/text_classifiers.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/async/models/image_generation.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/async/chat/completions.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/async/chat/text_embeddings.md
+    hidden: true
+  - name: Domain
+    href: sdk-ref/async/speechkit/text_to_speech.md
+    hidden: true
+  - name: Result types for models
+    href: sdk-ref/types/model_results.md
+    hidden: true
+  - name: Speechkit
+    href: sdk-ref/types/speechkit.md
+    hidden: true
+path: en/_sdk-ref/toc.yaml

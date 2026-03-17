@@ -91,13 +91,13 @@ Set up the required infrastructure:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the {{ managed-k8s-name }} cluster service account.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
      terraform validate
      ```
 
-     {{ TF }} will show any errors found in your configuration files.
+     {{ TF }} will display any configuration errors detected in your files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -260,7 +260,7 @@ When you create a `LoadBalancer` type service, the {{ yandex-cloud }} controller
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select your default folder.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
 
    - CLI {#cli}

@@ -19,6 +19,12 @@ data "yandex_datatransfer_transfer" "pgpg_transfer_ds" {
 
 ## Arguments & Attributes Reference
 
+- `data_objects` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+  - `include_objects` (List Of String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
 - `description` (String). Description of the transfer.
 - `folder_id` (String). ID of the folder to create the transfer in.
  
@@ -33,8 +39,54 @@ data "yandex_datatransfer_transfer" "pgpg_transfer_ds" {
  /resource-manager/concepts/labels).
 - `name` (String). The transfer name. Must be unique within the folder.
 - `on_create_activate_mode` (String). Activation action on create a new incremental transfer. It is not part of the transfer parameter and is used only on create. One of `sync_activate`, `async_activate`, `dont_activate`. The default is `async_activate`.
+- `regular_snapshot` [Block]. Regular snapshots for the transfer, applicable only if transfer type is
+ SNAPSHOT_ONLY
+  - `disabled` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+  - `settings` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+    - `cron_expression` (String). Use a cron expression to schedule transfer regular snapshots in UTC time. 
+ The used cron expression format is 5 columns specifying the execution time
+ (minute, hour, day, month, day of the week), 
+ they can contain a numeric list separated by commas, a range of numbers
+ separated by a hyphen, symbols * or /.
+ only one of schedule or cron_expression should be set
+    - `increment_delay_seconds` (Number). Wait for transaction completion time, in seconds
+ Set load delay time to insure that current transactions on source are completed
+ and thus full data is visible for snapshot. 
+ This may be useful if source cannot guarantee that cursor values grows
+ monotonically - 
+ due to transaction race or well-known problem that serial id sequence does not
+ actually guarantee the order
+    - `retry_config` [Block]. Regular snapshot retries, only for cloud installation
+      - `max_attempts` (Number). Number of attempts to retry regular snapshot in case of failure. Applicable only
+ for cloud installation.
+    - `schedule` (String). User predefined periods to schedule regular snapshots:
+ REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN,
+ REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR, etc.
+ only one of schedule or cron_expression should be set
+    - `tables` [Block]. Incremental tables configuration for regular snapshot. 
+ If not empty, each snapshot will copy only data changed since last snapshot
+ based on cursor column value.
+      - `cursor_column` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+      - `initial_state` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+      - `table_name` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+      - `table_namespace` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
 - `replication_runtime` [Block]. Replication runtime parameters for the transfer
   - `yc_runtime` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+    - `flavor` (String). package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/transfer.proto
 
     - `job_count` (Number). Number of workers in parallel replication.
@@ -43,6 +95,9 @@ filename: yandex/cloud/datatransfer/v1/transfer.proto
       - `process_count` (Number). Number of threads.
 - `runtime` [Block]. Runtime parameters for the transfer
   - `yc_runtime` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+    - `flavor` (String). package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/transfer.proto
 
     - `job_count` (Number). Number of workers in parallel replication.

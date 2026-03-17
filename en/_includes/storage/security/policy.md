@@ -44,7 +44,9 @@ Result
 
 Principal
 
-: Grantee of the requested permission. It can be an {{ iam-short-name }} user, [federated user](../../../iam/concepts/federations.md), [service account](../../../iam/concepts/users/service-accounts.md), anonymous user, or [user group](../../../organization/concepts/groups.md).
+: Grantee (subject) of the requested permission. It can be an {{ iam-short-name }} user, [federated user](../../../iam/concepts/federations.md), [service account](../../../iam/concepts/users/service-accounts.md), anonymous user, or [user group](../../../organization/concepts/groups.md). The possible values are:
+    * `"*"`
+    * `"CanonicalUser": "<subject_ID>"`
 
 
 Condition

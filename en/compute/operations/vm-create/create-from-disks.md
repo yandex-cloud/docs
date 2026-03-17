@@ -23,7 +23,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md).
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) for your VM.
   1. Add a [disk](../../concepts/disk.md):
 
       * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
@@ -37,6 +37,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
   1. {% include [section-platform](../../../_includes/compute/create/section-platform.md) %}
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
+  1. {% include [section-backup](../../../_includes/compute/create/section-backup.md) %} 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for the VM:
 
       {% include [name-format](../../../_includes/name-format.md) %}
@@ -102,7 +103,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a VM from disks:
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {

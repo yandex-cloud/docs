@@ -179,15 +179,25 @@ apiPlayground:
               - `NO_UNSIGNED_SUBTRACTION`
               - `NO_ZERO_DATE`
               - `NO_ZERO_IN_DATE`
+              - `NO_FIELD_OPTIONS`
+              - `NO_KEY_OPTIONS`
+              - `NO_TABLE_OPTIONS`
               - `ONLY_FULL_GROUP_BY`
               - `PAD_CHAR_TO_FULL_LENGTH`
               - `PIPES_AS_CONCAT`
               - `REAL_AS_FLOAT`
               - `STRICT_ALL_TABLES`
               - `STRICT_TRANS_TABLES`
-              - `TIME_TRUNCATE_FRACTIONAL`
               - `ANSI`
               - `TRADITIONAL`
+              - `DB2`
+              - `MAXDB`
+              - `MSSQL`
+              - `MYSQL323`
+              - `MYSQL40`
+              - `ORACLE`
+              - `POSTGRESQL`
+              - `NO_AUTO_CREATE_USER`
               - `NO_DIR_IN_CREATE`
             type: array
             items:
@@ -205,15 +215,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -597,7 +617,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-              Acceptable values are 600 to 432000, inclusive.
+              Acceptable values are 30 to 86400, inclusive.
             type: string
             format: int64
           mdbOfflineModeDisableLag:
@@ -605,7 +625,7 @@ apiPlayground:
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
               Should be less than mdb_offline_mode_enable_lag value.
-              Acceptable values are 60 to 86400, inclusive.
+              Acceptable values are 10 to 86400, inclusive.
             type: string
             format: int64
           rangeOptimizerMaxMemSize:
@@ -986,15 +1006,25 @@ apiPlayground:
               - `NO_UNSIGNED_SUBTRACTION`
               - `NO_ZERO_DATE`
               - `NO_ZERO_IN_DATE`
+              - `NO_FIELD_OPTIONS`
+              - `NO_KEY_OPTIONS`
+              - `NO_TABLE_OPTIONS`
               - `ONLY_FULL_GROUP_BY`
               - `PAD_CHAR_TO_FULL_LENGTH`
               - `PIPES_AS_CONCAT`
               - `REAL_AS_FLOAT`
               - `STRICT_ALL_TABLES`
               - `STRICT_TRANS_TABLES`
-              - `TIME_TRUNCATE_FRACTIONAL`
               - `ANSI`
               - `TRADITIONAL`
+              - `DB2`
+              - `MAXDB`
+              - `MSSQL`
+              - `MYSQL323`
+              - `MYSQL40`
+              - `ORACLE`
+              - `POSTGRESQL`
+              - `NO_AUTO_CREATE_USER`
               - `NO_DIR_IN_CREATE`
             type: array
             items:
@@ -1012,15 +1042,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -1412,7 +1452,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-              Acceptable values are 600 to 432000, inclusive.
+              Acceptable values are 30 to 86400, inclusive.
             type: string
             format: int64
           mdbOfflineModeDisableLag:
@@ -1420,7 +1460,7 @@ apiPlayground:
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
               Should be less than mdb_offline_mode_enable_lag.
-              Acceptable values are 60 to 86400, inclusive.
+              Acceptable values are 10 to 86400, inclusive.
             type: string
             format: int64
           rangeOptimizerMaxMemSize:
@@ -1780,15 +1820,25 @@ apiPlayground:
               - `NO_UNSIGNED_SUBTRACTION`
               - `NO_ZERO_DATE`
               - `NO_ZERO_IN_DATE`
+              - `NO_FIELD_OPTIONS`
+              - `NO_KEY_OPTIONS`
+              - `NO_TABLE_OPTIONS`
               - `ONLY_FULL_GROUP_BY`
               - `PAD_CHAR_TO_FULL_LENGTH`
               - `PIPES_AS_CONCAT`
               - `REAL_AS_FLOAT`
               - `STRICT_ALL_TABLES`
               - `STRICT_TRANS_TABLES`
-              - `TIME_TRUNCATE_FRACTIONAL`
               - `ANSI`
               - `TRADITIONAL`
+              - `DB2`
+              - `MAXDB`
+              - `MSSQL`
+              - `MYSQL323`
+              - `MYSQL40`
+              - `ORACLE`
+              - `POSTGRESQL`
+              - `NO_AUTO_CREATE_USER`
               - `NO_DIR_IN_CREATE`
             type: array
             items:
@@ -1806,15 +1856,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -2188,7 +2248,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-              Acceptable values are 600 to 432000, inclusive.
+              Acceptable values are 30 to 86400, inclusive.
             type: string
             format: int64
           mdbOfflineModeDisableLag:
@@ -2196,7 +2256,7 @@ apiPlayground:
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
               Should be less than mdb_offline_mode_enable_lag.
-              Acceptable values are 60 to 86400, inclusive.
+              Acceptable values are 10 to 86400, inclusive.
             type: string
             format: int64
           rangeOptimizerMaxMemSize:
@@ -3940,13 +4000,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag value.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -4588,13 +4648,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -5210,13 +5270,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -7458,13 +7518,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag value.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -8122,13 +8182,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -8760,13 +8820,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.

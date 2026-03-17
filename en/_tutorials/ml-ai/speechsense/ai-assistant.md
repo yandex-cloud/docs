@@ -24,7 +24,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 ### Required paid resources {#paid-resources}
 
 * {{ speechsense-name }}: Number of characters in each text conversation (see [{{ speechsense-name }} pricing](../../../speechsense/pricing.md)).
-* AI assistant: Text generation (see [{{ foundation-models-full-name }} pricing](../../../ai-studio/pricing.md)). Charges for using the assistant will apply as soon as you enable it.
+* AI assistant: Text generation (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). Once the assistant is activated, you start paying for it.
 
 ## Set up your infrastructure {#infrastructure-prepare}
 
@@ -133,7 +133,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
             ```text
             You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response.
             Determine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours.
-            If nothing of the above is suitable, put "Other"."
+            If nothing of the above suits, specify the "Other" value.
             ```
 
         1. Select the `YandexGPT 5.1 Pro` model.

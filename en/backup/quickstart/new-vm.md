@@ -14,26 +14,19 @@ In this scenario, you will create a [Linux](https://en.wikipedia.org/wiki/Linux)
 
 To get started with {{ backup-name }}:
 
-1. [Set up the infrastructure](#deploy-infrastructure).
-1. [Activate {{ backup-name }}](#activate-provider).
-1. [Create your VM](#vm-create).
+1. [Set up your infrastructure](#deploy-infrastructure).
+1. [Create a VM](#vm-create).
 1. [Link your VM to a backup policy](#add-policy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#deploy-infrastructure}
+## Set up your infrastructure {#deploy-infrastructure}
 
 1. If you do not have a cloud network yet, [create](../../vpc/operations/network-create.md) one.
 1. If your [cloud network](../../vpc/concepts/network.md#network) has no subnets, [create](../../vpc/operations/subnet-create.md) one:
 1. In a cloud network, [create](../../vpc/operations/security-group-create.md) a security group with the following [rules](../../vpc/concepts/security-groups.md#security-groups-rules) for outgoing traffic:
 
     {% include [outgoing-rules](../../_includes/backup/outgoing-rules.md) %}
-
-1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `backup.editor` [role](../security/index.md#backup-editor).
-
-## Activate {{ backup-name }} {#activate-provider}
-
-{% include [quickstart-activate-provider](../../_includes/backup/quickstart-activate-provider.md) %}
 
 ## Create a VM {#vm-create}
 
@@ -66,15 +59,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
       If your profile has no SSH keys, click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}** to add a new key.
-
+  1. {% include [backup-vm-creation-step-console](../../_includes/backup/backup-vm-creation-step-console.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for your VM:
 
       {% include [name-format](../../_includes/name-format.md) %}
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
-
-      1. Select the service account you [created earlier](#deploy-infrastructure).
-      1. Enable **{{ backup-name }}**.
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

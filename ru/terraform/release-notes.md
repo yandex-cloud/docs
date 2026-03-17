@@ -6,6 +6,19 @@ editable: false
 
 
 
+## 0.192.0 (March 16, 2026)
+##### FEATURES:
+* opensearch: add server config "search_max_buckets"
+* vpc: added internal addresses to `yandex_vpc_address` resource and datasource
+* opensearch: add server config "http_max_initial_line_length"
+* yandex_datatransfer_transfer: add data_objects, regular_snapshot, incremental_tables and runtime flavor options
+##### BUG FIXES:
+* mdb_clickhouse: set computed to false for merge tree settings `replicated_deduplication_window`, `replicated_deduplication_window_seconds`, `parts_to_delay`, `parts_to_throw_insert`, `max_replicated_merges_in_queue`, `max_parts_in_total`, `materialize_ttl_recalculate_only`
+* mysql: fix permissions management via yandex_mdb_mysql_user
+##### ENHANCEMENTS:
+* cloud_desktops: support `labels` and `description` for cloud desktop resources
+* mdb_clickhouse: when creating zookeeper/keeper, set the convert_tables_to_replica parameter to true by default
+
 ## 0.191.0 (March 5, 2026)
 ##### FEATURES:
 * kubernetes: add "node_template.reserved_instance_pool_id" and "variables" attributes in "yandex_kubernetes_node_group"

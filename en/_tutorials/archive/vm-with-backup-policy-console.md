@@ -34,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter `backup-sa` as the [service account name](../../iam/concepts/users/service-accounts.md).
-  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`backup.editor`](../../backup/security/index.md#backup-editor).
+  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`backup.user`](../../backup/security/index.md#backup-user).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -60,11 +60,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
-  1. Assign the `backup.editor` role for the folder to the service account:
+  1. Assign the `backup.user` role for the folder to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
-        --role backup.editor \
+        --role backup.user \
         --subject serviceAccount:<service_account_ID>
       ```
 
@@ -75,7 +75,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       effective_deltas:
         - action: ADD
           access_binding:
-            role_id: backup.editor
+            role_id: backup.user
             subject:
               id: ajehb3tcdfa1********
               type: serviceAccount
@@ -87,7 +87,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the `backup.editor` role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+  To assign the `backup.user` role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -445,20 +445,13 @@ You can create a new policy or use one of those automatically created upon servi
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `cloud-network` and the subnet named `cloud-network-{{ region-id }}-d`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` value to assign a random external IP address from the {{ yandex-cloud }} pool.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `backup-sg`.
-
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `vm-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
-
+  1. Enable **{{ ui-key.yacloud.compute.components.BackupSection.section_backup_1MXwy }}** and select the backup policy you [created earlier](#create-policy) in the **{{ ui-key.yacloud.backup.title_select-vm-backup-policies-row }}** field.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `backup-instance`.
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
-
-      * Select the `backup-sa` service account.
-      * Enable **{{ backup-name }}**.
-      * Select the backup policy [you created earlier](#create-policy).
-
+  1. Expand the **{{ ui-key.yacloud.compute.instances.create.section_additional }}** section and select the `backup-sa` service account in the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

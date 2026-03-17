@@ -33,6 +33,9 @@ description: Различные сценарии использования ма
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
 
+## Разработка с помощью {{ mgl-full-name }} {#gitlab-development}
+
+* [{#T}](mlops-ml-registry.md)
 
 ## Распознавание изображений, текста и речи {#recognition}
 

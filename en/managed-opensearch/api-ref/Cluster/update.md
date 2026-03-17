@@ -106,9 +106,6 @@ apiPlayground:
             description: |-
               **string** (int64)
               Defines the maximum product of fields and terms that are queryable simultaneously.
-              Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-              Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-              New thread pools use the updated value.
               Default value: **1024**.
               Change of the setting is applied with restart.
               For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
@@ -141,6 +138,14 @@ apiPlayground:
               Allowed remote hosts
               Change of the setting is applied with restart.
               For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list).
+            type: string
+          httpMaxInitialLineLength:
+            description: |-
+              **string**
+              Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+              Default value: **4kb**.
+              Change of the setting is applied with restart.
+              For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings).
             type: string
       KeystoreSetting:
         type: object
@@ -443,7 +448,8 @@ The maximum string length in characters is 50. ||
         "maxClauseCount": "string",
         "fielddataCacheSize": "string",
         "searchMaxBuckets": "string",
-        "reindexRemoteWhitelist": "string"
+        "reindexRemoteWhitelist": "string",
+        "httpMaxInitialLineLength": "string"
       },
       // end of the list of possible fields
       "setKeystoreSettings": [
@@ -604,9 +610,6 @@ OpenSearch server configuration settings.
 || maxClauseCount | **string** (int64)
 
 Defines the maximum product of fields and terms that are queryable simultaneously.
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-New thread pools use the updated value.
 
 Default value: **1024**.
 
@@ -643,6 +646,15 @@ Allowed remote hosts
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
+|| httpMaxInitialLineLength | **string**
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+
+Default value: **4kb**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings). ||
 |#
 
 ## KeystoreSetting {#yandex.cloud.mdb.opensearch.v1.KeystoreSetting}
@@ -906,19 +918,22 @@ Acceptable values are 1 to 24, inclusive. ||
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
             "searchMaxBuckets": "string",
-            "reindexRemoteWhitelist": "string"
+            "reindexRemoteWhitelist": "string",
+            "httpMaxInitialLineLength": "string"
           },
           "userConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
             "searchMaxBuckets": "string",
-            "reindexRemoteWhitelist": "string"
+            "reindexRemoteWhitelist": "string",
+            "httpMaxInitialLineLength": "string"
           },
           "defaultConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
             "searchMaxBuckets": "string",
-            "reindexRemoteWhitelist": "string"
+            "reindexRemoteWhitelist": "string",
+            "httpMaxInitialLineLength": "string"
           }
         },
         // end of the list of possible fields
@@ -1392,9 +1407,6 @@ OpenSearch server configuration settings.
 || maxClauseCount | **string** (int64)
 
 Defines the maximum product of fields and terms that are queryable simultaneously.
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-New thread pools use the updated value.
 
 Default value: **1024**.
 
@@ -1431,6 +1443,15 @@ Allowed remote hosts
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
+|| httpMaxInitialLineLength | **string**
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+
+Default value: **4kb**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings). ||
 |#
 
 ## Dashboards {#yandex.cloud.mdb.opensearch.v1.Dashboards}

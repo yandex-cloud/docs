@@ -4,6 +4,8 @@
 
     {% include [preconfigured-rules-priority](./preconfigured-rules-priority.md) %}
 
+    Подробнее о приоритете правил см. в разделе [{#T}](../../smartwebsecurity/concepts/rules.md#rules-order).
+
 1. (опционально) Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**, если вы хотите только фиксировать информацию о трафике, который соответствует заданным условиям, но не применять к нему никаких действий.
 1. Выберите тип правила:
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**](../../smartwebsecurity/concepts/rules.md#base-rules) — правило, которое по заданным условиям разрешает, запрещает или отправляет трафик в [{{ captcha-full-name }}](../../smartcaptcha/).

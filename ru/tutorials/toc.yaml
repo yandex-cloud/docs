@@ -1761,6 +1761,10 @@ items:
             href: ml-ai/yq-postgre.md
           - name: Федеративные запросы к данным
             href: ml-ai/yq-federative-queries.md
+      - name: Разработка с помощью {{ mgl-full-name }}
+        items:
+          - name: Управление жизненным циклом MLOps с помощью ML Registry
+            href: ml-ai/mlops-ml-registry.md
       - name: Распознавание изображений, текста и речи
         items:
           - name: Распознавание архива изображений в {{ vision-name }}

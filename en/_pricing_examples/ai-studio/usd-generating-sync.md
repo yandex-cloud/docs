@@ -1,8 +1,0 @@
-#|
-|| | **Alice AI LLM** | **{{ gpt-pro }} 5.1** | **Qwen3 235B** ||
-|| Tokens per request | 164 | 164 | 248 ||
-|| Tokens per response | 22 | 22 | 39 ||
-|| Request cost | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.input_tokens.sync.aliceai-llm|number }} / 1000 × 164 %} | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.input_tokens.sync.yandexgpt-5.1-pro|number }} / 1000 × 164 %} | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.input_tokens.sync.qwen3-235b-a22b-fp8|number }} / 1000 × 248 %} ||
-|| Response cost | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.output_tokens.sync.aliceai-llm|number }} / 1000 × 22 %} | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.output_tokens.sync.yandexgpt-5.1-pro|number }} / 1000 × 22 %} | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.output_tokens.sync.qwen3-235b-a22b-fp8|number }} / 1000 × 39 %} ||
-|| Total | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.input_tokens.sync.aliceai-llm|number }} / 1000 × 164 + {{ sku|USD|aistudio.text_generation.output_tokens.sync.aliceai-llm|number }} / 1000 × 22 %} | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.input_tokens.sync.yandexgpt-5.1-pro|number }} / 1000 × 164 + {{ sku|USD|aistudio.text_generation.output_tokens.sync.yandexgpt-5.1-pro|number }} / 1000 × 22 %} | {% calc [currency=USD] {{ sku|USD|aistudio.text_generation.input_tokens.sync.qwen3-235b-a22b-fp8|number }} / 1000 × 248 + {{ sku|USD|aistudio.text_generation.output_tokens.sync.qwen3-235b-a22b-fp8|number }} / 1000 × 39 %} ||
-|#

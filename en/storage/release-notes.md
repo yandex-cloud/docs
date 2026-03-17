@@ -1,9 +1,26 @@
 ---
 title: '{{ objstorage-full-name }} release notes'
-description: This section contains {{ objstorage-name }} release notes.
+description: This section contains the {{ objstorage-name }} release notes.
 ---
 
 # {{ objstorage-full-name }} release notes
+
+## Q4 2025 {#q4-2025}
+
+* Supported [IAM tokens](../iam/concepts/authorization/iam-token.md) and [ephemeral access keys](./operations/buckets/manage-ephemeral-keys.md) for [authentication in {{ objstorage-name }}](./api-ref/authentication.md).
+* Now you can [disable using static keys for access to a bucket](./operations/buckets/disable-statickey-auth.md).
+* Added access policy settings [to enforce conditional object writes](./concepts/policy.md#conditional-writes-rules).
+* Now, when [configuring bucket access only from {{ vpc-short-name }} service connections at the service level](./operations/buckets/access-via-vpc.md#enable-service-restriction), you can maintain bucket access from the [management console]({{ link-console-main }}).
+* Enabled configuring {{ vpc-short-name }} service connections in the [management console]({{ link-console-main }}).
+* Added new access policy [conditions](./s3/api-ref/policy/conditions.md):
+  * `yc:originip`: Maps the request origin IP address against the one specified in the policy. 
+  
+    Unlike the `aws:sourceip` condition, this one _does not take into account_ any reverse proxy server IP addresses, e.g., those provided in the `X-Forwarded-For` header.
+  * `yc:access-key-id`: Maps the [static access key](../iam/concepts/authorization/access-key.md) ID against the one specified in the policy.
+* Supported the `range` query parameter in S3 API methods for working with [Get](./s3/api-ref/object/get.md) and [getObjectMeta](./s3/api-ref/object/getobjectmeta.md) objects.
+* In the `yc storage s3 cp` {{ yandex-cloud }} CLI command:
+  * Fixed the error with filtering uploaded objects.
+  * Added a check for the maximum object size.
 
 ## Q3 2025 {#q3-2025}
 

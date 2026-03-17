@@ -76,7 +76,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -135,7 +134,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -199,7 +197,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -219,6 +216,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
               - `type` (String). Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
  `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
         - `null_keys_allowed` (Bool). Allow null keys, if no - null keys will be putted to unparsed data
         - `unescape_string_values` (Bool). Unescape string values
       - `tskv_parser` [Block]. Parse data in tskv format
@@ -233,6 +231,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
               - `type` (String). Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
  `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
         - `null_keys_allowed` (Bool). Allow null keys, if no - null keys will be putted to unparsed data
         - `unescape_string_values` (Bool). Unescape string values
     - `security_groups` (List Of String). List of security groups that the transfer associated with this endpoint should
@@ -279,7 +278,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -345,7 +343,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -395,7 +392,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
  connection
             - `enabled` [Block]. TLS is used for the server connection
               - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -432,7 +428,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -498,7 +493,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -550,7 +544,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -656,7 +649,6 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connection
           - `enabled` [Block]. TLS is used for the server connection
             - `ca_certificate` (String). CA certificate
- 
  X.509 certificate of the certificate authority which issued the server's
  certificate, in PEM format. When CA certificate is specified, TLS is used to
  connect to the server. If CA certificate is empty, the server's certificate must
@@ -733,6 +725,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
               - `type` (String). Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
  `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
         - `null_keys_allowed` (Bool). Allow null keys, if no - null keys will be putted to unparsed data
         - `unescape_string_values` (Bool). Unescape string values
       - `tskv_parser` [Block]. Parse data in tskv format
@@ -747,6 +740,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
               - `type` (String). Field type, one of: `INT64`, `INT32`, `INT16`, `INT8`, `UINT64`, `UINT32`,
  `UINT16`, `UINT8`, `DOUBLE`, `BOOLEAN`, `STRING`, `UTF8`, `ANY`, `DATETIME`.
           - `json_fields` (String). Description of the data schema as JSON specification
+ Deprecated: please use fields instead
         - `null_keys_allowed` (Bool). Allow null keys, if no - null keys will be putted to unparsed data
         - `unescape_string_values` (Bool). Unescape string values
     - `security_groups` (List Of String). List of security groups that the transfer associated with this endpoint should

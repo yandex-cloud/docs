@@ -6,7 +6,14 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
 ## Getting started {#before-you-begin}
 
-1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.editor` [role](../security/index.md#backup-editor).
+1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.user` [role](../security/index.md#backup-user) or higher.
+
+    {% note info %}
+
+    {% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
+
+    {% endnote %}
+
 1. [Set up](../concepts/vm-connection.md#vm-network-access) network access for your VM.
 
 ## Creating a VM {#creating-vm}
@@ -25,17 +32,12 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. Follow these naming requirements:
+  1. {% include [backup-vm-creation-step-console](../../_includes/backup/backup-vm-creation-step-console.md) %}
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
-
-      1. Select the service account with the `backup.editor` role.
-      1. Enable **{{ backup-name }}**.
-      1. Optionally, select a backup policy or click **{{ ui-key.yacloud.common.create }}** to [create](./policy-vm/create.md) a new one.
 
   1. Specify the other VM parameters as needed.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -115,7 +117,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share in %.
       * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
-      * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
+      * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.user` role or higher.
       * `--user-data`: Path to the previously created file with a script for installing the {{ backup-name }} agent on your VM.
 
       In this example, we are creating a VM running Windows Server 2022:
@@ -129,7 +131,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
         --cores 2 \
         --core-fraction 100 \
         --memory 4 \
-        --service-account-name backup-editor \
+        --service-account-name backup-user \
         --metadata-from-file user-data=init.ps1
       ```
 

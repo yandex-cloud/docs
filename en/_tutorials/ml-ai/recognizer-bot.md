@@ -3,8 +3,8 @@
 
 In this tutorial, you will create a Telegram bot that can:
 
-* [Synthesize speech](../../speechkit/tts/index.md) from a message text and [recognize speech](../../speechkit/stt/index.md) in voice messages using the {{ speechkit-full-name }} [Python SDK](../../speechkit/sdk/python/index.md).
-* [Recognize text](../../vision/concepts/ocr/index.md) in images using {{ vision-full-name }}.
+* [Synthesize speech]({{ link-docs-ai }}speechkit/tts/index) from a message text and [recognize speech]({{ link-docs-ai }}speechkit/stt/index) in voice messages using the {{ speechkit-full-name }} [Python SDK]({{ link-docs-ai }}speechkit/sdk/python/index).
+* [Recognize text]({{ link-docs-ai }}vision/concepts/ocr/index) in images using {{ vision-full-name }}.
 
 Authentication in {{ yandex-cloud }} services is performed under a service account using an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token is contained in the handler context of the [function](../../functions/operations/function-sa.md) which manages user conversation with the bot.
 
@@ -30,8 +30,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of Telegram bot support includes:
 
-* Fee for using {{ speechkit-name }} (see [{{ speechkit-name }} pricing](../../speechkit/pricing.md)).
-* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing](../../vision/pricing.md)).
+* Fee for using {{ speechkit-name }} (see [{{ speechkit-name }} pricing]({{ link-docs-ai }}speechkit/pricing)).
+* Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
 * Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
@@ -369,7 +369,7 @@ Create a function to process user actions in the chat.
      * `environment`: Environment variables.
      * `package`: Name of the bucket containing the uploaded `index.zip` archive with the function source code.
 
-     For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Make sure the configuration files are correct.
 
@@ -380,7 +380,7 @@ Create a function to process user actions in the chat.
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -531,7 +531,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -541,7 +541,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -594,7 +594,7 @@ Chat with the bot:
 
    {% note info %}
 
-   The image must meet [these requirements](../../vision/concepts/ocr/index.md#image-requirements).
+   The image must meet [these requirements]({{ link-docs-ai }}vision/concepts/ocr/index#image-requirements).
 
    {% endnote %}
 

@@ -115,7 +115,9 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional setting.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
+       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). This is an optional setting. The possible values are:
+         * `"*"`
+         * `"CanonicalUser": "<subject_ID>"`
 
          You can get the IDs in the following ways:
 
@@ -193,7 +195,9 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional setting.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
+       * `Principal`: ID of the subject requesting the permission. You can request permissions for a [user](../../../organization/operations/users-get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). This is an optional setting. The possible values are:
+         * `"*"`
+         * `"CanonicalUser": "<subject_ID>"`
 
          You can get the IDs in the following ways:
 

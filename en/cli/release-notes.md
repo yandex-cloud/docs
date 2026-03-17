@@ -7,6 +7,25 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.195.0 (23/02/26) {#version0.195.0}
+
+
+#### Changes in {{ yandex-cloud }} services
+
+
+##### {{ mmg-name }}
+* Added autoscaling and maintenance window settings for the `create` and `restore` commands:
+  * yc managed-mongodb cluster create
+  * restore --maintenance-window --disk-size-autoscaling
+
+
+##### {{ mrd-name }}
+* Added autoscaling and maintenance window settings for the `create` and `restore` commands:
+  * yc managed-redis cluster create
+  * restore --maintenance-window --disk-size-autoscaling
+
+## Previous releases {#previous-release}
+
 ### Version 0.194.0 (19/02/26) {#version0.194.0}
 
 #### Changes to {{ yandex-cloud }} services {#services-0.194.0}
@@ -16,8 +35,6 @@ description: This page presents a list of CLI releases and the updates of each.
 In commands for creating VMs on dedicated hosts, added the `kms-key-id` and `kms-key-name` options to the `--attach-local-disk` parameter to connect encrypted local disks to the VMs:
 * `yc compute instance create --attach-local-disk kms-key-id=<KMS_key_ID>`
 * `yc compute instance create-with-container --attach-local-disk kms-key-name=<KMS_key_name>`
-
-## Previous releases {#previous-release}
 
 ### Version 0.193.0 (16/02/26) {#version0.193.0}
 

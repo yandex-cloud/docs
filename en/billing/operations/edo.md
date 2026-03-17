@@ -6,15 +6,17 @@ description: Follow this guide to enable electronic document management.
 # Enabling electronic document management
 
 
-Businesses and individual entrepreneurs that are residents of Russia can use the electronic document management (EDM) service in {{ yandex-cloud }}. 
-With EDM, you can get [closing reporting documents](../concepts/edo.md#document). 
+Businesses and individual entrepreneurs that are residents of Russia can use electronic document management (EDM) in {{ yandex-cloud }} by integrating third-party EDM operators.
+
+With EDM, you can get [closing reporting documents](../concepts/edo.md#document).
 
 {% note warning %}
 
-If you enable EDM, you will no longer receive electronic versions of closing documents to your e-mail address and their original copies to your mailing address.
+If you enable EDM, you will no longer receive digital copies of closing documents to your email address and their original copies to your mailing address.
 However, you will be able to download closing documents in {{ billing-name }}. See [this guide](download-reporting-docs.md).
 
 {% endnote %}
+
 
 ## Enable EDM {#connect}
 
@@ -22,12 +24,12 @@ To start working with {{ yandex-cloud }} via EDM:
 
 1. Connect to an EDM [operator](../concepts/edo.md#operator): [Diadoc (SKB Kontur)](https://promo.diadoc.ru/yandexfd?p=z05983&utm_abtest=order-lightbox) or [SBIS (Tensor)](https://sbis.ru/edo/telecoms/yandex). For connection instructions, visit the operator's website. {{ yandex-cloud }} does not partner with other operators or support roaming.
 
-1. Sign the {{ yandex-cloud }} agreement. Navigate to your [Diadoc (SKB Kontur)](https://promo.diadoc.ru/yandexfd?p=z05983&utm_abtest=order-lightbox) or [SBIS (Tensor)](https://sbis.ru/edo/telecoms/yandex) personal account and sign the Yandex.Cloud LLC agreement. The EDM agreement comes together with your invitation as an attachment requiring your signature.
+1. Sign the {{ yandex-cloud }} agreement. Navigate to your [Diadoc (SKB Kontur)](https://promo.diadoc.ru/yandexfd?p=z05983&utm_abtest=order-lightbox) or [SBIS (Tensor)](https://sbis.ru/edo/telecoms/yandex) personal account and sign the Yandex.Cloud LLC agreement. The EDM agreement is delivered together with your invitation as an attachment requiring your signature.
 
     {{ yandex-cloud }} automatically and unilaterally sends agreements to two EDM operators if:
     * A new payer is registered.
     * A payment invoice is issued.
-    * An agreement is entered into.
+    * An agreement is signed.
 
 {% note info %}
 

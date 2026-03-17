@@ -25,13 +25,12 @@ All physical ports on the {{ yandex-cloud }} equipment have the following defaul
 * {{ yandex-cloud }} physical ports are always configured as 802.1Q tagged trunks. Access port (untagged) connections are not supported.
 * The default MTU size supports jumbo frame transmission.
 
-{% note warning %}
+## Physical port aggregation on the {{ yandex-cloud }} equipment {#lag}
 
 If you need to, you can group multiple physical ports into a single bundle using [LACP](https://en.wikipedia.org/wiki/Link_aggregation#Link_Aggregation_Control_Protocol) in `Active` mode. When setting up a bundle, all its physical ports must use [transceivers](./transceivers.md) of the same type. You cannot combine transceivers of different types within a single bundle.
 
 {{ yandex-cloud }} equipment does not support [MC-LAG](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) for aggregated links.
 
-{% endnote %}
 
 ## Physical connection topologies {#links}
 

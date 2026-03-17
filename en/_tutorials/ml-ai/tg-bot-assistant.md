@@ -2,9 +2,9 @@
 
 {% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
-Language models can maintain conversation context and perform knowledge base search using {{ ml-sdk-full-name }}, [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), and [{{ assistant-api }}](../../ai-studio/concepts/assistant/index.md).
+Language models can maintain conversation context and perform knowledge base search using {{ ml-sdk-full-name }}, [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), and [{{ assistant-api }}]({{ link-docs-ai }}concepts/assistant/index).
 
-In this tutorial, you will create a wine sales chat assistant based on the {{ yagpt-name }} 5 model. The assistant relies on [function calling](../../ai-studio/concepts/generation/function-call.md) and RAG to access the database of wines and regions as well as the price list indicating wines in stock. You will configure the assistant in a {{ ml-platform-full-name }} notebook and interact with it via Telegram.
+In this tutorial, you will create a wine sales chat assistant based on the {{ yagpt-name }} 5 model. The assistant relies on [function calling]({{ link-docs-ai }}concepts/generation/function-call) and RAG to access the database of wines and regions as well as the price list indicating wines in stock. You will configure the assistant in a {{ ml-platform-full-name }} notebook and interact with it via Telegram.
 
 To create an AI assistant for Telegram:
 
@@ -26,9 +26,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost for creating an AI assistant includes:
 
 * Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for [text generation](../../ai-studio/pricing.md) by the model.
+* Fee for [text generation]({{ link-docs-ai }}pricing) by the model.
 
-## Set up the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -136,7 +136,7 @@ The notebook code connects to the model, provides it with the relevant functions
 
 1. Open the chat with your bot using the link you got [earlier](#create-bot).
 1. Click **START**.
-1. Enter your query in the message input field. For example:
+1. Enter your query in the message input field. Here is an example:
 
    ```text
    What wine pairs well with white chocolate?
