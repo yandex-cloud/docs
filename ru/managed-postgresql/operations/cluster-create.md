@@ -217,7 +217,7 @@ description: Следуя данной инструкции, вы сможете
        --deletion-protection
      ```
 
-     
+
      Где:
 
      * `environment` — окружение: `prestable` или `production`.
@@ -239,7 +239,6 @@ description: Следуя данной инструкции, вы сможете
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
-
 
 
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -464,7 +463,6 @@ description: Следуя данной инструкции, вы сможете
            "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
            "webSql": <разрешить_доступ_из_{{ websql-name }}>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
            "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
          },
          "performanceDiagnostics": {
@@ -554,12 +552,11 @@ description: Следуя данной инструкции, вы сможете
          * `diskEncryptionKeyId` — идентификатор ключа KMS для шифрования диска.
 
        
-       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+       * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
 
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
@@ -595,8 +592,11 @@ description: Следуя данной инструкции, вы сможете
      * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
        * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
-       * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
+
+       
+       * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet)
        * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
+
 
      * `maintenanceWindow` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
 
@@ -651,7 +651,6 @@ description: Следуя данной инструкции, вы сможете
            "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
            "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "data_transfer": <разрешить_доступ_из_Data_Transfer>,
            "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
          },
          "performance_diagnostics": {
@@ -741,12 +740,11 @@ description: Следуя данной инструкции, вы сможете
          * `disk_encryption_key_id` — идентификатор ключа KMS для шифрования диска.
 
        
-       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+       * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
 
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
@@ -782,9 +780,12 @@ description: Следуя данной инструкции, вы сможете
      * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
+
+       
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета.
-    
+
+
      * `maintenance_window` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
 
        * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
@@ -908,7 +909,7 @@ description: Следуя данной инструкции, вы сможете
   
   * С именем `mypg`.
   * В окружении `production`.
-  * В сети `default`.
+  * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
@@ -924,7 +925,7 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-mdb-pg }} cluster create \
      --name mypg \
      --environment production \
-     --network-name default \
+     --network-name {{ network-name }} \
      --resource-preset {{ host-class }} \
      --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr******** \
      --disk-type {{ disk-type-example }} \

@@ -6,7 +6,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the folder. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder. You can [switch to another cloud](../cloud/switch-cloud.md), if required.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the folder name.
   1. Select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.FolderActions.button_action-delete-folder_mu24C }}**.
 

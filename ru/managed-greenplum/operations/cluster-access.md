@@ -121,6 +121,52 @@ description: Следуя данной инструкции, вы настрои
       {{ yc-mdb-gp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ mgp-name }}.
+  
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+  1. Добавьте описание ресурса:
+    
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<локальное_имя_ресурса>" {
+        cluster_id = "<идентификатор_кластера>"
+        role       = "<роль>"
+        members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+      }
+      ```
+
+      Где:
+
+      * `cluster_id` — идентификатор кластера.
+      * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-greenplum.editor`.
+      * `members` — массив типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+    
+        Например:
+        
+        * `serviceAccount:${yandex_iam_service_account.mgp_sa.id}`,
+        * `userAccount:ajerq94vab34********`,
+        * `system:allAuthenticatedUsers`.
+
+        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      
+      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_greenplum_cluster_iam_binding).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/):
+    
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      ```
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -207,6 +253,7 @@ description: Следуя данной инструкции, вы настрои
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
 
+
 {% endlist %}
 
 ## Назначить несколько ролей {#set-access-bindings}
@@ -257,6 +304,58 @@ description: Следуя данной инструкции, вы настрои
           * `system:allAuthenticatedUsers`.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте описание ресурсов:
+    
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<локальное_имя_ресурса_1>" {
+        cluster_id = "<идентификатор_кластера>"
+        role       = "<роль_1>"
+        members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+      }
+
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<локальное_имя_ресурса_2>" {
+        cluster_id = "<идентификатор_кластера>"
+        role       = "<роль_2>"
+        members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+      }
+      ```
+
+      Где:
+
+      * `cluster_id` — идентификатор кластера.
+      * `role` — назначаемая [роль](../security/index.md#roles-list), например `managed-greenplum.editor`.
+      * `members` — массив типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
+    
+        Например:
+        
+        * `serviceAccount:${yandex_iam_service_account.mgp_sa.id}`,
+        * `userAccount:ajerq94vab34********`,
+        * `system:allAuthenticatedUsers`.
+
+        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      
+      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_greenplum_cluster_iam_binding).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/):
+    
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      ```
 
 - REST API {#api}
 
@@ -380,6 +479,7 @@ description: Следуя данной инструкции, вы настрои
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
 
+
 {% endlist %}
 
 ## Отозвать роль {#remove-access-binding}
@@ -423,6 +523,38 @@ description: Следуя данной инструкции, вы настрои
           * `system:allAuthenticatedUsers`.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+  1. Найдите описание ресурса с ролью, которую вы хотите отозвать, и удалите его:
+    
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<локальное_имя_ресурса>" {
+        cluster_id = "<идентификатор_кластера>"
+        role       = "<роль>"
+        members    = ["<тип_субъекта>:<идентификатор_субъекта>"]
+      }
+      ```
+
+  1. Проверьте корректность конфигурационных файлов.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      
+      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_greenplum_cluster_iam_binding).
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/):
+    
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      ```
 
 - REST API {#api}
 
@@ -543,6 +675,42 @@ description: Следуя данной инструкции, вы настрои
       {{ yc-mdb-gp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+  1. Добавьте описание ресурсов:
+
+      ```hcl
+      resource "yandex_resourcemanager_folder_iam_member" "mgp-viewer-account-iam" {
+        folder_id   = "<идентификатор_каталога>"
+        role        = "managed-greenplum.viewer"
+        member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
+      }
+
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "mgp-cluster-editor" {
+        cluster_id = "<идентификатор_кластера>"
+        role       = "managed-greenplum.editor"
+        members    = ["serviceAccount:<идентификатор_сервисного_аккаунта>"]
+      }
+      ```
+
+  1. Проверьте корректность конфигурационных файлов.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../cli/):
+
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      ```
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -645,7 +813,7 @@ description: Следуя данной инструкции, вы настрои
                   "access_binding": {
                     "role_id": "managed-greenplum.viewer",
                     "subject": {
-                      "id": "<идентификатор_ссервисного_аккаунта>",
+                      "id": "<идентификатор_сервисного_аккаунта>",
                       "type": "serviceAccount"
                     }
                   }
@@ -675,7 +843,7 @@ description: Следуя данной инструкции, вы настрои
                   "access_binding": {
                     "role_id": "managed-greenplum.editor",
                     "subject": {
-                      "id": "<идентификатор_ссервисного_аккаунта>",
+                      "id": "<идентификатор_сервисного_аккаунта>",
                       "type": "serviceAccount"
                     }
                   }

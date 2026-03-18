@@ -163,14 +163,15 @@ description: Из статьи вы узнаете, как управлять х
      
      Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mpg-short-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-
      Также вы можете указать несколько дополнительных опций в параметре `--host` для управления публичным доступом к хосту и репликацией в кластере:
      * Источник репликации для хоста в опции `replication-source` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
      * Доступность хоста извне {{ yandex-cloud }} в опции `assign-public-ip`:
        * `true` — публичный доступ включен.
        * `false` — публичный доступ выключен.
 
+
   {{ mpg-short-name }} запустит операцию добавления хоста.
+
 
 - {{ TF }} {#tf}
 
@@ -213,6 +214,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -221,6 +223,7 @@ description: Из статьи вы узнаете, как управлять х
 
   1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+     
      ```bash
      curl \
        --request POST \
@@ -248,11 +251,16 @@ description: Из статьи вы узнаете, как управлять х
                }'
      ```
 
+
      Где `hostSpecs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
      * `zoneId` — зона доступности.
+
+     
      * `subnetId` — идентификатор подсети.
      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect/fqdn.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
@@ -272,6 +280,7 @@ description: Из статьи вы узнаете, как управлять х
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
+     
      ```bash
      grpcurl \
        -format json \
@@ -303,11 +312,16 @@ description: Из статьи вы узнаете, как управлять х
        yandex.cloud.mdb.postgresql.v1.ClusterService.AddHosts
      ```
 
+
      Где `host_specs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
      * `zone_id` — зона доступности.
+
+     
      * `subnet_id` — идентификатор подсети.
      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect/fqdn.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
@@ -357,6 +371,7 @@ description: Из статьи вы узнаете, как управлять х
 
   Чтобы изменить параметры хоста в кластере, выполните команду:
 
+  
   ```bash
   {{ yc-mdb-pg }} host update <имя_хоста> \
     --cluster-name <имя_кластера> \
@@ -364,15 +379,20 @@ description: Из статьи вы узнаете, как управлять х
     --assign-public-ip=<публичный_доступ_к_хосту>
   ```
 
+
   Где:
 
   * `cluster-name` — имя кластера.
   * `replication-source` — имя хоста-источника.
+
+  
   * `assign-public-ip` — [публичный доступ к хосту](../concepts/network.md#public-access-to-a-host): `true` или `false`.
+
 
   Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   Чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual) в кластере, измените источник репликации для хоста в параметре `--replication-source`.
+
 
 - {{ TF }} {#tf}
 
@@ -409,6 +429,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -419,6 +440,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
+     
      ```bash
      curl \
        --request POST \
@@ -446,11 +468,16 @@ description: Из статьи вы узнаете, как управлять х
                }'
      ```
 
+
      Где `updateHostSpecs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
      * `hostName` — [FQDN изменяемого хоста](connect/fqdn.md).
+
+     
      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
@@ -472,6 +499,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
+     
      ```bash
      grpcurl \
        -format json \
@@ -507,11 +535,16 @@ description: Из статьи вы узнаете, как управлять х
        yandex.cloud.mdb.postgresql.v1.ClusterService.UpdateHosts
      ```
 
+
      Где `update_host_specs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
      * `host_name` — [FQDN изменяемого хоста](connect/fqdn.md).
+
+     
      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.

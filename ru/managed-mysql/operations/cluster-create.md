@@ -358,7 +358,10 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+     
      * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
+
      * `priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
      * `backup_priority` — приоритет для резервного копирования: от `0` до `100`.
      * `name`и `password`— имя и пароль пользователя {{ MY }}.
@@ -613,12 +616,15 @@ description: Следуя данной инструкции, вы сможете
       * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
+
+          
           * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assignPublicIp` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
-      
+          * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
+
+
       {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
-  1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -780,12 +786,15 @@ description: Следуя данной инструкции, вы сможете
       * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
+
+          
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assign_public_ip` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
+          * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
-      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}    
 
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}
+
+  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -941,6 +950,7 @@ description: Следуя данной инструкции, вы сможете
        --permissions ALL
      ```
 
+
 - {{ TF }} {#tf}
 
   Создайте кластер {{ mmy-name }} и сеть для него с тестовыми характеристиками:
@@ -952,11 +962,8 @@ description: Следуя данной инструкции, вы сможете
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
     * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-
-    
+    * С публичным доступом к хосту.
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
-
-
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
@@ -964,7 +971,6 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
 
-  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name                = "my-mysql"
@@ -981,8 +987,9 @@ description: Следуя данной инструкции, вы сможете
     }
 
     host {
-      zone      = "{{ region-id }}-a"
-      subnet_id = yandex_vpc_subnet.mysubnet.id
+      zone             = "{{ region-id }}-a"
+      subnet_id        = yandex_vpc_subnet.mysubnet.id
+      assign_public_ip = true
     }
   }
 
@@ -1043,7 +1050,7 @@ description: Следуя данной инструкции, вы сможете
   * С именем `my-mysql-3`.
   * Версии `{{ versions.cli.latest }}`.
   * В окружении `prestable`.
-  * В сети `default`.
+  * В сети `{{ network-name }}`.
   * В группе безопасности с идентификатором `{{ security-group }}`.
   * С тремя хостами класса `{{ host-class }}` с публичным доступом к ним.
 
@@ -1067,7 +1074,7 @@ description: Следуя данной инструкции, вы сможете
        --name="my-mysql-3" \
        --mysql-version {{ versions.cli.latest }} \
        --environment=prestable \
-       --network-name=default \
+       --network-name={{ network-name }} \
        --security-group-ids {{ security-group }} \
        --host zone-id={{ region-id }}-a,`
               `subnet-name=subnet-a,`
@@ -1096,6 +1103,7 @@ description: Следуя данной инструкции, вы сможете
        --permissions ALL
      ```
 
+
 - {{ TF }} {#tf}
 
   Создайте кластер {{ mmy-name }} и сеть для него с тестовыми характеристиками:
@@ -1117,17 +1125,13 @@ description: Следуя данной инструкции, вы сможете
 
       Хосту в подсети `mysubnet-b` будет присвоен приоритет резервного копирования. Резервные копии будут создаваться из данных с этого хоста, если он не выбран хостом-мастером.
 
-    
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
-
-
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 32 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
 
   Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
 
-  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
     name                = "my-mysql-3"

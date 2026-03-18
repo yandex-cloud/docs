@@ -137,7 +137,9 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
+
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -186,6 +188,7 @@ sudo apt update && sudo apt install --yes mysql-client
 ## Подключение из {{ websql-full-name }} {#websql}
 
 {% include [WebSQL](../../../_includes/mdb/mmy/websql.md) %}
+
 
 
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}

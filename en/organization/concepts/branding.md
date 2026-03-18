@@ -20,7 +20,7 @@ This functionality is available only to organizations that have paid for their [
 
 Branding can be configured only by users with the `organization-manager.admin` or `organization-manager.organizations.owner` [role](../security/index.md). The following settings can be customized separately for the light and dark color themes:
 
-* Uploading of custom images in WebP, PNG, JPEG, or JPG format:
+* Uploading of custom images in `WebP`, `PNG`, `JPEG`, `JPG` format:
   * Background image (up to 3840×2160 px, max 4 MB)
   * Logo for the top of the form (minimum 1920×1920 px, max 512 KB)
   * Favicon (up to 512×512 px, max 512 KB)

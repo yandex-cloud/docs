@@ -90,9 +90,10 @@ description: Следуя данной инструкции, вы сможете
       * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
-        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
 
         
+        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
 
 
@@ -117,7 +118,10 @@ description: Следуя данной инструкции, вы сможете
           Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
           
           * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+
+          
           * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+
 
       * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:
 
@@ -128,8 +132,11 @@ description: Следуя данной инструкции, вы сможете
           Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
           
           * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+
+          
           * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
-  
+
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * Если вы хотите управлять пользователями кластера через SQL, в поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите из выпадающего списка **{{ ui-key.yacloud.common.enabled }}** и укажите пароль пользователя `admin`. Управление пользователями через другие интерфейсы при этом станет недоступно.
@@ -785,11 +792,15 @@ description: Следуя данной инструкции, вы сможете
                     Если вы включили использование {{ CK }} с помощью настройки `embeddedKeeper: true`, то в `hostSpecs` нужно указать только настройки хостов {{ CH }}.
 
                 * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+                
                 * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+
+
                 * `shardName` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
                 
-                * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+                * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
@@ -1024,11 +1035,15 @@ description: Следуя данной инструкции, вы сможете
                     Если вы включили использование {{ CK }} с помощью настройки `embedded_keeper: true`, то в `host_specs` нужно указать только настройки хостов {{ CH }}.
 
                 * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+                
                 * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+
+
                 * `shard_name` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
                 
-                * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+                * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
@@ -1169,7 +1184,7 @@ description: Следуя данной инструкции, вы сможете
   
   * Имя `mych`.
   * Окружение `production`.
-  * Сеть `default`.
+  * Сеть `{{ network-name }}`.
   * Группа безопасности `{{ security-group }}`.
   * Один хост {{ CH }} класса `{{ host-class }}` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`.
   * {{ CK }}.
@@ -1186,7 +1201,7 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-mdb-ch }} cluster create \
     --name mych \
     --environment=production \
-    --network-name default \
+    --network-name {{ network-name }} \
     --clickhouse-resource-preset {{ host-class }} \
     --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qum******** \
     --embedded-keeper true \
@@ -1199,6 +1214,7 @@ description: Следуя данной инструкции, вы сможете
   ```
 
 
+
 - {{ TF }} {#tf}
 
   Создайте кластер {{ mch-name }} и сеть для него с тестовыми характеристиками:
@@ -1208,11 +1224,7 @@ description: Следуя данной инструкции, вы сможете
   * Облако с идентификатором `{{ tf-cloud-id }}`.
   * Каталог с идентификатором `{{ tf-folder-id }}`.
   * Новая облачная сеть `cluster-net`.
-
-  
   * Новая [группа безопасности по умолчанию](connect/index.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
-
-
   * Один хост класса `{{ host-class }}` в новой подсети `cluster-subnet-{{ region-id }}-a`.
 
     Параметры подсети:
@@ -1234,17 +1246,17 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-mdb-single-network](../../_includes/mdb/terraform-single-network.md) %}
 
-  
   1. Конфигурационный файл с описанием группы безопасности:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
-
 
   1. Конфигурационный файл с описанием кластера и его хоста:
 
       {% include [terraform-mch-single-host-single-shard](../../_includes/mdb/mch/terraform/single-host-single-shard.md) %}
 
+
 {% endlist %}
+
 
 ### Создание кластера из нескольких хостов {#creating-a-multi-host-cluster}
 
@@ -1270,10 +1282,7 @@ description: Следуя данной инструкции, вы сможете
 
     Эти подсети будут принадлежать сети `cluster-net`.
 
-  
   * Новая [группа безопасности по умолчанию](connect/index.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
-
-
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 32 ГБ для каждого {{ CH }}-хоста кластера.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 10 ГБ для каждого {{ ZK }}-хоста кластера.
   * Имя базы данных `db1`.
@@ -1289,16 +1298,15 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
 
-  
   1. Конфигурационный файл с описанием группы безопасности:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
-
 
   1. Конфигурационный файл с описанием кластера и его хостов:
 
       {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 
 {% endlist %}
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

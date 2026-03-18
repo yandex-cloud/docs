@@ -22,3 +22,4 @@ keywords:
 * [Техническое обслуживание](cluster-maintenance.md)
 * [Просмотр логов кластера](cluster-logs.md)
 * [Удаление кластера](cluster-delete.md)
+* [Управление доступом к кластеру](cluster-access.md)

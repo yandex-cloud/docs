@@ -92,7 +92,8 @@ Name of the database that the permission grants access to. ||
         "log": [
           "PGAuditSettingsLog"
         ]
-      }
+      },
+      "idle_session_timeout": "google.protobuf.Int64Value"
     },
     "login": "google.protobuf.BoolValue",
     "grants": [
@@ -377,6 +378,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idle_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings}

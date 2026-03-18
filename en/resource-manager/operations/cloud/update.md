@@ -6,9 +6,9 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   1. Click ![horizontal-ellipsis](../../../_assets/console-icons/ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
-  1. In the window that opens, enter a new cloud name. Follow these naming requirements:
+  1. In the window that opens, enter a new cloud name. The naming requirements are as follows:
 
 	 {% include [name-format.md](../../../_includes/name-format.md) %}
 
@@ -86,7 +86,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      For more information about `yandex_resourcemanager_cloud` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -106,7 +106,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash

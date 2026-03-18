@@ -233,6 +233,8 @@ items:
         href: metrics-ref/logging-ref.md
       - name: '{{ cns-name }}'
         href: metrics-ref/cns-ref.md
+      - name: '{{ postbox-name }}'
+        href: metrics-ref/postbox-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'

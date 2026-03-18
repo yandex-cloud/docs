@@ -275,7 +275,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 ## Подключение из {{ google-looker }} {#connection-google-looker}
 
+
 Подключаться из [{{ google-looker }}](https://lookerstudio.google.com/overview) можно только к хостам кластера в публичном доступе.
+
 
 1. Сохраните [сертификат сервера]({{ crt-web-path }}) `CA.pem` в локальную папку.
 1. В той же папке сгенерируйте сертификат клиента с приватным ключом:

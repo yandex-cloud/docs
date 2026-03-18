@@ -14,6 +14,8 @@ items:
         href: operations/cluster-create.md
       - name: Подключение к базе данных
         href: operations/connect.md
+      - name: Управление доступом к кластеру
+        href: operations/cluster-access.md
       - name: Изменение кластера
         href: operations/cluster-update.md
       - name: Управление хостами кластера

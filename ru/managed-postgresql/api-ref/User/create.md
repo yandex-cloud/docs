@@ -227,6 +227,13 @@ apiPlayground:
               **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
               Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit).
             $ref: '#/definitions/PGAuditSettings'
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds; can be set only for PostgreSQL 14+
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       UserSpec:
         type: object
         properties:
@@ -376,7 +383,8 @@ The maximum string length in characters is 50. ||
         "log": [
           "string"
         ]
-      }
+      },
+      "idleSessionTimeout": "string"
     },
     "login": "boolean",
     "grants": [
@@ -600,6 +608,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings}
@@ -681,7 +694,8 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
         "log": [
           "string"
         ]
-      }
+      },
+      "idleSessionTimeout": "string"
     },
     "login": "boolean",
     "grants": [
@@ -996,6 +1010,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings2)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings2}
