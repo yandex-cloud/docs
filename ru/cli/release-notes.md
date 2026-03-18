@@ -7,6 +7,30 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.200.0 (18.03.26) {#version0.200.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ interconnect-name }}
+
+Добавлены команды для получения списков приватных и публичных соединений в указанном транковом подключении:
+* `yc cic trunk-connection list-private-connections`;
+* `yc cic trunk-connection list-public-connections`.
+
+##### {{ baremetal-name }}
+
+Добавлена команда `yc baremetal public-prefix-pool` для управления набором публичных IP‑префиксов (диапазонов адресов) в {{ baremetal-name }}.
+
+##### {{ mgp-name }}
+
+Исправлена опечатка в команде `yc managed-greenplum pxf update`.
+
+##### {{ sws-name }}
+
+Сервис {{ sws-name }} добавлен в бета-дерево команд и доступен по команде `yc beta smartwebsecurity`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.199.0 (16.03.26) {#version0.199.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -47,8 +71,6 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 Сервис {{ captcha-name }} добавлен в бета-дерево команд и доступен по команде `yc beta smartcaptcha`.
 
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.199.0 (12.03.26) {#version0.199.0}
 

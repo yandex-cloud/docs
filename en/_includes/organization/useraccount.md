@@ -18,7 +18,7 @@ Users with any of the following [roles](../../organization/security/index.md) ca
 
     1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator account.
 
-    1. In the top panel, click ![image](../../_assets/console-icons/chevron-down.svg) and select the cloud.
+    1. Click ![image](../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
 
     1. In the top-right corner, click ![icon-users](../../_assets/console-icons/ellipsis.svg) and select ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
 

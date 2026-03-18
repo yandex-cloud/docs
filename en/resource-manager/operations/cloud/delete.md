@@ -6,7 +6,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   1. To the right of the cloud name, click ![image](../../../_assets/console-icons/ellipsis.svg).
   1. Select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.CloudActions.button_action-delete-cloud_3simi }}**.
 

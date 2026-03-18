@@ -26,7 +26,38 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
 
       1. Change the app's description in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-description_cjpok }}** field.
       1. Add new [labels](../../../resource-manager/concepts/labels.md) by clicking **{{ ui-key.yacloud.component.label-set.button_add-label }}** in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-labels_uT2D2 }}** field. Click ![xmark](../../../_assets/console-icons/xmark.svg) to delete an existing label.
-      1. Click **{{ ui-key.yacloud.common.save }}**.
+    
+  1. Under **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.section-service-provider_5d85k }}**:
+
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, enter the unique service provider ID. This value must match on both the service provider side and on the {{ org-name }} side.
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, specify the URL {{ org-name }} will send the SAML response to. To provide multiple addresses, click **{{ ui-key.yacloud_org.organization.apps.SamlAppAcsUrlsField.add-acs-url_eMunC }}**. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** field, specify the address to which the IdP will send the SAML response after the user successfully logs out.
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-signature-mode_ipXQ7 }}** field, specify the SAML response elements that will be digitally signed:
+
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-assertions_thJgN }}`: Only the provided user attributes.
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-response_x7SKD }}`: Full SAML response.
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-response-and-assertions_u2j6T }}`: Full SAML response and, separately, the provided attributes.
+
+  1. Optionally, enable **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.field-request-signing }}** to only accept requests signed with one of the added certificates. Add certificates:
+
+     1. Click **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.add-cert-action }}**.
+     1. In the window that opens, select the addition method and attach the file or specify the text contents of your certificate.
+     1. Click **{{ ui-key.yacloud.common.add }}**.
+
+     To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for signature verification.
+
+  1. Optionally, enable **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encrypt-response }}** to encrypt the SAML response using the selected certificate:
+
+     1. Select **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encode-data-algo }}** and **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encode-key-algo }}**.
+     1. Add a certificate:
+
+        1. Click **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.add-cert-action }}**.
+        1. In the window that opens, select the addition method and attach the file or specify the text contents of your certificate.
+        1. Click **{{ ui-key.yacloud.common.add }}**.
+
+     To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for encryption.
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -225,7 +256,7 @@ To update the service provider configuration in a SAML app:
 
 {% include [saml-app-cert-intro-phrase](../../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 
-You can issue any number of new digital signature verification key certificates for the SAML app at any time. To do this:
+You can issue any number of new digital signature verification key certificates for the SAML app at any time. Proceed as follows:
 
 {% list tabs group=instructions %}
 

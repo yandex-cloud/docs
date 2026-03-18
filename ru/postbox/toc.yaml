@@ -140,6 +140,8 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Заголовки запросов
             href: aws-compatible-api/api-ref/request-headers.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Публичные материалы

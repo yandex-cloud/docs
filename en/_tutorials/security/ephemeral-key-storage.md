@@ -1,10 +1,10 @@
-[Ephemeral access keys](../../iam/concepts/authorization/ephemeral-keys.md) are temporary keys with a limited lifespan that provide a secure way to access [{{ objstorage-full-name }}](../../storage/) resources without having to store [static keys](../../iam/concepts/authorization/access-key.md). In this tutorial, you will learn how to create ephemeral keys and use them to create [buckets](../../storage/concepts/bucket.md) and upload [objects](../../storage/concepts/object.md) via the [AWS CLI](https://aws.amazon.com/cli/).
+[Ephemeral access keys](../../iam/concepts/authorization/ephemeral-keys.md) are temporary keys with a limited lifespan that provide a secure way to access [{{ objstorage-full-name }}](../../storage/) resources without having to store [static keys](../../iam/concepts/authorization/access-key.md). In this tutorial, you will learn how to create ephemeral keys with the help of a script and use them to create [buckets](../../storage/concepts/bucket.md) and upload [objects](../../storage/concepts/object.md) via the [AWS CLI](https://aws.amazon.com/cli/).
 
 To upload objects to an {{ objstorage-name }} bucket using an ephemeral access key:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#create-sa).
-1. [Create an ephemeral access key](#create-key).
+1. [Prepare a script for creating an ephemeral access key](#prepare-script).
 1. [Configure the AWS CLI](#setup-aws-cli).
 1. [Create a bucket](#create-bucket).
 1. [Upload an object to the bucket](#upload-files).
@@ -29,7 +29,10 @@ The infrastructure support cost includes:
 
 ### Set up your environment {#setup-environment}
 
-Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
+
+* {% include [cli-install](../../_includes/cli-install.md) %}
+* Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
+* Download and install the [jq](https://stedolan.github.io/jq/download/) utility.
 
 
 ## Create a service account {#create-sa}
@@ -47,8 +50,6 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) you wil
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -100,55 +101,43 @@ To manage [access](../../storage/security/overview.md) to the bucket, your servi
 {% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
 
 
-## Create an ephemeral access key {#create-key}
+## Prepare a script for creating an ephemeral access key {#prepare-script}
 
-Create an ephemeral access key for the `ephemeral-sa` service account.
+With a script, you can avoid updating the ephemeral key in the AWS CLI profile after the key expires. For instructions on how to manage ephemeral keys manually, see [{#T}](../../iam/operations/authentication/manage-ephemeral-keys.md).
 
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Get the service account ID:
+  1. Get the `ephemeral-sa` service account ID:
 
       ```bash
       yc iam service-account get --name ephemeral-sa --format json | jq -r .id
       ```
 
-  1. Create an ephemeral access key:
+  1. Create a file, e.g., `issue-ephemeral-script.sh`, and paste this code into it:
 
       ```bash
+      #!/bin/sh
       yc iam access-key issue-ephemeral \
         --subject-id <service_account_ID> \
-        --session-name ephemeral-key-storage \
-        --duration 2h
+        --session-name ephemeral-sa-1 \
+        --jq '{Version: 1, AccessKeyId: .access_key_id, SecretAccessKey: .secret, SessionToken: .session_token, ExpiresAt: .expires_at}'
       ```
 
       Where:
 
-      * `--subject-id`: ID of the `ephemeral-sa` service account you got in the previous step.
-      * `--session-name`: Session name.
-      * `--duration`: Key lifetime.
+      * `--subject-id`: `ephemeral-sa` service account ID.
+      * `--session-name`: Session name, 1 to 64 characters long. It is required for identifying a session if the service account is [impersonated](../../iam/concepts/access-control/impersonation.md) for multiple users.
+      * `--jq`: jq output formatting template. It allows you to convert the result into a structure required by the AWS CLI.
 
-      Result:
+  1. Make the file executable:
 
-      ```text
-      access_key_id: ajelprpohp8t********
-      secret: YCOs05v-KRXqhYpUINdWArH4MINhMyJ6CGU********
-      session_token: s1.9muilY********
-      expires_at: "2025-12-16T06:23:51.383485065Z"
+      ```bash
+      sudo chmod +x issue-ephemeral-script.sh
       ```
-
-  1. Save `access_key_id`, the `secret` key, and `session_token`.
-
-      {% note alert %}
-
-      You will not be able to get these values again.
-
-      {% endnote %}
 
 {% endlist %}
 
@@ -161,34 +150,18 @@ Configure the AWS CLI to work with the ephemeral access key.
 
 - AWS CLI {#aws-cli}
 
-  1. Create a new profile in the `~/.aws/credentials` file:
+  1. Add a new `ephemeral-profile` profile to `~/.aws/credentials`:
 
       ```text
       [ephemeral-profile]
-      aws_access_key_id     = <key_ID>
-      aws_secret_access_key = <secret_key>
-      aws_session_token     = <session_token>
+      region = {{ region-id }}
+      endpoint_url = https://{{ s3-storage-host }}
+      credential_process = <file_path>
       ```
 
-      In this profile, specify the values you got when [creating](#create-key) the ephemeral key:
+      In `credential_process`, enter the absolute path to the file you created when [preparing a script](#prepare-script), e.g., `/home/yc-user/issue-ephemeral-script.sh`.
 
-      * `aws_access_key_id`: `access_key_id` key ID.
-      * `aws_secret_access_key`: `secret` key.
-      * `aws_session_token`: `session_token`.
-
-  1. Configure the {{ objstorage-name }} endpoint for the new profile:
-
-      ```bash
-      aws configure set endpoint_url https://{{ s3-storage-host }}/ --profile ephemeral-profile
-      ```
-
-      {% note info %}
-
-      Instead of setting the endpoint, you can specify it when running commands using `--endpoint-url`.
-
-      {% endnote %}
-
-  1. Check your configuration:
+  1. Check your profile configuration:
 
       ```bash
       aws s3 ls --profile ephemeral-profile

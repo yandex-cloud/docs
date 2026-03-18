@@ -172,7 +172,7 @@
          `replica-priority=<приоритет_хоста>,`
          `shard-name=<имя_шарда>
      ```
-     
+
 
      Где:
      * `--cluster-name` — имя кластера {{ mrd-name }}. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

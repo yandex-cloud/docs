@@ -119,6 +119,8 @@ description: Из статьи вы узнаете, как управлять х
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы добавить хост в кластер:
+
+  
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
 
      ```bash
@@ -138,7 +140,6 @@ description: Из статьи вы узнаете, как управлять х
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
 
-     
      Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
 
 
@@ -150,6 +151,7 @@ description: Из статьи вы узнаете, как управлять х
 
   1. Выполните команду добавления хоста (в примере приведены не все доступные параметры):
 
+     
      ```bash
      {{ yc-mdb-my }} host add \
        --cluster-name=<имя_кластера> \
@@ -161,12 +163,17 @@ description: Из статьи вы узнаете, как управлять х
          `priority=<приоритет_назначения_хоста_мастером>
      ```
 
+
      Где:
      * `--cluster-name` — имя кластера {{ mmy-name }}.
      * `--host` — параметры хоста:
        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+       
        * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
        * `assign-public-ip` — доступность хоста из интернета: `true` или `false.`
+
+
        * `replication-source` — источник [репликации](../concepts/replication.md) для хоста.
        * `backup-priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
        * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
@@ -180,6 +187,7 @@ description: Из статьи вы узнаете, как управлять х
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   1. Добавьте к описанию кластера {{ mmy-name }} блок `host`:
 
+     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
        ...
@@ -192,6 +200,7 @@ description: Из статьи вы узнаете, как управлять х
        }
      }
      ```
+
 
      Где:
 
@@ -218,6 +227,7 @@ description: Из статьи вы узнаете, как управлять х
 
   1. Воспользуйтесь методом [Cluster.addHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+      
       ```bash
       curl \
           --request POST \
@@ -238,12 +248,17 @@ description: Из статьи вы узнаете, как управлять х
                   }'
       ```
 
+
       Где `hostSpecs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `zoneId` — зона доступности.
+
+      
       * `subnetId` — идентификатор подсети.
       * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
+
+
+      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
       * `backupPriority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
@@ -260,6 +275,7 @@ description: Из статьи вы узнаете, как управлять х
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Воспользуйтесь вызовом [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
+      
       ```bash
       grpcurl \
           -format json \
@@ -284,12 +300,17 @@ description: Из статьи вы узнаете, как управлять х
           yandex.cloud.mdb.mysql.v1.ClusterService.AddHosts
       ```
 
+
       Где `host_specs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `zone_id` — зона доступности.
+
+      
       * `subnet_id` — идентификатор подсети.
       * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
+
+
+      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
       * `backup_priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
@@ -348,6 +369,7 @@ description: Из статьи вы узнаете, как управлять х
 
   Чтобы изменить параметры хоста, выполните команду (в примере приведены не все доступные параметры):
 
+  
   ```bash
   {{ yc-mdb-my }} host update <имя_хоста> \
     --cluster-name=<имя_кластера> \
@@ -357,10 +379,15 @@ description: Из статьи вы узнаете, как управлять х
     --priority=<приоритет_назначения_хоста_мастером>
   ```
 
+
   Где:
   * `--cluster-name` — имя кластера {{ mmy-name }}.
   * `--replication-source` — источник [репликации](../concepts/replication.md) для хоста.
+
+  
   * `--assign-public-ip` — доступность хоста из интернета: `true` или `false`.
+
+
   * `--backup-priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
   * `--priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
@@ -374,6 +401,7 @@ description: Из статьи вы узнаете, как управлять х
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
   1. Измените в описании кластера {{ mmy-name }} атрибуты блока `host`, соответствующего изменяемому хосту.
 
+     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
        ...
@@ -384,6 +412,7 @@ description: Из статьи вы узнаете, как управлять х
        }
      }
      ```
+
 
      Где:
 
@@ -410,6 +439,7 @@ description: Из статьи вы узнаете, как управлять х
 
   1. Воспользуйтесь методом [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+      
       ```bash
       curl \
           --request POST \
@@ -430,12 +460,17 @@ description: Из статьи вы узнаете, как управлять х
                   }'
       ```
 
+
       Где `updateHostSpecs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-      * `hostName` — [FQDN изменяемого хоста](./connect/fqdn.md).
+      * `hostName` — [FQDN изменяемого хоста](connect/fqdn.md).
+
+      
       * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
+
+
+      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
       * `backupPriority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
@@ -452,6 +487,7 @@ description: Из статьи вы узнаете, как управлять х
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
+      
       ```bash
       grpcurl \
           -format json \
@@ -480,12 +516,17 @@ description: Из статьи вы узнаете, как управлять х
           yandex.cloud.mdb.mysql.v1.ClusterService.UpdateHosts
       ```
 
+
       Где `update_host_specs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-      * `host_name` — [FQDN изменяемого хоста](./connect/fqdn.md).
+      * `host_name` — [FQDN изменяемого хоста](connect/fqdn.md).
+
+      
       * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
+
+
+      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
       * `backup_priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 

@@ -37,6 +37,8 @@ items:
         href: llm.md
       - name: MCP-сервер
         href: mcp.md
+      - name: Обработка естественного языка (NLP)
+        href: nlp.md
   - name: Облачные вычисления и сервера
     items:
       - name: LAMP и LEMP

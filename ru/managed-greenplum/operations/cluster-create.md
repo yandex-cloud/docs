@@ -388,7 +388,10 @@
 
       Где:
 
+      
       * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
+
+
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
           {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -560,7 +563,7 @@
             * `version` — версия {{ GP }}.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+            * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
 
                 * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
                 * `yandexQuery` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
@@ -745,8 +748,11 @@
 
 
             * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+            
             * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
             * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
+
 
         * `master_config.resources`, `segment_config.resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
 
@@ -913,7 +919,7 @@
     * С именем `gp-cluster`.
     * Версии `{{ versions.cli.latest }}`.
     * В окружении `PRODUCTION`.
-    * В сети `default`.
+    * В сети `{{ network-name }}`.
     * С пользователем `user1`.
     * С паролем `user1user1`.
     * С хостами-мастерами и хостами-сегментами:
@@ -935,7 +941,7 @@
        --name=gp-cluster \
        --greenplum-version={{ versions.cli.latest }} \
        --environment=PRODUCTION \
-       --network-name=default \
+       --network-name={{ network-name }} \
        --user-name=user1 \
        --user-password=user1user1 \
        --master-config resource-id=s2.medium,`

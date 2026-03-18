@@ -9,11 +9,13 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [cluster-connect-note](../../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
+
 {% note warning %}
 
 Если публичный доступ в кластере настроен только для некоторых хостов, [автоматическая смена мастера](../../concepts/replication.md#master-failover) может привести к невозможности подключиться к мастеру из интернета.
 
 {% endnote %}
+
 
 Максимальное количество подключений определяется настройкой [Max connections](../../concepts/settings-list.md#setting-max-connections), которая [зависит от класса хостов](../../concepts/settings-list.md#settings-instance-dependent).
 
@@ -81,7 +83,9 @@ description: Следуя данной инструкции, вы сможете
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
+
 {{ MY }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите [SSL-сертификат](../../../glossary/ssl-certificate.md):
+
 
 {% include [install-certificate](../../../_includes/mdb/mmy/install-certificate.md) %}
 

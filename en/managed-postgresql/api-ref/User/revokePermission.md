@@ -137,7 +137,8 @@ The maximum string length in characters is 63. Value must match the regular expr
         "log": [
           "string"
         ]
-      }
+      },
+      "idleSessionTimeout": "string"
     },
     "login": "boolean",
     "grants": [
@@ -452,6 +453,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings}

@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to switch over to another clou
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg).
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg).
   1. In the list that opens, select the cloud or folder within that cloud.
   1. The dashboard shows general cloud and folder information. The cloud [ID](./get-id.md) is specified at the top, below the cloud name.
 

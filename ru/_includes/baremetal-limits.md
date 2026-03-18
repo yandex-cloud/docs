@@ -6,6 +6,8 @@
 `baremetal.servers.count` для юридических лиц | 5 ||
 || Количество серверов
 `baremetal.servers.count` для физических лиц^1^ | 2 ||
+|| Количество [серверов своей конфигурации](../baremetal/concepts/server-custom-configurations.md) в процессе сборки в облаке
+`baremetal.assemblingServers.count` | 0 ||
 || Количество [VRF](../baremetal/concepts/private-network.md#vrf-segment)
 `baremetal.vrfs.count` | 20 ||
 || Количество образов

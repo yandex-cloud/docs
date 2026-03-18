@@ -9,6 +9,7 @@
       zone-ids=[ru-central1-a,ru-central1-b,ru-central1-d]
       ```
 
+   
    * `subnet-names` — имена подсетей в указанных зонах доступности. Несколько подсетей указываются через запятую и в квадратных скобках. Например:
 
       ```bash
@@ -20,6 +21,7 @@
       ```bash
       subnet-ids=[e9bp8qmchqh2********,e2l963gkhobo********,fl8klaabecc3********]
       ```
+
 
    * `roles` — [роли хостов](../../managed-opensearch/concepts/host-roles.md). Возможные значения:
 

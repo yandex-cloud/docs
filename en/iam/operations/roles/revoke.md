@@ -19,7 +19,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     * To revoke all the folder or cloud roles at once:
 
-        1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder or cloud.
+        1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select a folder or cloud.
         1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
         1. Select a user from the list and click ![image](../../../_assets/console-icons/ellipsis.svg) next to the username.
         1. If you want to revoke all of the user's roles in the cloud, click **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** and confirm the revocation.
@@ -63,7 +63,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     1. Delete the record with information about the subject whose permissions you need to revoke from the `members` list of users.
 
-       For more information about the `yandex_resourcemanager_cloud_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+       For more information about `yandex_resourcemanager_cloud_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Make sure the configuration files are correct.
 
@@ -74,7 +74,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
           terraform plan
           ```
 
-       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
     1. Deploy the cloud resources.
 
@@ -84,7 +84,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
            terraform apply
            ```
 
-        1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+        1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

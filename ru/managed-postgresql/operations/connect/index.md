@@ -9,12 +9,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [cluster-connect-note](../../../_includes/mdb/mpg/cluster-connect-note.md) %}
 
+
 {% note warning %}
 
 Если публичный доступ в кластере настроен только для некоторых хостов, [автоматическая смена мастера](../../concepts/replication.md#replication-auto) может привести к невозможности подключиться к мастеру из интернета.
 
 {% endnote %}
-
 
 ## Настройка групп безопасности {#configuring-security-groups}
 

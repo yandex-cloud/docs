@@ -27,9 +27,9 @@ The basic concept of user authentication via SAML-based single sign-on is as des
 {% include [SAML authentication diagram](../../_mermaid/other/identity-hub/saml-authentication.md) %}
 
 1. The {{ yandex-cloud }} user selects SSO authentication on the external application's (service provider's) authentication page.
-1. The service provider sends a SAML request to {{ org-name }} (identity provider) and redirects the user to the {{ org-name }}'s login URL.
+1. The service provider sends a SAML request to {{ org-name }} (identity provider) and redirects the user to the {{ org-name }}'s login URL. If you enable signature verification for SAML requests from the service provider, authentication will not start for as long as the request has no signature or the signature is invalid.
 1. The user authenticates in {{ org-name }} with their credentials.
-1. If {{ org-name }} has a SAML app corresponding to this external application, the authenticated user is [added](../operations/applications/saml-create.md#users-and-groups) to this SAML app, and the received SAML request is correct, {{ org-name }} sends a signed SAML response containing the user's attributes to the service provider.
+1. If {{ org-name }} has a SAML app corresponding to this external application, the authenticated user is [added](../operations/applications/saml-create.md#users-and-groups) to this SAML app, and the incoming SAML request is correct, {{ org-name }} will send to the service provider a signed (and encrypted if the relevant option is on) SAML response containing the user's attributes.
 1. The service provider checks the SAML response and its signature for correctness and, if successful, grants the user access to the external application.
 1. As soon as the user logs out of the external application, the service provider sends a SAML request to {{ org-name }} and redirects the user to the {{ org-name }}'s logout URL.
 
@@ -55,6 +55,14 @@ For the integration to work correctly on the {{ org-name }} side, you need to se
 * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-signature-mode_ipXQ7 }}`: SAML response elements that will be digitally signed:
 
     {% include [saml-app-sign-mode](../../_includes/organization/saml-app-sign-mode.md) %}
+
+* `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.field-request-signing }}`: Allows you to verifying the signature of the service provider's SAML requests and suspend authentication if the request has no signature or the signature is invalid.
+
+  To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for signature verification.
+
+* `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encrypt-response }}`: Allows you to enable encryption of SAML responses to add an extra data protection layer. By default, SAML responses are only signed.
+
+  To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for encryption.
 
 #### User and group attributes {#saml-attributes}
 

@@ -13,7 +13,7 @@ description: In this tutorial, you will learn how to get a folder ID in {{ yande
 
   **Getting the ID on the dashboard**
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../concepts/resources-hierarchy.md#folder).
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../concepts/resources-hierarchy.md#folder).
   1. You will find the folder ID at the top, below the folder name. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
 
      {% cut "ID location" %}
@@ -24,7 +24,7 @@ description: In this tutorial, you will learn how to get a folder ID in {{ yande
 
   **Getting ID on the {{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }} tab**
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../concepts/resources-hierarchy.md#folder).
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the [folder](../../concepts/resources-hierarchy.md#folder).
   1. To the right of the folder name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_folder-info }}**.
   1. In the window that opens, you will find the folder ID in the **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoDialog.folder-id_6KQJv }}** field. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
 

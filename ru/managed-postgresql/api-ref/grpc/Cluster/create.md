@@ -110,7 +110,8 @@ Creates a PostgreSQL cluster in the specified folder.
           "log": [
             "PGAuditSettingsLog"
           ]
-        }
+        },
+        "idle_session_timeout": "google.protobuf.Int64Value"
       },
       "login": "google.protobuf.BoolValue",
       "grants": [
@@ -740,6 +741,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idle_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings}
@@ -969,9 +975,18 @@ Message to describe a crontab schedule.
 
 #|
 ||Field | Description ||
-|| day_of_month | **string** ||
-|| month | **string** ||
-|| day_of_week | **string** ||
+|| day_of_month | **string**
+
+Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
+Defaults to "*". ||
+|| month | **string**
+
+Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
+Defaults to "*". ||
+|| day_of_week | **string**
+
+Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
+Defaults to "*". ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
