@@ -79,6 +79,12 @@ Service name: `lockbox`.
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
+## {{ mkf-full-name }} {#mkf}
+
+Service name: `mdb.kafka`.
+
+{% include [mkf-events-dp](../../_includes/audit-trails/events/mkf-events-dp.md) %}
+
 ## {{ mch-full-name }} {#mch}
 
 Service name: `mdb.clickhouse`.
@@ -102,6 +108,12 @@ Service name: `mdb.mongodb`.
 Service name: `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
+
+## {{ mos-full-name }} {#mos}
+
+Service name: `mdb.opensearch`.
+
+{% include [mos-events-dp](../../_includes/audit-trails/events/mos-events-dp.md) %}
 
 ## {{ mgp-full-name }} {#mgp}
 

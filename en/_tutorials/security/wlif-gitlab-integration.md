@@ -90,7 +90,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
       1. On the management console [home page]({{ link-console-main }}), select a folder.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-lockbox` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the `{{ roles-lockbox-payloadviewer }}` role.
 
    {% endlist %}

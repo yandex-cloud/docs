@@ -23,6 +23,9 @@ MySQL cluster id. ||
 
 MySQL cluster name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--deletion-protection` | `string`
+
+Protection from accidental deletion. Values: disabled, enabled, inherit, true, false ||
 |#
 
 #### Global Flags

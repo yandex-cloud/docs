@@ -59,6 +59,7 @@ To get started:
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster.
 1. Select the `PRODUCTION` environment.
+
 1. Select the sharding type:
 
     * **{{ ui-key.yacloud.spqr.section_sharding-type-standard }}**: Cluster will consist only of infrastructure hosts.
@@ -87,7 +88,8 @@ To get started:
          If you plan to connect to the cluster from the internet, enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** for the hosts.
 
 1. Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}** specify the coordinator host configuration.
-1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
+
+1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database where you can run queries to tables in shards:
 
     * Database name. It must be unique within the folder.
     * Database owner username.
@@ -311,7 +313,7 @@ If you are using security groups for your cloud network, [configure them](operat
     SELECT * FROM customers WHERE id = 28;
     ```
 
-    The `SELECT * FROM customers;` query will result in an error because the rows are distributed across different shards. You can only get rows from one shard at a time. To check the distribution of rows across shards, [connect to each shard](../managed-postgresql/operations/connect.md) and view the added entries.
+    The `SELECT * FROM customers;` query will result in an error because the rows are distributed across different shards. You can only get rows from one shard at a time. To check the distribution of rows across shards, [connect to each shard](../managed-postgresql/operations/connect/index.md) and view the added entries.
 
 1. To exit the database, run the `\q` command.
 

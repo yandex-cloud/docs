@@ -1,6 +1,5 @@
 # Partner program
 
-
 _The partner program_ is a program where a partner company resells {{ yandex-cloud }} services and earns a partner [bonus](#premium).
 
 Partners pay for the services consumed by their customers. Under the partner program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpayment). They can also use a [billing threshold](../../billing/concepts/billing-threshold.md).
@@ -33,10 +32,10 @@ For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_gran
 You can also get the following:
 
 * With [deal registration](./var-tools.md#deal-reg): Up to 15% on top of your partner bonus for as long as the customer remains linked to you.
-* When [registering a project](./var-tools.md#project-reg): Up to 15% of the customer's consumption growth in the registered cloud or folder as a [rebate](../terms.md#rebate) credited within 12 months.
+* With [project registration](./var-tools.md#project-reg): Up to 15% of the customer's consumption increment in a registered folder or service outside a folder as a 12-month [rebate](../terms.md#rebate).
 * Quarterly rebate for customers’ use of [specialization](../specializations/index.md) services.
 
-For more information on how to withdraw commissions you got as rebates, see [this guide](../operations/get-bonus.md).
+For more information on how to withdraw rewards accrued in the form of rebates, see [this guide](../operations/get-bonus.md).
 
 ### What is not included when calculating a partner bonus {#ignore}
 
@@ -51,7 +50,7 @@ The discount does not apply to:
 
 * Grants credited to subaccounts.
 
-You can view the absolute and relative discounts for a reporting month under **Partner bonus** on the [partner portal]({{ link-cloud-partners }}).
+You can see the absolute and relative discount amount for the reporting month in the **Partner bonus** section of the [partner portal]({{ link-cloud-partners }}).
 
 ## How to quit the program {#end}
 

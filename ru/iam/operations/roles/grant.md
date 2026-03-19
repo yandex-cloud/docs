@@ -148,9 +148,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. На панели слева выберите ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. Если у нужного пользователя, сервисного аккаунта или группы пользователей уже есть хотя бы одна роль, в строке с этим пользователем, сервисным аккаунтом или группой нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Если у нужного пользователя, сервисного аккаунта или группы пользователей уже есть хотя бы одна роль, в строке с этим пользователем, сервисным аккаунтом или группой нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
 
-      Если нужного нужного пользователя, сервисного аккаунта или группы пользователей нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. В открывшемся окне выберите нужного пользователя, сервисный аккаунт или группу из списка. При необходимости воспользуйтесь строкой поиска.
+      Если нужного нужного пользователя, сервисного аккаунта или группы пользователей нет в списке, в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. В открывшемся окне выберите нужного пользователя, сервисный аккаунт или группу из списка. При необходимости воспользуйтесь строкой поиска.
 
   1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите [роль](../../../iam/concepts/access-control/roles.md), которую хотите назначить. Вы можете назначить несколько ролей.
 
@@ -298,7 +298,7 @@ description: Следуя данной инструкции, вы сможете
 
    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ресурс.
    1. Откройте его страницу.
-   1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ресурсу.
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -405,7 +405,7 @@ description: Следуя данной инструкции, вы сможете
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ресурс.
    1. Откройте его страницу.
-   1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Перейдите в раздел ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ресурсу.
    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.

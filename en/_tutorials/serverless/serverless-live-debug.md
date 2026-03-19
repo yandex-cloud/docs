@@ -142,7 +142,7 @@ The infrastructure support costs include:
       1. On the management console [home page]({{ link-console-main }}), select your cloud.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-live-debug` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select `{{ roles-admin }}`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 

@@ -76,6 +76,8 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
       - `account_usage_ratio_save_total` (Number). Total max space usage ratio.
       - `interval` (String). Script starting interval.
       - `max_dir_node_count` (Number). Max nodes in every directory.
+  - `excel` [Block]. Cluster Excel configuration.
+    - `enabled` (Bool). Enable Excel.
   - `flavor` (String). Cluster flavor (type).
   - `odin` [Block]. Odin configuration.
     - `checks_ttl` (String). TTL of Odin check samples.
@@ -84,6 +86,8 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
       - `count` (Number). Total amount of HTTP proxies.
     - `rpc` [Block]. Configuration of rpc proxies.
       - `count` (Number). Total amount of RPC proxies.
+    - `task` [Block]. Configuration of task proxies.
+      - `count` (Number). Total amount of task proxies.
   - `storage` [Block]. Cluster storage configuration.
     - `hdd` [Block]. Configuration of cluster HDD strorage.
       - `count` (Number). Total amount of HDD disks.

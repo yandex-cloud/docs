@@ -26,6 +26,8 @@ items:
         href: concepts/mdb-responsibilities.md
       - name: Разграничение зон контроля в {{ managed-k8s-name }}
         href: concepts/kubernetes-responsibilities.md
+      - name: Разграничение зон контроля в {{ dataproc-name }}
+        href: concepts/data-processing-responsibilities.md
       - name: Удаление данных пользователей
         href: concepts/data-deletion.md
       - name: >-

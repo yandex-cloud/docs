@@ -142,9 +142,9 @@ To assign a role for an organization:
 
   1. In the left-hand panel, select ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. If the user, service account, or user group already has at least one role assigned, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) in the row with that user, service account, or group and select **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. If the user, service account, or user group already has at least one role assigned, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) in the row with that user, service account, or group and select **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
 
-      If the user, service account, or user group is not on the list, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}** in the top-right corner. In the window that opens, select the user, service account, or group from the list. If required, use the search bar.
+      If the user, service account, or user group is not on the list, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}** in the top-right corner. In the window that opens, select the user, service account, or group from the list. If required, use the search bar.
 
   1. Click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the [role](../../../iam/concepts/access-control/roles.md) to assign. You can assign multiple roles.
 
@@ -292,7 +292,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your resource is in.
    1. Open its page.
-   1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -399,7 +399,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    1. In the [management console]({{ link-console-main }}), select the folder the resource resides in.
    1. Open its page.
-   1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you want to grant access to a resource.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.

@@ -9,3 +9,4 @@
 | **{{ TF }} resource**  | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_spark_cluster]({{ tf-provider-msp }}) | Cluster |
+| [yandex_spark_cluster_iam_binding]({{ tf-provider-resources-link }}/spark_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |

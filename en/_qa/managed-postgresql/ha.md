@@ -1,6 +1,6 @@
 #### How to remove a host from the master selection process? {#excluded-host}
 
-You can exclude a host from the master selection process during an automatic or manual failover. To do this, set up [cascading replication](../../managed-postgresql/concepts/replication.md#replication-manual) by [specifying](../../managed-postgresql/operations/hosts.md#update) a replication source for the host you want to exclude.
+You can exclude a host from the master selection when replacing the master host automatically or manually. To do this, set up [cascade replication](../../managed-postgresql/concepts/replication.md#replication-manual): [specify](../../managed-postgresql/operations/hosts.md#update) a replication source for the host you want to exclude.
 
 {% note warning %}
 
@@ -24,7 +24,7 @@ To learn more about replication, see [this article](../../managed-postgresql/con
 
 #### How to ensure I am always connecting to the master host? {#connect-to-master-ha}
 
-To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) in the `c-<cluster_ID>.rw.{{ dns-zone }}` format. This FQDN supports read and write access.
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) in the `c-<cluster_ID>.rw.{{ dns-zone }}` format. This FQDN supports read and write access.
 
 {% cut "Example command for connecting to the master host" %}
 
@@ -40,7 +40,7 @@ To connect to the current master host, use a [special FQDN](../../managed-postgr
 
 #### How to ensure I am always connecting to the most up-to-date replica? {#connect-to-replica-ha}
 
-To connect to the most up-to-date replica, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) in the `c-<cluster_ID>.ro.{{ dns-zone }}` format. This FQDN only supports read access. 
+To connect to the most up-to-date replica, use a [special FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) in the `c-<cluster_ID>.ro.{{ dns-zone }}` format. This FQDN only supports read access. 
 
 {% cut "Example command for connecting to a replica" %}
 
@@ -60,7 +60,7 @@ If there are no active replicas in the cluster, this FQDN will point to the curr
 
 This means the master has [failed over](../../architecture/fault-tolerance.md#mdb-ha) to the replica. Automatic master failover guarantees cluster availability during maintenance or in the event of the master host failure.
 
-To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns).
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns).
 
 {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
@@ -74,7 +74,7 @@ For more details on high availability cluster configuration, see [{#T}](../../ar
 
 As {{ mpg-name }} does not provide load balancing, you need to configure it in your application backend. To send read requests to replicas, your application must first identify the master and replica hosts, e.g., by using `libpq`. For more information, see [this {{ PG }} article](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS).
 
-Alternatively, use a [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-replica) pointing to the most up-to-date replica.
+Alternatively, use a [special FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-replica) pointing to the most up-to-date replica.
 
 For more information, see [High availability](../../managed-postgresql/concepts/high-availability.md).
 

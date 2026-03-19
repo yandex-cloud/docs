@@ -9,9 +9,11 @@ items:
     items:
       - name: Overview
         href: collector/index.md
+      - name: OTLP in {{ monium-name }}
+        href: collector/otlp-protocol.md
       - name: Otel Collector
         items:
-          - name: Configuring OTel Collector
+          - name: OTel Collector setup
             href: collector/opentelemetry.md
           - name: OpenTelemetry SDK
             href: collector/otlp-sdk.md
@@ -19,6 +21,8 @@ items:
             href: collector/otel-clinic-example.md
           - name: '{{ k8s }} demo application example'
             href: collector/otel-k8s-example.md
+          - name: Data delivery troubleshooting
+            href: collector/troubleshooting.md
       - name: '{{ unified-agent-short-name }}'
         items:
           - name: Overview
@@ -213,8 +217,6 @@ items:
         items:
           - name: Data conversions
             href: logs/write/converting-data.md
-          - name: '{{ unified-agent-short-name }}'
-            href: logs/write/unified-agent.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
       - name: View logs
@@ -245,7 +247,7 @@ items:
             href: traces/tools/index.md
       - name: Working with traces
         items:
-          - name: Searching for traces
+          - name: Searching traces
             href: traces/operations/traces-explorer.md
           - name: Viewing and analyzing traces
             href: traces/operations/traces-explorer.md

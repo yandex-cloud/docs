@@ -7,6 +7,16 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.201.0 (19.03.26) {#version0.201.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ baremetal-name }}
+
+Добавлена команда `yc baremetal vrf update` для управления статическими маршрутами VRF.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.200.0 (18.03.26) {#version0.200.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -28,8 +38,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ sws-name }}
 
 Сервис {{ sws-name }} добавлен в бета-дерево команд и доступен по команде `yc beta smartwebsecurity`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.199.0 (16.03.26) {#version0.199.0}
 
@@ -143,7 +151,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 * `yc dns zone delete-records`;
 * `yc dns zone replace-records`.
 
-##### {{ org-name }} {#org-0.197.0}
+##### {{ org-full-name }} {#org-0.197.0}
 
 Добавлена поддержка флага `--parameters` в команде `yc organization-manager organization bind-access-policy`.
 
@@ -375,7 +383,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 * `yc dataproc cluster add-access-binding`;
 * `yc dataproc cluster remove-access-binding`.
   
-##### {{ org-name }} {#org-name-0.186.0}
+##### {{ org-full-name }} {#org-full-name-0.186.0}
 
 Добавлены параметры для настройки сложности пароля в следующие команды:
 * `yc organization-manager idp userpool create`;
@@ -467,7 +475,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 Добавлена команда `yc iam access-key issue-ephemeral` для выпуска эфемерных статических ключей доступа.
 
-##### {{ org-name }} {#org-name-0.181.0}
+##### {{ org-full-name }} {#org-full-name-0.181.0}
 
 В командах `yc organization-manager mfa-enforcement create` и `yc organization-manager mfa-enforcement update` добавлен список поддерживаемых значений для параметра `--acr-id`.
 
@@ -505,7 +513,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
   * `yc managed-trino catalog create mysql`;
   * `yc managed-trino catalog update mysql`.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Убрали часть парольных политик из команд по управлению пулами пользователей:
   * `yc organization-manager idp userpool create`;
@@ -519,7 +527,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Добавлены команды для управления политиками авторизации на уровне организации:
   * `yc organization-manager organization list-access-policy-bindings`;
@@ -666,7 +674,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 Добавлены недостающие поля в команды управления SAML-приложениями:
 
@@ -766,7 +774,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Добавлена группа команд `yc organization-manager mfa-enforcement`.
 * Добавлены команды для управления пользователями SAML-федераций:
@@ -783,7 +791,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 Добавлена команда `yc dns zone move` для перемещения зоны DNS в другой каталог.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Для команды `yc organization-manager idp user create` добавлена новая возможность: теперь можно не указывать пароль при создании пользователя. Пароль будет сгенерирован автоматически.
 * Добавлена команда сброса пароля пользователя `yc organization-manager idp user reset-password`.
@@ -815,7 +823,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 * Добавлена команда получения информации о ресурсе по его идентификатору.
 * Добавлены команды `get-by-vpc-network-id` и `get-by-cic-private-connection-id`.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Добавлена команда `yc organization-manager group list-effective` для вывода групп внутри организации, в которых состоит пользователь.
 * Добавлена возможность управления парольными политиками при создании и обновлении пула пользователей.
@@ -892,7 +900,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 * `yc cloud-registry registry list`;
 * `yc cloud-registry registry list-artifact`.
 
-##### {{ org-name }} {#org-name-0.169.0}
+##### {{ org-full-name }} {#org-full-name-0.169.0}
 
 В следующие команды добавлена возможность указывать домен не только в самой команде, например `yc organization-manager idp userpool domain get <идентификатор_пула_пользователей> <домен>`, но и с помощью параметра `--domain`:
 * `yc organization-manager idp userpool domain get`;
@@ -953,7 +961,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 * Исправлена ошибка `ERROR: Unsupported PostgreSQL version` при обновлении кластера 17 и 18 версий {{ PG }} в команде `yc managed-postgresql cluster update`.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Исправлены команды `yc organization-manager idp`.
 
@@ -1025,7 +1033,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 * `yc managed-kubernetes cluster create`;
 * `yc managed-kubernetes cluster update`.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 Добавлены новые группы команд:
 
@@ -1156,7 +1164,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 Исправлена работа флага `--deletion-protection` в команде `yc serverless eventrouter connector update`.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 Исправлено отображение timestamp в листинге доменов SAML-федераций.
 
@@ -1187,7 +1195,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 ##### {{ cloud-desktop-name }}
 В команду `desktops group update` добавлен флаг `--update-policy` (значение по умолчанию — `manual`).
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 Добавлены команды для управления доменами SAML-федераций:
 * `yc organization-manager federation saml get-domain`;
 * `yc organization-manager federation saml list-domains`;
@@ -4078,9 +4086,9 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 Появилась поддержка сервиса {{ org-full-name }}.
 
-{{ org-name }} — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы {{ yandex-cloud }} и управлять доступом сотрудников к этим сервисам.
+{{ org-full-name }} — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы {{ yandex-cloud }} и управлять доступом сотрудников к этим сервисам.
 
-Сервис {{ org-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../organization/).
+Сервис {{ org-full-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 

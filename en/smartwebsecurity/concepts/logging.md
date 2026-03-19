@@ -102,6 +102,12 @@ The description of SWS log fields is given in the table below.
 || 
 * `ban_period` | Time period during which requests are counted to reach the limit. ||
 || `dry_run_exceeded_quota_names` | Names of the ARL rules with the number of requests above the limit in dry run mode. ||
+|| `bot_score` | Bot score, from `0` (human) to `100` (bot). ||
+|| `bot_name` | Bot name. ||
+|| `bot_category` | Bot category based on its purpose or nature of action. ||
+|| `verified_bot` | Bot verification indicator (`true` or `false`). ||
+|| `ja3` | SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) [fingerprint](botes.md#fingerprint). ||
+|| `ja4` | SSL/TLS connection's [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint. ||
 |#
 
 To analyze {{ sws-name }} logs, make requests that include the fields and field combinations you need. Check the examples of ready-made requests in [Examples of preset log filters](../operations/configure-logging.md#filtration).

@@ -9,14 +9,30 @@ This page presents error codes and their descriptions. To view detailed error in
 
 Error code | Description |
 ----- | ----- |
+[ERR.AUTH_API.UNEXPECTED_RESPONSE](ERR-AUTH_API-UNEXPECTED_RESPONSE.md) | Got an unexpected response from an external API |
 [ERR.CHARTS.RUNTIME_TIMEOUT](ERR-CHARTS-RUNTIME_TIMEOUT.md) | Response processing timeout |
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
 [ERR.DS_API](ERR-DS_API.md) | Internal server error |
+[ERR.DS_API.ACTION_NOT_ALLOWED](ERR-DS_API-ACTION_NOT_ALLOWED.md) | Internal Server Error |
+[ERR.DS_API.AVATAR.NOT_FOUND](ERR-DS_API-AVATAR-NOT_FOUND.md) | Source avatar not found |
+[ERR.DS_API.AVATAR.NOT_FOUND.FIELD_REF](ERR-DS_API-AVATAR-NOT_FOUND-FIELD_REF.md) | Field references an unknown source avatar |
+[ERR.DS_API.AVATAR.TITLE.CONFLICT](ERR-DS_API-AVATAR-TITLE-CONFLICT.md) | Source avatar title conflicts with another avatar |
+[ERR.DS_API.BAD_CONN_TYPE](ERR-DS_API-BAD_CONN_TYPE.md) | Invalid connection type value |
+[ERR.DS_API.BLOCK.ITEM_COMPATIBILITY](ERR-DS_API-BLOCK-ITEM_COMPATIBILITY.md) | Got items with incompatible roles in block |
+[ERR.DS_API.BLOCK.MULTIPLE_ROOTS](ERR-DS_API-BLOCK-MULTIPLE_ROOTS.md) | Got more than one block with root placement |
+[ERR.DS_API.BLOCK.MULTIPLE_UNSUPPORTED](ERR-DS_API-BLOCK-MULTIPLE_UNSUPPORTED.md) | This API does not support multiple query blocks |
+[ERR.DS_API.BLOCK.NO_ROOT](ERR-DS_API-BLOCK-NO_ROOT.md) | Got no blocks with root placement |
 [ERR.DS_API.BLOCK.UNEVEN_COLUMN_COUNT](ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md) | Blocks have different column count |
+[ERR.DS_API.COLUMN_SCHEMA_FAILED](ERR-DS_API-COLUMN_SCHEMA_FAILED.md) | Failed to load description of table columns |
+[ERR.DS_API.CONNECTION_CONFIG](ERR-DS_API-CONNECTION_CONFIG.md) | Internal server error |
 [ERR.DS_API.CONNECTION_CONFIG.DASHSQL_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md) | Using QL charts is prohibited at the connection level |
 [ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md) | Subquery source is disallowed in the connection settings |
+[ERR.DS_API.DASHSQL](ERR-DS_API-DASHSQL.md) | Internal server error |
+[ERR.DS_API.DASHSQL.PARAMETER](ERR-DS_API-DASHSQL-PARAMETER.md) | Internal server error |
 [ERR.DS_API.DATABASE_UNAVAILABLE](ERR-DS_API-DATABASE_UNAVAILABLE.md) | Data source is unavailable |
+[ERR.DS_API.DATASET_REVISION_MISMATCH](ERR-DS_API-DATASET_REVISION_MISMATCH.md) | Dataset version mismatch. Refresh the page to continue |
+[ERR.DS_API.DATASET.TOO_MANY_FIELDS](ERR-DS_API-DATASET-TOO_MANY_FIELDS.md) | There are too many fields in the dataset |
 [ERR.DS_API.DB](ERR-DS_API-DB.md) | Error executing a query in the data source |
 [ERR.DS_API.DB.AUTHENTICATION_FAILED](ERR-DS_API-DB-AUTHENTICATION_FAILED.md) | Database authentication failed |
 [ERR.DS_API.DB.CANNOT_PARSE](ERR-DS_API-DB-CANNOT_PARSE.md) | Cannot parse |
@@ -74,4 +90,4 @@ Error code | Description |
 [ERR.FILE.PARSE_FAILED.INVALID_EXCEL](ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md) | Invalid file format |
 [ERR.FILE.UNSUPPORTED_DOCUMENT](ERR-FILE-UNSUPPORTED_DOCUMENT.md) | File check failed |
 [ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Failed to create <object_type> |
-[SDK_REQUEST_ERROR](SDK_REQUEST_ERROR.md) | Error handling the response  |
+[SDK_REQUEST_ERROR](SDK_REQUEST_ERROR.md) | Error handling the response |

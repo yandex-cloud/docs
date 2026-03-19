@@ -55,6 +55,6 @@ A specialization reward is credited as a [rebate](../terms.md#rebate):
 * **Data Platform**: 10% of paid consumption increase across subaccounts and registered projects.
 * **ML & AI**: 10% of paid specialization service consumption across subaccounts.
 
-A rebate is credited for each quarter during which a partner had an active specialization. You can see your accrued rebates on the [partner portal]({{ link-cloud-partners }}) under **Rebate accrual balance**.
+A rebate is credited for each quarter during which a partner had an active specialization. You can see your rebates under **Rebate accrual balance** on the [partner portal]({{ link-cloud-partners }}).
 
 For more information on getting partner rewards, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=ru).

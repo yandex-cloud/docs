@@ -183,6 +183,8 @@ items:
         href: concepts/network.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
+      - name: Разграничение зон контроля в {{ dataproc-name }}
+        href: concepts/responsibilities.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Хранилище в {{ dataproc-name }}

@@ -21,9 +21,9 @@ description: '{{ msp-full-name }} is a managed service for deploying {{ SPRK }} 
 
 The main entity {{ msp-full-name }} operates is an _{{ SPRK }} cluster_.
 
-Running a job in a cluster creates a Spark application. This applications includes the following processes:
-* Driver: This is the coordinator process that creates the job plan, breaks the work down into stages and issues, tracks the order of tasks, and sends requests to create executors and releases them.
-* Executors: These are processes handling individual tasks within a job.
+Running a [job](#job) in a cluster creates a Spark application. This applications includes the following processes:
+* Driver: Coordinator process that develops the job plan, breaks it down into stages and tasks, tracks the order of tasks, sends requests to create executors, and releases them.
+* Executors: Processes handling individual tasks within a job.
 
 ### Host pools {#pools}
 
@@ -37,7 +37,9 @@ An {{ SPRK }} cluster consists of three host groups (pools):
 
 You can configure the host pools for drivers and executors by specifying the number of hosts in each pool and [their class](instance-types.md). Number of hosts in each of the two pools can be either fixed or autoscalable. The pools are configured when you [create](../operations/cluster-create.md) or [update](../operations/cluster-update.md) an {{ SPRK }} cluster. 
 
-## Job {#job}
+### Job {#job}
+
+A job is a directed acyclic graph (DAG) that is automatically partitioned by the Spark scheduler into a sequence of stages, where each stage consists of multiple parallel operations (tasks).
 
 A job is a specification for running a Spark application on the selected {{ SPRK }} cluster.
 
@@ -46,7 +48,7 @@ A job includes:
 
   {% note info %}
 
-  Some [cluster configuration](#cluster-configuration) elements set the default job parameters which can be overriden at the job level. You cannot override the following: network settings, service account, Deb-packages, use of Spark History Server, and logging settings.
+  Some [cluster configuration](#cluster-configuration) elements set the default job parameters which can be overriden at the job level. You cannot override network settings, service account, Deb-packages, use of Spark History Server, and logging settings.
 
   {% endnote %}
 

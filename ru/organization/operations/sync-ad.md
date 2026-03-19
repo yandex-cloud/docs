@@ -10,11 +10,11 @@ description: Следуя данной инструкции, вы сможете
 
 Если для управления пользователями ваша компания использует [{{ microsoft-idp.ad-full }}](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/active-directory-domain-services) и вы хотите организовать для ваших пользователей доступ к {{ yandex-cloud }}, вам не нужно вручную создавать в {{ yandex-cloud }} учетные записи для ваших пользователей. Вместо этого вы можете настроить [синхронизацию](../concepts/ad-sync.md) с {{ org-full-name }} пользователей и групп, созданных в вашем каталоге {{ microsoft-idp.ad-short }}.
 
-## Подготовьте к синхронизации организацию {{ org-name }} {#prepare-org}
+## Подготовьте к синхронизации организацию {{ org-full-name }} {#prepare-org}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
 1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
-1. [Создайте](./user-pools/create-userpool.md) пул пользователей в {{ org-name }} и [привяжите](./user-pools/add-domain.md#userpool) к нему [домен](../concepts/domains.md), идентичный домену, который используется на [контроллере домена](https://ru.wikipedia.org/wiki/Контроллер_домена) {{ microsoft-idp.ad-short }}.
+1. [Создайте](./user-pools/create-userpool.md) пул пользователей в {{ org-full-name }} и [привяжите](./user-pools/add-domain.md#userpool) к нему [домен](../concepts/domains.md), идентичный домену, который используется на [контроллере домена](https://ru.wikipedia.org/wiki/Контроллер_домена) {{ microsoft-idp.ad-short }}.
 
     Привязывать ваш собственный домен к [пулу пользователей](../concepts/user-pools.md) не обязательно. Вместо этого вы можете привязать другой домен или выбрать домен по умолчанию. Но в этом случае в конфигурации [агента синхронизации](../concepts/ad-sync.md#sync-agent) потребуется настроить подстановку домена в параметре `replacement_domain`. Подробнее см. в разделе [{#T}](../concepts/ad-sync.md#agent-config).
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) ему следующие роли на [организацию](../concepts/organization.md), в которой находится нужный пул пользователей:

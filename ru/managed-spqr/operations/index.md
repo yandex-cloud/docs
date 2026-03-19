@@ -23,3 +23,5 @@ keywords:
 * [Просмотр логов кластера](cluster-logs.md)
 * [Удаление кластера](cluster-delete.md)
 * [Управление доступом к кластеру](cluster-access.md)
+* [Управление пользователями](cluster-users.md)
+* [Управление базами данных](databases.md)

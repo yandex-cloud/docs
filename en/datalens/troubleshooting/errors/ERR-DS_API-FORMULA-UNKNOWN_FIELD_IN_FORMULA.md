@@ -7,6 +7,8 @@ description: This page describes the Unknown field found in formula {{ datalens-
 
 `ERR.DS_API.FORMULA.UNKNOWN_FIELD_IN_FORMULA`
 
-This error occurs when the formula refers to a non-existent field. It was probably deleted from the chart or dataset.
+This error occurs when the formula refers to a non-existent field.
+
+The field was probably deleted from the chart or dataset.
 
 To fix the error, double-check and correct the formulas.

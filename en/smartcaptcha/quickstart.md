@@ -14,6 +14,11 @@ To add a CAPTCHA to your HTML page:
 1. [Add the CAPTCHA widget code](#add-widget) to your HTML page.
 1. [Check the user's response](#check-answer) by sending a POST request.
 
+If having problems configuring {{ captcha-name }}:
+
+* For the Business and Premium [support plans](../support/pricing.md), contact [support]({{ link-console-support }}).
+* In other cases, contact your account manager to get you in touch with their support team.
+
 ## Getting started {#before-begin}
 
 1. Navigate to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you do not have an account yet.
@@ -35,7 +40,7 @@ To add a CAPTCHA to your HTML page:
     1. Enter a name for the CAPTCHA, e.g., `sm-captcha`.
     1. List the sites the CAPTCHA will be on, e.g., `my-shop.com`.
     1. Do not edit the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** field.
-    1. Select the default CAPTCHA settings (or keep the current ones):
+    1. Select the default CAPTCHA settings (or leave the current ones):
        1. [Main challenge](./concepts/tasks.md#main-task): The challenge the user will see first.
        1. [Additional challenge](./concepts/tasks.md#additional-task): The challenge the user will be offered if the service finds the results of the main one suspicious, or if the CAPTCHA is at maximum difficulty.
        1. Select the [difficulty level](./concepts/tasks.md#task-difficulty), `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
@@ -276,14 +281,14 @@ Example of the token validation function:
 
 In its response, the service will return a JSON object containing the following fields:
 
-* `status`: Validation result, `ok` or `failed`. If the validation is successful, the JSON object is updated with the `host` field indicating the website where validation took place.
+* `status`: Validation result, `ok` or `failed`. If successful, the service adds the `host` field to the JSON object which represents the website where the check was.
 * `message`: Validation message, e.g., `Token invalid or expired`.
   
 For response examples, see [User validation](concepts/validation.md#service-response).
 
 ## FAQ {#faq}
 
-**How do I test a CAPTCHA?**
+**How do I test CAPTCHA?**
 
 Open the CAPTCHA page in incognito mode or use a VPN to increase the chance of getting a challenge.
 

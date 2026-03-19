@@ -171,6 +171,7 @@ default:
   ddos-protection-short-name: DDoS Protection
   device-id: b91qprkvbks9********
   disk-type-example: network-ssd
+  dlEmbedService: YC_DATALENS_EMBEDDING_SERVICE_MARK
   dns-full-name: Yandex Cloud DNS
   dns-mx-host: mx.cloud.yandex.net
   dns-name: Cloud DNS
@@ -266,8 +267,6 @@ default:
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
   keycloak: Keycloak
   KF: Apache Kafka®
-  kf:
-    docs: https://kafka.apache.org/documentation/
   KFC: Kafka Connect
   kms-full-name: Yandex Key Management Service
   kms-name: Key Management Service
@@ -553,6 +552,7 @@ default:
   quota-manager-name: Cloud Quota Manager
   quota-manager-short-name: Quota Manager
   RD: Valkey™
+  realtime-api: Realtime API
   realtime-model: speech-realtime-250923
   region-id: ru-central1
   registry: cr.yandex
@@ -3891,10 +3891,15 @@ default:
           dashboard:
             label_compute: Compute Cloud
     yacloud_components:
+      acl-filters:
+        placeholder:
+          account-type-filter: Account type
       acl:
         action:
           add-role: Add role
           apply: Save
+          assign-roles: Assign roles
+          edit-roles: Edit roles
           revoke-access: Revoke access
           select-subject: Select subject
         button:
@@ -3903,6 +3908,9 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
+        resource-acl:
+          label_bindings: Roles
+          label_subject: User
       baremetal:
         addDiskButton: Add
         amount: Number
@@ -4951,10 +4959,10 @@ default:
           WorkspaceKspmResourcesForm:
             section-title_iYCNY: Scope of control
           WorkspaceOnboardingForm:
+            accessRightsTitle: Access bindings
             createAndContinue_1yfFr: Create and continue
             finishOnboarding: Finish
             generalParamsTitle_xzLoX: Main parameters
-            participantsTitle_1WfGq: Participants
             resourcesTitle_fE6qp: Resources
             saveAndContinue_9xKZY: Save and continue
             standartsTitle_cxvJ8: Security compliance
@@ -5784,7 +5792,7 @@ default:
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:
-        value_search-placeholder: Search
+        value_search-placeholder: Filter by cloud and folder
       cns:
         action_copy-msg-id: Copy ID
         action_create-channel: Create notifications channel
@@ -5908,20 +5916,12 @@ default:
         password: Password
         remove: Delete
         resource-acl:
-          button_assign-binding: Edit roles
           button_cloud-info: Cloud details
           button_configure-access: Configure access
           button_folder-info: Folder information
           button_invite-users: Invite users
-          button_new-bindings: Assign roles
-          button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
-          label_access-bindings-in-iam:
-            serviceAccount: Access bindings to the service account
-          label_bindings: Roles
           label_service-account: Service account
-          label_subject: User
-          placeholder_filter-by-type: Account type
         save: Save
         save-changes: Save changes
         search: Search
@@ -7084,8 +7084,6 @@ default:
             popup-confirm_button_delete: Delete
           overview:
             label_health: State
-            label_ident-and-access-management-issuer: Issuer URL
-            label_ident-and-access-management-jwks-uri: JWKS key set URL
             label_master-title: Master
             label_status: Status
             label_title: Overview
@@ -7140,6 +7138,9 @@ default:
         custom-resources:
           label_tab-resources: Resources
         IAMService:
+          ClusterIAMSection:
+            iam-issuer_iKJcv: Issuer URL
+            iam-jwks-uri_x2AJJ: JWKS key set URL
           section-title_4Cx2E: Identity and access management
         MaintenanceSection:
           maintenance-window-field-with-none-option_tx5Wn: Maintenance frequency / Disable
@@ -7659,8 +7660,12 @@ default:
           button-action_new-connection: Create connection
           label_activate-datalens-title: DataLens not activated
         dialogs:
+          action_deletion-protection-disabled: DIsabled
+          action_deletion-protection-enabled: Enabled
+          action_deletion-protection-like-in-cluster: Like the cluster
           button_add-database: Add database
           button_advanced-settings: DBMS settings
+          field_deletion_protection: Deletion protection
           popup_button_cancel: Cancel
           popup_button_move-cluster: Move
           popup_button_save: Save
@@ -7798,7 +7803,7 @@ default:
           label_task-start-time: Start date
           label_task-status: Status
           label_task-status-planned: Planned
-          title_maintenance: Technical maintenance
+          title_maintenance: Maintenance
           title_task-details: Task details
         shard-groups:
           button_add-group: Create shard group
@@ -8398,6 +8403,9 @@ default:
         section_driver: Driver configuration
         section_executor: Executor configuration
       spqr:
+        cluster:
+          switch_databases: Databases
+          switch_users: Users
         console_password: Password from Sharded PostgreSQL console
         section_coordinator: Coordinator
         section_hosts: Hosts
@@ -9561,8 +9569,6 @@ default:
                         Csv:
                           additional_options:
                             title: Additional reader options
-                          block_size:
-                            title: Block size
                           delimiter:
                             title: Delimiter
                           double_quote:
@@ -9578,8 +9584,6 @@ default:
                         csv:
                           title: CSV
                         Jsonl:
-                          block_size:
-                            title: Block size
                           newlines_in_values:
                             title: Allow line breaks in values
                           unexpected_field_behavior:
@@ -9974,6 +9978,9 @@ default:
                           title: Quote char
                       dataset:
                         title: Dataset
+                      Jsonl:
+                        block_size:
+                          title: Block Size
                       Parquet:
                         batch_size:
                           title: Batch size

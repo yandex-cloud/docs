@@ -20,7 +20,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды добавления участников в группу пользователей {{ org-name }}:
+  1. Посмотрите описание команды добавления участников в группу пользователей {{ org-full-name }}:
 
       ```bash
       yc organization-manager group add-members --help

@@ -36,7 +36,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
     
     1. If using security groups, make sure they are configured correctly and allow inbound connections to the clusters:
 
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
         * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 
@@ -101,7 +101,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the endpoints you created.
+        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the previously created endpoints.
 
             While real-time replication is not supported for this endpoint pair, you can configure regular copying while creating the transfer. To do this, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** field under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}**, select **Regular** and specify the copy interval. The transfer will automatically activate after the specified interval.
 
@@ -113,10 +113,10 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
     - {{ TF }} {#tf}
 
-        1. In the `greenplum-postgresql.tf` file, specify the following variables:
+        1. In the `greenplum-postgresql.tf` file, specify these variables:
 
             * `gp_source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -201,7 +201,7 @@ To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../../data-transfer/operations/transfer.md#delete) the transfer.
 1. [Delete both the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

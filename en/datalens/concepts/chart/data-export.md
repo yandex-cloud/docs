@@ -28,7 +28,7 @@ In {{ datalens-short-name }}, you can export data from charts:
   * Format: `CSV` file.
   * First, the file is generated in the background, then a download link is created. File preparation takes up to 30 minutes.
 
-Any user with access permissions for a chart can export its data unless you [disable data export](#disable-export).
+Any user with access permissions for a chart can export its data unless you [disable data export](#data-export-disable).
 
 ## Direct data export from chart {#save-data}
 

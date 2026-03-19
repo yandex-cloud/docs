@@ -1,4 +1,4 @@
-* **Cleanup policy** {{ tag-all }} {#settings-topic-cleanup-policy}    
+* **Cleanup policy** {{ tag-all }} {#settings-topic-cleanup-policy}
 
     Retention policy for old log messages:
 
@@ -6,17 +6,17 @@
     * `Compact` (`CLEANUP_POLICY_COMPACT` for {{ TF }} and API): Compact the log.
     * `CompactAndDelete` (`CLEANUP_POLICY_COMPACT_AND_DELETE` for {{ TF }} and API): Both compact the log and delete log segments.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#cleanup.policy). In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**.
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_cleanup.policy). In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**.
 
-* **Compression type** {{ tag-all }} {#settings-topic-compression-type}  
+* **Compression type** {{ tag-all }} {#settings-topic-compression-type}
 
-    Codec used for message compression.  
+    Codec used for message compression.
 
     For more information, see the description of the [Compression type](#settings-compression-type) cluster-level setting.
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_compression.type).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_compression.type).
 
 * **Delete delay, ms** {{ tag-all }} {#settings-topic-file-delete-delay}
 
@@ -24,13 +24,13 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-delete-delay }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#file.delete.delay.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_file.delete.delay.ms).
 
 * **Delete retention** {{ tag-all }} {#settings-delete-retention}
 
     Time (in milliseconds) to retain delete tombstone markers for topics with a compacted log. This setting only applies if the [log cleanup policy](#settings-topic-cleanup-policy) is set either to `Compact` or `CompactAndDelete`.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#delete.retention.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
 
 * **Flush messages** {{ tag-all }} {#settings-topic-flush-messages}
 
@@ -40,7 +40,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_flush.messages).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_flush.messages).
 
 * **Flush, ms** {{ tag-all }} {#settings-topic-flush-ms}
 
@@ -50,7 +50,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-flush-ms }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_flush.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_flush.ms).
 
 * **Message max bytes** {{ tag-all }} {#settings-topic-message-max-bytes}    
 
@@ -60,7 +60,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_max-message-bytes }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_max.message.bytes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_max.message.bytes).
 
 * **Min compaction lag, ms** {{ tag-all }} {#settings-topic-max-compaction-lag-ms}    
 
@@ -68,7 +68,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-min-compaction-lag }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#min.compaction.lag.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_min.compaction.lag.ms).
 
 * **Minimum number of in-sync replicas** {{ tag-all }} {#settings-topic-min-insync-replicas}
 
@@ -81,7 +81,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_min.insync.replicas).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_min.insync.replicas).
 
 * **Num partitions** {{ tag-all }} {#settings-topic-num-partitions}    
 
@@ -93,7 +93,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_partitions }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
 
 * **Pre-allocation of the segment file** {{ tag-all }} {#settings-topic-preallocate}    
 
@@ -103,7 +103,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-preallocate }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_preallocate).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_preallocate).
 
 * **Replication factor** {{ tag-all }} {#settings-topic-replication-factor}
 
@@ -115,7 +115,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_replication-factor }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#streamsconfigs_replication.factor).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-streams-configs/#streamsconfigs_replication.factor).
 
 * **Retention, bytes** {{ tag-all }} {#settings-topic-retention-bytes}
 
@@ -125,7 +125,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-retention-bytes }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_retention.bytes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_retention.bytes).
 
 * **Retention, ms** {{ tag-all }} {#settings-topic-log-retention-ms}
 
@@ -135,7 +135,7 @@
 
     In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}**.
 
-    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_retention.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_retention.ms).
 
 * **Segment bytes** {{ tag-all }} {#settings-topic-segment-bytes}
 
@@ -147,4 +147,4 @@
 
     For more information, see the description of the [Log segment bytes](#settings-log-segment-bytes) cluster-level setting.
 
-    For more information, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and [this {{ KF }} guide](https://kafka.apache.org/documentation/#topicconfigs_segment.bytes).
+    For more information, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_segment.bytes).

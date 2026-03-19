@@ -18,8 +18,8 @@ To connect to an {{ KF }} cluster:
 
 1. [Create users](../cluster-accounts.md#create-account) for clients (producers and consumers) with access to the appropriate topics.
 1. Connect the clients to the cluster:
-   * Producers using the [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi).
-   * Consumers using the [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).
+   * Producers using the [Kafka Producer API](https://kafka.apache.org/42/apis/#producer-api).
+   * Consumers using the [Kafka Consumer API](https://kafka.apache.org/42/apis/#consumer-api).
 
 There are ready-made {{ KF }} API implementations for most popular programming languages. For use cases, see [Code examples](code-examples.md).
 
@@ -28,7 +28,7 @@ There are ready-made {{ KF }} API implementations for most popular programming l
 
 {% include [sg-rules](../../../_includes/mdb/sg-rules-connect.md) %}
 
-Rule settings depend on the connection method you select:
+Rule settings depend on the chosen connection method:
 
 {% list tabs group=connection_method %}
 
@@ -74,7 +74,7 @@ Rule settings depend on the connection method you select:
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-       This rule allows inbound VM connections over SSH.
+       This rule allows inbound connections to the VM over SSH.
 
      * For outgoing traffic:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
@@ -82,13 +82,13 @@ Rule settings depend on the connection method you select:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-       This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
+       This rule permits all outbound traffic, allowing you to install any necessary certificates and tools on your VM.
 
 {% endlist %}
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
+You can specify more granular security group rules, such as allowing traffic only in specific subnets.
 
 Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster.
 
@@ -107,21 +107,21 @@ This certificate is also used to access the [{{ mkf-short-name }} REST API](../.
 
 ## Getting FQDNs of {{ KF }} hosts {#get-fqdn}
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). Example of an {{ KF }} host FQDN:
+To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). Here is an example of a {{ KF }} host FQDN:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
 ```
 
-You can get the FQDN by doing one of the following:
+You can get the FQDN using one of the following methods:
 
-* Look up the FQDN in the management console:
+* Check the FQDN in the management console:
 
     1. Navigate to the cluster page.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. It contains the broker host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the cluster connection command It contains the broker host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Get the list of cluster hosts](../cluster-hosts.md#list-hosts) using the CLI or API.
 

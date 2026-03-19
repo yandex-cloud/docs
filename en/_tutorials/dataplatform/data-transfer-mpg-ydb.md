@@ -6,15 +6,15 @@ A {{ ydb-name }} cluster can ingest data from {{ PG }} databases in real time. T
 To start data delivery:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
@@ -86,7 +86,7 @@ Set up your data delivery infrastructure:
 
 ## Prepare the source cluster {#prepare-source}
 
-1. [Connect to the source cluster’s database](../../managed-postgresql/operations/connect.md) with your new user account.
+1. [Connect to the source cluster’s database](../../managed-postgresql/operations/connect/index.md) with your new user account.
 1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
     Create a table:
@@ -116,7 +116,7 @@ Set up your data delivery infrastructure:
 
 1. [Prepare the source cluster for transfer](../../data-transfer/operations/prepare.md#source-pg).
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -174,7 +174,7 @@ Set up your data delivery infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Make sure the data from the {{ mpg-name }} source cluster has been transferred to the {{ ydb-name }} database:
@@ -202,7 +202,7 @@ Set up your data delivery infrastructure:
 
     {% endlist %}
 
-1. [Connect to the {{ mpg-name }} source cluster](../../managed-postgresql/operations/connect.md) and populate the `sensors` table with data:
+1. [Connect to the {{ mpg-name }} source cluster](../../managed-postgresql/operations/connect/index.md) and populate the `sensors` table with data:
 
     ```sql
     INSERT INTO public.sensors VALUES

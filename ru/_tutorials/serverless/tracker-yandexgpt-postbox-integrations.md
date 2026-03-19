@@ -152,7 +152,7 @@
   1. Нажмите на строку с созданным секретом `tracker-oauth-token` и в открывшемся окне:
 
       1. Скопируйте и сохраните значение поля **{{ ui-key.yacloud.lockbox.label_secret-id }}**. Оно понадобится позднее при создании спецификации рабочего процесса.
-      1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. В поисковой строке введите имя созданного ранее сервисного аккаунта `workflow-sa` и выберите найденный сервисный аккаунт.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.

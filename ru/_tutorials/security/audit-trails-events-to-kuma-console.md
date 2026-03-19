@@ -237,7 +237,7 @@
 
       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}** и нажмите на строку с ключом `kuma-key`.
-      1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Выберите сервисный аккаунт `kuma-trail-sa`.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter`.
       1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.

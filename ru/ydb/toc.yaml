@@ -38,7 +38,13 @@ items:
           sf-full-name }} на Node.js
         href: tutorials/connect-from-cf-nodejs.md
       - name: Конвертация видео в GIF на Python
-        href: tutorials/video-converting-queue.md
+        items:
+          - name: Обзор
+            href: tutorials/video-converting-queue/index.md
+          - name: Консоль управления
+            href: tutorials/video-converting-queue/console.md
+          - name: '{{ TF }}'
+            href: tutorials/video-converting-queue/terraform.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md
       - name: >-

@@ -23,7 +23,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
    ![image](../../../_assets/datalens/operations/widget-select-js.png =650x95)
 
 
-1. Under **Selector settings**, set the source and specify the selector parameters:
+1. Under **Selectors**, set the source and specify the selector parameters:
 
    {% list tabs %}
 
@@ -151,7 +151,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    In [QL charts](../../concepts/chart/ql-charts.md), you can control [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
 
-1. Optionally, add another selector to the widget. To to this, on the left side of the **Selectors** tab, click ![image](../../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, on the **Selectors** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
+1. Optionally, add another selector to the widget. To to this, on the left side of the **Selectors** tab, click ![image](../../../_assets/console-icons/plus.svg) **Add** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, on the **Selectors** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
 
    * **Duplicate**: This will add a new selector with the same parameters to the widget.
    * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button on the **Selectors** tab or to a dashboard using the **Insert** button on the bottom panel of the dashboard page.

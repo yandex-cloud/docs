@@ -14,7 +14,7 @@ For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/
 
 ## Viewing a list of logical replication slots {#list}
 
-1. [Connect](connect.md) to the database as a user with the [`mdb_replication`](../concepts/roles.md#mdb-replication) role.
+1. [Connect](connect/index.md) to the database as a user with the [`mdb_replication`](../concepts/roles.md#mdb-replication) role.
 1. Run the following SQL query:
 
     ```sql
@@ -33,7 +33,7 @@ For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/
 
     {% endnote %}
 
-1. [Connect](connect.md) to the database as a user with the [`mdb_replication` role](../concepts/roles.md#mdb-replication).
+1. [Connect](connect/index.md) to the database as a user with the [`mdb_replication` role](../concepts/roles.md#mdb-replication).
 1. Run the following SQL query:
 
     ```sql
@@ -46,11 +46,11 @@ For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/
     * `<slot_name>`: Unique slot name. This is a required parameter.
     * `<plugin_name>`: Name of plugin from the list of supported output plugins. For the full list, see [Replication](../concepts/replication.md#logical-decoding). This is a required parameter.
     * `temporary`: If `true`, the slot will be dropped at the end of the current session or if an error occurs. The default is `false`.
-    * `two_phase`: If `true`, the slot will decode the [prepared transactions](https://www.postgresql.org/docs/current/sql-prepare-transaction.html). The default is `false`.
+    * `two_phase`: If `true`, the slot will decode the [prepared transactions](https://www.postgresql.org/docs/current/sql-prepare-transaction.html). The default value is `false`.
 
 ## Dropping a replication slot {#delete}
 
-1. [Connect](connect.md) to the database as a user with the [`mdb_replication` role](../concepts/roles.md#mdb-replication).
+1. [Connect](connect/index.md) to the database as a user with the [`mdb_replication` role](../concepts/roles.md#mdb-replication).
 1. Run the following SQL query:
 
     ```sql

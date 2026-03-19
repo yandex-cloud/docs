@@ -4,7 +4,7 @@ Web resources process a significant portion of bot traffic. Some of these bots a
 
 {{ sws-name }} offers flexible protection and bot traffic filtering tools:
 
-* List of verified bot categories by intended use or type of activity (AcademicResearchBot, AISearchBot).
+* List of verified bot categories based on their purpose or nature of action (AcademicResearchBot, AISearchBot).
 * Up-to-date lists of legitimate bots used by various services and companies (e.g., Yandex, Googlebot, or Bing).
 * Specific attribute to distinguish a verified bot.
 * Configurable bot score thresholds from 0 to 100 for rule customization.
@@ -154,9 +154,9 @@ Below is a list of bots used by various businesses for content indexing, deliver
 
 ## Bot score {#configuration}
 
-To configure custom rules for your traffic, you can define filtering rules based on bot score.
+To configure custom rules for your traffic, you can define filtering rules based on the bot score.
 
-{{ sws-name }} assigns traffic a score from `0` (lowest probability, i.e., human) to `100` (highest probability, i.e., bot).
+{{ sws-name }} assigns traffic a score from `0` (human) to `100` (bot).
 
 The following threshold ranges are used in decision-making: 
 
@@ -171,3 +171,34 @@ In request filtering conditions, specify threshold values using the `>=`, `<=`, 
 For example, `=10`, `>=20 AND <=40`.
 
 For final tuning, apply the rule in `only logging` mode and analyze logs to determine the optimal threshold.
+
+
+## FingerPrints {#fingerprint}
+
+[FingerPrint](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/) is an SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint collected by a load balancer or proxy server. Generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters.
+
+The use cases for fingerprints include:
+
+* Blocking traffic with known malware and bot fingerprints.
+* Identifying applications to allow legitimate traffic.
+* Detecting DGA bots that constantly change domains and IP addresses.
+* Reducing the percentage of false positives.
+
+You can use fingerprints to identify certain clients by analyzing their hello packet parameters. Examples of such clients include browsers, applications, and malware. The analysis focuses on parameters the client sends in plain text during the TLS handshake: TLS version, TLS record version, cipher suites, compression parameters, list of extensions, signature algorithms, data encryption algorithm, and hash function.
+
+{{ sws-name }} uses the JA3 and JA4 methods to identify clients:
+
+* JA3 is a passive fingerprinting method which collects value IDs from the client hello packet fields in `TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats` format and generates an MD5 hash to create a 32-character fingerprint.
+
+    Here are some examples of JA3 fingerprints:
+
+    * Standard Tor client: `e7d705a3286e19ea42f587b344ee6865`
+    * Trickbot malware: `6734f37431670b3ab4292b8f60f29984`
+    * Emotet malware: `4d7a28d6f2263ed61de88ca66eb011e3`
+
+* JA4 is a suite of network fingerprinting methods with deeper analysis. {{ sws-name }} supports one JA4 method, TLS client fingerprinting.
+
+
+    All JA4 fingerprints are in `a_b_c` format, where the separators mark different parts of the identifier, e.g., `t13d3812h2_8a4b5c6d_7e8f9a0b`. This enables you to flexibly search and detect traffic by fingerprint parts.
+
+There are no fingerprints in unencrypted HTTP traffic or internal traffic of {{ yandex-cloud }} services, and updating the client application may change its fingerprint. Therefore, we recommend you arrange alternative filtering conditions and regularly update security rules.

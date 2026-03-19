@@ -77,7 +77,7 @@
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-glusterfs` в списке и нажмите значок ![image](../../_assets/options.svg).
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}

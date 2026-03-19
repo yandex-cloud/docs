@@ -25,7 +25,7 @@
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_platforms }}`
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_gpu }}`
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_network }}`
-         * `{{ ui-key.yacloud.common.resource-acl.label_bindings }}`
+         * `{{ ui-key.yacloud_components.acl.resource-acl.label_bindings }}`
 
            {% include [version-remove-param](../../_includes/marketplace/version-remove-param.md) %}
 

@@ -2,20 +2,20 @@
 
 Не в каждом приложении реализована встроенная поддержка технологии [единого входа](https://ru.wikipedia.org/wiki/Технология_единого_входа) (SSO). При этом иногда возникает потребность в настройке аутентификации пользователей в них с помощью {{ org-full-name }}.
 
-В данном руководстве вы воспользуетесь утилитой [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) в связке с прокси-сервером, чтобы настроить интеграцию простейшего приложения с {{ org-full-name }} и организовать доступ к этому приложению только для заданных пользователей {{ org-name }} с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
+В данном руководстве вы воспользуетесь утилитой [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) в связке с прокси-сервером, чтобы настроить интеграцию простейшего приложения с {{ org-full-name }} и организовать доступ к этому приложению только для заданных пользователей {{ org-full-name }} с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
 
-В качестве прокси-сервера в данном руководстве используется [nginx](https://nginx.org/ru/), а в качестве тестового приложения — статическая HTML-страница. Чтобы ваши пользователи {{ org-name }} могли получить доступ к тестовому приложению, вы создадите и настроите [OIDC-приложение](../../../organization/concepts/applications.md#oidc). Дополнительно вам потребуется [виртуальная машина](../../../compute/concepts/vm.md) {{ compute-full-name }}, на которой будут запущены `nginx` и `OAuth2 Proxy`, а также размещено тестовое приложение. Кроме этого, для реализации защищенного доступа к тестовому приложению вам понадобятся доменное имя и выпущенный для него [SSL-сертификат](../../../glossary/ssl-certificate.md).
+В качестве прокси-сервера в данном руководстве используется [nginx](https://nginx.org/ru/), а в качестве тестового приложения — статическая HTML-страница. Чтобы ваши пользователи {{ org-full-name }} могли получить доступ к тестовому приложению, вы создадите и настроите [OIDC-приложение](../../../organization/concepts/applications.md#oidc). Дополнительно вам потребуется [виртуальная машина](../../../compute/concepts/vm.md) {{ compute-full-name }}, на которой будут запущены `nginx` и `OAuth2 Proxy`, а также размещено тестовое приложение. Кроме этого, для реализации защищенного доступа к тестовому приложению вам понадобятся доменное имя и выпущенный для него [SSL-сертификат](../../../glossary/ssl-certificate.md).
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
-Чтобы настроить доступ в приложение для ваших пользователей {{ org-name }}:
+Чтобы настроить доступ в приложение для ваших пользователей {{ org-full-name }}:
 
-1. [Создайте и настройте OIDC-приложение в {{ org-name }}](#setup-oidc-app).
+1. [Создайте и настройте OIDC-приложение в {{ org-full-name }}](#setup-oidc-app).
 1. [Подготовьте виртуальную машину с тестовым приложением](#setup-server).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе интеграции](#validate).
 
-## Создайте и настройте OIDC-приложение в {{ org-name }} {#setup-oidc-app}
+## Создайте и настройте OIDC-приложение в {{ org-full-name }} {#setup-oidc-app}
 
 ### Создайте OIDC-приложение {#create-app}
 
@@ -105,7 +105,7 @@
       yc organization-manager idp application oauth application create \
         --organization-id <идентификатор_организации> \
         --name website-oidc-app \
-        --description "OIDC-приложение для настройки доступа пользователей {{ org-name }} к сайту" \
+        --description "OIDC-приложение для настройки доступа пользователей {{ org-full-name }} к сайту" \
         --client-id <идентификатор_OAuth-клиента> \
         --authorized-scopes openid,email,profile \
         --group-distribution-type none
@@ -127,7 +127,7 @@
       id: ek0odpetc1o4********
       name: website-oidc-app
       organization_id: bpf2c65rqcl8********
-      description: OIDC-приложение для настройки доступа пользователей {{ org-name }} к сайту
+      description: OIDC-приложение для настройки доступа пользователей {{ org-full-name }} к сайту
       group_claims_settings:
         group_distribution_type: NONE
       client_grant:
@@ -195,7 +195,7 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы ваши пользователи {{ org-name }} могли проходить аутентификацию в тестовом приложении с помощью протокола OIDC, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы ваши пользователи {{ org-full-name }} могли проходить аутентификацию в тестовом приложении с помощью протокола OIDC, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 
@@ -396,7 +396,7 @@
         ```bash
         sudo mkdir /var/www/$MY_DOMAIN
         sudo touch /var/www/$MY_DOMAIN/index.html \
-          && echo "<h1>Your Web application that is available to your {{ org-name }} users only</h1>" | sudo tee -a /var/www/$MY_DOMAIN/index.html
+          && echo "<h1>Your Web application that is available to your {{ org-full-name }} users only</h1>" | sudo tee -a /var/www/$MY_DOMAIN/index.html
         ```
 1. Создайте самоподписанный SSL-сертификат для вашего домена. Для этого выполните команду и введите значения, следуя инструкциям на экране:
 
@@ -552,9 +552,9 @@
         * `client_id` — значение `ClientID` OAuth-клиента, полученное [ранее](#create-app) при создании OIDC-приложения.
         * `client_secret` — значение секрета, сгенерированного в OIDC-приложении.
         * `cookie_secret` — секрет cookie, сгенерированный и сохраненный ранее.
-        * `email_domains` — список доменов в адресе электронной почты, для которых будет разрешена аутентификация пользователя {{ org-name }} в тестовом приложении.
+        * `email_domains` — список доменов в адресе электронной почты, для которых будет разрешена аутентификация пользователя {{ org-full-name }} в тестовом приложении.
 
-            Утилита `OAuth2 Proxy` проверяет домен электронной почты, указанной в поле `{{ ui-key.yacloud_org.page.user.field_user-email }}` настроек пользователя в {{ org-name }} ([атрибут](../../../organization/concepts/applications.md#oidc-attributes) `email`).
+            Утилита `OAuth2 Proxy` проверяет домен электронной почты, указанной в поле `{{ ui-key.yacloud_org.page.user.field_user-email }}` настроек пользователя в {{ org-full-name }} ([атрибут](../../../organization/concepts/applications.md#oidc-attributes) `email`).
 
             В поле `email_domains` укажите домен электронной почты того пользователя, которого вы добавили ранее в ваше OIDC-приложение. Если в OIDC-приложение вы добавляли группу пользователей, укажите домен электронной почты того пользователя группы, от имени которого вы будете тестировать аутентификацию. Вы можете указать несколько доменов через запятую.
 

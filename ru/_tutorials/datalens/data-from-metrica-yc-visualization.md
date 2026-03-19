@@ -66,7 +66,7 @@
 ### 1.1. Подключите {{ CH }} {#ch-connection}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог для создания кластера {{ CH }}.
-1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. В открывшемся окне нажмите **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите настройки кластера {{ CH }}:
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите произвольное имя кластера. 

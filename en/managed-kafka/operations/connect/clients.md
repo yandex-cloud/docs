@@ -111,7 +111,7 @@ Before connecting:
     sudo apt update && sudo apt install --yes default-jdk
     ```
 
-1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
+1. Download the [archive with binary files](https://kafka.apache.org/community/downloads/) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
 
 1. Unpack the archive.
 
@@ -212,7 +212,7 @@ Before connecting:
 
 1. Install the latest available version of [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
+1. Download the [archive with binary files](https://kafka.apache.org/community/downloads/) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
 
 1. Unpack the archive.
 

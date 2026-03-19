@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
@@ -41,7 +41,7 @@ Set up your infrastructure:
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     
-    1. Configure [security groups](../../../managed-postgresql/operations/connect.md#configuring-security-groups), ensuring they allow cluster connections.
+    1. Configure [security groups](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups), ensuring they allow cluster connections.
 
 
     1. [Grant](../../../managed-postgresql/operations/grant.md#grant-privilege) the `mdb_replication` role to `pg-user`.
@@ -92,7 +92,7 @@ Set up your infrastructure:
 
 1. [Create a data stream `mpg-stream` in {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md).
 
-1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md). In the `db1` database, create a table named `measurements` and populate it with data:
+1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect/index.md). In the `db1` database, create a table named `measurements` and populate it with data:
 
     ```sql
     CREATE TABLE measurements (

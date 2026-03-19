@@ -12,6 +12,6 @@ Maintenance includes:
 
 ## Maintenance window {#maintenance-window}
 
-You can set the maintenance window when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/cluster-update.md):
+You can set the maintenance window when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/cluster-update.md#change-additional-settings):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}

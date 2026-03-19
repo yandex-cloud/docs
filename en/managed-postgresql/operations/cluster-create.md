@@ -83,6 +83,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
+      {% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
+
       
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
@@ -125,7 +127,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able connect to the cluster.
+     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the settings for the cluster’s database hosts. By default, each host is created in a separate [subnet](../../vpc/concepts/network.md#subnet). To select a specific subnet for a host, click ![image](../../_assets/console-icons/pencil.svg) next to it.
@@ -425,7 +427,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -589,7 +591,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-       * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+       * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings:
 
@@ -611,7 +613,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -776,7 +778,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-       * `assign_public_ip`: Permission for internet [access](connect.md) to the host.
+       * `assign_public_ip`: Permission for internet [access](connect/index.md) to the host.
     
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings:
 
@@ -805,7 +807,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to it.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to it.
 
 {% endnote %}
 
@@ -862,7 +864,7 @@ To create a {{ PG }} cluster copy:
         * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 

@@ -80,6 +80,16 @@ Syntax:
 
   - [yc baremetal private-subnet update](private-subnet/update.md) — Update the specified private subnet
 
+- [yc baremetal public-prefix-pool](public-prefix-pool/index.md) — Manage public prefix pools
+
+  - [yc baremetal public-prefix-pool get](public-prefix-pool/get.md) — Show information about the specified public prefix pool
+
+  - [yc baremetal public-prefix-pool list](public-prefix-pool/list.md) — List public prefix pools
+
+  - [yc baremetal public-prefix-pool list-operations](public-prefix-pool/list-operations.md) — List operations for the specified public prefix pool
+
+  - [yc baremetal public-prefix-pool update](public-prefix-pool/update.md) — Update the specified public prefix pool
+
 - [yc baremetal public-subnet](public-subnet/index.md) — Manage public subnet
 
   - [yc baremetal public-subnet add-labels](public-subnet/add-labels.md) — Add labels to specified public subnet

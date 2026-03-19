@@ -230,8 +230,8 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         * **Driver**: `org.postgresql.Driver`
         * **Url**: `jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`, where:
 
-            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master) always pointing to the current master host in the {{ mpg-name }} cluster.
-            * `{{ port-mpg }}`: Port for [connection](../../../managed-postgresql/operations/connect.md) to the {{ mpg-name }} cluster.
+            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) always pointing to the current master host in the {{ mpg-name }} cluster.
+            * `{{ port-mpg }}`: Port for [connection](../../../managed-postgresql/operations/connect/index.md) to the {{ mpg-name }} cluster.
             * `db1`: DB name in the {{ mpg-name }} cluster.
 
         * **User**: `pguser`
@@ -240,7 +240,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
-    1. [Connect to the {{ PG }} DB](../../../managed-postgresql/operations/connect.md#bash) using `psql`.
+    1. [Connect to the {{ PG }} DB](../../../managed-postgresql/operations/connect/clients.md) using `psql`.
     1. Create a test table and populate it with data:
 
         ```sql

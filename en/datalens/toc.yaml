@@ -105,6 +105,8 @@ items:
             href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Examples of creating QL charts
             href: tutorials/data-from-ch-to-sql-chart.md
+          - name: Examples of charts created in Editor
+            href: tutorials/create-chart-editor.md
   - name: Connections
     items:
       - name: Overview
@@ -863,6 +865,8 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Neuroanalyst on your dashboard
         href: dashboard/insights.md
+      - name: Trends and smoothings in charts on a dashboard
+        href: dashboard/trends-and-smoothing.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Step-by-step guides
@@ -917,6 +921,12 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
+  - name: Embedding objects
+    items:
+      - name: Public embedding
+        href: security/embedded-objects.md
+      - name: Private embedding
+        href: security/private-embedded-objects.md
   - name: Access management
     items:
       - name: Overview
@@ -943,12 +953,6 @@ items:
         href: security/row-level-security.md
       - name: Public access
         href: concepts/datalens-public.md
-      - name: Embedding objects
-        items:
-          - name: Public embedding
-            href: security/embedded-objects.md
-          - name: Private embedding
-            href: security/private-embedded-objects.md
   - name: Service settings
     items:
       - name: Overview
@@ -1411,4 +1415,52 @@ items:
       - name: Accessing a nonexistent object
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
+      - name: Got an unexpected response from an external API
+        hidden: true
+        href: troubleshooting/errors/ERR-AUTH_API-UNEXPECTED_RESPONSE.md
+      - name: Internal Server Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-ACTION_NOT_ALLOWED.md
+      - name: Field references an unknown source avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND-FIELD_REF.md
+      - name: Source avatar not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND.md
+      - name: Source avatar title conflicts with another avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-TITLE-CONFLICT.md
+      - name: Invalid connection type value
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BAD_CONN_TYPE.md
+      - name: Got items with incompatible roles in block
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-ITEM_COMPATIBILITY.md
+      - name: Got more than one block with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_ROOTS.md
+      - name: This API does not support multiple query blocks
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_UNSUPPORTED.md
+      - name: Got no blocks with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-NO_ROOT.md
+      - name: Failed to load description of table columns
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-COLUMN_SCHEMA_FAILED.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL.md
+      - name: There are too many fields in the dataset
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET-TOO_MANY_FIELDS.md
+      - name: Dataset version mismatch. Refresh the page to continue
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET_REVISION_MISMATCH.md
 path: en/datalens/toc.yaml

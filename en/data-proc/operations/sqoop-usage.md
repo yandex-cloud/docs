@@ -5,9 +5,9 @@ description: This guide describes how to use Sqoop.
 
 # Using Sqoop
 
-[Sqoop](https://sqoop.apache.org/) is used to import databases to the {{ dataproc-name }} cluster from external sources. The section includes:
+[Sqoop](https://sqoop.apache.org/) is used to import databases to the {{ dataproc-name }} cluster from external sources. This section covers:
 
-* Details about [creating connect strings](#jdbc-url-getting) and [setting up drivers](#driver-installation) for Sqoop.
+* Info on [creating connection strings](#jdbc-url-getting) and [setting up drivers](#driver-installation) for Sqoop.
 * Scoop commands for importing data to:
 
     * [{{ objstorage-full-name }}](#object-storage)
@@ -17,9 +17,9 @@ description: This guide describes how to use Sqoop.
 
 {% include [No Sqoop in DataProc v2.0](../../_includes/data-processing/no-sqoop-in-data-processing2.md) %}
 
-## Creating a JDBC connect string {#jdbc-url-getting}
+## Creating a JDBC connection string {#jdbc-url-getting}
 
-A JDBC connect string has the following format:
+A JDBC connection string has the following format:
 
 {% list tabs group=data_sources %}
 
@@ -29,7 +29,7 @@ A JDBC connect string has the following format:
     jdbc:postgresql://<DB_server_address>:5432/<DB_name>
     ```
 
-    For {{ mpg-full-name }}, use a string with a [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) pointing at the master host:
+    For {{ mpg-full-name }}, use a string with a [special FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) pointing at the master host:
 
     ```http
     jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>
@@ -55,7 +55,7 @@ A JDBC connect string has the following format:
 
 ## Installing a JDBC driver {#driver-installation}
 
-For Sqoop to connect to the database using a JDBC connect string, install a JDBC driver:
+For Sqoop to connect to the database using a JDBC connection string, install the JDBC driver:
 
 {% list tabs group=data_sources %}
 
@@ -65,7 +65,7 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 - {{ MY }} {#mysql}
 
-    [Connect](connect-ssh.md) to the {{ dataproc-name }} subcluster host that stores the data over SSH and run this command:
+    [Connect](connect-ssh.md) to the {{ dataproc-name }} data storage subcluster host over SSH and run this command:
 
     ```bash
     MYSQL_VER="8.0.25" && \
@@ -77,7 +77,7 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
     {% note info %}
 
-    To install another driver version, change the `MYSQL_VER` variable in the command.
+    To install another driver version, edit the `MYSQL_VER` variable in the command.
 
     {% endnote %}
 
@@ -91,19 +91,19 @@ This type of import is available if the `Sqoop` component is enabled in the {{ d
 
 To import data to an {{ objstorage-name }} bucket:
 
-1. When [creating](cluster-create.md) or editing the {{ dataproc-name }} cluster, specify the bucket name to import the data to {{ objstorage-name }}. Make sure the {{ dataproc-name }} service account has [write permissions](../../storage/operations/buckets/edit-acl.md) for this bucket.
-1. [Create connect strings](#jdbc-url-getting) for JDBC.
-1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if required.
+1. When [creating](cluster-create.md) or updating your {{ dataproc-name }} cluster, specify the name of the {{ objstorage-name }} bucket to import the data to. Make sure the {{ dataproc-name }} service account has [write permissions](../../storage/operations/buckets/edit-acl.md) for this bucket.
+1. [Create JDBC connection strings](#jdbc-url-getting).
+1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} data storage subcluster host.
+1. [Install drivers](#driver-installation) for Sqoop if missing.
 1. Run this command:
 
     ```bash
     sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-      --connect <JDBC_connect_string> \
+      --connect <JDBC_connection_string> \
       --username <database_username> \
       --P \
       --table '<database_table_name>' \
-      --target-dir 's3a://<bucket_name_for import>/<destination_directory>' \
+      --target-dir 's3a://<bucket_name_for_import>/<destination_directory>' \
       --split-by '<table_column>'
     ```
 
@@ -115,7 +115,7 @@ To import data to an {{ objstorage-name }} bucket:
 
     {% endnote %}
 
-### To the HDFS directory {#hdfs}
+### To an HDFS directory {#hdfs}
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 
@@ -127,14 +127,14 @@ This type of import is available if the following services are enabled in the {{
 
 To import data to an HDFS directory:
 
-1. [Create connect strings](#jdbc-url-getting) for JDBC.
+1. [Create JDBC connect strings](#jdbc-url-getting).
 1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if required.
+1. [Install drivers](#driver-installation) for Sqoop if missing.
 1. Run this command:
 
     ```bash
     sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-      --connect <JDBC_connect_string> \
+      --connect <JDBC_connection_string> \
       --username <database_username> \
       --table '<database_table_name>' \
       --target-dir '<HDFS_directory>' \
@@ -162,10 +162,10 @@ This type of import is available if the following services are enabled in the {{
 
 To import data to a Hive table:
 
-1. When [creating](cluster-create.md) or editing a {{ dataproc-name }} cluster, add to the cluster properties the `hive:hive.execution.engine` key set to `mr`.
-1. [Create connect strings](#jdbc-url-getting) for JDBC.
-1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if required.
+1. When [creating](cluster-create.md) or updating your {{ dataproc-name }} cluster, add the `hive:hive.execution.engine` key set to `mr` to the cluster properties.
+1. [Create JDBC connection strings](#jdbc-url-getting).
+1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} data storage subcluster host.
+1. [Install drivers](#driver-installation) for Sqoop if missing.
 1. Create a Hive database:
 
     ```bash
@@ -179,7 +179,7 @@ To import data to a Hive table:
       --connect <JDBC_connect_string> \
       --username <source_database_username> \
       --P \
-      --table '<table_name_in_source_database>' \
+      --table '<source_database_table_name>' \
       --hive-import \
       --create-hive-table \
       --hive-database '<Hive_database_name>' \
@@ -207,9 +207,9 @@ This type of import is available if the following services are enabled in the {{
 
 To import data to Apache HBase:
 
-1. [Create connect strings](#jdbc-url-getting) for JDBC.
-1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} subcluster’s host to store the data.
-1. [Install drivers](#driver-installation) for Sqoop if required.
+1. [Create JDBC connection strings](#jdbc-url-getting).
+1. [Connect](connect-ssh.md) over SSH to the {{ dataproc-name }} data storage subcluster host.
+1. [Install drivers](#driver-installation) for Sqoop if missing.
 1. Run this command:
 
     ```bash

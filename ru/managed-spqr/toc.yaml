@@ -30,6 +30,10 @@ items:
         href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Управление пользователями
+        href: operations/cluster-users.md
+      - name: Управление базами данных
+        href: operations/databases.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

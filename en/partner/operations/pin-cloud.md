@@ -1,6 +1,6 @@
 # Linking a cloud to a subaccount
 
-If the customer has previously used {{ yandex-cloud }} resources and has an existing [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), you can link this cloud to your partner subaccount. Make sure to do this only after confirming partnership; otherwise, cloud resources may be suspended. You should also make sure the customer has [confirmed](./pin-client.md#confirm-partnership) they are willing to work with you and has the `Active` status on the partner portal.
+If the customer has previously used {{ yandex-cloud }} resources and has an existing [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), you can link this cloud to your partner subaccount. Make sure to do this only after confirming partnership; otherwise, cloud resources may be suspended. You should also make sure the customer has [confirmed](./pin-client.md#confirm-partnership) their cooperation, and their status on the partner portal is `Active`.
 
 {% note alert %}
 
@@ -36,7 +36,7 @@ You can link a customer's cloud to a partner subaccount on the partner portal or
 
   To link a cloud using the customer billing account:
 
-  1. Log in to the [partner portal]({{ link-cloud-partners }}) under a Yandex ID with a linked partner account in {{ yandex-cloud }}.
+  1. Log in to the [partner portal]({{ link-cloud-partners }}) under a Yandex ID with a linked {{ yandex-cloud }} partner account.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/credit-card.svg) **Subaccounts**.
   1. Pick the subaccount you need from the list.
   1. Go to the **Quotas & Instances** tab.

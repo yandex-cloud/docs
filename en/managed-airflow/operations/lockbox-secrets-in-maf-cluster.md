@@ -41,14 +41,6 @@ Using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), 
 
    {% endnote %}
 
-1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
-
-   {% note info }
-
-   There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
-
-   {% endnote %}
-
 ## Create a {{ lockbox-full-name }} secret {#create-lockbox-secret}
 
 {% include [lockbox-description](../../_includes/mdb/maf/lockbox-description.md) %}
@@ -72,7 +64,7 @@ Using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), 
 
 The secret will store the data to connect to the database in the {{ mpg-name }} cluster.
 
-For more information on how to get the FQDN of a {{ PG }} cluster host, see [{#T}](../../managed-postgresql/operations/connect.md#fqdn).
+For more information on how to get the FQDN of a {{ PG }} cluster host, see [{#T}](../../managed-postgresql/operations/connect/fqdn.md).
 
 ## Prepare the DAG file and run the graph {#dag}
 

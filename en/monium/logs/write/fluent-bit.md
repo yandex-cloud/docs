@@ -9,7 +9,7 @@ Fluent Bit is your optimal choice in the following cases:
 * You need to collect logs centrally using a single agent from the system host.
 * Logs are delivered as files.
 
-In other cases, we recommend you to use [{{ unified-agent-short-name }}](unified-agent.md).
+In other cases, we recommend you to use OTel Collector.
 
 ## Fluent-bit
 

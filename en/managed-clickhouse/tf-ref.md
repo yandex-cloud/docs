@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mch-full-name }}'
-description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mch-name }}.
+description: This page lists the {{ TF }} provider resources and data sources supported by {{ mch-name }}.
 ---
 
 # {{ TF }} reference for {{ mch-full-name }}
@@ -14,6 +14,7 @@ description: This page gives information about the {{ TF }} provider resources a
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_mdb_clickhouse_cluster]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster) | [Cluster](concepts/index.md) |
+| [yandex_mdb_clickhouse_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
 | [yandex_mdb_clickhouse_database]({{ tf-provider-resources-link }}/mdb_clickhouse_database) | Database |
 | [yandex_mdb_clickhouse_user]({{ tf-provider-resources-link }}/mdb_clickhouse_user) | {{ mch-name }} user |
 

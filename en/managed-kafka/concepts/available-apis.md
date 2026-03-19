@@ -92,11 +92,11 @@ For descriptions of the [REST API methods for {{ mkf-msr }}](https://docs.conflu
 
 Client APIs is an umbrella name for the following native {{ KF }} APIs:
 
-* [Producer API](https://kafka.apache.org/documentation/#producerapi): For operations with producers.
-* [Consumer API](https://kafka.apache.org/documentation/#consumerapi): For operations with consumers.
-* [Streams API](https://kafka.apache.org/documentation/#streamsapi): For operations with data streams.
-* [Connect API](https://kafka.apache.org/documentation/#connectapi): For operations with connectors.
-* [Admin API](https://kafka.apache.org/documentation/#adminapi): For operations with {{ KF }} objects.
+* [Producer API](https://kafka.apache.org/42/apis/#producer-api): For operations with producers.
+* [Consumer API](https://kafka.apache.org/42/apis/#consumer-api): For operations with consumers.
+* [Streams API](https://kafka.apache.org/42/apis/#streams-api): For operations with data streams.
+* [Connect API](https://kafka.apache.org/42/apis/#connect-api): For operations with connectors.
+* [Admin API](https://kafka.apache.org/42/apis/#admin-api): For operations with {{ KF }} objects.
 
 You can use these APIs to manage {{ KF }} objects (with [some limitations](#client-api-limits)).
 
@@ -116,7 +116,7 @@ To use any one of these APIs:
 
 The scope of available operations depends on the roles assigned to the [{{ KF }} user](../operations/cluster-accounts.md) sending requests to the client APIs.
 
-For descriptions of the client APIs, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#api) For examples of working with the Producer API and Consumer API, see [{#T}](../tutorials/managed-schema-registry.md).
+For descriptions of the client APIs, see the [{{ KF }} documentation](https://kafka.apache.org/42/apis/) For examples of working with the Producer API and Consumer API, see [{#T}](../tutorials/managed-schema-registry.md).
 
 ### Limitations {#client-api-limits}
 

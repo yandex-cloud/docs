@@ -57,8 +57,6 @@ The following connection types are available in {{ datalens-short-name }}:
 
 
 
-You can add other connections from those [available in {{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens).
-
 ## Connecting an external database {#external-db-connection}
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}

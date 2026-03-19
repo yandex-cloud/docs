@@ -2,7 +2,7 @@
 
 [Sentry](https://sentry.io/) — это платформа для мониторинга и отслеживания ошибок в реальном времени в приложениях, позволяющая разработчикам оперативно обнаруживать, диагностировать и исправлять сбои и проблемы с производительностью.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Sentry с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Sentry.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Sentry с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Sentry.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -14,11 +14,11 @@
 
 Чтобы дать доступ пользователям вашей организации в Sentry:
 
-1. [Создайте приложение в {{ org-name }}](#create-app).
+1. [Создайте приложение в {{ org-full-name }}](#create-app).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе приложения](#validate).
 
-## Создайте приложение в {{ org-name }} {#create-app}
+## Создайте приложение в {{ org-full-name }} {#create-app}
 
 {% list tabs group=instructions %}
 
@@ -88,7 +88,7 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Sentry с помощью SAML-приложения {{ org-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в Sentry с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 

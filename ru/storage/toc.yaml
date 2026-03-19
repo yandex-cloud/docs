@@ -51,6 +51,8 @@ items:
             href: operations/buckets/enable-logging.md
           - name: Управление блокировками версий объектов
             href: operations/buckets/configure-object-lock.md
+          - name: Управление выгрузкой метаданных объектов
+            href: operations/buckets/manage-s3-inventory.md
           - name: Управление метками бакета
             href: operations/buckets/tagging.md
           - name: Получение информации и статистики о бакете
@@ -333,7 +335,13 @@ items:
           objstorage-short-name }}
         href: tutorials/vision-ocrrecognizer-storage.md
       - name: Конвертация видео в GIF на Python
-        href: tutorials/video-converting-queue.md
+        items:
+          - name: Обзор
+            href: tutorials/video-converting-queue/index.md
+          - name: Консоль управления
+            href: tutorials/video-converting-queue/console.md
+          - name: '{{ TF }}'
+            href: tutorials/video-converting-queue/terraform.md
       - name: Автоматизация задач с помощью {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
       - name: Обработка файлов детализации в сервисе {{ billing-name }}
@@ -408,6 +416,8 @@ items:
         href: concepts/presigned-post-forms.md
       - name: Класс хранилища
         href: concepts/storage-class.md
+      - name: Выгрузка метаданных объектов
+        href: concepts/s3-inventory.md
       - name: Механизм логирования действий с бакетом
         href: concepts/server-logs.md
       - name: Резервное копирование

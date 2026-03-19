@@ -904,7 +904,13 @@ items:
           - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
           - name: Конвертация видео в GIF на Python
-            href: serverless/video-converting-queue.md
+            items:
+              - name: Обзор
+                href: serverless/video-converting-queue/index.md
+              - name: Консоль управления
+                href: serverless/video-converting-queue/console.md
+              - name: '{{ TF }}'
+                href: serverless/video-converting-queue/terraform.md
           - name: >-
               Настройка печати с {{ cloud-desktop-name }} на локальный принтер в
               Linux

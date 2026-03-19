@@ -35,7 +35,7 @@ To create a {{ MY }} connection:
 
      * **Host type**. Select a host type:
 
-       * **Regular** (default): Allows you to select regular hosts to connect to.
+       * **Regular**: Enables you to select regular hosts to connect to.
        * **Special FQDNs**: Allows you to select [special FQDNs](../../../managed-mysql/operations/connect/index.md#special-fqdns) for connection, which always point to the current master host or to its closest replica in the {{ MY }} cluster.
 
      * **Hostname**. Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
@@ -91,6 +91,12 @@ To create a {{ MY }} connection:
 ## Additional settings {#additional-settings}
 
 You can specify additional connection settings in the **Advanced connection settings** section:
+
+* **Setting collate in a query**: To explicitly define a collation for DB queries, select a mode:
+
+  * **Auto**: Applies the default setting. The decision to enable the `utf8mb4_general_ci` locale is delegated to {{ datalens-short-name }}.
+  * **On**: Applies the {{ datalens-short-name }} setting. The `utf8mb4_general_ci` locale is specified for individual expressions within a query. This ensures the server uses the appropriate sorting logic, regardless of its settings or the specific tables involved. Use the {{ datalens-short-name }} setting if your database locale is incompatible with {{ datalens-short-name }}. For more information on the locale and `COLLATE`, see [{#T}](../../../managed-mysql/operations/databases.md#charset-collate).
+  * **Off**: Applies the default setting. {{ datalens-short-name }} uses database-level locale settings.
 
 * **TLS**: Indicates whether TLS is required. When this option is enabled, the connection requires using SSL.
 * **CA Certificate**: To upload a certificate, click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.

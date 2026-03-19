@@ -123,6 +123,6 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./sync-ad.md)
 
-## Управление тарификацией {{ org-name }} {#manage-billing}
+## Управление тарификацией {{ org-full-name }} {#manage-billing}
 
 * [{#T}](./manage-billing.md)

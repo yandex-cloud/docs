@@ -36,7 +36,7 @@ Set up your infrastructure:
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
-    1. If using security groups, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
+    1. If using security groups, make sure they are [configured correctly](../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
 
 
     1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
@@ -167,8 +167,8 @@ Set up your infrastructure:
 ## Activate the transfer {#activate-transfer}
 
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. [Connect to the database in the target {{ mpg-name }} cluster](../../managed-postgresql/operations/connect.md).
-1. Run this request:
+1. [Connect to the database in the target {{ mpg-name }} cluster](../../managed-postgresql/operations/connect/index.md).
+1. Run this query:
 
     ```sql
     SELECT * FROM public."demo_data.csv";
@@ -197,7 +197,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=resources %}
 

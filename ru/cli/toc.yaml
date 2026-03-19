@@ -461,6 +461,19 @@ items:
                 href: cli-ref/baremetal/cli-ref/private-subnet/remove-labels.md
               - name: update
                 href: cli-ref/baremetal/cli-ref/private-subnet/update.md
+          - name: public-prefix-pool
+            items:
+              - name: Overview
+                href: cli-ref/baremetal/cli-ref/public-prefix-pool/index.md
+              - name: get
+                href: cli-ref/baremetal/cli-ref/public-prefix-pool/get.md
+              - name: list
+                href: cli-ref/baremetal/cli-ref/public-prefix-pool/list.md
+              - name: list-operations
+                href: >-
+                  cli-ref/baremetal/cli-ref/public-prefix-pool/list-operations.md
+              - name: update
+                href: cli-ref/baremetal/cli-ref/public-prefix-pool/update.md
           - name: public-subnet
             items:
               - name: Overview
@@ -714,6 +727,12 @@ items:
                 href: cli-ref/cic/cli-ref/trunk-connection/list.md
               - name: list-operations
                 href: cli-ref/cic/cli-ref/trunk-connection/list-operations.md
+              - name: list-private-connections
+                href: >-
+                  cli-ref/cic/cli-ref/trunk-connection/list-private-connections.md
+              - name: list-public-connections
+                href: >-
+                  cli-ref/cic/cli-ref/trunk-connection/list-public-connections.md
               - name: move
                 href: cli-ref/cic/cli-ref/trunk-connection/move.md
               - name: remove-labels
@@ -3530,6 +3549,8 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/database/get.md
               - name: list
                 href: cli-ref/managed-mysql/cli-ref/database/list.md
+              - name: update
+                href: cli-ref/managed-mysql/cli-ref/database/update.md
           - name: hosts
             items:
               - name: Overview

@@ -7,7 +7,7 @@ description: This section contains the {{ mkf-name }} release notes.
 
 ## December 2025 {#december-2025}
 
-Added support for the all-new {{ KF }} 4.0. This version is available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/documentation.html).
+Added support for the all-new {{ KF }} 4.0. This version is available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/community/downloads/#400).
 
 ## November 2025 {#november-2025}
 
@@ -48,7 +48,7 @@ Added the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section to 
 
 ## March 2025 {#mar-2025}
 
-* Added support for {{ KF }} 3.7, 3.8, and 3.9. These versions are available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} article](https://kafka.apache.org/documentation.html).
+* Added support for {{ KF }} 3.7, 3.8, and 3.9. These versions are available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} article](https://kafka.apache.org/community/downloads/).
 * Starting March 1, 2025, support for {{ KF }} 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions.
 
 ## July 2024 {#jul-2024}

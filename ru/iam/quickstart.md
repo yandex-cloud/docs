@@ -79,7 +79,7 @@
 * [Пошаговые инструкции](operations/index.md) помогут вам решить конкретные задачи, возникающие при использовании {{ iam-name }}.
 * Прочитайте, [как устроено управление доступом в {{ yandex-cloud }}](concepts/access-control/index.md).
 * Посмотрите [рекомендации по безопасному использованию {{ yandex-cloud }}](best-practices/using-iam-securely.md).
-* Узнайте, [как начать работать с сервисом {{ org-name }}](../organization/quickstart.md).
+* Узнайте, [как начать работать с сервисом {{ org-full-name }}](../organization/quickstart.md).
 * Узнайте, [как происходит аутентификация в {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Научитесь работать с сервисными аккаунтами](quickstart-sa.md).
 * Посмотрите [ответы на часто задаваемые вопросы](qa/index.md).

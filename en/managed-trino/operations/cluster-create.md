@@ -9,7 +9,7 @@ keywords:
 
 # Creating an {{ TR }} cluster
 
-Each {{ mtr-name }} cluster consists of a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers – potentially several instances of these.
+Each {{ mtr-name }} cluster consists of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers), which may have multiple instances.
 
 ## Roles for creating a cluster {#roles}
 
@@ -165,8 +165,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `resource-preset-id`: [Class of the worker's computing resources](../concepts/instance-types.md).
             * `count`: Fixed number of workers.
-            * `min_count`: Minimum number of workers for automatic scaling.
-            * `maxCount`: Maximum number of workers for automatic scaling.
+            * `min_count`: Minimum number of workers for autoscaling.
+            * `maxCount`: Maximum number of workers for autoscaling.
 
             Specify either a fixed number of workers (`count`), or minimum and maximum number of workers (`minCount`, `maxCount`) for automatic scaling.
 
@@ -226,6 +226,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--retry-policy-exchange-manager-service-s3`: Use an S3 storage to write data when retrying queries.
         * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
 
+    1. To add the settings of query execution and resource allocation for queries, specify this parameter:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <cluster_name> \
+           ...
+           --query-properties <list_of_settings>
+        ```
+
+        Where:
+
+        * `--query-properties`: Settings of query execution and cluster resource allocation for queries in `<key>=<value>` format.
+
+          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
     1. To set up a maintenance window (including for disabled clusters), provide the relevant value in the `--maintenance-window` parameter:
 
         ```bash
@@ -270,6 +284,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
 
+    1. To specify the settings of query execution and resource allocation for queries, add the `query_properties` section to the cluster description:
+
+        {% include [Terraform query properties description](../../_includes/managed-trino/terraform/query-properties.md) %}
+
     1. To set the maintenance window that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
@@ -282,15 +300,15 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-        
+
     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -336,6 +354,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "additionalProperties": {<additional_retry_parameters>}
             },
             "version": "<version>",
+            "resourceManagement": {
+              "query": {
+                "properties": {
+                  <query_execution_settings>,
+                  <settings_of_cluster_resource_allocation_for_queries>
+                }
+              }
+            },
             "tls": {
               "trustedCertificates": [ <list_of_certificates> ]
             }
@@ -393,10 +419,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additionalProperties`: Additional parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-            
+
             * `version`: {{ TR }} version.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
+            * `resourceManagement.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
+
+              Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
 
             * `tls`: TLS parameters.
 
@@ -441,7 +471,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -489,6 +519,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
               "additional_properties": {<additional_retry_parameters>}
             },
             "version": "<version>",
+            "resource_management": {
+              "query": {
+                "properties": {
+                  <query_execution_settings>,
+                  <settings_of_cluster_resource_allocation_for_queries>
+                }
+              }
+            },
             "tls": {
               "trusted_certificates": [ <list_of_certificates> ]
             }
@@ -551,6 +589,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
+            * `resource_management.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
+
+              Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
             * `tls`: TLS parameters.
 
                {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#tls) %}
@@ -558,7 +600,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                * `trusted_certificates`: Comma-separated list of certificates.
 
                   {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-               
+
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
         * `network`: Network settings:

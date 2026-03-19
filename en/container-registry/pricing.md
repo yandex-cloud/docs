@@ -19,6 +19,7 @@ editable: false
 The {{ container-registry-name }} usage cost includes:
 * Amount of storage used by your data.
 * Amount of outgoing traffic.
+* Number of Docket image scans for vulnerabilities.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 

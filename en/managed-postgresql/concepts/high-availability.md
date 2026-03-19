@@ -35,7 +35,7 @@ High availability is achieved through [replication and master failover](replicat
 
 {% note warning %}
 
-Using a [special FQDN](../operations/connect.md#special-fqdns) simplifies application development, but your cluster will be unavailabile during master failover. To quickly switch to a new master, you need to implement [monitoring of master replacement](planning-cluster-topology.md#cluster-availability) on the application side.
+Using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) simplifies application development, but your cluster will be unavailabile during master failover. To quickly switch to a new master, you need to implement [monitoring of master replacement](planning-cluster-topology.md#cluster-availability) on the application side.
 
 {% endnote %}
 

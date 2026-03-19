@@ -29,9 +29,9 @@ You can get a list of backups created for the past 14 days.
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Click the name of your cluster and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+    1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-    To get a list of all backups in a folder:
+    To get a list of all backups in your folder:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
@@ -64,7 +64,7 @@ You can get a list of backups created for the past 14 days.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -81,9 +81,9 @@ You can get a list of backups created for the past 14 days.
 
             You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-        1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-    1. To get a list of backups for all clusters in a folder:
+    1. To list backups for all clusters in your folder:
 
         1. Call the [Backup.List](../api-ref/Backup/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -99,11 +99,11 @@ You can get a list of backups created for the past 14 days.
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -128,9 +128,9 @@ You can get a list of backups created for the past 14 days.
 
             You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-        1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
-    1. To get a list of backups for all clusters in a folder:
+    1. To list backups for all clusters in your folder:
 
         1. Call the [BackupService.List](../api-ref/grpc/Backup/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -152,7 +152,7 @@ You can get a list of backups created for the past 14 days.
             You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) to make sure your request was successful.
+        1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -162,13 +162,13 @@ You can get a list of backups created for the past 14 days.
 
 - Management console {#console}
 
-    To get information about a backup of an existing cluster:
+    To get backup details for an existing cluster:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Click the name of your cluster and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+    1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
-    To get information about a backup of a previously deleted cluster:
+    To get backup details for a previously deleted cluster:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
@@ -217,7 +217,7 @@ You can get a list of backups created for the past 14 days.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -232,11 +232,11 @@ You can get a list of backups created for the past 14 days.
 
         You can get the backup ID with the [list of backups](#list-backups).
 
-    1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -271,7 +271,7 @@ You can get a list of backups created for the past 14 days.
   
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Click the name of your cluster and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+    1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
     {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -292,7 +292,7 @@ You can get a list of backups created for the past 14 days.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -308,11 +308,11 @@ You can get a list of backups created for the past 14 days.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -349,7 +349,7 @@ For clusters running an unsupported [DBMS version](../concepts/update-policy.md#
 
 {% endnote %}
 
-When you restore a cluster from a backup, you create a new cluster with the backup data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore your data from the backup.
+Restoring a cluster from a backup creates a new cluster with that backup’s data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
 When creating a cluster, specify all the required settings.
 
@@ -368,7 +368,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Click the name of your cluster and select the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+    1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
     1. Configure the new cluster.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -422,7 +422,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -492,7 +492,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
         Where:
 
         * `backupId`: ID of the backup you are restoring the cluster from. You can get it with the [list of backups](#list-backups).
-        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
@@ -530,11 +530,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             --data "@body.json"
         ```
 
-    1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -550,7 +550,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             "network_id": "<network_ID>",
             "config_spec": {
                 "version": "<{{ OS }}_version>",
-                "admin_password": "<admin_password>",
+                "admin_password": "<admin_user_password>",
                 "opensearch_spec": {
                     "node_groups": [
                         {
@@ -647,7 +647,67 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+### Deleting a backup {#delete-backup}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Click the cluster name and open the ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for your backup and click **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Cluster.DeleteBackup](../api-ref/Cluster/deleteBackup.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>/backups/<backup_ID>'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/Cluster/deleteBackup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [ClusterService.DeleteBackup](../api-ref/grpc/Cluster/deleteBackup.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "backup_id": "<backup_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.deleteBackup
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/grpc/Cluster/deleteBackup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -655,15 +715,34 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
 Work with snapshots via the [{{ OS }} public API]({{ os.docs }}/api-reference/index/) and store them in a bucket in {{ objstorage-name }}.
 
+{% note info %}
+
+Snapshots created with {{ yandex-cloud }} tools are stored in the `yc-automatic-backups` repository under the following names: `yc-automatic-backups-******` (for automatic backups) or `manual-snapshot-******` (for manual backups).
+
+{% endnote %}
+
 ### Getting a snapshot list {#list-snapshots}
 
-1. Find the repository containing snapshot backups in the {{ OS }} repository list:
+##### **For snapshots created with {{ yandex-cloud }} tools**
+
+Get a list of snapshots in the `yc-automatic-backups` repository:
+
+ ```http
+ GET https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/_all
+ ```
+Each snapshot is a single backup.
+
+##### **For snapshots created with {{ OS }} tools**
+
+1. Get a list of {{ OS }} repositories:
 
     ```http
     GET https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
     ```
 
    If the repository you need is not on the list, [add it](s3-access.md).
+
+1. Find the relevant repository with snapshots.
 
 1. Get a list of snapshots in the repository:
 
@@ -674,6 +753,12 @@ Work with snapshots via the [{{ OS }} public API]({{ os.docs }}/api-reference/in
    Each snapshot is a single backup.
 
 ### Creating a snapshot {#create-snapshot}
+
+{% note warning %}
+
+You cannot create a snapshot in the `yc-automatic-backups` repository.
+
+{% endnote %}
 
 1. In the {{ OS }} repository list, find the repository where you want to create a snapshot backup:
 
@@ -715,3 +800,19 @@ When restoring a cluster from a snapshot, the {{ OS }} version in the cluster mu
 
 1. [Get a list of backups](#list-snapshots) and find the required snapshot.
 1. [Start restoring]({{ os.docs }}/opensearch/snapshots/snapshot-restore/#restore-snapshots) an entire cluster or individual data indexes and streams from this snapshot.
+
+### Deleting a snapshot {#delete-snapshot}
+
+1. Find the repository containing snapshot backups in the {{ OS }} repository list:
+
+    ```http
+    GET https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
+    ```
+
+   If the repository you need is not on the list, [add it](s3-access.md).
+
+1. Delete the snapshot from the repository:
+
+    ```http
+    DELETE https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/<snapshot_name>
+    ```

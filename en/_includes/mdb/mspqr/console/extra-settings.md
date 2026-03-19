@@ -10,11 +10,6 @@
 
     {% include [Maintenance window](../../console/maintenance-window-description.md) %}
 
-* **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**: Enables you to analyze cluster data in [{{ datalens-full-name }}](../../../../datalens/concepts/index.md).
-
-* **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**: Enables SQL queries against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
-
-* {% include [datatransfer access](../../console/datatransfer-access.md) %}
 
 * {% include [Deletion protection](../../console/deletion-protection.md) %}
 

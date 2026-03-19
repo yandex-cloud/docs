@@ -1,10 +1,9 @@
 When creating a cluster, you can select the following disk types for data storage:
 
-* **Network HDDs** (`network-hdd`): Most cost-effective option for clusters with low requirements for read and write performance.
 * **Network SSDs** (`network-ssd`): Compromise solution: slower than local SSDs, network SSDs ensure data integrity in the event of {{ yandex-cloud }} hardware failure.
 * **Non-replicated SSDs** (`network-ssd-nonreplicated`): Network disks with higher performance achieved by eliminating redundancy.
 
-  You can only expand this type of storage in 93 GB increments.
+  You can only expand this type of storage in 93 GB increments. It is available for clusters with up to four segment hosts.
 
 
 * **Ultra high-speed network SSDs with three replicas** (`network-ssd-io-m3`): Network disks that deliver performance equivalent to non-replicated SSDs while ensuring redundancy.

@@ -15,16 +15,16 @@ items:
     items:
       - name: Обзор
         href: workbooks-collections/index.md
-      - name: Создание воркбука и коллекции
-        href: workbooks-collections/workbooks-collections-create.md
-      - name: Миграция объектов в воркбуки
+      - name: Работа с воркбуком
+        href: workbooks-collections/workbooks-operations.md
+      - name: Работа с коллекцией
+        href: workbooks-collections/collections-operations.md
+      - name: Миграция объектов в воркбуки из папок
         href: workbooks-collections/migrations.md
       - name: Экспорт и импорт воркбуков
         href: workbooks-collections/export-and-import.md
       - name: Ошибки и предупреждения при экспорте и импорте
         href: workbooks-collections/export-import-notifications.md
-      - name: Настройка доступа
-        href: workbooks-collections/security.md
   - name: Нейроаналитик DataLens
     href: concepts/neuroanalyst.md
   - name: Практические руководства
@@ -836,6 +836,8 @@ items:
         href: operations/chart/add-description.md
       - name: Открытие чарта как таблицы
         href: operations/chart/open-as-table.md
+      - name: Сохранение чарта как изображения
+        href: operations/chart/save-as-image.md
       - name: Версионирование
         href: concepts/chart/versioning.md
       - name: Экспорт данных из чартов
@@ -880,6 +882,8 @@ items:
             href: operations/dashboard/add-text.md
           - name: Добавление заголовка на дашборд
             href: operations/dashboard/add-title.md
+          - name: Копирование виджетов на дашборде
+            href: operations/dashboard/copying-widgets.md
           - name: Добавление информации о дашборде
             href: operations/dashboard/add-description.md
           - name: Добавление сообщения при обращении в поддержку

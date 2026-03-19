@@ -61,9 +61,9 @@
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите значение **{{ ui-key.yacloud.k8s.cluster.overview.label_ident-and-access-management-issuer }}**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** также введите значение **{{ ui-key.yacloud.k8s.cluster.overview.label_ident-and-access-management-issuer }}**.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_jwks }}** введите значение **{{ ui-key.yacloud.k8s.cluster.overview.label_ident-and-access-management-jwks-uri }}**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
+  1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
+  1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** также введите значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}**.
+  1. В поле **{{ ui-key.yacloud.iam.federations.field_jwks }}** введите значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
   1. В поле **{{ ui-key.yacloud.iam.federations.field_name }}** введите имя федерации, например `test-iam-federation`.
   1. Нажмите **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
 

@@ -35,6 +35,9 @@ The maximum number of aggregation buckets allowed in a single response. Default 
 || `--reindex-remote-whitelist` | `value[,value]`
 
 Allowed remote hosts ||
+|| `--http-max-initial-line-length` | `string`
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**. ||
 || `--snapshot-schedule` | `string`
 
 Snapshot schedule type. Supported: 'hourly', 'daily', 'weekly'. Leave empty for default settings. ||

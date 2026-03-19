@@ -15,7 +15,7 @@ description: This section contains the {{ sws-name }} release notes.
 
 * Added tools for [bot traffic management](concepts/botes.md) and malicious bot detection:
 
-  * List of verified bot categories by intended use or type of activity (AcademicResearchBot, AISearchBot).
+  * List of verified bot categories based on their purpose or nature of action (AcademicResearchBot, AISearchBot).
   * Up-to-date lists of legitimate bots used by various services and companies (e.g., Yandex, Googlebot, or Bing).
   * Specific attribute to distinguish a verified bot.
   * Configurable bot score thresholds from 0 to 100 for rule customization.

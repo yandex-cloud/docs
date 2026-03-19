@@ -15,7 +15,7 @@
     To add a new `user2` account with read-only access for the `db1` database to an existing cluster:
 
     1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) named `user2`. While creating the user, specify which databases they can access.
-    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database as the owner.
+    1. [Connect](../../managed-postgresql/operations/connect/code-examples.md) to the `db1` database as the owner.
     1. Grant `user2` the required permissions.
 
         Examples:
@@ -130,7 +130,7 @@
         terraform init
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -146,7 +146,7 @@
 
 - SQL {#sql}
 
-    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database as the owner.
+    1. [Connect](../../managed-postgresql/operations/connect/code-examples.md) to the `db1` database as the owner.
     1. Revoke access privileges from `user2`.
 
         Examples:

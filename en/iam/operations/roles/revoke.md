@@ -22,7 +22,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
         1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select a folder or cloud.
         1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
         1. Select a user from the list and click ![image](../../../_assets/console-icons/ellipsis.svg) next to the username.
-        1. If you want to revoke all of the user's roles in the cloud, click **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** and confirm the revocation.
+        1. If you want to revoke all of the user's roles in the cloud, click **{{ ui-key.yacloud_components.acl.action.revoke-access }}** and confirm the revocation.
 
 - CLI {#cli}
 

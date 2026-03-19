@@ -22,6 +22,11 @@ Event name | Description
 `DeleteOsLoginProfile` | Deleting an {{ oslogin }} profile
 `DeleteUserSshKey` | Deleting an SSH user key
 `idp.AddUserpoolDomain` | Associating a domain with a user pool
+`idp.branding.CreateAsset` | Uploading a resource for [branding](../../../organization/concepts/branding.md)
+`idp.branding.CreateBranding` | Creating branding
+`idp.branding.DeleteAsset` | Deleting a resource for branding
+`idp.branding.DeleteBranding` | Deleting branding
+`idp.branding.UpdateBranding` | Updating branding settings
 `idp.ChangeOneTimePassword` | Updating a one-time password
 `idp.ConvertUserToExternal` | Assigning a user an external folder synchronization flag
 `idp.CreateUser` | Creating a local user

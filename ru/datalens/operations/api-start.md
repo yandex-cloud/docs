@@ -14,7 +14,7 @@ curl -X 'POST' \
   'https://api.datalens.tech/rpc/getEntriesRelations' \
   -H 'accept: application/json' \
   -H 'x-dl-api-version: 1' \
-  -H 'x-yacloud-subjecttoken: <IAM_TOKEN>' \
+  -H 'Authorization: Bearer <IAM_TOKEN>' \
   -H 'x-dl-org-id: <ORG_ID>' \
   -H 'Content-Type: application/json' \
   -d '{

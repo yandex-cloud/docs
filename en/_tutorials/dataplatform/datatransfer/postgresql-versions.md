@@ -16,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ PG }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ PG }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ PG }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ PG }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Prepare the source cluster {#prepare-source}
@@ -141,7 +141,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     {% endlist %}
 
 
-1. If using security groups, make sure they are [configured correctly](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
+1. If using security groups, make sure they are [configured correctly](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
 
 
 1. Prepare the target database for migration as per [this guide](../../../data-transfer/operations/prepare.md#target-pg).
@@ -285,7 +285,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Check the data transfer {#verify}
 
-1. [Connect](../../../managed-postgresql/operations/connect.md) to the `db1` database in the {{ mpg-name }} target cluster.
+1. [Connect](../../../managed-postgresql/operations/connect/index.md) to the `db1` database in the {{ mpg-name }} target cluster.
 
 1. Run this query to make sure the tables have appeared in the `db1` database:
 

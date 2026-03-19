@@ -92,7 +92,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -135,7 +135,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
      Where:
 
-     * `updateMask`: Comma-separated list of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
 
@@ -203,7 +203,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
      Where:
 
-     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 
@@ -226,7 +226,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
 - SQL
 
-    1. [Connect](connect.md) to the database using the owner's account.
+    1. [Connect](connect/index.md) to the database using the owner's account.
     1. Run the `GRANT` command. For full command syntax, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-grant.html).
 
 - {{ TF }} {#tf}
@@ -310,7 +310,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         terraform init
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -326,7 +326,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
 - SQL
 
-    1. [Connect](connect.md) to the database using the owner's account.
+    1. [Connect](connect/index.md) to the database using the owner's account.
     1. Run the `REVOKE` command. For full command syntax, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-revoke.html).
 
 - {{ TF }} {#tf}

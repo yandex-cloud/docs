@@ -35,7 +35,7 @@ To qualify for high availability under the SLA, your cluster topics must have th
 * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `3`
 * **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**: `2`
 
-Also, we recommend specifying the `acks=all` parameter in the [producer](producers-consumers.md) configuration. In which case, writing a message to a topic will be considered successful only after {{ KF }} gets a write confirmation from as many broker hosts as specified in the **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}** parameter. For more information, see the [{{ KF }}](https://kafka.apache.org/documentation/#producerconfigs_acks) documentation.
+Also, we recommend specifying the `acks=all` parameter in the [producer](producers-consumers.md) configuration. In which case, writing a message to a topic will be considered successful only after {{ KF }} gets a write confirmation from as many broker hosts as specified in the **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}** parameter. For more information, see [this {{ KF }} article](https://kafka.apache.org/42/configuration/producer-configs/#producerconfigs_acks).
 
 ## Cluster availability during maintenance {#maintenance}
 
@@ -61,3 +61,4 @@ High availability of your cluster also depends on the following:
 ### See also {#see-also}
 
 * [{#T}](../../architecture/fault-tolerance.md)
+

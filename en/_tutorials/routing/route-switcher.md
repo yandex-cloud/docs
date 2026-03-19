@@ -112,7 +112,7 @@ The infrastructure support cost includes:
       1. On the management console [home page]({{ link-console-main }}), select a folder.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. In the dialog that opens, click **Add role** and select `admin`.
 
    - CLI {#cli}

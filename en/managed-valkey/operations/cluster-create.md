@@ -57,7 +57,7 @@ There are no restrictions for non-sharded clusters.
      * Optionally, add a cluster description.
      * Select your cluster environment. Note that you cannot change the environment once the cluster is created:
        * `PRODUCTION`: For stable versions of your applications.
-       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
      * Select the DBMS version.
      * Optionally, add labels.
      * Enable [cluster sharding](../concepts/sharding.md), if required.
@@ -145,6 +145,12 @@ There are no restrictions for non-sharded clusters.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, configure the additional cluster settings as follows:
 
       {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
+
+  1. Under **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}**, enable the required [{{ VLK }} modules](../../managed-valkey/concepts/modules.md).
+
+      For the **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** module, configure the following: **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** and **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+
+      {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -286,7 +292,7 @@ There are no restrictions for non-sharded clusters.
 
        
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a network in place, you do not need to describe it again.
-       * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have subnets in place, you do not need to describe them again.
+       * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
 
        Here is an example structure of a configuration file for creating a non-sharded cluster with SSL support:
@@ -386,7 +392,7 @@ There are no restrictions for non-sharded clusters.
 
        To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mrd }}).
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -394,13 +400,13 @@ There are no restrictions for non-sharded clusters.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+       This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
        {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -565,7 +571,7 @@ There are no restrictions for non-sharded clusters.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -739,14 +745,14 @@ There are no restrictions for non-sharded clusters.
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may need to additionally [configure them](connect/index.md#configuring-security-groups) to enable cluster access.
+If you specified security group IDs when creating a cluster, you may need to [configure these security groups](connect/index.md#configuring-security-groups) to enable cluster access.
 
 {% endnote %}
 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ VLK }} cluster with the settings of another one created earlier. Do this by importing the original {{ VLK }} cluster configuration into {{ TF }}. Then you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ VLK }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ VLK }} cluster with the settings of another one created earlier. Do this by importing the original {{ VLK }} cluster configuration into {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ VLK }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ VLK }} cluster copy:
 
@@ -773,7 +779,7 @@ To create a {{ VLK }} cluster copy:
 
         You can get the ID with the [list of clusters in the folder](../../managed-valkey/operations/cluster-list.md#list-clusters).
 
-    1. Import the original {{ VLK }} cluster configuration into {{ TF }}:
+    1. Import the original {{ VLK }} cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_redis_cluster_v2.old ${REDIS_CLUSTER_ID}
@@ -786,8 +792,8 @@ To create a {{ VLK }} cluster copy:
         ```
 
     1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Move the file to the new `imported-cluster` directory.
-    1. Modify the copied configuration to prepare it for creating a new cluster:
+    1. Place the file in the new `imported-cluster` directory.
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `id`, and `status`.
@@ -797,11 +803,11 @@ To create a {{ VLK }} cluster copy:
         * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Move the configuration file to the `imported-cluster` directory and [specify its settings](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 

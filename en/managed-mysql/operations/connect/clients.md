@@ -111,7 +111,7 @@ Set up your {{ mmy-name }} cluster for connection:
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
      1. Repeat the same for the remaining hosts in the cluster.
   1. Assign the following role to the service account of the user that will connect to the database:
-     1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Enter the user's email the service account is associated with.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-mysql.clusters.connector` role.
      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.

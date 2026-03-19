@@ -36,7 +36,7 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ GP }} cluster with any suitable configuration.
+    1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ GP }} cluster with your preferred configuration.
     
     1. In the {{ GP }} cluster [subnet](../../../vpc/concepts/network.md#subnet), [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
@@ -86,7 +86,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. [Connect](../../../managed-postgresql/operations/connect.md#bash) to the {{ PG }} database.
+1. [Connect](../../../managed-postgresql/operations/connect/clients.md#bash) to the {{ PG }} database.
 
 1. Create a table named `customers` and populate it with test data:
 

@@ -7,7 +7,7 @@ description: In this article, you will learn how to securely embed private chart
 
 You can securely embed private [charts](../concepts/chart/index.md) or [dashboards](../concepts/dashboard.md) into a website or app using special [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token) links.
 
-Embedding private objects only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](./roles.md#datalens-workbooks-admin).
+Embedding private objects works only in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is available only to the workbook [administrator](./roles.md#datalens-workbooks-admin).
 
 {% include [datalens-embeded-connection-stop-list](../../_includes/datalens/datalens-embeded-connection-stop-list.md) %}
 
@@ -48,7 +48,7 @@ Add this parameter to the object's address after the `?` character before the ha
 
       ![image](../../_assets/datalens/security/embedding-keys.png)
 
-   1. In the window that opens, do the following:
+   1. In the window that opens:
 
       1. Click ![plus](../../_assets/console-icons/plus.svg) **Create key**.
       1. Enter the key name and click **Create**.
@@ -126,7 +126,7 @@ Add this parameter to the object's address after the `?` character before the ha
 
         {% endnote %}
 
-      * `dlEmbedService`: Service ID string constant, `YC_DATALENS_EMBEDDING_SERVICE_MARK`.
+      * `dlEmbedService`: Service ID string constant, `{{ dlEmbedService }}`.
       * (Optional) `params`: Signed chart parameters provided as part of the token. They cannot be changed without regenerating the token.
 
         {% note warning %}
@@ -143,7 +143,7 @@ Add this parameter to the object's address after the `?` character before the ha
           "embedId": "ieez7********",
           "iat": 1516239022,
           "exp": 1516240822,
-          "dlEmbedService": "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+          "dlEmbedService": "{{ dlEmbedService }}",
           "params": {
             "param1": "value1",
             "param2": "value2"
@@ -190,7 +190,7 @@ Add this parameter to the object's address after the `?` character before the ha
         now = int(time.time())
         payload = {
            'embedId': "<embed_object_ID>",
-           'dlEmbedService': "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+           'dlEmbedService': "{{ dlEmbedService }}",
            'iat': now,
            'exp': now + 360,
            "params": {  }}
@@ -221,7 +221,7 @@ Add this parameter to the object's address after the `?` character before the ha
         const now = Math.floor(Date.now() / 1000);
         const payload = {
         embedId: '<embed_object_ID>',
-        dlEmbedService: 'YC_DATALENS_EMBEDDING_SERVICE_MARK',
+        dlEmbedService: '{{ dlEmbedService }}',
         iat: now,
         exp: now + 360,
         params: {},
@@ -263,7 +263,7 @@ Add this parameter to the object's address after the `?` character before the ha
           now := time.Now().Unix()
           payload := jwt.MapClaims{
               "embedId":        "<embed_object_ID>",
-              "dlEmbedService": "YC_DATALENS_EMBEDDING_SERVICE_MARK",
+              "dlEmbedService": "{{ dlEmbedService }}",
               "iat":            now,
               "exp":            now + 360,
               "params":         map[string]interface{}{},
@@ -288,19 +288,27 @@ Add this parameter to the object's address after the `?` character before the ha
 
       - For a chart {#chart}
 
+                
         ```bash
         {{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>
         ```
 
-        Where `<token>` is the JWT.
+
+        Where:
+
+        * `<token>`: JWT.
 
       - For a dashboard {#dashboard}
 
+                
         ```bash
         {{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>
         ```
 
-        Where `<token>` is the JWT.
+
+        Where:
+
+        * `<token>`: JWT.
 
       {% endlist %}
 
@@ -310,12 +318,14 @@ Add this parameter to the object's address after the `?` character before the ha
 
       - For a chart {#chart}
 
+                
         ```html
         <iframe src="{{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
         ```
 
-        Where:
 
+        Where:
+        
         * `src`: Embedding URL.
         * `<token>`: JWT.
         * `width`: Chart width.
@@ -324,9 +334,11 @@ Add this parameter to the object's address after the `?` character before the ha
 
       - For a dashboard {#dashboard}
 
+                
         ```html
         <iframe src="{{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
         ```
+
 
         Where:
 
@@ -340,7 +352,7 @@ Add this parameter to the object's address after the `?` character before the ha
 
       {% note info %}
 
-      If the website and app your chart or dashboard will be embedded into have a whitelist access policy, add the `{{ link-datalens-main }}` domain to the allowed list.
+      If the website and app your chart or dashboard will be embedded into have a whitelist-based access policy, add `{{ link-datalens-main }}` to the whitelist.
 
       {% endnote %}
 
@@ -365,6 +377,7 @@ As a result, queries from your dashboard or chart will be signed with the new to
 
 Here is an example:
 
+
 ```js
 const iframe = document.getElementById('ID_IFRAME');
 
@@ -373,6 +386,7 @@ iframe.contentWindow.postMessage({
     token: 'NEW_TOKEN'
 }, '{{ link-datalens-main }}/');
 ```
+
 
 When updating a token, keep in mind its expiration time.
 
@@ -386,9 +400,11 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
 
 - For a chart {#chart}
 
+    
   ```html
   <iframe src="{{ link-datalens-main }}/embeds/chart?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
   ```
+
 
   Where:
 
@@ -398,9 +414,11 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
 
 - For a dashboard {#dashboard}
 
+    
   ```html
   <iframe src="{{ link-datalens-main }}/embeds/dash?from=2022-01-01&to=2023-02-05#dl_embed_token=<token>" width="600" height="400" frameborder="0"></iframe>
   ```
+
 
   Where:
 
@@ -416,8 +434,8 @@ In the embedding link, any unsigned parameters are ignored if:
 
 - For a chart {#chart}
 
-  * The parameter is listed among the parameters disabled in **Enable all** mode.
-  * The parameter is not listed among the parameters enabled in **Disable all** mode.
+  * The parameter is blacklisted in **Enable all** mode.
+  * The parameter is not whitelisted in **Disable all** mode.
 
 - For a dashboard {#dashboard}
 

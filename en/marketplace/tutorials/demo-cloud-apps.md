@@ -226,4 +226,4 @@ In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {
 1. Click **Install**.
 1. Wait for the service to verify the resources you are creating and click **Confirm**.
 1. The application list will now contain your `demo-app` with the `Deploying` status. Wait until the status switches to `Deployed`. This may take a few minutes.
-1. Check all newly created resources. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM and [make sure](../../managed-postgresql/operations/connect.md) it can access the {{ mpg-full-name }} cluster.
+1. Check all newly created resources. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM and [make sure](../../managed-postgresql/operations/connect/index.md) it can access the {{ mpg-full-name }} cluster.

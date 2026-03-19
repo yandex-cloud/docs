@@ -123,7 +123,7 @@
     Data compression rules for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For each rule, you need to specify the following:
 
     * **Level**: Compression level. It is only available for the [zstd]({{ ch.docs }}/sql-reference/statements/create/table#zstd) compression method. The minimum value is `1`, the maximum value is `12`, and the default value is `9`.
-    * **Method**: Compression method. You can use either [LZ4](https://lz4.github.io/lz4/) or [zstd](https://facebook.github.io/zstd/).
+    * **Method**: Compression method. Available methods: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
     * **Min part size**: Minimum size of a [data part]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/), in bytes.
     * **Min part size ratio**: Ratio between the smallest table part size and full table size. {{ CH }} will only apply the rule to the tables where this ratio does not exceed **Min part size ratio**.
 
@@ -200,9 +200,9 @@
     * **Enable ssl certificate verification**: Sets whether to verify SSL certificates. The default value is `false`.
     * **Max poll interval ms**: Maximum interval, in milliseconds, between polls to get messages for high-level consumers. If exceeded, the user is removed from the group and a rebalance starts. No value is set by default (equivalent to `300000`, 5 minutes).
     * **Sasl mechanism**: SASL authentication:
-      * `GSSAPI` (default): Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
-      * `PLAIN`: Authentication [using an unencrypted username-password pair](https://kafka.apache.org/documentation/#security_sasl_plain).
-      * `SCRAM-SHA-256` and `SCRAM-SHA-512`: Authentication [using the SCRAM family mechanisms](https://kafka.apache.org/documentation/#security_sasl_scram).
+      * `GSSAPI` (default): Authentication [using Kerberos](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslkerberos).
+      * `PLAIN`: Authentication [using an unencrypted username-password pair](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslplain).
+      * `SCRAM-SHA-256` and `SCRAM-SHA-512`: Authentication [using the SCRAM family mechanisms](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslscram).
 
       By default, no value is set (equivalent to `GSSAPI`).
 
@@ -484,7 +484,7 @@
 
     Sets whether to log metric values from the `system.metrics` and `system.events` tables to the `system.metric_log` table.
 
-    The default value is `true`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
+    Default value is `true`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
 
 * **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 

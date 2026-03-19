@@ -16,7 +16,7 @@ The following examples show how to add an [English](#en) dictionary.
 
 ## Adding a dictionary {#add-dictionary}
 
-1. [Connect to the database](../connect.md#bash) via `psql`.
+1. [Connect to the database](../connect/clients.md#bash) via `psql`.
 1. To see which languages are available, get a list of pre-installed full-text search configurations:
 
    ```sql
@@ -132,7 +132,7 @@ The following examples show how to add an [English](#en) dictionary.
 
 ### Adding an English dictionary {#en}
 
-1. [Connect to the database](../connect.md#bash) via `psql`.
+1. [Connect to the database](../connect/clients.md#bash) via `psql`.
 1. Create the `public.my_english_config` full-text search configuration:
 
    ```sql

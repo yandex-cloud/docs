@@ -22,7 +22,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
 
 - CLI {#cli}
@@ -105,7 +105,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click the connector name.
 
@@ -148,7 +148,7 @@ You can:
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/connectors/<connector_name>'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the connector name, with the [list of cluster connectors](#list).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the connector name, with the [list of connectors in the cluster](#list).
 
   1. Check the [server response](../api-ref/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector) to make sure your request was successful.
 
@@ -188,7 +188,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click **{{ ui-key.yacloud.kafka.button_create-connector }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify:
@@ -259,7 +259,7 @@ You can:
 
   To create an [S3 Sink](#settings-s3) connector:
 
-  1. See the description of the CLI command for creating a connector:
+  1. View the description of the CLI command to create a connector:
 
       ```bash
       {{ yc-mdb-kf }} connector-s3-sink create --help
@@ -290,7 +290,7 @@ You can:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To create a MirrorMaker connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_mirrormaker` configuration section:
 
@@ -352,7 +352,7 @@ You can:
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -532,7 +532,7 @@ Specify the MirrorMaker connector parameters as follows:
     * `key.converter`
     * `value.converter`
 
-    For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connectconfigs).
+    For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -548,10 +548,10 @@ Specify the MirrorMaker connector parameters as follows:
         * `key.converter`
         * `value.converter`
 
-        For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connectconfigs) documentation.
+        For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/) documentation.
 
     * `--replication-factor`: Number of replicas the cluster stores for each topic.
-    * `--topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * `--topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * `--this-cluster-alias`: This cluster prefix in the connector settings.
     * `--external-cluster`: External cluster parameters:
 
@@ -577,9 +577,9 @@ Specify the MirrorMaker connector parameters as follows:
         * `key.converter`
         * `value.converter`
 
-      For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connectconfigs).
+      For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
-    * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * **replication_factor**: Number of replicas the cluster stores for each topic.
     * **source_cluster** and **target_cluster**: Parameters for connecting to the source and target clusters:
         * **alias**: Cluster prefix in the connector settings.
@@ -634,7 +634,7 @@ Specify the MirrorMaker connector parameters as follows:
                 * `SSL`, `SASL_SSL`: To connect with SSL.
             * `sslTruststoreCertificates`: PEM certificate contents.
 
-    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * `replicationFactor`: Number of replicas the cluster stores for each topic.
 
 - gRPC API {#grpc-api}
@@ -667,7 +667,7 @@ Specify the MirrorMaker connector parameters as follows:
                 * `SSL`, `SASL_SSL`: To connect with SSL.
             * `ssl_truststore_certificates`: PEM certificate contents.
 
-    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * `replication_factor`: Number of replicas the cluster stores for each topic, provided as an object with the `value` field.
 
 {% endlist %}
@@ -680,7 +680,7 @@ Specify the S3 Sink connector parameters as follows:
 
 - Management console {#console}
 
-  * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Pattern for selecting topics to export. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+  * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Pattern for selecting topics to export. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
   * **{{ ui-key.yacloud.kafka.field_connector-compression-type }}**: Message compression codec:
 
       * `none` (default): No compression
@@ -709,7 +709,7 @@ Specify the S3 Sink connector parameters as follows:
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connectconfigs).
+      For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -722,9 +722,9 @@ Specify the S3 Sink connector parameters as follows:
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connectconfigs).
+      For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
-    * `--topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * `--topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * `--file-compression-type`: Message compression codec. You cannot change this setting after the cluster is created. Valid values:
 
         * `none` (default): No compression
@@ -752,9 +752,9 @@ Specify the S3 Sink connector parameters as follows:
         * `value.converter.schemas.enable`
         * `format.output.type`
 
-      For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connectconfigs).
+      For the list of all connector settings, see [this connector guide](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
-    * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * **topics**: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * **file_compression_type**: Message compression codec. You cannot change this setting after the cluster is created. Valid values:
 
         * `none` (default): No compression
@@ -781,7 +781,7 @@ Specify the S3 Sink connector parameters as follows:
 
     To configure the S3 Sink connector, use the `connectorSpec.connectorConfigS3Sink` parameter:
 
-    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * `fileCompressionType`: Message compression codec. You cannot change this setting after the cluster is created. Valid values:
 
         * `none` (default): No compression
@@ -806,7 +806,7 @@ Specify the S3 Sink connector parameters as follows:
 
     To configure the S3 Sink connector, use the `connector_spec.connector_config_s3_sink` parameter:
 
-    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To replicate all topics, specify `.*`.
+    * `topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
     * `file_compression_type`: Message compression codec. You cannot change this setting after the cluster is created. Valid values:
 
         * `none` (default): No compression
@@ -836,7 +836,7 @@ Specify the S3 Sink connector parameters as follows:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. In the connector row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
     1. Edit the connector properties as needed.
@@ -850,7 +850,7 @@ Specify the S3 Sink connector parameters as follows:
 
     To edit a [MirrorMaker](#settings-mm2) connector:
 
-    1. See the description of the CLI command for editing a connector:
+    1. View a description of the CLI command to edit a connector:
 
         ```bash
         {{ yc-mdb-kf }} connector-mirrormaker update --help
@@ -871,7 +871,7 @@ Specify the S3 Sink connector parameters as follows:
 
     To update an [S3 Sink](#settings-s3) connector:
 
-    1. See the description of the CLI command for editing a connector:
+    1. View the description of the CLI command to edit a connector:
 
         ```bash
         {{ yc-mdb-kf }} connector-s3-sink update --help
@@ -893,7 +893,7 @@ Specify the S3 Sink connector parameters as follows:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the parameter values in the `yandex_mdb_kafka_connector` resource description:
 
@@ -954,7 +954,7 @@ Specify the S3 Sink connector parameters as follows:
             }
             ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -996,7 +996,7 @@ Specify the S3 Sink connector parameters as follows:
 
        Where:
 
-       * `updateMask`: Comma-separated string of connector settings you want to update.
+       * `updateMask`: Comma-separated string of connector settings to update.
 
             Specify the relevant parameters:
             * `connectorSpec.tasksMax`: To change the connector task limit.
@@ -1092,7 +1092,7 @@ To pause a connector:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
@@ -1166,7 +1166,7 @@ To pause a connector:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
@@ -1264,7 +1264,7 @@ You can import the existing connectors to manage them with {{ TF }}.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.common.delete }}**.
     1. Click **{{ ui-key.yacloud.common.delete }}**.
@@ -1286,7 +1286,7 @@ You can import the existing connectors to manage them with {{ TF }}.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_kafka_connector` resource with the connector description.
     1. Make sure the settings are correct.

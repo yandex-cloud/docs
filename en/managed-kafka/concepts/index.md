@@ -48,4 +48,4 @@ The [{{ kraft-name }} protocol](kraft.md) (abbreviated {{ kraft-short-name }}) i
 
 {% include [kraft-cluster-topology](../../_includes/mdb/mkf/kraft-cluster-topology.md) %}
 
-For more information, see the [{{ KF }}](https://kafka.apache.org/intro) documentation.
+For more information, see the [{{ KF }}](https://kafka.apache.org/42/operations/kraft/) documentation.

@@ -14,6 +14,7 @@ For {{ metastore-name }}, the following {{ TF }} provider resource is supported:
 | **{{ TF }} resource**                                                          | **{{ yandex-cloud }} resource**                         |
 |--------------------------------------------------------------------------------|---------------------------------------------------------|
 | [yandex_metastore_cluster]({{ tf-provider-resources-link }}/metastore_cluster) | [{{ metastore-name }}](./concepts/metastore.md) cluster |
+| [yandex_metastore_cluster_iam_binding]({{ tf-provider-resources-link }}/metastore_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
 
 ## Data sources {#data-sources}
 

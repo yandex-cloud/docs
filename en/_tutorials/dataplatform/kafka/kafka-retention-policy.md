@@ -7,7 +7,7 @@ A [consumer group](../../../managed-kafka/concepts/producers-consumers.md#consum
 You can monitor message loss using {{ mkf-name }} [metrics](../../../managed-kafka/metrics.md) delivered to [{{ monitoring-name }}](../../../monitoring/concepts/index.md). If the `kafka_group_topic_partition_offset` value falls below `kafka_log_Log_LogStartOffset`, a consumer group has lost messages.
 
 In this tutorial, you will:
-* Simulate message loss in a {{ mkf-name }} test cluster topic using [topic connection tools](https://kafka.apache.org/downloads).
+* Simulate message loss in a {{ mkf-name }} test cluster topic using [topic connection tools](https://kafka.apache.org/community/downloads/).
 * Create a chart for the `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset`, and `kafka_log_Log_LogEndOffset` metrics in {{ monitoring-full-name }} and observe the patterns during the message loss.
 
 To simulate and monitor message loss in an {{ KF }} topic:
@@ -66,7 +66,7 @@ The support cost for this solution includes:
        sudo apt update && sudo apt install --yes default-jdk
        ```
 
-    1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
+    1. Download the [archive with binary files](https://kafka.apache.org/community/downloads/) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
 
     1. Unpack the archive.
 
@@ -100,7 +100,7 @@ The support cost for this solution includes:
 
     1. Install the latest available version of [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-    1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
+    1. Download the [archive with binary files](https://kafka.apache.org/community/downloads/) for the {{ KF }} version running in your cluster. Your Scala version is irrelevant.
 
     1. Unpack the archive.
 

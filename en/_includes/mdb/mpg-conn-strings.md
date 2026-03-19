@@ -1,4 +1,4 @@
-### 1C:Enterprise {#1c}
+## 1C:Enterprise {#1c}
 
 If your cluster uses a <q>1C:Enterprise</q>-optimized {{ PG }} version, specify the following settings:
 
@@ -10,54 +10,7 @@ If your cluster uses a <q>1C:Enterprise</q>-optimized {{ PG }} version, specify 
 * **User password**: `<password>`.
 * **Create database if none present**: Disabled.
 
-### Bash {#bash}
-
-Before connecting, install the required dependencies:
-
-```bash
-sudo apt update && sudo apt install --yes postgresql-client
-```
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-  1. Connect to a database:
-
-      ```bash
-      psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
-            port=6432 \
-            sslmode=disable \
-            dbname=<DB_name> \
-            user=<username> \
-            target_session_attrs=read-write"
-      ```
-
-      Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-      ```bash
-      SELECT version();
-      ```
-
-- Connecting with SSL {#with-ssl}
-
-  1. Connect to a database:
-
-      {% include [default-connstring](./mpg/default-connstring.md) %}
-
-      Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-      ```bash
-      SELECT version();
-      ```
-
-{% endlist %}
-
-### C++ (userver framework) {#cpp-userver}
+## C++ (userver framework) {#cpp-userver}
 
 The asynchronous [userver](https://userver.tech/) framework provides a rich set of abstractions for creating utilities, services, and microservices in C++. This framework also provides capabilities for {{ PG }} integration.
 
@@ -120,7 +73,7 @@ peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
 
 {% endcut %}
 
-### C# EF Core {#csharpefcore}
+## C# EF Core {#csharpefcore}
 
 To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Npgsql/) package.
 
@@ -162,7 +115,7 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
 
 {% endlist %}
 
-### Go {#go}
+## Go {#go}
 
 Before connecting, install the required dependencies:
 
@@ -322,7 +275,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Java {#java}
+## Java {#java}
 
 Before connecting:
 
@@ -338,7 +291,7 @@ Before connecting:
     cd ~/ && mkdir -p project/src/java/com/example && cd project/
     ```
 
-1. Create a Maven configuration file:
+1. Create a configuration file for Maven:
 
     {% cut "pom.xml" %}
 
@@ -415,7 +368,7 @@ Before connecting:
 
     {% endcut %}
 
-    Latest Maven dependency version: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
+    Current dependency version for Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
 {% list tabs group=connection %}
 
@@ -497,7 +450,7 @@ Before connecting:
 
 {% endlist %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 Before connecting, install the required dependencies:
 
@@ -577,7 +530,7 @@ Connecting:
 node app.js
 ```
 
-### ODBC {#odbc}
+## ODBC {#odbc}
 
 Before connecting, install the required dependencies:
 
@@ -612,7 +565,7 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       isql -v postgresql
       ```
 
-      After connecting to the DBMS, run the `SELECT version();` command.
+      Once connected to the DBMS, run the `SELECT version();` command.
 
 - Connecting with SSL {#with-ssl}
 
@@ -638,11 +591,11 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       isql -v postgresql
       ```
 
-      After connecting to the DBMS, run the `SELECT version();` command.
+      Once connected to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-### PHP {#php}
+## PHP {#php}
 
 Before connecting, install the required dependencies:
 
@@ -718,67 +671,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 {% endlist %}
 
-### PowerShell {#powershell}
-
-Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) using the same version that is installed in the cluster. Install only the *Command Line Tools*.
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-  1. Set the environment variables for the connection:
-
-     ```powershell
-     $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
-     ```
-
-  1. Connect to a database:
-
-     ```powershell
-     & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-           --host=c-<cluster_ID>.rw.{{ dns-zone }} `
-           --port={{ port-mpg }} `
-           --username=<username> `
-           <DB_name>
-     ```
-
-     Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-     ```sql
-     SELECT version();
-     ```
-
-- Connecting with SSL {#with-ssl}
-
-  1. Set the environment variables for the connection:
-
-      ```powershell
-      $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
-      ```
-
-  1. Connect to a database:
-
-      ```powershell
-      & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-        --host=c-<cluster_ID>.rw.{{ dns-zone }} `
-        --port={{ port-mpg }} `
-        --username<username> `
-        <DB_name>
-      ```
-
-      Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-     ```sql
-     SELECT version();
-     ```
-
-{% endlist %}
-
-### Python {#python}
+## Python {#python}
 
 Before connecting, install the required dependencies:
 
@@ -857,7 +750,7 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### R {#r}
+## R {#r}
 
 Before connecting:
 
@@ -940,7 +833,7 @@ Before connecting:
 
 {% endlist %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 Before connecting, install the required dependencies:
 

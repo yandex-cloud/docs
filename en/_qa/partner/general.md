@@ -7,7 +7,7 @@ description: I cannot log in to the partner portal. How do I fix it? How do I co
 
 #### I cannot log in to the partner portal. What should I do? {#login}
 
-If you received a welcome email on being accepted into the program with a link to the [partner portal]({{ link-cloud-partners }}) but you cannot log in:
+If you received a partner program welcome email with a link to the [partner portal]({{ link-cloud-partners }}), but you cannot log in:
 
 1. Make sure you are logged in with the Yandex ID to which your billing account with the partner status is linked.
 1. Check whether your billing account is activated and its status is `Active`.

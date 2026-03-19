@@ -123,7 +123,7 @@ The infrastructure support cost includes:
       1. Navigate to the **Access rights** tab on the key page.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. In the dialog that opens, click **Add role** and select `kms.keys.encrypterDecrypter`.
 
    - CLI {#cli}
@@ -257,7 +257,7 @@ These password requirements are:
       1. Navigate to the **Access rights** tab on the secret page.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. In the dialog that opens, click **Add role** and select `lockbox.payloadViewer`.
 
    - CLI {#cli}

@@ -6,6 +6,13 @@ editable: false
 
 
 
+## 0.193.0 (March 19, 2026)
+##### BUG FIXES:
+* mdb_clickhouse: fixed false positive conflict validation for ClickHouse resources
+* mdb_clickhouse: set computed to false for compression level setting
+* mdb_clickhouse: fixed a bug where you could not set resources for KEEPER hosts
+* mdb_clickhouse: handle null/empty set equivalence for security_group_ids
+
 ## 0.192.0 (March 16, 2026)
 ##### FEATURES:
 * opensearch: add server config "search_max_buckets"

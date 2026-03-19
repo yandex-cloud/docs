@@ -55,7 +55,7 @@ Maps are used for geoanalytics: displaying and analyzing business indicators on 
     However, you cannot change the order of visualization types (top-to-bottom: point map, polyline map, chloropleth map, and heatmap).
 
 
-You can purchase pre-calculated geolayers from partners in [{{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens&categories=geolayer).
+To get geolayers, you can find and use a dashboard from [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery/all?category=geo&can_be_used=true).
 
 
 {% note info %}

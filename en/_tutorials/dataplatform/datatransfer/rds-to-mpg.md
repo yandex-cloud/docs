@@ -3,8 +3,8 @@
 To set up data transfers from [Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) to {{ mpg-name }} databases using {{ data-transfer-name }}:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -19,7 +19,7 @@ Use of Amazon services is not part of the [{{ yandex-cloud }} Terms of Use]({{ l
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 * NAT gateway: Hourly use and outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
@@ -49,7 +49,7 @@ Set up your infrastructure:
 
         {% endnote %}
 
-    1. [Create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) of any suitable configuration with publicly available hosts and the following settings:
+    1. [Create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts and the following settings:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mpg_db`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mpg_user`.
@@ -57,7 +57,7 @@ Set up your infrastructure:
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. Make sure that the {{ mpg-name }} cluster's security group has been [set up correctly](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and allows connecting to the cluster from the internet.
+    1. Make sure that the {{ mpg-name }} cluster's security group has been [set up correctly](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allows connecting to the cluster from the internet.
     1. Set up an egress [NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet that hosts the target cluster.
     1. [Download an AWS certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html#UsingWithRDS.SSL.RegionCertificates) for the region where the Amazon RDS for {{ PG }} instance resides.
 
@@ -193,7 +193,7 @@ Set up your infrastructure:
     ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -240,13 +240,13 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 
 ### Test copying {#verify-copy}
 
-1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
+1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect/index.md).
 1. Run this query:
 
     ```sql
@@ -277,7 +277,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. Check that the added row appears in the target database:
 
-    1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
+    1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect/index.md).
     1. Run this query:
 
         ```sql
@@ -294,7 +294,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

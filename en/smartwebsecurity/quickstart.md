@@ -14,6 +14,11 @@
 
 {{ sws-name }} provides security tools to configure step by step. Apply every change you make in **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode and [analyze logs](operations/configure-logging.md). This will allow you to easily monitor and adjust your rules.
 
+If having problems configuring {{ sws-name }}:
+
+* For the Business and Premium [support plans](../support/pricing.md), contact [support]({{ link-console-support }}).
+* In other cases, contact your account manager to get you in touch with their support team.
+
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}

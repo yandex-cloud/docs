@@ -1,16 +1,16 @@
 ## Delivering data from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. To do so:
+You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Set up the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
@@ -34,7 +34,7 @@ Set up your infrastructure:
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) for connecting to the {{ mos-name }} target cluster.
 
-    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -83,7 +83,7 @@ Set up your infrastructure:
 
 ## Set up the transfer {#prepare-transfer}
 
-1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md). In the `db1` database, create a table named `x_tab` and populate it with data:
+1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect/index.md). In the `db1` database, create a table named `x_tab` and populate it with data:
 
      ```sql
      CREATE TABLE x_tab
@@ -129,7 +129,7 @@ Set up your infrastructure:
       1. In the `postgresql-to-opensearch.tf` file, specify the values of the following variables:
 
           * `target_endpoint_id`: Target endpoint ID.
-          * `transfer_enabled`: Set to `1` to create a transfer.
+          * `transfer_enabled`: Set to `1` to create the transfer.
 
       1. Validate your {{ TF }} configuration files using this command:
 
@@ -147,7 +147,7 @@ Set up your infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Connect to the target cluster via [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards).

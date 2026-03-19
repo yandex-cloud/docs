@@ -17,7 +17,7 @@
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}**. Confirm the action.
+  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_components.acl.action.revoke-access }}**. Confirm the action.
 
 - CLI {#cli}
 

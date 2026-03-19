@@ -64,7 +64,7 @@ Use one of these methods:
 
 ### Automatic storage expansion {#auto-rescale}
 
-Automatic storage size increase prevents situations where the disk runs out of free space and hosts switch to read-only mode. The storage size increases upon reaching the specified threshold percentage of the total capacity. There are two thresholds:
+Automatic storage expansion prevents situations where the disk runs out of free space and hosts go read-only. The storage size increases upon reaching the specified threshold percentage of the total capacity. There are two thresholds:
 
 * Scheduled expansion threshold: To schedule such an expansion, an algorithm analyzes data from the last few hours and estimates how quickly the storage is filling up. If the calculations show that the threshold will be exceeded by the start of the nearest [maintenance window](maintenance.md#maintenance-window), the system schedules a storage expansion. If a check at the maintenance start shows that the threshold was indeed exceeded, the storage size is increased.
 
@@ -75,6 +75,8 @@ You can use either one or both thresholds. If you set both, make sure the immedi
 {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
 You can configure automatic storage expansion when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
+
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 

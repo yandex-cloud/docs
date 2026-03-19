@@ -17,7 +17,7 @@
 
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-  1. Чтобы отозвать все роли, в строке с нужным пользователем, сервисным аккаунтом или группой нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** и подтвердите действие.
+  1. Чтобы отозвать все роли, в строке с нужным пользователем, сервисным аккаунтом или группой нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_components.acl.action.revoke-access }}** и подтвердите действие.
 
 - CLI {#cli}
 

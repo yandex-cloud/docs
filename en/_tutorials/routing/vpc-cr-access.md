@@ -143,7 +143,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
       1. In the [management console]({{ link-console-main }}), select your service account folder.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
 
    - CLI {#cli}

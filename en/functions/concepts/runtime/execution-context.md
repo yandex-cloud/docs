@@ -24,6 +24,6 @@ Once a function is executed, the context is kept pending for the function to be 
 
     {% endnote %}
 
-* Background processes or callbacks initiated by your function, which were not completed before the function execution is complete, are resumed if the execution context is reused.
+* Background processes or callbacks initiated by your function, which were not completed before the request was processed, are resumed if reusing the execution context.
 
-   There may be situations when the service needs to create a new execution context. This may lead to unexpected results, such as database connectivity failures. Make sure that any background processes or callbacks in your code have completed before the function execution is complete.
+   There may be situations when the service needs to create a new execution context. This may lead to unexpected results, such as database connectivity failures. Make sure that any background processes or callbacks in your code have completed before the function finishes processing the request.

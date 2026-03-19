@@ -1,4 +1,4 @@
-Чтобы экспортировать SSH-сертификат пользователя организации {{ org-name }} или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) на локальный компьютер:
+Чтобы экспортировать SSH-сертификат пользователя организации {{ org-full-name }} или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) на локальный компьютер:
 
 {% list tabs group=instructions %}
 

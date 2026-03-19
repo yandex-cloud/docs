@@ -253,6 +253,18 @@ items:
                     href: cli-ref/private-subnet/remove-labels.md
                   - name: update
                     href: cli-ref/private-subnet/update.md
+              - name: public-prefix-pool
+                items:
+                  - name: Overview
+                    href: cli-ref/public-prefix-pool/index.md
+                  - name: get
+                    href: cli-ref/public-prefix-pool/get.md
+                  - name: list
+                    href: cli-ref/public-prefix-pool/list.md
+                  - name: list-operations
+                    href: cli-ref/public-prefix-pool/list-operations.md
+                  - name: update
+                    href: cli-ref/public-prefix-pool/update.md
               - name: public-subnet
                 items:
                   - name: Overview

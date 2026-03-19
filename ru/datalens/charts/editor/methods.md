@@ -1676,39 +1676,56 @@ JSON-объект вида:
 
 #### Пример {#update-params-example}
 
-Пример для таблицы с источником на основе датасета.
-
 {% list tabs %}
 
 - Вкладка Params
 
-  Содержимое вкладки [Params](./tabs.md#params):
-
   ```js
   module.exports = {
-      "Year": "2024",
-      "City": ["Moscow", "Sochi"]
-  };
+      paramA: '1',
+      paramB: 'Значение 1',
+  }
   ```
 
-- Вкладка Prepare
-
-  Содержимое вкладки [Prepare](./tabs.md#prepare):
+- Вкладка Controls
 
   ```js
-  Editor.updateParams({"City": ["Vladimir"]});
+  const {paramA} = Editor.getParams();
+  
+  const currentParamA = Number(paramA[0]);
+  
+  Editor.updateParams({paramB: [`Значение ${currentParamA}`]})
+  
+  module.exports = [
+      {
+          type: 'button',
+          label: 'Поменять значение',
+          theme: 'action',
+          onClick: {
+              action: 'setParams',
+              args: {
+                  paramA: [currentParamA > 2 ? 1 : currentParamA + 1] 
+              }
+          },
+          updateOnChange: true,
+      },
+      {
+          type: 'select',
+          param: 'paramB',
+          content: ['Значение 1', 'Значение 2', 'Значение 3'],
+      }
+  ];
   ```
 
 - Результат
 
-  Объект с параметрами чарта после выполнения вкладки **Prepare**:
+  Кнопка при каждом нажатии меняет значение в селекте по циклу: `Значение 1`, `Значение 2`, `Значение 3`.
 
-  ```json
-  {
-    "Year": ["2024"],
-    "City": ["Vladimir"]
-  }
-  ```
+  Изначально значения параметров: `paramA: '1'` и `paramB: 'Значение 1'`.
+  
+  После нажатия на кнопку на вкладке **Controls** значение параметра `paramA` увеличивается на `1`. Если значение больше `2`, ему присваивается значение `1`. Значение параметра `paramB` меняется с помощью метода `Editor.updateParams()` на `Значение ${currentParamA}`, где `{currentParamA}` — текущее значение параметра `paramA`.
+  
+  После этого селектор будет перерисован с учетом текущего значения параметра `paramB`.
 
 {% endlist %}
 

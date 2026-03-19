@@ -1,6 +1,6 @@
 # Connectors
 
-Connectors are {{ KFC }} components [built into {{ mkf-name }}](#supported) for streaming data between {{ KF }} and other data systems. You can use a connector for continuous data migration to and from {{ mkf-name }} clusters. Data in connectors is handled through separate {{ KFC }} *worker threads*. For more on {{ KFC }}, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#connect).
+Connectors are {{ KFC }} components [built into {{ mkf-name }}](#supported) for streaming data between {{ KF }} and other data systems. You can use a connector for continuous data migration to and from {{ mkf-name }} clusters. Data in connectors is handled through separate {{ KFC }} *worker threads*. For more on {{ KFC }}, see [this {{ KF }} guide](https://kafka.apache.org/42/kafka-connect/overview/).
 
 Connectors perform the following functions:
 
@@ -31,7 +31,7 @@ A worker accesses the broker hosts of a {{ mkf-name }} cluster and replicates th
 
 Topic names in the target cluster cluster match those in the source cluster.
 
-For more information about how MirrorMaker transfers data, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication).
+For more information about how MirrorMaker transfers data, see the [{{ KF }} documentation](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/).
 
 ### S3 Sink {#s3-sink}
 

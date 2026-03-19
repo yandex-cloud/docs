@@ -111,7 +111,7 @@
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
       1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+      1. Найдите аккаунт `sa-terraform` в списке и нажмите значок ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
       1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}
