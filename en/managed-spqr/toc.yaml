@@ -18,6 +18,8 @@ items:
         href: operations/shards.md
       - name: Maintenance
         href: operations/cluster-maintenance.md
+      - name: Viewing cluster logs
+        href: operations/cluster-logs.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
   - name: Concepts

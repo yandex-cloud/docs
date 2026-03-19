@@ -8,7 +8,7 @@ description: Различные сценарии использования {{ y
 * [{#T}](java-servlet-todo-list.md)
 * [{#T}](connect-from-cf.md)
 * [{#T}](connect-from-cf-nodejs.md)
-* [{#T}](video-converting-queue.md)
+* [{#T}](video-converting-queue/index.md)
 * [{#T}](alice-shareable-todolist.md)
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](ydb-mkf-replication.md)

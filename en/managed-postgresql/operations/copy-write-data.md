@@ -1,10 +1,10 @@
-# Copying and populating a table from a local machine
+# Saving table data locally and populating a table from a local machine
 
 Using the interactive [psql]({{ pg-docs }}/app-psql.html) terminal, you can both [copy](#copy) table data to a local file and import data from a file to [populate](#write) a table.
 
 ## Getting started {#before-you-begin}
 
-1. [Get an SSL certificate](../../managed-postgresql/operations/connect.md#get-ssl-cert).
+1. [Get an SSL certificate](../../managed-postgresql/operations/connect/index.md#get-ssl-cert).
 1. Install the dependencies:
 
     ```bash

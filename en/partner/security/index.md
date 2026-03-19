@@ -5,7 +5,6 @@ description: In this article, you will learn what service and primitive roles ar
 
 # Access management
 
-
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
 ## Roles this service has {#roles-list}

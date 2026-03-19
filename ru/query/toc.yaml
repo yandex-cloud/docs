@@ -157,6 +157,8 @@ items:
     href: pricing.md
   - name: Справочник
     items:
+      - name: '{{ TF }}'
+        href: tf-ref.md
       - name: SDK
         href: SDK/SDK.md
       - name: HTTP API

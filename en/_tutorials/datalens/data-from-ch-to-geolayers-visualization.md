@@ -1,7 +1,5 @@
-# Analyzing sales and locations of pizzerias based on data from {{ CH }} and {{ marketplace-short-name }} databases
+# Analyzing sales and locations of pizzerias based on data from {{ CH }} and {{ datalens-gallery }} databases
 
-
-{% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
 
 In this tutorial, you will prepare a dashboard for selecting locations to open new Dodo pizzerias.
 
@@ -11,14 +9,13 @@ With {{ datalens-short-name }}, you will analyze locations based on real data:
 * Search queries to pizzerias by location (Yandex data).
 * Number of all pizzerias by location (Yandex data).
 
-We will use a {{ CH }} demo DB and the **Companies: supply and demand** product from {{ marketplace-short-name }} as a source.
+We will use a {{ CH }} demo DB and a demo workbook from [Companies: supply and demand]({{ link-datalens-main }}/gallery/euma77kb36nc0) in {{ datalens-gallery }}.
 
 You can also [watch](https://www.youtube.com/watch?v=cw6PotbQYng) this tutorial on the {{ yandex-cloud }} YouTube channel.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
-1. [Create a workbook](#create-workbook).
-1. [Import geolayers from {{ marketplace-short-name }}](#import-from-marketplace).
+1. [Deploy a demo workbook from {{ datalens-gallery }}](#create-template).
 1. [Review the dashboard](#view-dashboard).
 1. [Create a connection](#create-connection).
 1. [Create a dataset](#create-dataset).
@@ -33,23 +30,13 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin-datalens.md) %}
 
-## Create a workbook {#create-workbook}
+## Deploy a demo workbook {#create-template}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
-1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter the [workbook](../../datalens/workbooks-collections/index.md) name: `Companies: supply and demand`.
+1. In {{ datalens-gallery }}, open [Companies: supply and demand]({{ link-datalens-main }}/gallery/euma77kb36nc0).
+1. In the top-right corner, click **Use** → ![collections](../../_assets/console-icons/file-arrow-up.svg) **Expand**.
+1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**.
-
-## Import geolayers from {{ marketplace-short-name }} {#import-from-marketplace}
-
-1. Go to {{ datalens-short-name }} in [{{ marketplace-short-name }}]({{ link-datalens-main }}/marketplace).
-1. Select the **Geolayers** category and the **Companies: supply and demand** product.
-1. Click **Expand** in the product card that opens.
-1. Select the `Companies: supply and demand` workbook.
-1. Click **Deploy**.
-
-   ![workbook-choose](../../_assets/datalens/solution-09/01-workbook-choose.png)
+1. Wait until the workbook is created and click **Open workbook**.
 
 ## Review the dashboard {#view-dashboard}
 
@@ -120,8 +107,8 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `DODO Con` conn
 
 1. Create a calculated field to rank pizzerias by revenue:
 
-   1. In the top-right corner, click **Add field**.
-   1. At the top-left, specify the field name: `Rank by revenue`.
+   1. In the top-right corner, click ![image](../../_assets/console-icons/plus.svg) **Add field**.
+   1. At the top-left, specify the field name: `Rank by revenue`. If you need to change the field name, click ![image](../../_assets/console-icons/pencil.svg) to the right of it.
    1. In the formula field, enter `RANK([Revenue])`.
    1. Click **Create**.
 
@@ -206,7 +193,7 @@ Create an [indicator](../../datalens/visualization-ref/indicator-chart.md) to di
 
    ![choose-indicator](../../_assets/datalens/solution-09/16-choose-indicator.png)
 
-1. Clear the filter for the top 10 pizzerias by revenue. To do this, click ![image](../../_assets/console-icons/xmark.svg) (the icon appears on when you hover over the field) next to the `Rank by revenue` field in the **Filters** section.
+1. Clear the filter for the top 10 pizzerias by revenue by clicking ![image](../../_assets/console-icons/xmark.svg) (the icon appears on hover over the field) next to the `Rank by revenue` field in the **Filters** section.
 1. Drag the `Revenue` field from **Measures** to the **Measure** section.
 1. Disable the header display in the chart settings:
 
@@ -246,7 +233,7 @@ To visualize order density across Russia, create a [map](../../datalens/visualiz
    ![image](../../_assets/datalens/solution-09/19-choose-map.png)
 
 1. Add the coordinates of pizzerias to the map. To do this, drag the `Coordinates` field from **Dimensions** to the **Points (Geopoints)** section.
-1. Change the point size based on the revenue measure. To do this, drag the `Revenue` field from **Measures** to the **Size** section.
+1. Change the point size based on the revenue measure. To do this, drag the `Revenue` field from **Measures** to the **Point size** section.
 1. Change the point color based on the revenue measure. To do this, drag the `Revenue` field from **Measures** to the **Colors** section.
 1. Add the following fields to the **Tooltips** section:
 
@@ -296,11 +283,11 @@ To visualize order density across Russia, create a [map](../../datalens/visualiz
 
 Add a [selector](../../datalens/dashboard/selector.md) to filter charts by city:
 
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag the widget to the target area.
 
    ![image](../../_assets/datalens/solution-09/27-add-selector.png)
 
-1. Add the calendar selector for the order date:
+1. Add a selector for order city selection:
 
    1. Select `DODO`.
    1. Select the `City` field.
@@ -309,13 +296,12 @@ Add a [selector](../../datalens/dashboard/selector.md) to filter charts by city:
 
       ![image](../../_assets/datalens/solution-09/28-selector1.png)
 
-1. Drag the selector to the top of the dashboard.
 1. Save the dashboard:
 
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter `DODO Dashboard` for the dashboard name and click **Create**.
 
-Your dashboard is ready.
+Your dashboard is ready for use.
 
 ![image](../../_assets/datalens/solution-09/29-saved-dashboard.png)
 
@@ -331,7 +317,7 @@ Choose `Moscow` in the selector. If the map focus remains at the same location, 
 
 1. Click the **DODO** dataset name.
 1. Click ![image](../../_assets/console-icons/plus.svg) **Add dataset**.
-1. Select the `Companies` dataset [imported from {{ marketplace-short-name }}](#import-from-marketplace).
+1. Select the `Companies` dataset [imported from {{ datalens-gallery }}](#create-template).
 
    ![organizations](../../_assets/datalens/solution-09/32-add-dataset.png)
 
@@ -399,5 +385,5 @@ If the map focus remains at the same location when changing the city in the filt
 Here are some ideas you might want to work on by yourself:
 
 1. Adding a geolayer with businesses from the `Where to eat` category (restaurants and fast food chains in general, not only pizzerias).
-1. Adding the [Audience: interests and social demographics]({{ link-datalens-main }}/marketplace/f2eemc2dui59rn72h0ck) product from {{ marketplace-short-name }} to display the city audience data on the map in a similar way.
-1. You can use the city of Voronezh as an example to study the free [geolayers by Geointellect]({{ link-datalens-main }}/marketplace/f2eu3edujf1jdmaihu7u). The demo set offers calculated indexes representing the location's business potential for fast food.
+1. Adding [Audience: interests and social demographics](https://datalens.ru/gallery/zf7wou4zyhtml) from {{ datalens-gallery }} to display the city audience data on the map in a similar way.
+1. You can use the [Basic city and region geoanalytics](https://datalens.ru/gallery/eulugmmyio7s0) demo dataset to study the free geolayers provided by Geointellect.

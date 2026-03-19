@@ -15,7 +15,7 @@ To grant access to a partner account:
 
 - Partner portal {#partner}
 
-  1. Log in to the [partner portal]({{ link-cloud-partners }}) under a Yandex ID with a linked partner account in {{ yandex-cloud }}. If you have no access, it means the account you are using to log in has no partner status assigned.
+  1. Log in to the [partner portal]({{ link-cloud-partners }}) under a Yandex ID with a linked {{ yandex-cloud }} partner account. If you have no access, it means the account you are using to log in has no partner status assigned.
   1. In the left-hand panel, select ![icon](../../../_assets/console-icons/persons-lock.svg) **Access management**.
   1. Add a user.
     * If you have a configured identity federation, click **Add federated user** in the top-right corner and list the user IDs.

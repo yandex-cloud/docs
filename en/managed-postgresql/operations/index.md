@@ -22,9 +22,16 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [{{ PG }} version upgrade](cluster-version-update.md)
 * [Deleting a cluster](cluster-delete.md)
 
+## Connections
+
+* [Pre-configuration](connect/index.md)
+* [FQDNs of hosts](connect/fqdn.md)
+* [Connecting from applications](connect/clients.md)
+* [Code examples](connect/code-examples.md)
+
 ## Databases {#databases}
 
-* [Connecting to a database in a cluster](connect.md)
+* [Connecting to a database in a cluster](connect/index.md)
 * [{#T}](web-sql-query.md)
 * [Saving table data locally and populating a table from a local machine](copy-write-data.md)
 * [Managing databases](databases.md)

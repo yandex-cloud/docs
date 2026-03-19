@@ -3,7 +3,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Grafana Cloud.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -157,7 +157,7 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Grafana Cloud с созданным OIDC-приложением в {{ org-name }}, выполните настройки на стороне Grafana Cloud и на стороне {{ org-name }}.
+Чтобы настроить интеграцию Grafana Cloud с созданным OIDC-приложением в {{ org-full-name }}, выполните настройки на стороне Grafana Cloud и на стороне {{ org-full-name }}.
 
 ### Настройте OIDC-приложение на стороне {{ org-full-name }} {#setup-idp}
 
@@ -296,14 +296,14 @@
 
 1. В поле **Name** укажите: `OpenID Connect`.
 1. В поле **Scopes** введите последовательно: `openid`, `email`, `profile`.
-1. В поле **Client ID** укажите значение, скопированное при настройке OIDC-приложения в {{ org-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
-1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в {{ org-name }} в блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**.
-1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в {{ org-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}**.
+1. В поле **Client ID** укажите значение, скопированное при настройке OIDC-приложения в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
+1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в {{ org-full-name }} в блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**.
+1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}**.
 1. **Allow sign up**: активируйте для автоматического создания пользователей при первом входе.
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Grafana Cloud с помощью OIDC-приложения {{ org-name }}, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в Grafana Cloud с помощью OIDC-приложения {{ org-full-name }}, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 

@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mmy-full-name }}'
-description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mmy-name }}.
+description: This page lists the {{ TF }} provider resources and data sources supported by {{ mmy-name }}.
 ---
 
 # {{ TF }} reference for {{ mmy-full-name }}
@@ -14,6 +14,7 @@ description: This page gives information about the {{ TF }} provider resources a
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster) | [Cluster](concepts/index.md) |
+| [yandex_mdb_mysql_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_mysql_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
 | [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database) | Database |
 | [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user) | Database user |
 

@@ -32,7 +32,7 @@ The [pg_repack](https://github.com/reorg/pg_repack) extension allows you to remo
 
 ## Installing the pg_repack client {#install-client}
 
-To manage the extension you need the pg_repack client. You need to install the client on a host with [connectivity to the {{ PG }} cluster](../connect.md).
+To manage the extension you need the pg_repack client. You need to install the client on a host with [connectivity to the {{ PG }} cluster](../connect/index.md).
 
 To install the client:
 
@@ -234,7 +234,7 @@ This example was tested in the following environment:
 * {{ yandex-cloud }} VM running Ubuntu 22.04 LTS, with the following configuration:
 
     * Installed `pg_repack` [client](#install-client) `1.5.2` built from source.
-    * Enabled [SSL](../connect.md) [connections to the cluster](../connect.md#get-ssl-cert).
+    * Enabled [SSL](../connect/index.md) [connections to the cluster](../connect/index.md#get-ssl-cert).
 
 {% endnote %}
 
@@ -286,7 +286,7 @@ To test `pg_repack` on the test tables and indexes used by `pgbench`, do the fol
 
 1. Check the statistics for the `pgbench_*` tables and indexes:
 
-    1. [Connect](../connect.md#bash) to the database `db1` as its owner `user1`. Use `psql` to connect.
+    1. [Connect](../connect/clients.md#bash) to the database `db1` as its owner `user1`. Use `psql` to connect.
 
     1. Query the table statistics:
 

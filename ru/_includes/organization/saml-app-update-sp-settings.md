@@ -2,8 +2,8 @@
 
 1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите уникальный идентификатор поставщика услуг (Service Provider).
 
-    Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-name }}.
-1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите URL-адрес, на который {{ org-name }} будет отправлять SAML-ответ.
+    Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
+1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите URL-адрес, на который {{ org-full-name }} будет отправлять SAML-ответ.
 
     {% include [saml-app-acs-url-paragraph](./saml-app-acs-url-paragraph.md) %}
 

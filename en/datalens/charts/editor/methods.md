@@ -1106,7 +1106,7 @@ Example for the table with source based on a dataset.
 
 ## Editor.getSortParams() {#get-sort-params}
 
-Returns an object with table sorting options.
+Returns an object with the sorting options in the table.
 
 #### Supported chart types {#get-sort-params-charts}
 
@@ -1369,9 +1369,9 @@ const interval = Editor.resolveInterval('__interval_2020.01.15___relative_-0d');
 // interval === null
 ```
 
-**Note**: Start and end of the interval specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method for the [relative date](#relativedate).
+**Note**: Start and end of the interval specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method for the [relative date](#resolve-relative).
 However, if the interval `start`/`end` value does not match the relative date format, the original value will be returned instead of `null`.
-For example:
+Here is an example:
 
 **Params** tab:
 ```js
@@ -1465,7 +1465,7 @@ const date = Editor.resolveRelative('2020-01-01');
 
 **Note:** Relative dates specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method.
 However, if the parameter value does not match the relative date format, the original value will be returned instead of `null`.
-For example:
+Here is an example:
 
 **Params** tab:
 ```js

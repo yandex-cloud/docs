@@ -32,6 +32,17 @@ Specifies a textual description of the vrf. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+|| `--static-route` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Specifies static routes for the vrf.
+
+Possible property names:
+
+- `destination-cidr`: Destination network CIDR block.
+
+- `next-hop-ip-address`: Next hop host IP address.
+
+- `redistribution-type`: Redistribution type. Values: 'disabled', 'enabled' ||
 |#
 
 #### Global Flags

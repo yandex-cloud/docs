@@ -92,7 +92,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 1. Change the settings to define the table name with a parameter:
 
    1. Go to the **Sources** tab.
-   1. In the table list next to **MS_SalesFacts** go ![icon](../../_assets/console-icons/ellipsis.svg) → **Change settings**.
+   1. In the table list, click ![icon](../../_assets/console-icons/ellipsis.svg) next to **MS_SalesFacts** and select **Change settings**.
    1. To the right of the **Table name** field set to `MS_SalesFacts`, click ![icon](../../_assets/console-icons/plus.svg) and select the `table_name` parameter. The selected parameter will now define the table name.
    
       ![image](../../_assets/datalens/dataset-parametrization/dataset-change-table-settings.png)
@@ -118,7 +118,7 @@ Create a [dataset](../../datalens/dataset/index.md) based on the `Sample ClickHo
 
    ![image](../../_assets/datalens/dataset-parametrization/choose-sales-agregate.png)
 
-1. Open the chart inspector and make sure the data comes from the `MS_SalesFacts` table. To do this, click ![icon](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Inspector**.
+1. Open the chart inspector and make sure the data comes from the `MS_SalesFacts` table. Do it by clicking ![icon](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/magnifier.svg) **Inspector** in the top-right corner of the chart.
 
    ![image](../../_assets/datalens/dataset-parametrization/chart-inspector.png)
 
@@ -216,7 +216,7 @@ Create another dataset based on the `Sample ClickHouse` connection:
 
 1. Change the SQL query condition in the parameter:
 
-   1. Under **Parameters**, click the icon next to `table_name`.
+   1. Under **Parameters**, click the icon next to `custom_where`.
    1. Set the default value to `ProductID IN (SELECT ProductID FROM samples.MS_Products WHERE ProductCategory='Home appliances')`.
    1. Click **Save**. This will filter the chart data to only show products in the `Home appliances` category.
       

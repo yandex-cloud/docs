@@ -16,7 +16,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды удаления группы пользователей {{ org-name }}:
+  1. Посмотрите описание команды удаления группы пользователей {{ org-full-name }}:
 
       ```bash
       yc organization-manager group delete --help

@@ -1,13 +1,13 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ mgl-name }}
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mgl-full-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне {{ mgl-name }}.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mgl-full-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне {{ mgl-name }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 Чтобы дать доступ пользователям вашей организации в {{ mgl-name }}:
 
 1. [Создайте инстанс {{ GL }}](#create-mgl-instance).
-1. [Создайте приложение в {{ org-name }}](#create-app).
+1. [Создайте приложение в {{ org-full-name }}](#create-app).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе приложения](#validate).
 
@@ -48,7 +48,7 @@
 
 {% endlist %}
 
-## Создайте приложение в {{ org-name }} {#create-app}
+## Создайте приложение в {{ org-full-name }} {#create-app}
 
 {% list tabs group=instructions %}
 
@@ -86,7 +86,7 @@
 
    * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
    * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса {{ GL }}. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса {{ GL }}, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
-   * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}**, полученное при создании приложения в {{ org-name }}.
+   * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}**, полученное при создании приложения в {{ org-full-name }}.
    * **IDP SSO target URL** — URL провайдера идентификации. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**.
    * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
    * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
@@ -141,7 +141,7 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в {{ GL }} с помощью SAML-приложения {{ org-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в {{ GL }} с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 

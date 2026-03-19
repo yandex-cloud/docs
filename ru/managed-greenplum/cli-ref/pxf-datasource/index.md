@@ -32,7 +32,7 @@ Aliases:
 
 - [yc managed-greenplum pxf-datasource update](update/index.md) — Update pxf-datasource for specified Greenplum cluster
 
-  - [yc managed-greenplum pxf-datasource update jdbc](update/jdbc.md) — Get jdbc pxf-datasource for specified Greenplum cluster
+  - [yc managed-greenplum pxf-datasource update jdbc](update/jdbc.md) — Update jdbc pxf-datasource for specified Greenplum cluster
 
   - [yc managed-greenplum pxf-datasource update s3](update/s3.md) — Update s3 pxf-datasource for specified Greenplum cluster
 

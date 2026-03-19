@@ -5,8 +5,7 @@ description:
     management.  This service continuously collects data from multiple sources,
     including browsing history, application and system logs.  Its API is
     compatible with both the Amazon Kinesis Data Streams API and Kafka API
-    through version <a
-    href="https://kafka.apache.org/34/documentation/#api">3.4.0</a>.
+    through version <a href="https://kafka.apache.org/34/apis/">3.4.0</a>.
 nav:
   title: Yandex Data Streams
 meta:
@@ -44,8 +43,8 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions for the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Pricing and cost calculations
     href: pricing

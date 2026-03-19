@@ -16,6 +16,7 @@ After you create a cluster, you can update its settings:
 * [Version](#change-version)
 * [Security groups](#change-sg)
 * [Fault-tolerant query execution parameters](#change-retry-policy)
+* [Query execution settings](#change-query-params)
 * [Coordinator and worker configuration](#change-configuration)
 * [Additional cluster settings](#change-additional-settings)
 
@@ -72,7 +73,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `description` parameter in the cluster's description:
       
@@ -96,7 +97,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -112,7 +113,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -139,7 +140,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -236,7 +237,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     To update a service account:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -257,7 +258,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `service_account_id` parameter in the cluster's description:
       
@@ -281,7 +282,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -296,7 +297,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -322,7 +323,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -412,7 +413,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     To change the {{ TR }} version:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -433,7 +434,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `version` parameter in the cluster's description:
       
@@ -457,7 +458,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -474,7 +475,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -500,7 +501,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -592,7 +593,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     To update security groups:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -613,7 +614,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` parameter in the cluster's description:
       
@@ -637,7 +638,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -656,7 +657,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -684,7 +685,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -785,7 +786,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     To update [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -817,13 +818,13 @@ You can also change the [rules for access to cluster objects](../concepts/access
           
         * `--retry-policy-exchange-manager-additional-properties`: Additional Exchange Manager storage parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
-        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.   
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To enable a [fault-tolerant query execution](../concepts/retry-policy.md) policy, add a `retry_policy` section to the cluster description:
       
@@ -839,7 +840,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -865,7 +866,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -900,7 +901,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -990,6 +991,183 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 {% endlist %}
 
+## Updating query execution settings {#change-query-params}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To update the settings of query execution and cluster resource allocation for queries:
+
+    1. View the description of the CLI command for updating a cluster:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update --help
+        ```
+
+    1. Run the following command to update the settings of query execution and cluster resource allocation for queries:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update <cluster_name_or_ID> \
+          --query-properties <list_of_settings>
+        ```
+
+        Where:
+
+        * `--query-properties`: Settings of query execution and cluster resource allocation for queries in `<key>=<value>` format.
+
+          {% note warning %}
+
+          All settings not explicitly provided in the list will be reset to their defaults. To avoid it, list both the settings to update and the settings to preserve.
+
+          {% endnote %}
+
+          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+    1. Under `query_properties`, update the settings of query execution and cluster resource allocation for queries:
+
+        {% include [Terraform query properties description](../../_includes/managed-trino/terraform/query-properties.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm resource changes.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "updateMask": "trino.resourceManagement.query.properties",
+          "trino": {
+            "resourceManagement": {
+              "query": {
+                "properties": {
+                  <query_execution_settings>,
+                  <settings_of_cluster_resource_allocation_for_queries>
+                }
+              }
+            }
+          }
+        }
+        ```
+
+        Where:
+
+        * `updateMask`: Comma-separated string of settings to update. Here, we only specified a single setting that contains all the settings.
+
+        * `resourceManagement.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
+
+          {% note warning %}
+
+          All settings not explicitly provided in the object will be reset to their defaults. To avoid it, list both the settings to update and the settings to preserve.
+
+          {% endnote %}
+
+          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
+          --data '@body.json'
+        ```
+
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "cluster_id": "<cluster_ID>",
+          "update_mask": {
+            "paths": [
+              "trino.resource_management.query.properties"
+            ]
+          },
+          "trino": {
+            "resource_management": {
+              "query": {
+                "properties": {
+                  <query_execution_settings>,
+                  <settings_of_cluster_resource_allocation_for_queries>
+                }
+              }
+            }
+          }
+        }
+        ```
+
+        Where:
+
+        * `cluster_id`: Cluster ID.
+
+            You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`). Here, we only specified a single setting that contains all the settings.
+
+        * `resource_management.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
+
+          {% note warning %}
+
+          All settings not explicitly provided in the object will be reset to their defaults. To avoid it, list both the settings to update and the settings to preserve.
+
+          {% endnote %}
+
+          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
 ## Changing the configuration of the coordinator and workers {#change-configuration}
 
 {% list tabs group=instructions %}
@@ -1010,7 +1188,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     To change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers):
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -1048,7 +1226,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the [coordinator](../concepts/index.md#coordinator) and [worker](../concepts/index.md#workers) configuration under `coordinator` and `worker`, respectively:
       
@@ -1104,7 +1282,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1139,7 +1317,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -1182,7 +1360,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1331,7 +1509,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     To change advanced cluster settings:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -1384,7 +1562,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To enable cluster protection against accidental deletion, add the `deletion_protection = true` parameter:
         
@@ -1424,7 +1602,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1454,7 +1632,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -1511,7 +1689,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -409,7 +409,7 @@ Flags:
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/regular-launch-datasphere.md)
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md)
-* [{#T}](../tutorials/video-converting-queue.md)
+* [{#T}](../tutorials/video-converting-queue/index.md)
 
 ## Вызов функции с помощью расширения {{ api-gw-full-name }} {#extension}
 

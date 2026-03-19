@@ -362,6 +362,12 @@ description: В данном разделе приведены описания 
 
 {% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
 
+### Модуль {{ alerts-name }} {#sd-alerts}
+
+Имя модуля — `securitydeck.alerts`.
+
+{% include [sd-alerts-events](../../_includes/audit-trails/events/sd-alerts-events.md) %}
+
 ### Окружения {{ sd-name }} {#sd-orchestrator}
 
 Имя модуля — `securitydeck.orchestrator`.

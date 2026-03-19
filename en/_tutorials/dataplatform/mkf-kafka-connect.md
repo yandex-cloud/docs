@@ -12,7 +12,7 @@
 
 _Connectors_ move data while running in separate threads of a worker.
 
-To learn more about Kafka Connect, see [this {{ KF }} article](https://kafka.apache.org/documentation/#connect).
+To learn more about Kafka Connect, see [this {{ KF }} article](https://kafka.apache.org/42/kafka-connect/overview/).
 
 Next, we describe how to configure {{ KFC }} to work with a {{ mkf-name }} cluster. You will deploy {{ KFC }} on a [{{ yandex-cloud }} VM](../../compute/concepts/vm.md) as a separate installation. To protect the connection, you will use SSL encryption.
 

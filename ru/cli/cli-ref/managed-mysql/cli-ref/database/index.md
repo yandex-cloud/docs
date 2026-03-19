@@ -26,6 +26,8 @@ Aliases:
 
 - [yc managed-mysql database list](list.md) — List MySQL databases
 
+- [yc managed-mysql database update](update.md) — Update the specified MySQL database
+
 #### Global Flags
 
 #|

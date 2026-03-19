@@ -175,7 +175,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
            --user-password=<user_password> \
            --master-config resource-id=<host_class>,`
                           `disk-size=<storage_size_in_GB>,`
-                          `disk-type=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
+                          `disk-type=<network-ssd|network-ssd-nonreplicated|local-ssd> \
            --segment-config resource-id=<host_class>,`
                           `disk-size=<storage_size_in_GB>,`
                           `disk-type=<network-ssd-nonreplicated|local-ssd> \
@@ -208,7 +208,6 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
             * `disk-size`: Storage size in GB.
             * `disk-type`: [Disk type](../concepts/storage.md):
-                * `network-hdd` (for master hosts only)
                 * `network-ssd` (for master hosts only)
                 * `local-ssd`
                 * `network-ssd-nonreplicated`

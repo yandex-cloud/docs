@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить SSH-ключ
 
-Загрузите SSH-ключи в профиль пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в {{ org-name }}, чтобы с их помощью пользователь или сервисный аккаунт могли подключаться к [виртуальным машинам](../../compute/concepts/vm.md), [узлам](../../managed-kubernetes/concepts/index.md#node-group) кластеров {{ k8s }} и [серверам](../../baremetal/concepts/servers.md) {{ baremetal-full-name }}.
+Загрузите SSH-ключи в профиль пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в {{ org-full-name }}, чтобы с их помощью пользователь или сервисный аккаунт могли подключаться к [виртуальным машинам](../../compute/concepts/vm.md), [узлам](../../managed-kubernetes/concepts/index.md#node-group) кластеров {{ k8s }} и [серверам](../../baremetal/concepts/servers.md) {{ baremetal-full-name }}.
 
 При необходимости перед выполнением инструкции [создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) новую пару SSH-ключей.
 

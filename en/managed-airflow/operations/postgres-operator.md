@@ -60,7 +60,7 @@ You can use a [directed acyclic graph (DAG)](../concepts/index.md#about-the-serv
       }
       ```
 
-For more information on how to get the FQDN of a {{ PG }} cluster host, see [{#T}](../../managed-postgresql/operations/connect.md#fqdn).
+For more information on how to get the FQDN of a {{ PG }} cluster host, see [{#T}](../../managed-postgresql/operations/connect/fqdn.md).
 
 The secret will store the data to connect to the database in the {{ mpg-name }} cluster.
 
@@ -110,7 +110,7 @@ The secret will store the data to connect to the database in the {{ mpg-name }} 
 
 1. Upload the `postgres_operator.py` DAG file to the bucket you created earlier.
 1. [Open the {{ AF }} web interface](af-interfaces.md#web-gui).
-1. Make sure a new graph named `postgres_operator` has appeared in the **DAGs** section.
+1. Make sure there is a new graph named `postgres_operator` in the **DAGs** section.
 
    It may take a few minutes to load a DAG file from the bucket.
 
@@ -132,7 +132,7 @@ To check the result in the {{ AF }} web interface:
 
 - {{ AF }} version 3.0 or higher {#version-3}
 
-  1. In the **DAGs** section, click `postgres_operator`.
+  1. In the **DAGs** section, click the `postgres_operator` graph.
   1. Go to **Tasks**.
   1. Select **check_conn**.
   1. Go to **Tasks Instances**.

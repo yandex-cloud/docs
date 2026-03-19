@@ -8,7 +8,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 ## Required paid resources {#paid-resources}
 
 * {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
@@ -58,7 +58,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
         sudo tar xf kafka_2.13-3.0.0.tgz --strip 1 --directory /opt/kafka/
         ```
 
-        You can check the current {{ KF }} version on the [project’s download page](https://kafka.apache.org/downloads).
+        You can check the current {{ KF }} version on the [project’s download page](https://kafka.apache.org/community/downloads/).
 
     1. Install certificates on the VM and make sure you can access the clusters:
 
@@ -172,7 +172,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
     * `name`: Logical name of the Debezium connector. It is used for the connector’s internal needs.
     * `database.hostname`: [Special FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master) for connecting to the master host of the source cluster.
 
-        You can get the cluster ID from the [list of clusters in your folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
     * `database.user`: {{ MY }} username.
     * `database.dbname`: {{ MY }} database name.

@@ -27,3 +27,5 @@ description: In this article, you will learn how to work with {{ msp-full-name }
 
 * [Cluster state monitoring](monitoring.md)
 * [Viewing cluster logs](cluster-logs.md)
+* [Monitoring the state of Spark applications](spark-monitoring.md)
+* [Diagnostics and examples of troubleshooting performance issues in Spark applications](spark-diagnostics.md)

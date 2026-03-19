@@ -12,4 +12,4 @@ A broker performs the following functions:
 
   Each replicated partition has a leader broker that accepts read and write requests, and multiple follower brokers that replicate the leader data. The number of followers depends on the replication factor, i.e., the number that determines how many replicas of partition data a cluster has. For example, if the replication factor equals to 1, a partition will have no followers; if it is 2, it will have one follower, if 3, two followers, etc.
 
-For more information about how brokers handle messages, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#semantics).
+For more information about how brokers handle messages, see the [{{ KF }} documentation](https://kafka.apache.org/42/design/design/#message-delivery-semantics).

@@ -11,7 +11,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
@@ -32,7 +32,7 @@ Set up your infrastructure:
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     
-    1. If using security groups, make sure they are [configured correctly](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connections to your cluster.
+    1. If using security groups, make sure they are [configured correctly](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
 
 
     1. [Create an {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md).
@@ -83,7 +83,7 @@ Set up your infrastructure:
 
 ## Set up the transfer {#prepare-transfer}
 
-1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md). In the `db1` database, create a table named `x_tab` and populate it with data:
+1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect/index.md). In the `db1` database, create a table named `x_tab` and populate it with data:
 
      ```sql
      CREATE TABLE x_tab
@@ -156,7 +156,7 @@ Set up your infrastructure:
 
 ## Verify that the copy operation works upon reactivation {#example-check-copy}
 
-1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md) and perform the following operations on the table `x_tab`: delete the row with ID = `41` and update the row with ID = `42`:
+1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect/index.md) and perform the following operations on the table `x_tab`: delete the row with ID = `41` and update the row with ID = `42`:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;
@@ -172,7 +172,7 @@ To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

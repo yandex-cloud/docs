@@ -30,6 +30,6 @@ When you update the configuration of an existing cluster with `local-ssd`, all c
 
 The replicas will be queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable. If the master host needs restarting and becomes unavailable, one of the replicas will assume its role.
 
-In case you use the master host's [FQDN](../../../managed-postgresql/concepts/network.md#hostname) to access the cluster, such a cluster may become unavailable. To make your application continuously available, access the cluster using a [specific FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master) that always points to the master host.
+In case you use the master host's [FQDN](../../../managed-postgresql/concepts/network.md#hostname) to access the cluster, such a cluster may become unavailable. To make your application continuously available, access the cluster using a [specific FQDN](../../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) that always points to the master host.
 
 {% endnote %}

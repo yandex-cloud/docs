@@ -18,7 +18,7 @@ The log UI allows you to:
 
 - Management console {#console}
 
-  1. Set up data delivery, e.g., with the [OTel Collector](../collector/opentelemetry.md) or [{{ unified-agent-short-name }}](write/unified-agent.md).
+  1. Set up data delivery, e.g., with the [OTel Collector](../collector/opentelemetry.md).
   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}** on the left.
   1. At the top, set the search interval using the timeline, a preset interval, or by entering the time value directly.
   1. In the search bar, enter your [query](query.md) in the following format:

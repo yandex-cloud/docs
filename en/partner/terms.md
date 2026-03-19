@@ -5,7 +5,6 @@ description: In this article, you will learn about the terms and definitions of 
 
 # Terms and definitions
 
-
 {% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
 
 #### Partner {#direct-partner}
@@ -34,16 +33,13 @@ An additional billing account of a partner that can only be registered through t
 
 An amount deducted from the cost of services used by partner subaccounts. The cost of services is specified in the payment invoice issued to the partner at the end of the reporting period net of the partner bonus amount. A bonus can either be basic or increased if a deal is registered.
 
-
 #### Partner rebate {#rebate}
 
 A deferred monetary reward for partner services for promoting higher consumption of {{ yandex-cloud }} services purchased by partner users. A rebate is only credited for project registration, specializations, and under the referral program.
 
-
 #### Deal registration {#deal-reg}
 
 Registering a deal for a new {{ yandex-cloud }} customer signed up by a partner as a subaccount with the idea of selling a certain amount worth of {{ yandex-cloud }} services to this customer for the purpose of getting a reward.
-
 
 #### Project registration {#project-reg}
 

@@ -2,4 +2,4 @@
   * облака и экземпляры сервисов [{{ ml-platform-name }}](/services#ml-ai), [{{ datalens-full-name }}](../../datalens/) или [{{ tracker-full-name }}]({{ link-yandex }}/support/tracker/{{ lang }}), которые созданы в вашей организации;
   * облака и сущности из других организаций, к которым был [выдан доступ](../../resource-manager/security/index.md).
   
-Чтобы получить доступ к [тарифицируемым](../../organization/pricing.md#pricing-management) возможностям сервиса [{{ org-full-name }}](../../organization/index.yaml), [привяжите](../../organization/operations/manage-billing.md#add-billing-account) платежный аккаунт к инстансу {{ org-name }}.
+Чтобы получить доступ к [тарифицируемым](../../organization/pricing.md#pricing-management) возможностям сервиса [{{ org-full-name }}](../../organization/index.yaml), [привяжите](../../organization/operations/manage-billing.md#add-billing-account) платежный аккаунт к инстансу {{ org-full-name }}.

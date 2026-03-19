@@ -283,7 +283,7 @@ description: Следуя данной инструкции, вы сможете
 
       ![image](../_assets/datalens/settings/users-settings.png)
 
-1. [Настройте права доступа](./workbooks-collections/security.md) на воркбук:
+1. [Настройте права доступа](./workbooks-collections/workbooks-operations.md#security) на воркбук:
 
    1. На панели слева выберите ![collections](../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
    1. Нажмите значок ![image](../_assets/console-icons/ellipsis.svg) у воркбука `Quick start` и выберите **Доступ**.

@@ -66,7 +66,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. In the top-right corner, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. In the top-right corner, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and add the service account by providing its ID.
   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `{{ roles-cr-puller }}`.
   1. Click **{{ ui-key.yacloud.common.save }}**.

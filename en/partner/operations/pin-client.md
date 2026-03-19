@@ -3,7 +3,7 @@ title: Adding a customer
 description: Follow this guide to add a customer.
 ---
 
-# Adding a customer
+# Adding a customer subaccount
 
 To add a new customer:
 
@@ -17,7 +17,7 @@ To add a new customer:
 
 - Partner portal {#partner}
 
-  1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID linked to your partner account in {{ yandex-cloud }}. If you have no access, it means the account you are using to log in has no partner status assigned.
+  1. Log in to the [partner portal]({{ link-cloud-partners }}) under a Yandex ID with a linked {{ yandex-cloud }} partner billing account. If you have no access, it means the account you are using to log in has no partner status assigned.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/credit-card.svg) **Subaccounts**.
   1. In the top-right corner, click ![image](../../_assets/console-icons/plus.svg) **Create subaccount**.
   1. In the subaccount creation form, select an existing account in the search bar or click ![image](../../_assets/console-icons/plus.svg) to [create](../operations/create-account.md) a new one.
@@ -44,7 +44,7 @@ In this case, users are assigned different roles for accessing the created subac
 
 {% note info %}
 
-Only users with a Yandex account receive roles at the organization level, this does not apply to federated users.
+Only users with a Yandex account get roles at the organization level, this does not apply to federated users.
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ A customer with the `Verification required` status must confirm their readiness 
 If the customer fails to follow the link provided in the email or cannot find the email, you can:
 
 * Resend the partnership confirmation email to the customer.
-* Copy the link on the subaccount page and send it to the customer. The partnership will be confirmed when the customer logs in to their account using this link.
+* Copy the link on the subaccount page and send it to the customer. The partnership will be confirmed when the customer logs in to their subaccount using this link.
 
 {% endnote %}
 
@@ -74,10 +74,10 @@ The [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will c
 
 - Partner portal {#partner}
 
-  1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID linked to your partner account in {{ yandex-cloud }}.
-  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
+  1. Log in to the [partner portal]({{ link-cloud-partners }}) under a Yandex ID with a linked {{ yandex-cloud }} partner billing account.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/credit-card.svg) **Subaccounts**.
   1. Select the customer's account from the list and click it.
-  1. Under **Clouds**, click ![icon](../../_assets/console-icons/plus.svg) **Create cloud**.
+  1. Under **Quotas and instances** on the **Instances** tab, open the **Cloud** tab and click **Create cloud**.
   1. Enter a name for the cloud.
   1. In the **Organization** field, select the [organization](../../organization/quickstart.md) named `For 'Customer_name' subaccount`.
   1. Click **Create**.

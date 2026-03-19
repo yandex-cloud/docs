@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Выберите реестр.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-  1. Найдите в списке нужного пользователя, группу или [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Назначенные роли будут указаны в столбце **{{ ui-key.yacloud.common.resource-acl.label_bindings }}**.
+  1. Найдите в списке нужного пользователя, группу или [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Назначенные роли будут указаны в столбце **{{ ui-key.yacloud_components.acl.resource-acl.label_bindings }}**.
 
 - CLI {#cli}
 

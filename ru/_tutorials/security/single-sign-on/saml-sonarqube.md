@@ -2,7 +2,7 @@
 
 [SonarQube](https://www.sonarsource.com/products/sonarqube/) — это платформа для автоматического анализа качества исходного кода, которая выявляет ошибки, уязвимости и оценивает покрытие тестами. SonarQube поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в SonarQube с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне SonarQube.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в SonarQube с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне SonarQube.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -40,7 +40,7 @@
 
 {% endnote %}
 
-Чтобы настроить интеграцию SonarQube с созданным SAML-приложением в {{ org-name }}, выполните настройки на стороне SonarQube и на стороне {{ org-name }}.
+Чтобы настроить интеграцию SonarQube с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне SonarQube и на стороне {{ org-full-name }}.
 
 ### Настройте SAML-приложение на стороне SonarQube {#setup-sp}
 
@@ -57,7 +57,7 @@
 
 #### Подключите SonarQube к IdP {#connect-idp}
 
-Настройте связь между SonarQube и {{ org-name }}:
+Настройте связь между SonarQube и {{ org-full-name }}:
 
 1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
@@ -70,7 +70,7 @@
 
 #### Сопоставьте атрибуты пользователей {#user-mapping}
 
-Настройте соответствие между полями объектов пользователей в SonarQube и {{ org-name }}:
+Настройте соответствие между полями объектов пользователей в SonarQube и {{ org-full-name }}:
 
 1. В поле **SAML user login attribute** укажите `login`.
 1. В поле **SAML user name attribute** укажите `fullname`.
@@ -95,7 +95,7 @@
 
 1. Вверху страницы из раздела **Configuration** перейдите в **Security** -> **Groups**.
 1. Нажмите кнопку **Create Group**.
-1. В поле **Name** введите имя группы, например, `test-group`. Группу необходимо будет создать при настройке приложения на стороне {{ org-name }}.
+1. В поле **Name** введите имя группы, например, `test-group`. Группу необходимо будет создать при настройке приложения на стороне {{ org-full-name }}.
 1. Нажмите кнопку **Create**.
 1. Чтобы настроить разрешения для группы:
     1. В меню **Security** перейдите из раздела **Groups** в раздел **Global Permissions**.
@@ -159,7 +159,7 @@
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в SonarQube с помощью SAML-приложения {{ org-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в SonarQube с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 

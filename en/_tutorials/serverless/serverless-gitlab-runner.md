@@ -189,7 +189,7 @@ Create two service accounts:
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
       1. Select the `gitlab-runner-token` secret.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Find and select the `gitlab-runner-lockbox-payload-viewer` service account.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `{{ roles-lockbox-payloadviewer }}`.
       1. Click **{{ ui-key.yacloud.common.save }}**.

@@ -25,4 +25,4 @@ The {{ KF }} topic sections are distributed among the group's consumers:
 * Each section is assigned to one consumer within a specific group. At the same time, one consumer can process multiple sections.
 * If there are changes in group membership or the number of sections, rebalancing takes place: the sections get redistributed among the group's consumers.
 
-For more information, see the {{ KF }} documentation for [producers](https://kafka.apache.org/documentation/#theproducer) and [consumers](https://kafka.apache.org/documentation/#theconsumer).
+For more information, see the {{ KF }} documentation for [producers](https://kafka.apache.org/42/design/design/#the-producer) and [consumers](https://kafka.apache.org/42/design/design/#the-consumer).

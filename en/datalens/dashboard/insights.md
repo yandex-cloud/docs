@@ -19,13 +19,12 @@ This feature is at the Beta testing stage.
 
 You can use Neuroanalyst for the entire dashboard or individual charts on the dashboard. To use Neuroanalyst on your dashboard:
 
-1. Open the Neuroanalyst tab.
 
-   {% list tabs %}
+{% list tabs %}
 
-   - For entire dashboard
+- For entire dashboard
 
-     Click **Neuroanalyst** at the top of the dashboard to open the **Neuroanalyst** tab on the right.
+  1. Click **Neuroanalyst** at the top of the dashboard to open the **Neuroanalyst** tab on the right.
 
      {% cut "Neuroanalyst for entire dashboard" %}
 
@@ -33,9 +32,33 @@ You can use Neuroanalyst for the entire dashboard or individual charts on the da
 
      {% endcut %}
 
-   - For individual chart on the dashboard
+  1. Select a question or ask your own one, e.g., "What charts can I add to the dashboard?".
 
-     In the top right corner of the chart on the dashboard, click ![icon](../../_assets/console-icons/ellipsis.svg) → **Find insights** to open the **Neuroanalyst** tab on the right.
+     {% cut "Question for Neuroanalyst" %}
+
+     ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-ask.png)
+
+     {% endcut %}
+
+     Neuroanalyst will give a detailed answer and suggest possible solutions and recommendations.
+
+     {% cut "Neuroanalyst's answer" %}
+
+     ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-result.png)
+
+     {% endcut %}
+
+     At the top of the Neuroanalyst tab, you will see the list of charts used to generate the answer.
+     
+     {% cut "List of charts used for Neuroanalyst' answer" %}
+
+     ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-charts-list.png)
+
+     {% endcut %}
+
+- For individual chart on the dashboard
+
+  1. In the top right corner of the chart on the dashboard, click ![icon](../../_assets/console-icons/ellipsis.svg) → **Find insights** to open the **Neuroanalyst** tab on the right.
 
      {% cut "Neuroanalyst for a dashboard chart" %}
 
@@ -43,23 +66,23 @@ You can use Neuroanalyst for the entire dashboard or individual charts on the da
 
      {% endcut %}
 
-   {% endlist %}
+  1. Select a question or ask your own, e.g., "What insights can I get from this data?".
 
-1. Select a question or ask your own one, e.g., "What charts can I add to the dashboard?"
+     {% cut "Question for Neuroanalyst" %}
 
-   {% cut "Question for Neuroanalyst" %}
+     ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-ask.png)
 
-   ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-ask.png)
+     {% endcut %}
 
-   {% endcut %}
+     Neuroanalyst will give a detailed answer and suggest possible solutions and recommendations.
 
-   Neuroanalyst will give a detailed answer and suggest possible solutions and recommendations.
+     {% cut "Neuroanalyst's answer" %}
 
-   {% cut "Neuroanalyst's answer" %}
+     ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-chart-result.png)
 
-   ![image](../../_assets/datalens/ai/ai-analytic-on-dashboard-result.png)
+     {% endcut %}
 
-   {% endcut %}
+{% endlist %}
 
 You can pin the chat with Neuroanalyst on top or along the side (default) of the dashboard. To change the chat position, click:
   

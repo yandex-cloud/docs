@@ -3,7 +3,7 @@
 
 [МТС Web Services (MWS)](https://mws.ru/) — это экосистема сервисов и платформенных решений для построения IT-инфраструктуры и управления ею. MWS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне MWS.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне MWS.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -152,7 +152,7 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию MWS с созданным OIDC-приложением в {{ org-name }}, выполните настройки на стороне MWS и на стороне {{ org-name }}.
+Чтобы настроить интеграцию MWS с созданным OIDC-приложением в {{ org-full-name }}, выполните настройки на стороне MWS и на стороне {{ org-full-name }}.
 
 ### Получите учетные данные приложения {#get-credentials}
 
@@ -307,7 +307,7 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в MWS с помощью OIDC-приложения {{ org-name }}, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в MWS с помощью OIDC-приложения {{ org-full-name }}, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 

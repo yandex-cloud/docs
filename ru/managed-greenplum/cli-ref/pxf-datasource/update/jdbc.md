@@ -4,7 +4,7 @@ editable: false
 
 # yc managed-greenplum pxf-datasource update jdbc
 
-Get jdbc pxf-datasource for specified Greenplum cluster
+Update jdbc pxf-datasource for specified Greenplum cluster
 
 #### Command Usage
 

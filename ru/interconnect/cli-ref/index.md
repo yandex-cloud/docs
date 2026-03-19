@@ -72,6 +72,10 @@ Syntax:
 
   - [yc cic trunk-connection list-operations](trunk-connection/list-operations.md) — List operations for a trunk connection.
 
+  - [yc cic trunk-connection list-private-connections](trunk-connection/list-private-connections.md) — List private connections for a trunk connection.
+
+  - [yc cic trunk-connection list-public-connections](trunk-connection/list-public-connections.md) — List public connections for a trunk connection.
+
   - [yc cic trunk-connection move](trunk-connection/move.md) — Move the specified trunk connection into the folder
 
   - [yc cic trunk-connection remove-labels](trunk-connection/remove-labels.md) — Remove labels from a trunk connection.

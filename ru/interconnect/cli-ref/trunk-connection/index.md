@@ -34,6 +34,10 @@ Aliases:
 
 - [yc cic trunk-connection list-operations](list-operations.md) — List operations for a trunk connection.
 
+- [yc cic trunk-connection list-private-connections](list-private-connections.md) — List private connections for a trunk connection.
+
+- [yc cic trunk-connection list-public-connections](list-public-connections.md) — List public connections for a trunk connection.
+
 - [yc cic trunk-connection move](move.md) — Move the specified trunk connection into the folder
 
 - [yc cic trunk-connection remove-labels](remove-labels.md) — Remove labels from a trunk connection.

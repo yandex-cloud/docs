@@ -168,6 +168,10 @@ items:
             href: cli-ref/trunk-connection/list.md
           - name: list-operations
             href: cli-ref/trunk-connection/list-operations.md
+          - name: list-private-connections
+            href: cli-ref/trunk-connection/list-private-connections.md
+          - name: list-public-connections
+            href: cli-ref/trunk-connection/list-public-connections.md
           - name: move
             href: cli-ref/trunk-connection/move.md
           - name: remove-labels

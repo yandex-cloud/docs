@@ -13,7 +13,7 @@ db_message": "odyssey: ***********: SSL is required"
 
 ## Solution {#issue-resolution}
 
-This error means that the connection requires SSL. Using SSL is [optional](../../../managed-postgresql/operations/connect.md) when connecting to a database in the same cloud or folder; however, connecting to an external database requires a trusted SSL certificate on the server.
+This error means that the connection requires SSL. Using SSL is [optional](../../../managed-postgresql/operations/connect/index.md) when connecting to a database in the same cloud or folder; however, connecting to an external database requires a trusted SSL certificate on the server.
 
 If this issue occurs with a new {{ mpg-name }} connection, [enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}**](../../../managed-postgresql/operations/datalens-connect.md#allow-access) in the cluster settings, and then [set up a connection in {{ datalens-name }}](../../../datalens/operations/connection/create-postgresql.md).
 

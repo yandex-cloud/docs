@@ -29,5 +29,5 @@ For more information, see the Confluent [website](https://developer.confluent.io
 
 {{ kraft-short-name }} cons arise from the [cluster topology specifics](#cluster-topology):
 
-* In the combined mode, {{ kraft-short-name }} metadata controllers are not isolated from {{ KF }} as effectively as they are in split mode, which features a dedicated subcluster for metadata controllers. Therefore, [{{ KF }} does not recommend]({{ kf.docs }}#kraft_role) using the combined mode in critical development environments. The combined mode is more suitable for local development and testing.
+* In the combined mode, {{ kraft-short-name }} metadata controllers are not isolated from {{ KF }} as effectively as they are in split mode, which features a dedicated subcluster for metadata controllers. Therefore, [{{ KF }} does not recommend](https://kafka.apache.org/42/operations/kraft/#process-roles) using the combined mode in critical development environments. The combined mode is more suitable for local development and testing.
 * In a cluster with {{ kraft-short-name }}, you cannot flexibly manage the number of hosts: you can have exactly three hosts.

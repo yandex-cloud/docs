@@ -3,7 +3,7 @@
 
 [1С:Предприятие](https://scloud.ru/1s-predpriyatie/) — это технологическая платформа, на которой разрабатываются программы 1С для автоматизации учета и бизнеса. Платформа поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) — аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }}, настройте его на стороне {{ org-name }} и на стороне 1С:Предприятие.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в 1С:Предприятие с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../../organization/concepts/applications.md#oidc) в {{ org-full-name }}, настройте его на стороне {{ org-full-name }} и на стороне 1С:Предприятие.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -137,7 +137,7 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Настройте интеграцию 1С:Предприятие с созданным OIDC-приложением в {{ org-name }}.
+Настройте интеграцию 1С:Предприятие с созданным OIDC-приложением в {{ org-full-name }}.
 
 
 ### Настройте OIDC-приложение на стороне {{ org-full-name }} {#setup-idp}

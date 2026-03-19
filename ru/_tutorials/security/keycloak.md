@@ -123,7 +123,7 @@
 
 ## Добавьте сертификат {{ keycloak }} в федерацию {#add-certificate}
 
-Чтобы при аутентификации сервис {{ org-name }} мог проверить сертификат сервера {{ keycloak }}, добавьте сертификат в федерацию:
+Чтобы при аутентификации сервис {{ org-full-name }} мог проверить сертификат сервера {{ keycloak }}, добавьте сертификат в федерацию:
 
 {% list tabs group=instructions %}
 
@@ -278,7 +278,7 @@
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. [Создайте группу пользователей](../../organization/operations/create-group.md) `yc_demo_group` в {{ org-name }} и [выдайте ей права](../../organization/operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
+  1. [Создайте группу пользователей](../../organization/operations/create-group.md) `yc_demo_group` в {{ org-full-name }} и [выдайте ей права](../../organization/operations/access-group.md) на просмотр ресурсов в облаке или отдельном каталоге (роль `viewer`).
 
   1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 

@@ -20,7 +20,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды удаления участников из группы пользователей {{ org-name }}:
+  1. Посмотрите описание команды удаления участников из группы пользователей {{ org-full-name }}:
 
       ```bash
       yc organization-manager group remove-members --help

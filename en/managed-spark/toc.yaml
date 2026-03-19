@@ -41,6 +41,12 @@ items:
             href: operations/monitoring.md
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
+          - name: Monitoring the state of Spark applications
+            href: operations/spark-monitoring.md
+          - name: >-
+              Diagnostics and examples of troubleshooting performance issues in
+              Spark applications
+            href: operations/spark-diagnostics.md
   - name: Tutorials
     items:
       - name: All tutorials

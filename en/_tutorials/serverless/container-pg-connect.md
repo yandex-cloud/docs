@@ -11,9 +11,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster fee: Covers the use of computing resources allocated to hosts and disk storage (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * {{ container-registry-name }} fee: Using the storage (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md#rules-storage)).
 * Fee for the {{ serverless-containers-name }} container: Number of container invocations and computing resources (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
@@ -102,11 +102,11 @@ The support cost includes:
 
     {% endlist %}
 
-    Specify the following in the script:
+    In your script, specify the following:
 
-    * [FQDN](../../managed-postgresql/operations/connect.md#fqdn) of your cluster host.
+    * [FQDN](../../managed-postgresql/operations/connect/fqdn.md) of your cluster host.
     * Username for connection.
-    * User password.
+    * Password.
     * Name of the database to connect to.
 
 ## Create the Docker image in the registry {#create-image}

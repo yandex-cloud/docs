@@ -149,7 +149,7 @@ In case the DB master fails, the automatic mechanism of the service initiates sw
    yc managed-postgresql cluster start-failover <cluster_name> --host <host_name>
 ```
 
-To allow a client to connect to the current DB master anytime without requesting the cluster state from the API, {{ yandex-cloud }} provides [special FQDNs](../managed-postgresql/operations/connect.md#special-fqdns). Connecting over a [special FQDN](../managed-postgresql/operations/connect.md#special-fqdns) simplifies application coding but does not guarantee quick switching to a new master in case it is replaced. To quickly switch to a new master, you need to ensure, on the application end, monitoring the master replacement and reconnection.
+To allow a client to connect to the current DB master anytime without requesting the cluster state from the API, {{ yandex-cloud }} provides [special FQDNs](../managed-postgresql/operations/connect/fqdn.md#special-fqdns). Connecting over a [special FQDN](../managed-postgresql/operations/connect/fqdn.md#special-fqdns) simplifies application coding but does not guarantee quick switching to a new master in case it is replaced. To quickly switch to a new master, you need to ensure, on the application end, monitoring the master replacement and reconnection.
 
 Currently, {{ yandex-cloud }} does not have a service automatically balancing reading load between DB cluster nodes. Methods of such balancing are the subject in the [Quest for microseconds: Optimizing cloud service performance](https://yandex.cloud/ru/events/935) webinar.
 
@@ -224,7 +224,7 @@ Apart from the suggested methods, if {{ yandex-cloud }} API goes unavailable,
 you can shift traffic from an availability zone by disabling health checks for targets in the affected zone. There are several ways to do this:
 
    * At the infrastructure level, block checks at the network security group level.
-   * Disable instances that handle requests in the faulty zone.
+   * Disable instances that process requests in the affected zone.
    * At the operating system level, restrict access to checks using a firewall.
    * At the application level, configure the application in such a way that it would not respond to health checks.
 

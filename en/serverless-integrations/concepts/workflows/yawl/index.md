@@ -16,7 +16,7 @@ For the workflow JSON schema, visit our [GitHub repo](https://raw.githubusercont
 
 Field name | Type | Required | Description
 --- | --- | --- | ---
-`yawl` | `string` | Yes | Specification language version. The possible values are: `0.1`.
+`yawl` | `string` | Yes | Specification language version. The possible value is `0.1`.
 `start` | `string` | Yes | ID of the [step](#step) to start off the workflow execution.
 `defaultRetryPolicy` | [RetryPolicy](#retrypolicy) | No | Retry policy applied by default to any step throwing an error during execution.
 `steps` | `map<string, Step>` | Yes | Description of workflow steps. Object where key is the step ID selected by the user, and value is the object describing the step parameters.

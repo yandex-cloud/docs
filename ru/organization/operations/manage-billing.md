@@ -1,15 +1,15 @@
 ---
 title: Как управлять тарификацией {{ org-full-name }}
-description: Из статьи вы узнаете, как управлять тарификацией подключения пользователей {{ org-name }} к внешним приложениям через интерфейс {{ org-full-name }}.
+description: Из статьи вы узнаете, как управлять тарификацией подключения пользователей {{ org-full-name }} к внешним приложениям через интерфейс {{ org-full-name }}.
 ---
 
 # Управлять тарификацией {{ org-full-name }}
 
-Подключение пользователей {{ org-name }} к внешним приложениям [тарифицируется](../pricing.md#rules). [Управлять тарификацией](../pricing.md#pricing-management) сервиса {{ org-name }} вы можете через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}).
+Подключение пользователей {{ org-full-name }} к внешним приложениям [тарифицируется](../pricing.md#rules). [Управлять тарификацией](../pricing.md#pricing-management) сервиса {{ org-full-name }} вы можете через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}).
 
-## Привязать платежный аккаунт к {{ org-name }} {#add-billing-account}
+## Привязать платежный аккаунт к {{ org-full-name }} {#add-billing-account}
 
-По умолчанию для [организации](../concepts/organization.md) {{ org-name }} установлен нетарифицируемый лимит подключений в 15 пользователей, которые могут аутентифицироваться во внешних приложениях в течение календарного месяца. Чтобы использовать тарифицируемые возможности сервиса и [изменить](#modify-limit) этот лимит подключений, привяжите [платежный аккаунт](../../billing/concepts/billing-account.md) к {{ org-name }}:
+По умолчанию для [организации](../concepts/organization.md) {{ org-full-name }} установлен нетарифицируемый лимит подключений в 15 пользователей, которые могут аутентифицироваться во внешних приложениях в течение календарного месяца. Чтобы использовать тарифицируемые возможности сервиса и [изменить](#modify-limit) этот лимит подключений, привяжите [платежный аккаунт](../../billing/concepts/billing-account.md) к {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, как управлять т
               Если у вас нет платежного аккаунта или вы хотите создать новый, нажмите кнопку **{{ ui-key.yacloud_org.billing.accounts.dialog_button_create }}** и создайте новый платежный аккаунт по инструкции [{#T}](../../billing/operations/create-new-account.md).
           1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
 
-  1. Чтобы изменить привязанный к {{ org-name }} платежный аккаунт:
+  1. Чтобы изменить привязанный к {{ org-full-name }} платежный аккаунт:
 
       1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.layout.change_account_action }}** и в открывшемся окне:
 
@@ -40,7 +40,7 @@ description: Из статьи вы узнаете, как управлять т
 
 {% endlist %}
 
-В результате нужный платежный аккаунт будет привязан к {{ org-name }}, и вы сможете пользоваться тарифицируемыми возможностями {{ org-name }} и управлять ими.
+В результате нужный платежный аккаунт будет привязан к {{ org-full-name }}, и вы сможете пользоваться тарифицируемыми возможностями {{ org-full-name }} и управлять ими.
 
 ## Посмотреть статистику расходования лимита {#view-stats}
 
@@ -80,7 +80,7 @@ description: Из статьи вы узнаете, как управлять т
       {% include [idp-connection-limit-modifying-role](../../_includes/organization/idp-connection-limit-modifying-role.md) %}
 
   1. На панели слева выберите ![credit-card](../../_assets/console-icons/credit-card.svg) **{{ ui-key.yacloud_org.pages.organization-billing }}**.
-  1. Если ваш [платежный аккаунт](../../billing/concepts/billing-account.md) еще не привязан к {{ org-name }}, [привяжите](#add-billing-account) его, чтобы иметь возможность использовать тарифицируемые возможности сервиса.
+  1. Если ваш [платежный аккаунт](../../billing/concepts/billing-account.md) еще не привязан к {{ org-full-name }}, [привяжите](#add-billing-account) его, чтобы иметь возможность использовать тарифицируемые возможности сервиса.
   1. Нажмите кнопку **{{ ui-key.yacloud_org.organization.billing.ChangeLimitsBlock.change_limit_action }}** и в открывшемся окне:
 
       1. Чтобы увеличить лимит подключений:

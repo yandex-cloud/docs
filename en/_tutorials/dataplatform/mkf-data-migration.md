@@ -192,7 +192,7 @@ The support cost for this solution includes:
         sudo apt update && sudo apt install --yes default-jdk
         ```
 
-    1. [Download](https://kafka.apache.org/downloads) and unpack the {{ KF }} archive with the same version as installed on the target cluster, e.g., {{ KF }} 2.8:
+    1. [Download](https://kafka.apache.org/community/downloads/) and unpack the {{ KF }} archive with the same version as installed on the target cluster, e.g., {{ KF }} 2.8:
 
         ```bash
         wget https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz && \
@@ -305,7 +305,7 @@ The support cost for this solution includes:
    * Topic names in the target cluster cluster match those in the source cluster.
    * `<R>` stands for the [replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) for MirrorMaker service topics. Its value should not exceed the lesser of the broker counts in the source and target clusters.
    * `<M>` stands for the [default replication factor](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) defined for topics in the target cluster.
-   * `<T>` stands for the number of concurrent MirrorMaker processes. To distribute replication load evenly, we recommend a value of at least `2`. For more information, see [this {{ KF }} guide](https://kafka.apache.org/documentation/#georeplication-config-syntax).
+   * `<T>` stands for the number of concurrent MirrorMaker processes. To distribute replication load evenly, we recommend a value of at least `2`. For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/#configuration-file-syntax).
 
    You can get the {{ mkf-name }} broker FQDNs with the [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
 

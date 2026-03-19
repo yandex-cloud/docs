@@ -152,7 +152,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
   1. Click the line with the new secret (`tracker-oauth-token`) and do the following in the window that opens:
 
       1. Copy and save the **{{ ui-key.yacloud.lockbox.label_secret-id }}** field value. You will need it later when creating the workflow specification.
-      1. Go to the ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Go to the ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. In the search bar, enter the name of the service account created earlier (`workflow-sa`) and select the service account you found.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer).
       1. Click **{{ ui-key.yacloud.common.save }}**.

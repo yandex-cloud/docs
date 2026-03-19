@@ -6,8 +6,8 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. If using security groups, configure them to allow internet access to your clusters:
 
-    * [Guide for {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups)
+    * [Guide for {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups)
     * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 
@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. For {{ data-transfer-name }} to receive data change notifications from a {{ mpg-name }} cluster, you must create a publication on the source cluster. [Assign](../../managed-postgresql/operations/grant.md) `pg-user` the `mdb_replication` role to allow publication creation.
 
-1. [Connect](../../managed-postgresql/operations/connect.md) to the `db1` database as `pg-user`.
+1. [Connect](../../managed-postgresql/operations/connect/index.md) to the `db1` database as `pg-user`.
 
 1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
@@ -109,7 +109,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 {% endlist %}
 
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create endpoints](../../data-transfer/operations/endpoint/index.md#create).
 
@@ -149,7 +149,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. In a separate terminal, run `kafkacat` in consumer mode:
 

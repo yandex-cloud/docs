@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mos-full-name }}'
-description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mos-name }}.
+description: This page lists the {{ TF }} provider resources and data sources supported by {{ mos-name }}.
 ---
 
 # {{ TF }} reference for {{ mos-full-name }}
@@ -14,6 +14,7 @@ description: This page gives information about the {{ TF }} provider resources a
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_mdb_opensearch_cluster]({{ tf-provider-resources-link }}/mdb_opensearch_cluster) | [Cluster](./concepts/index.md) |
+| [yandex_mdb_opensearch_cluster_iam_binding]({{ tf-provider-resources-link }}/mdb_opensearch_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
 
 ## Data sources {#data-sources}
 

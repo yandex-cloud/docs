@@ -31,7 +31,7 @@ To get started with {{ cloud-shell-name }}:
 
     {% endnote %}
    
-1. Install the required applications using the `apt` tool. For example, to install `postgresql-client` for [connecting to a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/connect.md), run this command:
+1. Install the required applications using the `apt` tool. For example, to install `postgresql-client` for [connecting to a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/connect/index.md), run this command:
 
     ```bash
     sudo apt update && sudo apt install --yes postgresql-client

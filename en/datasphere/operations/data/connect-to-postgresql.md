@@ -5,7 +5,7 @@
 ## Getting started {#before-begin}
 
 1. [Create](../../../managed-postgresql/operations/cluster-create.md) a new {{ mpg-short-name }} cluster with public host access. You can also use an existing cluster with publicly accessible hosts.
-1. [Configure](../../../managed-postgresql/operations/connect.md#configuring-security-groups) cluster security groups.
+1. [Configure](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) cluster security groups.
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Connecting to a host {#connect-to-host}
@@ -58,7 +58,7 @@
 
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** hosting the deployed {{ mpg-short-name }} cluster.
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** with the `managed-postgresql.editor` [role](../../../managed-postgresql/security/index.md#required-roles) or higher.
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** where the database host resides. The subnet must be in the same [availability zone](../../../overview/concepts/geo-scope.md) as the community you created.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** where the database host resides. The subnet must be in the same [availability zone](../../../overview/concepts/geo-scope.md) where you created the community.
 
        {% note info %}
 

@@ -4,8 +4,8 @@
 You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+            * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
     - {{ TF }} {#tf}
 
@@ -78,15 +78,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install these tools:
+1. Install the following tools:
 
-    * [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+    * [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     * [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
@@ -95,9 +95,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your test data {#prepare-data}
 
-Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
+Suppose the {{ KF }} `sensors` topic in the source cluster receives JSON-formatted data from car sensors.
 
-Create a local `sample.json` file with the following test data:
+On your local machine, create a `sample.json` file with the following test data:
 
 {% cut "sample.json" %}
 
@@ -139,7 +139,7 @@ Create a local `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
 
@@ -231,7 +231,7 @@ Create a local `sample.json` file with the following test data:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure data from the {{ mkf-name }} source cluster topic is being transferred to the {{ mpg-name }} database:
 
@@ -253,7 +253,7 @@ Make sure data from the {{ mkf-name }} source cluster topic is being transferred
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been transferred to the {{ mpg-name }} database:
 
-    1. [Connect to the {{ mpg-name }} database](../../../managed-postgresql/operations/connect.md).
+    1. [Connect to the {{ mpg-name }} database](../../../managed-postgresql/operations/connect/index.md).
     1. Check that the `sensors` table contains the data that was sent:
 
         ```sql
@@ -264,7 +264,7 @@ Make sure data from the {{ mkf-name }} source cluster topic is being transferred
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
@@ -272,7 +272,7 @@ To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

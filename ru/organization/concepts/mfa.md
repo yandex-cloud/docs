@@ -3,7 +3,7 @@ title: Многофакторная аутентификация (MFA) в {{ org
 description: Для федеративных и локальных пользователей в {{ org-full-name }} вы можете настроить MFA — многофакторную аутентификацию, позволяющую повысить уровень защищенности учетных записей таких пользователей.
 ---
 
-# Многофакторная аутентификация в {{ org-name }}
+# Многофакторная аутентификация в {{ org-full-name }}
 
 {{ org-full-name }} позволяет настроить [многофакторную аутентификацию](https://ru.wikipedia.org/wiki/Многофакторная_аутентификация) (MFA) для [федеративных](../../iam/concepts/users/accounts.md#saml-federation) и [локальных](../../iam/concepts/users/accounts.md#local) пользовательских аккаунтов.
 
@@ -21,7 +21,7 @@ MFA дает возможность повысить степень защище
 
     {% include [mfa-create-policy-step6-ss1](../../_includes/organization/mfa-create-policy-step6-ss1.md) %}
 
-[Создать](../operations/mfa/create-policy.md) политику MFA можно в интерфейсе [{{ org-name }}]({{ link-org-cloud-center }}) в {{ cloud-center }}.
+[Создать](../operations/mfa/create-policy.md) политику MFA можно в интерфейсе [{{ org-full-name }}]({{ link-org-cloud-center }}) в {{ cloud-center }}.
 
 Чтобы политика MFA применялась к определенным учетным записям пользователей, в целевые группы политики требуется [явно добавить](../operations/mfa/add-users.md) нужных пользователей или [группы](./groups.md), в которые входят эти пользователи.
 

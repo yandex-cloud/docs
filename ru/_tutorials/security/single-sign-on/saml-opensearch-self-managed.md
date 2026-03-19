@@ -2,7 +2,7 @@
 
 [{{ OS }}](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. {{ OS }} включает в себя пользовательский интерфейс визуализации данных [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/). 
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ OS }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }}, настройте его на стороне {{ org-name }} и на стороне {{ OS }}.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ OS }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }}, настройте его на стороне {{ org-full-name }} и на стороне {{ OS }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -36,7 +36,7 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию {{ OS }} с созданным SAML-приложением в {{ org-name }}, выполните настройки на стороне кластера {{ OS }} и на стороне {{ org-name }}.
+Чтобы настроить интеграцию {{ OS }} с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне кластера {{ OS }} и на стороне {{ org-full-name }}.
 
 1. Получите метаданные для [созданного ранее приложения](#create-app):
 
@@ -123,7 +123,7 @@
       
         {% endnote %}
 
-    1. Чтобы сопоставить группы пользователей {{ org-full-name }} с внутренними ролями {{ OS }} при SAML-аутентификации, отредактируйте файл `roles_mapping.yml` плагина **{{ OS }} Security Plugin**. Добавьте требуемые [группы](../../../organization/concepts/groups.md) из {{ org-name }} в секцию `backend_roles` соответствующих ролей в {{ OS }}, как показано ниже.
+    1. Чтобы сопоставить группы пользователей {{ org-full-name }} с внутренними ролями {{ OS }} при SAML-аутентификации, отредактируйте файл `roles_mapping.yml` плагина **{{ OS }} Security Plugin**. Добавьте требуемые [группы](../../../organization/concepts/groups.md) из {{ org-full-name }} в секцию `backend_roles` соответствующих ролей в {{ OS }}, как показано ниже.
 
         ```yaml
         # ...
@@ -134,8 +134,8 @@
           reserved: false
           backend_roles:
             - "admin"
-            - "opensearch-users" # группа созданная в {{ org-name }} 
-          description: "Allow full access for opensearch-users group from {{ org-name }}"
+            - "opensearch-users" # группа созданная в {{ org-full-name }} 
+          description: "Allow full access for opensearch-users group from {{ org-full-name }}"
   
         # ... 
         ```
@@ -155,7 +155,7 @@
             1. Кликните на название необходимой роли (например, `all_access`).
             1. Перейдите на вкладку **Mapped users**.
             1. Нажмите кнопку **Manage mapping**.
-            1. В поле **Backend roles** укажите [группу пользователей](../../../organization/concepts/groups.md) {{ org-name }}, которую требуется сопоставить с ролью {{ OS }}, например `opensearch-users`.
+            1. В поле **Backend roles** укажите [группу пользователей](../../../organization/concepts/groups.md) {{ org-full-name }}, которую требуется сопоставить с ролью {{ OS }}, например `opensearch-users`.
             1. Нажмите кнопку **Map**.
 
         {% endcut %}
@@ -233,7 +233,7 @@
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в {{ OS }} Dashboards с помощью SAML‑приложения {{ org-name }}, необходимо явно добавить в это приложение пользователей и группы.
+Чтобы пользователи вашей организации могли аутентифицироваться в {{ OS }} Dashboards с помощью SAML‑приложения {{ org-full-name }}, необходимо явно добавить в это приложение пользователей и группы.
 
 {% note info %}
 

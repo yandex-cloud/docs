@@ -61,8 +61,8 @@ Gwin — инструмент для управления балансировщ
 
       1. [Настройте](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md) поддержку федерации сервисных аккаунтов в кластере и группе узлов.
       1. [Создайте](../../../iam/operations/wlif/setup-wlif.md#create-wlif) федерацию сервисных аккаунтов:
-          * В качестве **{{ ui-key.yacloud.iam.federations.field_issuer }}** и **{{ ui-key.yacloud.iam.federations.field_audiences }}** используйте значение **{{ ui-key.yacloud.k8s.cluster.overview.label_ident-and-access-management-issuer }}**, полученное при настройке кластера.
-          * В качестве **{{ ui-key.yacloud.iam.federations.field_jwks }}** используйте значение **{{ ui-key.yacloud.k8s.cluster.overview.label_ident-and-access-management-jwks-uri }}**, полученное при настройке кластера.
+          * В качестве **{{ ui-key.yacloud.iam.federations.field_issuer }}** и **{{ ui-key.yacloud.iam.federations.field_audiences }}** используйте значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}**, полученное при настройке кластера.
+          * В качестве **{{ ui-key.yacloud.iam.federations.field_jwks }}** используйте значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**, полученное при настройке кластера.
       1. [Привяжите](../../../iam/operations/wlif/setup-wlif.md#create-federated-credential) сервисный аккаунт {{ iam-short-name }} к федерации.
 
           В качестве идентификатора внешнего субъекта используйте следующее значение:

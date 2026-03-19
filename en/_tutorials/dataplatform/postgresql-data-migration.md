@@ -308,7 +308,7 @@ To complete synchronization between the source cluster and the target cluster:
 
 ### Delete the resources you created {#clear-out-logical}
 
-To avoid paying for the resources you no longer need, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
@@ -380,7 +380,7 @@ Create the required resources:
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select either `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or a reserverd IP address from the list.
 
     
-    1. If you use security groups for the staging VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect.md#configure-security-groups).
+    1. If you use security groups for the staging VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect/index.md#configure-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -525,7 +525,7 @@ Verify that the errors only affect extensions and check the integrity of the res
 
 ### Delete the resources you created {#clear-out-backup}
 
-To avoid paying for the resources you no longer need, delete them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

@@ -27,7 +27,7 @@ Furthermore, {{ mpg-short-name }} ensures data replication across database hosts
 
 #### When to use {{ mpg-short-name }} and when database VMs? {#mdb-advantage}
 
-{{ yandex-cloud }} offers two ways to work with databases:
+{{ yandex-cloud }} offers two approaches for working with databases:
 * With {{ mpg-short-name }}, you can use template databases, with no administrative effort required.
 * Alternatively, with {{ compute-full-name }} virtual machines, you can create and customize your own databases. This approach allows you to use any database management system, connect to databases over SSH, and many more.
 
@@ -72,13 +72,13 @@ For more information, see [{#T}](../../managed-postgresql/concepts/limits.md).
 
 #### How can I access a running database host? {#db-access}
 
-You can connect to {{ mpg-short-name }} databases using conventional DBMS methods.
+You can connect to {{ mpg-short-name }} databases using native DBMS connection methods.
 
-Learn more about connecting to clusters in [this guide](../../managed-postgresql/operations/connect.md).
+Learn more about connecting to clusters in [this guide](../../managed-postgresql/operations/connect/index.md).
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-To learn about MDB quotas and limits, see  [{#T}](../../managed-postgresql/concepts/limits.md).
+To learn about MDB quotas and limits, see [{#T}](../../managed-postgresql/concepts/limits.md).
 
 #### How are database clusters maintained? {#service-window}
 
@@ -180,7 +180,7 @@ Yes, you can both copy data from a table to a local file and import data from a 
 
 {{ mpg-name }} clusters support all [VACUUM command](https://www.postgresql.org/docs/current/sql-vacuum.html) options. However, please note the following when using them:
 
-* To run `VACUUM FULL`, the user must have the [`mdb_admin`](../../managed-postgresql/concepts/roles#mdb-admin) role. The VACUUM FULL operation does not affect system tables.
+* To run `VACUUM FULL`, the user must have the [`mdb_admin`](../../managed-postgresql/concepts/roles.md#mdb-admin) role. The VACUUM FULL operation does not affect system tables.
 * In {{ PG }} version 14, the `INDEX_CLEANUP` parameter functionality has been enhanced: it now has the `AUTO` value by default. This means the `VACUUM` command skips index cleaning if it considers it unnecessary. For backward compatibility with older {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.
 
 #### Why is my cluster slow even though the computing resources are not fully utilized? {#throttling}

@@ -8,4 +8,5 @@ description: This page describes the Columns in JOIN have different types {{ dat
 `ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH`
 
 The columns specified in the join have different data types.
-For each join condition, you have to select columns with the same types.
+
+To fix the error, in each relationship condition, specify columns that have the same data types.

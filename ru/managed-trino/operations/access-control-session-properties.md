@@ -185,6 +185,84 @@ description: Правила определяют, могут ли пользов
  
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      ```json
+      {
+        <Параметры_кластера>
+        ...
+        "trino": {
+          "accessControl": {
+            "systemSessionProperties": [
+              {
+                "allow": "<право_установить_свойство>",
+                "property": {
+                  "names": {
+                    "any": [
+                      "<список_имен_свойств>"
+                    ]
+                  },
+                  "nameRegexp": "<регулярное_выражение>"
+                },
+                "users": [
+                  "<список_идентификаторов_пользователей>"
+                ],
+                "groups": [
+                  "<список_идентификаторов_групп>"
+                ],
+                "description": "<описание_правила>"
+              },
+              {
+                <Блок_правила_2>
+              },
+              ...
+              {
+                <Блок_правила_N>
+              }
+            ]
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `accessControl` — конфигурация прав доступа в рамках кластера.
+
+      * `systemSessionProperties` — список блоков правил для системных свойств сессии. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `property`, `groups`, `users` и `description`.
+
+      * `allow` — право установить свойство:
+        * `YES` — пользователю разрешено установить свойство.
+        * `NO` — пользователю запрещено установить свойство.
+
+      * `property` — свойства, на которые распространяется правило. Если блок `property` не указан, правило распространяется на все свойства.
+        * `names` — список имен свойств.
+        * `nameRegexp` — регулярное выражение. Правило распространяется на свойства, имена которых соответствуют регулярному выражению.
+
+        Блок `property` должен содержать либо вложенный блок `names`, либо параметр `nameRegexp`.
+
+      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
+
+      Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
+
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+          --data '@body.json'
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
 - gRPC API {#grpc-api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -447,6 +525,97 @@ description: Правила определяют, могут ли пользов
  
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Если правила доступа еще не заданы, создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      ```json
+      {
+        "updateMask": "trino.accessControl.systemSessionProperties",
+        "trino": {
+          "accessControl": {
+            "systemSessionProperties": [
+              {
+                "allow": "<право_установить_свойство>",
+                "property": {
+                  "names": {
+                    "any": [
+                      "<список_имен_свойств>"
+                    ]
+                  },
+                  "nameRegexp": "<регулярное_выражение>"
+                },
+                "users": [
+                  "<список_идентификаторов_пользователей>"
+                ],
+                "groups": [
+                  "<список_идентификаторов_групп>"
+                ],
+                "description": "<описание_правила>"
+              },
+              {
+                <Блок_правила_2>
+              },
+              ...
+              {
+                <Блок_правила_N>
+              }
+            ]
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в строку через запятую.
+
+          {% note warning %}
+
+          При изменении кластера все параметры изменяемого объекта, которые не были явно переданы в запросе, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask`.
+
+          {% endnote %}
+
+      * `accessControl` — конфигурация прав доступа в рамках кластера.
+
+      * `systemSessionProperties` — список блоков правил для системных свойств сессии. Каждое правило включает в себя обязательный параметр `allow`, а также опциональные параметры: `property`, `groups`, `users` и `description`.
+
+      * `allow` — право установить свойство:
+        * `YES` — пользователю разрешено установить свойство.
+        * `NO` — пользователю запрещено установить свойство.
+
+      * `property` — свойства, на которые распространяется правило. Если блок `property` не указан, правило распространяется на все свойства.
+        * `names` — список имен свойств.
+        * `nameRegexp` — регулярное выражение. Правило распространяется на свойства, имена которых соответствуют регулярному выражению.
+
+        Блок `property` должен содержать либо вложенный блок `names`, либо параметр `nameRegexp`.
+
+      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
+
+  1. Если правила уже заданы, откройте существующий файл `body.json` с правилами и внесите в него правки. Вы можете:
+
+     * добавить новые правила;
+     * изменить параметры существующих правил;
+     * удалить ненужные правила.
+
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --data '@body.json'
+      ```
+
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
 - gRPC API {#grpc-api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -617,6 +786,37 @@ description: Правила определяют, могут ли пользов
       }
     ]
     ...
+  }
+  ```
+
+- REST API {#api}
+
+  Файл `body.json` для такого набора правил выглядит так:
+
+  ```json
+  {
+    "updateMask": "trino.accessControl.systemSessionProperties",
+    "trino": {
+      "accessControl": {
+        "systemSessionProperties": [
+          {
+            "groups": [
+              "admins_group_id"
+            ],
+            "allow": "YES"
+          },
+          {
+            "groups": [
+              "data_engineers_group_id"
+            ],
+            "property": {
+              "nameRegexp": "query_.*"
+            },
+            "allow": "YES"
+          }
+        ]
+      }
+    }
   }
   ```
 

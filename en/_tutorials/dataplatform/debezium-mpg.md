@@ -33,7 +33,7 @@ The support cost for this solution includes:
 1. If you use security groups, configure them to allow connections to the clusters from the internet and from the VM you created, and to allow SSH access to that VM from the internet:
 
     * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-    * [Configuring {{ mpg-name }} cluster security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+    * [Configuring {{ mpg-name }} cluster security groups](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
 1. [Connect to your VM over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and complete its initial setup:
@@ -45,7 +45,7 @@ The support cost for this solution includes:
             sudo apt install kafkacat openjdk-17-jre postgresql-client --yes
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     1. Create a directory for {{ KF }}:
 
@@ -60,12 +60,12 @@ The support cost for this solution includes:
         sudo tar xf kafka_2.13-3.0.0.tgz --strip 1 --directory /opt/kafka/
         ```
 
-        You can check the current {{ KF }} version on the [project’s download page](https://kafka.apache.org/downloads).
+        You can check the current {{ KF }} version on the [project’s download page](https://kafka.apache.org/community/downloads/).
 
     1. Install certificates on the VM and make sure you can access the clusters:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (use `kafkacat`).
-        * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#get-ssl-cert) (use `psql`).
+        * [{{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#get-ssl-cert) (use `psql`).
 
     1. Create a directory to store the files required for the Debezium connector:
 
@@ -90,7 +90,7 @@ The support cost for this solution includes:
 
     This is necessary to create a publication for Debezium to monitor changes in a {{ mpg-name }} cluster.
 
-1. [Connect](../../managed-postgresql/operations/connect.md) to the `db1` database as `user1`.
+1. [Connect](../../managed-postgresql/operations/connect/index.md) to the `db1` database as `user1`.
 
 1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
@@ -162,9 +162,9 @@ The support cost for this solution includes:
     Where:
 
     * `name`: Logical name of the Debezium connector. It is used for the connector’s internal needs.
-    * `database.hostname`: [Special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) for connection to the source cluster's master host.
+    * `database.hostname`: [Special FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) for connection to the source cluster's master host.
 
-        You can get the cluster ID from the [list of clusters in your folder](../../managed-postgresql/operations/cluster-list.md#list).
+        You can get the cluster ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list).
 
     * `database.user`: {{ PG }} username.
     * `database.dbname`: {{ PG }} database name.
@@ -175,7 +175,7 @@ The support cost for this solution includes:
     * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: Heartbeat settings [required for](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
     * `snapshot.mode`: [Type of snapshot created](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) at connector startup. For the connector to run properly, set this parameter to `always`.
 
-## Set up the target cluster {#prepare-target}
+## Prepare the target cluster {#prepare-target}
 
 1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) to store data from the source cluster:
 
@@ -311,7 +311,7 @@ The support cost for this solution includes:
 
     {% endcut %}
 
-1. [Connect to the source cluster](../../managed-postgresql/operations/connect.md).
+1. [Connect to the source cluster](../../managed-postgresql/operations/connect/index.md).
 
     When connecting, you may get this error: `ERROR Postgres roles LOGIN and REPLICATION are not assigned to user`. You can ignore it, as it does not affect Debezium performance.
 

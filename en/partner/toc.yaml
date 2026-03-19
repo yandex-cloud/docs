@@ -34,6 +34,8 @@ items:
             href: operations/access/partners-account.md
           - name: Viewing usage details for subaccounts
             href: operations/get-client-stat.md
+          - name: Exporting extended usage details
+            href: operations/get-partner-report.md
           - name: Suspending services to customers
             href: operations/stop-client-services.md
           - name: Linking a cloud to a subaccount

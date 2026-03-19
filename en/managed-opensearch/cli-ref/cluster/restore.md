@@ -87,7 +87,9 @@ Possible property names:
 
 - `search-max-buckets`: The maximum number of aggregation buckets allowed in a single response. Default is 65535
 
-- `reindex-remote-whitelist`: Allowed remote hosts ||
+- `reindex-remote-whitelist`: Allowed remote hosts
+
+- `http-max-initial-line-length`: Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**. ||
 || `--keystore-settings` | `key=value[,key=value...]`
 
 A comma-separated list of keystore settings given as key=value pairs. ||

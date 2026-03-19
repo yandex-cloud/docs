@@ -19,7 +19,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
         
         1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the `mdb_replication` role](../../../../managed-postgresql/operations/grant.md#grant-role) to this user.
         
-        1. [Connect to the database](../../../../managed-postgresql/operations/connect.md) you want to migrate as the database owner and [configure privileges](../../../../managed-postgresql/operations/grant.md#grant-privilege):
+        1. [Connect to the database](../../../../managed-postgresql/operations/connect/index.md) you want to migrate as the database owner and [configure privileges](../../../../managed-postgresql/operations/grant.md#grant-privilege):
 
             * Grant the `SELECT` privilege for all the database tables within the transfer:
 

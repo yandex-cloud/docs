@@ -82,6 +82,8 @@ Aliases:
 
   - [yc managed-mysql database list](database/list.md) — List MySQL databases
 
+  - [yc managed-mysql database update](database/update.md) — Update the specified MySQL database
+
 - [yc managed-mysql hosts](hosts/index.md) — Manage MySQL cluster hosts
 
   - [yc managed-mysql hosts add](hosts/add.md) — Create new hosts for the cluster in the specified availability zones

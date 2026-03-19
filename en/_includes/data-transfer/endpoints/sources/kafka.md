@@ -12,7 +12,7 @@
     
     1. [Configure access to the source cluster from {{ yandex-cloud }}](../../../../data-transfer/concepts/network.md#source-external).
     
-    1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the topic you need.
+    1. [Configure user access rights](https://kafka.apache.org/42/security/authorization-and-acls/#examples) to the topic you need.
     
     1. Grant the `READ` permissions to the consumer group whose ID matches the transfer ID.
     
@@ -25,6 +25,6 @@
           --group <transfer_ID>
         ```
     
-    1. Optionally, to log in with a username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
+    1. Optionally, to log in with a username and password, [configure SASL authentication](https://kafka.apache.org/42/security/authentication-using-sasl/).
 
 {% endlist %}

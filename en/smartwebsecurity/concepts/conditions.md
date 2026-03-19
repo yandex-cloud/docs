@@ -34,7 +34,7 @@ You can set the following rule [conditions](rules.md):
 * `1.2.0.0-1.2.1.1`
 * `ru`
 * `kz`
-* 12345
+* `12345`
 | _or_ ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` |
 * Matches
@@ -49,7 +49,7 @@ and `value` is a specific header value, value prefix,
 or [regular expression](https://en.wikipedia.org/wiki/Regular_expression) of the
 [PIRE](https://github.com/yandex/pire)
 |
-* `User-Agent: curl/7.55.1`
+`User-Agent: curl/7.55.1`
 | _and_ ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` |
 * Matches
@@ -62,7 +62,7 @@ or [regular expression](https://en.wikipedia.org/wiki/Regular_expression) of the
 Request path, initial part of the request path, or regular
 expression of the PIRE library
 |
-* `/`
+`/`
 | _N/A_ ||
 || `Query Match` |
 * Matches
@@ -93,7 +93,7 @@ the `authority` pseudoheader for HTTP/2 used to
 select a virtual host, value prefix, or 
 regular expression of the PIRE library
 |
-* `example.com`
+`example.com`
 | _or_ ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` |
 * Matches
@@ -124,7 +124,7 @@ or regular expression of the PIRE library
 and `value` is a specific cookie value, value prefix, 
 or regular expression of the PIRE library
 |
-* `csrftoken=u32t4o3tb`
+`csrftoken=u32t4o3tb`
 | _and_ ||
 
 || `{{ ui-key.yacloud.component.condition-column.condition_name-body }}` |
@@ -138,22 +138,24 @@ or regular expression of the PIRE library
 String in the HTTP packet body or 
 regular expression of the PIRE library
 |
-* `<br><input type='submit'>`
+`<br><input type='submit'>`
 | _or_ ||
 || `Bot name` |
 * Belongs to the list
 * Does not belong to the list
 |
-List of legitimate bots of various companies and services
+List of names of legitimate bots owned by various companies and services
 |
-* `YandexBot`, `SEMrushBot`
+* `YandexBot`
+* `SEMrushBot`
 | _or_ ||
 || `Bot category` |
 * Belongs to the list
 * Does not belong to the list
 | List of bots of a certain category
 |
-`AccessibilityBot`, `SearchEngineCrawlerBot`
+* `AccessibilityBot`
+* `SearchEngineCrawlerBot`
 | _or_ ||
 || `Verified bot` |
 * Yes
@@ -161,11 +163,27 @@ List of legitimate bots of various companies and services
 | Whether this bot is verified and approved
 | | ||
 || `Bot score` | |
-When analyzing traffic, the system assigns it a score from `0` to `100`. You can filter traffic by specifying a score value or a range of values using the following operators: `>=`, `<=`, `=`, and `!=`.
+When analyzing traffic, the system assigns the client a score from `0` to `100`. You can filter traffic by specifying a score value or a range of values using the following operators: `>=`, `<=`, `=`, and `!=`.
 Score ranges: `up to 20`: human; `20–40`: likely human; `40–60`: undetermined; `60–80`: likely bot; `over 80`: bot.
 |
-`=10`, `>=20, and <=40`
+* `=10`
+* `>=20`
+* `<=40`
 | _and_ ||
+|| `FingerPrint` |
+* Matches
+* Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Does not match regular expression
+|
+SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) [fingerprint](botes.md#fingerprint). Generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters
+|
+* `6734f37431670b3ab4292b8f60f29984` (JA3 fingerprint TrickBot)
+* `4d7a28d6f2263ed61de88ca66eb011e3` (JA3 fingerprint Emotet)
+* `t13d3812h2_8a4b5c6d_7e8f9a0b` (JA4)
+| _or_ ||
 |#
 
 ## Regular expression format {#regular-expressions}

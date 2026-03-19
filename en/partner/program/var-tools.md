@@ -5,7 +5,6 @@ description: Read this article to learn everything you need about the partner pr
 
 # Partner program tools
 
-
 The partner program participants have access to the following tools:
 
 * [Deal registration](#deal-reg)
@@ -103,23 +102,52 @@ You can also register a deal if you have entered into a contract or agreement wi
 You can register a deal as part of a scheduled procurement just like a [regular deal](../operations/deal-registration.md). When filling out your application, put `Yes` in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data**.
 
 
-
 ## Project registration {#project-reg}
 
-Project registration is used to link a new project in the existing {{ yandex-cloud }} customer's account to you, through which the customer increases their consumption of services. In this case, you will be working in the account of a direct customer who has signed an agreement directly with {{ yandex-cloud }}. For registering a project, you will get up to 15% of the customer's consumption growth in the registered cloud or folder in the form of a [rebate](../terms.md#rebate) credited within 12 months.
+Project registration is used to link a new project in the existing {{ yandex-cloud }} customer's account to you, through which the customer increases their consumption of services. In this case, you will be working in the account of a direct customer who has signed an agreement directly with {{ yandex-cloud }}. For registering a project, you will get up to 15% of the customer's consumption growth in the registered catalog or out-of-catalog service as a [rebate](../terms.md#rebate) credited quarterly within 12 months from the application date.
 
-Project registration conditions:
 
-* Project target consumption starts from ₽30,000 per month. You can link projects with any target consumption, but rebates are only paid for projects with a minimum monthly consumption of ₽30,000.
-* You are registering a project in the existing {{ yandex-cloud }} customer account.
-* Customer's cloud or folder shows zero consumption at the time of application submission.
+### Project registration conditions for the Russia region {#project-reg-conditions}
 
+
+
+{% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
+
+
+{% list tabs group=pricing %}
+
+- Cost in RUB {#prices-rub}
+
+  * Project target consumption starts from ₽30,000 per month.
+  * Target consumption must be achieved in the first target period, i.e., the last 30 days of the 90-day period from the application date. If the consumption is not reached, the application is canceled and no rebate is paid. The partner can register the project anew according to the standard registration rules.
+  * Partner has submitted a copy of the customer agreement and/or other documents as evidence for the project no later than 60 days from the application date.
+  * Project is registered within a direct {{ yandex-cloud }} customer account, not a subaccount of another partner.
+  * Catalogs or out-of-catalog services you are registering are currently not registered as part of any project associated with this or other partners.
 
   {% note info %}
   
   For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_partnership_project_protect/).
   
   {% endnote %}
+
+- Cost in KZT {#prices-kzt}
+
+  * Project target consumption starts from ₸150,000 per month.
+  * Target consumption must be achieved in the first target period, i.e., the last 30 days of the 90-day period from the application date. If the consumption is not reached, the application is canceled and no rebate is paid. The partner can register the project anew according to the standard registration rules.
+  * Partner has submitted a copy of the customer agreement and/or other documents as evidence for the project no later than 60 days from the application date.
+  * Project is registered within a direct {{ yandex-cloud }} customer account, not a subaccount of another partner.
+  * Catalogs or out-of-catalog services you are registering are currently not registered as part of any project associated with this or other partners.
+
+  {% note info %}
+  
+  For the effective conditions, see our [offer](https://yandex.com/legal/cloud_partnership_project_protect_kz/ru/).
+  
+  {% endnote %}
+
+{% endlist %}
+
+
+
 
 For more on how to create a project, see [this guide](../operations/project-registration.md).
 
