@@ -12,6 +12,16 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../../concepts/workflows/workflow.md).
+  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. В строке с нужным рабочим процессом нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. На графической схеме рабочего процесса нажмите на блок **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_trigger-settings-label }}**.
+  1. Задайте расписание в формате [cron-выражения](../../../concepts/cron.md) и выберите часовой пояс.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../../_includes/cli-install.md) %}
@@ -67,6 +77,16 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../../concepts/workflows/workflow.md).
+  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. В строке с нужным рабочим процессом нажмите ![image](../../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. На графической схеме рабочего процесса нажмите на блок **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_trigger-settings-label }}**.
+  1. Удалите расписание.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   1. Посмотрите описание команды CLI для изменения [рабочего процесса](../../../concepts/workflows/workflow.md):
@@ -103,3 +123,8 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [Update](../../../../serverless-integrations/workflows/api-ref/Workflow/update.md) для ресурса [Workflows](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [workflow/Update](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/update.md). В поле `schedule` укажите `null`.
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../../../concepts/workflows/execution.md)
+* [{#T}](get-list.md)

@@ -5,8 +5,6 @@ description: В этом разделе собраны пошаговые инс
 
 # Контроль {{ k8s }}® (KSPM)
 
-{% include [kpsm-requirements](../../../_includes/security-deck/kpsm-requirements.md) %}
-
 * [{#T}](enable-kspm.md).
 * [{#T}](use-kspm.md).
 * [{#T}](view-rules.md).

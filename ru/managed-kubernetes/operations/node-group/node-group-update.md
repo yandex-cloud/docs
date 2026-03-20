@@ -284,7 +284,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Включить доступ к узлам из интернета {#node-internet-access}
+## Назначить узлам публичные IP-адреса {#node-internet-access}
+
+{% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
 
 {% list tabs group=instructions %}
 
@@ -297,7 +299,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите нужную группу узлов.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}** в поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`. Узлам будут назначены случайные публичные IP-адреса из пула адресов {{ yandex-cloud }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.   
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -305,7 +307,8 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Для включения доступа к [узлам {{ managed-k8s-name }}](../../concepts/index.md#node-group) из интернета:
+  Для назначения [узлам {{ managed-k8s-name }}](../../concepts/index.md#node-group) случайных публичных IP-адресов из пула адресов {{ yandex-cloud }}:
+
   1. Получите подробную информацию о команде для изменения группы узлов {{ managed-k8s-name }}:
 
      ```bash
@@ -322,19 +325,53 @@ description: Следуя данной инструкции, вы сможете
 
      Имена и идентификаторы групп узлов {{ managed-k8s-name }} можно получить со [списком групп узлов в каталоге](node-group-list.md#list).
 
+- {{ TF }} {#tf}
+
+  Чтобы назначить узлам случайные публичные IP-адреса из пула адресов {{ yandex-cloud }}:
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+
+     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+
+  1. В описание группы узлов добавьте параметр `instance_template.network_interface.nat` со значением `true`:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+       ...
+       instance_template {
+         ...
+         network_interface {
+           nat = true
+         }
+       }
+     }
+     ```
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md).
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) и передайте в запросе:
+
+  * Значение `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` в параметре `updateMask`.
+
+     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  * Значение `IPV4` в параметре `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion`.
 
 {% endlist %}
-
-Альтернативный способ выдать доступ в интернет узлам кластера {{ managed-k8s-name }} — создать и настроить [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md). В результате с помощью [статической маршрутизации](../../../vpc/concepts/routing.md) трафик будет направлен через шлюз или отдельную ВМ с функциями NAT.
-
-{% note info %}
-
-Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации сервиса {{ vpc-full-name }}](../../../vpc/concepts/routing.md#internet-routes).
-
-{% endnote %}
 
 ## Пересоздать группу узлов с новой taint-политикой {#assign-taint}
 

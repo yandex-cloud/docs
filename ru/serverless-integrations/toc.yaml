@@ -24,6 +24,18 @@ items:
                 href: operations/workflows/workflow/get-list.md
               - name: Получить информацию о рабочем процессе
                 href: operations/workflows/workflow/get-info.md
+          - name: Управление правами доступа к рабочему процессу
+            items:
+              - name: Сделать рабочий процесс публичным
+                href: operations/workflows/workflow/make-public.md
+              - name: Сделать рабочий процесс приватным
+                href: operations/workflows/workflow/make-private.md
+              - name: Посмотреть роли, назначенные на рабочий процесс
+                href: operations/workflows/access-rights/role-list.md
+              - name: Назначить роли на рабочий процесс
+                href: operations/workflows/access-rights/role-add.md
+              - name: Отозвать роли, назначенные на рабочий процесс
+                href: operations/workflows/access-rights/role-revoke.md
           - name: Управление рабочим процессом
             items:
               - name: Создать рабочий процесс
@@ -129,21 +141,17 @@ items:
           - name: Управление запуском рабочего процесса
             items:
               - name: Запустить рабочий процесс
-                href: operations/workflows/execution/start.md
-              - name: Запустить рабочий процесс по таймеру
-                href: operations/workflows/execution/start-by-timer.md
+                items:
+                  - name: С помощью консоли управления, CLI и API
+                    href: operations/workflows/execution/start.md
+                  - name: По таймеру
+                    href: operations/workflows/execution/start-by-timer.md
+                  - name: По ссылке
+                    href: operations/workflows/execution/start-by-link.md
               - name: Остановить запуск рабочего процесса
                 href: operations/workflows/execution/stop.md
               - name: Прекратить запуск рабочего процесса
                 href: operations/workflows/execution/terminate.md
-          - name: Управление правами доступа к рабочим процессам
-            items:
-              - name: Посмотреть роли, назначенные на рабочий процесс
-                href: operations/workflows/access-rights/role-list.md
-              - name: Назначить роли на рабочий процесс
-                href: operations/workflows/access-rights/role-add.md
-              - name: Отозвать роли, назначенные на рабочий процесс
-                href: operations/workflows/access-rights/role-revoke.md
       - name: '{{ er-name }}'
         items:
           - name: Получение информации о шине

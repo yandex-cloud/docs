@@ -368,8 +368,6 @@ items:
                   Health checking applications in a {{ managed-k8s-name }}
                   cluster via an L7 {{ alb-name }}
                 href: tutorials/custom-health-checks.md
-              - name: Using Jaeger to trace queries in {{ ydb-name }}
-                href: tutorials/jaeger-over-ydb.md
               - name: Setting up Kyverno & Kyverno Policies
                 href: tutorials/kyverno.md
               - name: Using {{ MP }} to deliver metrics

@@ -75,12 +75,8 @@ items:
             href: operations/applications/upgrade-alb-ingress-controller.md
           - name: Установка Istio
             href: operations/applications/istio.md
-          - name: Установка Jaeger
-            href: operations/applications/jaeger.md
           - name: Установка KEDA
             href: operations/applications/keda.md
-          - name: Установка Kruise
-            href: operations/applications/kruise.md
           - name: Установка Kubernetes Node Remediation
             href: operations/applications/kubernetes-node-remediation.md
           - name: Установка Kyverno & Kyverno Policies
@@ -91,18 +87,12 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Установка NodeLocal DNS
             href: operations/applications/node-local-dns.md
-          - name: Установка OIDC Аутентификация
-            href: operations/applications/oidc.md
-          - name: Установка Policy Reporter
-            href: operations/applications/policy-reporter.md
           - name: Установка Prometheus Operator
             href: operations/applications/prometheus-operator.md
           - name: Установка Thumbor
             href: operations/applications/thumbor.md
           - name: Установка Velero
             href: operations/applications/velero-yc-csi.md
-          - name: Установка VictoriaLogs
-            href: operations/applications/victoria-logs.md
       - name: Сетевые сценарии
         items:
           - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
@@ -326,8 +316,6 @@ items:
               Проверка состояния приложений в кластере {{ managed-k8s-name }} с
               помощью L7-балансировщика {{ alb-name }}
             href: tutorials/custom-health-checks.md
-          - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
-            href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Настройка Kyverno & Kyverno Policies
             href: tutorials/marketplace/kyverno.md
           - name: Использование {{ MP }} для трансляции метрик

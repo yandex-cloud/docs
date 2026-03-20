@@ -697,8 +697,6 @@ items:
                   Health checking your applications in a {{ managed-k8s-name }}
                   cluster with an {{ alb-name }} ingress controller
                 href: container-infrastructure/custom-health-checks.md
-              - name: Using Jaeger to trace queries in {{ ydb-name }}
-                href: container-infrastructure/jaeger-over-ydb.md
               - name: Setting up Kyverno &amp; Kyverno Policies
                 href: container-infrastructure/kyverno.md
               - name: Using {{ MP }} to deliver metrics

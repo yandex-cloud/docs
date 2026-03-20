@@ -47,19 +47,15 @@
 1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Нажмите кнопку **Создать кластер**.
 1. Укажите настройки кластера {{ CH }}:
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** укажите имя БД, имя пользователя и пароль.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
       * Введите имя кластера.
       * Выберите созданный ранее сервисный аккаунт.
-    1. В блоке **База данных** укажите имя БД, имя пользователя и пароль.
-    1. В блоке **Хосты** нажмите значок ![pencil](../../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите значок ![pencil](../../_assets/pencil.svg). Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
-
-    1. В блоке **Дополнительные настройки** включите опции:
-      * Доступ из {{ data-transfer-short-name }}.
-      * Доступ из консоли управления.
     1. Задайте остальные параметры кластера по [инструкции](../../managed-clickhouse/operations/cluster-create.md).
-1. Нажмите кнопку **Создать кластер**.
+1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 Дождитесь запуска кластера. Когда кластер будет готов к использованию, его состояние изменится на `Alive`.
 
@@ -67,8 +63,8 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать поток данных.
 1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-1. Нажмите кнопку **Создать поток**.
-1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Обновить** для обновления списка баз.
+1. Нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
+1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) для обновления списка баз.
 1. Введите имя потока данных.
 1. Нажмите кнопку **Создать**.
 
@@ -76,12 +72,12 @@
 
 ## Создайте API-шлюз {#create-api-gw}
 
-1. На странице созданного потока данных нажмите кнопку **Действия** и выберите **API Gateway**.
+1. На странице созданного потока данных нажмите кнопку **{{ ui-key.yacloud.data-streams.button_stream-actions }}** и выберите **{{ ui-key.yacloud.data-streams.label_create-api-gateway }}**.
 1. Введите имя API-шлюза.
-1. В поле **Спецификация** замените значение ключа `service_account_id` идентификатором созданного ранее сервисного аккаунта.
+1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** замените значение ключа `service_account_id` идентификатором созданного ранее сервисного аккаунта.
 
-    Сохраните значения полей **Имя** и **Служебный домен**, они понадобятся на следующих шагах.
-1. Нажмите кнопку **Создать**.
+    Сохраните значения полей **{{ ui-key.yacloud.common.name }}** и ***{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, они понадобятся на следующих шагах.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 Дождитесь запуска API-шлюза. Когда API-шлюз будет готов к использованию, его статус изменится с `CREATING` на `ACTIVE`.
 
@@ -89,25 +85,23 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать трансфер.
 1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-1. Нажмите кнопку **Создать трансфер данных**.
+1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
 1. Введите имя трансфера.
-1. Создайте эндпоинт-источник:
-    1. В строке **Источник** нажмите кнопку **Создать новый**.
+1. [Cоздайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-источник:
     1. Укажите имя эндпоинта.
-    1. В списке **Тип базы данных** выберите `{{ yds-full-name }}`.
+    1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `{{ yds-full-name }}`.
     1. Выберите базу данных для источника.
     1. Введите имя созданного ранее потока данных.
     1. Выберите созданный ранее сервисный аккаунт.
     1. Нажмите кнопку **Создать**.
-1. Создайте эндпоинт-приемник:
-    1. В строке **Приемник** нажмите кнопку **Создать новый**.
+1. [Cоздайте](../../data-transfer/operations/endpoint/index.md#create) эндпоинт-приемник:
     1. Укажите имя эндпоинта.
-    1. В списке **Тип базы данных** выберите `ClickHouse`.
+    1. В списке **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите `ClickHouse`.
     1. Выберите созданный ранее MDB кластер.
     1. Введите имя БД, имя пользователя и пароль созданного ранее кластера.
     1. Нажмите кнопку **Создать**.
 1. Нажмите кнопку **Создать**.
-1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем созданного трансфера и выберите **Активировать**.
+1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем созданного трансфера и выберите **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 Дождитесь активации трансфера. Когда трансфер будет готов к использованию, его статус сменится с {{ dt-status-creation }} на {{ dt-status-repl }}.
 

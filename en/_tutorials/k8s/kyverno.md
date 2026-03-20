@@ -165,10 +165,6 @@ Even though the policies target pods, Kyverno applies them to all resources that
       clusterpolicy.kyverno.io/require-labels created
       ```
 
-
-1. {% include [install policy reporter](../../_includes/managed-kubernetes/install-policy-reporter.md) %}
-
-
 ## Test Kyverno & Kyverno Policies {#check-apps}
 
 * Create the `nginx` pod with no `app.kubernetes.io/name` {{ k8s }} label:

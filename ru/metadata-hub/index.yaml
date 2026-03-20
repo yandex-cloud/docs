@@ -23,34 +23,102 @@ meta:
     - keyword: управление данными в {{ yandex-cloud }}
     - keyword: управление подключением к базе данных
     - keyword: каталог метаданных в {{ yandex-cloud }}
-links:
-  - title: '{{ connection-manager-name }}'
-    description: >-
-      Автоматическое создание и управление параметрами подключений к базам
-      данных.
-    href: concepts/connection-manager
-  - title: '{{ metastore-full-name }}'
-    description: Создание и управление кластерами Apache Hive™ Metastore.
-    href: concepts/metastore
-  - title: '{{ schema-registry-name }}'
-    description: >-
-      Централизованное хранилище для управления и проверки схем данных. Сервис
-      находится на стадии Preview.
-    href: concepts/schema-registry
-  - title: '{{ data-catalog-name }}'
-    description: >-
-      Инструмент для сбора, анализа и разметки метаданных из различных
-      источников. Сервис находится на стадии Preview.
-    href: concepts/data-catalog
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Настройка прав доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: История изменений
-    description: Перечень обновлений сервиса
-    href: release-notes/
+blocks:
+  - type: content-layout-block
+    textContent:
+      title: Yandex MetaData Hub
+      text: >-
+        Сервис Yandex Cloud для управления подключениями к базам данных,
+        хранения схем обмена данными и описания наборов данных, а также систему
+        управления метаданными.
+    size: l
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    background: ''
+    children:
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        icon: _assets/icons/sliders.svg
+        urlTitle: Квоты в Yandex MetaData Hub
+        url: concepts/limits.md
+        centered: true
+        size: s
+      - type: basic-card
+        title: Управление доступом
+        text: Как настроить права доступа для работы с сервисом
+        icon: _assets/icons/lock.svg
+        urlTitle: Управление доступом в Yandex MetaData Hub
+        url: security/index.md
+        centered: true
+        size: s
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг
+        icon: _assets/icons/tag-ruble.svg
+        urlTitle: Правила тарификации для Yandex MetaData Hub
+        url: pricing.md
+        centered: true
+        size: s
+      - type: basic-card
+        title: История изменений
+        text: Обновления и изменения
+        icon: _assets/icons/timeline.svg
+        urlTitle: История изменений Yandex MetaData Hub
+        url: release-notes/index.md
+        centered: true
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    title: Управление метаданными в Yandex Cloud
+    children:
+      - type: basic-card
+        title: Connection Manager
+        text: >-
+          Автоматическое создание и управление параметрами подключений к базам
+          данных.
+        urlTitle: Подключение
+        url: concepts/connection-manager.md
+        size: s
+        icon: _assets/icons/plug-connection.svg
+      - type: basic-card
+        title: Apache Hive™ Metastore
+        text: Создание и управление кластерами Apache Hive™ Metastore.
+        urlTitle: Кластеры Apache Hive™ Metastore
+        url: concepts/metastore.md
+        size: s
+        icon: _assets/icons/database.svg
+      - type: basic-card
+        title: Schema Registry
+        text: >-
+          Централизованное хранилище для управления и проверки схем данных.
+          Сервис находится на стадии Preview.
+        urlTitle: Реестр схем данных
+        url: concepts/schema-registry.md
+        size: s
+        icon: _assets/icons/layout-cells.svg
+      - type: basic-card
+        title: Data Catalog
+        text: >-
+          Инструмент для сбора, анализа и разметки метаданных из различных
+          источников. Сервис находится на стадии Preview.
+        urlTitle: Каталог метаданных
+        url: concepts/data-catalog.md
+        size: s
+        icon: _assets/icons/folder-magnifier.svg
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        Apache® и Apache Hive™ являются зарегистрированными товарными знаками
+        или товарными знаками Apache Software Foundation в США и/или других
+        странах.
+links: []
