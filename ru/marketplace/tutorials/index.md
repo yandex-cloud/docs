@@ -20,7 +20,6 @@ description: Различные сценарии использования пр
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](custom-health-checks.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
-* [{#T}](jaeger-over-ydb.md)
 * [{#T}](kyverno.md)
 * [{#T}](metrics-provider.md)
 * [{#T}](thumbor.md)

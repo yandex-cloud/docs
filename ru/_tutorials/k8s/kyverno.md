@@ -165,10 +165,6 @@
       clusterpolicy.kyverno.io/require-labels created
       ```
 
-
-1. {% include [install policy reporter](../../_includes/managed-kubernetes/install-policy-reporter.md) %}
-
-
 ## Проверьте работу Kyverno & Kyverno Policies {#check-apps}
 
 * Создайте под `nginx` без {{ k8s }}-метки `app.kubernetes.io/name`:

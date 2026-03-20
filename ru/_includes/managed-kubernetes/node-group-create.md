@@ -62,16 +62,10 @@
    * Укажите размер диска узла {{ managed-k8s-name }}.
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить узлам случайные [IP-адреса](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичные IP-адреса.
 
-     {% note info %}
-
-     {% include [nodes-internet-access](nodes-internet-access.md) %}
-
-     {% include [nodes-internet-access-additional](nodes-internet-access-additional.md) %}
-
-     {% endnote %}
+     {% include [public-ip](public-ip.md) %}
 
    * Выберите [группы безопасности](../../vpc/concepts/security-groups.md).
 

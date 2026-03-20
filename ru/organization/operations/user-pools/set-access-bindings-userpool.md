@@ -10,6 +10,16 @@ description: Из этой статьи вы узнаете, как настро
 
 {% list tabs group=instructions %}
 
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. На панели слева нажмите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** и выберите пул пользователей.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.userpools.UserpoolPageLayout.title_userpool_acl_5rdMM }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к пулу пользователей.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль. При необходимости добавьте другие роли.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

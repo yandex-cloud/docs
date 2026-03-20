@@ -9,6 +9,19 @@ description: Инструкция по активации и настройке 
 
 Модуль KSPM позволяет гибко выбирать и настраивать правила безопасности под специфические требования вашей организации, а также создавать исключения из правил.
 
+## Перед началом работы {#before-you-begin}
+
+Перед началом работы с модулем KSPM убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют техническим требованиям:
+
+* {{ k8s }} версии 1.28 или выше.
+* В кластере {{ k8s }} отсутствует [Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) на базе [Kyverno](https://yandex.cloud/ru/marketplace/products/yc/kyverno). Если Kyverno был развернут ранее, его необходимо удалить вместе со всеми созданными им ресурсами [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+* Между узлами кластера {{ k8s }} и [сервисом {{ container-registry-full-name }}](../../../managed-kubernetes/tutorials/container-registry.md) настроено сетевое взаимодействие.
+* Открыт сетевой доступ от пода, в котором запущен сенсор контроля безопасности среды выполнения, до подов кластера через порт `54321`.
+* Открыт доступ от кластера к API KSPM (`kspm.api.cloud.yandex.net`) через порт `443` по протоколу TCP.
+* С помощью [групп безопасности](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) настроен доступ от мастера кластера к компонентам KSPM, запущенным на узлах кластера.
+
+## Активировать модуль {#kspm-activate}
+
 Чтобы начать работу с модулем KSPM:
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого модуль KSPM будет просматривать информацию о [кластерах](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ managed-k8s-name }}, устанавливать в них необходимые компоненты и выполнять проверки.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../security/index.md#security-deck-worker) `security-deck.worker` на организацию, облако или каталог.

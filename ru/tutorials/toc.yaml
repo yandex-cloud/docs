@@ -733,8 +733,6 @@ items:
                   Проверка состояния приложений в кластере {{ managed-k8s-name
                   }} с помощью Ingress-контроллера {{ alb-name }}
                 href: container-infrastructure/custom-health-checks.md
-              - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
-                href: container-infrastructure/jaeger-over-ydb.md
               - name: Настройка Kyverno & Kyverno Policies
                 href: container-infrastructure/kyverno.md
               - name: Использование {{ MP }} для трансляции метрик

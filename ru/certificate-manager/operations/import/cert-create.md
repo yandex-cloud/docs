@@ -59,7 +59,7 @@
   1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
      1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Нажмите кнопку **Прикрепить файл**.
-        1. В открывшемся окне выберите файл самоподписанного сертификата`cert.pem`.
+        1. В открывшемся окне выберите файл самоподписанного сертификата `cert.pem`.
      1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
      1. Выберите способ добавления `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.

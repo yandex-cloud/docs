@@ -112,8 +112,8 @@
 1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. Выберите сертификат в списке.
    
-   Напротив поля **Validation** будет указан текущий этап выпуска сертификата.
-1. Чтобы посмотреть описание этапа и его результаты, нажмите **Показать логи**.
+   Напротив поля **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** будет указан текущий этап выпуска сертификата.
+1. Чтобы посмотреть описание этапа и его результаты, нажмите ![receipt](../../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
 
    Подробнее об этапах выпуска сертификата см. в разделе [Сертификат от Let's Encrypt](../../concepts/managed-certificate.md#issue-statuses).
 

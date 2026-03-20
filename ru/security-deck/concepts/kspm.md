@@ -7,8 +7,6 @@ description: Контроль {{ k8s }}® (KSPM) контролирует соо
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-{% include [kpsm-requirements](../../_includes/security-deck/kpsm-requirements.md) %}
-
 {% include [kspm-basic-intro](../../_includes/security-deck/kspm-basic-intro.md) %}
 
 Конфигурация KSPM задается при [создании](../operations/workspaces/create.md) окружения и может включать проверку соответствия кластеров следующим стандартам:

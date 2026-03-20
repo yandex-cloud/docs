@@ -195,6 +195,9 @@ description: Следуя данной инструкции, вы сможете
          container_runtime {
            type = "containerd"
          }
+         network_interface {
+           nat = <назначить_публичные_IP-адреса>
+         }
          labels {
            "<имя_облачной_метки>"="<значение_облачной_метки>"
          }
@@ -240,6 +243,10 @@ description: Следуя данной инструкции, вы сможете
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type` — среда запуска контейнеров [containerd](https://containerd.io/).
+       * `network_interface.nat` — назначение узлам случайных публичных [IP-адресов](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}: `true` или `false`.
+
+         {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
        * `labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
        * `node_labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
        * `scale_policy` — настройки масштабирования. 
@@ -379,6 +386,10 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
+  * Чтобы назначить узлам случайные публичные [IP-адреса](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}, передайте значение `IPV4` в параметре `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion`.
+
+    {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
   * Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 
     Размер нереплицируемых дисков можно менять только с шагом 93 ГБ. Максимальный размер такого диска — 4 ТБ.
@@ -413,7 +424,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
 
-  * Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.v4AddressSpec.dnsRecordSpecs`. В [FQDN](../../../glossary/fqdn.md) записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
+  * Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.dnsRecordSpecs`. В [FQDN](../../../glossary/fqdn.md) записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
 
 {% endlist %}
 

@@ -22,32 +22,100 @@ meta:
     - keyword: data management in {{ yandex-cloud }}
     - keyword: managing database connections
     - keyword: metadata catalog in {{ yandex-cloud }}
-links:
-  - title: '{{ connection-manager-name }}'
-    description: Automatically creating and managing database connection settings.
-    href: concepts/connection-manager
-  - title: '{{ metastore-full-name }}'
-    description: Creating and managing Apache Hive™ Metastore clusters.
-    href: concepts/metastore
-  - title: '{{ schema-registry-name }}'
-    description: >-
-      Centralized repository for managing and validating data schemas. The
-      service is at the Preview stage.
-    href: concepts/schema-registry
-  - title: '{{ data-catalog-name }}'
-    description: >-
-      Tool for collecting, analyzing, and marking up metadata from various
-      sources. The service is at the Preview stage.
-    href: concepts/data-catalog
-  - title: Quotas and limits
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Configuring access permissions for the service
-    href: security/
-  - title: Pricing policy
-    description: Service pricing and cost calculation
-    href: pricing
-  - title: Release notes
-    description: Releases and updates
-    href: release-notes/
+blocks:
+  - type: content-layout-block
+    textContent:
+      title: Yandex MetaData Hub
+      text: >-
+        Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
+        database connections, store data exchange schemas and dataset
+        descriptions, as well as manage metadata.
+    size: l
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    background: ''
+    children:
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations
+        icon: _assets/icons/sliders.svg
+        urlTitle: Quotas in Yandex MetaData Hub
+        url: concepts/limits.md
+        centered: true
+        size: s
+      - type: basic-card
+        title: Access management
+        text: Configuring access permissions for the service
+        icon: _assets/icons/lock.svg
+        urlTitle: Access management in Yandex MetaData Hub
+        url: security/index.md
+        centered: true
+        size: s
+      - type: basic-card
+        title: Pricing policy
+        text: Service pricing and cost calculation
+        icon: _assets/icons/tag-ruble.svg
+        urlTitle: Yandex MetaData Hub pricing policy
+        url: pricing.md
+        centered: true
+        size: s
+      - type: basic-card
+        title: Release notes
+        text: Releases and updates
+        icon: _assets/icons/timeline.svg
+        urlTitle: Yandex MetaData Hub release notes
+        url: release-notes/index.md
+        centered: true
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    title: Metadata management in Yandex Cloud
+    children:
+      - type: basic-card
+        title: Connection Manager
+        text: Automatically creating and managing database connection settings.
+        urlTitle: Connection
+        url: concepts/connection-manager.md
+        size: s
+        icon: _assets/icons/plug-connection.svg
+      - type: basic-card
+        title: Apache Hive™ Metastore
+        text: Creating and managing Apache Hive™ Metastore clusters.
+        urlTitle: Apache Hive™ Metastore clusters
+        url: concepts/metastore.md
+        size: s
+        icon: _assets/icons/database.svg
+      - type: basic-card
+        title: Schema Registry
+        text: >-
+          Centralized repository for managing and validating data schemas. The
+          service is at the Preview stage.
+        urlTitle: Data schema registry
+        url: concepts/schema-registry.md
+        size: s
+        icon: _assets/icons/layout-cells.svg
+      - type: basic-card
+        title: Data Catalog
+        text: >-
+          Tool for collecting, analyzing, and marking up metadata from various
+          sources. The service is at the Preview stage.
+        urlTitle: Metadata catalog
+        url: concepts/data-catalog.md
+        size: s
+        icon: _assets/icons/folder-magnifier.svg
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        Apache® и Apache Hive™ are either registered trademarks or trademarks of
+        the Apache Software Foundation in the United States and/or other
+        countries.
+links: []

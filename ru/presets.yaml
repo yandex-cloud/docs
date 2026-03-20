@@ -941,7 +941,6 @@ default:
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
     ep-dedicated: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
-    host-dedicated: ydb.mdb.yandexcloud.net
     id-dedicated: etnk1u65e4sh********
     id-serverless: etnudu2n9ri3********
     name-dedicated: ydb-dedicated
@@ -4167,6 +4166,7 @@ default:
         button_alerts-action: Создать алерт
         button_dashboards-action: Создать дашборд
         title_service-dashboards: Сервисные дашборды
+        title_service-features: Возможности сервиса
       monitoring-alerts:
         button:
           create-custom-title: Пользовательский
@@ -4177,8 +4177,10 @@ default:
           notification-method: Способ уведомления
           query-to-check: Запрос для проверки
           sent-notify-statuses: Отправляемые статусы
+          type: Тип
         list-table:
           evaluation-stats-single: Статус вычисления алерта
+          name: Название
         status:
           alarm: Alarm
           warn: Warning
@@ -4199,6 +4201,8 @@ default:
           alert-config: Настройки алерта
           annotations: Аннотации
           evaluation-window-key-value: Окно вычисления
+          main-info: Основная информация
+          metrics: Метрики
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
@@ -4753,6 +4757,8 @@ default:
           title_userpool_members: Пользователи
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Настроить политику
+          UserpoolPageLayout:
+            title_userpool_acl_5rdMM: Права доступа к пулу пользователей
           UserpoolPasswordPolicyForm:
             attempts_before_lockout_ay7Le: "Количество неудачных попыток ввода пароля до\_блокировки"
             brute_force_protection_msHno: Защита пароля от подбора
@@ -5712,6 +5718,7 @@ default:
           challenge_label_http-content: Содержимое
           challenge_label_http-url: Ссылка для размещения файла
           challenge_label_value: Значение
+          general_label_validation: Validation
           section_challenges: Проверка прав на домены
         request:
           button_request: Создать
@@ -6546,12 +6553,14 @@ default:
       data-streams:
         button_connect: Подключиться
         button_create-stream: Создать поток
+        button_stream-actions: Действия
         button_update-stream: Изменить
         label_auto-partitioning-mode: Режим автопартиционирования
         label_auto-partitioning-paused: Приостановлено
         label_auto-partitioning-scale-up: Увеличение
         label_auto-partitioning-stabilization-window: Период стабилизации
         label_auto-partitioning-up-utilization: Верхний предел нагрузки
+        label_create-api-gateway: API Gateway
         label_data-introspection: Просмотр данных
         label_data-storage-size-limit: Лимит размера
         label_data-storage-time-limit: Лимит времени
@@ -8202,11 +8211,13 @@ default:
         label_additional-parameters: Дополнительные параметры
         label_create-workflow-title: Создание рабочего процесса
         label_edit-workflow-title: Изменение рабочего процесса
+        label_execution-url: Ссылка для запуска
         label_input_data: Данные на входе
         label_input-data: Данные на входе
         label_network: Сеть
         label_output_data: Данные на выходе
         label_output-data: Данные на выходе
+        label_public-access: Публичный рабочий процесс
         label_run-workflow: Запустить
         label_service: Workflows
         label_service-account: Сервисный аккаунт
@@ -8244,6 +8255,7 @@ default:
         workflow-viewer_node-input-label: Вход
         workflow-viewer_node-output-label: Выход
         workflow-viewer_node-settings-label: Настройки
+        workflow-viewer_trigger-settings-label: Старт
       smart-web-security:
         action_empty: Создать профиль
         advanced_waf:
@@ -11048,10 +11060,6 @@ default:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc
         tag: 1.1.3
-    yc_kruise:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/kruise/chart/kruise
-        tag: 1.5.0
     yc_kubernetes-node-remediation:
       helmChart:
         name: >-
@@ -11074,13 +11082,6 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
         tag: 1.5.1
-    yc_oidc-authenticator:
-      helmChart:
-        tag: 0.1.0
-    yc_policy-reporter:
-      helmChart:
-        name: cr.yandex/yc-marketplace/policy-reporter
-        tag: 2.13.11
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
@@ -11093,8 +11094,3 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero
         tag: 8.5.0-5
-    yc_victoria-logs:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/victoria-logs/victoria-logs-single
-        tag: 1.0.0

@@ -79,12 +79,8 @@ items:
             href: operations/applications/upgrade-alb-ingress-controller.md
           - name: Installing Istio
             href: operations/applications/istio.md
-          - name: Installing Jaeger
-            href: operations/applications/jaeger.md
           - name: Installing KEDA
             href: operations/applications/keda.md
-          - name: Installing Kruise
-            href: operations/applications/kruise.md
           - name: Installing Kubernetes Node Remediation
             href: operations/applications/kubernetes-node-remediation.md
           - name: Installing Kyverno & Kyverno Policies
@@ -95,18 +91,12 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Installing NodeLocal DNS
             href: operations/applications/node-local-dns.md
-          - name: Installing OIDC Authentication
-            href: operations/applications/oidc.md
-          - name: Installing Policy Reporter
-            href: operations/applications/policy-reporter.md
           - name: Installing Prometheus Operator
             href: operations/applications/prometheus-operator.md
           - name: Installing Thumbor
             href: operations/applications/thumbor.md
           - name: Installing Velero
             href: operations/applications/velero-yc-csi.md
-          - name: Installing VictoriaLogs
-            href: operations/applications/victoria-logs.md
       - name: Network scenarios
         items:
           - name: Granting access to an application running in a {{ k8s }} cluster
@@ -315,8 +305,6 @@ items:
               Health checking applications in a {{ managed-k8s-name }} cluster
               via an L7 {{ alb-name }}
             href: tutorials/custom-health-checks.md
-          - name: Using Jaeger to trace queries in {{ ydb-name }}
-            href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Setting up Kyverno &amp; Kyverno Policies
             href: tutorials/marketplace/kyverno.md
           - name: Using {{ MP }} to deliver metrics

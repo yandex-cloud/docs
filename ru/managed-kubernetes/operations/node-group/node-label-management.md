@@ -47,8 +47,8 @@
         * Укажите размер [диска](../../../compute/concepts/disk.md) узла {{ managed-k8s-name }}.
      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
         * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса:
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить узлам случайные [IP-адреса](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичные IP-адреса.
         * Укажите расположение узлов {{ managed-k8s-name }} по [зонам доступности](../../../overview/concepts/geo-scope.md) и [сетям](../../../vpc/concepts/network.md#network).
      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа на узел {{ managed-k8s-name }}:
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.

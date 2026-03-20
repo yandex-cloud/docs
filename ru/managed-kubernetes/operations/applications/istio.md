@@ -44,7 +44,7 @@ Istio обеспечивает:
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `istio-space`). Если вы оставите пространство имен по умолчанию, Istio может работать некорректно.
    * **Название приложения** — укажите название приложения.
-   * **Установка дополнений** — выберите эту опцию, чтобы автоматически установить дополнения: консоль управления [Kiali](https://kiali.io/), компоненты Grafana, Prometheus, [Jaeger](/marketplace/products/yc/jaeger-ydb-store) и [Loki](/marketplace/products/yc/loki).
+   * **Установка дополнений** — выберите эту опцию, чтобы автоматически установить дополнения: консоль управления [Kiali](https://kiali.io/), компоненты Grafana, Prometheus и [Loki](/marketplace/products/yc/loki).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 

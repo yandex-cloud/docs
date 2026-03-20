@@ -4,8 +4,6 @@
 
 [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) — расширение для Kyverno. Kyverno policies содержит реализацию {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). Оригиналы политик загружены в отдельный репозиторий [Kyverno policies](https://github.com/kyverno/policies/tree/main/pod-security).
 
-Отправлять оповещения из Kyverno в другие системы можно с помощью расширения [Policy reporter](/marketplace/products/yc/policy-reporter).
-
 {% note tip %}
 
 Чтобы выявить уязвимости в работе кластера {{ k8s }}, используйте приложение [Chaos Mesh](chaos-mesh.md). Нахождение уязвимостей поможет настроить политики безопасности.

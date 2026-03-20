@@ -376,8 +376,6 @@ items:
                   Проверка состояния приложений в кластере {{ managed-k8s-name
                   }} с помощью L7-балансировщика {{ alb-name }}
                 href: tutorials/custom-health-checks.md
-              - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
-                href: tutorials/jaeger-over-ydb.md
               - name: Настройка Kyverno & Kyverno Policies
                 href: tutorials/kyverno.md
               - name: Использование {{ MP }} для трансляции метрик
