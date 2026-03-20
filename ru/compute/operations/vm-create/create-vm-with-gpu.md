@@ -184,7 +184,6 @@ description: Следуя данной инструкции, вы сможете
      * `yandex_compute_instance` — описание ВМ:
        * `name` — имя ВМ.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
-       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
        * `zone` — зона доступности, в которой будет находиться ВМ.
 
          {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
