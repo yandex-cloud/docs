@@ -1,6 +1,212 @@
-title: '{{ stackland-full-name }}'
+pdf:
+  startPages:
+    - start.md
+title: Yandex Cloud Stackland
 href: index.yaml
 items:
+  - name: Что нового
+    href: release-notes.md
+  - name: Установка
+    href: quickstart.md
+  - name: Практические руководства
+    expanded: true
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Установить Stackland на Yandex BareMetal
+        href: tutorials/install-on-yc-bms.md
+      - name: Настройка внешнего доступа к поду в кластере
+        href: tutorials/expose-app-domain.md
+  - name: Пошаговые инструкции
+    expanded: true
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Пользователи и группы
+        items:
+          - name: Создать пользователя
+            href: operations/iam/create-user.md
+          - name: Создать группу пользователей
+            href: operations/iam/create-group.md
+          - name: Подключить SAML-федерацию
+            href: operations/iam/connect-saml-federation.md
+          - name: Назначить права доступа
+            href: operations/iam/assign-role.md
+      - name: Базы данных
+        items:
+          - name: Managed Service for PostgreSQL
+            items:
+              - name: Создать кластер {{ PG }}
+                href: operations/postgresql/create-cluster.md
+              - name: Изменить настройки кластера
+                href: operations/postgresql/edit-cluster.md
+              - name: Диагностика производительности
+                href: operations/postgresql/performance-diagnostics.md
+              - name: Создать резервную копию
+                href: operations/postgresql/new-copy.md
+              - name: Восстановить кластер
+                href: operations/postgresql/recover-copy.md
+              - name: Удалить кластер
+                href: operations/postgresql/delete-cluster.md
+          - name: Managed Service for ClickHouse®
+            items:
+              - name: Создать кластер {{ CH }}
+                href: operations/clickhouse/create-cluster.md
+              - name: Изменить настройки кластера
+                href: operations/clickhouse/edit-cluster.md
+              - name: Создать резервную копию
+                href: operations/clickhouse/new-copy.md
+              - name: Восстановить кластер
+                href: operations/clickhouse/recover-copy.md
+              - name: Удалить кластер
+                href: operations/clickhouse/delete-cluster.md
+      - name: Бакеты
+        items:
+          - name: Создать бакет
+            href: operations/storage/create-bucket.md
+          - name: Создать AccessKey
+            href: operations/storage/create-accesskey.md
+          - name: Удалить бакет
+            href: operations/storage/delete-bucket.md
+          - name: Удалить AccessKey
+            href: operations/storage/delete-accesskey.md
+      - name: Брокер сообщений
+        items:
+          - name: Создать кластер
+            href: operations/kafka/create-cluster.md
+          - name: Создать топик
+            href: operations/kafka/create-topic.md
+          - name: Создать пользователя
+            href: operations/kafka/create-user.md
+          - name: Подключиться к кластеру
+            href: operations/kafka/connect-to-kafka.md
+          - name: Удалить кластер
+            href: operations/kafka/delete-cluster.md
+          - name: Удалить топик
+            href: operations/kafka/delete-topic.md
+          - name: Удалить пользователя
+            href: operations/kafka/delete-user.md
+      - name: Логирование
+        items:
+          - name: Посмотреть логи
+            href: operations/logging/logs-view.md
+      - name: Мониторинг
+        items:
+          - name: Создать дашборд
+            href: operations/monitoring/dashboard-create.md
+          - name: Изменить дашборд
+            href: operations/monitoring/dashboard-update.md
+          - name: Удалить дашборд
+            href: operations/monitoring/dashboard-delete.md
+          - name: Управление доступом к дашбордам
+            href: operations/monitoring/dashboard-access.md
+          - name: Создать канал уведомлений
+            href: operations/monitoring/alerts-create-contact-point.md
+          - name: Создать правило алертинга
+            href: operations/monitoring/alerts-create-rule.md
+      - name: DataLens
+        items:
+          - name: Загрузить образы
+            href: operations/datalens/install-images.md
+          - name: Включить DataLens
+            href: operations/datalens/configure.md
+          - name: Отключить DataLens
+            href: operations/datalens/disable.md
+      - name: Политики
+        items:
+          - name: Активировать пресет с политиками
+            href: operations/policy-manager/apply-preset.md
+          - name: Деактивировать политику
+            href: operations/policy-manager/apply-mute.md
+          - name: Удалить пресет с политиками
+            href: operations/policy-manager/delete-preset.md
+      - name: Проекты
+        items:
+          - name: Все инструкции
+            href: operations/projects/index.md
+          - name: Создать проект
+            href: operations/projects/create-project.md
+          - name: Управлять пространствами имен
+            href: operations/projects/manage-namespaces.md
+          - name: Настроить роли проекта
+            href: operations/projects/project-roles.md
+          - name: Установить квоты в пространствах имен
+            href: operations/projects/namespace-quotas.md
+          - name: Создать квоту для проекта
+            href: operations/projects/quotas.md
+      - name: SpeechSense
+        items:
+          - name: Загрузить образы
+            href: operations/speechsense/install-images.md
+          - name: Настроить и активировать
+            href: operations/speechsense/configure.md
+          - name: Отключить
+            href: operations/speechsense/disable.md
+      - name: Дисковая подсистема
+        items:
+          - name: Диагностика дисковой подсистемы
+            href: operations/disk-storage/troubleshooting.md
+      - name: Управление кластером
+        items:
+          - name: Обновить кластер
+            href: operations/cluster-upgrade.md
+  - name: Концепции
+    expanded: true
+    items:
+      - name: Проекты
+        href: concepts/projects.md
+      - name: Ресурсная модель
+        href: concepts/resource-model.md
+      - name: Компоненты
+        items:
+          - name: Обзор
+            href: concepts/components/overview.md
+          - name: Certificate Manager
+            href: concepts/components/certificate-manager.md
+          - name: DNS
+            href: concepts/components/dns.md
+          - name: IAM
+            href: concepts/components/iam.md
+          - name: Logging Stack
+            href: concepts/components/logging.md
+          - name: Managed Service for Apache Kafka®
+            href: concepts/components/kafka.md
+          - name: Managed Service for PostgreSQL
+            href: concepts/components/postgresql.md
+          - name: Managed Service for ClickHouse®
+            href: concepts/components/clickhouse.md
+          - name: '{{ datalens-name }}'
+            href: concepts/components/datalens.md
+          - name: Monitoring
+            href: concepts/components/monitoring.md
+          - name: Object Storage
+            href: concepts/components/storage.md
+          - name: Дисковая подсистема
+            href: concepts/components/disk-storage.md
+          - name: Поддержка NVIDIA® GPU
+            href: concepts/components/gpu.md
+          - name: Policy Manager
+            href: concepts/components/policy-manager.md
+          - name: Secrets Store
+            href: concepts/components/secrets-store.md
+          - name: SpeechSense
+            href: concepts/components/speechsense.md
+      - name: Мониторинг кластера
+        items:
+          - name: Мониторинг ClickHouse
+            href: concepts/cluster-monitoring/clickhouse-monitoring.md
+          - name: Метрики дашборда NVIDIA® DCGM
+            href: concepts/cluster-monitoring/nvidia-dcgm-monitoring.md
+          - name: Метрики дашборда NVIDIA® DCGM с MIG
+            href: concepts/cluster-monitoring/nvidia-dcgm-mig-monitoring.md
+          - name: Метрики дашборда NVIDIA® DCGM без MIG
+            href: concepts/cluster-monitoring/nvidia-dcgm-no-mig-monitoring.md
+          - name: Мониторинг оборудования
+            href: concepts/hardware-monitoring.md
+  - name: Управление доступом
+    href: access-management.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Диагностика и устранение неполадок
+    href: operations/troubleshooting.md
 path: ru/stackland/toc.yaml
