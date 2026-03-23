@@ -30,6 +30,8 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите объект, версию которого вы хотите восстановить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.menu_version-history }}**.
   1. В списке версий в строке с нужной версией нажмите ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}**. Выбранная версия будет восстановлена и отображена как текущая.
 
+  Чтобы посмотреть историю изменений всех объектов в списке, включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
+
 - AWS CLI {#cli}
 
   Чтобы восстановить версию объекта с помощью [AWS CLI](../../tools/aws-cli.md):

@@ -282,7 +282,9 @@
 
 Создайте новый датасет на основе новой таблицы и подключения к {{ CH }}:
 
-1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) (или нажмите ![datalens-console](../../_assets/datalens-console.svg) **DataLens** на панели слева) и нажмите **Создать датасет**.
+1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Датасеты**.
+1. Нажмите кнопку **Создать датасет**.
 1. Перейдите в область **Подключения** и нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить**.
 1. Из списка подключений выберите имя подключения, созданного на шаге [3.2](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.funnels_by_bro` в область редактирования.
@@ -340,8 +342,10 @@
 
 Создайте датасет на основе новой таблицы и подключения к {{ CH }}: 
 
-1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) и нажмите **Создать датасет**.
-1. В области **Подключения** нажмите кнопку **Создать датасет** и нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить**.
+1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Датасеты**.
+1. Нажмите кнопку **Создать датасет**.
+1. В области **Подключения** нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить**.
 1. Выберите из списка созданное [подключение](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.retention_users` в рабочую зону, чтобы подключиться к ней.
 1. Откройте вкладку **Поля** и создайте новое вычисляемое поле `week_num`, которое равно `([date]-[min_date])/7`.

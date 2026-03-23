@@ -1,4 +1,7 @@
 ---
+title: Руководство по запуску вычислений в {{ ml-platform-full-name }} с помощью API
+description: Следуя данному руководству, вы сможете запустить вычисления в {{ ml-platform-full-name }} с помощью API.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-code-execution'
 ---
 

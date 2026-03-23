@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 
 
 1. На рабочей панели слева выберите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты**.

@@ -1,6 +1,5 @@
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![collections](../../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки** и откройте нужный воркбук или [создайте](../../../datalens/workbooks-collections/workbooks-operations.md#create-workbook) новый. Если вы пользуетесь старой навигацией по папкам, выберите папку или создайте новую для сохранения [подключения](../../../datalens/concepts/connection/index.md).
-
 1. В правом верхнем углу нажмите **Создать** → ![image](../../../_assets/console-icons/thunderbolt.svg) **Подключение**.
 1. В разделе **Файлы и сервисы** выберите подключение **{{ speechsense-name }}**.
 1. Скопируйте идентификатор нужного [проекта](../../../speechsense/concepts/resources-hierarchy.md#project) {{ speechsense-name }} и вставьте в поле **ID проекта**.

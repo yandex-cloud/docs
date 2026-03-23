@@ -1524,6 +1524,10 @@ items:
         href: datalens/index.md
       - name: Аналитика
         items:
+          - name: >-
+              Визуализация логов в {{ grafana-name }} с помощью плагина {{
+              cloud-logging-name }}
+            href: serverless/grafana-logs-plugin.md
           - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}
             href: analysis/search-events-query.md
           - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
@@ -1595,106 +1599,215 @@ items:
     items:
       - name: Все руководства
         href: serverless/index.md
-      - name: Сокращатель ссылок
-        href: serverless/serverless-url-shortener.md
-      - name: Ввод данных в системы хранения
-        href: serverless/data-ingestion.md
-      - name: Хранение журналов работы приложения
-        href: serverless/log-ingestion.md
-      - name: Развертывание веб-приложения с использованием Java Servlet API
-        href: serverless/java-servlet-todo-list.md
-      - name: Разработка Slack-бота
-        href: serverless/slack-bot-serverless.md
-      - name: Разработка Telegram-бота
-        href: serverless/telegram-bot-serverless.md
-      - name: Разработка Telegram-бота с поддержкой AI-агента
-        href: serverless/telegram-ai-bot-workflows.md
-      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
-        href: serverless/api-gw-integration.md
-      - name: Разработка CRUD API для сервиса фильмов
-        href: serverless/movies-database.md
-      - name: Построение пайплайна CI/CD в {{ GL }}
-        href: serverless/ci-cd-serverless.md
-      - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
-        href: serverless/serverless-gitlab-runner.md
-      - name: Настройка CI/CD между {{ sf-name }} и {{ src-name }}
-        href: serverless/ci-cd-sourcecraft-functions.md
-      - name: Настройка CI/CD между {{ sf-name }} и GitHub
-        href: serverless/ci-cd-github-functions.md
-      - name: >-
-          Настройка CI/CD в {{ src-name }} для развертывания приложения в {{
-          serverless-containers-name }} с помощью GitHub Actions
-        href: serverless/ci-cd-sourcecraft-github-actions.md
-      - name: Работа с API-шлюзом по протоколу WebSocket
-        href: serverless/api-gw-websocket.md
-      - name: >-
-          Создание интерактивного serverless-приложения с использованием
-          WebSocket
-        href: serverless/websocket-app.md
-      - name: >-
-          Автоматическое копирование объектов из одного бакета {{
-          objstorage-name }} в другой
-        href: serverless/bucket-to-bucket-copying.md
-      - name: >-
-          Визуализация логов в {{ grafana-name }} с помощью плагина {{
-          cloud-logging-name }}
-        href: serverless/grafana-logs-plugin.md
-      - name: Канареечный релиз функции {{ sf-name }}
-        href: serverless/canary-release.md
-      - name: Интерактивная отладка функций {{ sf-name }}
-        href: serverless/serverless-live-debug.md
-      - name: Создание функции Node.js с помощью TypeScript
-        href: serverless/nodejs-typescript.md
-      - name: Запуск контейнерного приложения в {{ serverless-containers-name }}
-        href: serverless/deploy-app-container.md
-      - name: >-
-          Передача событий {{ postbox-name }} в {{ yds-name }} и их анализ с
-          помощью {{ datalens-name }}
-        href: serverless/events-from-postbox-to-yds.md
-      - name: >-
-          Использование {{ api-gw-name }} для настройки синтеза речи в {{
-          speechkit-name }}
-        href: serverless/speechkit-integrarion-via-agi-gw.md
-      - name: Подключение к {{ ydb-short-name }} из функции {{ sf-name }} на Python
-        href: serverless/connect-from-cf.md
-      - name: >-
-          Подключение к базе данных {{ ydb-short-name }} из функции {{ sf-name
-          }} на Node.js
-        href: serverless/connect-from-cf-nodejs.md
-      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
-        href: serverless/api-gw-sws-integration.md
-      - name: >-
-          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
-          аутентификацией в Firebase
-        href: serverless/jwt-authorizer-firebase.md
-      - name: >-
-          Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью
-          {{ sw-full-name }}
-        href: serverless/auto-upload.md
-      - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-full-name }}
-        href: serverless/logging-functions.md
-      - name: >-
-          Настройка интеграций {{ sw-name }} с {{ tracker-name }}, {{ yagpt-name
-          }} и {{ postbox-name }}
-        href: serverless/tracker-yandexgpt-postbox-integrations.md
-      - name: >-
-          Разработка функций в Functions Framework и их развертывание в {{
-          serverless-containers-full-name }}
-        href: serverless/functions-framework-to-container.md
-      - name: >-
-          Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с
-          использованием {{ sf-full-name }} и {{ yq-full-name }}
+      - name: Бэкенд на Serverless
         items:
-          - name: Обзор
-            href: serverless/forms-and-datalens-integration/index.md
-          - name: Консоль управления
-            href: serverless/forms-and-datalens-integration/console.md
-          - name: Terraform
-            href: serverless/forms-and-datalens-integration/terraform.md
-      - name: >-
-          Создание адреса {{ postbox-full-name }} и проверка владения доменом с
-          помощью {{ TF }}
-        href: serverless/domain-identity-creating.md
+          - name: Развертывание веб-приложения с использованием Java Servlet API
+            href: serverless/java-servlet-todo-list.md
+          - name: Конвертация видео в GIF на Python
+            items:
+              - name: Обзор
+                href: serverless/video-converting-queue/index.md
+              - name: Консоль управления
+                href: serverless/video-converting-queue/console.md
+              - name: Terraform
+                href: serverless/video-converting-queue/terraform.md
+          - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+            href: serverless/api-gw-integration.md
+          - name: Сокращатель ссылок
+            href: serverless/serverless-url-shortener.md
+          - name: Разработка CRUD API для сервиса фильмов
+            href: serverless/movies-database.md
+          - name: >-
+              Создание интерактивного serverless-приложения с использованием
+              WebSocket
+            href: serverless/websocket-app.md
+          - name: Работа с API-шлюзом по протоколу WebSocket
+            href: serverless/api-gw-websocket.md
+          - name: Создание функции Node.js с помощью TypeScript
+            href: serverless/nodejs-typescript.md
+          - name: Запуск контейнерного приложения в {{ serverless-containers-name }}
+            href: serverless/deploy-app-container.md
+          - name: >-
+              Подключение к {{ ydb-short-name }} из функции {{ sf-name }} на
+              Python
+            href: serverless/connect-from-cf.md
+          - name: >-
+              Подключение к базе данных {{ ydb-short-name }} из функции {{
+              sf-name }} на Node.js
+            href: serverless/connect-from-cf-nodejs.md
+          - name: >-
+              Настройка подключения к {{ mpg-full-name }} из контейнера {{
+              serverless-containers-name }}
+            href: serverless/container-pg-connect.md
+          - name: >-
+              Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name
+              }} и аутентификацией в Firebase
+            href: serverless/jwt-authorizer-firebase.md
+          - name: >-
+              Разработка функций в Functions Framework и их развертывание в {{
+              serverless-containers-full-name }}
+            href: serverless/functions-framework-to-container.md
+          - name: Канареечный релиз функции {{ sf-name }}
+            href: serverless/canary-release.md
+          - name: Интерактивная отладка функций {{ sf-name }}
+            href: serverless/serverless-live-debug.md
+          - name: >-
+              Создание адреса {{ postbox-full-name }} и проверка владения
+              доменом с помощью {{ TF }}
+            href: serverless/domain-identity-creating.md
+          - name: Настройка Postfix для отправки через {{ postbox-full-name }}
+            href: serverless/postfix-integration.md
+      - name: Боты на Serverless
+        items:
+          - name: Разработка Slack-бота
+            href: serverless/slack-bot-serverless.md
+          - name: Разработка Telegram-бота
+            href: serverless/telegram-bot-serverless.md
+          - name: >-
+              Разработка Telegram-бота для распознавания текста на изображениях,
+              синтеза и распознавания аудио
+            href: serverless/recognizer-bot.md
+      - name: ETL на Serverless
+        items:
+          - name: Ввод данных в системы хранения
+            href: serverless/data-ingestion.md
+          - name: Хранение журналов работы приложения
+            href: serverless/log-ingestion.md
+          - name: Запись данных с устройства в базу данных
+            href: serverless/data-recording.md
+          - name: Запись логов балансировщика в {{ PG }}
+            href: serverless/logging.md
+          - name: >-
+              Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name
+              }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }}
+              и {{ data-transfer-full-name }}
+            href: serverless/data-transfer-direct-to-mch.md
+          - name: >-
+              Передача событий {{ postbox-name }} в {{ yds-name }} и их анализ с
+              помощью {{ datalens-name }}
+            href: serverless/events-from-postbox-to-yds.md
+          - name: '{{ tracker-name }}: экспорт и визуализация данных'
+            href: serverless/data-from-tracker.md
+          - name: >-
+              Поставка данных из {{ forms-full-name }} в {{ datalens-full-name
+              }} с использованием {{ sf-full-name }} и {{ yq-full-name }}
+            items:
+              - name: Обзор
+                href: serverless/forms-and-datalens-integration/index.md
+              - name: Консоль управления
+                href: serverless/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: serverless/forms-and-datalens-integration/terraform.md
+          - name: >-
+              Интеграция {{ postbox-full-name }} с внешними системами через
+              вебхуки
+            href: serverless/postbox-webhook.md
+      - name: Рабочие процессы и автоматизация на Serverless
+        items:
+          - name: Построение пайплайна CI/CD в {{ GL }}
+            href: serverless/ci-cd-serverless.md
+          - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
+            href: serverless/serverless-gitlab-runner.md
+          - name: >-
+              Создание триггера для бюджетов, который вызывает функцию {{
+              sf-name }} для остановки ВМ
+            href: serverless/serverless-trigger-budget-vm.md
+          - name: >-
+              Автоматическое копирование объектов из одного бакета {{
+              objstorage-name }} в другой
+            href: serverless/bucket-to-bucket-copying.md
+          - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
+            href: serverless/regular-launch.md
+          - name: Регулярное распознавание аудиофайлов из {{ objstorage-name }}
+            href: serverless/batch-recognition-stt.md
+          - name: >-
+              Развертывание отказоустойчивой архитектуры с прерываемыми
+              виртуальными машинами
+            href: serverless/nodejs-cron-restart-vm.md
+          - name: >-
+              Создание триггеров, которые вызывают функции {{ sf-name }} для
+              остановки ВМ и отправки уведомлений в Telegram
+            href: serverless/serverless-trigger-budget-queue-vm-tg.md
+          - name: Масштабирование группы виртуальных машин по расписанию
+            items:
+              - name: Обзор
+                href: serverless/vm-scale-scheduled/index.md
+              - name: Консоль управления, CLI и API
+                href: serverless/vm-scale-scheduled/console.md
+              - name: '{{ TF }}'
+                href: serverless/vm-scale-scheduled/terraform.md
+          - name: Запуск вычислений в {{ ml-platform-name }} с помощью API
+            href: serverless/batch-code-execution.md
+          - name: Настройка CI/CD между {{ sf-name }} и {{ src-name }}
+            href: serverless/ci-cd-sourcecraft-functions.md
+          - name: Настройка CI/CD между {{ sf-name }} и GitHub
+            href: serverless/ci-cd-github-functions.md
+          - name: >-
+              Настройка CI/CD в {{ src-name }} для развертывания приложения в {{
+              serverless-containers-name }} с помощью GitHub Actions
+            href: serverless/ci-cd-sourcecraft-github-actions.md
+          - name: >-
+              Автоматическая загрузка данных в {{ speechsense-full-name }} с
+              помощью {{ sw-full-name }}
+            href: serverless/auto-upload.md
+          - name: >-
+              Настройка реагирования в {{ cloud-logging-name }} и {{
+              sf-full-name }}
+            href: serverless/logging-functions.md
+          - name: >-
+              Регулярное распознавание изображений и PDF-документов из бакета {{
+              objstorage-short-name }}
+            href: serverless/vision-ocrrecognizer-storage.md
+          - name: >-
+              Настройка интеграций {{ sw-name }} с {{ tracker-name }}, {{
+              yagpt-name }} и {{ postbox-name }}
+            href: serverless/tracker-yandexgpt-postbox-integrations.md
+      - name: Интернет вещей (IoT)
+        items:
+          - name: Мониторинг состояния географически распределенных устройств
+            href: serverless/datalens.md
+          - name: Мониторинг показаний датчиков и уведомления о событиях
+            href: serverless/monitoring.md
+          - name: Эмуляция множества IoT-устройств
+            href: serverless/iot-emulation.md
+          - name: Работа с {{ iot-name }} с устройства с Android на языке Java
+            href: serverless/android-java.md
+          - name: Работа с {{ iot-name }} на языке C#
+            href: serverless/c-sharp.md
+          - name: Работа с {{ iot-name }} на языке Java
+            href: serverless/java.md
+          - name: Тестирование доставки сообщения
+            href: serverless/message-delivery-check.md
+          - name: Отправить сообщение с помощью Mosquitto
+            href: serverless/mosquitto-publish.md
+          - name: >-
+              Подписать устройство или реестр на получение сообщений с помощью
+              Mosquitto
+            href: serverless/mosquitto-subscribe.md
+      - name: Интеграция с сервисами Яндекса и Yandex Cloud
+        items:
+          - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+            href: serverless/api-gw-sws-integration.md
+          - name: Создание навыка Алисы
+            href: serverless/alice-skill.md
+          - name: Разработка навыка Алисы и сайта с авторизацией
+            href: serverless/alice-shareable-todolist.md
+          - name: >-
+              Использование {{ api-gw-name }} для настройки синтеза речи в {{
+              speechkit-name }}
+            href: serverless/speechkit-integrarion-via-agi-gw.md
+      - name: Искусственный интеллект
+        items:
+          - name: Разработка Telegram-бота с поддержкой AI-агента
+            href: serverless/telegram-ai-bot-workflows.md
+          - name: Создание AI-агента с помощью {{ sf-full-name }}
+            href: serverless/create-ai-agent-function.md
+          - name: >-
+              ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-name }} и GitHub
+              Actions
+            href: serverless/ai-powered-github-pr-review.md
+          - name: Создание AI-агента со стримингом ответа через веб-сокеты
+            href: serverless/streaming-openai-agent.md
       - name: Отправка писем в {{ postbox-full-name }} с помощью AWS SDK
         items:
           - name: .NET Core
@@ -1705,14 +1818,6 @@ items:
             href: serverless/send-emails-aws-sdk-js.md
           - name: Python
             href: serverless/send-emails-aws-sdk-python.md
-      - name: Создание AI-агента с помощью {{ sf-full-name }}
-        href: serverless/create-ai-agent-function.md
-      - name: Создание AI-агента со стримингом ответа через веб-сокеты
-        href: serverless/streaming-openai-agent.md
-      - name: Настройка Postfix для отправки через {{ postbox-full-name }}
-        href: serverless/postfix-integration.md
-      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
-        href: serverless/postbox-webhook.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

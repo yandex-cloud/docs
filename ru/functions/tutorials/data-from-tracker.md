@@ -1,6 +1,7 @@
 ---
 title: Визуализация данных из {{ tracker-full-name }}
 description: Для визуализация данных из {{ tracker-short-name }} необходимо организовать регулярный экспорт данных во внешнее хранилище и средствами {{ datalens-short-name }} визуализировать необходимые метрики и данные.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/datalens/data-from-tracker'
 ---
 

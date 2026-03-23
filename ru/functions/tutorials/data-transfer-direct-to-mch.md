@@ -1,4 +1,7 @@
 ---
+title: Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}
+description: В этом руководстве вы узнаете, как перенести данные из {{ yandex-direct }} в {{ mch-name }} с использованием сервисов {{ sf-name }}, {{ objstorage-name }} и {{ data-transfer-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-direct-to-mch'
 ---
 

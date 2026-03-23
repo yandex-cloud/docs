@@ -1,3 +1,4 @@
+# Создание агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на {{ sf-full-name }} и {{ api-gw-name }}
 
 
 В этом руководстве вы создадите агент со стримингом ответа через [веб-сокеты](https://{{ lang }}.wikipedia.org/wiki/WebSocket) на [{{ sf-full-name }}](../../functions/) и [{{ api-gw-full-name }}](../../api-gateway/). Функция будет использовать [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) для работы с моделями [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt).

@@ -207,36 +207,40 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Разработка CRUD API для сервиса фильмов
-        href: tutorials/movies-database.md
-      - name: >-
-          Построение пайплайна CI/CD в {{ GL }} с использованием
-          serverless-продуктов
-        href: tutorials/ci-cd-serverless.md
-      - name: >-
-          Настройка CI/CD в {{ src-name }} для развертывания {{
-          serverless-containers-name }} с помощью GitHub Actions
-        href: tutorials/ci-cd-sourcecraft-github-actions.md
-      - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
-        href: tutorials/serverless-gitlab-runner.md
-      - name: >-
-          Настройка подключения к {{ mpg-full-name }} из контейнера {{
-          serverless-containers-name }}
-        href: tutorials/pg-connect.md
-      - name: >-
-          Запуск контейнерного приложения в {{ serverless-containers-full-name
-          }}
-        href: tutorials/deploy-app-container.md
-      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
-        href: tutorials/api-gw-integration.md
-      - name: >-
-          Разработка функций в Functions Framework и их развертывание в {{
-          serverless-containers-full-name }}
-        href: tutorials/functions-framework-to-container.md
-      - name: >-
-          Регулярное распознавание изображений и PDF-документов из бакета {{
-          objstorage-short-name }}
-        href: tutorials/vision-ocrrecognizer-storage.md
+      - name: Бэкенд на Serverless
+        items:
+          - name: Разработка CRUD API для сервиса фильмов
+            href: tutorials/movies-database.md
+          - name: >-
+              Запуск контейнерного приложения в {{
+              serverless-containers-full-name }}
+            href: tutorials/deploy-app-container.md
+          - name: >-
+              Настройка подключения к {{ mpg-full-name }} из контейнера {{
+              serverless-containers-name }}
+            href: tutorials/pg-connect.md
+          - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+            href: tutorials/api-gw-integration.md
+          - name: >-
+              Разработка функций в Functions Framework и их развертывание в {{
+              serverless-containers-full-name }}
+            href: tutorials/functions-framework-to-container.md
+      - name: Рабочие процессы и автоматизация на Serverless
+        items:
+          - name: >-
+              Построение пайплайна CI/CD в {{ GL }} с использованием
+              serverless-продуктов
+            href: tutorials/ci-cd-serverless.md
+          - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
+            href: tutorials/serverless-gitlab-runner.md
+          - name: >-
+              Настройка CI/CD в {{ src-name }} для развертывания {{
+              serverless-containers-name }} с помощью GitHub Actions
+            href: tutorials/ci-cd-sourcecraft-github-actions.md
+          - name: >-
+              Регулярное распознавание изображений и PDF-документов из бакета {{
+              objstorage-short-name }}
+            href: tutorials/vision-ocrrecognizer-storage.md
   - name: Управление доступом
     href: security/index.md
   - name: Инструменты

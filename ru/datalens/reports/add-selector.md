@@ -31,7 +31,7 @@ description: Следуя данной инструкции, вы сможете
  
    - Панель навигации
 
-     1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+     1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
      1. На панели слева выберите ![image](../../_assets/console-icons/display-pulse.svg) **Отчёты** и выберите нужный отчет.
 
    {% endlist %}

@@ -11,6 +11,8 @@ items:
         href: operations/create-trail.md
       - name: Управление трейлом
         href: operations/manage-trail.md
+      - name: Подготовка спецификации трейла
+        href: operations/prepare-spec.md
       - name: Управление правами доступа к трейлу
         items:
           - name: Посмотреть роли, назначенные на трейл

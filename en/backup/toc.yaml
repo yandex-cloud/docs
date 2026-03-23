@@ -290,6 +290,12 @@ items:
                 href: backup/api-ref/grpc/Resource/listOperations.md
               - name: GetInstanceRegistrationToken
                 href: backup/api-ref/grpc/Resource/getInstanceRegistrationToken.md
+          - name: Setup
+            items:
+              - name: Overview
+                href: backup/api-ref/grpc/Setup/index.md
+              - name: GetAgentInstallCommand
+                href: backup/api-ref/grpc/Setup/getAgentInstallCommand.md
       - name: REST
         items:
           - name: Overview
@@ -360,6 +366,12 @@ items:
                 href: backup/api-ref/Resource/delete.md
               - name: ListTasks
                 href: backup/api-ref/Resource/listTasks.md
+          - name: Setup
+            items:
+              - name: Overview
+                href: backup/api-ref/Setup/index.md
+              - name: GetAgentInstallCommand
+                href: backup/api-ref/Setup/getAgentInstallCommand.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

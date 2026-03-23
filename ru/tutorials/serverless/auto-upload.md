@@ -1,7 +1,7 @@
 ---
-noIndex: true
 title: Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью {{ sw-full-name }}
 description: Настройка автоматической загрузки файлов с диалогами из {{ objstorage-name }} в {{ speechsense-name }} через {{ sw-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/speechsense/auto-upload'
 ---
 

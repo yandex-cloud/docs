@@ -7,6 +7,18 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.202.0 (23.03.26) {#version0.202.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.202.0}
+
+##### {{ mch-name }} {#mch-0.202.0}
+
+Добавлен параметр `--allow-host-recreation` для пересоздания хостов в следующие команды:
+* `yc managed-clickhouse cluster update`;
+* `yc managed-clickhouse shard update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.201.0 (19.03.26) {#version0.201.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -14,8 +26,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ baremetal-name }}
 
 Добавлена команда `yc baremetal vrf update` для управления статическими маршрутами VRF.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.200.0 (18.03.26) {#version0.200.0}
 

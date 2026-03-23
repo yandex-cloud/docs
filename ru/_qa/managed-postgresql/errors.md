@@ -256,3 +256,9 @@ ERROR: cannot execute INSERT in a read-only transaction
   Ошибка может возникать при отсутствии необходимой библиотеки общего пользования в кластере.
 
   Решение: проверьте требования к библиотекам общего пользования в [списке поддерживаемых расширений](../../managed-postgresql/operations/extensions/cluster-extensions.md#postgresql). Чтобы подключить нужную библиотеку, при [изменении настроек кластера {{ PG }}](../../managed-postgresql/operations/update.md#change-postgresql-config) укажите ее имя в [параметре Shared preload libraries](../../managed-postgresql/concepts/settings-list.md#setting-shared-libraries).
+
+#### Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`? {#vector-error}
+
+Ошибка возникает из-за того, что в {{ mpg-name }} расширение `vector` называется `pgvector`.
+
+Решение: при обращении к расширению используйте `pgvector` вместо `vector`.

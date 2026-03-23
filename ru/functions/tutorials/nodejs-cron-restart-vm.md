@@ -2,6 +2,7 @@
 title: Как развернуть отказоустойчивую архитектуру с прерываемыми виртуальными машинами
 description: Следуя данному руководству, вы сможете развернуть отказоустойчивую архитектуру с использованием прерываемых ВМ.
 author: msokolov93
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/infrastructure/nodejs-cron-restart-vm'
 ---
 
