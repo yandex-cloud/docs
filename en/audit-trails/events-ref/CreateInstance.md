@@ -132,6 +132,9 @@ editable: false
       "gceHttpToken": "string",
       "awsV1HttpToken": "string"
     },
+    "serialPortSettings": {
+      "sshAuthorization": "string"
+    },
     "reservedInstancePoolId": "string",
     "resourcesSpec": {
       "memory": "string",
@@ -522,6 +525,7 @@ A list of messages that carry the error details. ||
 || os | **[Os](#yandex.cloud.compute.v1.Os)** ||
 || productIds[] | **string** ||
 || metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)** ||
+|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)** ||
 || reservedInstancePoolId | **string** ||
 || resourcesSpec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)** ||
 || bootDiskSpec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)** ||
@@ -607,6 +611,16 @@ A list of messages that carry the error details. ||
 
 - `ENABLED`
 - `DISABLED` ||
+|#
+
+## SerialPortSettings {#yandex.cloud.compute.v1.SerialPortSettings}
+
+#|
+||Field | Description ||
+|| sshAuthorization | **enum** (SSHAuthorization)
+
+- `INSTANCE_METADATA`
+- `OS_LOGIN` ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}

@@ -122,6 +122,9 @@ editable: false
       "gceHttpToken": "string",
       "awsV1HttpToken": "string"
     },
+    "serialPortSettings": {
+      "sshAuthorization": "string"
+    },
     "reservedInstancePoolId": "string",
     "updateMask": "string",
     "resourcesSpec": {
@@ -319,6 +322,7 @@ A list of messages that carry the error details. ||
 || networkSettings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)** ||
 || placementPolicy | **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy)** ||
 || metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)** ||
+|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)** ||
 || reservedInstancePoolId | **string** ||
 || updateMask | **string** (field-mask)
 
@@ -386,6 +390,16 @@ The rest of the fields will be reset to the default. ||
 
 - `ENABLED`
 - `DISABLED` ||
+|#
+
+## SerialPortSettings {#yandex.cloud.compute.v1.SerialPortSettings}
+
+#|
+||Field | Description ||
+|| sshAuthorization | **enum** (SSHAuthorization)
+
+- `INSTANCE_METADATA`
+- `OS_LOGIN` ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}

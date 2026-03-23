@@ -1,6 +1,7 @@
 ---
 title: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-name }}
 description: Следуя данному руководству, вы сможете настроить реагирование в {{ cloud-logging-name }} и {{ sf-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/logging-functions'
 ---
 

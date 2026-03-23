@@ -4,7 +4,7 @@
 
 Чтобы переключить экземпляр {{ datalens-short-name }}:
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. В левом нижнем углу нажмите фото вашего аккаунта.
 
    ![image](../../../_assets/datalens/organization/select-organization.png)

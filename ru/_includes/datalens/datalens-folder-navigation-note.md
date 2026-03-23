@@ -4,7 +4,7 @@
 
 {% cut "Создать папку" %}
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![](../../_assets/console-icons/folders.svg) **Все объекты** или ![](../../_assets/console-icons/folder-house.svg) **Личная папка**.
 1. В правом верхнем углу нажмите **Создать** → **Папку**.
 1. Введите название папки.

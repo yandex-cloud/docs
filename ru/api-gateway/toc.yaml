@@ -115,54 +115,66 @@ items:
     items:
       - name: Все практические руководства
         href: tutorials/index.md
-      - name: Развертывание веб-приложения с использованием Java Servlet API
-        href: tutorials/java-servlet-todo-list.md
-      - name: Разработка навыка Алисы и сайта с авторизацией
-        href: tutorials/alice-shareable-todolist.md
-      - name: Разработка Slack-бота
-        href: tutorials/slack-bot-serverless.md
-      - name: Разработка Telegram-бота
-        href: tutorials/telegram-bot-serverless.md
-      - name: Разработка Telegram-бота для распознавания текста и аудио
-        href: tutorials/recognizer-bot.md
-      - name: Разработка пользовательской интеграции
-        href: tutorials/api-gw-integration.md
-      - name: Разработка CRUD API для сервиса фильмов
-        href: tutorials/movies-database.md
-      - name: Работа с API-шлюзом по протоколу WebSocket
-        href: tutorials/api-gw-websocket.md
-      - name: >-
-          Создание интерактивного serverless-приложения с использованием
-          WebSocket
-        href: tutorials/websocket-app.md
-      - name: >-
-          Построение пайплайна CI/CD в {{ GL }} с использованием
-          serverless-продуктов
-        href: tutorials/ci-cd-serverless.md
-      - name: Интерактивная отладка функций {{ sf-name }}
-        href: tutorials/serverless-live-debug.md
-      - name: >-
-          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
-          аутентификацией в Firebase
-        href: tutorials/jwt-authorizer-firebase.md
-      - name: Канареечный релиз функции {{ sf-name }}
-        href: tutorials/canary-release.md
-      - name: >-
-          Использование {{ api-gw-name }} для настройки синтеза речи в {{
-          speechkit-full-name }}
-        href: tutorials/speechkit-integrarion-via-agi-gw.md
-      - name: >-
-          Запуск контейнерного приложения в {{ serverless-containers-full-name
-          }}
-        href: tutorials/deploy-app-container.md
-      - name: Сокращатель ссылок
-        href: tutorials/serverless-url-shortener.md
-      - name: Ввод данных в системы хранения
-        href: tutorials/data-ingestion.md
-      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
-        href: tutorials/api-gw-sws-integration.md
-      - name: Создание AI-агента со стримингом ответа через веб-сокеты
-        href: tutorials/streaming-openai-agent.md
+      - name: Бэкенд на Serverless
+        items:
+          - name: Развертывание веб-приложения с использованием Java Servlet API
+            href: tutorials/java-servlet-todo-list.md
+          - name: Разработка пользовательской интеграции
+            href: tutorials/api-gw-integration.md
+          - name: Сокращатель ссылок
+            href: tutorials/serverless-url-shortener.md
+          - name: Разработка CRUD API для сервиса фильмов
+            href: tutorials/movies-database.md
+          - name: >-
+              Создание интерактивного serverless-приложения с использованием
+              WebSocket
+            href: tutorials/websocket-app.md
+          - name: Работа с API-шлюзом по протоколу WebSocket
+            href: tutorials/api-gw-websocket.md
+          - name: >-
+              Запуск контейнерного приложения в {{
+              serverless-containers-full-name }}
+            href: tutorials/deploy-app-container.md
+          - name: >-
+              Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name
+              }} и аутентификацией в Firebase
+            href: tutorials/jwt-authorizer-firebase.md
+          - name: Канареечный релиз функции {{ sf-name }}
+            href: tutorials/canary-release.md
+          - name: Интерактивная отладка функций {{ sf-name }}
+            href: tutorials/serverless-live-debug.md
+      - name: Боты на Serverless
+        items:
+          - name: Разработка Slack-бота
+            href: tutorials/slack-bot-serverless.md
+          - name: Разработка Telegram-бота
+            href: tutorials/telegram-bot-serverless.md
+          - name: Разработка Telegram-бота для распознавания текста и аудио
+            href: tutorials/recognizer-bot.md
+      - name: ETL на Serverless
+        items:
+          - name: Ввод данных в системы хранения
+            href: tutorials/data-ingestion.md
+      - name: Рабочие процессы и автоматизация на Serverless
+        items:
+          - name: >-
+              Построение пайплайна CI/CD в {{ GL }} с использованием
+              serverless-продуктов
+            href: tutorials/ci-cd-serverless.md
+      - name: Интеграция с сервисами Яндекса и Yandex Cloud
+        items:
+          - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+            href: tutorials/api-gw-sws-integration.md
+          - name: Разработка навыка Алисы и сайта с авторизацией
+            href: tutorials/alice-shareable-todolist.md
+          - name: >-
+              Использование {{ api-gw-name }} для настройки синтеза речи в {{
+              speechkit-full-name }}
+            href: tutorials/speechkit-integrarion-via-agi-gw.md
+      - name: Искусственный интеллект
+        items:
+          - name: Создание AI-агента со стримингом ответа через веб-сокеты
+            href: tutorials/streaming-openai-agent.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

@@ -28,10 +28,11 @@ description: Следуя данной инструкции, вы узнаете
 
 - Главная страница
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 
   
-  1. Нажмите кнопку **Создать датасет**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Датасеты**.
+  1. В правом верхнем углу нажмите кнопку **Создать датасет**.
 
 
 

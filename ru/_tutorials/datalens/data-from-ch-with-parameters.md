@@ -161,10 +161,8 @@
 
 Создайте [дашборд](../../datalens/concepts/dashboard.md), на который будут добавлены чарты.
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. На панели слева нажмите ![image](../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
 1. Нажмите кнопку **Создать дашборд**.
-
-   ![image](../../_assets/datalens/solution-parameters/create-dashboard.png)
 
 ## Добавьте чарты на дашборд {#add-charts-on-dashboard}
 

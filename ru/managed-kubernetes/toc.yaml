@@ -712,12 +712,12 @@ items:
                 href: gwin-ref/gatewaypolicy.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
+              - name: Ingress
+                href: gwin-ref/ingress.md
               - name: HTTPRoute
                 href: gwin-ref/httproute.md
               - name: IngressBackendGroup
                 href: gwin-ref/ingressbackendgroup.md
-              - name: Ingress
-                href: gwin-ref/ingress.md
               - name: IngressPolicy
                 href: gwin-ref/ingresspolicy.md
               - name: RoutePolicy

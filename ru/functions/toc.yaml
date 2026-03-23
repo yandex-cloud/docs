@@ -415,121 +415,139 @@ items:
     items:
       - name: Все практические руководства
         href: tutorials/index.md
-      - name: Создание навыка Алисы
-        href: tutorials/alice-skill.md
-      - name: Развертывание веб-приложения
-        href: tutorials/java-servlet-todo-list.md
-      - name: Разработка навыка Алисы и сайта с авторизацией
-        href: tutorials/alice-shareable-todolist.md
-      - name: Запись данных с устройства в базу данных
-        href: tutorials/data-recording.md
-      - name: Запись логов балансировщика в {{ PG }}
-        href: tutorials/logging.md
-      - name: Разработка Slack-бота
-        href: tutorials/slack-bot-serverless.md
-      - name: Разработка Telegram-бота
-        href: tutorials/telegram-bot-serverless.md
-      - name: Подключение к базе данных YDB из функции на Python
-        href: tutorials/connect-to-ydb.md
-      - name: Подключение к базе данных YDB из функции на Node.js
-        href: tutorials/connect-to-ydb-nodejs.md
-      - name: Конвертация видео в GIF на Python
+      - name: Бэкенд на Serverless
         items:
-          - name: Обзор
-            href: tutorials/video-converting-queue/index.md
-          - name: Консоль управления
-            href: tutorials/video-converting-queue/console.md
-          - name: '{{ TF }}'
-            href: tutorials/video-converting-queue/terraform.md
-      - name: Создание функции Node.js с помощью TypeScript
-        href: tutorials/nodejs-typescript.md
-      - name: Разработка пользовательской интеграции
-        href: tutorials/api-gw-integration.md
-      - name: >-
-          Создание триггера для бюджетов, который вызывает функцию для остановки
-          ВМ
-        href: tutorials/serverless-trigger-budget-vm.md
-      - name: >-
-          Создание интерактивного serverless-приложения с использованием
-          WebSocket
-        href: tutorials/websocket-app.md
-      - name: >-
-          Автоматическое копирование объектов из одного бакета {{
-          objstorage-name }} в другой
-        href: tutorials/bucket-to-bucket.md
-      - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
-        href: tutorials/regular-launch-datasphere.md
-      - name: Интерактивная отладка функций
-        href: tutorials/serverless-live-debug.md
-      - name: >-
-          Регулярное асинхронное распознавание аудиофайлов из {{ objstorage-name
-          }}
-        href: tutorials/batch-recognition-stt.md
-      - name: Канареечный релиз функции {{ sf-name }}
-        href: tutorials/canary-release.md
-      - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
-        href: tutorials/nodejs-cron-restart-vm.md
-      - name: >-
-          Создание триггеров, которые вызывают функции для остановки ВМ и
-          отправки уведомлений в Telegram
-        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
-      - name: >-
-          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
-          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
-          data-transfer-full-name }}
-        href: tutorials/data-transfer-direct-to-mch.md
-      - name: Масштабирование группы виртуальных машин по расписанию
+          - name: Развертывание веб-приложения
+            href: tutorials/java-servlet-todo-list.md
+          - name: Конвертация видео в GIF на Python
+            items:
+              - name: Обзор
+                href: tutorials/video-converting-queue/index.md
+              - name: Консоль управления
+                href: tutorials/video-converting-queue/console.md
+              - name: '{{ TF }}'
+                href: tutorials/video-converting-queue/terraform.md
+          - name: Разработка пользовательской интеграции
+            href: tutorials/api-gw-integration.md
+          - name: Сокращатель ссылок
+            href: tutorials/serverless-url-shortener.md
+          - name: >-
+              Создание интерактивного serverless-приложения с использованием
+              WebSocket
+            href: tutorials/websocket-app.md
+          - name: Создание функции Node.js с помощью TypeScript
+            href: tutorials/nodejs-typescript.md
+          - name: Подключение к базе данных YDB из функции на Python
+            href: tutorials/connect-to-ydb.md
+          - name: Подключение к базе данных YDB из функции на Node.js
+            href: tutorials/connect-to-ydb-nodejs.md
+          - name: Канареечный релиз функции {{ sf-name }}
+            href: tutorials/canary-release.md
+          - name: Интерактивная отладка функций
+            href: tutorials/serverless-live-debug.md
+      - name: Боты на Serverless
         items:
-          - name: Обзор
-            href: tutorials/vm-scale-scheduled/index.md
-          - name: Консоль управления, CLI и API
-            href: tutorials/vm-scale-scheduled/console.md
-          - name: '{{ TF }}'
-            href: tutorials/vm-scale-scheduled/terraform.md
-      - name: Мониторинг состояния географически распределенных устройств
-        href: tutorials/datalens.md
-      - name: Мониторинг показаний датчиков и уведомления о событиях
-        href: tutorials/monitoring.md
-      - name: Эмуляция множества IoT-устройств
-        href: tutorials/iot-emulation.md
-      - name: >-
-          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
-          анализ с помощью {{ datalens-full-name }}
-        href: tutorials/events-from-postbox-to-yds.md
-      - name: Сокращатель ссылок
-        href: tutorials/serverless-url-shortener.md
-      - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
-        href: tutorials/data-from-tracker.md
-      - name: Запуск вычислений в {{ ml-platform-name }} с помощью API
-        href: tutorials/batch-code-execution.md
-      - name: Разработка Telegram-бота для распознавания текста и аудио
-        href: tutorials/recognizer-bot.md
-      - name: Настройка реагирования в {{ cloud-logging-full-name }} и {{ sf-name }}
-        href: tutorials/logging-functions.md
-      - name: >-
-          Разработка функций в Functions Framework и их развертывание в {{
-          serverless-containers-full-name }}
-        href: tutorials/functions-framework-to-container.md
-      - name: >-
-          Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с
-          использованием {{ sf-full-name }} и {{ yq-full-name }}
+          - name: Разработка Slack-бота
+            href: tutorials/slack-bot-serverless.md
+          - name: Разработка Telegram-бота
+            href: tutorials/telegram-bot-serverless.md
+          - name: Разработка Telegram-бота для распознавания текста и аудио
+            href: tutorials/recognizer-bot.md
+      - name: ETL на Serverless
         items:
-          - name: Обзор
-            href: tutorials/forms-and-datalens-integration/index.md
-          - name: Консоль управления
-            href: tutorials/forms-and-datalens-integration/console.md
-          - name: Terraform
-            href: tutorials/forms-and-datalens-integration/terraform.md
-      - name: Настройка CI/CD с {{ src-name }}
-        href: tutorials/ci-cd-sourcecraft-functions.md
-      - name: Настройка CI/CD с GitHub
-        href: tutorials/ci-cd-github-functions.md
-      - name: Создание AI-агента с помощью {{ sf-name }}
-        href: tutorials/create-ai-agent-function.md
-      - name: Создание AI-агента со стримингом ответа через веб-сокеты
-        href: tutorials/streaming-openai-agent.md
-      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
-        href: tutorials/postbox-webhook.md
+          - name: Запись данных с устройства в базу данных
+            href: tutorials/data-recording.md
+          - name: Запись логов балансировщика в {{ PG }}
+            href: tutorials/logging.md
+          - name: >-
+              Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name
+              }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }}
+              и {{ data-transfer-full-name }}
+            href: tutorials/data-transfer-direct-to-mch.md
+          - name: >-
+              Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и
+              их анализ с помощью {{ datalens-full-name }}
+            href: tutorials/events-from-postbox-to-yds.md
+          - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+            href: tutorials/data-from-tracker.md
+          - name: >-
+              Поставка данных из {{ forms-full-name }} в {{ datalens-full-name
+              }} с использованием {{ sf-full-name }} и {{ yq-full-name }}
+            items:
+              - name: Обзор
+                href: tutorials/forms-and-datalens-integration/index.md
+              - name: Консоль управления
+                href: tutorials/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: tutorials/forms-and-datalens-integration/terraform.md
+          - name: >-
+              Интеграция {{ postbox-full-name }} с внешними системами через
+              вебхуки
+            href: tutorials/postbox-webhook.md
+      - name: Рабочие процессы и автоматизация на Serverless
+        items:
+          - name: >-
+              Создание триггера для бюджетов, который вызывает функцию для
+              остановки ВМ
+            href: tutorials/serverless-trigger-budget-vm.md
+          - name: >-
+              Автоматическое копирование объектов из одного бакета {{
+              objstorage-name }} в другой
+            href: tutorials/bucket-to-bucket.md
+          - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
+            href: tutorials/regular-launch-datasphere.md
+          - name: >-
+              Регулярное асинхронное распознавание аудиофайлов из {{
+              objstorage-name }}
+            href: tutorials/batch-recognition-stt.md
+          - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
+            href: tutorials/nodejs-cron-restart-vm.md
+          - name: >-
+              Создание триггеров, которые вызывают функции для остановки ВМ и
+              отправки уведомлений в Telegram
+            href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+          - name: Масштабирование группы виртуальных машин по расписанию
+            items:
+              - name: Обзор
+                href: tutorials/vm-scale-scheduled/index.md
+              - name: Консоль управления, CLI и API
+                href: tutorials/vm-scale-scheduled/console.md
+              - name: '{{ TF }}'
+                href: tutorials/vm-scale-scheduled/terraform.md
+          - name: Запуск вычислений в {{ ml-platform-name }} с помощью API
+            href: tutorials/batch-code-execution.md
+          - name: Настройка CI/CD с {{ src-name }}
+            href: tutorials/ci-cd-sourcecraft-functions.md
+          - name: Настройка CI/CD с GitHub
+            href: tutorials/ci-cd-github-functions.md
+          - name: >-
+              Настройка реагирования в {{ cloud-logging-full-name }} и {{
+              sf-name }}
+            href: tutorials/logging-functions.md
+          - name: >-
+              Разработка функций в Functions Framework и их развертывание в {{
+              serverless-containers-full-name }}
+            href: tutorials/functions-framework-to-container.md
+      - name: Интернет вещей
+        items:
+          - name: Мониторинг состояния географически распределенных устройств
+            href: tutorials/datalens.md
+          - name: Мониторинг показаний датчиков и уведомления о событиях
+            href: tutorials/monitoring.md
+          - name: Эмуляция множества IoT-устройств
+            href: tutorials/iot-emulation.md
+      - name: Интеграция с сервисами Яндекса и Yandex Cloud
+        items:
+          - name: Разработка навыка Алисы и сайта с авторизацией
+            href: tutorials/alice-shareable-todolist.md
+          - name: Создание навыка Алисы
+            href: tutorials/alice-skill.md
+      - name: Искусственный интеллект
+        items:
+          - name: Создание AI-агента с помощью {{ sf-name }}
+            href: tutorials/create-ai-agent-function.md
+          - name: Создание AI-агента со стримингом ответа через веб-сокеты
+            href: tutorials/streaming-openai-agent.md
   - name: Инструменты
     href: tools.md
   - name: Правила тарификации

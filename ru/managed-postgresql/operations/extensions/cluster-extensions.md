@@ -328,7 +328,7 @@
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Содержит функции для геопространственной маршрутизации базы данных [PostGIS](https://www.postgis.net/).</p> | 3.3.0 | 3.4.1 | 3.5.0 | 3.6.2 | 3.8.0 ||
 || <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p>Содержит функцию `pgrowlocks()`, которая возвращает сведения о блокировке строк в указанной таблице.</p> | 1.2 | 1.2 | 1.2 | 1.2 | - ||
 || <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p>Содержит функции для получения статистики на уровне кортежей.</p><p>Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin) или [роль `mdb_superuser`](../../concepts/roles.md#mdb-superuser).</p> | 1.5 | 1.5 | 1.5 | 1.5 | - ||
-|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Добавляет поиск векторного подобия.</p> | 0.2.5 | 0.3.2 | 0.8.0 | 0.8.0 | 0.8.0 ||
+|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Добавляет поиск векторного подобия.</p><p>Под именем `pgvector` [доступно расширение vector](../../qa/errors.md#vector-error).</p> | 0.2.5 | 0.3.2 | 0.8.0 | 0.8.0 | 0.8.0 ||
 || <p>[plpgsql](https://www.timescale.com/learn/postgresql-extensions-plpgsql)</p><p>Добавляет поддержку процедурного языка PL/pgSQL.</p> | - | - | - | 1.0 | - ||
 || <p>[plv8](https://plv8.github.io/)</p><p>Добавляет поддержку процедурного языка на основе JavaScript и движка V8.</p> | 3.0.0 | - | 3.2.3 | 3.2.3 | 3.2.4 ||
 || <p>[postgis](https://postgis.net/docs/)</p><p>Добавляет возможности хранения и обработки объектов геоинформационных систем (ГИС) в базах данных {{ PG }}.</p> | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 | 3.6.0 ||

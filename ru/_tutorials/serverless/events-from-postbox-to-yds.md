@@ -290,7 +290,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![thunderbolt](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
   1. Выберите коннектор **{{ ydb-short-name }}**.
   1. Укажите параметры подключения:
@@ -314,7 +314,8 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. Нажмите **Начать в облаке**.
   1. На панели слева выберите ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Датасеты** и нажмите кнопку **Создать датасет**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. В блоке **Подключения** нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить** и выберите созданное ранее подключение `postbox-events-connection`.
@@ -336,7 +337,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![chart-column](../../_assets/console-icons/chart-column.svg) **Чарты**, нажмите кнопку **Создать чарт** и выберите **Чарт в Wizard**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. В секции слева нажмите ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
@@ -359,7 +360,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![chart-column](../../_assets/console-icons/chart-column.svg) **Чарты**, нажмите кнопку **Создать чарт** и выберите **Чарт в Wizard**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. В секции слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
@@ -388,7 +389,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** и нажмите кнопку **Создать дашборд**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. Добавьте на дашборд чарты `Количество событий по дням`, `Список событий` и другие, которые вы создали ранее:

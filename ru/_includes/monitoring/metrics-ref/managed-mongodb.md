@@ -426,8 +426,8 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, миллисекунды | Время создания последнего чекпоинта (в миллисекундах). | 
 | `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, штуки | Прирост завершенных транзакций за секунду. | 
 | `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, штуки | Прирост отмененных транзакций за секунду. | 
-| `top_readLock_time_rate`<br/>`DGAUGE`, миллисекунды/с | Общее время удержания read-блокировок в секунду.<br/>Метка `ns` — пространство имен. |
-| `top_writeLock_time_rate`<br/>`DGAUGE`, миллисекунды/с | Общее время удержания write-блокировок в секунду.<br/>Метка `ns` — пространство имен. |
+| `top_readLock_time_rate`<br/>`DGAUGE`, микросекунды/с | Общее время удержания read-блокировок в секунду.<br/>Метка `ns` — пространство имен. |
+| `top_writeLock_time_rate`<br/>`DGAUGE`, микросекунды/с | Общее время удержания write-блокировок в секунду.<br/>Метка `ns` — пространство имен. |
 
 
 ## Прочие метрики {#managed-mongodb-other-metrics}

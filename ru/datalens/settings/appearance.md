@@ -30,7 +30,7 @@ description: Настройки оформления в {{ datalens-full-name }}
 
 Чтобы настроить внешний вид интерфейса:
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![image](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
 1. Выберите вкладку **Оформление**.
 1. В разделе **Стилизация интерфейса** нажмите кнопку ![image](../../_assets/console-icons/palette.svg) **Настроить**.

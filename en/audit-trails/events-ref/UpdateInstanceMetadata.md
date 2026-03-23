@@ -102,7 +102,10 @@ editable: false
     ],
     "metadataSerialPortEnable": "string",
     "metadataOsloginEnable": "string",
-    "metadata": "object"
+    "metadata": "object",
+    "serialPortSettings": {
+      "sshAuthorization": "string"
+    }
   },
   "requestParameters": "object",
   "response": "object"
@@ -282,4 +285,15 @@ A list of messages that carry the error details. ||
 || metadataSerialPortEnable | **string** ||
 || metadataOsloginEnable | **string** ||
 || metadata | **object** (map<**string**, **string**>) ||
+|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)** ||
+|#
+
+## SerialPortSettings {#yandex.cloud.compute.v1.SerialPortSettings}
+
+#|
+||Field | Description ||
+|| sshAuthorization | **enum** (SSHAuthorization)
+
+- `INSTANCE_METADATA`
+- `OS_LOGIN` ||
 |#

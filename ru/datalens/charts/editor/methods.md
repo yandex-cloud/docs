@@ -741,14 +741,14 @@ JSON-объект вида:
 
 - Вкладка Meta
 
-  Содержимое вкладки [Params](./tabs.md#params):
+  Содержимое вкладки [Meta](./tabs.md#meta):
 
   ```js
-  module.exports = {
+  {
     "links": {
         "myBestDataset": "tlzr1t5kto9cg"
     }
-  };
+  }
   ```
 
 - Вкладка Sources

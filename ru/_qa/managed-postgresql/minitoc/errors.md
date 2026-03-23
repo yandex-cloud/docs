@@ -35,3 +35,5 @@
 * [Что делать, если в логах отображается ошибка `too many connections for role "monitor"`?](#monitor-role-error)
 
 * [Почему установка нескольких расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)
+
+* [Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`?](#vector-error)
