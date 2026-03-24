@@ -112,6 +112,11 @@ description: Следуя данной инструкции, вы сможете
      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
      * `--container-runtime` — среда запуска контейнеров [containerd](https://containerd.io/).
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
+
+        
+        {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--template-labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
      * `--node-labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
@@ -293,7 +298,24 @@ description: Следуя данной инструкции, вы сможете
          }
        }
        ```
+
+     * Чтобы создать группу узлов {{ managed-k8s-name }} с [прерываемыми ВМ](../../../compute/concepts/preemptible-vm.md), добавьте блок `scheduling_policy`:
+
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+         ...
+         instance_template {
+           scheduling_policy {
+             preemptible = true
+           }
+         }
+       }
+       ```
+
        
+       {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * Чтобы добавить метаданные для узлов, передайте их в параметре `instance_template.metadata`.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -403,6 +425,12 @@ description: Следуя данной инструкции, вы сможете
   * Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * Чтобы создать группу узлов с [прерываемыми ВМ](../../../compute/concepts/preemptible-vm.md), передайте параметр `nodeTemplate.schedulingPolicy.preemptible`.
+
+    
+    {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
 
   * Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
 

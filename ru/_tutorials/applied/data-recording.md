@@ -262,7 +262,7 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
 
         * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** выберите `python37`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** оставьте значение по умолчанию: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** оставьте значение по умолчанию: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
 
     1. Создайте файл `myfunction.py`.
     1. В области редактирования файла вставьте код функции, размещенный на [Github](https://github.com/yandex-cloud-examples/yc-iot-postgresql/blob/main/myfunction.py).

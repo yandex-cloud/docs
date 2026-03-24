@@ -1,4 +1,4 @@
-# {{ cloud-logging-name }} overview
+# {{ monium-logs-name }} overview
 
 {{ monium-logs-name }} is a distributed and highly available system for storing, searching, visualizing, and analyzing logs.
 
@@ -14,4 +14,4 @@ With a single platform, you can access both logs and [traces](../traces/index.md
 
 * Fast log search that allows you to diagnose errors in real time ([ad-hoc scenarios](https://en.wikipedia.org/wiki/Ad_hoc_testing)).
 * Fault tolerance: data is replicated across data centers.
-* Self-monitoring, where the system automatically collects metrics about incoming logs: data size, delivery delays, number of errors, etc. For tracking metrics, there is a service dashboard with pre-installed charts.
+* Self-diagnosis: the system automatically collects metrics about incoming logs: data amount, delivery delays, number of errors, etc. For diagnostics, there is a service dashboard with pre-installed charts for various metrics.

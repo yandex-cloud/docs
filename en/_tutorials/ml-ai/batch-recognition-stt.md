@@ -1,4 +1,4 @@
-# Regular recognition of audio files from {{ objstorage-full-name }}
+# Recognizing audio files from {{ objstorage-full-name }} on a regular basis
 
 
 The {{ speechkit-short-name }} [asynchronous recognition API]({{ link-docs-ai }}speechkit/stt/api/transcribation-api) is integrated with {{ objstorage-full-name }}. Therefore, you can set up automatic recognition of audio files of [supported formats]({{ link-docs-ai }}speechkit/formats) that are regularly uploaded to an {{ objstorage-name }} bucket. A cloud function in {{ sf-full-name }} regularly checks the bucket for audio files and sends them to the {{ speechkit-short-name }} API for recognition. The recognition result and status are saved to the same {{ objstorage-name }} bucket.
@@ -16,7 +16,7 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key for the service account.
 
 
-1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key to access the service account.
+1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the service account.
 1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-name }} bucket named `asr-batch-bucket` in the service account folder.
 1. Open `asr-batch-bucket`, click **{{ ui-key.yacloud.storage.bucket.button_create }}**, and specify `input` in the **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name}}** field.
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `config.json` file with the specified [recognition language]({{ link-docs-ai }}speechkit/stt/models#languages) to the bucket's `input` folder. The file only contains one setting:
@@ -35,12 +35,12 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 
 ## Create a cloud function {#create-function}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder with the new service account.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder the service account was created in.
+1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** service.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** and specify `asr-batch-function` as the function name.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `Python` `3.8` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-1. Download a [script file](https://github.com/yandex-cloud-examples/yc-speechkit-async-recognizer/blob/main/examples/asr-batch-function/functions/main.py) from the {{ yandex-cloud }} repository.
+1. Download the [script file](https://github.com/yandex-cloud-examples/yc-speechkit-async-recognizer/blob/main/examples/asr-batch-function/functions/main.py) from the {{ yandex-cloud }} repository.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, clear the contents of the `index.py` file and paste the downloaded script.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `requirements.txt` and add the following code to it:
 
@@ -68,7 +68,8 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 
 ## Create a trigger {#create-trigger}
 
-1. In the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. In the [management console]({{ link-console-main }}), navigate to the folder the function was created in.
+1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** service.
 1. Select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 1. Specify the trigger settings:
@@ -85,11 +86,12 @@ The trigger you created will fire once a minute and invoke the [cloud function](
 
 ## Test the function {#check-function}
 
-1. In the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and open `asr-batch-bucket`.
+1. In the [management console]({{ link-console-main }}), navigate to the folder the function was created in.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and open `asr-batch-bucket`.
 1. [Upload](../../storage/operations/objects/upload.md#simple) audio files of any [supported format]({{ link-docs-ai }}speechkit/formats) to the `input` folder.
 1. Wait a few minutes and make sure the bucket now contains the `log` and `out` folders.
-1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an auxiliary file named `<audio_file_name>.json` (e.g., `audio.mp3.json`). The `"done": "false"` parameter in the file indicates the recognition process is not completed.
-1. Check the recognition result in the `out` folder. The result is saved to a JSON file named `<audio_file_name>.json` (e.g., `audio.mp3.json`). To learn more about the recognition result format, see [Asynchronous recognition API]({{ link-docs-ai }}speechkit/stt/api/transcribation-api#get-result-response).
+1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an auxiliary file named `<audio_file_name>.json`, e.g., `audio.mp3.json`. The `"done": "false"` parameter in the file indicates that the recognition process is not completed.
+1. Check the recognition result in the `out` folder. The result is saved to a JSON file named `<audio_file_name>.json`, e.g., `audio.mp3.json`. To learn more about the recognition result format, see [Asynchronous recognition API]({{ link-docs-ai }}speechkit/stt/api/transcribation-api#get-result-response).
 
 {% note info %}
 

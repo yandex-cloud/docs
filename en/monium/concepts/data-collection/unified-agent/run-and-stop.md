@@ -82,7 +82,7 @@ description: In this tutorial, you will learn how to start and stop {{ unified-a
 
   Once the VM is deployed, {{ unified-agent-short-name }} will be started automatically and begin delivering basic VM metrics to {{ monitoring-full-name }}.
 
-  You are responsible for updating and maintaining the agent.
+  You are responsible for agent updates and maintainance.
 
   The agent is installed with a default configuration file located at `/etc/yc/unified_agent/config.yml`. You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
 

@@ -211,7 +211,7 @@ To create a function, you will need the function code and database connection cr
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select `{{ python-full-ver }}`.
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
       1. Click **Attach file** and select `postbox-events.zip`.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
 

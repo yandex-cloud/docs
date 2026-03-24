@@ -2,7 +2,7 @@
 
 You can use {{ objstorage-full-name }} for backup and recovery using Veritas Backup Exec.
 
-To set up {{ objstorage-name }} backup using Veritas Backup Exec:
+To set up a backup to {{ objstorage-name }} using Veritas Backup Exec:
 
 1. [Get your cloud ready](#before-begin).
 1. [Create a bucket](#create-bucket).
@@ -11,7 +11,7 @@ To set up {{ objstorage-name }} backup using Veritas Backup Exec:
 1. [Configure cloud storage](#setup-cloud).
 1. [Add a server for backup](#add-source).
 1. [Configure the backup settings](#add-target).
-1. [Test backup](#test-backup).
+1. [Test your backup](#test-backup).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -27,7 +27,7 @@ The cost of backup using Veritas Backup Exec includes:
 * Fee for data operations.
 * Fee for outbound traffic from {{ yandex-cloud }} to the internet.
 
-Learn more about the [{{ objstorage-full-name }} pricing plans](../../storage/pricing.md#prices).
+[More on {{ objstorage-full-name }} pricing](../../storage/pricing.md#prices).
 
 ## Create a bucket {#create-bucket}
 
@@ -124,14 +124,14 @@ To create a service account:
    Select the cloud device you created earlier as the storage.
 1. Click **OK**.
 
-## Test backup {#test-backup}
+## Test your backup {#test-backup}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder with backups.
-  1. Select **{{ objstorage-short-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ objstorage-short-name }}**.
   1. Open the bucket with backups and check whether all relevant files were copied.
 
 {% endlist %}

@@ -13,6 +13,3 @@ The following foundation models are currently available in {{ ml-platform-name }
 
 If you want to fine-tune a model, use [model tuning]({{ link-docs-ai }}ai-studio/concepts/tuning/index) in {{ foundation-models-full-name }}.
 
-## Use cases {#examples}
-
-[Model fine-tuning in {{ ml-platform-name }} Notebooks]({{ link-docs-ai }}ai-studio/tutorials/models-fine-tuning)

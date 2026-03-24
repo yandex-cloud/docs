@@ -5,7 +5,7 @@ description: How to set up a demo app in a {{ k8s }} cluster and send telemetry 
 
 # Setting up a demo app and collecting telemetry in {{ k8s }}
 
-You will set up a demo app in a {{ k8s }} cluster and send app telemetry to {{ monium-name }}. This guide uses {{ managed-k8s-name }} to deploy a cluster, but you can any of your {{ k8s }} clusters.
+You will set up a demo app in a {{ k8s }} cluster and send the app's telemetry data to {{ monium-name }}. This guide uses {{ managed-k8s-name }} to deploy a cluster, but you can any of your {{ k8s }} clusters.
 
 ## Getting started {#before-you-begin}
 
@@ -39,7 +39,7 @@ The cost of resources you need for {{ monium-name }} includes:
 
       From this repository you will install OpenTelemetry Collector, which will collect telemetry from your {{ k8s }} cluster apps, plus OpenTelemetry Demo, an online store demo app.
 
-  1. Create a [service account](../../iam/operations/sa/create.md) with the `monium.telemetry.writer` role and an [API key](../../iam/operations/authentication/manage-api-keys.md) with the `yc.monitoring.manage`, `yc.monium.telemetry.write` scopes.
+  1. Create a [service account](../../iam/operations/sa/create.md) with the `monium.telemetry.writer` role and an [API key](../../iam/operations/authentication/manage-api-keys.md) with the `yc.monium.telemetry.write` scope.
 
   1. Add the API key to the cluster secrets:
       
@@ -175,7 +175,7 @@ The cost of resources you need for {{ monium-name }} includes:
        
        {% endcut %}
 
-       Learn more about [using metrics](../operations/metric/metric-explorer.md).
+       More on [metrics](../operations/metric/metric-explorer.md).
 
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
      
@@ -187,7 +187,7 @@ The cost of resources you need for {{ monium-name }} includes:
        
        {% endcut %}
 
-       Learn more about [using logs](../logs/).
+       More on [logs](../logs/).
      
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
 
@@ -199,7 +199,7 @@ The cost of resources you need for {{ monium-name }} includes:
        
        {% endcut %}
 
-       Learn more about [using traces](../traces/operations/traces-explorer.md).
+       More on [traces](../traces/operations/traces-explorer.md).
 
 {% endlist %}
 

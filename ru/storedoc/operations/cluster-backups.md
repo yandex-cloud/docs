@@ -1,6 +1,6 @@
 ---
 title: Управление резервными копиями {{ SD }}
-description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий {{ SD }}. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
+description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий {{ SD }}. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная с момента создания резервной копии.
 ---
 
 # Управление резервными копиями в {{ mmg-name }}
@@ -117,7 +117,7 @@ PITR не поддерживается для кластеров с включе
      +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
      ```
 
-     Время завершения создания резервной копии указано в столбце `CREATED AT` списка доступных резервных копий в формате `yyyy-mm-dd hh:mm:ss` (`2020-08-10 12:00:00` в примере выше). Вы можете восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
+     Время завершения создания резервной копии указано в столбце `CREATED AT` списка доступных резервных копий в формате `yyyy-mm-dd hh:mm:ss` (`2020-08-10 12:00:00` в примере выше). Вы можете восстановить состояние кластера на любой момент времени, начиная с момента создания резервной копии.
 
   1. Выполните команду создания нового кластера из резервной копии (в примерах приведены только некоторые параметры).
 
@@ -135,8 +135,14 @@ PITR не поддерживается для кластеров с включе
          --host zone-id=<зона_доступности>,`
                `subnet-id=<идентификатор_подсети> \
          --mongod-resource-preset <класс_хоста> \
-         --mongod-disk-size <размер_хранилища_ГБ> \
+         --mongod-disk-size <размер_хранилища_в_ГБ> \
          --mongod-disk-type <тип_диска> \
+         --disk-size-autoscaling mongod-disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                `mongod-planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `mongod-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
+         --maintenance-window type=<тип_технического_обслуживания>,`
+                             `day=<день_недели>,`
+                             `hour=<час_дня> \
          --performance-diagnostics=<включить_диагностику>
       ```
 
@@ -155,7 +161,7 @@ PITR не поддерживается для кластеров с включе
                `type=mongod,`
                `shard-name=<имя_шарда> \
          --mongod-resource-preset <класс_хоста> \
-         --mongod-disk-size <размер_хранилища_ГБ> \
+         --mongod-disk-size <размер_хранилища_в_ГБ> \
          --mongod-disk-type <тип_диска> \
          --host zone-id=<зона_доступности>,`
                `subnet-id=<идентификатор_подсети>,`
@@ -165,26 +171,25 @@ PITR не поддерживается для кластеров с включе
                `subnet-id=<идентификатор_подсети>,`
                `type=<тип_хоста> \
          --<тип_хоста>-resource-preset <класс_хоста> \
-         --<тип_хоста>-disk-size <размер_хранилища_ГБ> \
+         --<тип_хоста>-disk-size <размер_хранилища_в_ГБ> \
          --<тип_хоста>-disk-type <тип_диска> \
+         --disk-size-autoscaling mongod-disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                `mongod-planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `mongod-emergency-usage-threshold=<процент_для_незамедлительного_увеличения>,`
+                                 ...
+                                `<тип_хоста>-disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                `<тип_хоста>-planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `<тип_хоста>-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
+         --maintenance-window type=<тип_технического_обслуживания>,`
+                             `day=<день_недели>,`
+                             `hour=<час_дня> \
          --performance-diagnostics=<включить_диагностику>
       ```
 
 
       Где:
 
-      * `--backup-id` — идентификатор резервной копии. Чтобы восстановить шардированный кластер, укажите идентификатор [шардированной резервной копии](../concepts/backup.md#size). Такие копии имеют больший размер. Чтобы узнать идентификатор, [получите список резервных копий в каталоге](#list-backups).
-
-      * `--recovery-target-timestamp` — момент времени, на который нужно восстановить состояние кластера {{ SD }}, в формате [UNIX time](https://ru.wikipedia.org/wiki/Unix-время). Если параметр не задан, восстановится состояние кластера на момент завершения создания резервной копии.
-      * `--environment` — окружение: `PRESTABLE` или `PRODUCTION`.
-
-      
-      * `--mongod-disk-type` — тип диска: `network-hdd`, `network-ssd` или `network-ssd-io-m3`.
-
-
-      * `--<тип_хоста>-resource-preset`, `--<тип_хоста>-disk-size`, `--<тип_хоста>-disk-type` — параметры хостов, которые управляют шардированием в кластере. `<тип_хоста>` может принимать значения: `mongoinfra`, `mongocfg`, `mongos`.
-
-      * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
+      {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-cli.md)%}
 
 - REST API {#api}
 
@@ -202,7 +207,7 @@ PITR не поддерживается для кластеров с включе
           "environment": "<окружение>",
           "networkId": "<идентификатор_сети>",
           "recoveryTargetSpec": {
-            "timestamp": "<время>"
+            "timestamp": "<момент_времени>"
           },
           "configSpec": {
             "version": "<версия_Yandex_StoreDoc>",
@@ -212,6 +217,11 @@ PITR не поддерживается для кластеров с включе
                   "resourcePresetId": "<класс_хостов>",
                   "diskSize": "<размер_хранилища_в_байтах>",
                   "diskTypeId": "<тип_диска>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                  "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
                 }
               },
               ...
@@ -220,6 +230,11 @@ PITR не поддерживается для кластеров с включе
                   "resourcePresetId": "<класс_хостов>",
                   "diskSize": "<размер_хранилища_в_байтах>",
                   "diskTypeId": "<тип_диска>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                  "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
                 }
               }
             }
@@ -236,43 +251,21 @@ PITR не поддерживается для кластеров с включе
               "priority": "<приоритет_назначения_хоста_мастером>",
               "tags": "<метки_хоста>"
             }
-          ]
+          ],
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          }
         }
         ```
 
         Где:
 
-        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
-        * `backupId` — идентификатор резервной копии. Чтобы восстановить шардированный кластер, укажите идентификатор [шардированной резервной копии](../concepts/backup.md#size). Такие копии имеют больший размер. Чтобы узнать идентификатор, [получите список резервных копий в каталоге](#list-backups).
-        * `name` — имя нового кластера.
-        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
-        * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
-        * `recoveryTargetSpec.timestamp` — момент времени, на который нужно восстановить состояние кластера {{ SD }}, в формате [UNIX time](https://ru.wikipedia.org/wiki/Unix-время). Если параметр не задан, восстановится состояние кластера на момент завершения создания резервной копии.
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-rest.md)%}
 
-        * `configSpec` — настройки кластера:
-
-          * `version` — версия {{ SD }}: 5.0, 6.0 или 7.0.
-          * Тип хоста {{ SD }} — зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
-            
-            * `resources` — ресурсы кластера:
-
-              * `resourcePresetId` — [класс хостов](../concepts/instance-types.md).
-              * `diskSize` — размер диска в байтах.
-              * `diskTypeId` — [тип диска](../concepts/storage.md).
-
-        * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
-
-          * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
-          * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-          * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
-          * `shardName` — имя шарда в шардированном кластере.
-          * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
-          * `secondaryDelaySecs` — время отставания хоста от мастера.
-          * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
-          * `tags`— метки хоста.
-
-    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -302,7 +295,7 @@ PITR не поддерживается для кластеров с включе
           "environment": "<окружение>",
           "network_id": "<идентификатор_сети>",
           "recovery_target_spec": {
-            "timestamp": "<время>"
+            "timestamp": "<момент_времени>"
           },
           "config_spec": {
             "version": "<версия_Yandex_StoreDoc>",
@@ -312,6 +305,11 @@ PITR не поддерживается для кластеров с включе
                   "resource_preset_id": "<класс_хостов>",
                   "disk_size": "<размер_хранилища_в_байтах>",
                   "disk_type_id": "<тип_диска>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                  "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
                 }
               },
               ...
@@ -320,6 +318,11 @@ PITR не поддерживается для кластеров с включе
                   "resource_preset_id": "<класс_хостов>",
                   "disk_size": "<размер_хранилища_в_байтах>",
                   "disk_type_id": "<тип_диска>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                  "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
                 }
               }
             }
@@ -336,43 +339,21 @@ PITR не поддерживается для кластеров с включе
               "priority": "<приоритет_назначения_хоста_мастером>",
               "tags": "<метки_хоста>"
             }
-          ]
+          ],
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          }
         }
         ```
 
         Где:
 
-        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
-        * `backup_id` — идентификатор резервной копии. Чтобы восстановить шардированный кластер, укажите идентификатор [шардированной резервной копии](../concepts/backup.md#size). Такие копии имеют больший размер. Чтобы узнать идентификатор, [получите список резервных копий в каталоге](#list-backups).
-        * `name` — имя нового кластера.
-        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
-        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
-        * `recovery_target_spec.timestamp` — момент времени, на который нужно восстановить состояние кластера {{ SD }}, в формате [UNIX time](https://ru.wikipedia.org/wiki/Unix-время). Если параметр не задан, восстановится состояние кластера на момент завершения создания резервной копии.
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-grpc.md)%}
 
-        * `config_spec` — настройки кластера:
-
-          * `version` — версия {{ SD }}: 5.0, 6.0 или 7.0.
-          * Тип хоста {{ SD }} — зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
-            
-            * `resources` — ресурсы кластера:
-            
-              * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
-              * `disk_size` — размер диска в байтах.
-              * `disk_type_id` — [тип диска](../concepts/storage.md).
-
-        * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
-
-          * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
-          * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-          * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
-          * `shard_name` — имя шарда в шардированном кластере.
-          * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
-          * `secondary_delay_secs` — время отставания хоста от мастера.
-          * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
-          * `tags`— метки хоста.
-
-    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md#yandex.cloud.mdb.mongodb.v1.HostSpec) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -389,6 +370,332 @@ PITR не поддерживается для кластеров с включе
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
           
+
+{% endlist %}
+
+## Восстановить отдельные базы и коллекции из резервной копии {#restore-database}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы восстановить отдельные базы и коллекции из резервной копии:
+
+  1. Посмотрите описание команды CLI для восстановления кластера {{ SD }}:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster restore --help
+      ```
+
+  1. Получите список доступных резервных копий кластеров {{ SD }}:
+
+     ```bash
+     {{ yc-mdb-mg }} backup list
+     ```
+
+     Результат:
+
+     ```text
+     +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+     |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
+     +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+     | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
+     | ...                                                                                         |                    |
+     +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+     ```
+
+     Время завершения создания резервной копии указано в столбце `CREATED AT` списка доступных резервных копий в формате `yyyy-mm-dd hh:mm:ss` (`2020-08-10 12:00:00` в примере выше). Вы можете восстановить состояние кластера на любой момент времени, начиная с момента создания резервной копии.
+
+  1. Выполните команду создания нового кластера из резервной копии, указав в ней восстанавливаемые базы данных и коллекции в параметре `--whitelist` или исключения в параметре `--blacklist`.
+
+      
+      Для нешардированного кластера:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster restore \
+         --backup-id <идентификатор_резервной_копии> \
+         --recovery-target-timestamp <момент_времени> \
+         --mongodb-version <версия_Yandex_StoreDoc> \
+         --name <имя_нового_кластера> \
+         --environment <окружение> \
+         --network-name <имя_сети> \
+         --host zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети> \
+         --mongod-resource-preset <класс_хоста> \
+         --mongod-disk-size <размер_хранилища_в_ГБ> \
+         --mongod-disk-type <тип_диска> \
+         --disk-size-autoscaling mongod-disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                `mongod-planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `mongod-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
+         --maintenance-window type=<тип_технического_обслуживания>,`
+                             `day=<день_недели>,`
+                             `hour=<час_дня> \
+         --performance-diagnostics=<включить_диагностику> \
+         --whitelist <список_баз_и_коллекций_для_восстановления> \
+         --blacklist <список_баз_и_коллекций_для_исключения_из_восстановления>
+      ```
+
+      Для шардированного кластера:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster restore \
+         --backup-id <идентификатор_резервной_копии> \
+         --recovery-target-timestamp <момент_времени> \
+         --mongodb-version <версия_Yandex_StoreDoc> \
+         --name <имя_нового_кластера> \
+         --environment <окружение> \
+         --network-name <имя_сети> \
+         --host zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети>,`
+               `type=mongod,`
+               `shard-name=<имя_шарда> \
+         --mongod-resource-preset <класс_хоста> \
+         --mongod-disk-size <размер_хранилища_в_ГБ> \
+         --mongod-disk-type <тип_диска> \
+         --host zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети>,`
+               `type=<тип_хоста> \
+         ...
+         --host zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети>,`
+               `type=<тип_хоста> \
+         --<тип_хоста>-resource-preset <класс_хоста> \
+         --<тип_хоста>-disk-size <размер_хранилища_в_ГБ> \
+         --<тип_хоста>-disk-type <тип_диска> \
+         --disk-size-autoscaling mongod-disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                `mongod-planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `mongod-emergency-usage-threshold=<процент_для_незамедлительного_увеличения>,`
+                                 ...
+                                `<тип_хоста>-disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                `<тип_хоста>-planned-usage-threshold=<процент_для_планового_увеличения>,`
+                                `<тип_хоста>-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
+         --maintenance-window type=<тип_технического_обслуживания>,`
+                             `day=<день_недели>,`
+                             `hour=<час_дня> \
+         --performance-diagnostics=<включить_диагностику>
+         --whitelist <список_баз_и_коллекций_для_восстановления> \
+         --blacklist <список_баз_и_коллекций_для_исключения_из_восстановления>
+      ```
+
+
+      Где:
+
+      {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-cli.md)%}
+
+      * Настройки восстановления отдельных баз и коллекций:
+
+          * `--whitelist` — список баз и коллекций для восстановления. Например: `"db1","db2.collection1"`.
+          * `--blacklist` — список баз и коллекций, исключаемых из восстановления. Например: `"db1.collection1"`.
+
+          Если в параметре `--whitelist` указаны базы, то в параметре `--blacklist` можно указать исключения коллекций из этих баз.
+          Если параметр `--whitelist` не указан, будут восстановлены все базы и коллекции, кроме указанных в параметре `--blacklist`.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "backupId": "<идентификатор_резервной_копии>",
+          "name": "<имя_нового_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "recoveryTargetSpec": {
+            "timestamp": "<момент_времени>"
+          },
+          "configSpec": {
+            "version": "<версия_Yandex_StoreDoc>",
+            "mongodb": {
+              "<тип_хоста_Yandex_StoreDoc>": {
+                "resources": {
+                  "resourcePresetId": "<класс_хостов>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                  "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                }
+              },
+              ...
+              "<тип_хоста_Yandex_StoreDoc>": {
+                "resources": {
+                  "resourcePresetId": "<класс_хостов>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                  "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                }
+              }
+            }
+          },
+          "hostSpecs": [
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
+              "type": "<тип_хоста>",
+              "shardName": "<имя_шарда>",
+              "hidden": <скрыть_хост>,
+              "secondaryDelaySecs": "<задержка_в_секундах>",
+              "priority": "<приоритет_назначения_хоста_мастером>",
+              "tags": "<метки_хоста>"
+            }
+          ],
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "partialRestoreSpec": {
+            "whitelist": [<список_баз_и_коллекций_для_восстановления>],
+            "blacklist": [<список_баз_и_коллекций_для_исключения_из_восстановления>]
+          }
+        }
+        ```
+
+        Где:
+
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-rest.md)%}
+
+        * `partialRestoreSpec` — настройки восстановления отдельных баз и коллекций:
+
+            * `whitelist` — список баз и коллекций для восстановления. Например: `["db1", "db2.collection1"]`.
+            * `blacklist` — список баз и коллекций, исключаемых из восстановления. Например: `["db1.collection1"]`.
+
+            Если в параметре `whitelist` указаны базы, то в параметре `blacklist` можно указать исключения коллекций из этих баз.
+            Если параметр `whitelist` не указан, будут восстановлены все базы и коллекции, кроме указанных в параметре `blacklist`.
+
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore' \
+            --data "@body.json"
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "folder_id": "<идентификатор_каталога>",
+          "backup_id": "<идентификатор_резервной_копии>",
+          "name": "<имя_нового_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "recovery_target_spec": {
+            "timestamp": "<момент_времени>"
+          },
+          "config_spec": {
+            "version": "<версия_Yandex_StoreDoc>",
+            "mongodb": {
+              "<тип_хоста_Yandex_StoreDoc>": {
+                "resources": {
+                  "resource_preset_id": "<класс_хостов>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                  "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                }
+              },
+              ...
+              "<тип_хоста_Yandex_StoreDoc>": {
+                "resources": {
+                  "resource_preset_id": "<класс_хостов>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                  "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                }
+              }
+            }
+          },
+          "host_specs": [
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
+              "type": "<тип_хоста>",
+              "shard_name": "<имя_шарда>",
+              "hidden": <скрыть_хост>,
+              "secondary_delay_secs": "<задержка_в_секундах>",
+              "priority": "<приоритет_назначения_хоста_мастером>",
+              "tags": "<метки_хоста>"
+            }
+          ],
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "partial_restore_spec": {
+            "whitelist": [<список_баз_и_коллекций_для_восстановления>],
+            "blacklist": [<список_баз_и_коллекций_для_исключения_из_восстановления>]
+          }
+        }
+        ```
+
+        Где:
+
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-grpc.md)%}
+
+        * `partial_restore_spec` — настройки восстановления отдельных баз и коллекций:
+
+            * `whitelist` — список баз и коллекций для восстановления. Например: `["db1", "db2.collection1"]`. 
+            * `blacklist` — список баз и коллекций, исключаемых из восстановления. Например: `["db1.collection1"]`.
+
+            Если в параметре `whitelist` указаны базы, то в параметре `blacklist` можно указать исключения коллекций из этих баз.
+            Если параметр `whitelist` не указан, будут восстановлены все базы и коллекции, кроме указанных в параметре `blacklist`.
+
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mongodb.v1.ClusterService.Restore \
+            < body.json
+        ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -433,7 +740,7 @@ PITR не поддерживается для кластеров с включе
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -454,7 +761,7 @@ PITR не поддерживается для кластеров с включе
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -544,7 +851,7 @@ PITR не поддерживается для кластеров с включе
 
   1. Чтобы получить список резервных копий кластера:
 
-     1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+     1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -559,7 +866,7 @@ PITR не поддерживается для кластеров с включе
 
   1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-     1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+     1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -584,7 +891,7 @@ PITR не поддерживается для кластеров с включе
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Чтобы получить список резервных копий кластера:
 
-      1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+      1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \
@@ -606,7 +913,7 @@ PITR не поддерживается для кластеров с включе
 
   1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-      1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+      1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \
@@ -667,7 +974,7 @@ PITR не поддерживается для кластеров с включе
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -687,7 +994,7 @@ PITR не поддерживается для кластеров с включе
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -776,7 +1083,7 @@ PITR не поддерживается для кластеров с включе
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -816,7 +1123,7 @@ PITR не поддерживается для кластеров с включе
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

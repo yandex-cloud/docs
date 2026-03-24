@@ -129,7 +129,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
       1. Select the `nodejs18` runtime environment.
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
+      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** in the editor below.
           1. In the window that opens, enter `index.js` for the file name.
           1. Click **{{ ui-key.yacloud.common.create }}**.

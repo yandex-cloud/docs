@@ -15,8 +15,7 @@ description: '{{ managed-prometheus-full-name }} is a monitoring system compatib
 
 ## Getting started {#access}
 
-1. Open the [{{ monitoring-full-name }} home page]({{ link-monitoring }}) and select a folder.
-1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
 1. Click **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
 1. On the page that opens, you will see links to endpoints.
    
@@ -36,10 +35,10 @@ Feature | {{ prometheus-name }} | {{ managed-prometheus-full-name }}
 Collecting metrics | [Scrape](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config), [Pushgateway](https://prometheus.io/docs/instrumenting/pushing/), [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Metric writes via [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) are supported. You can use [{{ unified-agent-short-name }} from {{ yandex-cloud }}](ingestion/prometheus-agent.md) to send metrics from the virtual machine to {{ managed-prometheus-full-name }}. Any compatible metric collection agent will also be suitable, including {{ prometheus-name }} itself.
 Long-term metric storage | Not intended for long-term metric storage, using [third-party solutions](https://prometheus.io/docs/prometheus/latest/storage/#existing-integrations) | Support for long-term metric storage, with time-unlimited storage possible through [decimation](../../concepts/decimation.md).
 Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) | Data and metadata reads via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) with some [restrictions](querying/grafana.md#restrictions)
-Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | Charts and dashboards in [{{ monitoring-name }}](querying/monitoring.md). Support for [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/)
+Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | Charts and dashboards in [{{ monium-name }}](querying/monitoring.md). Support for [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/)
 Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) | Support for existing [recording rule](recording-rules.md) files in YAML format, which you can upload and manage via the {{ monitoring-name }} UI and API.
 Alerting | Alerting via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) | Support for existing [alerting rule](alerting-rules.md) files in YAML format, which you can upload and manage via the {{ monitoring-name }} UI and API.
-Integration | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/) | Existing libraries and exporters.
+Integration | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/) | Existing libraries and exporters
 
 ## Current limitations {#restrictions}
 

@@ -135,7 +135,7 @@
       1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду исполнения — **Python**.
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. Выберите **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** создания функции — **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
+      1. Выберите **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** создания функции — **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
       1. В окне редактора функции нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**.
       1. В открывшемся окне введите **{{ ui-key.yacloud.serverless-functions.item.editor.create-form-file-path }}** файла — `forms-integration.py` и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Вставьте в созданный файл `forms-integration.py` код функции:

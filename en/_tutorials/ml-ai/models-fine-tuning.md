@@ -4,7 +4,7 @@ canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
 
 # Model fine-tuning in {{ ml-platform-name }} Notebooks
 
-You can [fine-tune]({{ link-docs-ai }}ai-studio/concepts/tuning/index) {{ foundation-models-full-name }} language models for them to understand your tasks better via the API or {{ ml-sdk-name }}. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
+You can [fine-tune]({{ link-docs-ai }}ai-studio/concepts/tuning/index) language models enabled by {{ foundation-models-full-name }} through APIs or {{ ml-sdk-name }} to better understand the specific features of your tasks. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
 
 In this tutorial, you will fine-tune a model in {{ ml-platform-name }} using the SDK. You can also clone the [repository](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) and run the notebook locally by changing the [authentication settings]({{ link-docs-ai }}ai-studio/sdk/index).
 
@@ -53,7 +53,7 @@ The infrastructure support cost for fine-tuning a model includes:
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `gpt-user`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
@@ -84,7 +84,7 @@ To enable the service account to access the model, create an [API key](../../iam
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `gpt-user` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.

@@ -28,6 +28,7 @@ description: This page provides a list of step-by-step guides for {{ cdn-name }}
 * [{#T}](resources/location-rules.md)
 * [{#T}](resources/disable-resource.md)
 * [{#T}](resources/labeling.md)
+* [{#T}](resources/dedicated-ip-addressing.md)
 * [{#T}](resources/delete-resource.md)
 * [{#T}](resources/get-stats.md)
 

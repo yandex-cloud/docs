@@ -51,19 +51,16 @@ When creating or editing a mute, you can see which alerts match the mute selecto
 
 Depending on its settings and current time, a mute can switch between the following states:
 
-* **<span style="color: blue;">Pending</span>**: The mute has been scheduled but is not affecting any alerts yet.
+* **Pending**: The mute has been scheduled but is not affecting any alerts yet.
+* **Active**: The mute is active and it mutes all messages from alerts and sub-alerts covered by its selectors.
+* **Expired**: The mute has expired and no longer affects any alerts.
+* **Archived**: The mute expired more than a day ago.
 
-* **<span style="color: green;">Active</span>**: The mute is active and it mutes all messages from alerts and sub-alerts covered by its selectors.
-
-* **<span style="color: red;">Expired</span>**: The mute has expired and is no longer affecting any alerts.
-
-* **<span style="color: gray;">Archived</span>**: The mute expired more than a day ago.
-
-**<span style="color: blue;">Pending</span>**, **<span style="color: green;">Active</span>**, and **<span style="color: red;">Expired</span>** mutes are shown in a special section on the status pages of linked alerts and sub-alerts. **<span style="color: gray;">Archived</span>** mutes are not considered linked with any alerts, even if the alert ID is covered by the mute's selector. These mutes are stored for historical reasons and are deleted by TTL in six days after switching to the **<span style="color: gray;">Archived</span>** status.
+**Pending**, **Active**, and **Expired** mutes are shown in a special section on the status pages of linked alerts and sub-alerts. **Archived** mutes are not considered linked with any alerts, even if the alert ID is covered by the mute's selector. These mutes are stored for historical reasons and are deleted by TTL in six days after switching to the **Archived** status.
 
 {% note alert %}
 
-In a day after a mute expires, it switches to the **<span style="color: gray;">Archived</span>** status. In six days after it switches to the status, the mute is deleted permanently.
+Once a mute expires, its status changes to **Archived** after 24 hours. Six days later, the mute is deleted.
 
 {% endnote %}
 

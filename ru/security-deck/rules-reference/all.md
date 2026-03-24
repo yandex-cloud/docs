@@ -1,10 +1,10 @@
 ---
-title: Все правила Security Deck
-description: Полный список правил безопасности Security Deck
+title: Все правила {{ sd-full-name }}
+description: Полный список правил безопасности {{ sd-name }} на одной странице
 editable: false
 ---
 
-# Все правила Security Deck
+# Все правила {{ sd-full-name }}
 
 На этой странице представлен полный список правил безопасности, используемых в {{ sd-name }}.
 

@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 * Разграничивают права доступа [производителей и потребителей](../concepts/producers-consumers.md) данных. [Подробнее](../concepts/account-roles.md) о правах, которые предоставляет каждая роль.
 
   Производитель или потребитель получает доступ только к тем [топикам](../concepts/topics.md), которые разрешены для его пользователя. Вы можете использовать одного и того же пользователя для нескольких производителей или потребителей: первые получат права на запись в определенные топики, а вторые — на чтение.
-* [Управляют топиками](cluster-topics.md#admin-api). Подробнее см. в разделе [{#T}](../concepts/topics.md).
+* [Управляют топиками](cluster-topics.md#admin-api). Подробнее в разделе [{#T}](../concepts/topics.md).
 
 После [создания кластера](cluster-create.md) {{ KF }} вы можете:
 * [получить список пользователей в кластере](#list-accounts);
@@ -185,7 +185,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Добавьте ресурс `yandex_mdb_kafka_user`:
 
      ```hcl
@@ -208,7 +208,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -347,7 +347,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
   1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя и внесите правки.
 
@@ -495,7 +495,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
   1. Измените значение поля `password`:
 
@@ -517,7 +517,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -698,7 +698,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Найдите в этом файле ресурс `yandex_mdb_kafka_cluster` для нужного пользователя.
   1. Добавьте блок `permission`:
 
@@ -725,7 +725,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `allow_hosts` — список IP-адресов, с которых пользователю разрешен доступ к топику.
 
-     Вместе с доступом к топику пользователю также предоставляется доступ к субъектам схем данных. Список доступных субъектов зависит от указанных ролей и топиков. Подробнее см. в разделе [Субъекты в {{ mkf-msr }}](../concepts/managed-schema-registry.md#subjects).
+     Вместе с доступом к топику пользователю также предоставляется доступ к субъектам схем данных. Список доступных субъектов зависит от указанных ролей и топиков. Подробнее в разделе [{#T}](../concepts/managed-schema-registry.md#subjects).
 
     Если на какие-либо топики не нужны права, [их можно отозвать](#revoke-permission).
 
@@ -737,7 +737,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -875,7 +875,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Найдите в этом файле ресурс `yandex_mdb_kafka_user` для нужного пользователя.
   1. Измените или удалите блок `permission`.
   1. Проверьте корректность настроек.
@@ -886,7 +886,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -994,7 +994,7 @@ description: Следуя данной инструкции, вы сможете
         terraform import yandex_mdb_kafka_user.<имя_пользователя> <идентификатор_кластера>:<имя_пользователя>
         ```
 
-        Подробнее об импорте пользователей см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_user#import).
+        Подробнее об импорте пользователей в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_user#import).
 
 {% endlist %}
 
@@ -1030,7 +1030,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
   1. Удалите ресурс `yandex_mdb_kafka_user` для нужного пользователя.
   1. Проверьте корректность настроек.
 
@@ -1040,7 +1040,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 

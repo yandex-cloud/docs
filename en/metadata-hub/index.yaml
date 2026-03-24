@@ -44,7 +44,7 @@ blocks:
         text: Technical and organizational limitations
         icon: _assets/icons/sliders.svg
         urlTitle: Quotas in Yandex MetaData Hub
-        url: concepts/limits.md
+        url: concepts/limits
         centered: true
         size: s
       - type: basic-card
@@ -52,7 +52,7 @@ blocks:
         text: Configuring access permissions for the service
         icon: _assets/icons/lock.svg
         urlTitle: Access management in Yandex MetaData Hub
-        url: security/index.md
+        url: security/index
         centered: true
         size: s
       - type: basic-card
@@ -60,7 +60,7 @@ blocks:
         text: Service pricing and cost calculation
         icon: _assets/icons/tag-ruble.svg
         urlTitle: Yandex MetaData Hub pricing policy
-        url: pricing.md
+        url: pricing
         centered: true
         size: s
       - type: basic-card
@@ -68,7 +68,7 @@ blocks:
         text: Releases and updates
         icon: _assets/icons/timeline.svg
         urlTitle: Yandex MetaData Hub release notes
-        url: release-notes/index.md
+        url: release-notes/index
         centered: true
         size: s
   - type: card-layout-block
@@ -83,14 +83,14 @@ blocks:
         title: Connection Manager
         text: Automatically creating and managing database connection settings.
         urlTitle: Connection
-        url: concepts/connection-manager.md
+        url: concepts/connection-manager
         size: s
         icon: _assets/icons/plug-connection.svg
       - type: basic-card
         title: Apache Hive™ Metastore
         text: Creating and managing Apache Hive™ Metastore clusters.
         urlTitle: Apache Hive™ Metastore clusters
-        url: concepts/metastore.md
+        url: concepts/metastore
         size: s
         icon: _assets/icons/database.svg
       - type: basic-card
@@ -99,7 +99,7 @@ blocks:
           Centralized repository for managing and validating data schemas. The
           service is at the Preview stage.
         urlTitle: Data schema registry
-        url: concepts/schema-registry.md
+        url: concepts/schema-registry
         size: s
         icon: _assets/icons/layout-cells.svg
       - type: basic-card
@@ -108,7 +108,7 @@ blocks:
           Tool for collecting, analyzing, and marking up metadata from various
           sources. The service is at the Preview stage.
         urlTitle: Metadata catalog
-        url: concepts/data-catalog.md
+        url: concepts/data-catalog
         size: s
         icon: _assets/icons/folder-magnifier.svg
   - type: content-layout-block

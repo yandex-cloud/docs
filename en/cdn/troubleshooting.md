@@ -9,7 +9,7 @@ Below is the list of common issues with {{ cdn-name }} and ways to fix them.
 * [CDN resource has the `Not active` status, preventing content delivery to users](#resource-not-active)
 * [Unable to configure the TLS certificate](#tls-certificate)
 * [CDN sends compressed files to users who do not request compressed content](#compressed-files)
-* [How to enable WebSocket protocol support](#websocket-support)
+* [How to enable WebSocket support](#websocket-support)
 
 ## The CDN responds to file requests with 3xx codes (redirect) {#responses-3xx}
 
@@ -78,4 +78,11 @@ ERROR: operation (id=bcdb6qaiw8mb********) failed: rpc error: code = InvalidArgu
 
 In this case, the CDN cache saves the compressed file, which all clients will receive. Also, it is irrelevant whether their devices support compression or whether they add the `Accept-Encoding: gzip` header to their requests.
 
-To avoid this, [enable file compression](./operations/resources/enable-compression.md). This way, Cloud CDN will always request non-compressed content from the origin, and if the client request has the `Accept-Encoding: gzip` header, it will compress files on its own without sending the header to the origin.
+To avoid this, [enable file compression](./operations/resources/enable-compression.md). This way, {{ cdn-short-name }} will always request non-compressed content from the origin, and if the client request has the `Accept-Encoding: gzip` header, it will compress files on its own without sending the header to the origin.
+
+## How to enable WebSocket protocol support {#websocket-support}
+
+To enable the [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket) protocol, contact [support]({{ link-console-support }}). Specify the following:
+* Your use case for WebSocket.
+* Tasks you plan to address.
+* Approximate traffic size.

@@ -8,7 +8,7 @@ In this tutorial, you will use [{{ vision-full-name }}]({{ link-docs-ai }}vision
 ![image](../../_assets/vision/ocr-storage-recognizer.svg)
 
 1. The user uploads images or documents to the `input` directory ([prefix]({{ link-docs }}/storage/concepts/object#folder)) in a {{ objstorage-full-name }} bucket.
-1. The [{{ sf-full-name }}]({{ link-docs }}/functions/) [trigger]({{ link-docs }}/functions/concepts/trigger/index.md) is launched by a timer and checks for files in the `input` folder. Next, the files are sent for recognition to the [{{ serverless-containers-full-name }}]({{ link-docs }}/serverless-containers/) [container]({{ link-docs }}/serverless-containers/concepts/container).
+1. The [{{ sf-full-name }}]({{ link-docs }}/functions/) [trigger]({{ link-docs }}/functions/concepts/trigger/index) is launched by a timer and checks for files in the `input` folder. Next, the files are sent for recognition to the [{{ serverless-containers-full-name }}]({{ link-docs }}/serverless-containers/) [container]({{ link-docs }}/serverless-containers/concepts/container).
 1. The file recognition process is in progress, the operation ID is saved in the `process` folder in the source bucket.
 1. After the operation is successfully completed, the recognition results are saved in the `result` folder as JSON and TXT files. The ID of the successful operation is deleted from the `process` folder.
 
@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of infrastructure support for regular image and document recognition includes:
 * Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing]({{ link-docs }}/storage/pricing)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
-* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing]({{ link-docs }}/serverless-containers/pricing.md)).
+* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing]({{ link-docs }}/serverless-containers/pricing)).
 * Fee for storing the [secret]({{ link-docs }}/lockbox/concepts/secret) and operations with it (see [{{ lockbox-name }} pricing]({{ link-docs }}/lockbox/pricing)).
 
 

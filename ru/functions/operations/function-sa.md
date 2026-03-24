@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Создайте](../operations/function/function-create.md) функцию. При создании первой версии функции выберите [среду выполнения](../concepts/runtime/index.md) Node.js или Python.
 1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
+1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Подготовьте ZIP-архив с кодом функции:
 
    {% list tabs group=programming_language %}

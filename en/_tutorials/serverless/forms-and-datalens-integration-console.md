@@ -135,7 +135,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** window that opens, select the runtime environment: **Python**.
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. Select the function creation **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
+      1. Select the function creation **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
       1. In the function editor window, click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**.
       1. In the window that opens, enter the file **{{ ui-key.yacloud.serverless-functions.item.editor.create-form-file-path }}**: `forms-integration.py`. Click **{{ ui-key.yacloud.common.create }}**.
       1. Paste the function code to the `forms-integration.py` file:

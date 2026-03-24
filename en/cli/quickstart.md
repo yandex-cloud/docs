@@ -12,6 +12,18 @@ The _{{ yandex-cloud }} command line interface (CLI)_ is downloadable software y
 
 ## Installing {#install}
 
+{% include [interactive-install-cli-intro](../_includes/cli/interactive-install-cli-intro.md) %}
+
+{% note tip %}
+
+To manually set up the CLI installation directory, autocompletion, shell startup script, and add the CLI to the `PATH` environment variable, use the [non-interactive CLI installation script](./operations/install-cli.md#non-interactive).
+
+
+You can also manually download and install the executable with the latest stable CLI version. For more information, see [{#T}](./operations/install-cli.md#bin).
+
+
+{% endnote %}
+
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
 ## Creating a profile {#initialize}

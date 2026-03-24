@@ -61,7 +61,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ captcha-full-name }}                 | [gRPC](../smartcaptcha/api-ref/grpc/)<br>[REST](../smartcaptcha/api-ref/) |
 | {{ sws-full-name }}                     | [gRPC](../smartwebsecurity/api-ref/grpc/)<br>[REST](../smartwebsecurity/api-ref/) |
 | {{ speechkit-full-name }}               | [Synchronous recognition v2 REST]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/request-api)<br>[Asynchronous recognition v2 REST]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/transcribation-api)<br>[Streaming recognition v2 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/streaming-api)<br>[Streaming recognition v3 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Synthesis v1 REST]({{ link-docs-ai }}{{ speechkit-slug }}/tts/request)<br>[Synthesis v3 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
-| {{ sk-hybrid-full-name }}               | [Speech synthesis gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/)<br>[Streaming recognition gRPC](../speechkit-hybrid/api-ref/stt/v3/grpc/) |
+| {{ sk-hybrid-full-name }}               | [{{ sk-hybrid-name }} API]({{ link-docs-ai }}/speechkit-hybrid/auth) |
 | {{ speechsense-full-name }}             | [gRPC](../speechsense/api-ref/grpc/) |
 | {{ translate-full-name }}               | [gRPC]({{ link-docs-ai }}translate/api-ref/grpc/)<br>[REST]({{ link-docs-ai }}translate/api-ref/) |
 | {{ vision-full-name }}                  | [gRPC]({{ link-docs-ai }}vision/ocr/api-ref/grpc/)<br>[REST]({{ link-docs-ai }}vision/ocr/api-ref/) |

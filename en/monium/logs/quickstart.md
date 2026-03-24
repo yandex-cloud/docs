@@ -37,5 +37,5 @@ Incoming log charts are available on the service dashboard.
 
 #### See also {#see-also}
 
-* [{#T}](../traces/quickstart.md)
+* [{#T}](../traces/index.md)
 * [{#T}](../metrics/quickstart.md)

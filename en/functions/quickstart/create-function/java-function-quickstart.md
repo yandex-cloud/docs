@@ -108,7 +108,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     1. Select the `{{ java-full-ver }}` runtime environment.
     1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-java.zip`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `Handler`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`

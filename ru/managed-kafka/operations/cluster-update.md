@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](./cluster-create.md).
 
     1. Измените в описании кластера {{ mkf-name }} значение параметра `description`:
 
@@ -92,7 +92,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -253,7 +253,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Измените в описании кластера {{ mkf-name }} значение параметра `brokers_count`, чтобы увеличить количество хостов-брокеров:
 
@@ -289,7 +289,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -470,7 +470,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоке `zookeeper.resources`, чтобы задать новый [класс хостов](../concepts/instance-types.md) {{ ZK }}:
 
@@ -494,7 +494,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -674,7 +674,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоке `kraft.resources`, чтобы задать новый [класс хостов](../concepts/instance-types.md) {{ kraft-short-name }}:
 
@@ -698,7 +698,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -873,7 +873,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Измените значения параметров `security_group_ids` и `assign_public_ip` в описании кластера:
 
@@ -901,7 +901,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1087,7 +1087,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -1124,7 +1124,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1291,7 +1291,7 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings-kafka }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
 
-     Подробнее см. в разделе [Настройки {{ KF }}](../concepts/settings-list.md).
+     Подробнее в разделе [{#T}](../concepts/settings-list.md).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -1329,7 +1329,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Измените в описании кластера {{ mkf-name }} значения параметров в блоке `kafka.kafka_config` (в примере приведены не все [настройки](../concepts/settings-list.md#cluster-settings)):
 
@@ -1357,7 +1357,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1512,7 +1512,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](./cluster-create.md).
 
     1. Измените или добавьте в описании кластера {{ mkf-name }} значение параметра `folder_id`:
 
@@ -1531,7 +1531,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
