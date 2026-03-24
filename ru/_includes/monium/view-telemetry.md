@@ -31,7 +31,7 @@
        
        {% endcut %}
 
-       Подробнее о [работе с логами](logs/).
+       Подробнее о [работе с логами](../../monium/logs/quickstart.md).
      
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
 

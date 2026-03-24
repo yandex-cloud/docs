@@ -32,35 +32,35 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 When using {{ mgl-name }}, you pay for:
 * Computing resources of your VM instance.
-* Data storage used by the instance.
+* Data storage (disk) capacity of the instance.
 
-Other consumed resources to be additionally paid for:
-* The space used in {{ objstorage-full-name }} to store backups.
+You also pay for the following resources:
+* Space used in {{ objstorage-full-name }} to store backups.
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 
 ### Using computing resources {#rules-hosts-uptime}
 
-VM operation cost is charged per hour.
+The VM operation cost is charged per hour.
 
 The price of computing resources depends on the selected [approval rule](concepts/approval-rules.md) configuration.
 
-The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a VM for 90 minutes (1.5 hours).
+The minimum billing unit is one hour, e.g., 1.5 hours of VM operation are billed as 2 hours.
 
 ### Disk space usage {#rules-storage}
 
 You pay for the following:
-* Data storage allocated for your instance.
+* Data storage capacity allocated for your instance.
 * Amount of backups stored in {{ objstorage-name }}.
 
-The price covers one month of use. The minimum billing unit is 1 GB per hour (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
+The price covers one month of use. The minimum billing unit is 1 GB per hour, e.g., storing 1 GB for 1.5 hours is billed as for 2 hours.
 
 ### Example of instance cost calculation {#example}
 
 The cost of using an instance with the following properties for 30 days:
 
-* **Instance type**: `s2.micro` (2 vCPU Intel Cascade Lake, 8 GB RAM).
+* **Instance type**: `s2.micro` (2 vCPUs, Intel Cascade Lake, 8 GB RAM).
 * **Storage**: 30 GB.
 * **Backups**: 20 GB each, 7-day retention period.
 * **Approval rules**: Disabled.

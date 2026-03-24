@@ -13,6 +13,3 @@
 
 Если вы хотите дообучить модель, воспользуйтесь [дообучением моделей]({{ link-docs-ai }}ai-studio/concepts/tuning/index) в сервисе {{ foundation-models-full-name }}.
 
-## Примеры использования {#examples}
-
-[Дообучение моделей в {{ ml-platform-name }} Notebooks]({{ link-docs-ai }}ai-studio/tutorials/models-fine-tuning)

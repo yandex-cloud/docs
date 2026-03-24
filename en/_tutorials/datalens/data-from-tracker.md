@@ -99,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Specify a name for the function and click **{{ ui-key.yacloud.common.create }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select the `Python` runtime environment.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, click **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
+1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, click **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Attach a [test archive](https://github.com/yandex-cloud-examples/yc-tracker-data-import/blob/main/build/tracker-data-import.zip).
 1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `tracker_import.handler`.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:

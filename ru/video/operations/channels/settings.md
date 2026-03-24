@@ -46,7 +46,8 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Добавьте](#add-page-id) `Page ID` в настройки канала {{ video-name }}.
 1. Дождитесь прохождения модерации, когда статус видеоресурса в РСЯ изменится на **Работает. Нет статистики**.
-1. [Настройте](https://yandex.ru/support2/partner/ru/video/create-instream) показ рекламных блоков для ваших видео.
+1. [Настройте](https://yandex.ru/support2/partner/ru/video/create-instream) показ рекламных блоков для ваших видео. 
+1. [Включите](../video/update.md) рекламу отдельно для каждого видео.
 1. [Посмотрите статистику](https://yandex.ru/support2/partner/ru/statistics/working-with-reports) по рекламе и ознакомьтесь с [технологиями повышения эффективности](https://yandex.ru/support2/partner/ru/efficiency/site-quality) рекламы.
 
 ### Добавление Page ID {#add-page-id}

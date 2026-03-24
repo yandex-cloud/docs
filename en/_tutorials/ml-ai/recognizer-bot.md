@@ -3,21 +3,21 @@
 
 In this tutorial, you will create a Telegram bot that can:
 
-* [Synthesize speech]({{ link-docs-ai }}speechkit/tts/index) from a message text and [recognize speech]({{ link-docs-ai }}speechkit/stt/index) in voice messages using the {{ speechkit-full-name }} [Python SDK]({{ link-docs-ai }}speechkit/sdk/python/index).
+* [Synthesize speech]({{ link-docs-ai }}/speechkit/tts/index.md) from a message text and [recognize speech]({{ link-docs-ai }}/speechkit/stt/index.md) in voice messages using the {{ speechkit-full-name }} [Python SDK](https://pypi.org/project/yandex-speechkit/).
 * [Recognize text]({{ link-docs-ai }}vision/concepts/ocr/index) in images using {{ vision-full-name }}.
 
-Authentication in {{ yandex-cloud }} services is performed under a service account using an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token is contained in the handler context of the [function](../../functions/operations/function-sa.md) which manages user conversation with the bot.
+Authentication in the {{ yandex-cloud }} services is performed under a service account using an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token is contained in the handler context of the [function](../../functions/operations/function-sa.md) which manages user conversation with the bot.
 
 The {{ api-gw-full-name }} [API gateway](../../api-gateway/concepts/index.md) will receive requests from your bot and forward them to [functions](../../functions/concepts/function.md) in {{ sf-full-name }} for processing.
 
 To create a bot:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Set up resources](#prepare).
+1. [Create resources](#prepare).
 1. [Register your Telegram bot](#bot-register).
 1. [Create a function](#create-function).
 1. [Create an API gateway](#create-api-gateway).
-1. [Link the function and the bot](#link-bot).
+1. [Link the function with the bot](#link-bot).
 1. [Test the bot](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -35,10 +35,10 @@ The cost of Telegram bot support includes:
 * Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
-## Set up resources {#prepare}
+## Create resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
-1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function execution environment](../../functions/concepts/runtime/index.md).
+1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function runtime environment](../../functions/concepts/runtime/index.md).
 1. Extract the `ffmpeg` and `ffprobe` binary files from the archive and run these commands to make them executable:
 
     ```bash
@@ -66,7 +66,7 @@ The cost of Telegram bot support includes:
       folder_id = ""
       iam_token = ''
       
-      # Image recognition service endpoint and authentication data
+      # Image recognition service endpoint and authentication credentials
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
       vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
@@ -123,7 +123,7 @@ The cost of Telegram bot support includes:
       @bot.message_handler(commands=['help', 'start'])
       def send_welcome(message):
           bot.reply_to(message,
-                       "The bot can do the following:\n* Recognize text from images.\n* Generate voice messages from text.\n* Convert voice messages to text.")
+                       "The bot can do the following:\n* Recognize text in images.\n* Generate voice messages from text.\n* Convert voice messages to text.")
 
       @bot.message_handler(func=lambda message: True, content_types=['text'])
       def echo_message(message):
@@ -202,7 +202,7 @@ The cost of Telegram bot support includes:
       yandex-speechkit==1.5.0
       ```
 
-   1. Add the `index.py`, `requirements.txt`, `ffmpeg`, and `ffprobe` files into the ZIP archive.
+   1. Add the `index.py`, `requirements.txt`, `ffmpeg`, and `ffprobe` files into the `index.zip` archive.
 
 1. Create an {{ objstorage-name }} [bucket](../../storage/operations/buckets/create.md) and [upload the created ZIP archive into it](../../storage/operations/objects/upload.md).
 
@@ -230,7 +230,7 @@ Create a function to process user actions in the chat.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
 
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -240,7 +240,7 @@ Create a function to process user actions in the chat.
   1. Create a function version:
 
      1. Select `Python` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. Specify the upload method `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` and select the bucket you [created earlier](#prepare). In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_object}}** field, specify the file name: `index.zip`.
+     1. Specify `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` for the upload method and select the bucket you [created earlier](#prepare). In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_object}}** field, specify the file name: `index.zip`.
      1. Specify the entry point: `index.handler`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
@@ -336,7 +336,7 @@ Create a function to process user actions in the chat.
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
-  1. In the configuration file, describe the function settings:
+  1. In the configuration file, define the function properties:
 
      ```hcl
      resource "yandex_function" "for-recognizer-bot-function" {
@@ -360,7 +360,7 @@ Create a function to process user actions in the chat.
      Where:
 
      * `name`: Function name.
-     * `user_hash`: Custom string to define the function version.
+     * `user_hash`: Any string to identify the function version.
      * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
@@ -409,7 +409,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `recognizer-bot-api-gw`.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -583,7 +583,7 @@ Chat with the bot:
    ```text
    The bot can do the following:
 
-   * Recognize text from images.
+   * Recognize text in images.
    * Generate voice messages from text.
    * Convert voice messages to text.
    ```

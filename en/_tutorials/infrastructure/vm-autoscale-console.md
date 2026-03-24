@@ -18,14 +18,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Set up your environment {#prepare}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-autoscale`: To create, update, and delete VM instances in your group, as well as integrate the group with {{ network-load-balancer-name }}, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-autoscale`. To create, update, and delete VM instances in your group, as well as integrate the group with {{ network-load-balancer-name }}, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**. In the window that opens:
         * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
         * To assign the service account a role for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `compute.editor` and `load-balancer.editor`.
@@ -53,7 +53,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Assign the `compute.editor` role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <catalog_ID> \
+        yc resource-manager folder add-access-binding <folder_ID> \
           --role compute.editor \
           --subject serviceAccount:<service_account_ID>
         ```
@@ -61,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Assign the `load-balancer.editor` role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <catalog_ID> \
+        yc resource-manager folder add-access-binding <folder_ID> \
           --role load-balancer.editor \
           --subject serviceAccount:<service_account_ID>
         ```
@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `yc-auto-network`.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -161,7 +161,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
+     1. Open the [management console]({{ link-console-main }}).
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Open the **Security groups** tab.
      1. Create a security group for the load balancer:
         1. Click **Create group**.
@@ -285,7 +286,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Select `auto-group`.
 
@@ -321,7 +322,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
      1. Enter `group-balancer` as the name.
      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, specify `{{ ui-key.yacloud.common.label_auto }}`.
@@ -375,7 +376,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Select `group-balancer`.
 
    - CLI {#cli}

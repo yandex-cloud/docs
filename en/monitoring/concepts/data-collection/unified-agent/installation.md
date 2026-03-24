@@ -83,7 +83,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   You can install {{ unified-agent-short-name }} when creating a VM through the management console, CLI, API, or {{ TF }}.
 
-  To install the agent from the [management console]({{ link-console-main }}), enable **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** under **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**.
+  To install the agent from the [management console]({{ link-console-main }}), enable **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**.
 
   To install the agent via the CLI, API, or {{ TF }}, provide the following string in the [user metadata](../../../../compute/concepts/metadata/sending-metadata.md) (`user-data`):
 

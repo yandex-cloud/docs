@@ -1,1 +1,0 @@
-{% include [monitoring-index](../overview.md) %}

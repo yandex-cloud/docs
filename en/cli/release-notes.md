@@ -7,11 +7,118 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-### Version 0.195.0 (23/02/26) {#version0.195.0}
+### Version 0.197.0 (05/03/26) {#version0.197.0}
 
+#### Changes to {{ yandex-cloud }} services {#services-0.197.0}
+
+##### {{ alb-name }} {#alb-0.197.0}
+
+Supported client certificates in the following commands:
+* `yc application-load-balancer add-listener`
+* `yc application-load-balancer add-http-listener`
+* `yc application-load-balancer add-stream-listener`
+* `yc application-load-balancer update-listener`
+* `yc application-load-balancer update-http-listener`
+* `yc application-load-balancer update-stream-listener`
+* `yc application-load-balancer add-sni`
+* `yc application-load-balancer add-http-sni`
+* `yc application-load-balancer add-stream-sni`
+* `yc application-load-balancer update-sni`
+* `yc application-load-balancer update-http-sni`
+* `yc application-load-balancer update-stream-sni`
+* `yc application-load-balancer append-http-route`
+* `yc application-load-balancer prepend-http-route`
+* `yc application-load-balancer insert-http-route`
+* `yc application-load-balancer update-http-route`
+* `yc application-load-balancer append-grpc-route`
+* `yc application-load-balancer prepend-grpc-route`
+* `yc application-load-balancer insert-grpc-route`
+* `yc application-load-balancer update-grpc-route`
+
+##### {{ baremetal-name }} {#baremetal-0.197.0}
+
+Added options for managing secondary private subnets to the following commands:
+* `yc baremetal server create`
+* `yc baremetal server update`
+
+##### {{ dns-name }} {#dns-0.197.0}
+
+Supported DNS record descriptions in the following commands:
+* `yc dns zone list-records`
+* `yc dns zone add-records`
+* `yc dns zone delete-records`
+* `yc dns zone replace-records`
+
+##### {{ org-name }} {#org-0.197.0}
+
+Added support for the `--parameters` flag to the `yc organization-manager organization bind-access-policy` command.
+
+##### {{ mos-name }} {#managed-opensearch-0.197.0}
+
+Added the `search_max_buckets` configuration parameter to the following commands:
+* `yc managed-opensearch cluster create`
+* `yc managed-opensearch cluster update`
+
+##### {{ resmgr-name }} {#resmgr-0.197.0}
+
+Added support for the `--parameters` flag to the following commands:
+* `yc resource-manager folder bind-access-policy`
+* `yc resource-manager cloud bind-access-policy`
+
+##### {{ vpc-name }} {#vpc-0.197.0}
+
+* Added the `--internal-ipv4 subnet=<subnet>` parameter to the `yc vpc address create` command to enable creating internal IPv4 addresses.
+* `yc vpc address` now supports the `list-by-subnet` command to list addresses by subnet: `yc vpc address list-by-subnet --subnet-id <subnet-id>`.
+
+## Previous releases {#previous-release}
+
+### Version 0.196.0 (02/03/26) {#version0.196.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.196.0}
+
+##### {{ cloud-desktop-name }} {#cloud-desktop-0.196.0}
+
+Added full support for the `labels`, `description`, and `name` parameters to the following commands:
+* `yc desktops desktop create`
+* `yc desktops desktop update-properties`
+* `yc desktops group create`
+* `yc desktops image copy`
+* `yc desktops image update`
+
+##### {{ captcha-full-name }} {#smartcaptcha-0.196.0}
+
+Added support for the `labels` parameter.
+
+### Version 0.195.0 (26/02/26) {#version0.195.0}
 
 #### Changes in {{ yandex-cloud }} services
 
+
+##### {{ mmg-name }}
+Added autoscaling and maintenance window settings for the `create` and `restore` commands.
+* `yc managed-mongodb cluster create`
+* `restore --maintenance-window --disk-size-autoscaling`
+
+
+##### {{ mpg-name }}
+* Added autoscaling and maintenance window settings for the `create` and `restore` commands:
+  * `yc managed-postgresql cluster create`
+  * `restore --maintenance-window --disk-size-autoscaling`
+* Removed the flag for disabling autofailover.
+
+##### {{ mrd-name }}
+Added autoscaling and maintenance window settings for the `create` and `restore` commands:
+  * `yc managed-redis cluster create`
+  * `restore --maintenance-window --disk-size-autoscaling`
+
+##### {{ managed-k8s-name }}
+Added the `--reserved-instance-pool-id` and `--variables` parameters to the NodeGroup management methods, allowing you to specify VM reserve pools and custom variables, respectively:
+  * `yc managed-kubernetes node-group create`
+  * `yc managed-kubernetes node-group update`
+
+### Version 0.195.0 (23/02/26) {#version0.195.0}
+
+#### Changes in {{ yandex-cloud }} services
 
 ##### {{ mmg-name }}
 * Added autoscaling and maintenance window settings for the `create` and `restore` commands:
@@ -23,8 +130,6 @@ description: This page presents a list of CLI releases and the updates of each.
 * Added autoscaling and maintenance window settings for the `create` and `restore` commands:
   * yc managed-redis cluster create
   * restore --maintenance-window --disk-size-autoscaling
-
-## Previous releases {#previous-release}
 
 ### Version 0.194.0 (19/02/26) {#version0.194.0}
 

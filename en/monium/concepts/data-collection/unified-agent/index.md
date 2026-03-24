@@ -5,9 +5,9 @@ description: In this article, you will learn about the metric delivery agent and
 
 # Metrics collection agent
 
+{{ unified-agent-full-name }} is an agent that delivers additional metrics of virtual machines and user applications to {{ monium-name }}.
 
-
-{{ unified-agent-full-name }} is the agent for delivering additional metrics of virtual machines and user applications to {{ monitoring-full-name }}.
+{% include [ua-restriction](../../../../_includes/monium/ua-restriction.md) %}
 
 The agent supports:
 
@@ -18,9 +18,9 @@ The agent supports:
 
 You can find the examples of using the agent in [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
 
-## Concepts {#basics}
+## Basic terms {#basics}
 
-{{ unified-agent-full-name }} transmits streaming data represented as messages, e.g., metrics or logs. A data stream in {{ unified-agent-short-name }} is called a session. Multiple sessions can be running at the same time.
+{{ unified-agent-full-name }} transmits streaming data in the form of messages. A data stream in {{ unified-agent-short-name }} is called a session. Multiple sessions can be running at the same time.
 
 The agent receives messages via the input and delivers them to one or more outputs. Intermediate processing of messages is done by filters; storages save messages to the disk. Inputs, outputs, filters, and storages are implemented using plugins.
 
@@ -30,13 +30,13 @@ You can create named channels and pipes. This will help you avoid duplicate conf
 
 ## How {{ unified-agent-short-name }} works {#scheme}
 
-![Unified-Agent-Concept](../../../../_assets/monitoring/concepts/unified-agent-concept.svg)
+{% include [ua-scheme](../../../../_mermaid/other/monium/ua-scheme.md) %}
 
 ## Messages {#messages}
 
 A message is the minimum atomic unit of user information that a system or application sends to {{ unified-agent-short-name }}.
 
-A message consist of a body, a timestamp, user metadata in `key:value` format, and a serial number.
+A message consist of a body, a timestamp, user metadata in `key: value` format, and a serial number.
 
 {% note info %}
 
@@ -60,7 +60,7 @@ See the [list of available inputs](inputs.md).
 
 ## Outputs {#outputs}
 
-Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are the `yc_metrics` output, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
+Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes metrics to the {{ monitoring-full-name }} API, and a number of debug outputs.
 
 See also the [list of available outputs](outputs.md).
 
@@ -77,8 +77,8 @@ See also the [list of available filters](filters.md).
 
 ## Storages {#storages}
 
-Storages are intended to store messages from their receipt as an input until their transmission to the output.
-Using a storage can help you avoid data loss if the agent fails to write the data to the specified output. This may happen due to network issues or destination API unavailability.
+Storages serve as interim depots for messages in transit between the input and the output.
+With a storage, you will not lose your data if the agent fails to write it to the specified output, e.g., due to network issues or unavailability of the destination API.
 
 See also the [storage configuration guide](storage.md).
 
@@ -98,7 +98,7 @@ See also the [pipe configuration guide](routing.md#pipes).
 
 Channels group a pipe with a node, one of an output, a named channel, or a splitter.
 
-Splitters let you specify a set of channels, copying incoming messages to each of them. You can use splitters to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on particular attributes such as metadata.
+A splitter allows you to specify a set of channels and copy the incoming message to each one of its channels. You can use a splitter to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on certain attributes, e.g., metadata.
 
 Channels can be named.
 

@@ -79,7 +79,7 @@ Create a VM you to test whether your web service is accessible from the internet
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin).
@@ -112,7 +112,7 @@ Create a VM you to test whether your web service is accessible from the internet
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to deploy your infrastructure.
-  1. In the list of services, select **{{ vpc-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ vpc-name }}**.
   1. [Create a cloud network](../../vpc/operations/network-create.md) named `network` with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
   1. In `network`, [create subnets](../../vpc/operations/subnet-create.md) with the following settings:
   
@@ -145,7 +145,7 @@ You will need two static public IP addresses: one for your VPN gateway and anoth
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder where you will reserve your IP addresses.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
     1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
     1. In the window that opens, select the `{{ region-id }}-a` availability zone and click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
@@ -166,7 +166,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a security group. 
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Specify the security group name: `vpn-sg`.
@@ -204,7 +204,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 - Management console {#console}
   
     1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a security group. 
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Specify the security group name: `web-service-sg`.
@@ -232,7 +232,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your VMs.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select [Drupal 10](/marketplace/products/yc/drupal-8).
@@ -270,7 +270,7 @@ To provide secure access to your resources, create an IPSec instance.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create your VM.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
@@ -283,7 +283,7 @@ To provide secure access to your resources, create an IPSec instance.
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn`.
@@ -307,7 +307,7 @@ Create a [route table](../../vpc/concepts/routing.md#rt-vpc) and add [static rou
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to configure routing.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select `network`.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**.
@@ -332,7 +332,7 @@ To use static routes, associate the route table with all subnets in your cloud `
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to your cloud network folder.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to `subnet-a` and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. In the window that opens, select the `vpn-route` table in the **{{ ui-key.yacloud.vpc.subnet.add-route-table.field_route-table-id }}** field.
@@ -352,7 +352,7 @@ To create a network load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a load balancer.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Specify the load balancer name: `web-service-lb`.
   1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select `{{ ui-key.yacloud.common.label_list }}` and specify the public static IP address.

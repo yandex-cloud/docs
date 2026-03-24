@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of resources includes:
 * Fee for using VM instances (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Download a project {#download}
 
@@ -40,9 +40,9 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-    1. Specify a name for the service account: `service-account-for-budget`.
+    1. Enter a name for the service account: `service-account-for-budget`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles to the service account.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -141,7 +141,7 @@ zip src.zip index.go go.mod
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Create a function:
         1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Specify the function name: `function-for-budget`.
@@ -193,7 +193,7 @@ zip src.zip index.go go.mod
         ```
 
         Where:
-        * `--function-name`: Name of the function.
+        * `--function-name`: Name of the function whose version you are creating.
         * `--memory`: Amount of RAM.
         * `--execution-timeout`: Maximum function execution time.
         * `--runtime`: Runtime environment.
@@ -246,7 +246,7 @@ zip src.zip index.go go.mod
 
     1. In the [management console]({{ link-console-main }}), select the folder where you created the service account, function, and budget.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -341,7 +341,7 @@ zip src.zip index.go go.mod
         * `--zone`: Availability zone matching the selected subnet.
         * `subnet-name`: Name of the selected subnet.
         * `nat-ip-version`: Public IP.
-        * `image-family`: [Image family](../../compute/concepts/image#family). This option allows you to install the latest version of the operating system from the specified image family.
+        * `image-family`: [Image family](../../compute/concepts/image.md#family). This option allows you to install the latest version of the operating system from the specified image family.
         * `--ssh-key`: Public SSH key path. The VM will automatically create a user named `yc-user` for this key. [How to create an SSH key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
         Result:

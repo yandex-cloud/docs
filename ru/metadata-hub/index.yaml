@@ -45,7 +45,7 @@ blocks:
         text: Технические и организационные ограничения сервиса
         icon: _assets/icons/sliders.svg
         urlTitle: Квоты в Yandex MetaData Hub
-        url: concepts/limits.md
+        url: concepts/limits
         centered: true
         size: s
       - type: basic-card
@@ -53,7 +53,7 @@ blocks:
         text: Как настроить права доступа для работы с сервисом
         icon: _assets/icons/lock.svg
         urlTitle: Управление доступом в Yandex MetaData Hub
-        url: security/index.md
+        url: security/index
         centered: true
         size: s
       - type: basic-card
@@ -61,7 +61,7 @@ blocks:
         text: Цены и правила расчета стоимости услуг
         icon: _assets/icons/tag-ruble.svg
         urlTitle: Правила тарификации для Yandex MetaData Hub
-        url: pricing.md
+        url: pricing
         centered: true
         size: s
       - type: basic-card
@@ -69,7 +69,7 @@ blocks:
         text: Обновления и изменения
         icon: _assets/icons/timeline.svg
         urlTitle: История изменений Yandex MetaData Hub
-        url: release-notes/index.md
+        url: release-notes/index
         centered: true
         size: s
   - type: card-layout-block
@@ -86,14 +86,14 @@ blocks:
           Автоматическое создание и управление параметрами подключений к базам
           данных.
         urlTitle: Подключение
-        url: concepts/connection-manager.md
+        url: concepts/connection-manager
         size: s
         icon: _assets/icons/plug-connection.svg
       - type: basic-card
         title: Apache Hive™ Metastore
         text: Создание и управление кластерами Apache Hive™ Metastore.
         urlTitle: Кластеры Apache Hive™ Metastore
-        url: concepts/metastore.md
+        url: concepts/metastore
         size: s
         icon: _assets/icons/database.svg
       - type: basic-card
@@ -102,7 +102,7 @@ blocks:
           Централизованное хранилище для управления и проверки схем данных.
           Сервис находится на стадии Preview.
         urlTitle: Реестр схем данных
-        url: concepts/schema-registry.md
+        url: concepts/schema-registry
         size: s
         icon: _assets/icons/layout-cells.svg
       - type: basic-card
@@ -111,7 +111,7 @@ blocks:
           Инструмент для сбора, анализа и разметки метаданных из различных
           источников. Сервис находится на стадии Preview.
         urlTitle: Каталог метаданных
-        url: concepts/data-catalog.md
+        url: concepts/data-catalog
         size: s
         icon: _assets/icons/folder-magnifier.svg
   - type: content-layout-block

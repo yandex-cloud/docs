@@ -19,14 +19,11 @@ For more information, see [{#T}](../../../operations/prometheus/ingestion/promet
 - Fedora 32 or higher (Docker image).
 - Fedora CoreOS (Docker image).
 
-
-
-
 ## Before you begin installation {#before-you-begin}
 
 Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
-1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), e.g., Ubuntu 16.04 or higher.
+1. Create a VM in {{ yandex-cloud }} or a host outside of {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), e.g., Ubuntu 16.04 or higher.
 
 1. Optionally, [install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}. Docker is pre-installed in Fedora CoreOS.
    - Set up a public IPv4 address (recommended).
@@ -34,8 +31,8 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
 1. [Create a service account](../../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
-1. Set up agent authorization in the {{ monitoring-full-name }} API:
-   - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. In that case, the agent will automatically receive the service account IAM token from the metadata service.
+1. Set up agent authorization in the {{ monium-name }} API:
+   - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. This way, the agent will automatically get the service account IAM token from the metadata service.
    - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
 
 
@@ -49,7 +46,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   Install Docker Engine. Use [this guide](https://docs.docker.com/engine/install/#supported-platforms) to install and run Docker for your operating system.
 
-  {{ unified-agent-short-name }} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and the `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent [for Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{ monitoring-full-name }}.
+  {{ unified-agent-short-name }} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and the `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent [for Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{ monium-name }}.
 
   To upload a Docker image, run this command:
 
@@ -100,7 +97,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   {% include [agent-setup-actions](../../../../_includes/monitoring/agent-setup-actions.md) %}
 
 
-  Once the VM is deployed, {{ unified-agent-short-name }} will be started automatically and begin delivering basic VM metrics to {{ monitoring-full-name }}.
+  Once the VM is deployed, {{ unified-agent-short-name }} will be started automatically and begin delivering basic VM metrics to {{ monium-name }}.
 
   Update the agent manually via a binary file.
 

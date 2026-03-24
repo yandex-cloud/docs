@@ -13,7 +13,7 @@ There are differences between an escalation and other notification methods:
 * You can start an escalation only for alerts with the **Alarm** status.
 * The system will iterate over the notification sequence until you stop it.
 
-## Concepts {#intro}
+## Basic terms {#intro}
 
 * **Escalation policy**: Sequence of notification steps, delay between them, and other settings.
 

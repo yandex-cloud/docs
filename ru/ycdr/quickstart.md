@@ -18,9 +18,9 @@ description: Следуя данной инструкции, вы научите
 1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
 1. На панели слева выберите **{{ ycdr-name }}**.
 1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
-1. Нажмите **{{ ui-key.yacloud_org.security.ycdr.InvestigationsPage.create-investigation_iCPUP }}**.
+1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.
 1. Введите название расследования, например: `Анализ неудачных входов`.
-1. В поле **{{ ui-key.yacloud_org.security.ycdr.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание: `Поиск неудачных попыток входа в консоль за последние 30 минут`.
+1. В поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание: `Поиск неудачных попыток входа в консоль за последние 30 минут`.
 
 ## Создайте запрос {#create-query}
 

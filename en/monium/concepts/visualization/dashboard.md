@@ -1,9 +1,9 @@
 ---
-title: '{{ monitoring-full-name }} dashboard'
+title: '{{ monium-name }} dashboard'
 description: A dashboards in {{ monitoring-full-name }} consists of widgets, charts, text blocks, and titles. Metrics on dashboard charts are displayed for a certain time interval, the same for all charts. Parameters allow you to create dashboards with customizable interactive content. For example, a dashboard presenting aggregated VM status information can be parameterized using the VM ID.
 ---
 
-# Dashboards in {{ monitoring-name }}
+# Dashboards in {{ monium-name }}
 
 *Dashboards* consist of widgets. You can group the widgets in a convenient order, set their size, and add comments. Dashboards allow you to track metric changes in real time and analyze accumulated metrics over time. Metrics on dashboard charts are displayed for a certain time interval, the same for all charts.
 
@@ -17,7 +17,9 @@ To set the time interval more precisely, you can use the timeline located above 
 
 Parameters allow you to create dashboards with customizable interactive content. For example, a dashboard presenting aggregated VM status information can be parameterized using the VM ID.
 
-Parameters are displayed as drop-down menus above dashboard widgets. When you select a parameter value, the dashboard is updated and the selected value is substituted in data queries. [How to add a dashboard parameter](../../operations/dashboard/add-parameters.md).
+Parameters are displayed as drop-down menus above dashboard widgets. When you select a parameter value, the dashboard is updated and the selected value is substituted in data queries.
+
+For more information, see [How to add a dashboard parameter](../../operations/dashboard/add-parameters.md).
 
 {% include [dash-parameters](../../../_includes/monitoring/dash-parameters.md) %}
 
@@ -38,9 +40,9 @@ You can only use parameter value substitution in label values when making querie
 #### Examples of parameter value substitution {#templates-examples}
 
 * Substituting values in widget headings.
-    > In the `CPU usage on not_var{{ host }}` widget heading, the `host` parameter value will be substituted.
+    > In the `CPU usage on not_var{{host}}` widget heading, the `host` parameter value will be substituted.
 * Substituting label values in queries.
-    > In the `"cpu.iowait"{folderId="aoe6mk1r3b47********", service="not_var{{ myparm }}", host="*"}` query, the `service` label will get the `myparm` parameter value.
+    > In the `"cpu.iowait"{project="folder__aoe6mk1r3b47********", cluster="prod", service="not_var{{myparm}}", host="*"}` query, the `service` label will get the `myparm` parameter value.
 
 Substituting parameter values in query strings when [adding a widget to the dashboard](../../operations/dashboard/add-widget.md) looks like this:
 

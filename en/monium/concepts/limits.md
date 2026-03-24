@@ -14,8 +14,8 @@ editable: false
 
 ## Metric and alert limits
 
-{% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
+{% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
 
-## Log limits
+## Trace limits
 
-{% include [logging-limits.md](../../_includes/monium/limits-logs.md) %}
+{% include [logging-limits.md](../../_includes/monium/limits-traces.md) %}

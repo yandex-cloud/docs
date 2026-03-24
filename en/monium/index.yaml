@@ -3,6 +3,12 @@ description:
   - >-
     Monium allows you to collect, store, analyze, and visualize the status and
     performance data of your resources and applications.
+  - >-
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla/en/">service level agreement</a>.
+    The service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_monium/en/">Yandex Monitoring
+    Service Level</a>.
 meta:
   title: Monium
   description: >-
@@ -31,7 +37,7 @@ links:
     description: Collecting, storing, and displaying resource and application metrics
     href: metrics/quickstart
   - title: Logs
-    description: Reading and writing logs of resource and app resources
+    description: Reading and writing resource and app logs
     href: logs/quickstart
   - title: Traces
     description: Configuring tracing for your applications
@@ -66,7 +72,7 @@ links:
     description: Permissions required to use the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Pricing and cost calculations
     href: pricing
   - title: FAQ
     description: Answers to frequently asked questions

@@ -34,6 +34,11 @@
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество [GPU](../../compute/concepts/gpus.md), vCPU и [гарантированную долю vCPU](../../compute/concepts/performance-levels.md), а также объем RAM.
    * (Опционально) Укажите, что ВМ должна быть [прерываемой](../../compute/concepts/preemptible-vm.md).
+
+      
+      {% include [preemtible-vm](note-preemtible-vm.md) %}
+      
+
    * (Опционально) Включите [программно ускоренную сеть](../../compute/concepts/software-accelerated-network.md).
 
      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}

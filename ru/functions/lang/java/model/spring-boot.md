@@ -119,7 +119,7 @@
 1. [Создайте](../../../operations/function/version-manage.md) версию функции и укажите:
 
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `java17`.
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — загрузите архив, созданный ранее.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `30`.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.

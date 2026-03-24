@@ -7,6 +7,8 @@ description: In {{ monitoring-short-name }}, an alert is a sequence of named que
 
 An _alert_ is a sequence of named [queries](../data-model.md#queries) calculated once a minute. The resulting query value is compared to the preset threshold values. If a threshold is reached, {{ monitoring-short-name }} changes the alert [status](#alert-statuses) to `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` or `{{ ui-key.yacloud_monitoring.alert.status_warn }}` and notifies the user via a [notification channel](./notification-channel.md).
 
+_Multialert_ is an alert that creates a separate test instance for every unique combination of values in the selected metric labels. For example, if a metric has the `host` label with three values (`host1`, `host2`, and `host3`), the multialert will create three independent tests, one for each host. This allows you to monitor metrics from different resources using a single alert.
+
 ## Alert statuses {#alert-statuses}
 
 An alert can have one of the following statuses:
@@ -139,10 +141,10 @@ The policy determines the alert status if no metrics were found for at least one
 The possible values are:
 
 * `Default`: `No data` for all alert types.
-* `OK`: Changes the alert status to `OK`.
-* `Warn`: Changes the alert status to `Warning`.
-* `Alarm`: Changes the alert status to `Alarm`.
-* `No data`: Changes the alert status to `No data`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.ok }}`: Changes the alert status to `OK`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.warn }}`: Changes the alert status to `Warning`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.alarm }}`: Changes the alert status to `Alarm`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.no-data-key-value }}`: Changes the alert status to `No data`.
 
 ### No points in evaluation window {#no-points-policy}
 
@@ -153,14 +155,49 @@ For threshold alerts that monitor several metrics, predicates are checked for ea
 The possible values are:
 
 * `Default`: Default value (`No data`) for all types of threshold alerts.
-* `OK`: Changes the alert status to `OK`.
-* `Warning`: Changes the alert status to `Warning`.
-* `Alarm`: Changes the alert status to `Alarm`.
-* `No data`: Changes the alert status to `No data`.
-* `Manual`: Gives control to the predicates or alert program for [manual handling](#manual-policy).
+* `{{ ui-key.yacloud_monitoring.alert-template.no-points-policy.ok }}`: Changes the alert status to `OK`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-points-policy.warn }}`: Changes the alert status to `Warning`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-points-policy.alarm }}`: Changes the alert status to `Alarm`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-points-policy.no-data-key-value }}`: Changes the alert status to `No data`.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-points-policy.manual }}`: Gives control to the predicates or alert program for [manual handling](#manual-policy).
 
 ### Manual processing of no data {#manual-policy}
 
 Setting the `Manual` value for any policy will give control to the alert predicates or program.
 
 Avoid the `Manual` value as it complicates the alert program. The `No data` policy value should cover most cases.
+
+## Multialerts {#multi-alerts}
+
+Multialerts enable you to set up similar tests for entities of the same type, e.g., for all cluster hosts or database shards.
+
+### Creating a multialert {#create-multi-alert}
+
+To create a multialert, specify one or more labels in **Decomposition by labels**. For every unique label value (or combination of several label values), a separate subalert is created automatially.
+
+Here is an example:
+* Specifying the `host` label will create a subalert for each host.
+* Specifying the `host` and `disk` labels will create a subalert for each host-disk combination.
+
+### Subalerts {#sub-alerts}
+
+A subalert is an automatically created alert which cannot be edited manually. Its parameters are decided by the parent multialert. Each subalert is:
+* Calculated and triggered independently of other sub-alerts.
+* Created automatically when metrics with new label values appear.
+* Deleted automatically when the matching metrics are deleted.
+
+### Multialert example {#multi-alert-example}
+
+To create a multialert to monitor CPU utilization by the {{ compute-name }} resources, use the following selector:
+
+```text
+{project = "<project_id>", service = "__compute__", cluster = "default", name = "cpu_usage", resource_id = "*", resource_type = "*"}
+```
+
+Specify the `resource_id` and `resource_type` labels in **Decomposition by labels**. This will result in creating a separate subalert for every unique combination of type and resource ID.
+
+### Viewing a multialert {#view-multi-alert}
+
+On the multialert page:
+* Under **Alert calculation history**, you can see a summary of the number of subalerts in each status.
+* Under **Subalerts**, you can filter the list of subalerts by label and status.

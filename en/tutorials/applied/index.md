@@ -21,6 +21,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [Assigning a domain name to a VM with a web server](../web/bind-domain-vm/index.md)
 * [Creating a Python web application with Flask](../web/flask.md)
 * [{#T}](../web/gatsby-static-website.md)
+* [Creating a website in Ghost CMS High Availability](../web/ghost-cms-cloudapp.md)
 * [{#T}](../web/migrate-to-yc-cdn.md)
 * [{#T}](../web/user-agent-statistics.md)
 * [{#T}](../web/video-iframe.md)

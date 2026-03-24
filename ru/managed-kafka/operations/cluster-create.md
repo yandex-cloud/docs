@@ -73,12 +73,12 @@
 
         {% note info %}
 
-        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ ZK }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ ZK }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее в разделе [{#T}](../concepts/index.md).
 
         {% endnote %}
 
      1. Выберите [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mkf-name }}.
-     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее см. в разделе [Подключение к топикам в кластере](connect/clients.md).
+     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее в разделе [{#T}](connect/clients.md).
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -258,7 +258,7 @@
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
      
-     * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+     * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
 
 
@@ -302,7 +302,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера {{ mkf-name }}](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -467,7 +467,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -663,7 +663,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -740,12 +740,12 @@
 
         {% note info %}
 
-        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ kraft-short-name }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ kraft-short-name }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее в разделе [{#T}](../concepts/index.md).
 
         {% endnote %}
 
      1. Выберите [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mkf-name }}.
-     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее см. в разделе [Подключение к топикам в кластере](connect/clients.md).
+     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее в разделе [{#T}](connect/clients.md).
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -989,7 +989,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера {{ mkf-name }}](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1162,7 +1162,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -1365,7 +1365,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   

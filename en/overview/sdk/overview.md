@@ -20,7 +20,7 @@ For more information about integrating SDKs into your project, see [{#T}](./quic
 
 For some services, dedicated SDKs are available:
 * [{{ ml-sdk-full-name }}]({{ link-docs-ai }}ai-studio/sdk/index) for [{{ ai-studio-full-name }}](/ai-studio) services.
-* [{{ speechkit-name }} Python SDK]({{ link-docs-ai }}speechkit/sdk/python/index.md) for [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/).
+* [{{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/) Python SDK for [{{ speechkit-full-name }}](../../speechkit/).
 * [Video player SDK](../../video/sdk/index.md) for [{{ video-full-name }}](../../video/).
 * [YDB SDK](https://ydb.tech/docs/en/reference/ydb-sdk/) for [{{ ydb-full-name }}](../../ydb/) and [{{ yq-full-name }}](../../query/).
 

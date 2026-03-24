@@ -7,7 +7,7 @@ To deploy a Minecraft server in {{ yandex-cloud }}:
 1. [Get your cloud ready](#prepare-cloud).
 1. [Create a security group](#create-sg).
 1. [Create a VM for the Minecraft server](#vm-minecraft).
-1. [Install the required utilities](#install-tools).
+1. [Install the required tools](#install-tools).
 1. [Download and run the Minecraft server](#get-and-launch-server).
 1. [Test the server](#test-functionality).
 
@@ -33,7 +33,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select your folder.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `minecraft-sg`.
@@ -92,7 +92,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.
@@ -155,7 +155,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    {% endnote %}
 
 
-## Install the required utilities {#install-tools}
+## Install the required tools {#install-tools}
 
 1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM you created.
 1. Install the required Java packages from the repository and the `screen` utility to run the terminal session in background mode:

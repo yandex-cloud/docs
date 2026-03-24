@@ -2,38 +2,41 @@
 
 {{ monium-name }} is a platform you can use to monitor and analyze {{ yandex-cloud }} services or your own infrastructure and applications.
 
-
 ## Telemetry types {#telemetry-types}
 
 {{ monium-name }} supports collecting telemetry:
 
 * _Metrics_: Numerical indicators measured over time (e.g., RPS, CPU load). Used for charts and alerts.
 
-* _Logs_: Structured records of events in an application or infrastructure (e.g., start messages, error messages). Used for system diagnostics.
+* _Logs_: structured records of events in applications or infrastructure (e.g., startup messages, errors). Used for system diagnostics.
 
-* _Traces_: Linked chain of operations for a specific request, showing the path and execution time of each step. Used to monitor distributed systems.
+* _Traces_: linked chain of operations for a specific request, showing the path and execution time of each step. Used for monitoring distributed systems.
 
 
-## Telemetry transmission {#send-telemetry}
+## Transmitting telemetry {#send-telemetry}
 
-You can use the following for telemetry transmission:
+To transmit telemetry, you can use:
 
-* OpenTelemetry-compatible agents, e.g., [OTel Collector](collector/opentelemetry.md) (for all telemetry types), [Fluent Bit](logs/write/fluent-bit.md) (for logs).
+* OpenTelemetry-compatible agents, e.g., [OTel Collector](collector/opentelemetry.md) for all telemetry types (recommended) or [Fluent Bit](logs/write/fluent-bit.md) for logs.
 * {{ unified-agent-short-name }}, Yandex's data collection and delivery agent.
-* Sending directly from the application via the OpenTelemetry SDK.
+  
+    {% include [ua-restriction](../_includes/monium/ua-restriction.md) %}
+
+* Direct transmission from the application via the OpenTelemetry SDK.
 
 {% include [data-transfer-light](../_mermaid/other/monium/data-transfer-light.md) %}
 
-For collection of {{ prometheus-name }} metrics, there is integration via [{{ managed-prometheus-name }}](operations/prometheus/).
+For metric collection, {{ prometheus-name }} integration is supported via [{{ managed-prometheus-name }}](operations/prometheus/).
 
 {% include [otel-only](../_includes/monium/otel-only.md) %}
 
 Going forward, the platform is going to get more observability tools.
 
+{{ yandex-cloud }} [resource metrics](metrics-ref/) are sent to {{ monium-name }} automatically. Many services also provide dashboards with ready-made widgets showing the status of your cloud resources.
 
 ## Telemetry distribution {#save-telemetry}
 
-{{ monium-name }} achieves logical separation of telemetry data using entities: project, cluster, service, and shard.
+{{ monium-name }} achieves logical separation of telemetry data using the following concepts:
 
 {% include [configuration-model](../_includes/monium/configuration-model.md) %}
 
@@ -49,7 +52,7 @@ Metrics are real time numerical indicators of system performance. Their common u
 * Analyzing trends and performance.
 * Detecting anomalies and bottlenecks.
 
-[Learn more about metrics](concepts/index.md).
+[Learn more about metrics](metrics/quickstart.md).
 
 ### Logs {#logs}
 

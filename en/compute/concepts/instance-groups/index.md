@@ -45,6 +45,7 @@ An instance group created in a folder can be accessed by all VMs connected to th
 
 ## See also {#see-also}
 
+* [{#T}](../../operations/instance-groups/create-fixed-group.md)
 * [{#T}](disable-enable-zone.md)
 * [{#T}](zonal-inc/overview.md)
 

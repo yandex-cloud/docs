@@ -175,7 +175,7 @@ For final tuning, apply the rule in `only logging` mode and analyze logs to dete
 
 ## FingerPrints {#fingerprint}
 
-[FingerPrint](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/) is an SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint collected by a load balancer or proxy server. Generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters.
+[FingerPrint](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/) is an SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint collected by a load balancer or proxy server. It is generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters.
 
 The use cases for fingerprints include:
 
@@ -184,21 +184,20 @@ The use cases for fingerprints include:
 * Detecting DGA bots that constantly change domains and IP addresses.
 * Reducing the percentage of false positives.
 
-You can use fingerprints to identify certain clients by analyzing their hello packet parameters. Examples of such clients include browsers, applications, and malware. The analysis focuses on parameters the client sends in plain text during the TLS handshake: TLS version, TLS record version, cipher suites, compression parameters, list of extensions, signature algorithms, data encryption algorithm, and hash function.
+FingerPrint technology allows identifying specific clients by analyzing the parameters of the hello packet. Examples of such clients include browsers, applications, and malware. During this process, the parameters that the client sends in plain text during the TLS handshake are analyzed: TLS version, TLS record version, cipher suites, compression parameters, list of extensions, signature algorithms, data encryption algorithm, hash function.
 
 {{ sws-name }} uses the JA3 and JA4 methods to identify clients:
 
-* JA3 is a passive fingerprinting method which collects value IDs from the client hello packet fields in `TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats` format and generates an MD5 hash to create a 32-character fingerprint.
+* JA3 is a passive fingerprinting method based on the first TLS handshake message (ClientHello) the client sends to the server in `TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats` format. The original JA3 string is used without MD5 hashing.
 
-    Here are some examples of JA3 fingerprints:
+    Here are some examples of JA3 fingerprints (strings):
 
-    * Standard Tor client: `e7d705a3286e19ea42f587b344ee6865`
-    * Trickbot malware: `6734f37431670b3ab4292b8f60f29984`
-    * Emotet malware: `4d7a28d6f2263ed61de88ca66eb011e3`
+    * `771,4865-4866-4867,0-11-10-35-16-5-13,29-23-24,0`
+    * `771,49195-49199-49196-49200,0-23-65281-10-11,23-24-25,0`
+    * `771,4866-4867-4865,0-11-10-13-16,29-23-24,0`
 
-* JA4 is a suite of network fingerprinting methods with deeper analysis. {{ sws-name }} supports one JA4 method, TLS client fingerprinting.
+* JA4 is a suite of network fingerprinting methods for deeper analysis. {{ sws-name }} supports one JA4 option: TLS client fingerprint.
 
-
-    All JA4 fingerprints are in `a_b_c` format, where the separators mark different parts of the identifier, e.g., `t13d3812h2_8a4b5c6d_7e8f9a0b`. This enables you to flexibly search and detect traffic by fingerprint parts.
+    A JA4 fingerprint is formatted as `a_b_c` with separators marking different parts of the identifier, e.g., `t13d3812h2_8a4b5c6d_7e8f9a0b`. This format enables search and correlation either by the full fingerprint or its individual parts.
 
 There are no fingerprints in unencrypted HTTP traffic or internal traffic of {{ yandex-cloud }} services, and updating the client application may change its fingerprint. Therefore, we recommend you arrange alternative filtering conditions and regularly update security rules.

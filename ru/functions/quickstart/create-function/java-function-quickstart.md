@@ -108,7 +108,7 @@
     1. Выберите среду выполнения `{{ java-full-ver }}`.
     1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Задайте параметры версии:
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — прикрепите файл `hello-java.zip`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `Handler`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `3`.

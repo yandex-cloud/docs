@@ -5,7 +5,7 @@ description: '{{ monium-name }} allows presenting telemetry data as charts on da
 
 # Visualizing telemetry data
 
-Visualization tools provide metrics, logs, and traces on charts and diagrams to help you analyze the system's state and diagnose issues.
+Visualization tools present metrics and logs on charts and diagrams to help you analyze the system's condition and diagnose issues.
 
 Visualization addresses three primary objectives:
 
@@ -20,4 +20,10 @@ Visualization tools:
 
 You can filter chart data by time intervals, services, environments, etc. Also, you can also break the data down by specific attributes for a more detailed analysis.
 
-You can create dashboards manually or use ready-made ones that come with {{ yandex-cloud }} services.
+You can create dashboards manually or use ready-made ones that come with the {{ yandex-cloud }} services.
+
+## See also {#see-also}
+
+* [Data model](../concepts/data-model.md)
+* [Query language](../concepts/querying.md)
+* [Query string](../concepts/visualization/query-string.md)

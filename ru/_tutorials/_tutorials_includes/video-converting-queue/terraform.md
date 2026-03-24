@@ -94,13 +94,13 @@
    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
    * [Секрет](../../../lockbox/concepts/secret.md) — [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
-   * [Версия секрета](../../../lockbox/concepts/secret.md#version) — [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/yandex_lockbox_secret_version)
+   * [Версия секрета](../../../lockbox/concepts/secret.md#version) — [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version)
    * [Очередь сообщений](../../../message-queue/concepts/queue.md) — [yandex_message_queue]({{ tf-provider-resources-link }}/message_queue)
    * [База данных YDB](../../../message-queue/concepts/queue.md) — [yandex_ydb_database_serverless]({{ tf-provider-resources-link }}/ydb_database_serverless)
-   * [Бакет](../../../storage/concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/yandex_storage_bucket)
-   * [Объект бакета](../../../storage/concepts/object.md) — [yandex_storage_object]({{ tf-provider-resources-link }}/yandex_storage_object)
-   * [Функция](../../../functions/concepts/function.md) — [yandex_function]({{ tf-provider-resources-link }}/yandex_function)
-   * [Триггер](../../../functions/concepts/trigger/ymq-trigger.md) — [yandex_function_trigger]({{ tf-provider-resources-link }}/yandex_function_trigger)
+   * [Бакет](../../../storage/concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
+   * [Объект бакета](../../../storage/concepts/object.md) — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object)
+   * [Функция](../../../functions/concepts/function.md) — [yandex_function]({{ tf-provider-resources-link }}/function)
+   * [Триггер](../../../functions/concepts/trigger/ymq-trigger.md) — [yandex_function_trigger]({{ tf-provider-resources-link }}/function_trigger)
 
 1. В файле `video-converting.tf` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).

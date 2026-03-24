@@ -1,53 +1,62 @@
 # Collecting telemetry
 
-## Data transfer parameters {#connection-parameters}
+{{ monium-name }} automatically receives telemetry data from {{ yandex-cloud }} resources. You can also send telemetry data in [OpenTelemetry](https://opentelemetry.io/) format to {{ monium-name }} from any sources: other clouds, your own infrastructure, or applications.
+
+This section describes how to configure the transfer of metrics, logs, and traces to {{ monium-name }}. You can send data directly from an application using the OpenTelemetry SDK or use a collector agent for centralized telemetry collection and routing.
+
+## Connection setup {#connection-parameters}
 
 To transmit telemetry to {{ monium-name }}:
 
 1. Set up telemetry collection from your application in [OpenTelemetry](https://opentelemetry.io/) format.
 
-     You can send telemetry directly from the application or via an [agent](#collectors).
+   You can send telemetry directly from the application or via an [agent](#collectors).
      
 1. [Create a service account](../../iam/operations/sa/create.md).
-1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md) for the service account with the required scopes:
-   * `yc.monitoring.manage`: Writing data.
+1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md) for the service account. Select a scope depending on the type of transferred data:
+
    * `yc.monium.telemetry.write`: Writing all telemetry types.
    * `yc.monium.metrics.write`: Writing metrics.
    * `yc.monium.logs.write`: Writing logs.
    * `yc.monium.traces.write`: Writing traces.
 
-1. Specify data transfer settings:
+1. Configure the connection as follows:
 
     * Endpoint: `{{ api-host-monium }}:443`.
     * Protocol: `gRPC` or `HTTP`.
 
-1. In {{ monium-name }}, telemetry follows this hierarchy: project → cluster → service. Data is stored in shards in _service-cluster_ pairs.
+1. Configure data distribution across shards.
 
-     To distribute data, specify:
+   In {{ monium-name }}, telemetry has this hierarchy: project → cluster → service. Data is stored in shards in _service-cluster_ pairs.
 
-      * Project: Provided as the `x-monium-project` header parameter. This may be a `folder__<folder_ID>` or a `cloud__<cloud_ID>`.
-      * Cluster: Provided in `OTEL_RESOURCE_ATTRIBUTES` with the `cluster` or `deployment.name` key name. This is optional. If a cluster is not specified, data will go to the `default` cluster.
-      * Service: Provided in `OTEL_RESOURCE_ATTRIBUTES` with the `service` or `service.name` key name.
+   Specify the following parameters:
 
-    {% include [shard-distribution](../../_includes/monium/shard-distribution.md) %}
+   * **Project**: Provided as the `x-monium-project` header. 
+   
+      By default, when you create a cloud and folder, two projects are created: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also create your own projects to collect telemetry.
+   
+   * **Cluster**: Provided in `OTEL_RESOURCE_ATTRIBUTES` with the `cluster` or `deployment.name` key. This is an optional property. The default value is `default`.
+   * **Service**: Provided in `OTEL_RESOURCE_ATTRIBUTES` with the `service` or `service.name` key.
 
-## Data transfer agents {#collectors}
+   {% include [shard-distribution](../../_includes/monium/shard-distribution.md) %}
 
-With {{ monium-name }}, you can manage telemetry from {{ yandex-cloud }} resources, other clouds, or applications in your infrastructure.
+## Agents {#collectors}
 
-Transfer of {{ yandex-cloud }} data is set up when you create or update a resource.
+{{ monium-name }} accepts telemetry from {{ yandex-cloud }} resources, other clouds, and applications in your infrastructure.
 
-To set up data transfer from applications, do one or both of the following:
-* Connect the OpenTelemetry SDK and set up OTLP export.
-* Use automation tools, i.e., agents or libraries that automatically collect telemetry from popular frameworks and libraries without modifying the code.
+Transfer for {{ yandex-cloud }} resources is set up when you create or update a resource.
 
-You can transfer data to {{ monium-name }} directly from the OpenTelemetry SDK or use an OTLP-compatible agent.
+Two types of telemetry collection are available for applications:
 
+* **OpenTelemetry SDK**: Connect the SDK to your application and set up OTLP export.
+* **Automatic instrumentation**: Use agents or libraries that automatically collect telemetry from popular frameworks without modifying the code.
 
-The agent is installed next to the application on a server, VM, or in a container and set up to receive telemetry and send it to {{ monium-name }}. If the application is configured to send data in a format other than OTLP, you will need an intermediate agent for OTLP conversion.
+You can transfer data directly from the SDK or use an OTLP-compatible agent.
 
-Learn more about setting up agents:
+The agent is installed next to the application on a server, VM, or in a container. It receives telemetry and sends it to {{ monium-name }}. If the application sends data in a format other than OTLP, you will need an agent for conversion.
+
+Learn more about the setup:
 
 * [{{ unified-agent-short-name }}](../concepts/data-collection/unified-agent/index.md): Agent by Yandex.
 * [OTel Collector](../collector/opentelemetry.md): OpenTelemetry ecosystem agent.
-* [Fluent Bit](../logs/write/fluent-bit.md): Agent to use for logs.
+* [Fluent Bit](fluentbit.md): A lightweight agent for log processing and forwarding other types of telemetry.

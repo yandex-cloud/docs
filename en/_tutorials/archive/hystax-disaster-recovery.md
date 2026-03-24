@@ -94,7 +94,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -113,7 +113,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
           * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-              * In the window that opens, specify the network name and select the folder to host the network.
+              * In the window that opens, specify the network name and select the folder where it will be created.
               * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
@@ -171,7 +171,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
 
    * `service-account-id`: ID of the service account you [created previously](#create-sa).
 
-     You can get the list of accounts using the `yc vpc security-group list` command.
+     You can get the list of accounts using the `yc iam service-account list` command.
    * `ssh-key`: Path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 
 {% endlist %}
@@ -185,8 +185,8 @@ VMs get a public dynamic IP address when created. Since a VM with Hystax Acura m
 - Management console {#console}
 
   To convert a dynamic public IP address into a static one:
-  1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), open the dashboard of the folder you are using.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
   1. Click ![image](../../_assets/options.svg) in the row with the address of your Hystax Acura VM.
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
@@ -493,7 +493,7 @@ Repeat the [test recovery](#run-tests) steps.
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) `hystax-acura-vm`.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the secondary `cloud-agent` VMs.

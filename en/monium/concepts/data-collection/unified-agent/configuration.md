@@ -15,11 +15,9 @@ The configuration file may contain the following sections:
 - `status`, `main_thread_pool`, `agent_log`, `system`: [Sections containing service information](services.md).
 
 To provide the configuration file, specify its path in the `--config` parameter:
-
 ```bash
 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml
 ```
-
 When you install {{ unified-agent-short-name }} from the deb package, the basic configuration file, `/etc/yandex/unified_agent/config.yml`, is automatically set and provided to the `--config` parameter.
 
 ## Importing configuration files {#import}
@@ -54,8 +52,7 @@ If the configuration import loops, {{ unified-agent-short-name }} will terminate
 
 ## Output and validation of the final configuration {#validation}
 
-To validate the agent settings, run the command:
-
+To validate the agent settings, run this command:
 ```bash
 unified_agent --config /etc/yandex/unified_agent/config.yml check-config
 ```
@@ -63,7 +60,6 @@ unified_agent --config /etc/yandex/unified_agent/config.yml check-config
 If the validation is successful, once all imports are complete, the agent will output the final configuration version to `stdout` and the null return code.
 
 If the validation fails, the agent will output configuration errors to `stderr` and a non-null return code:
-
 ```bash
 unified_agent --config console_to_lb.yml check-config
 yaml-cpp: error at line 10, column 3: unrecognized field [status_port]

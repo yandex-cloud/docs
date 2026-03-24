@@ -31,7 +31,7 @@
        
        {% endcut %}
 
-       Learn more on [how to use logs](logs/).
+       Learn more on [how to use logs](../../monium/logs/quickstart.md).
      
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
 

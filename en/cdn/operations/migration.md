@@ -83,15 +83,11 @@ To start using your migrated CDN resources and origin groups:
     > cdn.example.com. CNAME {{ cname-example-yc }}
     > ```
 
-    {% note tip %}
+    {% include [note-dns-hosting](../../_includes/cdn/note-dns-hosting.md) %}
 
-    If you use {{ dns-full-name }} for DNS hosting, check out [this guide](../../dns/operations/resource-record-update.md).
+    The new resource will start running properly after the CNAME record you edited on your DNS hosting gets propagated across DNS servers. This may take a few hours. For details, see [this section](../../cdn/concepts/resource.md#hostnames) on domain names for content distribution.
 
-    {% endnote %}
-
-The new resource will start running properly after the CNAME record you edited on your DNS hosting gets propagated across DNS servers. This may take a few hours. For details, see [this section](../../cdn/concepts/resource.md#hostnames) on domain names for content distribution.
-
-{% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
+    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
 ## Check origins for protection against information attacks {#ddos}
 

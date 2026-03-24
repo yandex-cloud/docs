@@ -210,7 +210,7 @@
 
     1. Выберите тип коннектора — [MirrorMaker](#settings-mm2) или [S3 Sink](#settings-s3) — и задайте его конфигурацию.
 
-        Подробнее о поддерживаемых типах коннекторов см. в разделе [{#T}](../concepts/connectors.md).
+        Подробнее о поддерживаемых типах коннекторов в разделе [{#T}](../concepts/connectors.md).
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -290,7 +290,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Чтобы создать коннектор MirrorMaker, добавьте ресурс `yandex_mdb_kafka_connector` с блоком настроек `connector_config_mirrormaker`:
 
@@ -360,7 +360,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
 - REST API {#api}
 
@@ -532,7 +532,7 @@
     * `key.converter`
     * `value.converter`
 
-    Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+    Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -548,7 +548,7 @@
         * `key.converter`
         * `value.converter`
 
-        Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+        Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * `--replication-factor` — количество копий топика, хранящихся в кластере.
     * `--topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
@@ -577,7 +577,7 @@
         * `key.converter`
         * `value.converter`
 
-      Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+      Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * **topics** — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
     * **replication_factor** — количество копий топика, хранящихся в кластере.
@@ -709,7 +709,7 @@
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+      Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
 - CLI {#cli}
 
@@ -722,7 +722,7 @@
       * `value.converter.schemas.enable`
       * `format.output.type`
 
-      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+      Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * `--topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
     * `--file-compression-type` — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
@@ -752,7 +752,7 @@
         * `value.converter.schemas.enable`
         * `format.output.type`
 
-      Список всех настроек коннектора см. в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов см. в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
+      Список всех настроек коннектора в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka). Список общих настроек коннекторов в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * **topics** — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
     * **file_compression_type** — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
@@ -893,7 +893,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_connector`:
 
@@ -962,7 +962,7 @@
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
 - REST API {#api}
 
@@ -1253,7 +1253,7 @@
         terraform import yandex_mdb_kafka_connector.<имя_коннектора> <идентификатор_кластера>:<имя_коннектора>
         ```
 
-        Подробнее об импорте коннекторов см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector#import).
+        Подробнее об импорте коннекторов в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector#import).
 
 {% endlist %}
 
@@ -1286,7 +1286,7 @@
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
     1. Удалите ресурс `yandex_mdb_kafka_connector` с описанием нужного коннектора.
     1. Проверьте корректность настроек.
@@ -1297,7 +1297,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
 - REST API {#api}
 
