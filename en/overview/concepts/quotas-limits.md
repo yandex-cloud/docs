@@ -13,7 +13,7 @@ When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum l
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too much resources for testing purposes.
+Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too many resources for testing purposes.
 
 If ready to use more resources, you can increase your quotas in the following ways:
 
@@ -291,6 +291,9 @@ There are no limits for {{ metadata-hub-full-name }}.
 
 {% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
 
+### {{ monium-name }} {#monium}
+
+{% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
 
 ### {{ network-load-balancer-full-name }} {#load-balancer}
 

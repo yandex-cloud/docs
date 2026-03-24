@@ -122,9 +122,8 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
-  1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ monium-name }}** and select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
+  1. At the top right, click **Create** → **Notification channel**.
   1. Enter a name for your notification channel, e.g., `channel-function`.
   1. From the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select **{{ sf-name }}**.
   1. From the **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** list, select the account you created when adding your function.
@@ -138,7 +137,7 @@ To send POST requests when an alert triggers:
 
 - Management console {#console}
 
-  1. In **{{ monitoring-name }}**, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+  1. Under **{{ monium-name }}**, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the alert, e.g., `alert-function`.
   1. Enter the [query](../../concepts/alerting/alert.md#queries) to use for selecting which metrics to track.
@@ -157,7 +156,7 @@ To send POST requests when an alert triggers:
 - Management console {#console}
 
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `alert-webhook` function.
+  1. Select `alert-webhook`.
   1. Select the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. As input data, enter:
 

@@ -61,7 +61,7 @@
 | {{ captcha-full-name }}                 | [gRPC](../smartcaptcha/api-ref/grpc/)<br>[REST](../smartcaptcha/api-ref/) |
 | {{ sws-full-name }}                     | [gRPC](../smartwebsecurity/api-ref/grpc/)<br>[REST](../smartwebsecurity/api-ref/) |
 | {{ speechkit-full-name }}               | [Синхронное распознавание v2 REST]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/request-api)<br>[Асинхронное распознавание v2 REST]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/transcribation-api)<br>[Потоковое распознавание v2 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/streaming-api)<br>[Потоковое распознавание v3 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Синтез v1 REST]({{ link-docs-ai }}{{ speechkit-slug }}/tts/request)<br>[Синтез v3 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
-| {{ sk-hybrid-full-name }}               | [Синтез речи gRPC](../speechkit-hybrid/api-ref/tts/v3/grpc/)<br>[Потоковое распознавание gRPC](../speechkit-hybrid/api-ref/stt/v3/grpc/) |
+| {{ sk-hybrid-full-name }}               | [API {{ sk-hybrid-name }}]({{ link-docs-ai }}/speechkit-hybrid/auth) |
 | {{ speechsense-full-name }}             | [gRPC](../speechsense/api-ref/grpc/) |
 | {{ translate-full-name }}               | [gRPC]({{ link-docs-ai }}translate/api-ref/grpc/)<br>[REST]({{ link-docs-ai }}translate/api-ref/) |
 | {{ vision-full-name }}                  | [gRPC]({{ link-docs-ai }}vision/ocr/api-ref/grpc/)<br>[REST]({{ link-docs-ai }}vision/ocr/api-ref/) |

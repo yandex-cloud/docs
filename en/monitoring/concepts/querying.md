@@ -5,13 +5,13 @@ description: This section describes the {{ monitoring-full-name }} query languag
 
 # Query language in {{ monitoring-name }}
 
-This section describes the {{monitoring-full-name}} query language. It is used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
+This section describes the {{ monitoring-full-name }} query language. It is used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
 
 ## Uploading metrics {#selectors}
 
 Select a set of metrics using the metrics names and _selectors_ to filter label values (for more information, see [{#T}](./data-model.md#label)). You can use the sets of metrics you created in alerts or transmit them to a function as an argument.
 
-> Specify the metric name and the required labels, `folderId` and `service`. In which case the `cpu_usage{folderId="zoeu2rgjpqak********", service="compute"}` request will return metrics named `cpu_usage` for all {{compute-full-name}} VMs in the folder with the `zoeu2rgjpqak********` ID.
+> Specify the metric name and the required labels, `folderId` and `service`. In which case the `cpu_usage{folderId="zoeu2rgjpqak********", service="compute"}` request will return metrics named `cpu_usage` for all {{ compute-full-name }} VMs in the folder with the `zoeu2rgjpqak********` ID.
 
 {% note warning %}
 
@@ -25,7 +25,7 @@ Consider the following for the `folderId` label:
 
 _Selector_ consists of a label name, a statement, and an expression that describes a set of label values.
 
-The {{monitoring-full-name}} query language supports the following expressions for filtering label values:
+The {{ monitoring-full-name }} query language supports the following expressions for filtering label values:
 
 - `label="*"`: Returns all metrics with the specified label.
 
@@ -60,7 +60,7 @@ These links can only refer by name in text mode, and only to higher-level querie
 
 ## Data types {#data-types}
 
-The {{monitoring-full-name}} query language supports the following data types:
+The {{ monitoring-full-name }} query language supports the following data types:
 
 * _timeseries_vector_: A set of time series (metrics).
 
@@ -645,7 +645,7 @@ Renames metrics. As an argument, you can use [mustache templates](https://mustac
 
 #### constant_line
 
-Returns a constant line consisting of two points in the beginning and end of the interval equal to *value*
+Returns a constant line consisting of two points in the beginning and end of the interval equal to *value*.
 
 **constant_line**(*value: scalar*): *timeseries_vector*
 

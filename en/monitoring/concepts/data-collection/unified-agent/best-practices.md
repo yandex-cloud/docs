@@ -42,9 +42,9 @@ See also [{#T}](inputs.md#agent_metrics_input).
 
 ## Using the storage {#storage}
 
-Use a storage to reliably deliver metrics to {{ monitoring-full-name }} with {{ unified-agent-short-name }}. It will let you temporarily store messages sent over a [pipe](index.md#pipes) before being passed on to the channel output.
+Use a storage to reliably deliver metrics to {{ monitoring-full-name }} with {{ unified-agent-short-name }}. It will allow you to temporarily store messages sent over a [pipe](index.md#pipes) before they go to the channel output.
 
-Using a storage can help you avoid data loss if the agent fails to write the data to the specified output (including repeat attempts). This may happen due to network issues or destination API unavailability.
+With a storage, you will not lose your data if the agent fails to write it to the specified output (including during retries). This may happen due to network issues or destination API unavailability.
 
 Example of agent configuration with a storage:
 

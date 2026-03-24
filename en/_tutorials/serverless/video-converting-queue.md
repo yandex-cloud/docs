@@ -124,7 +124,7 @@ Video conversion is based on the FFmpeg utility. The FFmpeg executable is larger
      1. Specify the following settings:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_bucket }}**: Name of the bucket you created earlier.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}**: `src.zip`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_process_event`.

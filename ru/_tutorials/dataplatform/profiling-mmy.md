@@ -12,8 +12,10 @@
 
 1. Выберите базы данных для диагностики.
 1. [Активируйте сбор статистики](../../managed-mysql/operations/performance-diagnostics.md).
-1. Создайте [пользователя {{ MY }}](../../managed-mysql/operations/cluster-users.md#adduser) с привилегией [PROCESS](../../managed-mysql/operations/grant.md#db-privileges) для этих баз. Диагностические запросы необходимо выполнять от имени этого пользователя.
-
+1. [Создайте пользователя {{ MY }}](../../managed-mysql/operations/cluster-users.md#adduser) и [назначьте ему административную привилегию](../../managed-mysql/operations/grant.md#grant-privilege) `PROCESS` в настройке **Global permissions**. Эта привилегия действует на уровне кластера и задается в [настройках {{ MY }} на уровне пользователя](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges). Диагностические запросы необходимо выполнять от имени созданного пользователя.
+    
+    Подробнее о привилегиях пользователей см. в разделе [{#T}](../../managed-mysql/concepts/user-rights.md).
+    
 ## Диагностика дефицита ресурсов {#cpu-io-deficit}
 
 Дефицит ресурсов — одна из вероятных причин падения производительности кластера. Дефицит ресурсов виден по графикам [мониторинга кластера](../../managed-mysql/operations/monitoring.md) (CPU, дисковые операции I/O, сетевые соединения). Если постоянно росший график нагрузки на ресурс остановился на одном уровне, использование ресурса достигло [лимита](../../managed-mysql/concepts/limits.md) или выходит за границы гарантированного уровня обслуживания. 

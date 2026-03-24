@@ -3,16 +3,16 @@
 Cost of using {{ monitoring-short-name }} for 30 days if writing 20 metrics at **1 value per minute** via the {{ monitoring-short-name }} API:
 
 > 20 × 1 × (60 × 24 × 30) = 864,000 values = 0.864M values
-> 0.864 × 0.0026 = {% calc [currency=USD] 0.864 × 0.0026 %} = {% calc [currency=USD] round((0.864 × 0.0026) × 100) / 100 %}
->
-> Total: {% calc [currency=USD] round((0.864 × 0.0026) × 100) / 100 %}
+> 0.864 × {{ sku|USD|monitoring.point.write|string }} = {% calc [currency=USD] 0.864 × {{ sku|USD|monitoring.point.write|number }} %} = {% calc [currency=USD] round((0.864 × {{ sku|USD|monitoring.point.write|number }}) × 100) / 100 %}
+> 
+> Total: {% calc [currency=USD] round((0.864 × {{ sku|USD|monitoring.point.write|number }}) × 100) / 100 %}
 
 Where:
 
 * 20: Number of metrics.
 * 1: Number of values written per minute.
 * (60 × 24 × 30): Number of minutes in 30 days.
-* 0.0026: Cost of writing 1,000,000 values.
+* {{ sku|USD|monitoring.point.write|string }}: Cost of writing 1,000,000 values (up to 50,000,000).
 
 **Example 2**
 

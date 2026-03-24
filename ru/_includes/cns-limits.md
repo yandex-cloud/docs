@@ -16,6 +16,7 @@
 Максимальное количество каналов SMS-уведомлений с [общим отправителем](../notifications/concepts/sms.md#common-sender) в облаке | 1
 Максимальное количество каналов SMS-уведомлений с [индивидуальным отправителем](../notifications/concepts/sms.md#individual-sender) в облаке | 10
 Максимальное количество [тестовых телефонных номеров](../notifications/concepts/sms.md#sandbox) на канале SMS-уведомлений | 10
+Максимальное количество [шаблонов](../notifications/concepts/sms.md#templates) на канале SMS-уведомлений | 20
 Максимальный размер сообщения в [мобильном push-уведомлении](../notifications/concepts/push.md) | 4 КБ
 Максимальный размер сообщения в [push-уведомлении в браузере](../notifications/concepts/browser.md) | 3 КБ
 Максимальная длина SMS | 1600 символов (10 сегментов)

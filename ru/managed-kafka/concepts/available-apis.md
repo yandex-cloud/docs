@@ -15,7 +15,7 @@
 
 Доступные операции определяются [ролями аккаунта](../security/index.md), от имени которого выполняются запросы к API.
 
-Описания [методов REST API](../api-ref/index.md) и [вызовов gRPC API](../api-ref/grpc/index.md) приведены в справочнике API. Примеры запросов см. в [пошаговых инструкциях](../operations/index.md).
+Описания [методов REST API](../api-ref/index.md) и [вызовов gRPC API](../api-ref/grpc/index.md) приведены в справочнике API. Примеры запросов — в [пошаговых инструкциях](../operations/index.md).
 
 ### Ограничения {#cloud-api-limits}
 
@@ -65,14 +65,14 @@
     * Роль `ACCESS_ROLE_ADMIN`: пользователю доступны любые операции над субъектами, связанными с любым топиком (эта роль назначается на все топики).
     * Роль `ACCESS_ROLE_TOPIC_ADMIN`: пользователю доступны любые операции над субъектами, связанными с топиком, на который назначена роль.
 
-    Перечень субъектов, с которыми можно работать, также определяется ролью пользователя. Подробнее о ролевой модели {{ mkf-msr }} см. в разделе [{#T}](./managed-schema-registry.md).
+    Перечень субъектов, с которыми можно работать, также определяется ролью пользователя. Подробнее о ролевой модели {{ mkf-msr }} в разделе [{#T}](./managed-schema-registry.md).
 
 * REST API для {{ KF }}:
 
     * Роль `ACCESS_ROLE_CONSUMER`: пользователь может получать информацию об объектах {{ KF }}, а также работать с потребителями.
     * Роль `ACCESS_ROLE_ADMIN`, `ACCESS_ROLE_PRODUCER` или `ACCESS_ROLE_TOPIC_ADMIN`: пользователь может работать с объектами {{ KF }} в полном объеме.
 
-Описания методов [REST API для {{ mkf-msr }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html) и [REST API для {{ KF }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html) приведены в документации Confluent. Пример работы с этими API см. в разделе [{#T}](../tutorials/managed-schema-registry-rest.md).
+Описания методов [REST API для {{ mkf-msr }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html) и [REST API для {{ KF }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html) приведены в документации Confluent. Пример работы с этими API в разделе [{#T}](../tutorials/managed-schema-registry-rest.md).
 
 ### Ограничения {#managed-kafka-api-limits}
 
@@ -112,11 +112,11 @@ Client API — общее название для набора нативных 
 
 1. Настройте в коде приложения-клиента нужный механизм аутентификации, чтобы взаимодействовать с API. При аутентификации используются реквизиты [пользователя {{ KF }}](../operations/cluster-accounts.md).
 
-    Механизмы аутентификации описаны в [документации Confluent для приложений-клиентов](https://docs.confluent.io/kafka-client/overview.html). Примеры настройки см. в разделе [{#T}](../operations/connect/code-examples.md).
+    Механизмы аутентификации описаны в [документации Confluent для приложений-клиентов](https://docs.confluent.io/kafka-client/overview.html). Примеры настройки в разделе [{#T}](../operations/connect/code-examples.md).
 
 Доступные операции определяются [ролями пользователя {{ KF }}](../operations/cluster-accounts.md), от имени которого выполняются запросы к Client API.
 
-Описания Client API приведены в [документации {{ KF }}](https://kafka.apache.org/42/apis/). Пример работы с Producer API и Consumer API см. в разделе [{#T}](../tutorials/managed-schema-registry.md).
+Описания Client API приведены в [документации {{ KF }}](https://kafka.apache.org/42/apis/). Пример работы с Producer API и Consumer API в разделе [{#T}](../tutorials/managed-schema-registry.md).
 
 ### Ограничения {#client-api-limits}
 

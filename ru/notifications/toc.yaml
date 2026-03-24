@@ -59,6 +59,8 @@ items:
             href: operations/sms/test-number-delete.md
           - name: Отправить тестовое SMS-уведомление
             href: operations/sms/send.md
+          - name: Управлять шаблонами SMS
+            href: operations/sms/manage-templates.md
           - name: Выйти из песочницы
             href: operations/sms/exit-sandbox.md
       - name: Топики

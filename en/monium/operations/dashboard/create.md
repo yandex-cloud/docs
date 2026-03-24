@@ -1,22 +1,19 @@
 ---
-title: Creating a dashboard in {{ monitoring-full-name }}
-description: To create a dashboard in {{ monitoring-full-name }}, open the service home page and click **Create dashboard**. Add a widget to your dashboard. Click **Title** under **Add widget** or click **Add** in the dashboard title and then select **Title**. Enter text in the input field. Select the title size. Click **Add**. You will now see the titled widget on the dashboard. Click **Save** in the top-right corner. Enter a name for your dashboard and click **Save**.
+title: Creating a dashboard in {{ monium-name }}
+description: To create a dashboard in {{ monium-name }}, open the platform home page and click **Create dashboard**. Add a widget to your dashboard. Click **Title** under **Add widget** or click **Add** in the dashboard title and then select **Title**. Enter text in the input field. Select the title size. Click **Add**. You will now see the titled widget on the dashboard. Click **Save** in the top-right corner. Enter a name for your dashboard and click **Save**.
 ---
 
-# Creating and managing a dashboard in {{ monitoring-name }}
+# Creating and managing a dashboard in {{ monium-name }}
 
-
-
-Dashboards are visual panels that allow you to quickly assess the status and performance of your cloud resources. You can use ready-made dashboards offered by various services or create one of your own.
+[Dashboards](../../concepts/visualization/dashboard.md) are visual panels that allow you to quickly assess the status and performance of your cloud resources. You can use ready-made dashboards offered by various services or create one of your own. 
 
 For more convenient operations with dashboards, use [labels](#labels). They help filter the dashboards and find the data you need faster.
 
-
 ## Creating a dashboard {#create}
 
-To create a [dashboard](../../concepts/visualization/dashboard.md):
-
-1. On the home page, click **{{ ui-key.yacloud_monitoring.homepage.button_dashboards-action }}**.
+1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **Dashboards** on the left.
+1. In the top-left corner, select the project of the folder containing the resource you need.
+1. At the top right, click **Create**.
 1. Add a [widget](../../concepts/visualization/widget.md) to your dashboard. For example, the **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}** widget.
     1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
     1. Enter text in the input field.
@@ -27,8 +24,7 @@ To create a [dashboard](../../concepts/visualization/dashboard.md):
 
 ## Setting up a dashboard {#settings}
 
-1. Open the [service home page]({{ link-monitoring }}).
-1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** in the left pane of the window.
+1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
 1. Select the dashboard you need.
 1. At the top right, click ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}** and select one of the following options:
    * **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.general }}**. In this window, you can set:
@@ -45,8 +41,7 @@ To create a [dashboard](../../concepts/visualization/dashboard.md):
 
 To configure dashboard labels:
 
-1. Open the [service home page]({{ link-monitoring }}).
-1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** in the left pane of the window.
+1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
 1. Select the dashboard you need.
 1. At the top right, click ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}** and select **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.general }}**.
 1. In the window that opens, enter the label values in `key=value` format under **{{ ui-key.yacloud_monitoring.dashboard.settings.general.labels.title }}**.
@@ -60,8 +55,7 @@ You can search for dashboards in the list by their main parameters: **ID**, **Ti
 
 To search for dashboards:
 
-1. Open the [service home page]({{ link-monitoring }}).
-1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** in the left pane of the window.
+1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
 1. In the **{{ ui-key.yacloud_monitoring.component.entities-list.common-filter-placeholder }}** field, enter the label key or value, title, name, or description.
 
 #### What's next {#what-is-next}

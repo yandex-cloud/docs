@@ -251,7 +251,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for the resources you no longer need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the `vm-for-tests-in-subnet` VM.
 
@@ -259,8 +259,8 @@ Some resources are not free of charge. To avoid paying for the resources you no 
 
     - Management console {#console}
 
-      1. Select the folder that the VM belongs to. 
-      1. On the folder dashboard, go to {{ compute-name }}.
+      1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to. 
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the VM → click ![image](../../_assets/console-icons/ellipsis.svg) → select **Delete**.
       1. Confirm the deletion.
 

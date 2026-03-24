@@ -1,48 +1,140 @@
 ---
-title: Query language in {{ monitoring-full-name }}
-description: This section describes the {{ monitoring-full-name }} query language. It is used to convert metrics when you configure dashboards and alerts, as well as in the MetricsData.read API method.
+title: Query language in {{ monium-name }}
+description: In {{ monium-name }}, you can search for data by metrics, logs, and traces using a unified query language.
 ---
 
-# Query language in {{ monitoring-name }}
+# Query language in {{ monium-name }}
 
-This section describes the {{monitoring-full-name}} query language. It is used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
+## Queries {#queries}
+
+A _query_ is any valid expression in the [query language](querying.md). The query result depends on the data type:
+
+* Metrics: Line or a set of lines.
+* Logs: Log entry or a set of log entries.
+* Traces (spans): Set of operations or operation chains performed by a distributed application.
+
+Query text may refer to the results of higher-level queries as variables.
+
+A query consists of a key, a comparison operator, and a value:
+
+```
+{ <key>="<value>", <key>="<value>", ... }
+```
+
+The list of supported keys varies depending on whether you search for metrics, logs, traces, or spans within a trace.
+
+In addition to searching by expression in the query string, you can use [functions](querying-functions.md) to get a selection of metrics.
+
+### Data types {#data-types}
+
+The query language supports the following data types:
+
+* **String**: For all telemetry types.
+
+   Any literal expression in single or double quotes will be represented as a string.
+
+* **Scalar**: For metrics and logs.
+
+   An [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754-2008_revision)-compliant double-precision floating-point number. For metrics, the data type includes the special value, `NaN`; for logs, it does not.
+
+   Here are some examples: `101`, `75.3`, `20G`, `1E-3`.
+
+   The real number type supports scientific notation with the fraction and power of ten and the following suffixes:
+
+   * `k`: 10^3^
+   * `M`: 10^6^
+   * `G`: 10^9^
+   * `T`: 10^12^
+   * `P`: 10^15^
+   * `E`: 10^18^
+
+* **Duration**: For metrics, traces, and spans.
+
+   Follow `1s`, `10ms`, `150us`, `2m`, and `6h` format, without quotes.
+
+* **Timeseries_vector**: For metrics.
+
+   Example of a `timeseries_vector` type object. The following expression will return a metric vector with different values of the `host` label:
+
+    ```json
+    {service='compute', host='*', name='exceptionCount'}
+    ```
+
+* **Bool**: For metrics, `true` or `false`.
+
+### Query string operations {#operations}
+
+{% include [query-operations](../../_includes/monium/query-operations.md) %}
+
+
+### Data filtering expressions {#expressions}
+
+The query language is used to describe filters for telemetry data and provides common constructs for different types of data (metrics, logs, traces). There are also differences due to the features of the data model for each data type.
+
+Top-level fields, such as `message` and `level`, are treated as labels. A selector consists of a label name, an operator, and an expression describing a set of label values. Conditions inside a selector are joined with `AND`.
+
+#### Operators for all telemetry types {#operators}
+
+| Selector type | Description | Examples |
+|-|-|-|
+| `label="<value>"`   | Returns all telemetry elements (logs, metrics, traces) with `label` equal to `value`. The value supports [glob expressions](https://en.wikipedia.org/wiki/Glob_(programming)) (the only allowed characters are `*`, `?`, and `\|`; `[` and `]` are not supported). | `host="vla"` returns elements with the `host` label set to `vla`.<br/><br/>`host="*"` returns elements which have the `host` label.<br/><br/>`host="sas-*"` returns elements with the `host` label value starting with the `sas-` prefix.<br/><br/>`host="sas-?00"` returns elements with the `host` label set to `sas-100`, `sas-200` and so on.<br/><br/>`host="sas*\|vla*"` returns elements with the `host` label value starting with the `sas` or `vla` prefix. |
+| `label="-"` | Returns all elements missing the specified label. It applies to logs, metrics, and traces. | `host="-"` returns all elements without the `host` label.<br/><br/>`host="-\|myhost"` returns all elements without the `host` label or those with the `host` label set to `myhost`. |
+| `label!="<value>"` | This selector is opposite to `label="<value>"`. It applies to logs, metrics, and traces. | `host!="myhost-*"` returns all elements without the `host` label or those whose `host` label value that does not start with the `myhost-` prefix. |
+| `label=="<value>"`  | Returns elements whose `label` value exactly matches `<value>`, without `glob` support. It applies to logs, metrics, and traces. | `host=="myhost"` returns elements whose `host` label value matches the `myhost` string.<br/><br/>`host=="*"` returns elements whose `host` label value contains the literal `*` character. |
+| `label!=="<value>"` | This selector is opposite to `label=="<value>"`. It applies to logs, metrics, and traces. | `host!=="myhost"` returns all elements without the `host` label or those whose `host` label value that does not match the `myhost` string. |
+| `message=*"<substring>"` or `meta.key=*"<substring>"` | Returns elements whose label value contains `<substring>`, case-insensitive (`<substring>` may be `glob`). `message` applies to logs only; `meta.key` applies to logs, metrics, and traces that have the `meta.key` label. | `message=*"request"` returns logs with `message` equal to `Failed search request`, `Request cancelled`, etc.<br/><br/> `meta.error=*"failed*request"` returns elements where `meta.error` equals `Failed to make a request`, `Reader failed to retrieve data from a request`, etc. |
+| `message!=*"<substring>"` or `meta.key!=*"<substring>"` | This operator is opposite to `=*`. `message` applies to logs only; `meta.key` applies to logs, metrics, and traces that have the `meta.key` label. | |
+| `label=~"<regex>"` | Returns elements whose `label` value satisfies the `<regex>` regular expression in [re2](https://github.com/google/re2/wiki/Syntax) syntax. It applies to logs, metrics, and traces. | |
+| `label!~"<regex>"` | This selector is opposite to `label=~"<regex>"`. It applies to logs, metrics, and traces. | |
+| `label>300`         | Returns elements whose `label` value is greater than the specified value. It applies to logs and metrics for numeric labels, and to traces for `duration` type labels only (time values). | `duration>500ms` returns traces/spans with a duration greater than 500 ms.<br/><br/>Here is an example for metrics/logs with a numeric label: `value>0.95`. |
+| `label>=300`        | Returns elements whose `label` value is greater than or equal to the specified value. It applies to logs and metrics for numeric labels, and to traces for `duration` type labels only. | `latency>=2s` returns traces/spans with a latency of 2 seconds or more. |
+| `label<300` | Returns elements whose `label` value is less than the specified value. It applies to logs and metrics for numeric labels, and to traces for `duration` type labels only. | `elapsed<750ms` returns traces/spans with a duration of less than 750 ms. |
+| `label<=300`        | Returns elements whose `label` value is less than or equal to the specified value. It applies to logs and metrics for numeric labels, and to traces for `duration` type labels only. | `duration<=1s` returns traces/spans with a duration of up to 1 second, inclusive. |
+
+For the `>` `>=` `<`, and `<=` operators:
+- Logs and metrics: RHS must be a numeric literal; the label value is converted to a number. The `level` label is an exception.
+- Traces: Comparison works only for labels of the `duration` type. RHS must be a duration literal with units, e.g.,`500ms`, `2s`, and `150us`. If the label value cannot be converted to the required type, the result of this part of the expression is considered false.
+
+To search through labels stored in the `meta` metadata, use the fully qualified name: `meta.label_name`. Supported operators are the same as for the top-level labels in all telemetry types.
+
+The `message` field is there in logs only.
+
+#### Trace-specific keys {#trace-keys}
+
+When searching for traces or spans, you can use additional keys:
+
+* `span.name`: Span name; supports all string operators.
+* `span.id`: Span ID; supports the `=` and `!=` operators.
+* `span.status`: Span status, `OK`, `ERROR` or `UNKNOWN`; supports the `=` and `!=` operators.
+* `span.duration`: Span duration; supports the `>`, `>=`, `<`, and `<=` comparison operators with duration literals, e.g., `500ms` or `2s`.
+* `span.critical_path`: Whether or not the span belongs to the critical path, `PRESENT` or `ABSENT`; supports the `=` operator.
+* `trace.id`: Trace ID (to search for logs by trace).
+
+For more information about searching for traces, see [{#T}](../traces/operations/traces-explorer.md).
+
+The {{ monium-name }} query language is used for conversion of metrics when configuring [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
 
 ## Uploading metrics {#selectors}
 
-Select a set of metrics using the metrics names and _selectors_ to filter label values (for more information, see [{#T}](./data-model.md#label)). You can use the sets of metrics you created in alerts or transmit them to a function as an argument.
+Select multiple metrics using the metric name and selectors to filter label values (for more information, see [{#T}](./data-model.md#label)). You can use the sets of metrics you created in alerts or transmit them to a function as an argument.
 
-> Specify the metric name and the required labels, `folderId` and `service`. In which case the `cpu_usage{folderId="zoeu2rgjpqak********", service="compute"}` request will return metrics named `cpu_usage` for all {{compute-full-name}} VMs in the folder with the `zoeu2rgjpqak********` ID.
+Here is an example of a metric query:
+
+```
+cpu_usage{project="folder__zoeu2rgjpqak********", service="compute"}
+```
+
+This query will return metrics named `cpu_usage` for all {{ compute-full-name }} VMs in the project (folder) with the `zoeu2rgjpqak********` ID.
 
 {% note warning %}
 
-Consider the following for the `folderId` label:
+Consider the following for the `project` label:
 
-* The label value must always match the selected folder. You cannot query data from other folders. This applies to all query language use cases: when building charts in Metric Explorer or on dashboards, creating alerts, or calling API methods.
+* The label value must always match the selected project (folder). You cannot request data from other projects. This applies to all the query language use cases: when creating charts, dashboards, alerts, or calling API methods.
 
-* When API methods are called, the label value is not added to the request body (the `query` field). `folderId` should be provided in the HTTP request as a query parameter.
+* For API calls, provide the label value in the `x-monium-project` header, not the query body.
 
 {% endnote %}
-
-_Selector_ consists of a label name, a statement, and an expression that describes a set of label values.
-
-The {{monitoring-full-name}} query language supports the following expressions for filtering label values:
-
-- `label="*"`: Returns all metrics with the specified label.
-
-  > The `host="*"` selector returns all metrics with the `host` label.
-
-- `label="<glob_expression>"`: Returns all metrics with labels satisfying the [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
-  - `*`: Any number of characters (including none).
-
-    > `name="folder*"` returns all metrics whose `name` label value begins with the `folder` prefix.
-
-  - `?`: Any single character.
-
-    > `name="metric?"` returns all metrics whose `name` label value contains one character after `metric`.
-
-  - `|`: All specified options.
-
-    > `name="metric1|metric2"` will return two metrics labeled `name=metric1` and `name=metric2`.
 
 ## Using query names as variables {#query-name-as-variable}
 
@@ -50,617 +142,10 @@ The query language supports links to the results of executing other queries as t
 
 Here is an example:
 
-A: `"temperature"{folderId="my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor1" }`
+A: `"temperature"{project="folder__my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor1" }`
 
-B: `"temperature"{folderId="my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor2" }`
+B: `"temperature"{project="folder__my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor2" }`
 
 C: `(A + B) / 2`
 
-These links can only refer by name in text mode, and only to higher-level queries in the same alert or chart. You can apply any supported arithmetic operations and query language [functions](#functions) to variables.
-
-## Data types {#data-types}
-
-The {{monitoring-full-name}} query language supports the following data types:
-
-* _timeseries_vector_: A set of time series (metrics).
-
-    Example of a `timeseries_vector` type object. The following expression will return a metric vector with different values of the `host` label:
-
-    ```json
-    {service='compute', host='*', name='exceptionCount'}
-    ```
-* _number_: Real number.
-* _string_: String in single or double quotes.
-* _duration_: Time period in `15s, 10m, 3h, 7d, 2w` format (without quotation marks).
-* _bool_: Boolean type, either `true` or `false`.
-* _scalar_: Real double-precision floating point number based on the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), including the special `NaN` value. Examples of `scalar` objects: `101`, `75.3`, `20G`, `1E-3`.
-
-{% note info %}
-
-The real number type supports scientific notation with the fraction and power of ten and the following suffixes:
-
-* `k`: 10^3^
-* `M`: 10^6^
-* `G`: 10^9^
-* `T`: 10^12^
-* `P`: 10^15^
-* `E`: 10^18^
-
-{% endnote %}
-
-## Functions {#functions}
-
-- [Aggregation](#aggregation-functions)
-  - [avg](#avg)
-  - [count](#count)
-  - [integrate](#integrate)
-  - [iqr](#iqr)
-  - [last](#last)
-  - [max](#max)
-  - [median](#median)
-  - [min](#min)
-  - [percentile](#percentile)
-  - [random](#random)
-  - [std](#std)
-  - [sum](#sum)
-- [Combining](#combine-functions)
-  - [histogram_avg](#histogram_avg)
-  - [histogram_cdfp](#histogram_cdfp)
-  - [histogram_count](#histogram_count)
-  - [histogram_percentile](#histogram_percentile)
-  - [histogram_sum](#histogram_sum)
-  - [series_avg](#series_avg)
-  - [series_max](#series_max)
-  - [series_min](#series_min)
-  - [series_percentile](#series_percentile)
-  - [series_sum](#series_sum)
-- [Ranking](#rank-functions)
-  - [bottom_avg](#bottom_avg)
-  - [bottom_count](#bottom_count)
-  - [bottom_last](#bottom_last)
-  - [bottom_max](#bottom_max)
-  - [bottom_min](#bottom_min)
-  - [bottom_sum](#bottom_sum)
-  - [top_avg](#top_avg)
-  - [top_count](#top_count)
-  - [top_last](#top_last)
-  - [top_max](#top_max)
-  - [top_min](#top_min)
-  - [top_sum](#top_sum)
-- [Transformation](#transform-functions)
-  - [abs](#abs)
-  - [asap](#asap)
-  - [ceil](#ceil)
-  - [derivative](#derivative)
-  - [diff](#diff)
-  - [drop_above](#drop_above)
-  - [drop_below](#drop_below)
-  - [drop_nan](#drop_nan)
-  - [exp](#exp)
-  - [floor](#floor)
-  - [fract](#fract)
-  - [heaviside](#heaviside)
-  - [integral](#integral)
-  - [log](#log)
-  - [moving_avg](#moving_avg)
-  - [moving_percentile](#moving_percentile)
-  - [moving_sum](#moving_sum)
-  - [non_negative_derivative](#non_negative_derivative)
-  - [pow](#pow)
-  - [ramp](#ramp)
-  - [replace_nan](#replace_nan)
-  - [round](#round)
-  - [shift](#shift)
-  - [sign](#sign)
-  - [sqrt](#sqrt)
-  - [trunc](#trunc)
-- [Other](#other-functions)
-  - [alias](#alias)
-  - [constant_line](#constant_line)
-  - [drop_empty_series](#drop_empty_series)
-
-### Aggregation {#aggregation-functions}
-
-Aggregation functions aggregate values of a timeseries in the current time range.
-
-{% note warning %}
-
-As an input argument, aggregation functions accept a metric vector (_timeseries_vector_). It must only include a single timeseries. Otherwise, the function returns a runtime error.
-
-When using aggregation functions, make sure that the selector returns a single timeseries. Use [combining functions](#combine-functions) if needed.
-
-{% endnote %}
-
-#### avg
-
-Returns an average value (for timeseries, a weighted average) for a set of elements or `NaN` for an empty timeseries.
-
-The **avg** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **avg**(_arg0_: _scalar[]_): _scalar_
-* **avg**(_arg0_: _timeseries_vector_): _scalar_
-
-#### count
-
-Returns the number of points in a metric or the number of items in a vector of numbers.
-
-The **count** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **count**(_arg0_: _scalar[]_): _scalar_
-* **count**(_arg0_: _timeseries_vector_): _scalar_
-
-#### integrate
-
-Returns an integrated sum of values or 0 for an empty timeseries.
-
-The **integrate** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **integrate**(_arg0: scalar[]_): _scalar_
-* **integrate**(_arg0_: _timeseries_vector_): _scalar_
-
-#### iqr
-
-Returns the [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range) for a set of values.
-
-The **iqr** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **iqr**(_arg0_: _scalar[]_): _scalar_
-* **iqr**(_arg0_: _timeseries_vector_): _scalar_
-
-#### last
-
-Returns the last value different from `NaN` or `NaN` for an empty timeseries.
-
-The **last** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **last**(_arg0_: _scalar[]_): _scalar_
-* **last**(_arg0_: _timeseries_vector_): _scalar_
-
-#### max
-
-Returns the maximum value or `NaN` for an empty timeseries.
-
-The **max** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **max**(_arg0_: _scalar[]_): _scalar_
-* **max**(_arg0_: _timeseries_vector_): _scalar_
-
-#### median
-
-Returns the median of values or `NaN` for an empty timeseries.
-
-The **median** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **median**(_arg0_: _scalar[]_): _scalar_
-* **median**(_arg0_: _timeseries_vector_): _scalar_
-
-#### min
-
-Returns the minimum value or `NaN` for an empty timeseries.
-
-The **min** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **min**(_arg0_: _scalar[]_): _scalar_
-* **min**(_arg0_: _timeseries_vector_): _scalar_
-
-#### percentile
-
-Returns the percentile value for a set of values. The percentile level is set in the required _level_ parameter as a number between 0 and 100.
-
-The **percentile** function has the following function overloading options depending on the type of the input *values* parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **percentile**(_level_: _scalar_, _values: scalar[]_): _scalar_
-* **percentile**(_level_: _scalar_, _values: timeseries_vector_): _scalar_
-
-#### random
-
-Returns a random item from a set of values.
-
-The **random** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **random**(_arg0_: _scalar[]_): _scalar_
-* **random**(_arg0_: _timeseries_vector_): _scalar_
-
-#### std
-
-Returns an unbiased estimation of standard deviation for a set of values (or `NaN` for an empty timeseries) calculated using this formula:
-
-$$\begin{array}{c}
-s=\sqrt{\frac{1}{n-1}\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}
-\end{array}{}
-,
-$$
-
-Where:
-* $x_i$: Value from the vector of values (or points in a timeseries).
-* $\bar{x}$: Average value.
-* $n$: Number of values.
-
-The **std** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **std**(_arg0_: _scalar[]_): _scalar_
-* **std**(_arg0_: _timeseries_vector_): _scalar_
-
-#### sum
-
-Returns a sum of all values of a set or 0 for an empty timeseries.
-
-The **sum** function has the following function overloading options depending on the type of the input _arg0_ parameter (an array of numbers, a metric, or a vector of metrics):
-
-* **sum**(_arg0_: _scalar[]_): _scalar_
-* **sum**(_arg0_: _timeseries_vector_): _scalar_
-
-### Combining {#combine-functions}
-
-The combine functions aggregate a metric vector into a single metric or a metric vector.
-
-#### histogram_avg
-
-**histogram_avg**(*[bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-
-Calculates the average value of the distribution set by the histogram. The optional _bucketLabel_ parameter specifies which label contains the values of histogram intervals.
-
-#### histogram_cdfp
-
-The **histogram_cdfp** function has the following use cases (function overloading) depending on the type of _from_ and _to_ input parameters (a number or an array of numbers):
-
-- **histogram_cdfp**(*[from: number*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **histogram_cdfp**(*[from: number*, *to: number[]*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **histogram_cdfp**(*[from: number[]*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **histogram_cdfp**(*[from: number[]*, *to: number[]*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-
-Calculates the percentage of values in the histogram between the intervals specified in the _from_ and _to_ optional parameters. If no parameters are specified, the first and last intervals are used, respectively. The optional _bucketLabel_ parameter specifies which label contains the values of histogram intervals.
-
-#### histogram_count
-
-The **histogram_count** function has the following use cases (function overloading) depending on the type of _from_ and _to_ input parameters (a number or an array of numbers):
-
-- **histogram_count**(*[from: number*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **histogram_count**(*[from: number*, *to: number[]*, *bucketLabel: string*], *source: timeseries_vector*): *timeseries_vector*
-- **histogram_count**(*[from: number[]*, *to: number*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **histogram_count**(*[from: number[]*, *to: number[]*, *bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-
-Counts the number of values in the histogram between the intervals specified in the _from_ and _to_ optional parameters. If no parameters are specified, the first and last intervals are used, respectively. The optional _bucketLabel_ parameter specifies which label contains the values of histogram intervals.
-
-#### histogram_percentile
-
-The **histogram_percentile** function has the following use cases (function overloading) depending on the type of _from_ and _to_ input parameters (a number or an array of numbers):
-
-- **histogram_percentile**(*percentileLevel: number*, *[bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **histogram_percentile**(*percentileLevel: number[]*, *[bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-
-Calculates the percentile values of the distribution set by the histogram. The percentile level is set in the required _percentileLevel_ parameter as a single number or an array of numbers from 0 to 100. The optional _bucketLabel_ parameter specifies which label contains the values of histogram intervals.
-
-#### histogram_sum
-
-**histogram_sum**(*[bucketLabel: string]*, *source: timeseries_vector*): *timeseries_vector*
-
-Calculates the sum of histogram values. The optional _bucketLabel_ parameter specifies which label contains the values of histogram intervals.
-
-#### series_avg
-
-The **series_avg** function has the following use cases (function overloading) depending on the type of _key_ input parameter (a string or an array of strings):
-
-- **series_avg**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **series_avg**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
-
-Aggregates timeseries into one (or multiple ones) by applying the avg (average) aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by.
-
-For example, the `series_avg({...})` query will calculate the average value among all uploaded metrics at each point.
-
-The `series_avg("host", {...})` query will calculate the average value among all uploaded metrics for each value of the `host` label.
-
-The `series_avg(["host", "disk"], {...})` query will calculate the average value among all uploaded metrics for each combination of `host` and `disk` label values.
-
-
-#### series_max
-
-The **series_max** function has the following use cases (function overloading) depending on the type of _key_ input parameter (a string or an array of strings):
-
-- **series_max**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **series_max**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
-
-Aggregates timeseries into one (or multiple ones) by applying the max aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
-
-#### series_min
-
-The **series_min** function has the following use cases (function overloading) depending on the type of _key_ input parameter (a string or an array of strings):
-
-- **series_min**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **series_min**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
-
-Aggregates timeseries into one (or multiple ones) by applying the min aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
-
-#### series_percentile
-
-The **series_percentile** function has the following use cases (function overloading) depending on the type of _rank_ input parameter (a number or an array of numbers):
-
-- **series_percentile**(*rank: number*, *source: timeseries_vector*): *timeseries_vector*
-- **series_percentile**(*rank: number[]*, *source: timeseries_vector*): *timeseries_vector*
-
-Aggregates timeseries into one (or multiple ones) by applying the percentile aggregation function for each time point.
-
-#### series_sum
-
-The **series_sum** function has the following use cases (function overloading) depending on the type of _key_ input parameter (a string or an array of strings):
-
-- **series_sum**(*[key: string]*, *source: timeseries_vector*): *timeseries_vector*
-- **series_sum**(*[key: string[]]*, *source: timeseries_vector*): *timeseries_vector*
-
-Aggregates timeseries into one (or multiple ones) by applying the sum aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
-
-
-### Ranking {#rank-functions}
-
-The ranking functions order a metric vector based on the aggregation function value in the current time window and return some of the first (upper) or last (lower) timeseries from it. The _limit_ parameter specifies how many metrics a function returns.
-
-#### bottom_avg
-
-**bottom_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with a minimum average value.
-
-#### bottom_count
-
-**bottom_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with a minimum number of values.
-
-#### bottom_last
-
-**bottom_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the minimum last value.
-
-#### bottom_max
-
-**bottom_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the lowest max value.
-
-#### bottom_min
-
-**bottom_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the lowest min value.
-
-#### bottom_sum
-
-**bottom_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the lowest sum value.
-
-#### top_avg
-
-**top_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the top average value.
-
-#### top_count
-
-**top_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with a maximum number of values.
-
-#### top_last
-
-**top_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the top last value.
-
-#### top_max
-
-**top_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the top max value.
-
-#### top_min
-
-**top_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the top minimum value.
-
-#### top_sum
-
-**top_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
-
-Returns the _limit_ of metrics with the top sum value.
-
-
-### Transformation {#transform-functions}
-
-The transform metric functions calculate a new value in each point for each timeseries from a set of metrics.
-
-#### abs
-
-**abs**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the absolute value.
-
-#### asap
-
-**asap**(*source: timeseries_vector*): *timeseries_vector*
-
-Smooths timeseries based on the [ASAP algorithm](http://futuredata.stanford.edu/asap/).
-Timeseries points are averaged using a moving average with a dynamic window. The window width is automatically selected so as to remove as much noise as possible while retaining important information.
-
-#### ceil
-
-**ceil**(*source: timeseries_vector*): *timeseries_vector*
-
-Rounds the point values up to the nearest integer.
-
-#### derivative
-
-**derivative**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the derivative: the difference between the values of neighboring points divided by the interval between them.
-
-#### diff
-
-**diff**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the difference between the values of each pair of neighboring points.
-
-#### drop_above
-
-**drop_above**(*source: timeseries_vector*, *threshold: number*): *timeseries_vector*
-
-Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value will be equal to `NaN`.
-
-#### drop_below
-
-**drop_below**(*source: timeseries_vector*, *threshold: number*): *timeseries_vector*
-
-Drops points with a value above the _threshold_ (not including the value itself). In dropped points, the metric value will be equal to `NaN`.
-
-#### drop_nan
-
-**drop_nan**(*source: timeseries_vector*): *timeseries_vector*
-
-Drops points with the `NaN` value.
-
-#### exp
-
-Calculates an exponential function: raises _e_ to a power equal to the value of points, where _e=2.718281..._ is the base of the natural logarithm.
-
-#### floor
-
-**floor**(*source: timeseries_vector*): *timeseries_vector*
-
-Rounds point values down to the nearest integer.
-
-#### fract
-
-**fract**(*source: timeseries_vector*): *timeseries_vector*
-
-Selects the real part of point values.
-
-#### heaviside
-
-**heaviside**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function) value. The function is 1 if the point values are positive, and 0 if the point values are negative.
-
-#### integral
-
-**integral**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates an indefinite integral using the [trapezoidal rule](https://en.wikipedia.org/wiki/Trapezoidal_rule).
-
-#### log
-
-**log**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the natural logarithm.
-
-#### moving_avg
-
-**moving_avg**(*source: timeseries_vector*, *window: duration*): *timeseries_vector*
-
-Calculates the moving average across a window _window_ width.
-
-For example, the `moving_avg({...}, 1d)` query will return the moving average with a 1 day window.
-
-#### moving_percentile
-
-**moving_percentile**(*source: timeseries_vector*, *window: duration*, *rank: number*): *timeseries_vector*
-
-Calculates the moving percentile: the percentile of the _rank_ level (from 0 to 100) among the points in a window with a _window_ width.
-
-For example, the `moving_percentile({...}, 1h, 99.9)` query will return the moving 99.9 percentile with a 1 hour window.
-
-#### moving_sum
-
-**moving_sum**(*source: timeseries_vector*, *window: duration*): *timeseries_vector*
-
-Calculates the moving sum across a _window_ window width.
-
-For example, the `moving_sum({...}, 1d)` query will return a moving sum with a 1 day window.
-
-#### non_negative_derivative
-
-**non_negative_derivative**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the derivative: the difference between the values of neighboring points divided by the interval between them. If the derivative value is negative, it is substituted with the `NaN` value.
-
-#### pow
-
-**pow**(*source: timeseries_vector*, *power: number*): *timeseries_vector*
-
-Calculates the power function: raises the point value to the *power* power.
-
-#### ramp
-
-**ramp**(*source: timeseries_vector*): *timeseries_vector*
-
-Resets points with a negative value to 0.
-
-#### replace_nan
-
-**replace_nan**(*source: timeseries_vector*, *replace: number*): *timeseries_vector*
-
-Replaces points with the `NaN` value with the `replace` value.
-
-#### round
-
-**round**(*source: timeseries_vector*): *timeseries_vector*
-
-Rounds values to the nearest integer.
-
-#### shift
-
-**shift**(*source: timeseries_vector*, *window: duration*): *timeseries_vector*
-
-Adds the `window` value to point timestamps. This function lets you compare current metric values with the values for a different time interval.
-
-For example, `shift({...}, 1w)` will return metrics shifted a week ahead, i.e., the chosen time window will contain values that are week old.
-
-#### sign
-
-**sign**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the *sgn(x)* function. The function is 1 for positive point values, 0 for zero values, and -1 for negative values.
-
-#### sqrt
-
-**sqrt**(*source: timeseries_vector*): *timeseries_vector*
-
-Calculates the square root of point values.
-
-#### trunc
-
-**trunc**(*source: timeseries_vector*): *timeseries_vector*
-
-Truncates the real part of point values.
-
-
-### Other {#other-functions}
-
-#### alias
-
-**alias**(*source: timeseries_vector*, *arg1: string*): *timeseries_vector*
-
-Renames metrics. As an argument, you can use [mustache templates](https://mustache.github.io/) in `not_var{{label}}` format to substitute a label value in the new metric name.
-
-#### constant_line
-
-Returns a constant line consisting of two points in the beginning and end of the interval equal to *value*
-
-**constant_line**(*value: scalar*): *timeseries_vector*
-
-When you specify an optional *grid* parameter, the function populates the current time interval with points with the value of *value* and the step of *grid* between the points.
-
-**constant_line**(*value: scalar*, *grid: duration*): *timeseries_vector*
-
-{% note warning %}
-
-Use the **constant_line** function only to show lines on charts. The use of this function in calculations will produce an incorrect result, because the function returns a timeseries of only two points: at the beginning and end of the definition interval.
-
-{% endnote %}
-
-#### drop_empty_series
-
-**drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
-
-Drops timeseries with no points in the specified time range or with the `NaN` value for all points.
+These links can only refer by name in text mode, and only to higher-level queries in the same alert or chart. You can apply any supported arithmetic operations and query language [functions](querying-functions.md) to variables.

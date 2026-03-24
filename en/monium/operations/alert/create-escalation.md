@@ -17,8 +17,8 @@ Make sure you have added [recipients](../../concepts/alerting/notification-chann
 
 ## Creating a policy {#create-escalation}
 
-1. On the {{ monitoring-name }} page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.escalations.title }}** on the left-hand panel.
-1. Click **{{ ui-key.yacloud.common.create }}**.
+1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
+1. At the top right, click **Create** → **Escalation policy**.
 1. Optionally, specify **Name** and **Description**.
 
 1. Select an escalation schedule:

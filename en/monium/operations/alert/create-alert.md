@@ -11,12 +11,13 @@ To view [alerts](../../concepts/alerting/alert.md), you need the `viewer` role o
 
 {% endnote %}
 
-
-
-1. On the {{ monitoring-short-name }} home page, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
-1. Specify the main alert settings:
+1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** on the left.
+1. At the top right, click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+1. Specify the main alert parameters:
 
     * **{{ ui-key.yacloud_monitoring.alert.title_name }}**: Name the alert.
+    * **ID**: Set a unique alert ID.
+    * **Type**: Select the alert type.
     * **{{ ui-key.yacloud_monitoring.alert.title_description }}**: Describe the purpose of the alert.
 
 1. Describe [queries](../../concepts/alerting/alert.md#queries).
@@ -31,6 +32,8 @@ To view [alerts](../../concepts/alerting/alert.md), you need the `viewer` role o
 
     For more information, see [{#T}](../../concepts/alerting/alert.md#condition).
 
+1. Configure [data decimation](../../concepts/decimation.md).
+1. To create [multialerts](../../concepts/alerting/alert.md#multi-alerts), add labels under **Deсomposition by labels**.
 1. Set the [no data policies](../../concepts/alerting/alert.md#no-data-policy) or leave the default values.
 1. Specify the alert [annotations](../../concepts/alerting/annotation.md).
 

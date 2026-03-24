@@ -141,7 +141,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
   1. Enter a name, e.g., `add-task`, and description for the function.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `java21` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-  1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field.
+  1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select `servlet.zip` you created earlier.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
   1. Set **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** to `10`.

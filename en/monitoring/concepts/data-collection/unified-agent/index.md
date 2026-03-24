@@ -7,7 +7,7 @@ description: In this article, you will learn about the metric delivery agent and
 
 
 
-{{ unified-agent-full-name }} is the agent for delivering additional metrics of virtual machines and user applications to {{ monitoring-full-name }}.
+{{ unified-agent-full-name }} is an agent that delivers additional metrics of virtual machines and user applications to {{ monitoring-full-name }}.
 
 The agent supports:
 
@@ -18,7 +18,7 @@ The agent supports:
 
 You can find the examples of using the agent in [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
 
-## Concepts {#basics}
+## Basic terms {#basics}
 
 {{ unified-agent-full-name }} transmits streaming data represented as messages, e.g., metrics or logs. A data stream in {{ unified-agent-short-name }} is called a session. Multiple sessions can be running at the same time.
 
@@ -53,7 +53,6 @@ All messages sent during a session contain both message metadata and session met
 Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file. 
 
 ## Inputs {#inputs}
-
 An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.
 
 See the [list of available inputs](inputs.md).
@@ -76,16 +75,14 @@ Filter types:
 See also the [list of available filters](filters.md).
 
 ## Storages {#storages}
-
-Storages are intended to store messages from their receipt as an input until their transmission to the output.
-Using a storage can help you avoid data loss if the agent fails to write the data to the specified output. This may happen due to network issues or destination API unavailability.
+Storages serve as interim depots for messages in transit between the input and the output.
+With a storage, you will not lose your data if the agent fails to write it to the specified output. This may happen due to network issues or destination API unavailability.
 
 See also the [storage configuration guide](storage.md).
 
 ## Routing {#routing}
 
 ### Pipes {#pipes}
-
 Pipes contain:
 * Sequence of filters that messages pass through.
 * Link to the storage where the messages will be stored before their transmission to the output.
@@ -98,7 +95,7 @@ See also the [pipe configuration guide](routing.md#pipes).
 
 Channels group a pipe with a node, one of an output, a named channel, or a splitter.
 
-Splitters let you specify a set of channels, copying incoming messages to each of them. You can use splitters to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on particular attributes such as metadata.
+A splitter allows you to specify a set of channels and copy the incoming message to each one of its channels. You can use splitters to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on particular attributes such as metadata.
 
 Channels can be named.
 

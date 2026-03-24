@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы научите
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Откройте расследование.
-  1. Нажмите **{{ ui-key.yacloud_org.security.ycdr.InvestigationPageLayout.newQuery_mzeBV }}**.
+  1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.newQuery_mzeBV }}**.
   1. В редакторе запросов введите KQL-запрос или выберите шаблон.
 
   {% note tip %}

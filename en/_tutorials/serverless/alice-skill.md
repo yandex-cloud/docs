@@ -58,7 +58,7 @@ Once created, the function will contain only information about itself: name, des
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Prepare the function code:
 
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `parrot-py.zip` archive you created earlier.
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `parrot-py.zip` archive you created earlier.
           * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `parrot.handler`.
       1. Set the version parameters:
 
@@ -73,7 +73,7 @@ Once created, the function will contain only information about itself: name, des
       1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Prepare the function code:
 
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `parrot-js.zip` archive you created earlier.
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` and attach the `parrot-js.zip` archive you created earlier.
           * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `index.handler`.
       1. Set the version parameters:
 

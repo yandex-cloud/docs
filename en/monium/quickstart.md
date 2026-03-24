@@ -1,16 +1,18 @@
 # Getting started with {{ monium-name }}
 
-{{ monium-name }} is a platform made to collect telemetry data (metrics, logs, and traces) from {{ yandex-cloud }}, other clouds, or your local infrastructure.
+{{ monium-name }} is a platform made to collect metrics, logs, and traces from {{ yandex-cloud }}, other clouds, or your local infrastructure.
 
 Follow this guide to send telemetry data from your app or demo app via [OTel Collector](https://opentelemetry.io/docs/) and view it in {{ monium-name }}.
 
-To get started:
+To get started with {{ yandex-cloud }} metrics, refer to [{#T}](metrics/quickstart.md).
+
+To get started with app telemetry in {{ monium-name }}:
 
 1. [Get your cloud ready](#before-begin).
 1. [Create a service account and API key](#create-ca-key).
-1. Set up telemetry data transfer from [your app](#otel-settings) or [demo app](#example-app).
+1. Set up telemetry transmission from [your app](#otel-settings) or [demo app](#example-app).
 
-    If OTLP telemetry is already configured, specify [{{ monium-name }} connection settings](#monium-connect).
+    If you have already set up OTLP telemetry, specify the [{{ monium-name }} connection settings](#monium-connect).
 
 1. [View the data in {{ monium-name }}](#view-telemetry).
 
@@ -35,11 +37,11 @@ To get started:
 {% endlist %}
 
 
-## Set up telemetry data transfer from your app {#otel-settings}
+## Set up telemetry transmission from your app {#otel-settings}
 
-If you do not have a ready-to-use application, [configure a demo app](#example-app).
+If you do not have a ready-made application, use a [demo app](#example-app).
 
-In {{ monium-name }}, telemetry follows this hierarchy: project → cluster → service. The data is distributed among shards for each service-cluster pair.
+In {{ monium-name }}, telemetry has this hierarchy: project → cluster → service. Data for each service-cluster pair is distributed to individual shards.
 
 {% list tabs group=instructions %}
 
@@ -47,10 +49,18 @@ In {{ monium-name }}, telemetry follows this hierarchy: project → cluster → 
 
   1. Set these environment variables:
      
-     * `MONIUM_PROJECT`: {{ monium-name }} project name in `folder__<folder_ID>` format, e.g., `folder__{{ folder-id-example }}`.
+     * `MONIUM_PROJECT`: {{ monium-name }} project name.
+
+       By default, when you create a cloud and folder, two projects are created: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also [create other projects](collector/project.md#project-create).
+     
+       To test {{ monium-name }}, you can specify a project folder, e.g., `folder__{{ folder-id-example }}`.
+       
+       If entering it manually, make sure that `folder` is followed by two underscores.
+     
+     
      * `MONIUM_API_KEY`: API key.
   
-  1. Set up telemetry from your application in OTLP format:
+  1. Set up your application to send OTLP telemetry:
      
      * Install the [auto-instrumentation](https://opentelemetry.io/docs/concepts/instrumentation/#automatic-instrumentation) agent to automatically collect some telemetry data and send it to OTLP.
      * Add the [OpenTelemetry SDK](https://opentelemetry.io/docs/languages/) to your app.
@@ -108,7 +118,7 @@ In {{ monium-name }}, telemetry follows this hierarchy: project → cluster → 
 
 ## {{ monium-name }} connection settings and data distribution {#monium-connect}
 
-If your application is already configured to send telemetry data, specify these settings:
+If your application is already configured to send telemetry, specify these settings:
 
 * Authentication: [API key](#create-ca-key).
 * Endpoint: `{{ api-host-monium }}:443`.
@@ -121,20 +131,21 @@ If your application is already configured to send telemetry data, specify these 
 
 {% include [view-telemetry](../_includes/monium/view-telemetry.md) %}
 
-To use telemetry data, create a [dashboard](operations/dashboard/create.md) and [alerts](operations/alert/create-alert.md).
+{% include [data-lag](../_includes/monium/data-lag.md) %}
 
-## Example of demo app setup {#example-app}
+To use the data you collected, you can create [dashboards](operations/dashboard/create.md) and [alerts](operations/alert/create-alert.md).
+
+## Demo app setup example {#example-app}
 
 {% include [pet-clinic](../_includes/monium/pet-clinic.md) %}
-  
-[Look up the telemetry data in {{ monium-name }}](#view-telemetry).
 
-{% endlist %}
+After you finish the setup, [view the telemetry in {{ monium-name }}](#view-telemetry).
 
-#### What's next
+#### See also {#see-also}
 
-* [Creating a dashboard](metrics/quickstart.md)
+* [Getting started with metrics](metrics/quickstart.md)
+* [Getting started with logs](logs/quickstart.md)
+* [Getting started with traces](traces/index.md)
+* [Creating a dashboard](operations/dashboard/create.md)
 * [Creating an alert](operations/alert/create-alert.md)
-* [Configuring data collection via an agent](collector/)
-* [Configuring logs](logs/quickstart.md)
-* [Configuring traces](traces/)
+* [Telemetry delivery methods](collector/index.md)

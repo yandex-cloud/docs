@@ -1,6 +1,6 @@
 ---
-title: Справочник правил
-description: Справочник правил безопасности Security Deck
+title: Справочник правил {{ sd-full-name }}
+description: Правила безопасности {{ sd-name }}
 editable: false
 ---
 

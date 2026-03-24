@@ -50,7 +50,7 @@ To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you ne
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `datasphere-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-datasphere-project-editor }}` role to this service account.
@@ -276,8 +276,8 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will i
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Name the function, e.g., `ai-function`.
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-function }}**.
@@ -292,8 +292,8 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will i
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the **Python** runtime environment. Do not select **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.

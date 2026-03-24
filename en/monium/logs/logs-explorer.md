@@ -27,7 +27,7 @@ The log UI allows you to:
        { <key>="<value>", <key>="<value>", ... }
        ```
    
-     In {{ monium-name }}, telemetry follows this hierarchy: project → cluster → service. Therefore, select the `project`, `cluster`, and `service` parameters in the query string first.
+     In {{ monium-name }}, telemetry has this hierarchy: project → cluster → service. Therefore, select the `project`, `cluster`, and `service` parameters in the query string first.
 
   1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
   1. To analyze a particular log entry, expand it and select one of the following actions next to the log line of interest:

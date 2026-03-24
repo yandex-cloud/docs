@@ -24,9 +24,9 @@ description: Следуя данной инструкции, вы научите
   1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
   1. На панели слева выберите **{{ ycdr-name }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.security.ycdr.InvestigationsPage.create-investigation_iCPUP }}**.
+  1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.
   1. Введите название расследования в поле заголовка.
-  1. В поле **{{ ui-key.yacloud_org.security.ycdr.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание расследования.
+  1. В поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** добавьте описание расследования.
 
   {% note tip %}
 
@@ -62,7 +62,7 @@ description: Следуя данной инструкции, вы научите
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Откройте расследование.
-  1. В блоке **{{ ui-key.yacloud_org.security.ycdr.InvestigationPageLayout.information_cZr8L }}** нажмите на поле **{{ ui-key.yacloud_org.security.ycdr.InvestigationPageLayout.fieldDescription_wiAxw }}**.
+  1. В блоке **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.information_cZr8L }}** нажмите на поле **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}**.
   1. Введите новое описание.
   1. Нажмите клавишу **Enter** или кликните вне поля ввода.
 
@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы научите
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Откройте расследование.
-  1. В меню действий выберите **{{ ui-key.yacloud_org.security.ycdr.InvestigationPageLayout.copy_wiAxw }}**.
+  1. В меню действий выберите **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.copy_wiAxw }}**.
   1. Дождитесь создания копии.
 
   Копия расследования содержит все запросы и настройки оригинала.

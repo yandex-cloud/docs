@@ -1310,18 +1310,6 @@ default:
         12_month: dn2fysufhjzeuuean7vs
         3_month: dn2wa5sleev34ncu4d4y
         6_month: dn2mpw7fjopn3wgbotkb
-      ba_i211_8s_2x25g:
-        1_day: dn2hbnskzu4rq6swqtep
-        1_month: dn2lfxfo6mpv2kpeeeng
-        12_month: dn2z34pojuoef4zyxs3m
-        3_month: dn2ssrruyplpagqetv4e
-        6_month: dn2mxvcaqxemyvapns22
-      ba_i212_10s_10g:
-        1_day: dn22tbvzk6ebajqvpnbt
-        1_month: dn2pmwp6geyfashsuol7
-        12_month: dn2fe2ouwmphq3nzjeex
-        3_month: dn2fsfrgjf4st2kgcqgq
-        6_month: dn2njr2hvobgypizlurn
       ba_i215_ss_10g:
         1_day: dn2h6lrfdk4nac5wgwuq
         1_month: dn2mgkgws5vkgcmx66i7
@@ -1334,6 +1322,12 @@ default:
         12_month: dn2p7j4g65rioh676pec
         3_month: dn2td7drocpwss27prtp
         6_month: dn24m37i7jgimv47zsao
+      ba_i311_s:
+        1_day: dn2pmeuzaf5x5jog4dxl
+        1_month: dn2rx7dxbtooxf6ckpkc
+        12_month: dn2tvhgbuvohlnad2k6x
+        3_month: dn2srbkn5ce5cooadlam
+        6_month: dn2jezaritxjqnxhtgln
       ba_i407_s_10g:
         1_day: dn2ouvd21k0ibt7asnui
         1_month: dn23f47oub924jn942p9
@@ -1496,6 +1490,78 @@ default:
         12_month: dn2ajehb5v5zgudjtf7n
         3_month: dn2cym764mbfzb5ocdyi
         6_month: dn2ddsgk7wsbw7d2zuol
+      bms_1027r_body:
+        1_month: dn2paaexhgf2bviickkp
+        12_month: dn2oqzoduucamz4ny6ir
+        6_month: dn2bhhmb5x7nnrdhair7
+      bms_cpu_ie5_2650v2:
+        1_month: dn2v7dn7jxq3h4tchgff
+        12_month: dn25yqzqiq7qp7hz4v5r
+        6_month: dn2ivjxagp5bkcqeyh23
+      bms_cpu_ie5_2660:
+        1_month: dn2hgetevoigfobrvogv
+        12_month: dn2q7iyoipkk4h6obmye
+        6_month: dn2kwjai2jd2upnvid7o
+      bms_cpu_ie5_2667v2:
+        1_month: dn2qtcb7z6l6ydpdioff
+        12_month: dn2epyedr37qffbjlmeu
+        6_month: dn25rpnmyjhrt3o2k7tn
+      bms_disk_s0:
+        9t:
+          1_month: dn275ufhbf5ux5he5enr
+          12_month: dn2zxsclnwljubw7wlul
+          6_month: dn2a2ajurq65jgmkoosw
+      bms_disk_s1:
+        9t:
+          1_month: dn2timdwkypwxsfl3l4e
+          12_month: dn2uysyoofbphvg3ubws
+          6_month: dn2mvup6umlyjgnakica
+      bms_disk_s3:
+        8t:
+          1_month: dn2nx7nypgc5nvnmyecx
+          12_month: dn2sayrysfduqvmcqkxs
+          6_month: dn23lsh3xtc5cgmnawjk
+      bms_disk_s7:
+        6t:
+          1_month: dn2iayw7fvwou5uyznp4
+          12_month: dn2bx37k4lluau6kdl6s
+          6_month: dn2wsahke3cpmy5cvv22
+      bms_net_1_10g:
+        1_month: dn2s6amxbjgvsm2r5j55
+        12_month: dn23r7vlp6ntotrexv3n
+        6_month: dn2d7su6ir2rgf2ghird
+      bms_net_2p10g:
+        1_month: dn2sg2gxxpuzwcuswmqq
+        12_month: dn2ryumxa7vh6247dki7
+        6_month: dn2cvyx2kvtgwmncj77a
+      bms_net_2p1g:
+        1_month: dn2w6cnum7kjv42kxmnp
+        12_month: dn2iynyzlnu5lz44i2w5
+        6_month: dn2rgcu46gwquelzyge6
+      bms_net_2x2p10g:
+        1_month: dn26cypvum4o7othokpj
+        12_month: dn22akrrpikbs5y3vwgl
+        6_month: dn2zrlohcdk7mq6w5ebw
+      bms_ram3_128:
+        1_month: dn2dspoxf6trcs7xcb3j
+        12_month: dn2aljp6sqk57xc2qebu
+        6_month: dn2mr6vdtoi22hz4nqba
+      bms_ram3_256:
+        1_month: dn2xjjxbpghreoyy2hda
+        12_month: dn2bzamy6wdtzxtefsy4
+        6_month: dn2ahzx6t7b3y5i464cz
+      bms_ram3_32:
+        1_month: dn2wvnr7h3cmwte6yuho
+        12_month: dn2bq5lyymhwp4kipzdi
+        6_month: dn2s5d5d3qhfgacqque5
+      bms_ram3_64:
+        1_month: dn2qf7kdxxn2onpen6di
+        12_month: dn2vln7iq4gfwaa3m3v6
+        6_month: dn225456trqnu374dy6m
+      bms-net-2p25g-mclag:
+        1_month: dn2zhqrrfxokfmmjcbjl
+        12_month: dn2wtcrigbuiy56in5lj
+        6_month: dn2nxqkn3jbcpgraihji
       ha_i302_s_10g:
         1_day: dn2c2vkpanbck1rpp6l8
         1_month: dn26an39ra4lmdlcoea8
@@ -1538,6 +1604,12 @@ default:
         12_month: dn27kmrcjjbe6lrdsgcl
         3_month: dn2v2vb5tlsukuzzn4hx
         6_month: dn2milwf2eoxiskqwh3d
+      la_i113_s:
+        1_day: dn2ayfkvcbcy7ykjr3h5
+        1_month: dn247i2gjig7uj63xdzv
+        12_month: dn24yko6koontg32wjtm
+        3_month: dn2fk5rqjzelrsqlh6zw
+        6_month: dn2plhocvyi3hfzx7uv5
       la-i100-h:
         1_day: dn2t33wjf2qexcjgwqfm
         1_month: dn2a7ztltvaxx4jix3j4
@@ -4934,6 +5006,14 @@ default:
           cell-result-action-share_i1khy: Поделиться
           cell-result-canceled_fqtbJ: Остановлен
           cell-result-running_4S3Mi: Выполняется
+          InvestigationPageLayout:
+            copy_wiAxw: Создать копию
+            fieldDescription_wiAxw: Описание
+            fieldModified: Изменено
+            information_cZr8L: Информация
+            newQuery_mzeBV: Новый запрос
+          InvestigationsPage:
+            create-investigation_iCPUP: Новое расследование
           my_8uT22: Мои
           template_type_global_qSrVE: Общие
           template_type_local_77J2t: Инстанс
@@ -4991,14 +5071,6 @@ default:
             modules_title_s8LDi: Модули контроля
             standards_title_dBBXP: Наборы требований
         ycdr:
-          InvestigationPageLayout:
-            copy_wiAxw: Создать копию
-            fieldDescription_wiAxw: Описание
-            fieldModified: Изменено
-            information_cZr8L: Информация
-            newQuery_mzeBV: Новый запрос
-          InvestigationsPage:
-            create-investigation_iCPUP: Новое расследование
           preset_last_1_hour_s5Gq5: Последний час
           preset_last_12_hours_s5Gq5: Последние 12 часов
           preset_last_3_hours_s5Gq5: Последние 3 часа
@@ -5182,6 +5254,7 @@ default:
         label_accessRights: Доступ
         label_allow-access: Разрешить доступ
         label_description: Описание
+        label_enable-ad: Включить рекламу
         label_neuro-translation: Нейроперевод
         label_subtitles: Субтитры
         label_title: Название
@@ -5790,8 +5863,6 @@ default:
         button_empty-install-application: Установить приложение
         button_install: Установить
         label_marketplace: Магазин приложений
-        label_service-account: Сервисный аккаунт
-        section_parameters: Настройки приложения
       cloud-registry:
         action_registry-create: Создать реестр
         registries:
@@ -5838,12 +5909,14 @@ default:
         field_token: Токен устройства
         field_vapid: Публичный VAPID-ключ
         field_web-push-endpoint_params: Параметры эндпоинта в JSON
+        label_channels: Каналы уведомлений
         label_editor-json: JSON
         label_editor-text: Текст
         label_endpoints: Эндпоинты
         label_phone-numbers: Тестовые номера
         local:
           action_create-topic_qywb9: Создать топик
+          label_templates_26VqM: Шаблоны
           label_topics_vhBR3: Топики
         section_logging: Логирование
         section_message-sending: Отправка сообщений
@@ -5856,6 +5929,16 @@ default:
         shared:
           CnsTopicLayout:
             subscriptions_cp53u: Подписки
+        SMSChannel:
+          SelectTemplateType:
+            field_type_furT8: Тип
+          TemplateCreateForm:
+            button_create_b5P5S: Создать
+            field_message_sijJZ: Пример сообщения
+            field_name_c6Q4T: Имя
+            field_text_e8S2V: Шаблон
+          Templates:
+            action_create-sms-template_e6hBJ: Создать шаблон
         switch_gcm-api-legacy: Legacy
         switch_gcm-api-v1: HTTP v1
         Topics:
@@ -8056,10 +8139,10 @@ default:
             create-file: Создать файл
             create-form-file-path: Имя
             field_bucket: Бакет
+            field_code-source: Источник кода
             field_entry: Точка входа
             field_environment-variables: Переменные окружения
             field_file: Файл
-            field_method: Способ
             field_object: Объект
             field_resources-memory: Память
             field_runtime: Среда выполнения
@@ -11084,6 +11167,11 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
         tag: 1.5.1
+    yc_node-sitter:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/node-sitter/node-sitter/chart/node-sitter
+        tag: 0.1.6
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack

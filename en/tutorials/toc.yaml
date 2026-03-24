@@ -799,7 +799,7 @@ items:
             href: web/flask.md
           - name: Hosting a static Gatsby website
             href: web/gatsby-static-website.md
-          - name: Installing Ghost CMS using {{ cloud-apps-name }}
+          - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
             href: web/ghost-cms-cloudapp.md
           - name: Migrating to {{ cdn-name }} from a third-party CDN provider
             href: web/migrate-to-yc-cdn.md

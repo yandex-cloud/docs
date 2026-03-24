@@ -199,7 +199,7 @@
 
         * `filter` — фильтр логов. Можно отфильтровать логи так, чтобы поток логов содержал только нужные логи.
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
+            Подробнее о фильтрах и их синтаксисе в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
@@ -255,7 +255,7 @@
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
-            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
+            Подробнее о фильтрах и их синтаксисе в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
 
         
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).

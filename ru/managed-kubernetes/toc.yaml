@@ -87,6 +87,8 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Установка NodeLocal DNS
             href: operations/applications/node-local-dns.md
+          - name: Установка node-sitter
+            href: operations/applications/node-sitter.md
           - name: Установка Prometheus Operator
             href: operations/applications/prometheus-operator.md
           - name: Установка Thumbor

@@ -63,7 +63,7 @@ The support cost for this solution includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ managed-k8s-name }} cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
   1. Enter the name for the cluster: `kubernetes-cluster-wh`.
   1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify the `sa-kubernetes` service account that will be used to create resources.
@@ -125,7 +125,7 @@ The support cost for this solution includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select `kubernetes-cluster-wh`.
   1. On the cluster page, navigate to the ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.

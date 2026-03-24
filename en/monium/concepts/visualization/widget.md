@@ -46,6 +46,16 @@ To set the interval more precisely, use the timeline located above the chart.
 
 The widget displays the current status of the selected alert on the dashboard. If you have added [annotations](../alerting/annotation.md) for the alert, you can also display them in the widget.
 
+## List of alerts {#alert-list}
+
+The widget displays the current status of alerts or multialert sub-alerts matching the selector as colored tiles on the dashboard. You can aggregate alerts from any project you have access to.
+
+## SLO {#slo}
+
+This widget displays a list of [SLOs](../../slo/index.md) with current SLI values and the remaining error budget. Clicking an SLO name opens the respective view page.
+
+Changing the dashboard time range does not affect the SLO widget. It always shows the current values.
+
 ## Escalation {#escalation}
 
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}

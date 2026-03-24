@@ -41,10 +41,10 @@ Parameter descriptions:
       plugin: metrics_pull
       config:
         # Metric collection URL.
-        url: http://localhost:12345  # required
+        url: http://localhost:12345  # Required.
 
         # Format of received messages. Only the prometheus value is currently supported.
-        format:  # required
+        format:  # Required.
           # Incoming messages are in the prometheus format (https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md).
           prometheus: {}
         
@@ -76,7 +76,7 @@ Parameter descriptions:
         capture_response_headers: []  # optional, not set by default
 
         # HTTP method to use in the request.
-        # The possible values are: GET, POST.
+        # Possible values: GET, POST.
         http_method: GET  # optional, the default value is GET
 
         # Section for setting up {{ prometheus-name }} labels
@@ -149,7 +149,7 @@ Parameter descriptions:
     # List of resources to collect statistics from.
     # Key: One out of the following: `cpu`, `memory`, `network`, `storage`, `io`, `kernel`.
     # Value: Level of detail, one out of the following: `basic`, `advanced`.
-    resources:  # optional
+    resources:  # Optional.
         cpu: advanced  # optional, the default value is `basic`
 
         memory: advanced  # optional, the default value is `basic`
@@ -219,7 +219,7 @@ Parameter descriptions:
           path: /path_to_file # required
 
           # Path to the folder the files are moved to during rotation.
-          out_directory: "" # optional, by default it is the reference file folder (empty string)
+          out_directory: "" # Optional, by default it is the log file folder (empty string).
 
           # Path to the folder where the auxiliary file of the current state (reading position, file name, inode, etc.) will be created.
           state_directory: /path_to_state # required
@@ -239,7 +239,7 @@ Parameter descriptions:
           # The parameter cannot be used when reading from a rotated file.
           min_bytes_read: 1Mb # optional, the default value is 1kb
 
-          # Line break character
+          # Line break character.
           line_delimiter: "\n" # optional, the default value is "\n"
 
           # Keeping the log file always open. Otherwise, the file opens only when read and the required reading position is set
@@ -250,7 +250,7 @@ Parameter descriptions:
           file_format: auto # optional, the default value is auto
 
           # Maximum frequency for resetting the internal buffer with dearchived data (in milliseconds).
-          # Small values result in efficient use of memory, but increase the load on the CPU
+          # Small values result in efficient use of memory, but increase the load on the CPU.
           archive_shrink_period_ms: 1000 # optional, the default value is 1,000 (one second)
 
           # Treating the path parameter as a search mask for the files that need processing.
@@ -265,7 +265,7 @@ Parameter descriptions:
           # Determines whether to calculate metrics for each input file in addition to aggregated metrics.
           per_file_metrics: false # optional, the default value is false
 
-          # Processing multiline messages
+          # Processing multiline messages.
           multiline:
 
             # Enables multiline message processing.
@@ -277,7 +277,7 @@ Parameter descriptions:
             # Regular expression that determines the beginning of a multiline message.
             # All subsequent lines not matching the regular expression will be joined to the current message.
             # The default value matches the beginning of the line in "2022-07-01 16:50:16,037 WARN" format.
-            multiline_start_prefix: "^(\\d\\d\\d\\d-\\d\\d-\\d\\d)\\s*(\\d\\d:\\d\\d:\\d\\d,\\d\\d\\d)\\s*(\\w*)" # optional
+            multiline_start_prefix: "^(\\d\\d\\d\\d-\\d\\d-\\d\\d)\\s*(\\d\\d:\\d\\d:\\d\\d,\\d\\d\\d)\\s*(\\w*)" # Optional.
 
             # To read log files, you can specify the group number according to the importance level.
             # Not used if set to a value higher than the number of groups in the regular expression.
@@ -285,7 +285,7 @@ Parameter descriptions:
             # It can be subsequently considered during message processing and its delivery to the agent’s output, e.g., by the yc_logs output.
             log_priority_group: 3 # optional, the default value is 3
 
-            # Mapping the logging levels with values from the regular expression group
+            # Mapping the logging levels with values from the regular expression group.
             priority_resources: "RESOURCES"           # optional, the default value is "RESOURCES"
             priority_debug: "DEBUG"                   # optional, the default value is "DEBUG"
             priority_info: "INFO"                     # optional, the default value is "INFO"
@@ -312,7 +312,7 @@ Parameter descriptions:
       host: null  # optional, the default value is null
 
       # Port to run the HTTP server on.
-      port: 22132  # required
+      port: 22132  # Required.
 
       # Path the handler will be registered at.
       path: '/write'  # optional, the default value is '/write'
@@ -330,7 +330,7 @@ Parameter descriptions:
       # If _endpoints_ is specified, the default connection point (/write) is not used.
       # In this mode, you can only specify the host, port, and endpoints elements in the configuration.
       endpoints:  # optional, the default value is []
-        - path: '/my_path'  # required
+        - path: '/my_path'  # Required.
           # Names of HTTP request headers you need to save to the message metadata.
           capture_request_headers: [ ]  # optional, not set by default
 ```

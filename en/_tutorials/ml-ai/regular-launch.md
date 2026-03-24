@@ -52,7 +52,7 @@ To access a {{ ml-platform-name }} project from a function in {{ sf-name }}, you
 - Management console {#console}
 
    1. Navigate to `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `reddit-user`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-datasphere-project-editor }}` and `{{ roles-functions-invoker }}` roles to the service account.
@@ -176,7 +176,7 @@ To run computations without opening {{ jlab }}Lab, you will need a function in {
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Name the function, e.g., `my-function`.
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-function }}**.
@@ -192,7 +192,7 @@ To run computations without opening {{ jlab }}Lab, you will need a function in {
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `Python` runtime environment. Do not select **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
@@ -237,7 +237,7 @@ To run a function every 15 minutes, you will need a [timer](../../functions/conc
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 

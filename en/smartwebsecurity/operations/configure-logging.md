@@ -47,6 +47,8 @@ You can enable logging when [creating a security profile](profile-create.md) or 
 
 To enable or disable [logging](../concepts/logging.md) in a security profile, you need the `smart-web-security.editor` [role](../security/index.md#smart-web-security-editor) or higher for the security profile [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), as well as the `logging.writer` [role](../../logging/security/index.md#logging-writer) or higher for the target [log group](../../logging/concepts/log-group.md).
 
+To view logs, you need the `logging.viewer` [role](../../logging/security/index.md#logging-viewer) for the log group.
+
 {% endnote %}
 
 {% list tabs group=instructions %}

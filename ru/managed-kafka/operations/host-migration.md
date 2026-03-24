@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
-Если кластер {{ mkf-name }} является эндпоинтом в сервисе {{ data-transfer-full-name }}, перезапустите трансфер для его корректной работы. Подробнее о том, какие трансферы нужно перезапускать и как это сделать, см. в разделе [Особенности миграции в сервисе {{ data-transfer-full-name }}](#data-transfer).
+Если кластер {{ mkf-name }} является эндпоинтом в сервисе {{ data-transfer-full-name }}, перезапустите трансфер для его корректной работы. Подробнее о том, какие трансферы нужно перезапускать и как это сделать, в разделе [Особенности миграции в сервисе {{ data-transfer-full-name }}](#data-transfer).
 
 ## Миграция кластера с одним хостом {#one-host}
 
@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+         Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
       1. Укажите в описании кластера {{ mkf-name }} новую подсеть в параметре `subnet_ids` и новую зону доступности в параметре `zones`:
 
@@ -89,7 +89,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+      Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
       {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -356,7 +356,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+         Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
       1. Измените в описании кластера {{ mkf-name }} список зон доступности в параметре `zones`:
 
@@ -402,7 +402,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+      Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
       {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -527,7 +527,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+         Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
       1. Измените в описании кластера {{ mkf-name }} зону доступности в параметре `zones`:
 
@@ -560,7 +560,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+      Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
       {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -707,4 +707,4 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
 
-Пример переноса данных с помощью сервиса {{ data-transfer-name }} см. в [практическом руководстве](../../data-transfer/tutorials/mkf-to-mkf.md).
+Пример переноса данных с помощью сервиса {{ data-transfer-name }} в [практическом руководстве](../../data-transfer/tutorials/mkf-to-mkf.md).

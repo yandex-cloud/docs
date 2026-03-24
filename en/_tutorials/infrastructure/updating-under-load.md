@@ -1,7 +1,7 @@
 # Updating an instance group under load
 
 
-In this step-by-step tutorial, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check how it operates when updating the configuration. To do this:
+In this step-by-step tutorial, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check how it operates when updating the configuration. Proceed as follows:
 1. [Get your cloud ready](#before-you-begin).
 1. [Set up your environment](#create-environment).
 1. [Create an instance group using a {{ coi }}](#create-vm-group).
@@ -30,7 +30,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-load`.
      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**. To create, update, and delete VM instances in your group, as well as integrate the group with {{ network-load-balancer-name }}, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account.
@@ -58,7 +58,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
      1. Assign the `compute.editor` role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <catalog_ID> \
+        yc resource-manager folder add-access-binding <folder_ID> \
           --role compute.editor \
           --subject serviceAccount:<service_account_ID>
         ```
@@ -66,7 +66,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
       1. Assign the `load-balancer.editor` role to the service account:
 
           ```bash
-          yc resource-manager folder add-access-binding <catalog_ID> \
+          yc resource-manager folder add-access-binding <folder_ID> \
             --role load-balancer.editor \
             --subject serviceAccount:<service_account_ID>
           ```
@@ -86,8 +86,8 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `yc-auto-network`.
      1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -164,7 +164,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create an instance group.
-     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
      1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -266,7 +266,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Click `group-for-load`.
 
@@ -303,7 +303,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `load-generator`.
      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select `{{ ui-key.yacloud.common.label_auto }}`.
@@ -372,7 +372,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
-     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Click `load-generator`.
 
    - CLI {#cli}
@@ -406,7 +406,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
    - Management console {#console}
    
      1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Copy the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** of the `load-generator` load balancer.
      
    - CLI {#cli}
@@ -451,7 +451,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click `group-for-load`.
   1. Click ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -530,24 +530,24 @@ To delete the created resources:
 
    1. Delete the load balancer:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
       1. To the right of `load-generator`, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.remove }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.remove }}**.
    1. Delete the instance group:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
       1. To the right of `load-generator`, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Delete the service account:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. In the list that opens, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) next to `yc-auto-sa` and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.
    1. Delete the network and the subnets:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network and the subnets.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Select `yc-auto-network`.
       1. Under **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**:
          1. To the right of `yc-auto-subnet-1`, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.

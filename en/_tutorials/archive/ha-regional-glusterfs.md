@@ -29,7 +29,7 @@ The infrastructure support costs include:
 
 ## Configure the CLI profile {#setup-profile}
 
-1. If you do not have the {{ yandex-cloud }} CLI yet, [install](../../cli/quickstart.md) it and get authenticated according to instructions provided.
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install](../../cli/quickstart.md) it and sign in.
 1. Create a service account:
 
    {% list tabs group=instructions %}
@@ -37,9 +37,9 @@ The infrastructure support costs include:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Specify the service account name, e.g., `sa-glusterfs`.
+      1. Enter the service account name, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -68,7 +68,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Assign the administrator [role](../../iam/concepts/access-control/roles.md) for the folder to the service account:
+1. Assign the admin [role](../../iam/concepts/access-control/roles.md) for the folder to the service account:
 
    {% list tabs group=instructions %}
 
@@ -139,11 +139,11 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `service-account-key`: Authorized key file name.
+         * `service-account-key`: Service account authorized key file.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Export your credentials to environment variables:
+      1. Add the credentials to the environment variables:
          ```
          export YC_TOKEN=$(yc iam create-token)
          export YC_CLOUD_ID=$(yc config get cloud-id)
@@ -153,7 +153,7 @@ The infrastructure support costs include:
     {% endlist %}
 
 
-## Set up your resource environment {#setup-environment}
+## Set up an environment for deploying the resources {#setup-environment}
 
 1. Create an SSH key pair:
    ```bash
@@ -190,7 +190,7 @@ The infrastructure support costs include:
       ```bash
       terraform validate
       ```
-   1. Preview the list of new cloud resources:
+   1. Check the list of new cloud resources:
       ```bash
       terraform plan
       ```
@@ -334,7 +334,7 @@ The infrastructure support costs include:
       - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-        1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Select the `gluster02` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
         1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 

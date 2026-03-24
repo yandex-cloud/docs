@@ -51,6 +51,8 @@ items:
             href: operations/resources/disable-resource.md
           - name: Managing resource labels
             href: operations/resources/labeling.md
+          - name: Configuring dedicated IP addressing
+            href: operations/resources/dedicated-ip-addressing.md
           - name: Deleting a resource
             href: operations/resources/delete-resource.md
           - name: Viewing resource statistics
@@ -150,6 +152,8 @@ items:
         href: concepts/secure-tokens.md
       - name: IP-based access policy
         href: concepts/ip-address-acl.md
+      - name: Dedicated IP addressing
+        href: concepts/dedicated-ip-addressing.md
       - name: Location rules
         href: concepts/location-rules.md
       - name: Log export

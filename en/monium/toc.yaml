@@ -11,18 +11,30 @@ items:
         href: collector/index.md
       - name: OTLP in {{ monium-name }}
         href: collector/otlp-protocol.md
+      - name: Creating and setting up a project
+        href: collector/project.md
       - name: Otel Collector
         items:
           - name: OTel Collector setup
             href: collector/opentelemetry.md
           - name: OpenTelemetry SDK
             href: collector/otlp-sdk.md
-          - name: Java demo application example
+          - name: Java demo application example without an agent
+            href: collector/otel-clinic-standalone-example.md
+          - name: Java demo application example with an agent
             href: collector/otel-clinic-example.md
-          - name: '{{ k8s }} demo application example'
+          - name: Example of monitoring a microservice suite in {{ k8s }}
             href: collector/otel-k8s-example.md
           - name: Data delivery troubleshooting
             href: collector/troubleshooting.md
+      - name: Fluent Bit
+        items:
+          - name: Configuring Fluent Bit
+            href: collector/fluentbit.md
+          - name: Example for a Java demo application with Fluent Bit
+            href: collector/otel-clinic-fluentbit-example.md
+          - name: Processing logs
+            href: logs/write/fluent-bit.md
       - name: '{{ unified-agent-short-name }}'
         items:
           - name: Overview
@@ -55,7 +67,9 @@ items:
             href: concepts/data-collection/unified-agent/delete.md
   - name: Metrics
     items:
-      - name: Getting started
+      - name: Getting started with application metrics
+        href: metrics/quickstart-app.md
+      - name: Getting started with {{ yandex-cloud }} resource metrics
         href: metrics/quickstart.md
       - name: Overview of features
         href: metrics/overview.md
@@ -231,42 +245,68 @@ items:
             href: logs/concepts/attributes-guide.md
           - name: Data retention period (TTL)
             href: logs/concepts/ttl.md
-          - name: Quotas and limits
-            href: logs/concepts/limits.md
       - name: Log metrics
         href: logs/logs-metrics.md
   - name: Traces
     items:
       - name: Getting started
-        href: traces/quickstart.md
-      - name: Overview
         href: traces/index.md
-      - name: Instrumentation
+      - name: Basic terms
+        href: traces/concepts.md
+      - name: Application instrumentation
         items:
-          - name: Instrumentation types
-            href: traces/tools/index.md
+          - name: Auto-instrumentation
+            href: traces/instrumentation/auto.md
+          - name: Manual instrumentation
+            href: traces/instrumentation/manual.md
+          - name: HTTP communication
+            href: traces/instrumentation/http.md
+          - name: Working with databases
+            href: traces/instrumentation/database.md
+          - name: RPC calls
+            href: traces/instrumentation/rpc.md
+          - name: Asynchronous operations
+            href: traces/instrumentation/async.md
+          - name: Handling errors
+            href: traces/instrumentation/exceptions.md
+          - name: Retries
+            href: traces/instrumentation/retries.md
       - name: Working with traces
         items:
-          - name: Searching traces
+          - name: Searching for traces and spans
             href: traces/operations/traces-explorer.md
           - name: Viewing and analyzing traces
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/trace-view.md
           - name: Query language
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/query-language.md
           - name: Critical path analysis
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/critical-path.md
           - name: Trace-to-log correlation
-            href: traces/operations/traces-explorer.md
-          - name: Archiving
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/traces-logs.md
+          - name: Trace archiving
+            href: traces/operations/archiving.md
+          - name: Incomplete traces
+            href: traces/operations/incomplete-traces.md
       - name: LLM monitoring
-        href: traces/operations/llm-traces.md
+        items:
+          - name: Getting started
+            href: traces/llm/quickstart.md
+          - name: Auto-instrumentation of LLM applications
+            href: traces/llm/auto_instrumentation.md
+          - name: Manual instrumentation of LLM applications
+            href: traces/llm/manual_instrumentation.md
+          - name: Viewing and analyzing LLM traces
+            href: traces/llm/traces.md
       - name: Limitations
-        href: traces/constraint.md
+        href: traces/limits.md
   - name: Visualizing data
     items:
       - name: Overview
         href: visualization/index.md
+      - name: Dashboard
+        href: concepts/visualization/dashboard.md
+      - name: Widgets
+        href: concepts/visualization/widget.md
       - name: Working with dashboards
         items:
           - name: Creating and managing dashboards
@@ -285,18 +325,6 @@ items:
             href: operations/dashboard/delete-dashboard.md
           - name: Examples of working with the gRPC API
             href: operations/dashboard/api-examples.md
-      - name: Concepts
-        items:
-          - name: Data model
-            href: concepts/data-model.md
-          - name: Query string
-            href: concepts/visualization/query-string.md
-          - name: Widgets
-            href: concepts/visualization/widget.md
-          - name: Dashboard
-            href: concepts/visualization/dashboard.md
-          - name: Query language
-            href: concepts/querying.md
   - name: Alerts
     items:
       - name: Step-by-step guides
@@ -367,8 +395,6 @@ items:
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Concepts
     items:
-      - name: Overview
-        href: concepts/index.md
       - name: Basic terms
         href: concepts/glossary.md
       - name: Object configuration
@@ -377,6 +403,8 @@ items:
         href: concepts/data-model.md
       - name: Query language
         href: concepts/querying.md
+      - name: Query string
+        href: concepts/visualization/query-string.md
       - name: Functions for searching metrics
         href: concepts/querying-functions.md
       - name: Data retention period (TTL)

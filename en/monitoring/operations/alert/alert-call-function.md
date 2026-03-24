@@ -157,7 +157,7 @@ To send POST requests when an alert triggers:
 - Management console {#console}
 
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `alert-webhook` function.
+  1. Select `alert-webhook`.
   1. Select the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. As input data, enter:
 

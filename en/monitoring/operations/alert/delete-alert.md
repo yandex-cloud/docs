@@ -1,5 +1,5 @@
 ---
-title: How to delete an alerts in {{ monitoring-full-name }}
+title: How to delete an alert in {{ monitoring-full-name }}
 description: Follow this guide to delete an alert.
 ---
 
