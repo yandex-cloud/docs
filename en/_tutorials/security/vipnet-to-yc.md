@@ -105,7 +105,7 @@ If you do not have a [cloud network](../../vpc/concepts/network.md#network) yet,
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. From the list of services, select **{{ vpc-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Click **Create network**.
     1. Enter a name for the network, e.g., `vipnet-network`.
     1. Disable the **Create subnets** option.
@@ -113,7 +113,7 @@ If you do not have a [cloud network](../../vpc/concepts/network.md#network) yet,
 
 - CLI {#cli}
 
-    To create a cloud network, run the command:
+    To create a cloud network, run this command:
 
     ```bash
     yc vpc network create --name vipnet-network --folder-id <vipnet-folder_ID>
@@ -135,7 +135,7 @@ Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` fo
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. From the list of services, select **{{ vpc-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select the `vipnet-network` cloud network.
     1. Click **Add subnet**.
     1. Give your subnet a name, such as `public-subnet`.
@@ -197,7 +197,7 @@ Create the `segment1-rt`, `segment2-rt`, and `segment3-rt` route tables:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. From the list of services, select **{{ vpc-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select the `vipnet-network` cloud network.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **Route tables**.
     1. Click **Create**.
@@ -220,7 +220,7 @@ Associate the route tables with your subnets:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. From the list of services, select **{{ vpc-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select the `vipnet-network` cloud network.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **Route tables**.
     1. Select `segment1-subnet` and click ![image](../../_assets/console-icons/ellipsis.svg) → **Link route table**.
@@ -436,7 +436,7 @@ The tutorial uses the demo versions of the keys.
 1. Configure the `eth0` and `eth1` network interfaces:
     * `Activate interface on boot`.
     * `Get IP-address automatically on boot (via DHCP)`.
-1. Configure the `eth2` and `eth3` network interfaces.
+1. Configure the `eth2` and `eth3` network interfaces: `Don't activate interface on boot`.
 1. Configure the following parameters:
     * In the `Enable/Disable NTP server mode` field, select `Disable starting the DNS server on boot`.
     * In the `Enter hostname` field, specify `yc-vipnet-1`.
@@ -538,7 +538,7 @@ The tutorial uses the demo versions of the keys.
 
   1. Create a bucket:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-      1. Select **{{ objstorage-name }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Click **Create bucket**.
       1. Set the bucket parameters:
           * **Name**: `my-vipnet-images`.
@@ -549,7 +549,7 @@ The tutorial uses the demo versions of the keys.
           * **Storage class**: `Cold`.
       1. Click **Create bucket**.
   1. Upload `qcow2` disk images to the bucket:
-      1. Select the created bucket.
+      1. Select the bucket you created.
       1. Click **Upload**.
       1. In the window that opens, select the files and click **Open**.
       1. Click **Upload**.
@@ -571,7 +571,7 @@ The tutorial uses the demo versions of the keys.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example_folder`.
-  1. Select **{{ compute-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers.svg) **Images**.
   1. Click **Upload image**.
   1. Enter the image name: `vipnet-va-disk1`.
@@ -654,8 +654,8 @@ The tutorial uses the demo versions of the keys.
 - Management console {#console}
 
     Go to the serial console of the created VM:
-    1. In the [management console]({{ link-console-main }}), select the `vipnet-folder` folder.
-    1. Go to **{{ compute-name }}** and select the `vipnet-va` VM.
+    1. In the [management console]({{ link-console-main }}), select `vipnet-folder`.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and select the `vipnet-va` VM.
     1. Go to the **Serial console** tab.
     1. Enter `user` for username and `11111111` for password.
 

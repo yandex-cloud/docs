@@ -32,7 +32,8 @@ To create a network:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Specify the network **{{ ui-key.yacloud.vpc.networks.create.field_name }}**: `mysite-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -50,7 +51,8 @@ To reserve an IP address:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
@@ -66,7 +68,8 @@ To create security groups:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Open the **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
   1. Create a security group for the load balancer:
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -86,8 +89,8 @@ To create security groups:
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports open for inbound or outbound traffic.
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
-            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and [subnet](../../vpc/concepts/network.md#subnet) masks traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of [subnets](../../vpc/concepts/network.md#subnet) traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the current or selected security group VMs.
             * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
         1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -112,8 +115,9 @@ To import an existing certificate for `my-site.com`:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-  1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select the **{{ ui-key.yacloud.certificate-manager.action_import }}** option.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. Specify the certificate **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}**: `mysite-cert`.
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with your certificate or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. If your certificate is issued by a third-party certificate authority, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}** in the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the certificate chain or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
@@ -130,7 +134,8 @@ To create an [instance group](../../compute/concepts/instance-groups/index.md) f
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Enter the instance group name: `mysite-ig`.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure the fault tolerance of your hosting.
@@ -183,7 +188,8 @@ To create a backend group for `my-site.com`:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Open the **{{ ui-key.yacloud.alb.label_backend-groups }}** tab. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Enter the backend group **{{ ui-key.yacloud.common.name }}**: `my-site-bg`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
@@ -207,7 +213,8 @@ To create an HTTP router:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Open the **{{ ui-key.yacloud.alb.label_http-routers }}** tab. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Specify the HTTP router **{{ ui-key.yacloud.common.name }}**: `mysite-router`.
   1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
@@ -226,7 +233,8 @@ To create an HTTP router:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Enter the load balancer **{{ ui-key.yacloud.common.name }}**: `mysite-alb`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the `mysite-sg-balancer` security group you [created earlier](#create-security-groups).
@@ -258,7 +266,8 @@ The `my-site.com` domain name must be mapped to the L7 load balancer’s IP addr
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Copy the IP address of the load balancer that you created.
   1. On the website of your DNS hosting provider, navigate to the DNS settings.
   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `my-site.com` so that it points to the IP address you copied:
@@ -285,7 +294,7 @@ The `my-site.com` domain name must be mapped to the L7 load balancer’s IP addr
           1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
           1. Leave the **{{ ui-key.yacloud.common.name }}** field empty for the record to match the `my-site.com` domain name (rather than a name with a subdomain, e.g., `www.my-site.com`).
           1. Select the record **{{ ui-key.yacloud.common.type }}**: **A**.
-          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the the load balancer’s IP address you copied.
+          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the load balancer's IP address.
           1. Click **{{ ui-key.yacloud.common.create }}**.
 
       {% endcut %}

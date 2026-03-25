@@ -101,7 +101,7 @@ To create a service account API key:
         expires_at         = "<date_and_time>"
         pgp_key            = "<PGP_key>"
         output_to_lockbox  {
-          secret_id             = "<Lockbox_secret_ID>"
+          secret_id            = "<Lockbox_secret_ID>"
           entry_for_secret_key = "<secret_key>"
         }
       }
@@ -123,7 +123,7 @@ To create a service account API key:
           * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the API key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
           * `entry_for_secret_key`: Secret key to assign to the API key value being saved.
 
-      To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
   1. Create the resources:
 
@@ -331,9 +331,9 @@ To delete a service account API key:
 
         ```hcl
         resource "yandex_iam_service_account_api_key" "sa-api-key" {
-            service_account_id = "<service_account_ID>"
-            description        = "<key_description>"
-            pgp_key            = "<PGP_key>"
+          service_account_id = "<service_account_ID>"
+          description        = "<key_description>"
+          pgp_key            = "<PGP_key>"
         }
         ```
 

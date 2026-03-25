@@ -23,15 +23,15 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для реализации федеративных запросов из этого примера входит:
+* Проект {{ ml-platform-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ ml-platform-name }}](../../datasphere/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Сервис {{ yq-name }}: объем считанных данных при исполнении запросов (см. [тарифы {{ yq-name }}](../../query/pricing.md)).
 
-* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
-* плата за [хранение данных](../../storage/pricing.md#prices-storage) в бакете;
-* плата за запущенный [кластер {{ mch-name }}](../../managed-clickhouse/pricing.md);
-* плата за запущенный [кластер {{ mpg-name }}](../../managed-postgresql/pricing.md);
-* плата за объем считанных данных при исполнении [запросов {{ yq-name }}](../../query/pricing.md).
 
 ## Подготовьте инфраструктуру {#infra}
 

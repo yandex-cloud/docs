@@ -1,4 +1,4 @@
-# Getting the {{ lockbox-full-name }} secret value on the {{ GL }} side
+# Getting {{ lockbox-full-name }} secret value on the {{ GL }} side
 
 {% include [move-groups-api](../../_includes/iam/wlif-instructions-intro.md) %}
 
@@ -31,7 +31,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a workload identity federation.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
    1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
    1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter the OIDC provider's URL: `https://gitlab.com`.
@@ -55,7 +55,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your secret.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
    1. Select **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
@@ -74,7 +74,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -102,7 +102,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the list of service accounts, select `sa-lockbox`.
    1. Navigate to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
    1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.

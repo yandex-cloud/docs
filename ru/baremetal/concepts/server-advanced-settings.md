@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 Для реализации некоторых сценариев работы сервера может потребоваться изменить базовые настройки сервера, заданные по умолчанию. Например, чтобы [установить](../operations/servers/reinstall-os-from-own-image.md) операционную систему [Windows Server](https://ru.wikipedia.org/wiki/Windows_Server) в раздел, созданный в отказоустойчивом [RAID-массиве](https://ru.wikipedia.org/wiki/RAID), можно [создать](#creating-rst-raids) нужный RAID-массив на встроенном контроллере материнской платы сервера (если материнская плата сервера содержит встроенный RAID-контроллер).
 
+{% include [bmc-settings-change-warning](../../_includes/baremetal/bmc-settings-change-warning.md) %}
+
 ## Управление дисковым пространством серверов {#storage-management}
 
 При аренде сервера с [установкой](../operations/servers/reinstall-os-from-marketplace.md) операционной системы из образа {{ marketplace-short-name }} на дисках сервера в зависимости от его конфигурации по умолчанию создается один или несколько [программных RAID-массивов](https://ru.wikipedia.org/wiki/RAID#Программный_RAID) уровня [RAID1](https://ru.wikipedia.org/wiki/RAID#RAID_1) и/или [RAID10](https://ru.wikipedia.org/wiki/RAID#RAID_10_(RAID_1+0)). Количество создаваемых по умолчанию массивов зависит от числа разных типов дисков, используемых на сервере.

@@ -1,5 +1,6 @@
 ---
-noIndex: true
+title: Uploading audit logs to {{ mos-full-name }}
+description: A step-by-step guide to configuring the loading of resource audit logs into a {{ mos-name }} cluster via a {{ yds-name }} data stream using {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/security/trails-logs-opensearch'
 ---
 

@@ -25,6 +25,7 @@ description: Various {{ yandex-cloud }} security tutorials
 
 * [{#T}](single-sign-on/oidc-grafana.md)
 * [{#T}](single-sign-on/oidc-1c-enterprise.md)
+* [{#T}](single-sign-on/oidc-cloud-ru.md)
 * [{#T}](single-sign-on/saml-grafana.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)
 * [{#T}](single-sign-on/saml-zabbix.md)
@@ -32,6 +33,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](single-sign-on/saml-opensearch-self-managed.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
+* [{#T}](single-sign-on/saml-cloud-ru.md)
 
 
 ## Network security {#network-security}

@@ -20,15 +20,14 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость реализации обучения модели с помощью данных из {{ objstorage-name }} входят:
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Проект {{ ml-platform-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ ml-platform-name }}](../../datasphere/pricing.md)).
 
-* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
-* плата за использование [вычислительных ресурсов {{ compute-name }}](../../compute/pricing.md);
-* плата за запущенный кластер [{{ mpg-name }}](../../managed-postgresql/pricing.md);
-* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -380,7 +379,7 @@
     import logging
     ```
 
-1. Cоздайте эксперимент в MLFlow:
+1. Создайте эксперимент в MLFlow:
 
     ```python
     mlflow.set_experiment("my_first_experiment")

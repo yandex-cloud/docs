@@ -42,7 +42,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
         * **{{ ui-key.yacloud.alb.label_target-groups }}**: Target group you created earlier.
         * **{{ ui-key.yacloud.alb.label_port }}**: TCP port on which your service's VMs accept inbound traffic.
         * Under **{{ ui-key.yacloud.alb.label_protocol-settings }}**, specify the settings for connecting the L7 load balancer to the backend. Depending on the protocol type on your backend, select `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
-        * Under **HTTP health check**, set the check up according to these [recommended practices](../../application-load-balancer/concepts/best-practices.md#health-checks-recommendations).
+        * Under **HTTP health check**, configure the check using [these practical recommendations](../../application-load-balancer/concepts/best-practices.md#health-checks-recommendations).
         * Optionally, configure other settings as per [this guide](../../application-load-balancer/operations/backend-group-create.md).
 
 1. [Create an HTTP router](../../application-load-balancer/operations/http-router-create.md).
@@ -105,7 +105,7 @@ To migrate traffic:
 1. Update the target group integration for the instance group:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your instance group.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
     1. Select the group to update.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.

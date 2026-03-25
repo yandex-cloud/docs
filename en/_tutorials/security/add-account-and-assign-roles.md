@@ -186,7 +186,7 @@ Make sure you have access to `test-folder`. Once you open the folder, create a V
   1. Go to the [management console]({{ link-console-main }}) and click your profile image in the left-hand panel.
   1. Select `Example organization`.
   1. In the left-hand panel, select `test-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** service.
   1. Select ![image](../../_assets/console-icons/server.svg) **Virtual machines**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** and set the VM parameters:
 

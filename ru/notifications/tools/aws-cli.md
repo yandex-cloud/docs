@@ -164,6 +164,22 @@ aws sns publish \
 
 Подробнее о команде `aws sns publish` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
 
+## Примеры {#examples}
+
+### Отправка SMS {#sms-sending}
+
+```bash
+aws sns publish \
+  --phone-number "<номер_получателя>" \
+  --message "<текст_уведомления>" \
+  --message-attributes '{"AWS.SNS.SMS.SenderID": {"DataType": "String", "StringValue": "<текстовое_имя_отправителя>"} }'
+```
+
+Где:
+* `--phone-number` — российский телефонный номер в формате [E.164](https://ru.wikipedia.org/wiki/E.164).
+* `--message` — текст SMS.
+* `--message-attributes` — атрибуты SMS, где `AWS.SNS.SMS.SenderID.StringValue` — текстовое имя отправителя.
+
 ## См. также {#see-also}
 
 * [Начало работы](../quickstart.md)

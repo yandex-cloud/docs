@@ -32,12 +32,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры «1С:Предприятия» в {{ yandex-cloud }} входит:
-* плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за постоянно запущенный кластер {{ mpg-name }} (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md));
-* плата за использование статического [публичного IP-адреса](../../vpc/concepts/address.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+
 
 ## Настройте VPN для доступа к облачной инфраструктуре {#setup-vpn}
 

@@ -101,6 +101,8 @@ items:
             href: tutorials/single-sign-on/oidc-grafana.md
           - name: Setting up OIDC SSO in 1C:Enterprise
             href: tutorials/single-sign-on/oidc-1c-enterprise.md
+          - name: Setting up OIDC SSO in Cloud.ru
+            href: tutorials/single-sign-on/oidc-cloud-ru.md
           - name: Setting up SAML SSO in Grafana Cloud
             href: tutorials/single-sign-on/saml-grafana.md
           - name: Setting up SAML SSO in {{ mgl-name }}
@@ -117,6 +119,8 @@ items:
             href: tutorials/single-sign-on/saml-yandex-360.md
           - name: Setting up SAML SSO in OpenVPN Access Server
             href: tutorials/single-sign-on/saml-ovpn.md
+          - name: Setting up SAML SSO in Cloud.ru
+            href: tutorials/single-sign-on/saml-cloud-ru.md
           - name: Setting up SAML SSO in Sentry
             href: tutorials/single-sign-on/saml-sentry.md
       - name: Network security

@@ -46,7 +46,8 @@ To create a network:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Open the [management console]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
     1. Specify the network **{{ ui-key.yacloud.vpc.networks.create.field_name }}**: `alb-logging-network`.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -60,8 +61,8 @@ To create a network:
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, enter `alb-logging-service-account`.
   1. Add the `{{ roles-functions-invoker }}` and `editor` roles.
@@ -83,7 +84,8 @@ To create security groups:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Open the **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
   1. Create a security group for the load balancer:
      
@@ -140,7 +142,8 @@ To create a cluster and a database:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter `alb-logging-cluster`.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
@@ -241,7 +244,8 @@ To create an instance group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Enter the instance group name: `alb-logging-ig`.
   1. In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, select the account you [previously created](#create-sa).
@@ -292,7 +296,7 @@ It may take a few minutes to create an instance group. Wait until the group [sta
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [log group](../../logging/concepts/log-group.md).
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
     1. Enter a name, e.g., `alb-logging-group`, and description for the log group.
     1. Set the log group record retention period.
@@ -314,7 +318,8 @@ To create a backend group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Enter the backend group **{{ ui-key.yacloud.common.name }}**: `alb-logging-bg`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
@@ -338,7 +343,8 @@ To create an HTTP router:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Specify the HTTP router **{{ ui-key.yacloud.common.name }}**: `alb-logging-router`.
   1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
@@ -358,7 +364,8 @@ To create a load balancer:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Enter the load balancer **{{ ui-key.yacloud.common.name }}**: `alb-logging-balancer`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select `alb-logging-network` and the `alb-logging-sg-balancer` security group that you created earlier.
@@ -383,7 +390,8 @@ To create a function:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter the function name: `alb-logging-function`.
   1. Click **{{ ui-key.yacloud.common.create }}**. After creating the function, you will be automatically redirected to the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** page.
@@ -481,7 +489,8 @@ To create a function:
   
      To define the values of connection parameters:
   
-     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+     1. Open the [management console]({{ link-console-main }}).
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
      1. Select `alb-logging-cluster`.
      1. In the line with the database you need, click ![image](../../_assets/console-icons/ellipsis.svg).
      1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
@@ -504,7 +513,7 @@ To create a trigger:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -558,7 +567,7 @@ To create a trigger:
   * `--batch-size`: Maximum number of messages sent to the function at the same time.
   * `--batch-cutoff`: Maximum time interval between consecutive messages to the function.
   
-  For more information about the command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/trigger/create/logging.md).
+  For more information about this command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/trigger/create/logging.md).
   
 - API {#api}
 
@@ -574,7 +583,8 @@ To create a trigger:
    
    - Management console {#console}
    
-     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. Open the [management console]({{ link-console-main }}).
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. Find the `alb-logging-balancer` load balancer in the list and copy its IP address.
      
    {% endlist %}
@@ -586,7 +596,8 @@ To create a trigger:
    
    - Management console {#console}
    
-     1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+     1. Open the [management console]({{ link-console-main }}).
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
      1. Select `alb-logging-cluster`.
      1. Navigate to the **SQL** tab.
      1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.

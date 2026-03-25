@@ -1,15 +1,16 @@
-The `managed-mysql.viewer` role allows you to view information on MySQL® clusters, hosts, databases, users, and cluster logs, as well as on quotas and resource operations.
+The `managed-mysql.viewer` role enables viewing info on MySQL® clusters, hosts, databases, users, cluster logs, quotas, and resource operations.
 
 Users with this role can:
-* View information on MySQL® [clusters](../../managed-mysql/concepts/index.md).
-* View information on MySQL® cluster [hosts](../../managed-mysql/concepts/instance-types.md).
-* View information on MySQL® databases.
-* View information on MySQL® [users](../../managed-mysql/concepts/user-rights.md).
-* View information on MySQL® cluster [backups](../../managed-mysql/concepts/backup.md).
-* View information on MySQL® alerts.
+* View info on [MySQL® clusters](../../managed-mysql/concepts/index.md) and [access permissions](../../iam/concepts/access-control/index.md) granted for them.
+* View info on [maintenance](../../managed-mysql/concepts/maintenance.md) tasks for MySQL® clusters.
+* View info on MySQL® cluster [hosts](../../managed-mysql/concepts/instance-types.md).
+* View info on MySQL® databases.
+* View info on MySQL® [users](../../managed-mysql/concepts/user-rights.md).
+* View info on MySQL® cluster [backups](../../managed-mysql/concepts/backup.md).
+* View info on MySQL® alerts.
 * View MySQL® cluster logs.
-* View information on the results of MySQL® cluster performance diagnostics.
-* View information on [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) of Managed Service for MySQL®.
-* View information on resource operations for Managed Service for MySQL®.
+* View info on the results of MySQL® cluster performance diagnostics.
+* View info on [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) for Managed Service for MySQL®.
+* View info on resource operations for Managed Service for MySQL®.
 
-This role includes the `managed-mysql.auditor` permissions.
+This role includes the `managed-mysql.auditor` and `managed-mysql.maintenanceTask.viewer` permissions.

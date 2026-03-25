@@ -37,7 +37,7 @@ For your new infrastructure to run properly, create two [service accounts](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name of the service account for the bucket: `kuma-bucket-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -92,7 +92,7 @@ To mount a bucket on a server with a KUMA collector installed, create a [static 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `kuma-bucket-sa` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -126,7 +126,7 @@ To mount a bucket on a server with a KUMA collector installed, create a [static 
       secret: YCMiEYFqczmjJQ2XCHMOenrp1s1-yva1********
       ```
 
-  1. Save the ID (`key_id`) and secret key (`secret`): you will need them later when mounting the bucket on the server.
+  1. Save the ID (`key_id`) and secret key (`secret`) for later when you are mounting the bucket on the server.
 
   For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
@@ -146,7 +146,7 @@ Create a [symmetric encryption key](../../kms/concepts/key.md) for encryption of
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify its attributes:
 
@@ -235,7 +235,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
 
   1. Assign roles for the encryption key:
 
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}** and click on the line with `kuma-key`.
       1. Go to ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Select the `kuma-trail-sa` service account.
@@ -276,7 +276,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
-  2. Assign the `kms.keys.encrypterDecrypter` role for the encryption key to `kuma-bucket-sa`.
+  1. Assign the `kms.keys.encrypterDecrypter` role for the encryption key to `kuma-bucket-sa`.
 
       ```bash
       yc kms symmetric-key add-access-binding kuma-key \
@@ -315,7 +315,7 @@ Create a [bucket](../../storage/concepts/bucket.md) for the trail to save audit 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `my-audit-logs-for-kuma`.
 
@@ -356,7 +356,7 @@ Create a [bucket](../../storage/concepts/bucket.md) for the trail to save audit 
 
       For more information about the `yc storage bucket create` command, see the [CLI reference](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
-  2. Enable encryption for the new bucket:
+  1. Enable encryption for the new bucket:
 
       ```bash
       yc storage bucket update \
@@ -398,7 +398,7 @@ Create a [trail](../../audit-trails/concepts/trail.md) to collect and deliver au
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and do the following in the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail: `kuma-trail`.
@@ -488,7 +488,7 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Specify the network name, e.g., `kuma-network`.
   1. Make sure the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option is enabled.
@@ -516,7 +516,7 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
 
       For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  2. Create a [subnet](../../vpc/concepts/network.md#subnet):
+  1. Create a [subnet](../../vpc/concepts/network.md#subnet):
 
       ```bash
       yc vpc subnet create \
@@ -563,8 +563,8 @@ As a server to install the KUMA collector on, you can use a {{ compute-name }} [
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.

@@ -6,6 +6,8 @@
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
+{% include [bmc-settings-change-warning](../../_includes/baremetal/bmc-settings-change-warning.md) %}
+
 ## Аренда серверов {#server-lease}
 
 Сервер в готовой конфигурации можно арендовать на срок 1 день, 1, 3, 6 месяцев или 1 год. Конфигурации, доступные для аренды в каждом [пуле](#server-pools), можно посмотреть при заказе сервера в [консоли управления]({{ link-console-main }}). 

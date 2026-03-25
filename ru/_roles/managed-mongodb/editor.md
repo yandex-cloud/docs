@@ -1,8 +1,11 @@
-Роль `managed-mongodb.editor` позволяет управлять кластерами Yandex StoreDoc и просматривать их логи, а также получать информацию о квотах и операциях с ресурсами сервиса.
+Роль `managed-mongodb.editor` позволяет управлять кластерами Yandex StoreDoc.
 
 Пользователи с этой ролью могут:
-* создавать, изменять, удалять, запускать и останавливать [кластеры Yandex StoreDoc](../../storedoc/concepts/index.md) и просматривать информацию о них;
+* создавать, использовать, изменять, удалять, запускать и останавливать [кластеры Yandex StoreDoc](../../storedoc/concepts/index.md) и просматривать информацию о них;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к кластерам Yandex StoreDoc;
+* просматривать информацию о заданиях на [техническое обслуживание](../../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания;
 * создавать, изменять и удалять [хосты](../../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc и просматривать информацию о них;
+* переназначать хост-мастер в кластерах Yandex StoreDoc;
 * создавать и удалять [шарды](../../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc и просматривать информацию о них;
 * создавать и удалять базы данных Yandex StoreDoc и просматривать информацию о них;
 * создавать, изменять и удалять [пользователей](../../storedoc/concepts/users-and-roles.md) Yandex StoreDoc и просматривать информацию о них;
@@ -13,6 +16,6 @@
 * просматривать информацию о [квотах](../../storedoc/concepts/limits.md#mmg-quotas) сервиса Yandex StoreDoc;
 * просматривать информацию об операциях с ресурсами сервиса Yandex StoreDoc.
 
-Включает разрешения, предоставляемые ролями `managed-mongodb.viewer` и `managed-mongodb.restorer`.
+Включает разрешения, предоставляемые ролями `managed-mongodb.viewer`, `managed-mongodb.restorer`, `managed-mongodb.user`, `managed-mongodb.switcher` и `managed-mongodb.maintenanceTask.editor`.
 
 Для создания кластеров Yandex StoreDoc дополнительно необходима роль `vpc.user`.

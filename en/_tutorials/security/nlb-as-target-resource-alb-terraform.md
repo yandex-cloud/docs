@@ -46,7 +46,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
     * `certificate` (for `HTTPS`): Path to the self-signed custom certificate.
     * `private_key` (for `HTTPS`): Path to the private key file.
 
-1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Validate your {{ TF }} configuration files using this command:
 
     ```bash
     terraform validate
@@ -61,7 +61,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 1. In the management console, select the folder where you created the L7 load balancer.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Wait until the L7 load balancer goes `Active`.
 1. Specify the autoscaling settings in the L7 load balancer:
 

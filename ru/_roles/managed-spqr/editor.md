@@ -1,8 +1,9 @@
-Роль `managed-spqr.editor` позволяет управлять кластерами Sharded PostgreSQL и просматривать логи их работы, а также получать информацию о квотах и операциях с ресурсами сервиса.
+Роль `managed-spqr.editor` позволяет управлять кластерами Sharded PostgreSQL.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [кластерах](../../managed-spqr/concepts/index.md) Sharded PostgreSQL и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
 * создавать, изменять, удалять, запускать и останавливать кластеры Sharded PostgreSQL;
+* просматривать информацию о заданиях на техническое обслуживание кластеров Sharded PostgreSQL и изменять такие задания;
 * просматривать информацию о [хостах](../../managed-spqr/concepts/instance-types.md) кластеров Sharded PostgreSQL, а также создавать, изменять и удалять такие хосты;
 * просматривать информацию о базах данных в кластерах Sharded PostgreSQL, а также создавать, изменять и удалять такие базы данных;
 * просматривать информацию о пользователях в кластерах Sharded PostgreSQL, а также создавать, изменять и удалять таких пользователей;
@@ -11,4 +12,4 @@
 * просматривать информацию о [квотах](../../managed-spqr/concepts/limits.md#mspqr-quotas) сервиса Managed Service for Sharded PostgreSQL;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for Sharded PostgreSQL.
 
-Включает разрешения, предоставляемые ролями `managed-spqr.viewer` и `managed-spqr.restorer`.
+Включает разрешения, предоставляемые ролями `managed-spqr.viewer`, `managed-spqr.restorer` и `managed-spqr.maintenanceTask.editor`.

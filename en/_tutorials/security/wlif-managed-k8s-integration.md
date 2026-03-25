@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for computing resources and disks for {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using the {{ managed-k8s-name }} [master](../../managed-kubernetes/concepts/index.md#master) and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for a {{ managed-k8s-name }} cluster's [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
@@ -60,7 +60,7 @@ To use the {{ yandex-cloud }} API, your cluster nodes must have internet access.
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
-      1. In the list of services, select **{{ managed-k8s-name }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster and select **Edit**.
       1. In the **Identity and access management** field, enable workload identity federations.
       1. Click **Save**.
@@ -108,7 +108,7 @@ To use the {{ yandex-cloud }} API, your cluster nodes must have internet access.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to access via the {{ yandex-cloud }} API.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter the **Issuer URL** value you previously saved, e.g., `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
@@ -121,14 +121,14 @@ To use the {{ yandex-cloud }} API, your cluster nodes must have internet access.
 
 ## Set up an {{ iam-short-name }} service account {#prepare-sa}
 
-1. Create a {{ iam-short-name }} service account:
+1. Create a service account named {{ iam-short-name }}:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with the {{ lockbox-name }} secret.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -159,7 +159,7 @@ To use the {{ yandex-cloud }} API, your cluster nodes must have internet access.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the list of service accounts, select `sa-lockbox`.
   1. Navigate to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
   1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
@@ -179,7 +179,7 @@ To use the {{ yandex-cloud }} API, your cluster nodes must have internet access.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your secret.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
   1. Select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**.

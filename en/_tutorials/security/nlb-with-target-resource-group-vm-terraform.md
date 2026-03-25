@@ -92,8 +92,8 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-1. In the management console, select the folder where you created the L7 load balancer.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you created the L7 load balancer.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Wait until the L7 load balancer goes `Active`.
 1. Specify the autoscaling settings in the L7 load balancer:
 
@@ -123,7 +123,7 @@ To migrate traffic:
 1. Update the target group integration for the instance group:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your instance group.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
     1. Select the group to update.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.

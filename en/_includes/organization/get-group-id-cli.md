@@ -1,7 +1,7 @@
 To view a list of available groups, run this command by specifying the [organization ID](../../organization/operations/organization-get-id.md):
 
 ```bash
-yc organization-manager organization list --organization-id <organization_ID>
+yc organization-manager group list --organization-id <organization_ID>
 ```
 
 Result:

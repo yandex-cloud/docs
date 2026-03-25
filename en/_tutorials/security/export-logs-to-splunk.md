@@ -50,10 +50,10 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-      1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
 
          By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
@@ -74,7 +74,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
      * Any name and optional description.
@@ -110,7 +110,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account. Follow these naming requirements:
 
@@ -137,7 +137,7 @@ The infrastructure support cost includes:
   
       Where:
   
-      * `--role`: Role being assigned.
+      * `--role`: Role to assign.
       * `--id`: ID of the folder from which audit logs will be collected.
       * `--service-account-id`: Service account ID.
   
@@ -152,7 +152,7 @@ The infrastructure support cost includes:
   
       Where:
   
-      * `--role`: Role you want to assign.
+      * `--role`: Role to assign.
       * `--id`: ID of the folder to host the trail.
       * `--service-account-id`: Service account ID.
   
@@ -167,7 +167,7 @@ The infrastructure support cost includes:
   
       Where:
   
-      * `--role`: Role being assigned.
+      * `--role`: Role to assign.
       * `--id`: KMS key ID.
       * `--service-account-id`: Service account ID.
   
@@ -187,7 +187,7 @@ To create the trail, make sure you have the following roles:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create the trail.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
      * **{{ ui-key.yacloud.common.name }}**: Name of the new trail.
@@ -235,7 +235,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
 
   1. Create a NAT gateway:
       1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Enter a name for the gateway. Follow these naming requirements:
@@ -256,7 +256,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
       1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
       1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-      1. In the window that opens, select the table you created from the list.
+      1. In the window that opens, select your route table from the list.
       1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 {% endlist %}
@@ -305,7 +305,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
      terraform plan
      ```
   
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
@@ -334,7 +334,7 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. To delete the resources created with {{ TF }}:
 

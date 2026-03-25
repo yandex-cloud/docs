@@ -349,7 +349,7 @@ There are no limits for {{ metadata-hub-full-name }}.
 
 #### Quotas {#ca-quotas}
 
-{% include [ca-limits](../../_includes/ca-limits.md) %}
+Quotas for {{ ca-full-name }} are set depending on the tariff plan used. For details, see the [{{ ca-name }} Tariff Plans]({{ link-src-docs }}/sourcecraft/pricing#ca-plans) page.
 
 
 ### {{ speechkit-full-name }} {#speechkit}
