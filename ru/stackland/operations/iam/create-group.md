@@ -33,7 +33,6 @@
   metadata:
     name: <имя_группы>-role
   spec:
-    organizationID: stackland
     roleID: <идентификатор_роли>
     subject:
       kind: Group

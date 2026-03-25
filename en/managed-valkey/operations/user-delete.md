@@ -8,7 +8,7 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
@@ -20,7 +20,7 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
       ```bash
       {{ yc-mdb-rd }} user delete --help
       ```
-  
+
   1. To delete a user, run this command:
 
       ```bash
@@ -35,33 +35,33 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
-  
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
-  
+
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
   1. Delete the `yandex_mdb_redis_user` resource with the target user’s description.
-  
-  1. Validate your configuration.
-  
+
+  1. Make sure the settings are correct.
+
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
-  1. Confirm resource changes.
-  
+
+  1. Confirm updating the resources.
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   1. Run this [CLI](../../cli/quickstart.md#install) command to make sure the user was deleted:
-      
+
       ```bash
       {{ yc-mdb-rd }} user list \
         --cluster-id=<cluster_ID>
       ```
 
       Learn more on how to get a list of users [here](user-list.md#list).
-  
+
   {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -82,7 +82,7 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -104,15 +104,15 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.redis.v1.UserService.Delete
         ```
-      
+
       Where:
 
       * `cluster_id`: Cluster ID.
-        
+
         You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
       * `user_name`: Username.
-      
+
         You can get the username with the [list of users](user-list#list) in the cluster.  
 
   1. Check the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.

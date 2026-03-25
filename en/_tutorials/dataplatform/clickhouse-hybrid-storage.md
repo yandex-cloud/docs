@@ -263,7 +263,8 @@ As the SQL result shows, the user interacts with a single logical table. {{ CH }
 
 To monitor the amount of space [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
 
-1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
 1. Navigate to the **Metric Explorer** section.
 1. Run this query:
 

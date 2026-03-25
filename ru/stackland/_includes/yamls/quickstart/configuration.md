@@ -100,6 +100,7 @@ spec:
 
       features:                                  # Переопределяет типовое значение, заданное в `StacklandClusterConfig`
         - gpu                                    # На хосте нужно включить поддержку GPU
+        - nvlink                                 # На хосте нужно включить поддержку NVLink
 ---
 # Секреты (управление происходит через команду sladm secrets)
 apiVersion: v1alpha1

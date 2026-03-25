@@ -15,17 +15,11 @@ A single-host cluster does not provide high availability. If the master host fai
 
 A cluster with two or more hosts located in different availability zones is tolerant of a single zone failure. For production environments with strict requirements for availability and performance, we recommend using clusters with three or more hosts: if one zone fails, redundancy is maintained and there is no significant drop in performance.
 
-{% note info %}
-
-A host with a [manually set replication source](replication.md#manual-source) is not counted into the minimum number of hosts required to ensure the high availability of a cluster.
-
-{% endnote %}
-
 ## Replication and master failover settings {#replication-settings}
 
 High availability is achieved through [replication and master failover](replication.md), which work as follows:
 * Clusters use a mechanism for automatic selection and failover to a new master. If the master host fails, one of its replicas becomes a new master. You can also select a new master and [switch to it](../operations/update.md#start-manual-failover) manually.
-* For any replica, you can [manually select](replication.md#manual-source) a host as the replication source. Such a replica will not be involved in the master selection and failover mechanism.
+* For any replica, you can [manually select](replication.md#manual-source) a host as the replication source. Such a replica becomes a _cascading replica_ and switches to the _asynchronous_ replication mode. Cascading replicas are not used in the [master selection and failover mechanism](https://www.percona.com/blog/overview-of-different-mysql-replication-solutions/) and not counted when calculating the minimum number of hosts to achieve high cluster availability, because the source does not expect such replicas to get transactions.
 * If you use public access for the host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
 * Using the [current master's FQDN](../operations/connect/fqdn.md#fqdn-master) simplifies application development; however, your cluster will be temporarily unavailable while switching to a new master. To quickly switch to a new master, you need to implement the new master definition on the application side.
 * {{ mmy-name }} clusters use [semi-sync replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): by default, the master waits for a transaction to be completed in at least one replica. You can increase the minimum number of replicas that must confirm a transaction using the {{ MY }} [Rpl semi sync master wait for slave count](settings-list.md#setting-rpl-wait-slave-count) setting. We recommend to set **Rpl semi sync master wait for slave count** to at least the maximum number of hosts per zone, not including hosts with a manually selected replication source. Then each transaction will be confirmed by at least one replica in another availability zone, so that even if an entire zone fails, the transactions will not be lost.

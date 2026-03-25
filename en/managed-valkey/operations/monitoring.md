@@ -1,9 +1,9 @@
 ---
-title: '{{ VLK }} cluster and host state monitoring'
-description: You can monitor the state of a {{ mrd-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
+title: Cluster, host, and shard state monitoring in {{ mrd-name }}
+description: You can monitor the state of a {{ mrd-name }} cluster and its hosts and shards using the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
-# {{ VLK }} cluster and host state monitoring
+# Cluster, host, and shard state monitoring in {{ mrd-name }}
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,141 +13,100 @@ description: You can monitor the state of a {{ mrd-name }} cluster and its indiv
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster health state monitoring {#monitoring-cluster}
 
-To view detailed information on the state of a {{ mrd-name }} cluster:
+To view detailed information on the health state of a {{ mrd-name }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+      
+      The page that opens will display performance charts for the cluster.
   
-  1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+      {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+  
+  The following charts are displayed for a cluster:
 
-  You will see the following charts:
+  * **Hosts available for read**: Cluster host read availability.
+  * **Hosts available for write**: Cluster host write availability.
 
-  * **Can Read**: Displays clusters available for reading.
+  Under **Traffic**:
 
-  * **Can Write**: Displays clusters available for writing.
-
-  * **Cache Hit Rate**: Percentage of cache hits on each host.
-
-      Values close to 1 show efficient use of the cluster as a caching server. If the hit rate approaches 0, you may need to change your application logic, key lifetime, or the [RAM management policy](../concepts/settings-list.md#settings-maxmemory-policy) when low on memory.
-
-  * **Client recent max input buffer size**: Amount of memory used to handle client write connections, in bytes.
-
-  * **Client recent max output buffer size**: Amount of memory used to handle client read connections:
-
-      * **Soft Limit**: Soft memory usage limit.
-      * **Hard Limit**: Hard memory usage limit.
-
-      If the **Soft Limit** value is exceeded, the cluster will wait a few seconds for it to decrease. If the value does not decrease, the connection will be closed.
-      If the **Hard Limit** value is exceeded, the connection will be closed immediately.
-
-  * **Commands Processed**: Average number of commands processed by each cluster host.
-
-  * **Connected Clients**: Number of open connections for each cluster host.
+  * **Connected Clients**: Number of open connections to services on cluster hosts.
 
       If the cluster is [sharded](../concepts/sharding.md) or uses [replication](../concepts/replication.md), some of the connections will be used for inter-host communication within the cluster.
       If you encounter errors when connecting to the cluster, inactive applications may be keeping connections open for too long. If this is the case, [update the {{ VLK }} settings](../operations/update.md#change-valkey-config) by editing the [Timeout](../concepts/settings-list.md#settings-timeout) value.
 
-  * **Copy-on-write allocation**: Memory consumption by {{ VLK }} processes when using [COW (copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write), in bytes.
+  * **Commands Processed**: Rate of command processing on each cluster host.
+  * **Commandstats**: Rate of command calls on each cluster host.
 
-      The chart shows the latest measured {{ VLK }} parameter values:
+  Under **Latency**:
 
-      * **module_fork_last_cow_size**: Amount of data copied during a `fork()` call using COW.
-      * **aof_last_cow_size**: Size of data copied when creating an AOF file.
-      * **rdb_last_cow_size**: Size of data copied when creating an RDB file.
+  * **Latencystats, p50**: Median command execution time. 
+  * **Latencystats, p99**: Command execution time in the 99th percentile.
+  * **Latencystats, p99.9**: Command execution time in the 99.9th percentile.
 
-      For more information, see [Backups](../concepts/backup.md).
+  Under **DB Metrics**:
 
-  * **DB keys**: Number of keys stored in all cluster databases.
-
-  * **Evicted keys**: Number of keys deleted from memory when inserting new data.
-
-      By default, {{ VLK }} applies the **noeviction** memory policy, which prevents key deletion and returns an error if memory is too low to insert new data. To use a different memory management policy, adjust the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value in the [{{ VLK }} settings](./update.md#change-valkey-config).
-
-  * **Inner memory limit**: Amount of RAM available for {{ VLK }} processes, in bytes:
-
-      * **maxmemory**: Maximum amount of memory allocated for user data.
-      * **used_memory**: Actual host memory usage.
-
-      If **used_memory** reaches **maxmemory** when trying to insert new records, {{ VLK }} will apply the memory management mode defined by the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) setting.
-
-      {% note info %}
-
-      The value of **maxmemory** for {{ VLK }} hosts is set to {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](../concepts/memory-management.md).
-
-      {% endnote %}
-
-  * **Outer memory limit**: Total amount of RAM available for use on hosts, in bytes:
-
-      * **memory_limit**: Amount of memory allocated to each host.
-      * **used_memory_rss**: Memory used by {{ VLK }} processes.
-
-      If **used_memory_rss** approaches **memory_limit**, the operating system may forcibly terminate the relevant {{ VLK }} process. To avoid this:
-      * Change the application logic to reduce the amount of data stored in {{ VLK }}.
-      * Change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value defining the RAM management policy when low on memory in the [{{ VLK }} settings](./update.md#change-valkey-config).
-      * [Upgrade the host to a higher class](./update.md#change-resource-preset).
-
-  * **Redis Used Memory on Masters**: RAM usage on master hosts, in bytes:
-
-      * **db_hashtable_overhead**: For storing hash tables of all databases.
-      * **used_memory_scripts**: For storing and running [scripts](https://valkey.io/commands/script-load).
-      * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
-      * **mem_clients_normal**: For handling external client connections.
-      * **mem_clients_slaves**: For handling replication connections.
-      * **mem_replication_backlog**: For the replication backlog.
-      * **used_memory_startup**: For {{ VLK }} processes at startup, e.g., after restarting a cluster.
-      * **used_memory_dataset**: For storing data.
-      * **mem_cluster_links**: For network connections in cluster mode.
-
-  * **Redis Used Memory on Replicas**: RAM usage on replica hosts, in bytes:
-
-      * **db_hashtable_overhead**: For storing hash tables of all databases.
-      * **used_memory_scripts**: For storing and running [scripts](https://valkey.io/commands/script-load).
-      * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
-      * **mem_clients_normal**: For handling external client connections.
-      * **mem_clients_slaves**: For handling replication connections.
-      * **mem_replication_backlog**: For the replication backlog.
-      * **used_memory_startup**: For {{ VLK }} processes at startup, e.g., after restarting a cluster.
-      * **used_memory_dataset**: For storing data.
-      * **mem_cluster_links**: For network connections in cluster mode.
-
-  * **Redis-server OOM kills (for last hour)**: Number of {{ VLK }} processes terminated due to _OOM_ (out-of-memory) for the last hour.
-
-      To reduce the number of terminated processes:
-      * Change the application logic to reduce the amount of data stored in {{ VLK }}.
-      * Change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value defining the RAM management policy when low on RAM in the [{{ VLK }} settings](./update.md#change-valkey-config).
-      * [Upgrade the host to a higher class](./update.md#change-resource-preset).
-
-  * **Replication buffer size**: [Replication](../concepts/replication.md#replication) backlog size, in bytes:
-
-      * **repl_backlog_size**: Maximum size of memory available for the replication backlog.
-      * **repl_backlog_histlen**: Size of memory currently used by the replication backlog.
-
-      When the replication backlog runs out of memory, full replication starts. This will reduce cluster performance because full replication significantly increases RAM usage as well as CPU and network workload.
-
+  * **DB keys**: Number of keys on each cluster host.
+  * **Evicted keys**: Number of keys deleted from memory when inserting new data. Information is displayed for each cluster host.
+  * **Cache Hit Rate**: Percentage of requests for which data was retrieved from the cache. Information is displayed for each cluster host.
   * **Replication Lag**: Replica's lag behind the master, in seconds.
+  * **IO threads active**: Number of active threads on each cluster host.
+  * **Valkey-server OOM kills (for last hour)**: Number of `Out of Memory` errors on each cluster host.
 
-      A non-zero value indicates either slow command execution on the replica or replica overload.
+  Under **Resources** → **Memory**:
 
-      For more information, see [{#T}](../concepts/replication.md).
+  * **Outer memory limit**: Limit and RAM usage by processes on each cluster host.
+  * **Inner Memory limit**: Limit and RAM usage on each cluster host.
+  * **Memory fragmentation ratio**: Ratio of allocated memory to actually used memory on each cluster host.
+  * **Valkey Used Memory on Masters**: RAM usage on master hosts of the cluster.
+  * **Valkey Used Memory on Replicas**: RAM usage in replicated cluster hosts.
+  * **Replication buffer size**: Size of used and available memory for the [replication](../concepts/replication.md#replication) buffer on each cluster host.
+  * **Client recent max input buffer size**: Maximum buffer size for handling incoming client connections on each cluster host.
+  * **Client recent max output buffer size**: Maximum buffer size for handling outgoing client connections on each cluster host.
+  * **Copy-on-write allocations**: Amount of memory allocated by the COW mechanism when creating child processes. Information is displayed for each cluster host.
 
-  * **Slowlog top operations on Master**: List of the 5 slowest commands executed on the master host within one minute.
-  
-  * **Slowlog top operations on Replicas**: List of the 5 slowest commands executed on each replica host within one minute.
+  Under **Resources** → **CPU**:
 
-  * **Slowlog new records**: Displays new entries in the slow log.
+  * **CPU usage main thread**: CPU time, system and user, consumed by the main thread on each cluster host.
+  * **CPU usage main thread on Masters**: CPU time, system and user, consumed by the main thread on the cluster's master hosts. 
+  * **CPU usage main thread on Replicas**: CPU time, system and user, consumed by the main thread on the cluster's replica hosts. 
 
-      A slow command is a command whose runtime has exceeded the [Slowlog log slower than](../concepts/settings-list.md#settings-slowlog-slower-than) setting. The chart only shows the first part of the command and its call count per minute.
+  Under **Resources** → **Network**:
+
+  * **Network usage**: Amount of incoming and outgoing network traffic on each cluster host.
+  * **Network usage on Masters**: Amount of incoming and outgoing network traffic on the cluster's master hosts.
+  * **Network usage on Replicas**: Amount of incoming and outgoing network traffic on the cluster's replica hosts.
+  * **Replication network usage**: Amount of incoming and outgoing network traffic for replication on each cluster host.
+  * **Replication network usage on Masters**: Amount of incoming and outgoing network traffic for replication on the cluster's master hosts.
+  * **Replication network usage on Replicas**: Amount of incoming and outgoing network traffic for replication on the cluster's replica hosts.
+
+  Under **Resources** → **Data**:
+
+  * **Disk IO**: Rate of disk operations on each cluster host.
+  * **Disk space usage percentage**: Percentage of disk space used on each cluster host.
+  * **Disk space usage**: Amount of disk space used on each cluster host.
+
+  Under **Errors**:
+
+  * **Errorstats**: Rate of failed queries on each cluster host.
+  * **Sentinel error replies**: Number of {{ RD }} Sentinel's error responses on each cluster host.
+  * **ACL errors**: Rate of access errors on each cluster host.
+
+  Under **Slowlog**:
+
+  * **Slowlog top operations on Master**: Number of records for each command in the Slowlog on the cluster's master hosts.
+  * **Slowlog top operations on Replicas**: Number of records for each command in the Slowlog on the cluster's replica hosts.
+  * **Slowlog new records**: Number of new records in the Slowlog on each cluster host.
 
 {% endlist %}
 
-## Monitoring the state of hosts {#monitoring-hosts}
+## Host state monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mrd-name }} hosts:
 
@@ -155,7 +114,7 @@ To view detailed information on the state of individual {{ mrd-name }} hosts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
   1. Click the name of your cluster and select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
   1. Select the host from the drop-down list.
@@ -170,9 +129,103 @@ To view detailed information on the state of individual {{ mrd-name }} hosts:
   * **Network bytes**: Network data exchange rate, in bytes per second.
   * **Network packets**: Network packet exchange rate, in packets per second.
 
-  The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** value during database read activity, and in **Write**, during database write activity..
+  The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** value during database read activity, and in **Write**, during database write activity.
 
   For **Replica** hosts, the **Received** value is normally greater than **Sent** on the **Network bytes** and **Network packets** charts.
+
+{% endlist %}
+
+## Shard state monitoring {#monitoring-shards}
+
+To view detailed information on the health state of {{ mrd-name }} shards:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+  1. Navigate to the **Shards** tab and select a shard.
+      
+      The page that opens will display health state charts for the selected shard and its hosts.
+  
+      {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+  
+  The following charts are displayed for shards:
+
+  * **Hosts available for read**: Shard host read availability.
+  * **Hosts available for write**: Shard host write availability.
+
+  Under **Traffic**:
+
+  * **Connected Clients**: Number of open connections to services on shard hosts.
+
+      If the cluster is [sharded](../concepts/sharding.md) or uses [replication](../concepts/replication.md), some of the connections will be used for inter-host communication within the cluster.
+      If you encounter errors when connecting to the cluster, inactive applications may be keeping connections open for too long. If this is the case, [update the {{ VLK }}](../operations/update.md#change-valkey-config) settings by editing the [Timeout](../concepts/settings-list.md#settings-timeout) value.
+
+  * **Commands Processed**: Rate of command processing on each shard host.
+  * **Commandstats**: Rate of command calls on each shard host.
+
+  Under **Latency**:
+
+  * **Latencystats, p50**: Median command execution time on the shard. 
+  * **Latencystats, p99**: Command execution time in the 99th percentile on the shard.
+  * **Latencystats, p99.9**: Command execution time in the 99.9th percentile on the shard.
+
+  Under **DB Metrics**:
+
+  * **DB keys**: Number of keys on each shard host.
+  * **Evicted keys**: Number of keys deleted from memory when inserting new data. Information is displayed for each shard host.
+  * **Cache Hit Rate**: Percentage of requests for which data was retrieved from the cache. Information is displayed for each shard host.
+  * **Replication Lag**: Replica's lag behind the master, in seconds.
+  * **IO threads active**: Number of active threads on each shard host.
+  * **Valkey-server OOM kills (for last hour)**: Number of `Out of Memory` errors on each shard host.
+
+  Under **Resources** → **Memory**:
+
+  * **Outer memory limit**: Limit and RAM usage by processes on each shard host.
+  * **Inner Memory limit**: Limit and RAM usage on each shard host.
+  * **Memory fragmentation ratio**: Ratio of allocated memory to actually used memory on each shard host.
+  * **Valkey Used Memory on Masters**: RAM usage on the shard's master hosts.
+  * **Valkey Used Memory on Replicas**: RAM usage in replicated shard hosts.
+  * **Replication buffer size**: Size of used and available memory for the [replication](../concepts/replication.md#replication) buffer on each shard host.
+  * **Client recent max input buffer size**: Maximum buffer size for handling incoming client connections on each shard host.
+  * **Client recent max output buffer size**: Maximum buffer size for handling outgoing client connections on each shard host.
+  * **Copy-on-write allocations**: Amount of memory allocated by the COW mechanism when creating child processes. Information is displayed for each shard host.
+
+  Under **Resources** → **CPU**:
+
+  * **CPU usage main thread**: CPU time, system and user, consumed by the main thread on each shard host.
+  * **CPU usage main thread on Masters**: CPU time, system and user, consumed by the main thread on the shard's master hosts. 
+  * **CPU usage main thread on Replicas**: CPU time, system and user, used by the main thread on the shard's replica hosts. 
+
+  Under **Resources** → **Network**:
+
+  * **Network usage**: Amount of incoming and outgoing network traffic on each shard host.
+  * **Network usage on Masters**: Amount of incoming and outgoing network traffic on the shard's master hosts.
+  * **Network usage on Replicas**: Amount of incoming and outgoing network traffic on the shard's replica hosts.
+  * **Replication network usage**: Amount of incoming and outgoing network traffic for replication on each shard host.
+  * **Replication network usage on Masters**: Amount of incoming and outgoing network traffic for replication on the shard's master hosts.
+  * **Replication network usage on Replicas**: Amount of incoming and outgoing network traffic for replication on the shard's replica hosts.
+
+  Under **Resources** → **Data**:
+
+  * **Disk IO**: Rate of disk operations on each shard host.
+  * **Disk space usage percentage**: Percentage of disk space used on each shard host.
+  * **Disk space usage**: Amount of disk space used on each shard host.
+
+  Under **Errors**:
+
+  * **Errorstats**: Rate of failed queries on each shard host.
+  * **Sentinel error replies**: Number of {{ RD }} Sentinel's error responses on each shard host.
+  * **ACL errors**: Rate of access errors on each shard host.
+
+  Under **Slowlog**:
+
+  * **Slowlog top operations on Master**: Number of records for each command in the Slowlog on the shard's master hosts.
+  * **Slowlog top operations on Replicas**: Number of records for each command in the Slowlog on the shard's replica hosts.
+  * **Slowlog new records**: Number of new records in the Slowlog on each shard host.
 
 {% endlist %}
 
@@ -185,21 +238,21 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to configure alerts.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster where you want to set up alerts.
   1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mrd-name }} — Cluster Overview** to set up cluster alerts.
       * **{{ mrd-name }} — Host Overview** to set up host alerts.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
   1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
-  1. Set the `Alarm` and `Warning` thresholds to trigger the alert.
+  1. Set the `Alarm` and `Warning` alert thresholds.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Below are the recommended thresholds for some metrics:
+Recommended threshold values for selected metrics:
 
 | Metric                                                                                                   | Internal metric name         | `Alarm`                  | `Warning`                |
 |----------------------------------------------------------------------------------------------------------:|:-------------------:|:------------------------:|:------------------------:|
@@ -216,7 +269,7 @@ For the `disk.used_bytes` metric, the `Alarm` and `Warning` thresholds are only 
 You can view the current RAM of the hosts in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-valkey-ref.md).
 
 
-## Cluster state and status {#cluster-health-and-status}
+## Cluster health and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
@@ -226,13 +279,13 @@ To check the cluster state and status:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the cluster of interest.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
-  1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
+  1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}
 
-### Cluster states {#cluster-health}
+### Cluster health states {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 

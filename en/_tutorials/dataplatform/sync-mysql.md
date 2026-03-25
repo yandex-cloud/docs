@@ -77,7 +77,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 To replicate tables with information about online store orders, create a {{ mmy-name }} cluster:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster. 
-1. Select **{{ mmy-name }}** and click **Create cluster**.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** and click **Create cluster**.
 1. Specify a name for the cluster: `ya-sample-cloud-mysql`.
 1. Select the host class: `s2.small`.
 1. Under **Storage size**:
@@ -104,7 +104,7 @@ For more information about creating clusters, see [Getting started with {{ mmy-s
 To synchronize the order information from the MySQL database of the website with the intermediate data storage hosted in the cloud, configure {{ data-transfer-name }}:
 
 1. In the management console, select the folder where you want to create a configuration for the connection. 
-1. Select **{{ data-transfer-name }}** and click **Create endpoint**.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}** and click **Create endpoint**.
 1. Define the parameters of the data source, that is, the VM of the online store with a MySQL instance running on it:
 
    * **Name**: `magento-source`.
@@ -122,7 +122,7 @@ To synchronize the order information from the MySQL database of the website with
    * Select the cluster ID from the list: `ya-sample-cloud-mysql`.
    * **Database name**: `magento-cloud`.
    * **Replication user name**: `yc-user`, password: `12345678`.
-   * Select **Disable constraint checks**.
+   * Select **Disable constraint** checks. 
      In this case, if the data transfer sequence is violated, no error messages are returned.
    * Click **Create**.
 
@@ -163,7 +163,7 @@ To synchronize the order information from the MySQL database of the website with
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the `magento` VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the `ya-sample-cloud-mysql` cluster](../../managed-mysql/operations/cluster-delete.md).

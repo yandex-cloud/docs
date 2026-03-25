@@ -25,7 +25,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
    - Management console {#console}
 
       1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
-      1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the following host settings:
 
@@ -62,21 +62,24 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
          ```hcl
          resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
            ...
-           host {
-             zone             = "<availability_zone>"
-             subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <allow_public_access_to_host>
+           hosts = {
+             ...
+             "<new_host_name>" = {
+               zone             = "<availability_zone>"
+               subnet_id        = "<new_subnet_ID>"
+               assign_public_ip = <allow_public_access_to_host>
+             }
            }
          }
          ```
 
-         In the `zone` attribute, specify the target availability zone for your hosts.
+         In the `zone` parameter, specify the target availability zone for your hosts.
 
       1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -90,7 +93,7 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    {% endlist %}
 
-1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in your source availability zone.
+1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in the source availability zone.
 
    You can get this FQDN from the list of hosts in your cluster.
 
@@ -120,8 +123,8 @@ description: Follow this guide to migrate {{ VLK }} cluster hosts to a different
 
    - {{ TF }} {#tf}
 
-      1. In your {{ TF }} infrastructure configuration file, locate your cluster description and delete the `host` sections with the source availability zone.
-      1. Validate your configuration.
+      1. In your {{ TF }} infrastructure configuration file, delete the hosts with the source availability zone from the `hosts` section in the cluster description.
+      1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

@@ -7,21 +7,21 @@ description: In this article, you will learn about host roles in {{ mos-name }}.
 
 Each {{ mos-name }} cluster consists of one or more host groups of the `{{ OS }}` and `Dashboards` (optional) types:
 
-* An `{{ OS }}` host group may contain hosts with the [DATA](#data) or [MANAGER](#manager) roles. If a cluster has a single `{{ OS }}` group, its hosts will have both roles.
+* An `{{ OS }}` host group may contain hosts with the [DATA](#data) or [MANAGER](#manager) roles.
+  
+  The cluster must contain hosts with both roles. If a cluster has a single `{{ OS }}` group, its hosts will have both roles.
 
 * A `Dashboards` host group may only contain hosts with the [DASHBOARDS](#dashboards) role.
 
 ## Hosts with the DATA role {#data}
 
-Hosts with this role store one or more indexes and handle search, write, and analysis queries. To ensure index scalability and fault tolerance, configure [sharding and replication](scalability-and-resilience.md) for this index.
+Hosts with this role store one or more indexes and handle search, write, and analysis queries.
 
-{% note info %}
 
-There should be at least one host with the `DATA` role in the cluster. A single-host cluster is not fault tolerant.
+For a cluster to be highly available and covered by a [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/), it must have two or more hosts with the `DATA` role.
 
-{% endnote %}
 
-For fault tolerance reasons, you cannot create a cluster that only has two hosts with the `DATA` role. To make your cluster fault-tolerant, add a host group with the `MANAGER` role.
+[More on high-availability of clusters](../../managed-opensearch/concepts/high-availability.md).
 
 ### Use cases {#examples-data}
 
@@ -36,7 +36,7 @@ Hosts with this role monitor the state of the cluster and manage its configurati
 
 If you are using hosts with the `MANAGER` role, a group containing three such hosts will be added to the cluster.
 
-If no hosts with the `MANAGER` role are used, this role will be supported by hosts with the `DATA` role. However, having dedicated hosts with the `MANAGER` role allows you to increase the overall cluster reliability and reduce the load on hosts with the `DATA` role.
+If no hosts with the `MANAGER` role are used, make sure to assign this role to the hosts with the `DATA` role. However, having dedicated hosts with the `MANAGER` role allows you to increase the overall cluster reliability and reduce the load on hosts with the `DATA` role.
 
 ## Hosts with the DASHBOARDS role {#dashboards}
 

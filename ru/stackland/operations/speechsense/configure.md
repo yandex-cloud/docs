@@ -6,7 +6,7 @@
 
 1. Убедитесь, что образы {{ speechsense-name }} [загружены](install-images.md) в кластер.
 1. Убедитесь, что компонент [{{ gpu-operator }}](../../concepts/components/gpu.md) включён и узлы с GPU доступны.
-1. Убедитесь, что компоненты [{{ stackland-mpg-name }}](../../concepts/components/postgresql.md), [{{ stackland-mch-name }}](../../concepts/components/clickhouse.md) и [{{ stackland-mkf-name }}](../../concepts/components/kafka.md) включены.
+1. Убедитесь, что компоненты [{{ mpg-name }}](../../concepts/components/postgresql.md), [{{ mch-name }}](../../concepts/components/clickhouse.md) и [{{ mkf-name }}](../../concepts/components/kafka.md) включены.
 1. Подготовьте S3-совместимое хранилище:
     * [Создайте бакет](../storage/create-bucket.md) для хранения аудиофайлов.
     * [Создайте AccessKey](../storage/create-accesskey.md) для доступа к хранилищу.

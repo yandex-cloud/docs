@@ -21,7 +21,6 @@ To start assistant recalculation in your dialogs for a specific period, create a
 1. Click **{{ ui-key.yc-ui-talkanalytics.tags.reinit }}** at the bottom of the page.
 1. Next, specify the dialog recalculation period and click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
 
-
 ## Canceling an assistant recalculation task {#cancel-recalc}
 
 You can cancel assistant recalculation only if the task's status is **In queue** or **Recalculation underway**. Proceed as follows:

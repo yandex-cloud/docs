@@ -45,6 +45,7 @@ New service account for the ClickHouse cluster. ||
 
 A list of security groups for the ClickHouse cluster. ||
 || `--deletion-protection` | Deletion Protection inhibits deletion of the cluster. ||
+|| `--allow-host-recreation` | Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for configuration changes including disk type change. NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
 || `--clickhouse-resource-preset` | `string`
 
 New resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.). ||

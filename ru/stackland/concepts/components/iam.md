@@ -110,7 +110,6 @@ kind: ClusterAccessBinding
 metadata:
   name: stackland-cluster-admins
 spec:
-  organizationID: stackland
   roleID: admin
   subject:
     kind: Group
@@ -119,7 +118,6 @@ spec:
 
 Где:
 
-* `organizationID` — идентификатор организации. Обязательное поле, должно быть установлено значение `stackland`.
 * `roleID` — идентификатор роли IAM. Обязательное поле.
 * `subject.kind` — тип субъекта `Group` для назначения роли группе. Обязательное поле.
 * `subject.name` — имя группы в {{ iam-name }}. Обязательное поле.

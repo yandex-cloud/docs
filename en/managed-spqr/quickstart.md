@@ -55,7 +55,7 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPQR }} cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster.
 1. Select the `PRODUCTION` environment.
@@ -227,7 +227,7 @@ If you are using security groups for your cloud network, [configure them](operat
 
     {% note warning %}
 
-    Create key value ranges ​starting with the largest value. Breaking this order will result in the `key range krid2 intersects with key range krid1 in QDB` error. For the range with the largest key value, the right boundary will equal infinity.
+    Create key value ranges starting with the largest value. Breaking this order will result in the `key range krid2 intersects with key range krid1 in QDB` error. For the range with the largest key value, the right boundary will equal infinity.
 
     {% endnote %}
 

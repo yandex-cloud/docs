@@ -50,4 +50,4 @@ description: This page provides a list of step-by-step guides for {{ mrd-name }}
 ## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Cluster and host state monitoring](monitoring.md)
+* [Cluster, host, and shard state monitoring](monitoring.md)

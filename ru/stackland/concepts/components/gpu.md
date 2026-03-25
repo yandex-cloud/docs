@@ -107,4 +107,4 @@ kubectl -n stackland-nvidia-gpu get cm default-mig-parted-config -o jsonpath='{.
 ## См. также {#see-also}
 
 * [Monitoring](monitoring.md) — мониторинг кластера и компонентов.
-* [Документация {{ gpu-operator }}](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html).
+* [Документация GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html).

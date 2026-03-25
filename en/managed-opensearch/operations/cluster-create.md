@@ -28,7 +28,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 ## Creating a cluster {#create-cluster}
 
-When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-roles.md).
+When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-roles.md). To reduce load on hosts with the `DATA` role, we recommend you put hosts with the `MANAGER` role into a separate group.
 
 {% list tabs group=instructions %}
 
@@ -91,12 +91,6 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect/index.md) to hosts over the internet.
-
-          {% note tip %}
-
-          For security reasons, we do not recommend enabling public access for hosts with the `MANAGER` role.
-
-          {% endnote %}
 
 
   1. Configure the `Dashboards` [host group](../concepts/host-roles.md#dashboards) under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**, if required:
@@ -375,7 +369,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
               "<security_group_N_ID>"
           ],
           "serviceAccountId": "<service_account_ID>",
-          "deletionProtection": <protect_cluster_against_deletion>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "configSpec": {
               "version": "<{{ OS }}_version>",
               "adminPassword": "<admin_password>",
@@ -574,10 +568,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
               "<security_group_N_ID>"
           ],
           "service_account_id": "<service_account_ID>",
-          "deletion_protection": <protect_cluster_against_deletion>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "config_spec": {
               "version": "<{{ OS }}_version>",
-              "admin_password": "<admin_password>",
+              "admin_password": "<admin_user_password>",
               "opensearch_spec": {
                   "plugins": [
                       "<{{ OS }}_plugin_1>",
@@ -724,7 +718,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `dashboards_spec`: `Dashboards` host group settings. These contain the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
 
           
-          * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
@@ -797,9 +791,9 @@ To create an {{ OS }} cluster copy:
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
@@ -811,7 +805,7 @@ To create an {{ OS }} cluster copy:
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 

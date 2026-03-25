@@ -26,7 +26,7 @@ Furthermore, {{ mmy-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### When to use {{ mmy-short-name }} and when database VMs? {#mdb-advantage}
+#### When to use {{ mmy-short-name }} and when, database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -168,3 +168,16 @@ You can monitor metrics with a minimum granularity of five seconds.
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 
 {% include [logs](../logs.md) %}
+
+#### Why do I get an error while deleting a database? {#delete-db}
+
+Error message:
+
+```text
+Database deletion not allowed. Fix following issues: Database has external foreign key references:
+child_db.orders (FK: fk_orders_user_id) -> parent_db.users
+```
+
+The error occurs if the database being deleted is linked to other databases in the cluster.
+
+**Solution**: Check which databases the database being deleted is linked to and delete those links.
