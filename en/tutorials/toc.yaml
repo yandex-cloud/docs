@@ -250,6 +250,14 @@ items:
             href: security/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
             href: security/single-sign-on/saml-ovpn.md
+          - name: MWS
+            href: security/single-sign-on/oidc-mws.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
           - name: Using OAuth2 Proxy for applications not supporting SSO

@@ -1,1 +1,1 @@
-Роль `managed-airflow.auditor` позволяет просматривать информацию о [кластерах Apache Airflow™](../../managed-airflow/concepts/index.md#cluster).
+Роль `managed-airflow.auditor` позволяет просматривать информацию о [кластерах Apache Airflow™](../../managed-airflow/concepts/index.md#cluster) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../../managed-airflow/concepts/limits.md#quotas) сервиса Managed Service for Apache Airflow™.

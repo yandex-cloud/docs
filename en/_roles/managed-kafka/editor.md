@@ -1,12 +1,14 @@
-The `managed-kafka.editor` role allows you to manage Apache Kafka® clusters and view their logs, as well as get information about quotas and service resource operations.
+The `managed-kafka.editor` role enables managing Apache Kafka® clusters.
 
 Users with this role can:
-* View information about [Apache Kafka® clusters](../../managed-kafka/concepts/index.md), as well as create, modify, delete, run, and stop them.
-* Restore Apache Kafka® clusters from backups.
+* View info on [Apache Kafka® clusters](../../managed-kafka/concepts/index.md), as well as create, use, modify, delete, run, and stop them.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) granted for Apache Kafka® clusters.
+* Use [Kafka UI](../../managed-kafka/concepts/kafka-ui.md) for Apache Kafka®.
+* View info on [maintenance](../../managed-kafka/concepts/maintenance.md) tasks for Apache Kafka® clusters and modify such tasks.
 * View Apache Kafka® cluster logs.
-* View information about [quotas](../../managed-kafka/concepts/limits.md#mkf-quotas) of Managed Service for Apache Kafka®.
-* View information about resource operations for Managed Service for Apache Kafka®.
+* View info on [quotas](../../managed-kafka/concepts/limits.md#mkf-quotas) for Managed Service for Apache Kafka®.
+* View info on resource operations for Managed Service for Apache Kafka®.
 
-This role includes the `managed-kafka.viewer`, `managed-kafka.restorer`, and `managed-kafka.interfaceUser` permissions.
+This role includes the `managed-kafka.viewer`, `managed-kafka.user`, `managed-kafka.interfaceUser`, and `managed-kafka.maintenanceTask.editor` permissions.
 
 To create Apache Kafka® clusters, you also need the `vpc.user` role.

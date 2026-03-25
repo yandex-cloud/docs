@@ -8,6 +8,23 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## February 2026 {#february-2026}
+
+* Added [access policy](concepts/access-control/access-policies.md) management. {{ tag-con }}
+* Added commands for access policy management at the organization, cloud, and folder level:
+  * `yc organization-manager organization list-access-policy-bindings`
+  * `yc organization-manager organization bind-access-policy`
+  * `yc organization-manager organization unbind-access-policy` {{ tag-cli }}
+* Added the following [roles](roles-reference.md):
+
+   {% cut "Yandex Cloud Backup" %}
+
+     User role | Description
+     --- | ---
+     `backup.auditor` | Allows viewing details on virtual machines and BareMetal servers connected to Cloud Backup, backup policies and service quotas, your cloud and folder.
+
+   {% endcut %}
+
 ## December 2025 {#december-2025}
 
 * Added the `yc iam access-key issue-ephemeral` command for issuing [ephemeral keys](concepts/authorization/ephemeral-keys.md). {{ tag-cli }}

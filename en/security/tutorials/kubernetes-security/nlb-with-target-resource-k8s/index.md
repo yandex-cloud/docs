@@ -1,5 +1,6 @@
 ---
-noIndex: true
+title: Migrating services from a {{ network-load-balancer-full-name }} with {{ managed-k8s-full-name }} cluster targets to an L7 {{ alb-full-name }}
+description: Step-by-step guide for migration of load from a {{ network-load-balancer-name }} to an L7 {{ alb-name }} with a {{ sws-name }} security profile connection.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s'
 ---
 

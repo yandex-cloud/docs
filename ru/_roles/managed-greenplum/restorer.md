@@ -2,7 +2,8 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о резервных копиях [кластеров Greenplum®](../../managed-greenplum/concepts/index.md) и восстанавливать кластеры из [резервных копий](../../managed-greenplum/concepts/backup.md);
-* просматривать информацию о кластерах Greenplum®;
+* просматривать информацию о кластерах Greenplum® и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../managed-greenplum/concepts/maintenance.md) кластеров Greenplum®;
 * просматривать информацию о [хостах](../../managed-greenplum/concepts/instance-types.md) кластеров Greenplum®;
 * просматривать логи работы кластеров Greenplum®;
 * просматривать информацию о результатах диагностики производительности кластеров Greenplum®;

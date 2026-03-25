@@ -1,7 +1,7 @@
 # Server-side encryption for an {{ objstorage-name }} bucket
 
 
-In this scenario, you will enable bucket encryption. As a symmetric encryption key, you will use a [{{ kms-full-name }} key](../../kms/concepts/key.md). This key will encrypt all new bucket objects with [envelope encryption](../../kms/concepts/envelope.md).
+In this tutorial, you will enable bucket encryption. As a symmetric encryption key, you will use a [{{ kms-full-name }} key](../../kms/concepts/key.md). This key will subject all new bucket objects to [envelope encryption](../../kms/concepts/envelope.md).
 
 
 {% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
@@ -39,7 +39,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
 
@@ -73,7 +73,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Describe the resources in the configuration file. In this scenario, specify the parameters under `locals`:
+  1. Describe the resources in the configuration file. In this tutorial, settings are specified under `locals`:
 
       ```
       locals {
@@ -127,7 +127,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       }
       ```
 
-      For more information about the resources you can create with [{{ TF }}](https://www.terraform.io/docs/language/index.html), see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create with [{{ TF }}](https://www.terraform.io/docs/language/index.html), see [this provider guide]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
 
@@ -139,7 +139,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         terraform plan
         ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -151,7 +151,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       1. Confirm creating the resources.
 
-          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
+          After the command is executed, {{ TF }} will update or create the following resources in the specified folder:
 
           * `new-buckets-account` service account.
           * The `editor` role for the `new-buckets-account` service account.
@@ -170,8 +170,8 @@ Create a new key or use an existing one. To create a key:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a key in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}**.
   1. In the window that opens:
 
@@ -180,7 +180,7 @@ Create a new key or use an existing one. To create a key:
       * In the **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** field, set the [rotation](../../kms/concepts/version.md#rotate-key) period to `7 days`.
       * Click **{{ ui-key.yacloud.common.create }}**.
 
-  The key is created together with its first version: click the key in the list to open a page with its attributes.
+  When creating a key, you create its first version; to open a page with its attributes, click the key in the list.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -201,11 +201,11 @@ Create a new key or use an existing one. To create a key:
 
       To create a key without automatic rotation, do not specify the `--rotation-period` parameter.
 
-  The key is created along with its first version. It is specified in the `primary_version` field.
+  When creating a key, you create its first version. It is specified in the `primary_version` field.
 
 - {{ TF }} {#tf}
 
-  1. Describe the resources in the configuration file. In this scenario, specify the parameters under `locals`:
+  1. Describe the resources in the configuration file. In this tutorial, settings are specified under `locals`:
 
       ```
       locals {
@@ -279,7 +279,7 @@ Create a new key or use an existing one. To create a key:
           terraform plan
           ```
 
-          If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+          If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -291,7 +291,7 @@ Create a new key or use an existing one. To create a key:
 
       1. Confirm creating the resources.
 
-          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
+          After the command is executed, {{ TF }} will update or create the following resources in the specified folder:
 
           * `new-buckets-account` service account.
           * The `editor` role for the `new-buckets-account` service account.
@@ -315,8 +315,8 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
@@ -346,7 +346,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 - {{ TF }} {#tf}
 
-  1. Describe the resources in the configuration file. In this scenario, specify the parameters under `locals`:
+  1. Describe the resources in the configuration file. In this tutorial, settings are specified under `locals`:
 
       ```
       locals {
@@ -428,7 +428,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
           terraform plan
           ```
 
-          If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+          If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -440,7 +440,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
       1. Confirm creating the resources.
 
-          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
+          After the command is executed, {{ TF }} will update or create the following resources in the specified folder:
 
           * `new-buckets-account` service account.
           * The `editor` role for the `new-buckets-account` service account.
@@ -460,7 +460,7 @@ If you no longer need to encrypt new bucket objects, disable encryption.
 
 {% note alert %}
 
-After you disable bucket encryption, previously uploaded objects will be stored in encrypted form. Data in {{ objstorage-name }} is encrypted using [envelope encryption](../../kms/concepts/envelope.md). Deleting a key is the same as deleting all data encrypted with that key.
+After you disable bucket encryption, previously uploaded objects will be stored in encrypted form. Data in {{ objstorage-name }} is subject to [envelope encryption](../../kms/concepts/envelope.md). Deleting a key is the same as destroying all data encrypted with that key.
 
 {% endnote %}
 
@@ -468,8 +468,8 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
@@ -571,7 +571,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
           terraform plan
           ```
 
-          If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+          If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -581,9 +581,9 @@ After you disable bucket encryption, previously uploaded objects will be stored 
           terraform apply
           ```
 
-      1. Confirm that you want to update the resources.
+      1. Confirm updating the resources.
 
-          After the command is executed, {{ TF }} updates the following resources in the specified folder:
+          After the command is executed, {{ TF }} will update the following resources in the specified folder:
 
           * `new-buckets-account` service account.
           * The `editor` role for the `new-buckets-account` service account.

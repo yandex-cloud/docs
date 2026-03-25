@@ -2,7 +2,7 @@
 
 HTTP API сервиса {{ cns-name }} совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). 
 
-Для более удобного взаимодействия с сервисом поддержана работа с [AWS CLI](../tools/aws-cli.md) и [AWS SDK для Python (boto3)](../tools/sdk-python.md).
+Для более удобного взаимодействия с сервисом поддержана работа с [AWS CLI](../tools/aws-cli.md), [AWS SDK для Python (boto3)](../tools/sdk-python.md) и другими [AWS-совместимыми SDK](../tools/).
 
 Для аутентификации в API, CLI и SDK используется [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия выполняются от имени этого сервисного аккаунта.
 
@@ -38,8 +38,28 @@ HTTP API сервиса {{ cns-name }} совместим с [Amazon SNS API](ht
 | [List](list-endpoints.md) | Получить список эндпоинтов. |
 | [Delete](delete-endpoint.md) | Удалить эндпоинт (отписать пользователя от push-уведомлений).  |
 
+### SMS {#sms}
+
+| Действие | Описание |
+| --- | --- |
+| [Create](create-sms-channel.md) | Создать [канал SMS-уведомлений](../concepts/sms.md). |
+| [GetAttributes](get-sms-channel-attributes.md) | Получить параметры канала SMS-уведомлений. |
+| [GetSmsAttributes](get-sms-attributes.md) | Получить параметры для отправки SMS-уведомлений в облаке. |
+| [SetAttributes](set-sms-channel-attributes.md) | Задать параметры канала SMS-уведомлений. |
+| [List](list-sms-channels.md) | Получить список каналов SMS-уведомлений. |
+| [Delete](delete-sms-channel.md) | Удалить канал SMS-уведомлений. |
+
+### Sandbox {#sandbox}
+
+| Действие | Описание |
+| --- | --- |
+| [Create](create-sms-sandbox-phone-number.md) | Добавить [тестовый номер](../concepts/sms.md#sandbox) в канал SMS-уведомлений и отправить на номер одноразовый пароль. |
+| [Verify](verify-sms-sandbox-phone-number.md) | Подтвердить номер с помощью одноразового пароля. |
+| [List](list-sms-sandbox-phone-numbers.md) | Получить список подтвержденных номеров. |
+| [Delete](delete-sms-sandbox-phone-number.md) | Удалить подтвержденный номер. |
+
 ### Publish {#publish}
 
 | Действие | Описание |
 | --- | --- |
-| [Publish](publish.md) | Отправить push-уведомление. |
+| [Publish](publish.md) | Отправить push-уведомление или SMS. |

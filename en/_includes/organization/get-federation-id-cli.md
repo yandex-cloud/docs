@@ -1,7 +1,7 @@
-To view a list of organizations available to you, run this command by substituting the [organization ID](../../organization/operations/organization-get-id.md):
+Get a list of available organizations:
 
 ```bash
-yc organization-manager organization list --organization-id <organization_ID>
+yc organization-manager organization list
 ```
 
 Result:

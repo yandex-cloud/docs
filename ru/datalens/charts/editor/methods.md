@@ -1735,6 +1735,8 @@ JSON-объект вида:
 
 Функция `Editor.wrapFn` чувствительна к ошибкам синтаксиса. Поэтому при возникновении проблем с использованием функции в первую очередь проверьте синтаксис на валидность.
 
+{% include [datalens-chart-editor-wrap-limits](../../../_includes/datalens/datalens-chart-editor-wrap-limits.md) %}
+
 #### Поддерживаемые виды чартов {#wrap-charts}
 
 * [График (Gravity UI Charts)](./widgets/chart.md)

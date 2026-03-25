@@ -31,6 +31,8 @@ items:
             href: operations/resources/configure-cors.md
           - name: Настроить HTTP-методы
             href: operations/resources/configure-http.md
+          - name: Настроить HTTP-ответ
+            href: operations/resources/configure-response.md
           - name: Включить сжатие файлов
             href: operations/resources/enable-compression.md
           - name: Включить сегментацию файлов

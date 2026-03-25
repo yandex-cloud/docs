@@ -105,7 +105,7 @@ The chart below shows the L7 load balancer resources you will create and configu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [IS folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
@@ -130,7 +130,7 @@ For other ways to create a security profile, see [this section](../../smartwebse
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the IS folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**.
 
 {% endlist %}
@@ -234,7 +234,8 @@ A [load balancer](../../application-load-balancer/concepts/application-load-bala
 
   If your infrastructure already uses an L7 load balancer and a configured listener with a public IP address:
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select your L7 load balancer.
   1. Under **Listeners**, next to the listener with a public IP address, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **Receiving and processing traffic**, click **Add SNI match** and specify the following:
@@ -260,7 +261,7 @@ For other ways to create an L7 load balancer and more configuration options, see
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the IS folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the L7 load balancer you created.
   1. Select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. 
    

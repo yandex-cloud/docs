@@ -50,7 +50,8 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the log group.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Next to the log group receiving the logs, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select `logs-stream` you created earlier.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -63,7 +64,7 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../data-transfer/operations/endpoint/#delete).

@@ -1,7 +1,7 @@
 # Emergency DDoS protection in {{ alb-name }}, L7
 
 
-This guide will help you stop a live [DDoS attack](https://ru.wikipedia.org/wiki/DoS-атака).
+This guide will help you stop a live [DDoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack).
 
 ## Conditions to implement the described solution {#tutorial-conditions}
 
@@ -46,7 +46,7 @@ To create a security profile:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
   1. Enter a name for the profile, e.g., `anti-ddos`.
@@ -108,7 +108,7 @@ To test your security profile, use information from monitoring charts and logs.
 
 - Management console {#console}
 
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select **{{ ui-key.yacloud.common.monitoring }}**.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
@@ -126,7 +126,7 @@ For detailed description of charts, see [{#T}](../../smartwebsecurity/operations
 - Management console {#console}
 
   1. Make sure you have configured [logging](../../smartwebsecurity/operations/configure-logging.md) for the L7 load balancer.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer with an associated security profile.
   1. Select **{{ ui-key.yacloud.common.logs }}**.
   1. Select the number of messages per page and the period, e.g., `1 hour`.
@@ -158,7 +158,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
 - Management console {#console}
 
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `anti-ddos-arl`.
@@ -183,7 +183,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
 - Management console {#console}
 
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
    1. Select the `anti-ddos` security profile.
    1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.

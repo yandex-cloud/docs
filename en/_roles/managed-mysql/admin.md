@@ -1,17 +1,19 @@
-The `managed-mysql.admin` role allows you to manage MySQL® clusters and view their logs, as well as get information on quotas and resource operations.
+The `managed-mysql.admin` role enables managing MySQL® clusters and access to them.
 
 Users with this role can:
-* Manage access to MySQL® [clusters](../../managed-mysql/concepts/index.md).
-* View information on MySQL® clusters, as well as create, modify, delete, run, and stop them.
-* View information on MySQL® cluster [hosts](../../managed-mysql/concepts/instance-types.md), as well as create, modify, and delete them.
-* View information on MySQL® databases, as well as create, modify, and delete them.
-* View information on MySQL® [users](../../managed-mysql/concepts/user-rights.md), as well as create, modify, and delete them.
-* View information on MySQL® cluster [backups](../../managed-mysql/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
-* View information on MySQL® alerts, as well as create, modify, and delete them.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) granted for [MySQL® clusters](../../managed-mysql/concepts/index.md) and modify such permissions.
+* View info on MySQL® clusters, as well as create, use, modify, delete, run, and stop them.
+* View info on [maintenance](../../managed-mysql/concepts/maintenance.md) tasks for MySQL® clusters and modify such tasks.
+* View info on MySQL® cluster [hosts](../../managed-mysql/concepts/instance-types.md), as well as create, modify, and delete them.
+* Re-assign the master host in MySQL® clusters.
+* View info on MySQL® databases, as well as create, modify, and delete them.
+* View info on MySQL® [users](../../managed-mysql/concepts/user-rights.md), as well as create, modify, and delete them.
+* View info on MySQL® cluster [backups](../../managed-mysql/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
+* View info on MySQL® alerts, as well as create, modify, and delete them.
 * View MySQL® cluster logs.
-* View information on the results of MySQL® cluster performance diagnostics.
-* View information on [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) of Managed Service for MySQL®.
-* View information on resource operations for Managed Service for MySQL®.
+* View info on the results of MySQL® cluster performance diagnostics.
+* View info on [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) for Managed Service for MySQL®.
+* View info on resource operations for Managed Service for MySQL®.
 
 This role includes the `managed-mysql.editor` permissions.
 

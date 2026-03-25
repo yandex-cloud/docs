@@ -205,8 +205,8 @@ description: Следуя данной инструкции, вы сможете
        --environment <окружение> \
        --network-name <имя_сети> \
        --host zone-id=<зона_доступности>,`
-                `subnet-id=<идентификатор_подсети>,`
-                `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+             `subnet-id=<идентификатор_подсети>,`
+             `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
        --resource-preset <класс_хоста> \
        --user name=<имя_пользователя>,password=<пароль_пользователя> \
        --database name=<имя_БД>,owner=<имя_владельца_БД> \
@@ -214,7 +214,10 @@ description: Следуя данной инструкции, вы сможете
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
        --connection-pooling-mode=<режим_работы_менеджера_подключений> \
-       --deletion-protection
+       --deletion-protection \
+       --performance-diagnostics enabled=<активировать_сбор_статистики>,`
+                                `sessions-sampling-interval=<интервал_сбора_сессий>,`
+                                `statements-sampling-interval=<интервал_сбора_запросов>
      ```
 
 
@@ -234,6 +237,14 @@ description: Следуя данной инструкции, вы сможете
        Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+     
+     * `--performance-diagnostics` — настройки [сбора статистики](./performance-diagnostics.md#activate-stats-collector):
+
+       * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
+       * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
+       * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
+
 
      
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.

@@ -5655,6 +5655,8 @@ default:
         button_resource-deactivate-raw-logs: Выключить
         button_resource-locations-empty-action: Добавить правило
         button_wizard-create: Создать и продолжить
+        CdnResourceFormWizard:
+          section_wizard-static-response_6DKzY: Настройки ответа
         column_location-rule-pattern: Регулярное выражение
         column_name: Название
         colunm_location-weight: Вес правила
@@ -5740,6 +5742,13 @@ default:
         label_status-backup: Резервный
         label_use-bucket-site: Использовать сайт бакета
         md_value_certificate-le: Let's Encrypt^®^
+        sections:
+          StaticResponseSection:
+            field_static-response-enabled_sPsQU: Настраиваемый HTTP-ответ
+            field_static-response-type_5KyYv: Тип ответа
+            option_static-response_data_rLo9U: Задать содержимое ответа
+            option_static-response_redirect_o58we: Настроить перенаправление
+            section_static-response_hGcUL: Настройки ответа
         value_active: Основной
         value_backup: Резервный
         value_certificate-custom: Сертификат из Certificate Manager

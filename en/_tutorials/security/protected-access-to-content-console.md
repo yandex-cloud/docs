@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -107,7 +107,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `webserver-sg`.
@@ -312,7 +312,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
       1. Specify the zone settings consistent with your domain:
 
@@ -363,7 +363,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Select the DNS zone you created earlier.
       1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
       1. Specify the record settings:
@@ -417,7 +417,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify `mymanagedcert` in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `example.com`.
@@ -474,7 +474,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
         1. From the list of certificates, select `mymanagedcert`.
         1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
         1. In the first domain section, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and then **{{ ui-key.yacloud.common.create }}** in the window that opens.
@@ -632,7 +632,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `cdn-source-bucket`.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -751,7 +751,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you created ealier.
       1. In the top-right corner, click ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the files you created: `index.html` and `content.jpg`.
       1. In the window that opens, confirm uploading the objects.
@@ -800,7 +800,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
       * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
@@ -905,7 +905,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
   1. [Get](../../cdn/operations/resources/get-resources-info.md#get-cname) the CDN provider domain name value.
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the DNS zone you created earlier.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:

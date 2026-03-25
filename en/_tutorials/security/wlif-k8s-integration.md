@@ -6,7 +6,7 @@ This tutorial shows you as an example how to get the [{{ lockbox-full-name }}](.
 
 {% note info %}
 
-This tutorial demonstrates an example of integrating a custom {{ k8s }} installation with a workload identity federation. See the {{ managed-k8s-name }} integration guide in [Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using an {{ iam-name }} workload identity federation](../../tutorials/security/wlif-managed-k8s-integration.md)
+This tutorial demonstrates an example of integrating a custom {{ k8s }} installation with a workload identity federation. See the {{ managed-k8s-name }} integration guide in [Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using an {{ iam-name }} workload identity federation](../../tutorials/security/wlif-managed-k8s-integration.md).
 
 {% endnote %}
 
@@ -127,7 +127,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 1. Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to the secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 1. Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
@@ -140,10 +140,10 @@ The infrastructure support costs include:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-      1. Select **{{ objstorage-name }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ objstorage-name }}**.
       1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the bucket creation page:
-         1. Enter the bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+         1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
          
          1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
 
@@ -186,7 +186,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a workload identity federation.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
    1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
    1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter `URL Issuer` for your {{ k8s }} cluster, which you got earlier, e.g., `https://kubernetes.default.svc.cluster.local`.
@@ -204,7 +204,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your secret.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
    1. Select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**.
@@ -223,7 +223,7 @@ The infrastructure support costs include:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -251,7 +251,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the list of service accounts, select `sa-lockbox`.
    1. Navigate to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
    1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.

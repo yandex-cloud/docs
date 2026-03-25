@@ -26,6 +26,10 @@ description: На странице представлены вопросы и о
 
 {% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/backup.md) %}
 
+### Обновление мажорной версии {{ PG }} {#toc-version-update}
+
+{% include [version-update-minitoc](../../_qa/managed-postgresql/minitoc/version-update.md) %}
+
 ### Пользователи и роли {#toc-users}
 
 {% include [users-minitoc](../../_qa/managed-postgresql/minitoc/users.md) %}
@@ -61,6 +65,10 @@ description: На странице представлены вопросы и о
 ## Перемещение и восстановление кластера {#backup}
 
 {% include [backup](../../_qa/managed-postgresql/backup.md) %}
+
+### Обновление мажорной версии {{ PG }} {#version-update}
+
+{% include [version-update](../../_qa/managed-postgresql/version-update.md) %}
 
 ## Пользователи и роли {#users}
 

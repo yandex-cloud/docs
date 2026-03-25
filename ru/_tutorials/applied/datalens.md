@@ -19,13 +19,14 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за количество [сообщений](../../message-queue/concepts/message.md) (см. [тарифы {{ iot-full-name }}](../../iot-core/pricing.md));
-* плата за количество вызовов [функции](../../functions/concepts/function.md) {{ sf-name }} (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за вычислительные ресурсы и хранилище [кластера](../../managed-postgresql/concepts/index.md) {{ mpg-name }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Реестр {{ iot-name }}: количество отправленных сообщений (см. [тарифы {{ iot-name }}](../../iot-core/pricing.md)).
+* Функции {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+
 
 ## Подготовьте облако к работе {#configure-cloud}
 

@@ -2,7 +2,8 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о резервных копиях [кластеров Yandex StoreDoc](../../storedoc/concepts/index.md) и восстанавливать кластеры из [резервных копий](../../storedoc/concepts/backup.md);
-* просматривать информацию о кластерах Yandex StoreDoc;
+* просматривать информацию о кластерах Yandex StoreDoc и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc;
 * просматривать информацию о [хостах](../../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc;
 * просматривать информацию о [шардах](../../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc;
 * просматривать информацию о базах данных Yandex StoreDoc;

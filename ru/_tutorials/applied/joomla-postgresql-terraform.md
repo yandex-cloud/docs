@@ -10,9 +10,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% include [before-you-begin](../_tutorials_includes/joomla-postgresql/joomla-postgresql-paid-resources.md) %}
+
 
 ## Создайте инфраструктуру {#deploy}
 

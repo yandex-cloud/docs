@@ -5652,6 +5652,8 @@ default:
         button_resource-deactivate-raw-logs: Deactivate
         button_resource-locations-empty-action: Add rule
         button_wizard-create: Create and continue
+        CdnResourceFormWizard:
+          section_wizard-static-response_6DKzY: Response settings
         column_location-rule-pattern: Regular expression
         column_name: Name
         colunm_location-weight: Rule weight
@@ -5737,6 +5739,13 @@ default:
         label_status-backup: Backup
         label_use-bucket-site: Use bucket site
         md_value_certificate-le: Let's Encrypt^®^
+        sections:
+          StaticResponseSection:
+            field_static-response-enabled_sPsQU: Custom HTTP response
+            field_static-response-type_5KyYv: Response type
+            option_static-response_data_rLo9U: Set response content
+            option_static-response_redirect_o58we: Configure redirect
+            section_static-response_hGcUL: Response settings
         value_active: Active
         value_backup: Backup
         value_certificate-custom: Use from Certificate Manager

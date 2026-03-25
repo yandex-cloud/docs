@@ -2,7 +2,8 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о резервных копиях [кластеров PostgreSQL](../../managed-postgresql/concepts/index.md) и восстанавливать кластеры из [резервных копий](../../managed-postgresql/concepts/backup.md);
-* просматривать информацию о кластерах PostgreSQL;
+* просматривать информацию о кластерах PostgreSQL и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../managed-postgresql/concepts/maintenance.md) кластеров PostgreSQL;
 * просматривать информацию о [хостах](../../managed-postgresql/concepts/instance-types.md) кластеров PostgreSQL;
 * просматривать информацию о базах данных PostgreSQL;
 * просматривать информацию о [пользователях](../../managed-postgresql/concepts/roles.md) PostgreSQL;

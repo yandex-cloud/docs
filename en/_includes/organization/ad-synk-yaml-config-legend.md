@@ -1,7 +1,7 @@
 Where:
 
 * `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-name }}.
-* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. Here is an example:
+* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. For example:
 
     * `/etc/yc-identityhub-sync-agent/authorized_key.json` (for Linux)
     * `C:\\ProgramData\\YcIdentityHubSyncAgent\\authorized_key.json` (for Windows)
@@ -19,7 +19,7 @@ Where:
 
     {% note info %}
 
-    If the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.level` parameters specify paths other than that specified in `working_directory`, the system use the paths specified in `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.level`.
+    If the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters specify paths other than that specified in `working_directory`, the system will use the paths specified in the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters for the selected entities.
 
     {% endnote %}
 

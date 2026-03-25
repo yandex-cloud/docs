@@ -38,7 +38,7 @@
        --full-name <name_and_last_name> \
        --given-name <name> \
        --family-name <last_name> \
-       --email <email> \
+       --email <email_address> \
        --phone-number <phone_number> \
        --password <password>
      ```
@@ -69,7 +69,7 @@
        full_name    = "<name_and_last_name>"
        given_name   = "<name>"
        family_name  = "<last_name>"
-       email        = "<email>"
+       email        = "<email_address>"
        phone_number = "<phone_number>"
        is_active    = true
        password_spec = {

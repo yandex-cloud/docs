@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud.common.description }}**.
       * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
   1. Включите или выключите наборы правил для профиля WAF.
-  1. Для [OWASP Core Rule Set](https://coreruleset.org/) выберите версию набора правил.
+  1. Выберите версию набора правил.
   1. Если включено несколько наборов:
      * Выберите условие срабатывания профиля:
        * **Вердикт получен хотя бы в одном наборе** — запрос распознан как угроза хотя бы одним набором правил.
