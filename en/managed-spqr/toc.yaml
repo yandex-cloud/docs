@@ -14,6 +14,8 @@ items:
         href: operations/connect.md
       - name: Updating a cluster
         href: operations/cluster-update.md
+      - name: Managing cluster hosts
+        href: operations/cluster-hosts.md
       - name: Managing shards
         href: operations/shards.md
       - name: Maintenance

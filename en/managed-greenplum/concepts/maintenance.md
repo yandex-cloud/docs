@@ -64,6 +64,8 @@ The default mode is sequential. To switch to concurrent table vacuuming mode, co
 
 The start time and timeout of the `VACUUM` operation are set up when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/update.md).
 
+[Learn more about vacuuming tables in {{ mgp-name }}](vacuum.md).
+
 ### Collecting statistics {#get-statistics}
 
 Statistics collection (the `ANALYZE` operation) is performed after the vacuuming of tables (if [background data redistribution](../concepts/expand.md#setting-delay-redistribution) is not in progress). Databases are handled concurrently in two threads. In addition, two threads are run to collect table statistics in each database. As a result, statistics can be collected in four threads.

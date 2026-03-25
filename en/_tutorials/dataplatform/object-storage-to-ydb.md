@@ -1,11 +1,11 @@
 # Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-name }} to a {{ ydb-name }} table using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 
@@ -102,7 +102,7 @@ Set up your infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data1.csv` file to the {{ objstorage-name }} bucket.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with the following settings:
 
@@ -124,7 +124,7 @@ Set up your infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Keep the default values for all other settings.
+    Leave the other settings at their defaults.
 
 1. Create a target endpoint and a transfer:
 
@@ -148,7 +148,7 @@ Set up your infrastructure:
 
         1. In the `object-storage-to-ydb.tf` file, specify the following settings:
 
-            * `source_endpoint_id`: Source endpoint ID
+            * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
@@ -178,7 +178,7 @@ Make sure the transfer works correctly by testing copying and replication.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
     1. Select your database from the list.
     1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
     1. Check that the {{ ydb-name }} database contains the `table1` table with test data.
@@ -220,7 +220,7 @@ Make sure the transfer works correctly by testing copying and replication.
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that `table1` now contains the new data.
@@ -257,16 +257,16 @@ Make sure the transfer works correctly by testing copying and replication.
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

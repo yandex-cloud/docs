@@ -1,6 +1,6 @@
 ---
 title: Updating a {{ SPQR }} cluster
-description: After creating an {{ SPQR }} cluster, you can edit its basic and advanced settings.
+description: After creating a {{ SPQR }} cluster, you can edit its basic and advanced settings.
 keywords:
   - keyword: updating a {{ SPQR }} cluster
   - keyword: '{{ SPQR }} cluster'
@@ -17,7 +17,8 @@ After creating a cluster, you can edit its basic and advanced settings.
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to update a {{ SPQR }} cluster.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -42,7 +43,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         1. Change the **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
         1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, change disk type and storage size.
 
-    1. Change additional cluster settings:
+    1. Configure advanced cluster settings:
 
         {% include [extra-settings](../../_includes/mdb/mspqr/console/extra-settings.md) %}
 
@@ -52,7 +53,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -227,7 +228,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -15,9 +15,9 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/update.md
-          - name: '{{ SD }} version upgrade'
+          - name: '{{ SD }} version update'
             href: operations/cluster-version-update.md
-          - name: Stopping and starting a cluster
+          - name: Stopping and restarting a cluster
             href: operations/cluster-stop.md
           - name: Managing cluster hosts
             href: operations/hosts.md
@@ -65,7 +65,7 @@ items:
             href: operations/performance-diagnostics.md
           - name: Performance analysis tools
             href: operations/tools.md
-          - name: Cluster and host state monitoring
+          - name: Cluster, host, and shard state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:
@@ -75,7 +75,7 @@ items:
         href: tutorials/sharding.md
       - name: Migrating data to {{ mmg-name }}
         href: tutorials/data-migration.md
-      - name: Migrating {{ mmg-name }} cluster from 4.4 to 6.0
+      - name: Migrating {{ mmg-name }} cluster from version 4.4 to 6.0
         href: tutorials/storedoc-versions.md
       - name: Migrating collections from a third-party {{ SD }} cluster
         href: tutorials/storedoc-migration-with-data-transfer.md

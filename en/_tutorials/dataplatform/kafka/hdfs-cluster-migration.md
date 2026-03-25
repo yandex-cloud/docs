@@ -60,9 +60,9 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
       terraform show
       ```
 
-   1. Copy it from the terminal and paste it into the `.tf` file.
-   1. Place the file in the new `imported-cluster` directory.
-   1. Edit the copied configuration so that you can create a new cluster from it:
+   1. Copy it from your terminal and paste it into the `.tf` file.
+   1. Create a new directory `imported-cluster` and move your configuration file there.
+   1. Modify the configuration so that you can use it to create a new cluster:
 
       * Specify the new cluster name in the `resource` string and the `name` parameter.
       * Delete `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id`.
@@ -87,8 +87,8 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
          ```
 
    1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
-   1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). [Download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) the provider configuration file rather than creating it manually.
-   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+   1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+   1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
    1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
@@ -111,7 +111,8 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    To view a list of running operations and jobs:
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Open the [management console]({{ link-console-main }}).
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the source cluster name and select the **{{ ui-key.yacloud.dataproc.switch_operations }}** tab, then select **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 
    {% note info %}
@@ -181,7 +182,8 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    You can check the data amount you copy in the HDFS web UI. To open it:
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Open the [management console]({{ link-console-main }}).
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Click the source cluster name.
    1. On the cluster page, click the **HDFS Namenode UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 

@@ -17,7 +17,7 @@ items:
             items:
               - name: Updating cluster settings
                 href: operations/update.md
-              - name: '{{ OS }} version upgrade'
+              - name: '{{ OS }} version update'
                 href: operations/cluster-version-update.md
               - name: Managing plugins
                 href: operations/plugins.md
@@ -112,6 +112,8 @@ items:
         href: concepts/backup.md
       - name: Sharding and replication
         href: concepts/scalability-and-resilience.md
+      - name: High availability clusters
+        href: concepts/high-availability.md
       - name: '{{ OS }} plugins'
         href: concepts/plugins.md
       - name: '{{ OS }} versioning policy'

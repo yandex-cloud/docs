@@ -13,7 +13,7 @@ keywords:
 
 ## Creating a shard {#create-shard}
 
-{{ mpg-full-name }} shards are based on existing {{ mpg-name }} clusters residing in the same folder and cloud network as the {{ SPQR }} cluster.
+{{ SPQR }} shards are based on existing {{ mpg-full-name }} clusters residing in the same folder and cloud network as the {{ SPQR }} cluster.
 
 
 {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
@@ -23,7 +23,8 @@ keywords:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a shard.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
     1. Specify a shard name and select the {{ PG }} cluster whose hosts will serve as data hosts in the {{ SPQR }} cluster.
@@ -31,7 +32,7 @@ keywords:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -59,7 +60,7 @@ keywords:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -99,14 +100,15 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a shard. 
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** tab.
     1. Find the shard you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -124,7 +126,7 @@ Deleting a {{ SPQR }} shard does not affect the {{ mpg-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

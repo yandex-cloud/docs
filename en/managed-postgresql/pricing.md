@@ -48,12 +48,12 @@ The {{ mpg-name }} usage cost includes:
 
 The host operation cost is charged per hour based on the host class. For detailed class specifications, see [Host classes](concepts/instance-types.md).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ PG }} host is unavailable for basic operations.
+The minimum billing unit is one minute, e.g., you will be charged for 2 hours when using a host for 90 minutes (1.5 hours). You will not be charged for the time when the {{ PG }} host is unavailable for basic operations.
 
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are billed for the following:
 
 * Storage allocated for database clusters.
 
@@ -81,12 +81,12 @@ You pay for the following:
 
     * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 * **{{ PG }} hosts**: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
@@ -112,11 +112,11 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{mpg-name}} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Storage size and internet traffic cannot currently be reserved via CVoS.
 
 {% endnote %}
 

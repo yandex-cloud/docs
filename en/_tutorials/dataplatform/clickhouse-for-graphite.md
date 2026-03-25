@@ -35,8 +35,10 @@ The cost of maintaining your {{ CH }} database for Graphite includes:
 
 ## Create a cluster {#cluster-create}
 
-1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with your preferred configuration with the `db1` database and public access to all of its hosts. Save the database name, username, and password.
-1. In the [management console]({{ link-console-main }}), select {{ mch-name }} and navigate to your new cluster. Save the cluster ID from the **{{ ui-key.yacloud.common.overview }}** tab. 
+1. [Create a **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** cluster](../../managed-clickhouse/operations/cluster-create.md) with your preferred configuration with the `db1` database and public access to all of its hosts. Save the database name, username, and password.
+1. Open the [management console]({{ link-console-main }}).
+1. [Navigate to](../../console/operations/select-service.md#select-service) the {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }} service.
+1. Select the new cluster and save the cluster ID on the **{{ ui-key.yacloud.common.overview }}** tab.
 1. In the top-right corner, click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**. In the **Shell** tab, save the `--host` value from the **Sample connection string** field, e.g., `rc1a-2sqal8f0********.{{ dns-zone }}`. This is the cluster host’s FQDN you will need later on.
 
 ## Register the rollup configuration in the cluster {#rollup-config}

@@ -69,7 +69,7 @@ The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is bille
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You are billed for the following:
 
 * Storage allocated for database clusters.
 
@@ -121,7 +121,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mch-name }} provides two types of CVoS: for vCPUs and RAM on hosts you plan to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mch-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

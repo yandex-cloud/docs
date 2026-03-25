@@ -59,7 +59,7 @@ Automatic recalculation of modified and newly created dictionary and semantic [t
 {% include [usd-model.md](../_pricing/speechsense/usd-model-assistant.md) %}
 
 
-### Cost of manually recalculating pro tags and assistants {#price-recalc}
+### Cost of manual recalculation of pro-tags and assistants {#price-recalc}
 
 
 
@@ -73,7 +73,8 @@ Automatic recalculation of modified and newly created dictionary and semantic [t
 {% include [usd-speechsense](../_pricing_examples/speechsense/usd-speechsense.md) %}
 
 
-### Example of calculating the cost of chat transcript analysis {#price-example-text}
+### Cost calculation example for text dialog analysis {#price-example-text}
+
 
 #### Example 1 {#example-1}
 
@@ -103,6 +104,7 @@ Let's assume you analyzed 685,000,000 characters, or 685,000 thousand characters
 
 
 ### Cost calculation example for audio analysis using the assistant {#price-example}
+
 
 The filter captured audio recordings totaling 115,000 minutes. The assistant supports 3,000 characters, counted across the **Instruction** and **Result** sections.
 

@@ -189,6 +189,8 @@ items:
         href: concepts/expand.md
       - name: Maintenance
         href: concepts/maintenance.md
+      - name: Table and system folder vacuuming
+        href: concepts/vacuum.md
       - name: '{{ GP }} settings'
         href: concepts/settings-list.md
   - name: Access management

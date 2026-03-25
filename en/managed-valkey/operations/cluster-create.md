@@ -116,7 +116,7 @@ There are no restrictions for non-sharded clusters.
        * Security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the hosts:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the hosts:
 
       * To change the settings of a host, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host name.
 
@@ -134,7 +134,7 @@ There are no restrictions for non-sharded clusters.
 
       If you enabled cluster sharding and selected the **local-ssd** disk type, add at least two hosts per shard.
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, enter the user password.
 
@@ -148,7 +148,7 @@ There are no restrictions for non-sharded clusters.
 
   1. Under **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}**, enable the required [{{ VLK }} modules](../../managed-valkey/concepts/modules.md).
 
-      For the **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** module, configure the following: **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** and **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+      For the **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** module, configure the following settings: **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** and **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
 
       {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
@@ -227,7 +227,7 @@ There are no restrictions for non-sharded clusters.
       * `--host`: Host settings:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
-         * `assign-public-ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+         * `assign-public-ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
          * `replica-priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
       * `--disk-type-id`: Disk type.
 
@@ -309,28 +309,30 @@ There are no restrictions for non-sharded clusters.
          announce_hostnames  = <using_FQDNs_instead_of_IP_addresses>
          persistence_mode    = "<persistence_mode>"
 
-         disk_size_autoscaling {
+         disk_size_autoscaling = {
            planned_usage_threshold   = "<scheduled_expansion_percentage>"
            emergency_usage_threshold = "<immediate_expansion_percentage>"
            disk_size_limit           = "<maximum_storage_size_in_GiB>"
          }
 
-         config {
+         config = {
            password = "<password>"
            version  = "<{{ VLK }}_version>"
          }
 
-         resources {
+         resources = {
            resource_preset_id = "<host_class>"
            disk_type_id       = "<disk_type>"
            disk_size          = <storage_size_in_GB>
          }
 
-         host {
-           zone             = "<availability_zone>"
-           subnet_id        = "<subnet_ID>"
-           assign_public_ip = <public_access>
-           replica_priority = <host_priority>
+         hosts = {
+           "host1" = {
+             zone             = "<availability_zone>"
+             subnet_id        = "<subnet_ID>"
+             assign_public_ip = <public_access>
+             replica_priority = <host_priority>
+           }
          }
        }
 
@@ -364,33 +366,62 @@ There are no restrictions for non-sharded clusters.
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
        * `version`: {{ VLK }} version, {{ versions.tf.str }}.
-       * `host`: Host settings:
-         * `zone_id`: Availability zone.
-         * `subnet_id`: ID of the subnet in the selected availability zone.
-         * `assign_public_ip`: Public access to the host, `true` or `false`.
-         * `replica_priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
+       * `hosts`: List of hosts and their settings in `"<host_name>" = { <host_settings> }` format. The host name must be unique within the cluster.
+
+           For each host, the following parameters are available:
+
+           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+           * `subnet_id`: [ID of the subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+           * `assign_public_ip`: Public access to the host, `true` or `false`.
+           * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
 
        {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
        If you are creating a sharded cluster with the **local-ssd** disk type, specify at least two hosts per shard in the configuration file.
 
-       {% include [Maintenance window](../../_includes/mdb/mvk/terraform/maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mvk/terraform/maintenance-window.md) %}
 
-       
-       To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` argument:
+    
+    1. To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` argument to the cluster description:
 
-         ```hcl
-         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
-           ...
-           disk_encryption_key_id = <KMS_key_ID>
-           ...
-         }
-         ```
+        ```hcl
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
+          ...
+          disk_encryption_key_id = "<KMS_key_ID>"
+        }
+        ```
 
-         To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
 
-       To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mrd }}).
+    1. To enable [{{ VLK }} modules](../concepts/modules.md), add the `modules` section to the cluster description:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
+          ...
+          modules = {
+            valkey_bloom = {
+              enabled = <enable_Valkey-Bloom_module>
+            }
+            valkey_json = {
+              enabled = <enable_Valkey-JSON_module>
+            }
+            valkey_search = {
+              enabled        = <enable_Valkey-Search_module>
+              reader_threads = <number_of_request_processing_threads>
+              writer_threads = <number_of_indexing_threads>
+            }
+          }
+        }
+        ```
+
+       Where:
+
+        * `valkey_bloom.enabled`: Enable the `Valkey-Bloom` module, `true` or `false`.
+        * `valkey_json.enabled`: Enable the `Valkey-JSON` module, `true` or `false`.
+        * `valkey_search.enabled`: Enable the `Valkey-Search` module, `true` or `false`.
+        * `valkey_search.reader_threads`: Number of request processing threads in the `Valkey-Search` module.
+        * `valkey_search.writer_threads`: Number of indexing threads in the `Valkey-Search` module.
 
     1. Make sure the settings are correct.
 
@@ -400,9 +431,11 @@ There are no restrictions for non-sharded clusters.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+    This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
-       {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
+    For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -518,7 +551,7 @@ There are no restrictions for non-sharded clusters.
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
             * `shardName`: Shard name for the host. This setting only applies when `sharded` is set to `true`.
             * `replicaPriority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
-            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
+            * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
 
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
 
@@ -685,7 +718,7 @@ There are no restrictions for non-sharded clusters.
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
             * `shard_name`: Shard name for the host. This setting only applies when `sharded` is set to `true`.
             * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
-            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if `tls_enabled` is set to `true`.
+            * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`. You can enable public access only if `tls_enabled` is set to `true`.
 
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
 
@@ -791,23 +824,23 @@ To create a {{ VLK }} cluster copy:
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `id`, and `status`.
         * Add the `password` parameter to the `config` section.
         * If you have `notify_keyspace_events = "\"\""` in the `config` section, delete this parameter.
-        * If `sharded = false`, delete the `shard_name` parameters from the `host` sections.
-        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
+        * If `sharded = false`, delete the `shard_name` parameters from the `hosts` section.
+        * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` argument.
         * Optionally, make further changes if you need a customized configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -898,22 +931,24 @@ To create a {{ VLK }} cluster copy:
     tls_enabled         = true
     deletion_protection = true
 
-    config {
+    config = {
       password = "user1user1"
       version  = "{{ versions.tf.latest }}"
     }
 
-    resources {
+    resources = {
       resource_preset_id = "{{ mrd-host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 16
     }
 
-    host {
-      zone             = "{{ region-id }}-a"
-      subnet_id        = yandex_vpc_subnet.mysubnet.id
-      assign_public_ip = true
-      replica_priority = 50
+    hosts = {
+      "host1" = {
+        zone             = "{{ region-id }}-a"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        assign_public_ip = true
+        replica_priority = 50
+      }
     }
   }
 
@@ -1013,24 +1048,26 @@ To create a {{ VLK }} cluster copy:
     deletion_protection = true
     network_id          = yandex_vpc_network.mynet.id
     security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
-  
-    config {
+
+    config = {
       version  = "{{ versions.tf.latest }}"
       password = "user1user1"
     }
-  
-    resources {
+
+    resources = {
       resource_preset_id = "{{ mrd-host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 16
     }
-  
-    host {
-      shard_name = "shard1"
-      subnet_id  = yandex_vpc_subnet.mysubnet.id
-      zone       = "ru-central1-a"
-      assign_public_ip = true
-      replica_priority = 50
+
+    hosts = {
+      "host1" = {
+        shard_name       = "shard1"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        zone             = "ru-central1-a"
+        assign_public_ip = true
+        replica_priority = 50
+      }
     }
   }
   
@@ -1096,33 +1133,35 @@ To create a {{ VLK }} cluster copy:
       sharded             = true
       deletion_protection = true
 
-      config {
+      config = {
         password = "user1user1"
         version  = "{{ versions.tf.latest }}"
       }
 
-      resources {
+      resources = {
         resource_preset_id = "{{ mrd-host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
         disk_size          = 16
       }
 
-      host {
-        zone       = "{{ region-id }}-a"
-        subnet_id  = yandex_vpc_subnet.subnet-a.id
-        shard_name = "shard1"
-      }
+      hosts = {
+        "host1" = {
+          zone       = "{{ region-id }}-a"
+          subnet_id  = yandex_vpc_subnet.subnet-a.id
+          shard_name = "shard1"
+        }
 
-      host {
-        zone       = "{{ region-id }}-b"
-        subnet_id  = yandex_vpc_subnet.subnet-b.id
-        shard_name = "shard2"
-      }
+        "host2" = {
+          zone       = "{{ region-id }}-b"
+          subnet_id  = yandex_vpc_subnet.subnet-b.id
+          shard_name = "shard2"
+        }
 
-      host {
-        zone       = "{{ region-id }}-d"
-        subnet_id  = yandex_vpc_subnet.subnet-d.id
-        shard_name = "shard3"
+        "host3" = {
+          zone       = "{{ region-id }}-d"
+          subnet_id  = yandex_vpc_subnet.subnet-d.id
+          shard_name = "shard3"
+        }
       }
     }
 

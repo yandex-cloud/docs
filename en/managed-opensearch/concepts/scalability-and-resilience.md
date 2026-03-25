@@ -1,14 +1,14 @@
 ---
 title: Sharding and replication in {{ mos-full-name }}
-description: You can use sharding to enable {{ OS }} clusters to scale as the amount of index data grows. With replication, you can improve cluster fault tolerance and index data protection.
+description: Sharding enables {{ OS }} clusters to scale as index data grows, while replication ensures their high availability and index data protection.
 ---
 
 # Sharding and replication in {{ mos-name }}
 
 In an {{ OS }} cluster:
 
-- You can use sharding to enable the cluster to scale as the amount of index data grows.
-- With replication, you can improve cluster fault tolerance and index data protection (only for multi-host cluster configurations).
+- Sharding enables the cluster to scale as the amount of index data grows.
+- Replication provides [high-availability](high-availability.md) and index data protection (for multi-host clusters only).
 
 ## Index sharding {#sharding}
 

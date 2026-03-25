@@ -27,7 +27,8 @@ Upgrade your {{ KF }} cluster with {{ ZK }} to version `3.9` step by step, witho
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `3.6`.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -62,7 +63,7 @@ Upgrade your {{ KF }} cluster with {{ ZK }} to version `3.9` step by step, witho
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -160,8 +161,9 @@ To migrate a {{ mkf-name }} cluster with {{ ZK }} hosts to the {{ kraft-short-na
 
 - Management console {#console}
 
-    1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-    1. Click the name of your cluster.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. Click the cluster name.
     1. At the top of the screen, click **Migrate**.
     1. Select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class for the {{ kraft-short-name }} controllers.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -254,7 +256,7 @@ To migrate a {{ mkf-name }} cluster with {{ ZK }} hosts to the {{ kraft-short-na
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
           Here, you need to specify all settings of the resources you want to add: `configSpec.kraft.resources.resourcePresetId`, `configSpec.kraft.resources.diskSize`, and `configSpec.kraft.resources.diskTypeId`.
 
