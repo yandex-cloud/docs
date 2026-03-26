@@ -163,7 +163,13 @@ items:
       - name: Настройка алертов и дашбордов в {{ monitoring-name }}
         href: security/alerts-monitoring.md
       - name: Загрузка аудитных логов в MaxPatrol SIEM
-        href: security/maxpatrol.md
+        items:
+          - name: Обзор
+            href: security/maxpatrol/index.md
+          - name: Консоль управления
+            href: security/maxpatrol/console.md
+          - name: '{{ TF }}'
+            href: security/maxpatrol/terraform.md
       - name: Загрузка аудитных логов в SIEM Splunk
         href: security/export-logs-to-splunk.md
       - name: Загрузка аудитных логов в SIEM ArcSight

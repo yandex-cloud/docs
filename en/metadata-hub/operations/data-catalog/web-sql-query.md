@@ -15,9 +15,9 @@ description: You can use {{ websql-name }} to send SQL queries to databases in c
 
 You can use [{{ websql-full-name }}](../../../websql/index.yaml) to send SQL queries to databases in clusters that are data sources for {{ data-catalog-name }}.
 
-{{ websql-name }} is a {{ yandex-cloud }} service that allows you to connect to managed database clusters, work with DBs, tables, and schemas, and run queries. It is a web-based tool that requires no additional authorization and simplifies working with SQL commands by suggesting prompts.
+{{ websql-name }} is a {{ yandex-cloud }} service that allows you to connect to managed database clusters and work with their databases, tables, schemas, and queries. This service runs in the browser, requires no extra login, and simplifies work by providing hints for SQL commands.
 
-For more information about working with {{ websql-name }}, see its [documentation](../../../websql/operations/index.md).
+For more details on working with {{ websql-name }}, see [these guides](../../../websql/operations/index.md).
 
 To run an SQL query:
 
@@ -26,7 +26,7 @@ To run an SQL query:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.

@@ -18,7 +18,7 @@ description: Follow this guide to get a list of operations in {{ data-catalog-fu
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog for which you want to get a list of operations.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.data-catalog.label_ingestion-tab-operations }}**.
@@ -38,7 +38,7 @@ Click the relevant column header:
 * **{{ ui-key.yacloud.common.started-at }}**: Sorting by operation start date and time in ascending order.
 * **{{ ui-key.yacloud.common.updated-at }}**: Sorting by catalog update date and time in ascending order.
 
-A second click on the same header reverses the sorting order. Clicking a third time clears the applied sorting.
+A second click on the same header reverses the sorting order. A third click clears the sorting.
 
 ### Customizing column display {#setting-columns}
 

@@ -18,6 +18,8 @@ description:
     Management</a> (KSPM).</li> <li><a
     href="/docs/security-deck/concepts/ciem">Cloud Infrastructure Entitlement
     Management</a> ({{ ciem-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/vulnerability-management">Vulnerability
+    management</a>.</li> <li><a
     href="/docs/security-deck/concepts/alerts">Alerts</a>.</li> <li><a
     href="/docs/security-deck/concepts/compliance">Compliance
     Portal</a>.</li></ul>
@@ -26,10 +28,11 @@ description:
     href="/docs/security-deck/concepts/ai-assistant">AI assistant</a> to provide
     you with security recommendations.
   - >-
-    Its tools enable you to monitor and respond to incidents, detect
-    vulnerabilities, manage cloud infrastructure and container security, monitor
-    and protect access to data, and enforce compliance with regulations and
-    industry standards. You can manage module settings and resources using <a
+    Its tools allow you to monitor and respond to incidents, detect container
+    image vulnerabilities, manage cloud infrastructure configuration and
+    container security, monitor and protect access to data, and enforce
+    compliance with regulations and industry standards. You can manage module
+    settings and resources using <a
     href="/docs/security-deck/concepts/workspace">workspaces</a>.
 meta:
   title: Yandex Security Deck
@@ -54,6 +57,9 @@ meta:
     - keyword: '{{ yandex-cloud }} information security'
     - keyword: cloud infrastructure entitlement management in {{ yandex-cloud }}
     - keyword: '{{ yandex-cloud }} vulnerabilities'
+    - keyword: '{{ yandex-cloud }} vulnerability management'
+    - keyword: scanning images for vulnerabilities
+    - keyword: vulnerability management {{ yandex-cloud }}
     - keyword: data protection in {{ yandex-cloud }}
     - keyword: '{{ yandex-cloud }} incident monitoring'
     - keyword: '{{ yandex-cloud }} incident response'

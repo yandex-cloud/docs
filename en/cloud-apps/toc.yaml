@@ -9,8 +9,14 @@ items:
         href: operations/install-app.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Creating a WordPress website using {{ cloud-apps-name }}
         href: tutorials/wordpress-cloudapp.md
-  - name: Audit logs {{ at-name }}
+      - name: >-
+          Creating a website in Ghost CMS High Availability using {{
+          cloud-apps-name }}
+        href: tutorials/ghost-cms-cloudapp.md
+  - name: '{{ at-name }} events'
     href: at-ref.md
 path: en/cloud-apps/toc.yaml

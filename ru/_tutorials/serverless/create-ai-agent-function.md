@@ -96,7 +96,7 @@
 
     Репозиторий содержит скрипты для создания трех вариантов AI-агента:
 
-    {% list tabs group=difficulty%}
+    {% list tabs group=difficulty %}
 
     - Простой AI-агент {#simple}
 
@@ -126,7 +126,7 @@
     В процессе выполнения скрипта укажите данные вашего облака и каталога, после чего дождитесь создания ресурсов.
 1. Протестируйте работу AI-агента.
 
-    {% list tabs group=difficulty%}
+    {% list tabs group=difficulty %}
 
     - Простой AI-агент {#simple}
 
@@ -180,10 +180,10 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `function-sa`.
   1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) `ai.languageModels.user`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
 
@@ -252,10 +252,10 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** и выберите созданный ранее сервисный аккаунт `function-sa`.
-  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.languageModels.execute`.
   1. (Опционально) Укажите **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-expires-at }}** API-ключа.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните полученный секретный ключ — он понадобится при создании функции.
 
       {% note alert %}
@@ -305,12 +305,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета `api-key-secret`.
   1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите ключ секрета `api-key`.
   1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** вставьте полученный на предыдущем шаге секретный ключ.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -356,10 +356,10 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и выберите созданный ранее секрет `api-key-secret`.
-  1. На панели слева выберите раздел ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. В открывшемся окне:
+  1. На панели слева выберите раздел ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. В открывшемся окне:
 
       1. В строке поиска введите имя созданного ранее сервисного аккаунта `function-sa` и выберите этот сервисный аккаунт.
-      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+      1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -385,54 +385,421 @@
 
 1. Сохраните следующий код в файл с названием `index.py`:
 
-    ```python
-    import os
+    {% list tabs group=difficulty %}
 
-    from openai import AsyncOpenAI
+    - Простой AI-агент {#simple}
 
-    from agents import (
-        Agent,
-        OpenAIChatCompletionsModel,
-        Runner,
-        function_tool,
-        set_tracing_disabled,
-    )
+      ```python
+      import os
 
-    BASE_URL = os.getenv("BASE_URL")
-    API_KEY = os.getenv("API_KEY")
-    MODEL_NAME = os.getenv("MODEL_NAME")
+      from openai import AsyncOpenAI
 
-    client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)
-    set_tracing_disabled(disabled=True)
+      from agents import (
+          Agent,
+          OpenAIChatCompletionsModel,
+          Runner,
+          function_tool,
+          set_tracing_disabled,
+      )
 
+      BASE_URL = os.getenv("BASE_URL")
+      API_KEY = os.getenv("API_KEY")
+      MODEL_NAME = os.getenv("MODEL_NAME")
 
-    @function_tool
-    def get_weather(city: str):
-        print(f"[debug] getting weather for {city}")
-        return f"The weather in {city} is sunny."
+      client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)
+      set_tracing_disabled(disabled=True)
 
 
-    async def handler(event, context):
-        agent = Agent(
-            name="Assistant",
-            instructions="You only respond in haikus.",
-            model=OpenAIChatCompletionsModel(model=MODEL_NAME, openai_client=client),
-            tools=[get_weather],
-        )
+      @function_tool
+      def get_weather(city: str):
+          print(f"[debug] getting weather for {city}")
+          return f"The weather in {city} is sunny."
 
-        result = await Runner.run(agent, "What's the weather in Tokyo?")
 
-        return {
-            "statusCode": 200,
-            "body": result.final_output,
-        }
-    ```
+      async def handler(event, context):
+          agent = Agent(
+              name="Assistant",
+              instructions="You only respond in haikus.",
+              model=OpenAIChatCompletionsModel(model=MODEL_NAME, openai_client=client),
+              tools=[get_weather],
+          )
+
+          result = await Runner.run(agent, "What's the weather in Tokyo?")
+
+          return {
+              "statusCode": 200,
+              "body": result.final_output,
+          }
+      ```
+
+    - Продвинутый AI-агент {#advanced}
+
+      ```python
+      import os
+      import json
+
+      from openai import AsyncOpenAI
+
+      from agents import (
+          Agent,
+          OpenAIChatCompletionsModel,
+          Runner,
+          function_tool,
+          set_tracing_disabled,
+      )
+
+      BASE_URL = os.getenv("BASE_URL")
+      API_KEY = os.getenv("API_KEY")
+      MODEL_NAME = os.getenv("MODEL_NAME")
+
+      client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)
+      set_tracing_disabled(disabled=True)
+
+
+      @function_tool
+      def get_weather(city: str):
+          print(f"[debug] getting weather for {city}")
+          return f"The weather in {city} is sunny."
+
+
+      async def handler(event, context):
+          # Извлекаем пользовательский запрос из события
+          user_query = "What's the weather today?"  # Запрос по умолчанию
+          
+          try:
+              # Пытаемся получить запрос из тела события
+              if event and isinstance(event, dict):
+                  body = event.get('body')
+                  if body:
+                      # Если body передан как строка (что часто бывает при вызове через API Gateway)
+                      if isinstance(body, str):
+                          try:
+                              body_json = json.loads(body)
+                              if 'query' in body_json:
+                                  user_query = body_json['query']
+                          except json.JSONDecodeError:
+                              pass  # Используем запрос по умолчанию, если body не является JSON
+                      elif isinstance(body, dict) and 'query' in body:
+                          user_query = body['query']
+                  # Если запрос передан напрямую в event
+                  elif 'query' in event:
+                      user_query = event['query']
+          except Exception as e:
+              print(f"Ошибка при обработке запроса: {e}")
+              # В случае ошибки используем запрос по умолчанию
+          
+          print(f"Обрабатываемый запрос: {user_query}")
+          
+          agent = Agent(
+              name="Assistant",
+              instructions="You only respond in haikus. Be creative and poetic.",
+              model=OpenAIChatCompletionsModel(model=MODEL_NAME, openai_client=client),
+              tools=[get_weather],
+          )
+
+          result = await Runner.run(agent, user_query)
+
+          return {
+              "statusCode": 200,
+              "body": result.final_output,
+              "headers": {
+                  "Content-Type": "application/json"
+              }
+          }
+      ```
+
+    - Агент-переводчик {#complex}
+
+      ```python
+      import os
+      import json
+      import re
+      from typing import Dict, List, Optional, Any
+
+      from openai import AsyncOpenAI
+
+      from agents import (
+          Agent,
+          OpenAIChatCompletionsModel,
+          Runner,
+          function_tool,
+          set_tracing_disabled,
+      )
+
+      BASE_URL = os.getenv("BASE_URL")
+      API_KEY = os.getenv("API_KEY")
+      MODEL_NAME = os.getenv("MODEL_NAME")
+
+      client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)
+      set_tracing_disabled(disabled=True)
+
+      # Dictionary with language codes to simplify input
+      LANGUAGE_CODES = {
+          "русский": "ru",
+          "russian": "ru",
+          "английский": "en",
+          "english": "en",
+          "французский": "fr",
+          "french": "fr",
+          "немецкий": "de",
+          "german": "de",
+          "испанский": "es",
+          "spanish": "es",
+          "итальянский": "it",
+          "italian": "it",
+          "китайский": "zh",
+          "chinese": "zh",
+          "японский": "ja",
+          "japanese": "ja",
+          "корейский": "ko",
+          "korean": "ko",
+          "арабский": "ar",
+          "arabic": "ar",
+          "португальский": "pt",
+          "portuguese": "pt",
+      }
+
+      # Dictionary with tone codes
+      TONE_TYPES = {
+          "формальный": "formal",
+          "formal": "formal",
+          "неформальный": "informal",
+          "informal": "informal",
+          "дружеский": "friendly",
+          "friendly": "friendly",
+          "деловой": "business",
+          "business": "business",
+          "технический": "technical",
+          "technical": "technical",
+          "простой": "simple",
+          "simple": "simple",
+          "академический": "academic",
+          "academic": "academic",
+          "поэтический": "poetic",
+          "poetic": "poetic",
+          "разговорный": "conversational",
+          "conversational": "conversational",
+      }
+
+      @function_tool
+      def detect_language(text: str) -> dict:
+          """Detects the language of the input text.
+          
+          Args:
+              text: Text to analyze
+              
+          Returns:
+              Dictionary with detected language and its code
+          """
+          # This function uses model capabilities to determine the language
+          # In a real application, you could use specialized libraries for more accurate detection
+          
+          common_words = {
+              "en": ["the", "and", "of", "to", "in", "a", "is", "that", "for", "it", "with", "as", "was", "on"],
+              "ru": ["и", "в", "не", "на", "что", "с", "по", "это", "я", "он", "как", "из", "то", "а", "все", "так"],
+              "fr": ["le", "la", "les", "un", "une", "et", "de", "des", "du", "dans", "en", "est", "que", "pour", "qui"],
+              "de": ["der", "die", "das", "und", "in", "von", "mit", "den", "zu", "ist", "für", "auf", "dem", "nicht"],
+              "es": ["el", "la", "los", "las", "un", "una", "y", "de", "en", "que", "a", "por", "con", "no", "es"],
+              "it": ["il", "la", "i", "le", "e", "di", "un", "una", "in", "che", "per", "con", "è", "non", "sono"],
+          }
+          
+          # Simple detection by characteristic symbols and words
+          text_lower = text.lower()
+          
+          # Check for Cyrillic characters (for Russian)
+          if re.search('[а-яА-Я]', text):
+              return {"language": "Russian", "code": "ru"}
+          
+          # Check for characters (for Chinese and Japanese)
+          if re.search('[\u4e00-\u9fff]', text):
+              return {"language": "Chinese", "code": "zh"}
+          
+          if re.search('[\u3040-\u309F\u30A0-\u30FF]', text):
+              return {"language": "Japanese", "code": "ja"}
+          
+          # Check by common words
+          word_counts = {}
+          for lang, words in common_words.items():
+              count = 0
+              for word in words:
+                  pattern = r'\b' + re.escape(word) + r'\b'
+                  count += len(re.findall(pattern, text_lower))
+              word_counts[lang] = count
+          
+          # Determine the language with the most matches
+          if word_counts:
+              detected_code = max(word_counts.items(), key=lambda x: x[1])[0]
+              language_names = {
+                  "en": "English",
+                  "ru": "Russian",
+                  "fr": "French",
+                  "de": "German",
+                  "es": "Spanish",
+                  "it": "Italian",
+              }
+              return {"language": language_names.get(detected_code, "Unknown"), "code": detected_code}
+          
+          # Default to English
+          return {"language": "Unknown (assuming English)", "code": "en"}
+
+      @function_tool
+      def translate_text(text: str, target_language: str, source_language: Optional[str] = None, tone: Optional[str] = None) -> str:
+          """Translates text to the specified language while preserving tone and style.
+          
+          Args:
+              text: Text to translate
+              target_language: Target language for translation (code or name)
+              source_language: Source language of the text (code or name, optional)
+              tone: Desired tone of translation (formal, informal, business, etc., optional)
+              
+          Returns:
+              Translated text
+          """
+          # This function would use LLM for translation in reality
+          # Here we just return information about the request for demonstration
+          
+          # Normalize language codes
+          target_code = LANGUAGE_CODES.get(target_language.lower(), target_language.lower())
+          source_code = None
+          if source_language:
+              source_code = LANGUAGE_CODES.get(source_language.lower(), source_language.lower())
+          
+          # Normalize tone
+          tone_type = None
+          if tone:
+              tone_type = TONE_TYPES.get(tone.lower(), tone.lower())
+          
+          # Return information for LLM to perform translation
+          # In a real application, you could call a specialized translation API here
+          return {
+              "text": text,
+              "target_language_code": target_code,
+              "source_language_code": source_code,
+              "tone": tone_type,
+              "length": len(text)
+          }
+
+      async def handler(event, context):
+          """Function handler"""
+          try:
+              # Get text for translation and parameters from the request
+              text = None
+              target_language = None
+              source_language = None
+              tone = None
+              
+              # Process different formats of incoming data
+              if event and isinstance(event, dict):
+                  body = event.get('body')
+                  
+                  if body:
+                      # If body is passed as a string (common when called via API Gateway)
+                      if isinstance(body, str):
+                          try:
+                              body_json = json.loads(body)
+                              text = body_json.get('text')
+                              target_language = body_json.get('target_language')
+                              source_language = body_json.get('source_language')
+                              tone = body_json.get('tone')
+                          except json.JSONDecodeError:
+                              # Maybe it's just text for translation
+                              text = body
+                      elif isinstance(body, dict):
+                          text = body.get('text')
+                          target_language = body.get('target_language')
+                          source_language = body.get('source_language')
+                          tone = body.get('tone')
+                  else:
+                      # If parameters are passed directly in the event
+                      text = event.get('text')
+                      target_language = event.get('target_language')
+                      source_language = event.get('source_language')
+                      tone = event.get('tone')
+              
+              # Check required parameters
+              if not text:
+                  return {
+                      "statusCode": 400,
+                      "body": json.dumps({"error": "Missing 'text' parameter (text to translate)"}),
+                      "headers": {"Content-Type": "application/json"}
+                  }
+              
+              if not target_language:
+                  return {
+                      "statusCode": 400,
+                      "body": json.dumps({"error": "Missing 'target_language' parameter (target language)"}),
+                      "headers": {"Content-Type": "application/json"}
+                  }
+                  
+              # Create request for AI agent
+              user_query = f"Translate the following text to {target_language}:"
+              if source_language:
+                  user_query += f" from {source_language}"
+              if tone:
+                  user_query += f". Preserve the {tone} tone and style of the original"
+              user_query += f"\\n\\n{text}"
+              
+              # Set up AI agent
+              agent = Agent(
+                  name="TranslatorAssistant",
+                  instructions="""You are a professional translator assistant who can translate text between different languages 
+      while preserving the original tone, style, and context. 
+
+      Your tools:
+      1. detect_language - to identify the language of the input text
+      2. translate_text - to translate text to the target language
+
+      You should:
+      - Understand the tone and style of the original text
+      - Preserve formatting, including paragraphs, bullet points, and special symbols
+      - Keep names, terms, and brand names unchanged unless translation is specifically required
+      - When translating technical or specialized content, use appropriate terminology
+      - Be sensitive to cultural context and adapt idioms appropriately
+      - For formal documents, maintain formal language in the translation
+      - For creative content, preserve the creative elements in the translation
+
+      When responding:
+      1. Provide the translation
+      2. If requested or if there are important notes about the translation, briefly mention them
+      3. Be concise and focus on accurate translation""",
+                  model=OpenAIChatCompletionsModel(model=MODEL_NAME, openai_client=client),
+                  tools=[detect_language, translate_text],
+              )
+
+              # Run the agent
+              result = await Runner.run(agent, user_query)
+              
+              # Format the response
+              return {
+                  "statusCode": 200,
+                  "body": json.dumps({
+                      "translation": result.final_output,
+                      "original_text": text,
+                      "target_language": target_language,
+                      "source_language": source_language,
+                      "tone": tone
+                  }, ensure_ascii=False),
+                  "headers": {"Content-Type": "application/json; charset=utf-8"}
+              }
+              
+          except Exception as e:
+              print(f"Request processing error: {str(e)}")
+              return {
+                  "statusCode": 500,
+                  "body": json.dumps({"error": f"Internal server error: {str(e)}"}),
+                  "headers": {"Content-Type": "application/json"}
+              }
+      ```
+
+    {% endlist %}
+
 1. Сохраните следующий код в файл с названием `requirements.txt`:
 
     ```text
     openai-agents
     ```
 1. Добавьте файлы `index.py` и `requirements.txt` в ZIP-архив `openai-function.zip`.
+
 
 ## Создайте функцию {#create-function}
 
@@ -443,9 +810,9 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. В открывшемся окне введите имя функции `ai-agent-function`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
   1. Создайте [версию функции](../../functions/concepts/function.md#version):
      1. Выберите среду выполнения `{{ python-full-ver }}`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее файл `openai-function.zip`.
@@ -455,16 +822,18 @@
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите сервисный аккаунт `function-sa`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+             * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
              * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
                 
-                 Где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+                 Укажите идентификатор каталога, в котором вы создаете инфраструктуру.
              * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
+
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
              * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** укажите `API_KEY` и выберите созданный ранее секрет `api-key-secret`, его версию и ключ `api-key`.
         * Если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}, отключите опцию **{{ ui-key.yacloud.logging.field_logging }}**, чтобы отключить логирование.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
@@ -498,7 +867,7 @@
         --runtime={{ python-cli-ver }} \
         --entrypoint=index.handler \
         --service-account-id=<идентификатор_сервисного_аккаунта> \
-        --environment MODEL_NAME="gpt://<идентификатор_каталога>/yandexgpt/latest",BASE_URL="https://{{ api-host-llm }}/v1" \
+        --environment FOLDER_ID="<идентификатор_каталога>",MODEL_NAME="gpt://<идентификатор_каталога>/yandexgpt/latest",BASE_URL="https://{{ api-host-llm }}/v1" \
         --secret name=api-key-secret,key=api-key,environment-variable=API_KEY \
         --source-path=./openai-function.zip \
         --no-logging
@@ -507,7 +876,16 @@
       Где:
 
       * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `function-sa`, сохраненный ранее при его создании.
-      * `<идентификатор_каталога>` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, сохраненный ранее при создании сервисного аккаунта.
+      * `--environment` — переменные окружения:
+
+          * `FOLDER_ID` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, сохраненный ранее при создании сервисного аккаунта.
+          * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
+
+                 Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
+                
+                 Укажите идентификатор каталога, в котором вы создаете инфраструктуру.
+
+          * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
 
       Результат:
 
@@ -527,6 +905,7 @@
       tags:
         - $latest
       environment:
+        FOLDER_ID: b1gt6g8ht345********
         BASE_URL: https://{{ api-host-llm }}/v1
         MODEL_NAME: gpt://b1gt6g8ht345********/yandexgpt/latest
       secrets:
@@ -553,14 +932,14 @@
 
 ## Протестируйте работу функции {#test-function}
 
-{% list tabs group=instructions %}
+{% list tabs group=difficulty %}
 
-- Консоль управления {#console}
+- Простой AI-агент {#simple}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
   1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. Нажмите кнопку ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и посмотрите результат тестирования.
+  1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и посмотрите результат тестирования.
 
       При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
 
@@ -571,7 +950,62 @@
       }
       ```
 
+- Продвинутый AI-агент {#advanced}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
+  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
+
+      ```json
+      {
+        "query": "What's the weather in Paris?"
+      }
+      ```
+
+  1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и посмотрите результат тестирования.
+
+      При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
+
+      ```json
+      {
+          "statusCode": 200,
+          "body": "Paris skies so blue,\nSunshine warms the city's heart,\nBreathe in, feel the joy.",
+          "headers": {
+              "Content-Type": "application/json"
+          }
+      }
+      ```
+
+- Агент-переводчик {#complex}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и выберите созданную функцию.
+  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** укажите:
+
+      ```json
+      {
+        "text": "Hello, world!",
+        "target_language": "русский",
+        "tone": "дружеский"
+      }
+      ```
+
+  1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и посмотрите результат тестирования.
+
+      При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
+
+      ```json
+      {
+          "statusCode": 200,
+          "body": "{\"translation\": \"Привет, мир!\", \"original_text\": \"Hello, world!\", \"target_language\": \"русский\", \"source_language\": null, \"tone\": \"дружеский\"}",
+          "headers": {
+              "Content-Type": "application/json; charset=utf-8"
+          }
+      }
+      ```
+
 {% endlist %}
+
 
 ## Как удалить созданные ресурсы {#clear-out}
 

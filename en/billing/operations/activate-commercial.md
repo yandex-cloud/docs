@@ -1,11 +1,10 @@
-# Activating the paid version
+# Activate the paid version
 
-Legal entities can activate the paid version within sixty days after the trial period expires. Otherwise, all of their resources are deleted automatically.
-If you have not spent the full amount of the [initial grant](../concepts/bonus-account.md) during the trial period, you can use its balance to pay for the resources you will consume in the future.
+Businesses must activate the paid version within sixty days after the [trial period](../concepts/trial-period.md) expires. Otherwise, all resources will be deleted. If you have not spent your [initial grant](../concepts/bonus-account.md) in full during the trial period, you can use the remaining balance to cover future resource payments.
 
 {% note info %}
 
-The paid version can be activated by a user who has been assigned the [role](../security/index.md#billing-accounts-owner) `billing.accounts.owner`.
+To upgrade to the paid version, the user must have the `billing.accounts.owner` [role](../security/index.md#billing-accounts-owner).
 
 {% endnote %}
 

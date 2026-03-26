@@ -1,6 +1,6 @@
 ---
 title: '{{ marketplace-full-name }} use cases'
-description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ marketplace-name }} products in {{ yandex-cloud }}.
 ---
 
 # {{ marketplace-name }} tutorials

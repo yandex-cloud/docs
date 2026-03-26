@@ -12,7 +12,7 @@ description: Follow this guide to request detailed information about existing {{
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
 
@@ -41,11 +41,11 @@ description: Follow this guide to request detailed information about existing {{
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.List](../../api-ref/Cluster/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.List](../../api-ref/Cluster/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -57,11 +57,11 @@ description: Follow this guide to request detailed information about existing {{
 
         You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
 
-    1. View the [server response](../../api-ref/Cluster/list.md#yandex.cloud.metastore.v1.ListClustersResponse) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/Cluster/list.md#yandex.cloud.metastore.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -85,7 +85,7 @@ description: Follow this guide to request detailed information about existing {{
 
         You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
 
-    1. View the [server response](../../api-ref/grpc/Cluster/list.md#yandex.cloud.metastore.v1.ListClustersResponse) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/Cluster/list.md#yandex.cloud.metastore.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -96,7 +96,7 @@ description: Follow this guide to request detailed information about existing {{
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. Click the cluster name.
 
@@ -106,7 +106,7 @@ description: Follow this guide to request detailed information about existing {{
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ metastore-name }} cluster, run the following command:
+  To get {{ metastore-name }} cluster details, run the following command:
 
   ```bash
   {{ yc-metastore }} cluster get <cluster_name_or_ID>
@@ -116,11 +116,11 @@ description: Follow this guide to request detailed information about existing {{
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Get](../../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Get](../../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -131,11 +131,11 @@ description: Follow this guide to request detailed information about existing {{
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../../api-ref/Cluster/get.md#yandex.cloud.metastore.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/Cluster/get.md#yandex.cloud.metastore.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -159,7 +159,7 @@ description: Follow this guide to request detailed information about existing {{
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/Cluster/get.md#yandex.cloud.metastore.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/Cluster/get.md#yandex.cloud.metastore.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -174,7 +174,7 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. Click the cluster name.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
@@ -195,11 +195,11 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.ListOperations](../../api-ref/Cluster/listOperations.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.ListOperations](../../api-ref/Cluster/listOperations.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -210,17 +210,17 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../../api-ref/Cluster/listOperations.md#yandex.cloud.metastore.v1.ListClusterOperationsResponse) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/Cluster/listOperations.md#yandex.cloud.metastore.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.ListOperations](../../api-ref/grpc/Cluster/listOperations.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.ListOperations](../../api-ref/grpc/Cluster/listOperations.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -238,14 +238,14 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.metastore.v1.ListClusterOperationsResponse) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.metastore.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 {% endlist %}
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for a cluster.
-1. Copy the operation ID.
+1. [Get the list of operations](#get-operations) for the cluster.
+1. Copy the ID of the operation you need.
 1. Get operation details:
 
     {% list tabs group=instructions %}
@@ -285,11 +285,11 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
 
     - REST API {#api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-        1. Use the [Operation.Get](../../api-ref/Operation/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Operation.Get](../../api-ref/Operation/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -298,17 +298,17 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
                 --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
             ```
 
-        1. View the [server response](../../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
         1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-        1. Use the [OperationService.Get](../../api-ref/grpc/Operation/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [OperationService.Get](../../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -324,7 +324,7 @@ All actions with {{ metastore-name }} clusters are logged as a list of operation
                 yandex.cloud.operation.OperationService.Get
             ```
 
-        1. View the [server response](../../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
     
     {% endlist %}
 

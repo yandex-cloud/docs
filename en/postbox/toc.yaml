@@ -21,6 +21,8 @@ items:
         href: operations/create-configuration.md
       - name: Linking a configuration to an address
         href: operations/bind-configuration.md
+      - name: Limiting the list of senders
+        href: operations/restrict-senders.md
       - name: Writing logs
         href: operations/logs-write.md
   - name: Concepts

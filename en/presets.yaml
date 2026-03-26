@@ -1882,13 +1882,6 @@ default:
                 v2: dn2na3cief147jjt20v7
             ram:
               v2: dn2886p1eilq0pn7jisp
-  pc|video:
-    transcoding:
-      live:
-        v1: dn2e4fbl2ulmcsfkorpg
-    used_space:
-      live:
-        v1: dn2n6f6hvsu4uvssegsx
   pc|ydb:
     cluster:
       v1:
@@ -3765,9 +3758,6 @@ default:
         field_organization: Organization
         field_payment-type: Payment type
         field_person-type: Account type
-        label_step-company_title: Company information
-        label_step-contacts_title: Contacts
-        label_step-individual_title: Personal data
         label_step-payment_title: Payment details
       create-account:
         label_option_card: Manual top-up
@@ -3961,6 +3951,9 @@ default:
         folder:
           dashboard:
             label_compute: Compute Cloud
+          service-account:
+            label_add-role: Add role
+            popup-robot_button_add: Create
     yacloud_components:
       acl-filters:
         placeholder:
@@ -4485,6 +4478,8 @@ default:
           profile_8kyBA: Profile
           security_7zQ3g: Login and security
       cloud-components:
+        AclDashboard:
+          action_assign-roles_41Nj1: Assign roles
         manage-cert-dialog:
           action-generate-new-certificate: Generate new certificate
           table:
@@ -6038,7 +6033,6 @@ default:
           label_time-min_many: minutes
           label_time-min_zero: minutes
           label_time-sec_many: seconds
-        unspecified: Not specified
         update: Update
         updated-at: Date modified
         user: User
@@ -8019,7 +8013,6 @@ default:
         label_selector: Selector
         label_signing-type-internal: Simple
         section_dkim: Email signature configuration (DKIM)
-        section_restrictions: Restrictions
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
@@ -8368,7 +8361,15 @@ default:
           label_http-router: HTTP router
           label_virtual-host: Virtual host
         AttachSecurityProfileDialog:
+          ApiGatewayItem:
+            label_api-gateway_5Nttt: API gateway
           label_add-resource_v4U3g: Add resource
+          label_api-gateway_sKMCK: API gateway
+          label_domain_9Bo38: Domain
+          label_virtual-host_tYim5: Virtual host
+          ProxyServerItem:
+            label_domain_1hgsY: Domain
+            label_proxy-server_w9BGG: Proxy server
         baseRulesTitle_xcJEe: Base rules
         CreateDomain:
           createDomain_b2Ykj: Add domain
@@ -8918,6 +8919,8 @@ default:
           ConnectMcpTools:
             add-mcp-tool_dyEgv: Add tools
           create-agent_1txyW: Create agent
+          CreateAgentCard:
+            create-agent_button-text_n2qCs: Create agent
           CreateMcpServerForm:
             access-type_aPzxZ: Access
             access-type_private_b4gkg: Private
@@ -8939,6 +8942,8 @@ default:
           McpServersList:
             label_create-mcp-gateway_3o3Vu: Create MCP server
           name_hTzhB: Name
+          Overview3:
+            action-card_create-ai-agent_ahZQH: Create AI agent
       ydb:
         browse:
           button_create: Create

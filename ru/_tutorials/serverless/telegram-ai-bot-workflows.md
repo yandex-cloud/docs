@@ -1,9 +1,9 @@
 # Как создать бота в Telegram с поддержкой AI-агента с помощью {{ sw-full-name }}
 
 
-С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) на базе сервиса [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/).
+С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) на базе сервиса [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
-В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы организуете хранение данных в [{{ objstorage-full-name }}](../../storage/) и [{{ lockbox-full-name }}](../../lockbox/), настроите логику бота в [{{ sw-full-name }}](../../serverless-integrations/) и вебхук с помощью [{{ api-gw-full-name }}](../../api-gateway/).
+В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [{{ objstorage-full-name }}](../../storage/) и [{{ lockbox-full-name }}](../../lockbox/), настроите логику бота в [{{ sw-full-name }}](../../serverless-integrations/) и вебхук для запуска по ссылке.
 
 Чтобы создать бота:
 
@@ -11,9 +11,9 @@
 1. [Зарегистрируйте Telegram-бота](#create-bot).
 1. [Создайте секрет](#create-secret).
 1. [Создайте бакет](#create-bucket).
-1. [Создайте сервисные аккаунты](#create-sa).
+1. [Создайте сервисный аккаунт](#create-sa).
+1. [Создайте AI-агента](#create-ai-agent).
 1. [Настройте рабочий процесс](#config-workflow).
-1. [Настройте API-шлюз](#config-api-gateway).
 1. [Настройте вебхук для бота](#config-webhook).
 1. [Проверьте работу бота](#check-result).
 1. [Настройте агент под вашу задачу](#what-is-next).
@@ -33,7 +33,6 @@
 * плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
 * плата за хранение секрета и запросы к нему (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
 * плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
-* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
 * плата за получение и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 
@@ -199,12 +198,9 @@
 {% endlist %}
 
 
-## Создайте сервисные аккаунты {#create-sa}
+## Создайте сервисный аккаунт {#create-sa}
 
-Создайте два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
-
-* `sa-apigw` — от его имени будет запускаться [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-name }};
-* `sa-workflows` — от его имени будут выполняться шаги рабочего процесса.
+Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `sa-workflows` — от его имени будут выполняться шаги рабочего процесса.
 
 {% list tabs group=instructions %}
 
@@ -213,16 +209,16 @@
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя сервисного аккаунта `sa-apigw`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/roles-reference.md) `serverless.workflows.executor`.
+  1. Введите имя сервисного аккаунта `sa-workflows`.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте [роли](../../iam/roles-reference.md):
+
+      * `storage.uploader`
+      * `storage.viewer`
+      * `{{ roles-lockbox-payloadviewer }}`
+      * `{{ roles-yagpt-user }}`
+      * `ai.assistants.editor`
+
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-
-  Аналогичным образом создайте сервисный аккаунт с именем `sa-workflows` и назначьте ему роли:
-
-  * `storage.uploader`
-  * `storage.viewer`
-  * `{{ roles-lockbox-payloadviewer }}`
-  * `{{ roles-yagpt-user }}`
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -234,10 +230,9 @@
       yc iam service-account create --help
       ```
 
-  1. Создайте сервисные аккаунты:
+  1. Создайте сервисный аккаунт:
 
       ```bash
-      yc iam service-account create --name sa-apigw
       yc iam service-account create --name sa-workflows
       ```
 
@@ -246,21 +241,15 @@
       Результат:
 
       ```text
-      id: ajeu2s3k358j********
-      folder_id: b1g681qpemb4********
-      created_at: "2025-08-20T12:18:37.599632350Z"
-      name: sa-apigw
-
       id: ajersnus6rb2********
       folder_id: b1g681qpemb4********
       created_at: "2025-08-20T12:18:41.869376672Z"
       name: sa-workflows
       ```
 
-  1. Сохраните идентификаторы сервисных аккаунтов и идентификатор каталога в переменные:
+  1. Сохраните идентификатор сервисного аккаунта и идентификатор каталога в переменные:
 
       ```bash
-      APIGW_SA=$(yc iam service-account get --name sa-apigw --format json | jq -r .id)
       WF_SA=$(yc iam service-account get --name sa-workflows --format json | jq -r .id)
       FOLDER_ID=$(yc config get folder-id)
       ```
@@ -271,14 +260,9 @@
       yc resource-manager folder add-access-binding --help
       ```
 
-  1. Назначьте сервисным аккаунтам роли на каталог:
+  1. Назначьте сервисному аккаунту роли на каталог:
 
       ```bash
-      yc resource-manager folder add-access-binding \
-        --id $FOLDER_ID \
-        --role serverless.workflows.executor \
-        --subject serviceAccount:$APIGW_SA
-
       yc resource-manager folder add-access-binding \
         --id $FOLDER_ID \
         --role storage.uploader \
@@ -298,6 +282,11 @@
         --id $FOLDER_ID \
         --role {{ roles-yagpt-user }} \
         --subject serviceAccount:$WF_SA
+
+      yc resource-manager folder add-access-binding \
+        --id $FOLDER_ID \
+        --role ai.assistants.editor \
+        --subject serviceAccount:$WF_SA
       ```
 
       Где:
@@ -312,14 +301,6 @@
       effective_deltas:
         - action: ADD
           access_binding:
-            role_id: serverless.workflows.executor
-            subject:
-              id: ajeu2s3k358j********
-              type: serviceAccount
-      ...
-      effective_deltas:
-        - action: ADD
-          access_binding:
             role_id: {{ roles-yagpt-user }}
             subject:
               id: ajersnus6rb2********
@@ -328,19 +309,52 @@
 
 - API {#api}
 
-  Создайте сервисные аккаунты:
+  Создайте сервисный аккаунт `sa-workflows` с ролями:
 
-  * `sa-apigw` с ролью `serverless.workflows.executor`.
-  * `sa-workflows` с ролями:
-
-      * `storage.uploader`
-      * `storage.viewer`
-      * `{{ roles-lockbox-payloadviewer }}`
-      * `{{ roles-yagpt-user }}`
+  * `storage.uploader`
+  * `storage.viewer`
+  * `{{ roles-lockbox-payloadviewer }}`
+  * `{{ roles-yagpt-user }}`
+  * `ai.assistants.editor`
 
   Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [Create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
   Чтобы назначить роль сервисному аккаунту, воспользуйтесь методом REST API [updateAccessBindings](../../iam/api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/UpdateAccessBindings](../../iam/api-ref/grpc/ServiceAccount/updateAccessBindings.md).
+
+{% endlist %}
+
+
+## Создайте AI-агента {#create-ai-agent}
+
+Создайте [текстового агента]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents) в {{ ai-studio-name }} для обработки запросов пользователей.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Откройте [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
+  1. Нажмите **{{ ui-key.yacloud.yagpt.YaGPT.Overview3.action-card_create-ai-agent_ahZQH }}** → **{{ ui-key.yacloud.yagpt.YaGPT.CreateAgentCard.create-agent_button-text_n2qCs }}**.
+  1. В поле **{{ ui-key.yacloud.yagpt.YaGPT.name_hTzhB }}** введите имя агента, например `Агент-киноман`.
+  1. В поле **{{ ui-key.yacloud.yagpt.YaGPT.agent_instruction_9oe6q }}** введите инструкцию агента:
+
+      ```
+      Ты — консультант по подбору фильмов
+      
+      Цель — помочь пользователю выбрать фильм по его предпочтениям.
+      При первом обращении попроси несколько любимых фильмов (по одному в строке).
+      Дальше используй их для рекомендаций и задавай уточняющие вопросы.
+      
+      Предыдущая история общения: not_var{{backstory}}
+      ```
+
+      {% note info %}
+
+      Переменная `not_var{{backstory}}` используется для передачи истории диалога в агента. Это позволяет агенту учитывать предыдущие сообщения пользователя при формировании ответа.
+
+      {% endnote %}
+
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Скопируйте идентификатор созданного агента — слева вверху нажмите **ID** ![image](../../_assets/console-icons/copy.svg). Сохраните его. Идентификатор потребуется при настройке рабочего процесса.
 
 {% endlist %}
 
@@ -403,22 +417,13 @@ steps:
                     next: call_ai
 
             call_ai:
-              aiAgent:
-                agentConfig:
-                  role: Ты консультант по подбору фильмов
-                  goal: >-
-                    Помочь пользователю выбрать фильм по его предпочтениям.
-                    При первом обращении попроси несколько любимых фильмов
-                    (по одной в строке). Дальше используй их для рекомендаций
-                    и задавай уточняющие вопросы.
+              aiStudioAgent:
+                promptTemplateId: <идентификатор_агента>
+                message: \(.input.message.text)
+                variables:
                   backstory: >-
-                    История предыдущего общения (формат JSON-массив объектов {role,message}):
-                    "\(.history)"
-                  model:
-                    name: yandexgpt
-                tasks:
-                  - description: \(.input.message.text)
-                    result: Ответ в Markdown для отправки в Telegram.
+                    История предыдущего общения (формат: JSON-массив объектов)
+                    {role,message}): "\(.history)"
                 output: '\({reply: .Result})'
                 next: send_reply
 
@@ -452,8 +457,7 @@ steps:
 
 * `<имя_бакета>` — имя бакета, [созданного ранее](#create-bucket).
 * `<идентификатор_секрета>` — идентификатор секрета, [созданного ранее](#create-secret).
-
-В примере используется текстовая модель {{ gpt-pro }} (`name: yandexgpt`). Вы можете использовать [другую модель]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation), доступную в синхронном режиме в сервисе {{ foundation-models-name }}.
+* `<идентификатор_агента>` — идентификатор агента, [созданного ранее](#create-ai-agent).
 
 
 ### Создайте рабочий процесс {#create-workflow}
@@ -517,6 +521,7 @@ steps:
       status: ACTIVE
       log_options: {}
       service_account_id: aje4tpd9coa********
+      execution_url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/dfq0eod50iol********/start
       ```
 
 - API {#api}
@@ -526,115 +531,102 @@ steps:
 {% endlist %}
 
 
-## Настройте API-шлюз {#config-api-gateway}
+### Сделайте рабочий процесс публичным {#make-public}
 
-Настройте [API-шлюз](../../api-gateway/concepts/index.md) в качестве вебхука Telegram.
-
-
-### Подготовьте спецификацию API {#prepare-spec-api}
-
-Сохраните спецификацию API по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) в YAML-файле, например `api-spec.yaml`:
-
-```yaml
-openapi: 3.0.0
-info:
-  title: Telegram Webhook → Workflows
-  version: 1.0.0
-paths:
-  /handle:
-    post:
-      x-yc-apigateway-integration:
-        type: http
-        method: POST
-        service_account_id: <идентификатор_сервисного_аккаунта>  # сервисный аккаунт sa-apigw
-        url: https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/start
-      requestBody:
-        description: Telegram update passthrough to Workflows
-        content:
-          application/json:
-            schema:
-              x-yc-schema-mapping:
-                type: static
-                template:
-                  workflowId: <идентификатор_рабочего_процесса>  # ваш рабочий процесс
-                  input:
-                    inputJson: ${.|tojson}  # весь апдейт Telegram как input
-```
-
-Где:
-
-* `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта `sa-apigw`.
-* `<идентификатор_рабочего_процесса>` — идентификатор рабочего процесса, созданного на [предыдущем шаге](#create-workflow).
-
-
-### Создайте API-шлюз {#create-api-gw}
+Сделайте рабочий процесс публичным, чтобы его можно было запустить по ссылке без аутентификации.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя API-шлюза. Требования к имени:
-
-      {% include [name-format](../../_includes/name-format.md) %}
-
-  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** вставьте текст спецификации OpenAPI, подготовленной ранее.
-  1. В блоке **{{ ui-key.yacloud.logging.label_title }}** отключите опцию **{{ ui-key.yacloud.logging.field_logging }}**, если не хотите платить за хранение логов.
-  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Дождитесь создания API-шлюза и выберите его.
-  1. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** — оно понадобится на следующем шаге.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. Выберите нужный рабочий процесс.
+  1. Включите опцию **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Посмотрите описание команды CLI для создания API-шлюза:
+  1. Посмотрите описание команды CLI для изменения [рабочего процесса](../../serverless-integrations/concepts/workflows/workflow.md):
 
       ```bash
-      {{ yc-serverless }} api-gateway create --help
+      yc serverless workflow update --help
       ```
 
-  1. Создайте API-шлюз:
+  1. Сделайте рабочий процесс публичным:
 
       ```bash
-      {{ yc-serverless }} api-gateway create \
-        --name <имя_API-шлюза> \
-        --spec=<путь_к_файлу_спецификации>
+      yc serverless workflow update \
+        --name <имя_рабочего_процесса> \
+        --set-is-public
       ```
-
-      Где:
-
-      * `--name` — имя API-шлюза. Требования к имени:
-
-          {% include [name-format](../../_includes/name-format.md) %}
-
-      * `--spec` — путь к созданному ранее файлу со спецификацией.
 
       Результат:
 
       ```text
-      id: d5d63uh1h26g********
-      folder_id: b1g681qpemb4********
-      created_at: "2025-06-14T10:23:19.682Z"
-      name: ai-bot-gw
-      status: ACTIVE
-      domain: d5d63uh1h26g********.********.apigw.yandexcloud.net
-      connectivity: {}
-      log_options:
-        folder_id: b1g681qpemb4********
-      execution_timeout: 300s
+      id: dfqjl5hh5p90********
+      ...
+      is_public: true
+      execution_url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/dfq0eod50iol********/start
       ```
-
-  1. Сохраните значение поля `domain` — оно понадобится на следующем шаге.
 
 - API {#api}
 
-  Чтобы создать API-шлюз, воспользуйтесь методом REST API [Create](../../api-gateway/apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../../api-gateway/apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../../api-gateway/apigateway/api-ref/grpc/ApiGateway/create.md).
+  Чтобы сделать [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) публичным, воспользуйтесь методом REST API [Update](../../serverless-integrations/workflows/api-ref/Workflow/update.md) для ресурса [Workflows](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [workflow/Update](../../serverless-integrations/workflows/api-ref/grpc/Workflow/update.md), установив параметр `isPublic: true`.
+
+{% endlist %}
+
+{% note info %}
+
+Публичный рабочий процесс может быть запущен любым пользователем без IAM-токена. Это необходимо для настройки вебхука Telegram, который будет отправлять запросы на запуск рабочего процесса по ссылке.
+
+{% endnote %}
+
+
+## Настройте вебхук для бота {#config-webhook}
+
+Настройте вебхук для бота, чтобы он отправлял запросы на запуск рабочего процесса по ссылке.
+
+
+### Получите ссылку для запуска рабочего процесса {#get-execution-url}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится рабочий процесс.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. Выберите рабочий процесс. Ссылка для запуска будет в поле **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}**.
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  Чтобы получить ссылку для запуска, выполните команду:
+
+  ```bash
+  yc serverless workflow get <имя_рабочего_процесса>
+  ```
+
+  Результат:
+
+  ```text
+  id: dfqjl5hh5p90********
+  ...
+  is_public: true
+  execution_url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/dfq0eod50iol********/start
+  ```
+
+  Сохраните значение поля `execution_url`.
+
+- API {#api}
+
+  Чтобы получить ссылку для запуска рабочего процесса, воспользуйтесь методом REST API [get](../../serverless-integrations/workflows/api-ref/Workflow/get.md) для ресурса [Workflow](../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowsService/Get](../../serverless-integrations/workflows/api-ref/grpc/Workflow/get.md). Ссылка для запуска будет в поле `execution_url`.
 
 {% endlist %}
 
 
-## Настройте вебхук для бота {#config-webhook}
+### Настройте вебхук {#setup-webhook}
 
 Если у вас еще нет [cURL](https://curl.haxx.se), установите его.
 
@@ -650,19 +642,19 @@ paths:
 
   ```bash
   curl -s "https://api.telegram.org/bot<токен_бота>/setWebhook" \
-    -d "url=<служебный_домен>/handle"
+    -d "url=<execution_url>"
   ```
 
   Где:
 
   * `<токен_бота>` — токен, полученный при [создании бота](#create-bot).
-  * `<служебный_домен>` — служебный домен API-шлюза, полученный при его [создании](#create-api-gw).
+  * `<execution_url>` — ссылка для запуска рабочего процесса, полученная на [предыдущем шаге](#get-execution-url).
 
   Например:
 
   ```bash
   curl -s "https://api.telegram.org/bot1357246809:AAFhSteLniAw71g8jx6K5kTErO3********/setWebhook" \
-    -d "url=https://d5d0jdhgrro2********.********.apigw.yandexcloud.net/handle"
+    -d "url=https://serverless-workflows.{{ api-host }}/workflows/v1/execution/fd2g4pu20roc********/start"
   ```
 
   Результат:
@@ -699,30 +691,31 @@ paths:
 
 #### Что дальше {#what-is-next}
 
-Попробуйте изменить YaWL-спецификацию рабочего процесса под вашу задачу. Например, измените запрос к текстовой модели:
+Попробуйте изменить инструкцию агента в {{ ai-studio-name }} под вашу задачу. Например, измените инструкцию агента для подбора музыкальных исполнителей:
 
-```yaml
-...
-call_ai:
-  aiAgent:
-    agentConfig:
-      role: Ты консультант по подбору музыкальных исполнителей
-      goal: >-
-        Помочь пользователю выбрать музыку по его предпочтениям.
-        При первом обращении попроси несколько любимых
-        групп, музыкантов, композиторов, жанров (по одному в строке).
-        Дальше используй их для рекомендаций и задавай уточняющие вопросы.
+```
+Ты — консультант по подбору музыкальных исполнителей
+
+Цель — помочь пользователю выбрать музыку по его предпочтениям.
+При первом обращении попроси несколько любимых групп, музыкантов,
+композиторов, жанров (по одному в строке).
+Дальше используй их для рекомендаций и задавай уточняющие вопросы.
+
+Предыдущая история общения: not_var{{backstory}}
 ```
 
-Также вы можете добавить текст или файлы в качестве источников информации. Подробнее см. [описание интеграционного шага AIAgent](../../serverless-integrations/concepts/workflows/yawl/integration/aiagent.md).
+Также вы можете:
+* Добавить текст или файлы в качестве источников информации для агента. Подробнее см. [Текстовые агенты в {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents).
+* Настроить управление контекстом диалога. Подробнее см. [Управление контекстом диалога]({{ link-docs-ai }}ai-studio/operations/agents/manage-context).
+* Использовать другие инструменты агента, такие как поиск по файлам или веб-поиск.
 
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
 
-* [Удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз.
-* [Удалите](../../serverless-integrations/operations/workflows/workflow/delete.md) рабочий процесс.
-* [Удалите](../../storage/operations/buckets/delete.md) бакет.
-* [Удалите](../../lockbox/operations/secret-delete.md) секрет.
-* Если вы оставляли включенной опцию записи логов рабочего процесса или API-шлюза, [удалите](../../logging/operations/delete-group.md) лог-группу.
+1. [Удалите](../../serverless-integrations/operations/workflows/workflow/delete.md) рабочий процесс.
+1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
+1. [Удалите](../../lockbox/operations/secret-delete.md) секрет.
+1. Удалите AI-агента в {{ ai-studio-name }}.
+1. Если вы оставляли включенной опцию записи логов рабочего процесса, [удалите](../../logging/operations/delete-group.md) лог-группу.

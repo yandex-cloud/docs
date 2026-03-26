@@ -13,7 +13,7 @@ description: Различные сценарии использования {{ a
 
 ## Экспорт аудитных логов в SIEM {#siem}
 
-* [{#T}](maxpatrol.md)
+* [{#T}](maxpatrol/index.md)
 * [{#T}](export-logs-to-splunk.md)
 * [{#T}](export-logs-to-arcsight.md)
 * [{#T}](audit-trails-events-to-kuma/index.md)

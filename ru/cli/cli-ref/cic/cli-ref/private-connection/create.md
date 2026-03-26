@@ -36,7 +36,15 @@ Id of a trunk connection of the privateConnection. ||
 VLAN id that the privateConnection uses in multiplexing. ||
 || `--ipv4-peering` | `key=value[,key=value...]`
 
-A list of IPv4 peering parameters of the privateConnection. ||
+A list of IPv4 peering parameters of the privateConnection.
+
+Supported peering parameters:
+   peering-subnet: ip with format ipPrefix/length where address part of ipPrefix is 0.
+   peer-ip: ip with just an ipAddress format without mask.
+   cloud-ip: Ip with just an ipAddress format without mask.
+   peer-bgp-asn: PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).
+   cloud-bgp-asn: The BGP ASN of the cloud.
+   peer-bgp-md5-key: (optional) MD5 key of the peer. ||
 || `--ipv4-static-routes` | `value[,value]`
 
 IPv4 static routes (in ipPrefix/length format) of the privateConnection. ||
@@ -58,6 +66,9 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

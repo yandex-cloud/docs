@@ -34,3 +34,8 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 
 * [{#T}](./ciem/view-permissions.md).
 * [{#T}](./ciem/revoke-permissions.md).
+
+## {{ vuln-man-name }} module {#vulnerability-management}
+
+* [{#T}](./vulnerability-management/enable-vulnerability-management.md).
+* [{#T}](./vulnerability-management/use-vulnerability-management.md).

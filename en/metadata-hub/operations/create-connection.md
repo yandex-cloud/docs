@@ -37,7 +37,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -92,7 +92,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -167,7 +167,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}    
@@ -200,7 +200,7 @@ You can create connections of the following types:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -255,7 +255,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -330,7 +330,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -363,7 +363,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -417,7 +417,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -492,7 +492,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -525,7 +525,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -577,7 +577,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -652,7 +652,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -685,7 +685,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -738,7 +738,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -802,7 +802,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -835,7 +835,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -889,7 +889,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -964,7 +964,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -997,7 +997,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -1067,7 +1067,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -1137,7 +1137,7 @@ You can create connections of the following types:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: User password.
+            * `password.raw`: Password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -1180,7 +1180,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -1235,7 +1235,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -1310,7 +1310,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -1345,7 +1345,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -1494,7 +1494,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -1527,7 +1527,7 @@ You can create connections of the following types:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -1589,7 +1589,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<http_port>:<tcp_port>:<shard_name>` format.
       
@@ -1699,7 +1699,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -1732,7 +1732,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -1881,7 +1881,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -1914,7 +1914,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -1970,7 +1970,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>:<shard_name>` format.
       
@@ -2077,7 +2077,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -2110,7 +2110,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -2255,7 +2255,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -2288,7 +2288,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -2344,7 +2344,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--coordinator`: Coordinator parameters in `<host>:<port>` format.
       
@@ -2424,7 +2424,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -2457,7 +2457,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2515,7 +2515,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
@@ -2606,7 +2606,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -2639,7 +2639,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2784,7 +2784,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
@@ -2817,7 +2817,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2895,7 +2895,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
@@ -2992,7 +2992,7 @@ You can create connections of the following types:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: User password.
+            * `password.raw`: Password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -3033,7 +3033,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -3183,7 +3183,7 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
 
   1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  

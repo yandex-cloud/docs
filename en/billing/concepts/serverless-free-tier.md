@@ -34,7 +34,6 @@ Free tier applies to the following services:
 * [{{ dataproc-full-name }}](#dataproc)
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
-* [{{ datalens-full-name }}](#datalens)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -138,12 +137,6 @@ After you spend the free amount of services, you will be charged at the applicab
 After you spend the free amount of services, you will be charged at the applicable [rate](../../data-transfer/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ datalens-full-name }} {#datalens}
-
-[{{ datalens-full-name }}](../../datalens/quickstart.md) is a business analytics service. That allows you to connect to various data sources, visualize data, create dashboards, and share your results.
-
-{% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
 
 ## {{ iot-full-name }} {#iot}
 

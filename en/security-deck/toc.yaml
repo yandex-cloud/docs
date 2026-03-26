@@ -64,6 +64,16 @@ items:
             href: operations/cspm/check-compliance.md
           - name: Managing exceptions to control rules
             href: operations/cspm/manage-exceptions.md
+      - name: '{{ vuln-man-name }} (VM)'
+        items:
+          - name: Overview
+            href: operations/vulnerability-management/index.md
+          - name: Activating a module
+            href: >-
+              operations/vulnerability-management/enable-vulnerability-management.md
+          - name: Working with a dashboard
+            href: >-
+              operations/vulnerability-management/use-vulnerability-management.md
   - name: Concepts
     items:
       - name: Overview
@@ -88,6 +98,8 @@ items:
         href: concepts/ciem.md
       - name: Cloud Security Posture Management ({{ cspm-name }})
         href: concepts/cspm.md
+      - name: '{{ vuln-man-name }} (VM)'
+        href: concepts/vulnerability-management.md
       - name: '{{ atr-name }}'
         href: concepts/access-transparency.md
       - name: AI assistant
