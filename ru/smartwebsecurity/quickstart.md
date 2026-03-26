@@ -164,38 +164,29 @@
 
 ## Подключите профиль безопасности к ресурсу {#profile-connect}
 
-{% list tabs group=instructions %}
+Способ подключения зависит от типа ресурса.
 
-- Консоль управления {#console}
-
-  Способ подключения зависит от типа ресурса.
-
-  * Чтобы подключить домен: 
-    1. В разделе ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** → ![globe](../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}** выберите нужный домен. 
-    1. В меню сверху нажмите ![plug-connection](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.DomainsTable.connectSecurityProfile_g5MA4 }}** и выберите существующий или создайте новый профиль безопасности.
+{% list tabs %}
   
-  * Чтобы подключить виртуальный хост в сервисе {{ alb-name }}:
-
-    1. Если балансировщик управляется [Ingress-контроллером](../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
-    1. Если балансировщик управляется вами, в разделе ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** выберите созданный профиль.
-    1. Справа сверху нажмите ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-    1. В открывшемся окне выберите:
-
-       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
-       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
-       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
-
-        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
-
-    1. Нажмите **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
-
-      В разделе ![cubes-3-overlap](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появится подключенный виртуальный хост.
-
-  * Чтобы подключить API-шлюз:
-    1. В разделе ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** скопируйте идентификатор нужного профиля.
-    1. При создании API-шлюза или в спецификации уже созданного API-шлюза задайте расширение [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md).
-    1. Укажите в расширении скопированный идентификатор.
-
+- L7-балансировщик {#balancer}
+  
+  Если балансировщик управляется [Ingress-контроллером](../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+  
+  Чтобы подключить виртуальный хост:
+  
+  {% include [host-connect](../_includes/smartwebsecurity/security-profile-host-connect.md) %}
+  
+- API-шлюз {#api-gateway}
+    
+  Чтобы подключить API-шлюз:
+  
+  {% include [api-gateway-connect](../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
+  
+- Домен {#domain}
+  
+  Чтобы подключить домен:
+  
+  {% include [domain-connect](../_includes/smartwebsecurity/security-profile-domain-connect.md) %}
 
 {% endlist %}
 

@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+1. [Go](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
 1. Click **{{ ui-key.yacloud.schema-registry.SchemaRegistry.Namespaces.label_create-namespace-action_kTxW4 }}**.
 1. In the **{{ ui-key.yacloud.common.name }}** field, set a unique name for the namespace.

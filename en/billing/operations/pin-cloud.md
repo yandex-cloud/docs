@@ -57,12 +57,12 @@ To link or re-link a cloud to a billing account:
      * `billing_account_id`: ID of the billing account to link the cloud to.
      * `cloud_id`: ID of the cloud you want to link to the billing account.
 
-     For more information about `yandex_billing_cloud_binding` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/billing_cloud_binding).
+     For more information about `yandex_billing_cloud_binding` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/billing_cloud_binding).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  After that, the cloud will be linked to the billing account. You can check that the cloud is linked to the account on the billing account page in [{{ billing-name }}]({{ link-console-billing }}).
+  After that, the cloud will be linked to the billing account.
 
 - API {#api}
 
@@ -70,15 +70,31 @@ To link or re-link a cloud to a billing account:
 
 {% endlist %}
 
-If you want to stop using the old billing account, make sure it is on the free **Basic** service plan to avoid having your balance further debited. Otherwise, you will continue to be billed for the paid plan even if the account has no linked clouds.
-
 {% note warning %}
 
 Linking a cloud or another container to a [suspended account](../concepts/billing-account-statuses.md) will stop all your resources.
 
 {% endnote %}
 
+## How to check the cloud's link {#check-binding}
+
+To check the cloud's or service's link to a billing account:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+  
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select the billing account the new cloud or service was linked to.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+
+  The list should feature a new entry with the ID of the linked cloud or service.
+
+{% endlist %}
+
 ## Resource management in organizations {#bind-cloud-organization}
 
 1. {% include [cloud-to-pin.md](../_includes/clouds-to-pin.md) %}
 1. {% include [account_scope.md](../_includes/account-scope.md) %}
+
+If you want to stop using the old billing account, make sure it is on the free **Basic** service plan to avoid having your balance further debited. Otherwise, you will continue to be billed for the paid plan even if the account has no linked clouds.

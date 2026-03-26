@@ -96,9 +96,9 @@ Below is a list of bots used by various businesses for content indexing, deliver
 1. `MicrosoftPreview`: Generates page previews for Microsoft services.
 1. `Amazonbot`: Amazon search bot used to improve service quality, e.g., helping Alexa to provide more accurate answers to customer questions.
 1. `Applebot`: Collects data for tools integrated into user experiences in Appleʼs ecosystem (Spotlight, Siri, Safari), e.g., the search technology.
-1. `FacebookExternalHit`: Collects, caches, and displays website or app metadata, including its title, description, and icon (thumbnail image).
-1. `MetaExternalAgent`: Crawls web content to train AI models and improve products through direct indexing.
-1. `Meta‑ExternalFetcher`: Enables Meta AI to provide users with up-to-date information beyond its training data.
+1. `FacebookExternalHit`^1^: Collects, caches, and displays website or app metadata, including its title, description, and icon (thumbnail image).
+1. `MetaExternalAgent`^2^: Crawls web content to train AI models and improve products through direct indexing.
+1. `Meta‑ExternalFetcher`^2^: Enables Meta AI to provide users with up-to-date information beyond its training data.
 1. `Pinterestbot`: Crawls publicly accessible websites to index content and drive traffic, checks that pin data, e.g., its price and title, is up-to-date, and removes broken links.
 1. `Qwantbot`: Indexes web content for Qwant.
 1. `CCBot`: Archives web pages for `commoncrawl.org`.
@@ -146,9 +146,12 @@ Below is a list of bots used by various businesses for content indexing, deliver
 1. `SvnBot`: Monitors site availability.
 1. `TestomatoBot`: Monitors site availability.
 1. `PingAdminBot`: Monitors site availability.
-1. `Meta‑WebIndexerBot`: Crawls web resources to improve the quality of Meta AI search results for users.
-1. `Meta‑ExternalAdsBot`: Crawls web content for use cases such as improving advertising and other business-related products and services.
+1. `Meta‑WebIndexerBot`^2^: Crawls web resources to improve the quality of Meta AI search results for users.
+1. `Meta‑ExternalAdsBot`^2^: Crawls web content for use cases such as improving advertising and other business-related products and services.
 
+
+^1^ Facebook is a service provided by Meta, an organization designated as extremist.
+^2^ Meta is designated as extremist organization, and its activities are prohibited in Russia.
 
 {% endcut %}
 

@@ -18,7 +18,7 @@ description: Follow this guide to get a list of tags for metadata in a classific
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog the tags were created in.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** and select the classification the tags were created in.

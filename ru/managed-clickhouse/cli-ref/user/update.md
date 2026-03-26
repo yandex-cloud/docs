@@ -930,7 +930,7 @@ Use this setting to command ClickHouse to compress the result when sending it vi
 
 - `async_insert`: If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
 
-  Default value: **false**.
+  Default value: **true** for versions 26.3 and higher, **false** for versions 26.2 and lower.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert).
 
@@ -1241,6 +1241,9 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

@@ -18,7 +18,7 @@ description: Follow this guide to get a list of metadata catalogs in {{ data-cat
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to get a list of metadata catalogs.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
 
 {% endlist %}

@@ -6,6 +6,10 @@ editable: false
 
 
 
+## 0.194.0 (March 26, 2026)
+##### WARNING:
+* mdb_kafka: deprecate Kafka 3.6 version, use 3.9 instead
+
 ## 0.193.0 (March 19, 2026)
 ##### BUG FIXES:
 * mdb_clickhouse: fixed false positive conflict validation for ClickHouse resources

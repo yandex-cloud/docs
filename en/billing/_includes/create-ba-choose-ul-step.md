@@ -1,1 +1,1 @@
-In the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-type }}** field, select `Business or individual entrepreneur`.
+In the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-type }}** field, select **Business or individual entrepreneur**.

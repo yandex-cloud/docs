@@ -21,7 +21,7 @@ The connection list only displays those connections to which the user has access
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
 
 - CLI {#cli}
@@ -77,7 +77,7 @@ The connection list only displays those connections to which the user has access
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click the line with the connection to view its details.
 
@@ -118,7 +118,7 @@ The connection list only displays those connections to which the user has access
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** and click the name of the connection you need.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.connection-manager.label_dependences }}**.
 

@@ -1882,13 +1882,6 @@ default:
                 v2: dn2na3cief147jjt20v7
             ram:
               v2: dn2886p1eilq0pn7jisp
-  pc|video:
-    transcoding:
-      live:
-        v1: dn2e4fbl2ulmcsfkorpg
-    used_space:
-      live:
-        v1: dn2n6f6hvsu4uvssegsx
   pc|ydb:
     cluster:
       v1:
@@ -3765,9 +3758,6 @@ default:
         field_organization: Организация
         field_payment-type: Способ оплаты
         field_person-type: Тип аккаунта
-        label_step-company_title: Данные о компании
-        label_step-contacts_title: Контакты
-        label_step-individual_title: Персональные данные
         label_step-payment_title: Платёжные данные
       create-account:
         label_option_card: Пополнение вручную
@@ -3961,6 +3951,9 @@ default:
         folder:
           dashboard:
             label_compute: Compute Cloud
+          service-account:
+            label_add-role: Добавить роль
+            popup-robot_button_add: Создать
     yacloud_components:
       acl-filters:
         placeholder:
@@ -4485,6 +4478,8 @@ default:
           profile_8kyBA: Профиль
           security_7zQ3g: Вход и безопасность
       cloud-components:
+        AclDashboard:
+          action_assign-roles_41Nj1: Назначить роли
         manage-cert-dialog:
           action-generate-new-certificate: Сгенерировать новый сертификат
           table:
@@ -6041,7 +6036,6 @@ default:
           label_time-min_many: минут
           label_time-min_zero: минут
           label_time-sec_many: секунд
-        unspecified: Не задано
         update: Обновить
         updated-at: Дата изменения
         user: Пользователь
@@ -8024,7 +8018,6 @@ default:
         label_selector: Селектор
         label_signing-type-internal: Простая
         section_dkim: Настройка подписи писем (DKIM)
-        section_restrictions: Ограничения
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
@@ -8373,7 +8366,15 @@ default:
           label_http-router: HTTP-роутер
           label_virtual-host: Виртуальный хост
         AttachSecurityProfileDialog:
+          ApiGatewayItem:
+            label_api-gateway_5Nttt: API-шлюз
           label_add-resource_v4U3g: Добавить ресурс
+          label_api-gateway_sKMCK: API-шлюз
+          label_domain_9Bo38: Домен
+          label_virtual-host_tYim5: Виртуальный хост
+          ProxyServerItem:
+            label_domain_1hgsY: Домен
+            label_proxy-server_w9BGG: Прокси-сервер
         baseRulesTitle_xcJEe: Базовые правила
         CreateDomain:
           createDomain_b2Ykj: Добавить домен
@@ -8923,6 +8924,8 @@ default:
           ConnectMcpTools:
             add-mcp-tool_dyEgv: Добавить инструменты
           create-agent_1txyW: Создать агента
+          CreateAgentCard:
+            create-agent_button-text_n2qCs: Создать агента
           CreateMcpServerForm:
             access-type_aPzxZ: Доступ
             access-type_private_b4gkg: Приватный
@@ -8944,6 +8947,8 @@ default:
           McpServersList:
             label_create-mcp-gateway_3o3Vu: Создать MCP-сервер
           name_hTzhB: Имя
+          Overview3:
+            action-card_create-ai-agent_ahZQH: Создать AI-агента
       ydb:
         browse:
           button_create: Создать

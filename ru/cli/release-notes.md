@@ -7,6 +7,22 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.203.0 (26.03.26) {#version0.203.0}
+
+#### Изменения в CLI {#cli-0.203.0}
+
+* Исправлена ошибка при инициализации CLI, связанная с лимитом количества облаков и каталогов.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.203.0}
+
+##### {{ baremetal-name }} {#baremetal-0.203.0}
+
+Добавлены параметры для выбора метода аллокации CIDR-блока при создании публичной подсети:
+* `yc baremetal public-subnet create --cidr-auto-allocation`;
+* `yc baremetal public-subnet create --cidr-manual-allocation`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.202.0 (23.03.26) {#version0.202.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.202.0}
@@ -16,8 +32,6 @@ description: На странице представлены релизы CLI, а
 Добавлен параметр `--allow-host-recreation` для пересоздания хостов в следующие команды:
 * `yc managed-clickhouse cluster update`;
 * `yc managed-clickhouse shard update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.201.0 (19.03.26) {#version0.201.0}
 

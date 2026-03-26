@@ -1,0 +1,3 @@
+One of {{ dspm-name }}'s key features is the ability to analyze all the data stored in buckets within the specified workspace. The analysis starts automatically as soon as you create a workspace and covers all the data there is in the buckets.
+
+The analysis gives you a better picture of resources potentially containing sensitive data and produces a data source suitable for a detailed scan. You can thus locate sensitive data quicker than by scanning a data source created manually.

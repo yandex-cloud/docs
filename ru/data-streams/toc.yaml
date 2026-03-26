@@ -128,7 +128,13 @@ items:
       - name: Обработка потока изменений Debezium
         href: tutorials/debezium.md
       - name: Загрузка аудитных логов в MaxPatrol SIEM
-        href: tutorials/maxpatrol.md
+        items:
+          - name: Обзор
+            href: tutorials/maxpatrol/index.md
+          - name: Консоль управления
+            href: tutorials/maxpatrol/console.md
+          - name: '{{ TF }}'
+            href: tutorials/maxpatrol/terraform.md
       - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
         href: tutorials/search-events-query.md
       - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки

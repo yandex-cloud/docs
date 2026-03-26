@@ -5,7 +5,7 @@ description: This page provides a reference for {{ sd-name }} events tracked in 
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ sd-full-name }}.
+{{ at-name }} supports monitoring of both [control plane](../audit-trails/concepts/format.md) (configuration level) and [data plane](../audit-trails/concepts/format-data-plane.md) (service level) events for {{ sd-full-name }}.
 
 The general format of the `event_type` field value is as follows:
 

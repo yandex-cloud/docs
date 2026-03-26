@@ -18,7 +18,7 @@ description: Follow this guide to get a list of metadata sources in {{ data-cata
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to get a list of metadata catalogs.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog where your sources were created.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
@@ -45,7 +45,7 @@ Click the relevant column header:
 * **{{ ui-key.yacloud.common.created-at }}**: Sorting by creation date in ascending date order.
 * **{{ ui-key.yacloud.common.label_author }}**: Sorting by author name in alphabetical order.
 
-Clicking the same header a second time reverses the sorting order. Clicking a third time clears the applied sorting.
+Clicking the same header a second time reverses the sorting order. A third click clears the sorting.
 
 ### Customizing column display {#setting-columns}
 

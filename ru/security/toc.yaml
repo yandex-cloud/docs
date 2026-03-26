@@ -285,7 +285,13 @@ items:
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true
           - name: Загрузка аудитных логов в MaxPatrol SIEM
-            href: tutorials/audit-logs/maxpatrol.md
+            items:
+              - name: Обзор
+                href: tutorials/audit-logs/maxpatrol/index.md
+              - name: Консоль управления
+                href: tutorials/audit-logs/maxpatrol/console.md
+              - name: '{{ TF }}'
+                href: tutorials/audit-logs/maxpatrol/terraform.md
           - name: Загрузка аудитных логов в SIEM Splunk
             href: tutorials/audit-logs/export-logs-to-splunk.md
           - name: Загрузка аудитных логов в SIEM ArcSight
