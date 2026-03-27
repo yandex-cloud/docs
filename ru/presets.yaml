@@ -9858,6 +9858,13 @@ default:
                     PostgresTargetAdvancedSettings:
                       save_tx_boundaries:
                         title: Сохранение границ транзакций
+                    SnapshotTableShardingSettings:
+                      degree_of_parallelism:
+                        title: Максимальное количество частей таблицы
+                      min_table_size:
+                        title: Порог разбиения в байтах
+                      table_sharding_key_fields:
+                        title: Ключи параллельной загрузки таблицы
             transfer:
               console:
                 form:

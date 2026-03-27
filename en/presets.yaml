@@ -9851,6 +9851,13 @@ default:
                     PostgresTargetAdvancedSettings:
                       save_tx_boundaries:
                         title: Save transaction borders
+                    SnapshotTableShardingSettings:
+                      degree_of_parallelism:
+                        title: Maximum number of table parts
+                      min_table_size:
+                        title: Split threshold in bytes
+                      table_sharding_key_fields:
+                        title: Table parallel copying keys
             transfer:
               console:
                 form:
