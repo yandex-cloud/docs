@@ -13,7 +13,6 @@ Starting December 1, {{ datalens-full-name }} introduces a revised pricing polic
 * [New pricing policy](#new-rules)
 * [Transition timeline](#timeline)
 * [Discount](#discounts)
-* [Limiting the number of queries from private embedded objects](#packet-queries)
 
 ## New pricing policy {#new-rules}
 
@@ -76,16 +75,16 @@ The transition to the new service plan will be gradual.
 * Activation of an instance with a 30-day trial period. Full access to all {{ datalens-name }} features without any team work restrictions.
 * After 30 days, you either link a billing account and purchase seats for team work or scale down to a single seat.
 * Following the end of the trial period, your seat charge for the first month will be calculated in proportion to the number of days left in the month. ||
-|| ^ | March 1, 2026 | For seats, queries from [private embedded objects](./security/private-embedded-objects.md) are fixed as follows: 2,000 queries per seat. See details [below](#packet-queries). ||
+|| ^ | March 1, 2026 | For seats, queries from [private embedded objects](./security/private-embedded-objects.md) are fixed as follows: 2,000 queries per seat. For more information, see [this section](./pricing.md#packet-queries). ||
 || **Community** plan users <br>(as of November 16, 2025) | December 1, 2025 |
 * Transition to the new service plan with an extended trial period until March 1, 2026. Access to all {{ datalens-name }} features without any team work restrictions.
 * Special terms apply for transition to a paid {{ datalens-name }} plan for team work; details [below](#discounts).
 * Following the end of the trial period, your seat charge for the first month will be calculated in proportion to the number of days left in the month. ||
 || ^ | March 1, 2026 |
 * You either link a billing account and purchase seats for team work or scale down to a single seat.
-* For seats, queries from [private embedded objects](./security/private-embedded-objects.md) are fixed as follows: 2,000 queries per seat. See details [below](#packet-queries). ||
+* For seats, queries from [private embedded objects](./security/private-embedded-objects.md) are fixed as follows: 2,000 queries per seat. For more information, see [this section](./pricing.md#packet-queries). ||
 || **Business** plan users <br>(as of November 16, 2025) | December 1, 2025 | Billing shifts from active users to seats. ||
-|| ^ | March 1, 2026 | For seats, queries from [private embedded objects](./security/private-embedded-objects.md) are fixed as follows: 2,000 queries per seat. See details [below](#packet-queries). ||
+|| ^ | March 1, 2026 | For seats, queries from [private embedded objects](./security/private-embedded-objects.md) are fixed as follows: 2,000 queries per seat. For more information, see [this section](./pricing.md#packet-queries). ||
 |#
 
 ## Discount {#discounts}
@@ -102,24 +101,6 @@ Following the end of the trial period, your seat charge for the first month will
 
 {% endnote %}
 
-
-## Limiting the number of queries from private embedded objects {#packet-queries}
-
-The seat count determines the limit on the number of queries from [private embedded objects](./security/private-embedded-objects.md) within one {{ datalens-name }} instance. There is no limit for regular queries made by users in the {{ datalens-name }} interface, as well as queries to [publicly embedded objects](./concepts/datalens-public.md). 
-
-* The following limit will be in effect from March 1, 2026: 2,000 queries from private embedded objects per seat per month. This limit will not apply to each individual seat, but the entire {{ datalens-name }} instance based on the calculation:
-
-   > 2,000 queries x Number of seats
-
-* Seats are not linked to embedded objects directly; they do not have to be assigned to external viewers of these objects. What matters is the total number of seats purchased within the instance, both free and assigned to users.
-
-   Thus, the more actively a {{ datalens-name }} instance is used (the more of its seats are purchased), the higher the private embedding limit will be.
-
-* If {{ datalens-name }} is used by several users, yet there are many queries to private embeddings, you will have to procure additional seats based on the calculation above.
-
-* Every query for data from a private embedded object is counted. For example, you have an embedded dashboard with 10 charts and 5 selectors. Refreshing the dashboard page will initiate 15 queries.
-   
-   You can estimate the number of queries from private embedded objects even now by enabling [Usage Analytics](./operations/connection/create-usage-tracking.md). If the total number of such queries exceeds the per-instance limit, you may have to purchase more seats.
 
 #### See also {#see-also}
 

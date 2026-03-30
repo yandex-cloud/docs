@@ -39,6 +39,8 @@ items:
         items:
           - name: Reserving a static public IP address
             href: operations/get-static-ip.md
+          - name: Reserving an internal IP address
+            href: operations/private-ip-reserve.md
           - name: Converting a dynamic public IP address to static
             href: operations/set-static-ip.md
           - name: Converting a static public IP address to dynamic
@@ -51,6 +53,8 @@ items:
             href: operations/address-get-info.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
+          - name: Deleting an internal IP address
+            href: operations/private-ip-delete.md
       - name: Static routing
         stage: new
         items:

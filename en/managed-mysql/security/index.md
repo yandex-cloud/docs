@@ -50,6 +50,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-mysql.restorer](../../_roles/managed-mysql/restorer.md) %}
 
+#### managed-mysql.user {#managed-mysql-user}
+
+{% include [managed-mysql.user](../../_roles/managed-mysql/user.md) %}
+
+#### managed-mysql.switcher {#managed-mysql-switcher}
+
+{% include [managed-mysql.switcher](../../_roles/managed-mysql/switcher.md) %}
+
 #### managed-mysql.editor {#managed-mysql-editor}
 
 {% include [managed-mysql.editor](../../_roles/managed-mysql/editor.md) %}
@@ -57,6 +65,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-mysql.admin {#managed-mysql-admin}
 
 {% include [managed-mysql.admin](../../_roles/managed-mysql/admin.md) %}
+
+#### managed-mysql.maintenanceTask.viewer {#managed-mysql-maintenanceTask-viewer}
+
+{% include [managed-mysql.maintenanceTask.viewer](../../_roles/managed-mysql/maintenanceTask/viewer.md) %}
+
+#### managed-mysql.maintenanceTask.editor {#managed-mysql-maintenanceTask-editor}
+
+{% include [managed-mysql.maintenanceTask.editor](../../_roles/managed-mysql/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 

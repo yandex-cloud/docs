@@ -19,6 +19,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-opensearch.maintenanceTask.viewer` [role](../security/index.md#managed-opensearch-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-opensearch.maintenanceTask.editor` [role](../security/index.md#managed-opensearch-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance workflow {#maintenance-order}
 
 In {{ mos-name }} single-host clusters, a single host undergoes maintenance. This means, if you restart such a cluster during maintenance, it will become unavailable.

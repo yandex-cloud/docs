@@ -53,6 +53,14 @@ The list below shows all the roles used for access control in {{ maf-name }}.
 
 {% include [managed-airflow.admin](../../_roles/managed-airflow/admin.md) %}
 
+#### managed-airflow.maintenanceTask.viewer {#managed-airflow-maintenanceTask-viewer}
+
+{% include [managed-airflow.maintenanceTask.viewer](../../_roles/managed-airflow/maintenanceTask/viewer.md) %}
+
+#### managed-airflow.maintenanceTask.editor {#managed-airflow-maintenanceTask-editor}
+
+{% include [managed-airflow.maintenanceTask.editor](../../_roles/managed-airflow/maintenanceTask/editor.md) %}
+
 #### managed-airflow.integrationProvider {#managed-airflow-integrationProvider}
 
 {% include [managed-airflow.integrationProvider](../../_roles/managed-airflow/integrationProvider.md) %}

@@ -120,7 +120,9 @@ editable: false
       "gceHttpEndpoint": "string",
       "awsV1HttpEndpoint": "string",
       "gceHttpToken": "string",
-      "awsV1HttpToken": "string"
+      "awsV1HttpToken": "string",
+      "awsV2HttpEndpoint": "string",
+      "awsV2HttpToken": "string"
     },
     "serialPortSettings": {
       "sshAuthorization": "string"
@@ -387,6 +389,14 @@ The rest of the fields will be reset to the default. ||
 - `ENABLED`
 - `DISABLED` ||
 || awsV1HttpToken | **enum** (MetadataOption)
+
+- `ENABLED`
+- `DISABLED` ||
+|| awsV2HttpEndpoint | **enum** (MetadataOption)
+
+- `ENABLED`
+- `DISABLED` ||
+|| awsV2HttpToken | **enum** (MetadataOption)
 
 - `ENABLED`
 - `DISABLED` ||

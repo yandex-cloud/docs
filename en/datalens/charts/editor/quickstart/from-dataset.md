@@ -16,7 +16,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 ## Deploy a demo workbook {#create-template}
 
 
-1. In {{ datalens-gallery }}, open the work named [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi).
+1. In the Gallery, open the dashboard titled [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi).
 1. Click **Use** → **Deploy**.
 1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**.

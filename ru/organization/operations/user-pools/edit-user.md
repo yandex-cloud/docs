@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Изменить данные пользователя
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 Изменять пользовательские данные можно только у [локальных](../../../iam/concepts/users/accounts.md#local) пользователей.
 
 Чтобы изменить данные локального пользователя:

@@ -1,0 +1,3 @@
+Роль `managed-postgresql.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-postgresql/concepts/maintenance.md) кластеров PostgreSQL, а также о таких [кластерах](../../../managed-postgresql/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, о [хостах](../../../managed-postgresql/concepts/instance-types.md) и [резервных копиях](../../../managed-postgresql/concepts/backup.md), о [квотах](../../../managed-postgresql/concepts/limits.md#mpg-quotas) и операциях с ресурсами сервиса Managed Service for PostgreSQL.
+
+Включает разрешения, предоставляемые ролью `managed-postgresql.auditor`.

@@ -28,7 +28,8 @@ To create a network and subnets:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **Create network**.
   1. Enter `web-network` for the network **Name**.
   1. In the **Advanced** field, select **Create subnets**.
@@ -46,7 +47,8 @@ To create a security group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Open the **Security groups** tab.
   1. Create a security group for your VM:
       1. Click **Create group**.
@@ -78,7 +80,7 @@ To create a security group:
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `LAMP` or `LEMP` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the VM image with the components you need: 
       * [LAMP](/marketplace/products/yc/lamp) for Linux, Apache, {{ MY }}, and PHP
       * [LEMP](/marketplace/products/yc/lemp) for Linux, Nginx, {{ MY }}, and PHP
@@ -94,10 +96,10 @@ To create a security group:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `web-network` and the subnet to create your VM in.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address from the {{ yandex-cloud }} pool to your VM. Alternatively, select a static address from the list if you reserved one.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved for the OS purposes. For operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
@@ -109,7 +111,7 @@ To create a security group:
 
           {% include [ssh-add-to-org-profile](../../_includes/compute/create/ssh-add-to-org-profile.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `lamp-vm` or `lemp-vm`. The naming requirements are as follows:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `lamp-vm` or `lemp-vm`. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -141,7 +143,8 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Copy the IP address of the VM you created.
   1. On the website of your DNS hosting provider, navigate to the DNS settings.
   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `example.com` so that it points to the copied IP address:
@@ -156,7 +159,8 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
 
       {% cut "Configuring DNS records for {{ dns-name }}" %}
 
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
           1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
           1. Specify the zone **{{ ui-key.yacloud.common.name }}**: `example-zone-1`.

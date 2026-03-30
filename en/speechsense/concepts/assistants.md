@@ -13,7 +13,7 @@ When creating an assistant, you need to provide the following settings:
 
 * **Instructions**: Plain text description of your assistant’s behavior and tasks.
 
-   Instructions must include the request context and the task for the model. The more specific your instruction, the more accurate the model output.
+   Instructions must include the request context and the task for the model. The more specific your instructions, the more accurate the model's output.
 
 * **Model**: LLM to use for the assistant.
 * **Output**: Output fields to write the extracted information to.
@@ -44,7 +44,7 @@ Assistants are designed to analyze dialogs in a project based on the instruction
 
 ## Using an assistant {#use}
 
-You need to manually enable an assistant in your project. [Charges](../pricing.md) for using the assistant will apply as soon as you enable it.
+To use an assistant in your project, you need to activate it manually. You start [paying](../pricing.md) for the assistant as soon as you activate it.
 
 ## Advantages {#advantages}
 
@@ -61,3 +61,4 @@ You need to manually enable an assistant in your project. [Charges](../pricing.m
    Use of state-of-the-art models for deep insights into the dialog context.
 
 To create, update, or delete an assistant, follow [this guide](../operations/index.md#assistant).
+

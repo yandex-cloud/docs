@@ -19,6 +19,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-postgresql.maintenanceTask.viewer` [role](../security/index.md#managed-postgresql-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-postgresql.maintenanceTask.editor` [role](../security/index.md#managed-postgresql-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance workflow {#maintenance-order}
 
 In {{ mpg-name }} single-host clusters, a master host undergoes maintenance. Therefore, it may become unavailable in case it is restarted.

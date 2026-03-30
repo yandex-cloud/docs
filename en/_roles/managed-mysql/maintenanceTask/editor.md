@@ -1,0 +1,3 @@
+The `managed-mysql.maintenanceTask.editor` role enables viewing info on [maintenance](../../../managed-mysql/concepts/maintenance.md) tasks for MySQL® clusters and modifying such tasks, as well as viewing info on [MySQL® clusters](../../../managed-mysql/concepts/index.md) and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../managed-mysql/concepts/instance-types.md) and cluster [backups](../../../managed-mysql/concepts/backup.md), and on [quotas](../../../managed-mysql/concepts/limits.md#mmy-quotas) and resource operations for Yandex Managed Service for MySQL®.
+
+This role includes the `managed-mysql.maintenanceTask.viewer` permissions.

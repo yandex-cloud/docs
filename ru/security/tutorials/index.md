@@ -34,6 +34,7 @@ description: Различные практические руководства 
 * [{#T}](single-sign-on/saml-sonarqube.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
 * [{#T}](single-sign-on/saml-cloud-ru.md)
+* [{#T}](single-sign-on/saml-vk-cloud.md)
 
 
 ## Сетевая безопасность {#network-security}

@@ -56,6 +56,14 @@ description: Управление доступом в сервисе по соз
 
 {% include [managed-spark.admin](../_roles/managed-spark/admin.md) %}
 
+#### managed-spark.maintenanceTask.viewer {#managed-spark-maintenanceTask-viewer}
+
+{% include [managed-spark.maintenanceTask.viewer](../_roles/managed-spark/maintenanceTask/viewer.md) %}
+
+#### managed-spark.maintenanceTask.editor {#managed-spark-maintenanceTask-editor}
+
+{% include [managed-spark.maintenanceTask.editor](../_roles/managed-spark/maintenanceTask/editor.md) %}
+
 #### managed-spark.integrationProvider {#managed-spark-integrationProvider}
 
 {% include [managed-spark.integrationProvider](../_roles/managed-spark/integrationProvider.md) %}

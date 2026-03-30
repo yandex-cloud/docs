@@ -506,6 +506,21 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Datacatalog
+            items:
+              - name: Data Sources
+                items:
+                  - name: datacatalog_catalog
+                    href: data-sources/datacatalog_catalog.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: datacatalog_catalog
+                    href: resources/datacatalog_catalog.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Identity Hub
             items:
               - name: Data Sources

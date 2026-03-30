@@ -14,9 +14,16 @@ flowchart BT
     restorer`"] --> mdb.restorer
     managed-greenplum.admin["`managed-greenplum.
     admin`"] --> mdb.admin
+    managed-greenplum.maintenanceTask.viewer --> managed-greenplum.viewer
+    managed-greenplum.maintenanceTask.editor --> managed-greenplum.editor
+    managed-greenplum.user --> managed-greenplum.editor
     managed-greenplum.auditor --> managed-greenplum.viewer
     managed-greenplum.viewer --> managed-greenplum.restorer
     managed-greenplum.editor["`managed-greenplum.
     editor`"] --> managed-greenplum.admin
+    managed-greenplum.auditor --> managed-greenplum.maintenanceTask.viewer["`managed-greenplum.
+    maintenanceTask.viewer`"]
+    managed-greenplum.maintenanceTask.viewer --> managed-greenplum.maintenanceTask.editor["`managed-greenplum.
+    maintenanceTask.editor`"]
     managed-greenplum.restorer --> managed-greenplum.editor
 ```

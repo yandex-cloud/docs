@@ -19,6 +19,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-redis.maintenanceTask.viewer` [role](../security/index.md#managed-redis-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-redis.maintenanceTask.editor` [role](../security/index.md#managed-redis-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance workflow {#maintenance-order}
 
 The {{ mrd-name }} cluster maintenance workflow depends on the number of hosts and [sharding](sharding.md).

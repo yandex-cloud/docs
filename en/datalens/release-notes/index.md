@@ -29,7 +29,7 @@ description: Check out {{ datalens-full-name }} release notes for January 2026.
 ## Fixes and improvements {#fixes}
 
 
-* In [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery), the **Contact the author** form now opens in a dialog instead of a new tab.
+* In [Gallery]({{ link-datalens-main }}/gallery), the **Contact the author** form now opens in a dialog instead of a new tab.
 * Added support for [reassigning](../settings/seats.md#reassign) a seat about to expire.
 * Fixed errors with redefining the menu item background color when [customizing the UI](../settings/appearance.md#ui-customization) in some themes.
 

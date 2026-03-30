@@ -15,7 +15,7 @@ Cluster logs are stored in the {{ cloud-logging-full-name }} [log group](../../l
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.common.logs }}** tab.
     1. Specify the logging **Level** and time period for which you want to display the log.
 
 - CLI {#cli}

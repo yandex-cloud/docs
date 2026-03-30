@@ -26,11 +26,13 @@ description: This page provides a list of step-by-step guides for {{ vpc-name }}
 ## Addresses {#addresses}
 
 - [{#T}](get-static-ip.md)
+- [{#T}](private-ip-reserve.md)
 - [{#T}](set-static-ip.md)
 - [{#T}](set-dynamic-ip.md)
 - [{#T}](deletion-protection.md)
 - [{#T}](address-move.md)
 - [{#T}](address-get-info.md)
+- [{#T}](private-ip-delete.md)
 - [{#T}](address-delete.md)
 
 ## Routing {#static-route}

@@ -68,9 +68,13 @@ Syntax:
 
   - [yc organization-manager mfa-enforcement list-audience](mfa-enforcement/list-audience.md) — List audience for the specified mfa enforcement
 
+  - [yc organization-manager mfa-enforcement list-excluded-audience](mfa-enforcement/list-excluded-audience.md) — List excluded audience for the specified mfa enforcement
+
   - [yc organization-manager mfa-enforcement update](mfa-enforcement/update.md) — Update the specified mfa enforcement
 
   - [yc organization-manager mfa-enforcement update-audience](mfa-enforcement/update-audience.md) — Update audience for the specified mfa enforcement
+
+  - [yc organization-manager mfa-enforcement update-excluded-audience](mfa-enforcement/update-excluded-audience.md) — Update excluded audience for the specified mfa enforcement
 
 - [yc organization-manager organization](organization/index.md) — Manage organizations
 

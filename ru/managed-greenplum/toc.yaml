@@ -113,6 +113,8 @@ items:
             href: operations/monitoring.md
           - name: Передача логов кластера в {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
+          - name: Чтение логов через SQL
+            href: operations/sql-log-access.md
       - name: Вспомогательные утилиты
         href: operations/greenplum-db.md
   - name: Практические руководства

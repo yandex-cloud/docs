@@ -1,0 +1,3 @@
+Роль `managed-mysql.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-mysql/concepts/maintenance.md) кластеров MySQL®, а также о таких [кластерах](../../../managed-mysql/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, о [хостах](../../../managed-mysql/concepts/instance-types.md) и [резервных копиях](../../../managed-mysql/concepts/backup.md) кластеров, о [квотах](../../../managed-mysql/concepts/limits.md#mmy-quotas) и операциях с ресурсами сервиса Managed Service for MySQL®.
+
+Включает разрешения, предоставляемые ролью `managed-mysql.auditor`.

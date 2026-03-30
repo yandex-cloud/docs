@@ -1,0 +1,3 @@
+Роль `managed-spqr.maintenanceTask.editor` позволяет просматривать информацию о заданиях на техническое обслуживание [кластеров Sharded PostgreSQL](../../../managed-spqr/concepts/index.md) и изменять такие задания, просматривать информацию о кластерах Sharded PostgreSQL и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, а также о [хостах](../../../managed-spqr/concepts/instance-types.md) кластеров, [квотах](../../../managed-spqr/concepts/limits.md#mspqr-quotas) и операциях с ресурсами сервиса Managed Service for Sharded PostgreSQL.
+
+Включает разрешения, предоставляемые ролью `managed-spqr.maintenanceTask.viewer`.

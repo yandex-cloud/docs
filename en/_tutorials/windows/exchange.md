@@ -53,10 +53,11 @@ Create a cloud network named `exchange-network` with subnets in all availability
 
      To create a [cloud network](../../vpc/concepts/network.md):
 
-     1. Open the **{{ vpc-name }}** section in the folder where you want to create a cloud network.
-     1. Click **Create network**.
+     1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Specify `exchange-network` as the network name.
-     1. Click **Create network**.
+     1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
    - CLI {#cli}
 
@@ -144,7 +145,7 @@ Create two virtual machines for Active Directory. These VMs will not have intern
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
@@ -210,7 +211,7 @@ You will use a file server with internet access to configure VMs with Active Dir
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -248,8 +249,8 @@ You will use a file server with internet access to configure VMs with Active Dir
 
 Active Directory VMs do not have internet access. To configure them, use `fsw-vm` through RDP.
 
-1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
-1. On `fsw-vm`, run RDP and connect to `ad-vm-a`. Use `Administrator` as your username and enter your password.
+1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
+1. On `fsw-vm`, run RDP and connect to `ad-vm-a`. Use `Administrator` as your username and your password.
 1. Run PowerShell on `ad-vm-a` and set a static address:
 
    ```powershell
@@ -328,8 +329,8 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
 
 ## Configure the second domain controller {#install-ad-2}
 
-1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
-1. On `fsw-vm`, run RDP and connect to `ad-vm-b`. Use `Administrator` as your username and enter your password.
+1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
+1. On `fsw-vm`, run RDP and connect to `ad-vm-b`. Use `Administrator` as your username and your password.
 1. Create a temporary folder:
 
    ```
@@ -442,7 +443,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
          * Set the boot [disk](../../compute/concepts/disk.md) size: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
          * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** and add another `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` SSD named `db-a`.
 
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
@@ -477,7 +478,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
    {% endlist %}
 
 1. Connect to `fsw-vm` through RDP.
-1. Run RDP on `fsw-vm` and connect to `vm-exchange-a`. Use `Administrator` as your username and enter your password. Launch PowerShell.
+1. Run RDP on `fsw-vm` and connect to `vm-exchange-a`. Use `Administrator` as your username and your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -539,7 +540,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
          * Set the boot [disk](../../compute/concepts/disk.md) size: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
          * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** and add another `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` SSD named `db-b`.
 
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
@@ -574,7 +575,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
    {% endlist %}
 
 1. Connect to `fsw-vm` through RDP.
-1. Run RDP on `fsw-vm` and connect to `vm-exchange-b`. Use `Administrator` as your username and enter your password. Launch PowerShell.
+1. Run RDP on `fsw-vm` and connect to `vm-exchange-b`. Use `Administrator` as your username and your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -628,7 +629,7 @@ A database availability group ensures fault tolerance for mailbox servers via DB
 
 ### Create disks for VM databases {#create-db-disks}
 
-1. Run RDP on `fsw-vm` and connect to `vm-exchange-a`. Use `yantoso\Administrator` as your username and enter your password.
+1. Run RDP on `fsw-vm` and connect to `vm-exchange-a`. Use `yantoso\Administrator` as your username and your password.
 1. Create a secondary disk and format it:
 
    ```powershell
@@ -649,7 +650,7 @@ Repeat these commands for `vm-exchange-b`.
 
 ### Configure the database availability group {#dag-configuration}
 
-1. Run RDP on `fsw-vm` and connect to `vm-exchange-a` through RDP. Use `yantoso\Administrator` as your username and enter your password.
+1. Run RDP on `fsw-vm` and connect to `vm-exchange-a` through RDP. Use `yantoso\Administrator` as your username and your password.
 1. Run the Exchange Management Shell.
 1. Create a database availability group:
 
@@ -769,23 +770,24 @@ It will distribute the load across the Exchange servers in various availability 
 
   To create a [network load balancer](../../network-load-balancer/concepts/index.md):
 
-  1. Open the **Load Balancer** section in the folder where you want to create a load balancer.
-  1. Click **Create network load balancer**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Enter the load balancer name: `exchange-lb`.
-  1. In the **Public address** field, select **Auto**.
-  1. Click **Add listener** under **Listeners**.
+  1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select **{{ ui-key.yacloud.common.label_auto }}**.
+  1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
   1. Enter the listener name: `yassl`.
-  1. Set `443` as the listener port and target port and click **Add**.
-  1. Under **Target groups**, click **Add target group**.
-  1. In the **Target group** field, open the drop-down list and select **Create target group**.
-  1. Enter `exchange-tg` as the target group name.
-  1. Select `vm-exchange-a` and `vm-exchange-b` and click **Create**.
-  1. Click **Configure**.
+  1. Set `443` as the listener port and target port and click **{{ ui-key.yacloud.common.add }}**.
+  1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
+  1. In the **{{ ui-key.yacloud.mdb.forms.config_field_services }}** field, expand the drop-down list and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}**.
+  1. Specify the target group name: `exchange-tg`.
+  1. Select `vm-exchange-a` and `vm-exchange-b` and click **{{ ui-key.yacloud.common.create }}**.
+  1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
   1. Enter `exchange-hc` as the health check name.
-  1. Select the **TCP** check.
+  1. Select the **{{ ui-key.yacloud.common.label_tcp }}** check.
   1. Set the port to `443`.
-  1. Leave the default values for the other properties and click **Apply**.
-  1. Click **Create**.
+  1. Leave the default values for the other properties and click **{{ ui-key.yacloud.common.apply }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -880,7 +882,7 @@ Create a VM named `vm-edge-a`:
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
@@ -929,7 +931,7 @@ Create a VM named `vm-edge-b`:
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
@@ -965,7 +967,7 @@ Create a VM named `vm-edge-b`:
 ### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a}
 
 1. Connect to `fsw-vm` through RDP.
-1. Connect to `vm-edge-a` through RDP. Use `Administrator` as your username and enter your password. Launch PowerShell.
+1. Connect to `vm-edge-a` through RDP. Use `Administrator` as your username and your password. Launch PowerShell.
 1. Create a temporary folder:
 
    ```
@@ -993,7 +995,7 @@ Create a VM named `vm-edge-b`:
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
-   Enter `yantoso\Administrator` as your username and your password.
+   Use `yantoso\Administrator` as your username and your password.
 
 1. Install the dependencies:
 
@@ -1041,7 +1043,7 @@ Create a VM named `vm-edge-b`:
 ### Configure the Edge Transport server in the {{ region-id }}-b zone {#edge-b}
 
 1. Connect to `fsw-vm` through RDP.
-1. Connect to `vm-edge-b` through RDP. Use `Administrator` as your username and enter your password. Launch PowerShell.
+1. Connect to `vm-edge-b` through RDP. Use `Administrator` as your username and your password. Launch PowerShell.
 1. Create a temporary folder:
 
    ```powershell
@@ -1069,7 +1071,7 @@ Create a VM named `vm-edge-b`:
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
-   Enter `yantoso\Administrator` as your username and your password.
+   Use `yantoso\Administrator` as your username and your password.
 
 1. Install the dependencies:
 

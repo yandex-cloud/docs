@@ -18,6 +18,14 @@ You can set up a maintenance window when [creating](../operations/cluster-create
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-mongodb.maintenanceTask.viewer` [role](../security/index.md#managed-mongodb-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-mongodb.maintenanceTask.editor` [role](../security/index.md#managed-mongodb-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance procedure {#maintenance-order}
 
 The {{ mmg-name }} cluster maintenance procedure depends on the number of hosts and the presence of [shards](sharding.md).

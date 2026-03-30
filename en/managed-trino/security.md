@@ -56,6 +56,14 @@ The list below shows all the roles used for access control in this service.
 
 {% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
 
+#### managed-trino.maintenanceTask.viewer {#managed-trino-maintenanceTask-viewer}
+
+{% include [managed-trino.maintenanceTask.viewer](../_roles/managed-trino/maintenanceTask/viewer.md) %}
+
+#### managed-trino.maintenanceTask.editor {#managed-trino-maintenanceTask-editor}
+
+{% include [managed-trino.maintenanceTask.editor](../_roles/managed-trino/maintenanceTask/editor.md) %}
+
 #### managed-trino.integrationProvider {#managed-trino-integrationProvider}
 
 {% include [managed-trino.integrationProvider](../_roles/managed-trino/integrationProvider.md) %}

@@ -32,6 +32,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-greenplum.maintenanceTask.viewer` [role](../security/index.md#managed-greenplum-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-greenplum.maintenanceTask.editor` [role](../security/index.md#managed-greenplum-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ### Maintenance workflow {#maintenance-order}
 
 Maintenance related to software updates is performed as follows:

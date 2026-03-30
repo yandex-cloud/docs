@@ -46,15 +46,26 @@ meta:
   keywords:
     - keyword: dedicated server
     - keyword: dedicated {{ baremetal-name }} server
-    - keyword: server lease
+    - keyword: server rent
     - keyword: '{{ baremetal-name }}'
-    - keyword: '{{ baremetal-name }} lease'
+    - keyword: '{{ baremetal-name }} rent'
     - keyword: KVM console {{ yandex-cloud }}
     - keyword: baremetal
     - keyword: '{{ baremetal-name }} server'
     - keyword: '{{ baremetal-name }}'
     - keyword: server in {{ yandex-cloud }}
     - keyword: '{{ baremetal-name }} in {{ yandex-cloud }}'
+    - keyword: baremetal
+    - keyword: bare metal
+    - keyword: baremetal
+    - keyword: dedic
+    - keyword: custom
+    - keyword: dedicated server
+    - keyword: dedic
+    - keyword: dedicated server
+    - keyword: on-request server
+    - keyword: custom server
+    - keyword: configurator
 links:
   - title: Getting started
     description: Lease your first server
@@ -63,7 +74,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Service concepts and architecture overview
+    description: Basic concepts and how the service works
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations

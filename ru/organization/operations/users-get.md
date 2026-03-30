@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить информацию о пользователе
 
+{% include [organization-deny-user-listing](../../_includes/organization/organization-deny-user-listing.md) %}
+
 {% note info %}
 
 Получить идентификатор или почту пользователей может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#add-role).

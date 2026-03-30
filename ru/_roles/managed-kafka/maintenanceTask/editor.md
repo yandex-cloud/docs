@@ -1,0 +1,3 @@
+Роль `managed-kafka.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-kafka/concepts/maintenance.md) кластеров Apache Kafka® и изменять такие задания, просматривать информацию о [кластерах Apache Kafka®](../../../managed-kafka/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../../../managed-kafka/concepts/limits.md#mkf-quotas) и операциях с ресурсами сервиса Managed Service for Apache Kafka®.
+
+Включает разрешения, предоставляемые ролью `managed-kafka.maintenanceTask.viewer`.

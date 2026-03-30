@@ -6,6 +6,10 @@ editable: false
 
 
 
+## 0.195.0 (March 30, 2026)
+##### FEATURES:
+* datacatalog: new yandex_datacatalog_catalog resource and data-source were added
+
 ## 0.194.0 (March 26, 2026)
 ##### WARNING:
 * mdb_kafka: deprecate Kafka 3.6 version, use 3.9 instead

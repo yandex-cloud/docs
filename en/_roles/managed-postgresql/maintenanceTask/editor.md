@@ -1,0 +1,3 @@
+The `managed-postgresql.maintenanceTask.editor` role enables viewing info on [maintenance](../../../managed-postgresql/concepts/maintenance.md) tasks for PostgreSQL clusters and modifying such tasks, as well as viewing info on [PostgreSQL clusters](../../../managed-postgresql/concepts/index.md) and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../managed-postgresql/concepts/instance-types.md) and cluster [backups](../../../managed-postgresql/concepts/backup.md), and on [quotas](../../../managed-postgresql/concepts/limits.md#mpg-quotas) and resource operations for Yandex Managed Service for PostgreSQL.
+
+This role includes the `managed-postgresql.maintenanceTask.viewer` permissions.

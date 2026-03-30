@@ -30,7 +30,7 @@ Maps are used for geoanalytics: displaying and analyzing business indicators on 
      Lines are used to show connections between objects on the map, such as airline flights or cargo transportation routes.
 
 * **Heatmap**
-
+    
     Shows the density of points on the map. This map type is useful for displaying large numbers of points and areas of their clustering.
 
     ![image](../../_assets/datalens/visualization-ref/map/map.png =800x)
@@ -51,11 +51,11 @@ Maps are used for geoanalytics: displaying and analyzing business indicators on 
 
 * Rename a layer.
 * Set transparency using the slider.
-* Reorder layers within the visualization type.
+* Reorder layers within the visualization type. 
     However, you cannot change the order of visualization types (top-to-bottom: point map, polyline map, chloropleth map, and heatmap).
 
 
-To get geolayers, you can find and use a dashboard from [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery/all?category=geo&can_be_used=true).
+To get geolayers, you can find and use a creation from [Gallery]({{ link-datalens-main }}/gallery/all?category=geo&can_be_used=true).
 
 
 {% note info %}

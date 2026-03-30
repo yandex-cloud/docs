@@ -57,6 +57,10 @@ keywords:
 
 {% include [managed-greenplum.restorer](../../_roles/managed-greenplum/restorer.md) %}
 
+#### managed-greenplum.user {#managed-greenplum-user}
+
+{% include [managed-greenplum.user](../../_roles/managed-greenplum/user.md) %}
+
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
 {% include [managed-greenplum.editor](../../_roles/managed-greenplum/editor.md) %}
@@ -64,6 +68,14 @@ keywords:
 #### managed-greenplum.admin {#managed-greenplum-admin}
 
 {% include [managed-greenplum.admin](../../_roles/managed-greenplum/admin.md) %}
+
+#### managed-greenplum.maintenanceTask.viewer {#managed-greenplum-maintenanceTask-viewer}
+
+{% include [managed-greenplum.maintenanceTask.viewer](../../_roles/managed-greenplum/maintenanceTask/viewer.md) %}
+
+#### managed-greenplum.maintenanceTask.editor {#managed-greenplum-maintenanceTask-editor}
+
+{% include [managed-greenplum.maintenanceTask.editor](../../_roles/managed-greenplum/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 

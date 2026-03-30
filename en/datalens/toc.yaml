@@ -975,10 +975,10 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Pricing policy updates as of December 1
-        href: pricing-changes.md
       - name: Archive
         items:
+          - name: Pricing policy updates as of December 1
+            href: pricing-changes.md
           - name: Pricing policy before December 1, 2025
             href: pricing-old.md
           - name: Service plans before December 1, 2025

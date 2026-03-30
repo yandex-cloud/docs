@@ -18,6 +18,14 @@ You can set the preferred maintenance time when [creating a cluster](../operatio
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-clickhouse.maintenanceTask.viewer` [role](../security.md#managed-clickhouse-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-clickhouse.maintenanceTask.editor` [role](../security.md#managed-clickhouse-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance procedure {#maintenance-order}
 
 The maintenance procedure for {{ mch-name }} clusters depends on the number of [shards](sharding.md) and hosts in the shards:

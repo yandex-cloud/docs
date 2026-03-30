@@ -8,7 +8,7 @@ keywords:
   - Airflow
 ---
 
-# Deleting an {{ AF }} cluster
+# Deleting a {{ AF }} cluster
 
 You can delete an {{ AF }} cluster if you no longer need it.
 
@@ -22,7 +22,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a cluster.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
 - CLI {#cli}
@@ -37,7 +37,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
   {{ yc-mdb-af }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can get the cluster’s name and ID from the [list of clusters in your folder](../operations/cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -45,11 +45,11 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.Delete](../api-ref/Cluster/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -64,13 +64,13 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -86,7 +86,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
             yandex.cloud.airflow.v1.ClusterService.Delete
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

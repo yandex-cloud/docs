@@ -19,6 +19,14 @@ description: Под техническим обслуживанием в {{ mrd-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-redis-maintenanceTask-viewer) `managed-redis.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-redis-maintenanceTask-editor) `managed-redis.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ## Порядок обслуживания {#maintenance-order}
 
 Порядок технического обслуживания кластеров {{ mrd-name }} определяется количеством хостов и наличием [шардов](sharding.md).

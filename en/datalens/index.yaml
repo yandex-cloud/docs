@@ -58,7 +58,7 @@ links:
     description: Permissions required to use the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Pricing and cost calculations
     href: pricing
   - title: Courses
     description: Available courses and training programs

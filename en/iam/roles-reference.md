@@ -1483,6 +1483,14 @@ For more information, see [{#T}](../lockbox/security/index.md).
 
 {% include [managed-airflow.admin](../_roles/managed-airflow/admin.md) %}
 
+#### managed-airflow.maintenanceTask.viewer {#managed-airflow-maintenanceTask-viewer}
+
+{% include [managed-airflow.maintenanceTask.viewer](../_roles/managed-airflow/maintenanceTask/viewer.md) %}
+
+#### managed-airflow.maintenanceTask.editor {#managed-airflow-maintenanceTask-editor}
+
+{% include [managed-airflow.maintenanceTask.editor](../_roles/managed-airflow/maintenanceTask/editor.md) %}
+
 #### managed-airflow.integrationProvider {#managed-airflow-integrationProvider}
 
 {% include [managed-airflow.integrationProvider](../_roles/managed-airflow/integrationProvider.md) %}
@@ -1501,6 +1509,10 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 {% include [managed-kafka.viewer](../_roles/managed-kafka/viewer.md) %}
 
 
+#### managed-kafka.user {#managed-kafka-user}
+
+{% include [managed-kafka.user](../_roles/managed-kafka/user.md) %}
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../_roles/managed-kafka/editor.md) %}
@@ -1508,6 +1520,14 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 #### managed-kafka.admin {#managed-kafka-admin}
 
 {% include [managed-kafka.admin](../_roles/managed-kafka/admin.md) %}
+
+#### managed-kafka.maintenanceTask.viewer {#managed-kafka-maintenanceTask-viewer}
+
+{% include [managed-kafka.maintenanceTask.viewer](../_roles/managed-kafka/maintenanceTask/viewer.md) %}
+
+#### managed-kafka.maintenanceTask.editor {#managed-kafka-maintenanceTask-editor}
+
+{% include [managed-kafka.maintenanceTask.editor](../_roles/managed-kafka/maintenanceTask/editor.md) %}
 
 #### managed-kafka.interfaceUser {#managed-kafka-interface-user}
 
@@ -1538,6 +1558,14 @@ For more information, see [{#T}](../managed-kafka/security/index.md).
 
 {% include [managed-spark.admin](../_roles/managed-spark/admin.md) %}
 
+#### managed-spark.maintenanceTask.viewer {#managed-spark-maintenanceTask-viewer}
+
+{% include [managed-spark.maintenanceTask.viewer](../_roles/managed-spark/maintenanceTask/viewer.md) %}
+
+#### managed-spark.maintenanceTask.editor {#managed-spark-maintenanceTask-editor}
+
+{% include [managed-spark.maintenanceTask.editor](../_roles/managed-spark/maintenanceTask/editor.md) %}
+
 #### managed-spark.integrationProvider {#managed-spark-integrationProvider}
 
 {% include [managed-spark.integrationProvider](../_roles/managed-spark/integrationProvider.md) %}
@@ -1559,6 +1587,10 @@ For more information, see [{#T}](../managed-spark/security.md).
 
 {% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
+#### managed-clickhouse.user {#managed-clickhouse-user}
+
+{% include [managed-clickhouse.user](../_roles/managed-clickhouse/user.md) %}
+
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
 {% include [managed-clickhouse.editor](../_roles/managed-clickhouse/editor.md) %}
@@ -1566,6 +1598,14 @@ For more information, see [{#T}](../managed-spark/security.md).
 #### managed-clickhouse.admin {#managed-clickhouse-admin}
 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
+
+#### managed-clickhouse.maintenanceTask.viewer {#managed-clickhouse-maintenanceTask-viewer}
+
+{% include [managed-clickhouse.maintenanceTask.viewer](../_roles/managed-clickhouse/maintenanceTask/viewer.md) %}
+
+#### managed-clickhouse.maintenanceTask.editor {#managed-clickhouse-maintenanceTask-editor}
+
+{% include [managed-clickhouse.maintenanceTask.editor](../_roles/managed-clickhouse/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-clickhouse/security.md).
 
@@ -1609,6 +1649,10 @@ For more information, see [{#T}](../managed-gitlab/security/index.md).
 
 {% include [managed-greenplum.restorer](../_roles/managed-greenplum/restorer.md) %}
 
+#### managed-greenplum.user {#managed-greenplum-user}
+
+{% include [managed-greenplum.user](../_roles/managed-greenplum/user.md) %}
+
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
 {% include [managed-greenplum.editor](../_roles/managed-greenplum/editor.md) %}
@@ -1616,6 +1660,14 @@ For more information, see [{#T}](../managed-gitlab/security/index.md).
 #### managed-greenplum.admin {#managed-greenplum-admin}
 
 {% include [managed-greenplum.admin](../_roles/managed-greenplum/admin.md) %}
+
+#### managed-greenplum.maintenanceTask.viewer {#managed-greenplum-maintenanceTask-viewer}
+
+{% include [managed-greenplum.maintenanceTask.viewer](../_roles/managed-greenplum/maintenanceTask/viewer.md) %}
+
+#### managed-greenplum.maintenanceTask.editor {#managed-greenplum-maintenanceTask-editor}
+
+{% include [managed-greenplum.maintenanceTask.editor](../_roles/managed-greenplum/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-greenplum/security/index.md).
 
@@ -1671,6 +1723,14 @@ For more information, see [{#T}](../managed-kubernetes/security/index.md).
 
 {% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
 
+#### managed-mongodb.user {#managed-mongodb-user}
+
+{% include [managed-mongodb.user](../_roles/managed-mongodb/user.md) %}
+
+#### managed-mongodb.switcher {#managed-mongodb-switcher}
+
+{% include [managed-mongodb.switcher](../_roles/managed-mongodb/switcher.md) %}
+
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
 {% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
@@ -1678,6 +1738,14 @@ For more information, see [{#T}](../managed-kubernetes/security/index.md).
 #### managed-mongodb.admin {#managed-mongodb-admin}
 
 {% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
+
+#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenanceTask-viewer}
+
+{% include [managed-mongodb.maintenanceTask.viewer](../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
+
+#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenanceTask-editor}
+
+{% include [managed-mongodb.maintenanceTask.editor](../_roles/managed-mongodb/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../storedoc/security/index.md).
 
@@ -1700,6 +1768,14 @@ For more information, see [{#T}](../storedoc/security/index.md).
 
 {% include [managed-mysql.restorer](../_roles/managed-mysql/restorer.md) %}
 
+#### managed-mysql.user {#managed-mysql-user}
+
+{% include [managed-mysql.user](../_roles/managed-mysql/user.md) %}
+
+#### managed-mysql.switcher {#managed-mysql-switcher}
+
+{% include [managed-mysql.switcher](../_roles/managed-mysql/switcher.md) %}
+
 #### managed-mysql.editor {#managed-mysql-editor}
 
 {% include [managed-mysql.editor](../_roles/managed-mysql/editor.md) %}
@@ -1707,6 +1783,14 @@ For more information, see [{#T}](../storedoc/security/index.md).
 #### managed-mysql.admin {#managed-mysql-admin}
 
 {% include [managed-mysql.admin](../_roles/managed-mysql/admin.md) %}
+
+#### managed-mysql.maintenanceTask.viewer {#managed-mysql-maintenanceTask-viewer}
+
+{% include [managed-mysql.maintenanceTask.viewer](../_roles/managed-mysql/maintenanceTask/viewer.md) %}
+
+#### managed-mysql.maintenanceTask.editor {#managed-mysql-maintenanceTask-editor}
+
+{% include [managed-mysql.maintenanceTask.editor](../_roles/managed-mysql/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-mysql/security/index.md).
 
@@ -1725,6 +1809,10 @@ For more information, see [{#T}](../managed-mysql/security/index.md).
 
 {% include [opensearch.restorer](../_roles/managed-opensearch/restorer.md) %}
 
+#### managed-opensearch.user {#managed-opensearch-user}
+
+{% include [managed-opensearch.user](../_roles/managed-opensearch/user.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../_roles/managed-opensearch/editor.md) %}
@@ -1732,6 +1820,14 @@ For more information, see [{#T}](../managed-mysql/security/index.md).
 #### managed-opensearch.admin {#managed-opensearch-admin}
 
 {% include [opensearch.admin](../_roles/managed-opensearch/admin.md) %}
+
+#### managed-opensearch.maintenanceTask.viewer {#managed-opensearch-maintenanceTask-viewer}
+
+{% include [managed-opensearch.maintenanceTask.viewer](../_roles/managed-opensearch/maintenanceTask/viewer.md) %}
+
+#### managed-opensearch.maintenanceTask.editor {#managed-opensearch-maintenanceTask-editor}
+
+{% include [managed-opensearch.maintenanceTask.editor](../_roles/managed-opensearch/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-opensearch/security/index.md).
 
@@ -1754,6 +1850,14 @@ For more information, see [{#T}](../managed-opensearch/security/index.md).
 
 {% include [managed-postgresql.restorer](../_roles/managed-postgresql/restorer.md) %}
 
+#### managed-postgresql.user {#managed-postgresql-user}
+
+{% include [managed-postgresql.user](../_roles/managed-postgresql/user.md) %}
+
+#### managed-postgresql.switcher {#managed-postgresql-switcher}
+
+{% include [managed-postgresql.switcher](../_roles/managed-postgresql/switcher.md) %}
+
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
 {% include [managed-postgresql.editor](../_roles/managed-postgresql/editor.md) %}
@@ -1761,6 +1865,14 @@ For more information, see [{#T}](../managed-opensearch/security/index.md).
 #### managed-postgresql.admin {#managed-postgresql-admin}
 
 {% include [managed-postgresql.admin](../_roles/managed-postgresql/admin.md) %}
+
+#### managed-postgresql.maintenanceTask.viewer {#managed-postgresql-maintenanceTask-viewer}
+
+{% include [managed-postgresql.maintenanceTask.viewer](../_roles/managed-postgresql/maintenanceTask/viewer.md) %}
+
+#### managed-postgresql.maintenanceTask.editor {#managed-postgresql-maintenanceTask-editor}
+
+{% include [managed-postgresql.maintenanceTask.editor](../_roles/managed-postgresql/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-postgresql/security/index.md).
 
@@ -1787,6 +1899,14 @@ For more information, see [{#T}](../managed-postgresql/security/index.md).
 
 {% include [managed-spqr.admin](../_roles/managed-spqr/admin.md) %}
 
+#### managed-spqr.maintenanceTask.viewer {#managed-spqr-maintenanceTask-viewer}
+
+{% include [managed-spqr.maintenanceTask.viewer](../_roles/managed-spqr/maintenanceTask/viewer.md) %}
+
+#### managed-spqr.maintenanceTask.editor {#managed-spqr-maintenanceTask-editor}
+
+{% include [managed-spqr.maintenanceTask.editor](../_roles/managed-spqr/maintenanceTask/editor.md) %}
+
 For more information, see [{#T}](../managed-spqr/security.md).
 
 
@@ -1804,6 +1924,14 @@ For more information, see [{#T}](../managed-spqr/security.md).
 
 {% include [managed-redis.restorer](../_roles/managed-redis/restorer.md) %}
 
+#### managed-redis.user {#managed-redis-user}
+
+{% include [managed-redis.user](../_roles/managed-redis/user.md) %}
+
+#### managed-redis.switcher {#managed-redis-switcher}
+
+{% include [managed-redis.switcher](../_roles/managed-redis/switcher.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../_roles/managed-redis/editor.md) %}
@@ -1811,6 +1939,14 @@ For more information, see [{#T}](../managed-spqr/security.md).
 #### managed-redis.admin {#managed-redis-admin}
 
 {% include [managed-redis.admin](../_roles/managed-redis/admin.md) %}
+
+#### managed-redis.maintenanceTask.viewer {#managed-redis-maintenanceTask-viewer}
+
+{% include [managed-redis.maintenanceTask.viewer](../_roles/managed-redis/maintenanceTask/viewer.md) %}
+
+#### managed-redis.maintenanceTask.editor {#managed-redis-maintenanceTask-editor}
+
+{% include [managed-redis.maintenanceTask.editor](../_roles/managed-redis/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-valkey/security/index.md).
 
@@ -1859,6 +1995,14 @@ For more information, see [{#T}](../managed-valkey/security/index.md).
 #### managed-trino.admin {#managed-trino-admin}
 
 {% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
+
+#### managed-trino.maintenanceTask.viewer {#managed-trino-maintenanceTask-viewer}
+
+{% include [managed-trino.maintenanceTask.viewer](../_roles/managed-trino/maintenanceTask/viewer.md) %}
+
+#### managed-trino.maintenanceTask.editor {#managed-trino-maintenanceTask-editor}
+
+{% include [managed-trino.maintenanceTask.editor](../_roles/managed-trino/maintenanceTask/editor.md) %}
 
 #### managed-trino.integrationProvider {#managed-trino-integrationProvider}
 

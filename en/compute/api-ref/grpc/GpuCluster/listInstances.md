@@ -71,7 +71,9 @@ Currently you can use filtering only on the [Instance.name](#yandex.cloud.comput
         "gce_http_endpoint": "MetadataOption",
         "aws_v1_http_endpoint": "MetadataOption",
         "gce_http_token": "MetadataOption",
-        "aws_v1_http_token": "MetadataOption"
+        "aws_v1_http_token": "MetadataOption",
+        "aws_v2_http_endpoint": "MetadataOption",
+        "aws_v2_http_token": "MetadataOption"
       },
       "boot_disk": {
         "mode": "Mode",
@@ -409,6 +411,18 @@ Enabled access to IAM credentials with GCE flavored metadata
 || aws_v1_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| aws_v2_http_endpoint | enum **MetadataOption**
+
+Enabled access to AWS flavored metadata with session token (IMDSv2)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| aws_v2_http_token | enum **MetadataOption**
+
+Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
 
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||

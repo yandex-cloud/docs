@@ -21,5 +21,7 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * Cloud.ru
    * [{#T}](./cloud-ru/saml-cloud-ru.md)
    * [{#T}](./cloud-ru/oidc-cloud-ru.md)
+* VK Cloud
+   * [{#T}](./vk-cloud/saml-vk-cloud.md)
 * [Sentry](./saml-sentry.md)
 * [Настройка единого входа в приложения, не поддерживающие SSO](./oidc-nginx-oauth2-proxy.md)

@@ -19,6 +19,14 @@ description: Под техническим обслуживанием в {{ mkf-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-kafka-maintenanceTask-viewer) `managed-kafka.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-kafka-maintenanceTask-editor) `managed-kafka.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ## Порядок обслуживания {#maintenance-order}
 
 В однохостовых кластерах {{ mkf-name }} техническое обслуживание проходит единственный [хост-брокер](brokers.md). Поэтому если во время технического обслуживания потребуется его перезагрузка, такой кластер станет недоступным.

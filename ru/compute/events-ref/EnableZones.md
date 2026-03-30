@@ -224,7 +224,9 @@ editable: false
         "gceHttpEndpoint": "string",
         "awsV1HttpEndpoint": "string",
         "gceHttpToken": "string",
-        "awsV1HttpToken": "string"
+        "awsV1HttpToken": "string",
+        "awsV2HttpEndpoint": "string",
+        "awsV2HttpToken": "string"
       },
       "reservedInstancePoolId": "string"
     },
@@ -755,6 +757,14 @@ The maximum string length in characters is 128. Value must match the regular exp
 - `ENABLED`
 - `DISABLED` ||
 || awsV1HttpToken | **enum** (MetadataOption)
+
+- `ENABLED`
+- `DISABLED` ||
+|| awsV2HttpEndpoint | **enum** (MetadataOption)
+
+- `ENABLED`
+- `DISABLED` ||
+|| awsV2HttpToken | **enum** (MetadataOption)
 
 - `ENABLED`
 - `DISABLED` ||

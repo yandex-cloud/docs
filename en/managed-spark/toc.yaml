@@ -61,6 +61,10 @@ items:
         href: tutorials/spark-simple-rw-job.md
       - name: Running a PySpark job using {{ maf-full-name }}
         href: tutorials/airflow-spark-min.md
+      - name: >-
+          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
+          mpg-full-name }}
+        href: tutorials/job-pyspark-secret-access.md
       - name: Automating operations using {{ maf-full-name }}
         href: tutorials/airflow-automation.md
   - name: Concepts

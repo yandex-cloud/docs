@@ -32,9 +32,13 @@ Aliases:
 
 - [yc organization-manager mfa-enforcement list-audience](list-audience.md) — List audience for the specified mfa enforcement
 
+- [yc organization-manager mfa-enforcement list-excluded-audience](list-excluded-audience.md) — List excluded audience for the specified mfa enforcement
+
 - [yc organization-manager mfa-enforcement update](update.md) — Update the specified mfa enforcement
 
 - [yc organization-manager mfa-enforcement update-audience](update-audience.md) — Update audience for the specified mfa enforcement
+
+- [yc organization-manager mfa-enforcement update-excluded-audience](update-excluded-audience.md) — Update excluded audience for the specified mfa enforcement
 
 #### Global Flags
 

@@ -4,8 +4,8 @@ To set up the [maintenance window](../../../../managed-kafka/concepts/maintenanc
 resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
   ...
   maintenance_window {
-    type = <maintenance_type>
-    day  = <day_of_week>
+    type = "<maintenance_type>"
+    day  = "<day_of_week>"
     hour = <hour>
   }
   ...

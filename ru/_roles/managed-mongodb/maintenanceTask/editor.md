@@ -1,0 +1,3 @@
+Роль `managed-mongodb.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc и изменять такие задания, просматривать информацию о [кластерах Yandex StoreDoc](../../../storedoc/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, о [хостах](../../../storedoc/concepts/instance-types.md) и [резервных копиях](../../../storedoc/concepts/backup.md) кластеров, а также о [квотах](../../../storedoc/concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
+
+Включает разрешения, предоставляемые ролью `managed-mongodb.maintenanceTask.viewer`.

@@ -113,7 +113,7 @@ The price is valid from the moment of purchase until 11:59 p.m. on 31/12/2025.
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|baremetal }}']}
-    skuIds={['{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.1_day }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.1_month }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.3_month }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.6_month }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.12_month }}', '{{ pc|baremetal.server.ba-i523-nh-2x25g-p1.1_day }}', '{{ pc|baremetal.server.ba-i523-nh-2x25g-p1.1_month }}', '{{ pc|baremetal.server.ba-i523-nh-2x25g-p1.3_month }}', '{{ pc|baremetal.server.ba-i523-nh-2x25g-p1.6_month }}', '{{ pc|baremetal.server.ba-i523-nh-2x25g-p1.12_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.1_day }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.1_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.3_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.6_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.12_month }}']}
+    skuIds={['{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.1_day }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.1_month }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.3_month }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.6_month }}', '{{ pc|baremetal.server.ba-i209-ss-1-10g-p1.12_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.1_day }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.1_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.3_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.6_month }}', '{{ pc|baremetal.server.ha-i502-n-25g-gxl4-p1.12_month }}']}
     installationCode="ru"
     currency="USD"
   />

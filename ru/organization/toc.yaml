@@ -283,6 +283,10 @@ items:
                 href: tutorials/single-sign-on/cloud-ru/saml-cloud-ru.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/cloud-ru/oidc-cloud-ru.md
+          - name: VK Cloud
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
@@ -664,10 +668,14 @@ items:
             href: cli-ref/mfa-enforcement/list.md
           - name: list-audience
             href: cli-ref/mfa-enforcement/list-audience.md
+          - name: list-excluded-audience
+            href: cli-ref/mfa-enforcement/list-excluded-audience.md
           - name: update
             href: cli-ref/mfa-enforcement/update.md
           - name: update-audience
             href: cli-ref/mfa-enforcement/update-audience.md
+          - name: update-excluded-audience
+            href: cli-ref/mfa-enforcement/update-excluded-audience.md
       - name: organization
         items:
           - name: Overview

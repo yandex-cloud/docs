@@ -235,6 +235,28 @@ apiPlayground:
               - METADATA_OPTION_UNSPECIFIED
               - ENABLED
               - DISABLED
+          awsV2HttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to AWS flavored metadata with session token (IMDSv2)
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV2HttpToken:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
       NetworkSettings:
         type: object
         properties:
@@ -468,7 +490,9 @@ The maximum string length in characters is 50. ||
     "gceHttpEndpoint": "string",
     "awsV1HttpEndpoint": "string",
     "gceHttpToken": "string",
-    "awsV1HttpToken": "string"
+    "awsV1HttpToken": "string",
+    "awsV2HttpEndpoint": "string",
+    "awsV2HttpToken": "string"
   },
   "serviceAccountId": "string",
   "networkSettings": {
@@ -660,6 +684,18 @@ Enabled access to IAM credentials with GCE flavored metadata
 || awsV1HttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata with session token (IMDSv2)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpToken | **enum** (MetadataOption)
+
+Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
 
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
@@ -861,7 +897,9 @@ The maximum string length in characters is 100. ||
       "gceHttpEndpoint": "string",
       "awsV1HttpEndpoint": "string",
       "gceHttpToken": "string",
-      "awsV1HttpToken": "string"
+      "awsV1HttpToken": "string",
+      "awsV2HttpEndpoint": "string",
+      "awsV2HttpToken": "string"
     },
     "bootDisk": {
       "mode": "string",
@@ -1286,6 +1324,18 @@ Enabled access to IAM credentials with GCE flavored metadata
 || awsV1HttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata with session token (IMDSv2)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpToken | **enum** (MetadataOption)
+
+Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
 
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
