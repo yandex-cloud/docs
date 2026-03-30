@@ -19,6 +19,14 @@ You can set the preferred maintenance time when [creating a cluster](../operatio
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-kafka.maintenanceTask.viewer` [role](../security/index.md#managed-kafka-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-kafka.maintenanceTask.editor` [role](../security/index.md#managed-kafka-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance procedure {#maintenance-order}
 
 In single-host {{ mkf-name }} clusters, a single [broker host](brokers.md) undergoes maintenance. This means, if a cluster needs to be restarted during maintenance, it will become unavailable.

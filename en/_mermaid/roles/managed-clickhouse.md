@@ -18,5 +18,12 @@ flowchart BT
     restorer`"] --> mdb.restorer
     managed-clickhouse.restorer --> managed-clickhouse.editor
     managed-clickhouse.viewer --> managed-clickhouse.restorer
+    managed-clickhouse.user --> managed-clickhouse.editor
+    managed-clickhouse.maintenanceTask.editor --> managed-clickhouse.editor
+    managed-clickhouse.maintenanceTask.viewer --> managed-clickhouse.viewer
+    managed-clickhouse.maintenanceTask.viewer --> managed-clickhouse.maintenanceTask.editor["`managed-clickhouse.
+    maintenanceTask.editor`"]
     managed-clickhouse.auditor --> managed-clickhouse.viewer
+    managed-clickhouse.auditor --> managed-clickhouse.maintenanceTask.viewer["`managed-clickhouse.
+    maintenanceTask.viewer`"]
 ```

@@ -7,6 +7,8 @@ description: Инструкция по управлению исключения
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
+В исключениях модуля KSPM можно указать объекты, которые будут исключены из проверки по выбранным [правилам контроля](../../concepts/kspm.md): все ресурсы {{ k8s }} в окружении или только определенные объекты.
+
 ## Посмотреть список исключений из правил {#view-exceptions-list}
 
 Чтобы посмотреть список действующих для [окружения](../../concepts/workspace.md) исключений из правил контроля {{ k8s }}:
@@ -41,7 +43,7 @@ description: Инструкция по управлению исключения
   1. На панели слева выберите ![file-text](../../../_assets/console-icons/file-text.svg) **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
   1. В верхней части окна выберите [окружение](../../concepts/workspace.md), в котором вы хотите создать исключение из правил контроля.
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}**.
-  1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите `Контроль {{ k8s }}®`. В открывшемся окне:
+  1. В правом верхнем углу экрана нажмите кнопку **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите `Контроль {{ k8s }}®`. На открывшейся странице:
       1. В блоке **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.scopeOfControl_aRkwB }}** укажите ресурсы, которые требуется исключить при проверке правил контроля {{ k8s }}:
 
           * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.allResources_2ax5E }}` — чтобы исключить из проверки все ресурсы, контролируемые в [окружении](../../concepts/workspace.md).
@@ -57,6 +59,14 @@ description: Инструкция по управлению исключения
               * Нажмите кнопку ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.action_select-rules }}**.
               * В открывшемся окне выберите правила, проверку на соответствие которым вы хотите исключить. При необходимости воспользуйтесь фильтром или поиском в верхней части окна.
               * Нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.ServiceAccountResourceSelectDialog.action_save }}**.
+      1. (Опционально) В блоке **{{ ui-key.yacloud_org.security.workspaces.section-title_9BLTm }}** при помощи пространства имен укажите объекты, которые будут исключены из проверки:
+          * Включите опцию **{{ ui-key.yacloud_org.security.workspaces.namespace-checkbox_85krx }}**.
+          * Введите имя объекта из пространства имен. Требования к имени:
+              
+            {% include [name-format](../../../_includes/name-format.md) %}
+
+          Чтобы исключить несколько объектов сразу, используйте запись wildcard. Например, если указать `*-ns`, из проверки будут исключены объекты с суффиксом `ns`: `prod-ns` и `test-ns`.
+
       1. В блоке **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.section-title_3YcSF }}** в свободной форме укажите причину, по которой вы создаете исключение.
       1. Выберите ![image](../../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.label_active-exclusion_fjPgA }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}**

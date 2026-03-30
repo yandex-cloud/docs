@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Изменить пароль локального пользователя
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 ## Сбросить пароль {#reset}
 
 Чтобы задать пароль [локального](../../../iam/concepts/users/accounts.md#local) пользователя:

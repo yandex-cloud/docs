@@ -8,8 +8,17 @@ flowchart BT
     managed-mongodb.admin --> mdb.admin
     managed-mongodb.viewer --> mdb.viewer
     managed-mongodb.auditor --> mdb.auditor
+    managed-mongodb.switcher --> managed-mongodb.editor
     managed-mongodb.editor --> managed-mongodb.admin
     managed-mongodb.viewer --> managed-mongodb.restorer
     managed-mongodb.restorer --> managed-mongodb.editor
+    managed-mongodb.viewer --> managed-mongodb.switcher
+    managed-mongodb.maintenanceTask.editor --> managed-mongodb.editor
     managed-mongodb.auditor --> managed-mongodb.viewer
+    managed-mongodb.maintenanceTask.viewer --> managed-mongodb.viewer
+    managed-mongodb.maintenanceTask.viewer --> managed-mongodb.maintenanceTask.editor["`managed-mongodb.
+    maintenanceTask.editor`"]
+    managed-mongodb.auditor --> managed-mongodb.maintenanceTask.viewer["`managed-mongodb.
+    maintenanceTask.viewer`"]
+    managed-mongodb.user --> managed-mongodb.editor
 ```

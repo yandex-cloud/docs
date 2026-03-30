@@ -1,5 +1,5 @@
 ---
-title: '{{ kafka-ui }} for {{ KF }}'
+title: '{{ kafka-ui }} for {{ mkf-name }}'
 description: In this tutorial, you will learn about the features of {{ kafka-ui }}, a web UI for {{ KF }}.
 ---
 

@@ -1,0 +1,3 @@
+Роль `managed-mongodb.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../storedoc/concepts/maintenance.md) кластеров Yandex StoreDoc, а также о таких [кластерах](../../../storedoc/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, о [хостах](../../../storedoc/concepts/instance-types.md) и [резервных копиях](../../../storedoc/concepts/backup.md) кластеров, о [квотах](../../../storedoc/concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.
+
+Включает разрешения, предоставляемые ролью `managed-mongodb.auditor`.

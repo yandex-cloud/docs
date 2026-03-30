@@ -1,0 +1,3 @@
+The `managed-postgresql.maintenanceTask.viewer` role enables viewing info on [PostgreSQL clusters](../../../managed-postgresql/concepts/index.md), their [maintenance](../../../managed-postgresql/concepts/maintenance.md) tasks, and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../managed-postgresql/concepts/instance-types.md) and cluster [backups](../../../managed-postgresql/concepts/backup.md), and on [quotas](../../../managed-postgresql/concepts/limits.md#mpg-quotas) and resource operations for Managed Service for PostgreSQL.
+
+This role includes the `managed-postgresql.auditor` permissions.

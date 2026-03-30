@@ -12,11 +12,11 @@ description: This page covers FAQ about reports.
 
 ### Is there a report demo version? {#demo-report}
 
-To view a report example, deploy the [DataLens demo dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) from {{ datalens-gallery }}:
+To view an example of the report, deploy [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) from the Gallery:
 
 1. Click **Use** → **Deploy**. By default, the workbook will be created in the root of [workbooks and collections](../../datalens/workbooks-collections/index.md). You can also select an existing collection or create a new one at this step.
 1. Click **Deploy**. The workbook name must be unique, so edit the name if you need to.
-1. Click **Create**. You will see the report example in the created workbook.
+1. Click **Create**. You will see the report example in your new workbook.
 
 
 ### Can I view reports in full-screen mode and switch between pages? {#report-preview}

@@ -41,7 +41,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -61,7 +61,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -97,7 +97,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-    1. Click the name of your cluster.
+    1. Click the cluster name.
 
 - CLI {#cli}
 
@@ -115,7 +115,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -134,7 +134,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -156,7 +156,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
             yandex.cloud.airflow.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.airflow.v1.Cluster) to make sure your request was successful.
 
@@ -164,7 +164,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions performed on {{ maf-name }} clusters are logged, Each operation gets its own unique ID.
+All actions with {{ maf-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -174,13 +174,12 @@ All actions performed on {{ maf-name }} clusters are logged, Each operation gets
 
     To get a list of operations for a {{ maf-name }} cluster:
 
-    1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
+    1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
     1. Select the cluster.
-    1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
+    1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
-        You will see a list of operations with the cluster.
+        You will see the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -198,7 +197,7 @@ All actions performed on {{ maf-name }} clusters are logged, Each operation gets
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -211,13 +210,13 @@ All actions performed on {{ maf-name }} clusters are logged, Each operation gets
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>/operations'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -239,7 +238,7 @@ All actions performed on {{ maf-name }} clusters are logged, Each operation gets
             yandex.cloud.airflow.v1.ClusterService.ListOperations
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -247,7 +246,7 @@ All actions performed on {{ maf-name }} clusters are logged, Each operation gets
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of cluster operations](#get-operations).
+1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
 1. Get operation details:
 
@@ -284,11 +283,11 @@ All actions performed on {{ maf-name }} clusters are logged, Each operation gets
 
     - REST API {#api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        1. Call the [Operation.Get](../api-ref/Operation/get.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+        1. Call the [Operation.Get](../api-ref/Operation/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -301,13 +300,13 @@ All actions performed on {{ maf-name }} clusters are logged, Each operation gets
 
     - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
         1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-        1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+        1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \

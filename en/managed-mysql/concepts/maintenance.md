@@ -18,6 +18,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-mysql.maintenanceTask.viewer` [role](../security/index.md#managed-mysql-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-mysql.maintenanceTask.editor` [role](../security/index.md#managed-mysql-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance workflow {#maintenance-order}
 
 In {{ mmy-name }} single-host clusters, a master host undergoes maintenance. Therefore, it may become unavailable in case it is restarted.

@@ -1406,12 +1406,6 @@ default:
         12_month: dn22un44apyqndj2ei5l
         3_month: dn2dj4l3apo6jbjco3l7
         6_month: dn2loxxtnmlb45n3jmix
-      ba-i523-nh-2x25g-p1:
-        1_day: dn26k67ks64mcijvs4mi
-        1_month: dn2o4kgngionblzgk3vo
-        12_month: dn23p37j3glbg4z4efsq
-        3_month: dn2p7zaa2si3kzzt2pdj
-        6_month: dn2bp7nc54dby4wicpso
       ba-i523-nh-2x25g:
         1_day: dn23mesissp7dp5jufbd
         1_month: dn2su66lkggfhlfilzsh
@@ -1998,6 +1992,8 @@ default:
       ram:
         v3|number: 1.752216755
         v3|string: "1,752216755\_₸"
+    snapshot|number: 0.024235614
+    snapshot|string: "0,024235614\_₸"
     vm:
       cpu:
         c100:
@@ -2545,6 +2541,8 @@ default:
       ram:
         v3|number: 0.3439984
         v3|string: "0,3439984\_₽"
+    snapshot|number: 0.00475798
+    snapshot|string: "0,00475798\_₽"
     vm:
       cpu:
         c100:
@@ -5024,6 +5022,8 @@ default:
             labelServiceAccountField: Сервисный аккаунт
           label_rule-kind_3PswX: Тип правила
           module-cspm_gozhj: Контроль конфигурации (CSPM)
+          namespace-checkbox_85krx: Пространство имен
+          section-title_9BLTm: Объекты (опционально)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
           WorkspaceEditPageLayout:
@@ -11133,7 +11133,7 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-3
+        tag: 2.1.7-4
     yc_gatekeeper:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
@@ -11156,7 +11156,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.10
+        tag: v1.1.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

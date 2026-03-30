@@ -19,6 +19,14 @@ description: Под техническим обслуживанием в {{ mos-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-opensearch-maintenanceTask-viewer) `managed-opensearch.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-opensearch-maintenanceTask-editor) `managed-opensearch.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ## Порядок обслуживания {#maintenance-order}
 
 В однохостовых кластерах {{ mos-name }} техническое обслуживание проходит единственный хост. Поэтому если во время технического обслуживания потребуется его перезагрузка, такой кластер станет недоступным.

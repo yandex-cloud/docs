@@ -41,6 +41,30 @@ You may schedule a cut in the number of seats at any time; however, the change w
 
 Technical support coverage is determined by the [{{ yandex-cloud }}](../support/overview.md) support plan you select.
 
+### Limiting the number of queries from private embedded charts {#packet-queries}
+
+The seat count determines the limit on the number of queries from [private embedded charts](./security/private-embedded-objects.md) (charts from the wizard and Editor as well as and QL charts) within one {{ datalens-name }} instance. For embedded private dashboards, queries from the added charts are summed up.
+
+There is no limit for regular queries made by users in the {{ datalens-name }} interface, nor for queries to [publicly embedded charts](./concepts/datalens-public.md).
+
+* Limiting the number of queries from private embedded charts: 2,000 queries per seat per month. This limit does not apply to each individual seat, but rather to the entire {{ datalens-name }} instance based on the calculation:
+
+   > 2,000 queries x Number of seats
+
+* Only successfully completed requests for retrieving data to render charts are counted. If multiple requests are required to render a single chart, this is counted as one request.
+
+* Seats are not linked to embedded charts directly; they do not have to be assigned to external viewers of these charts. What matters is the total number of seats purchased within the instance, both free and assigned to users.
+
+   Thus, the more actively a {{ datalens-name }} instance is used (the more of its seats are purchased), the higher the private embedding limit will be.
+
+* If {{ datalens-name }} is operated by several users, yet there are many queries from private embeddings, you will have to procure additional seats based on the calculation above.
+
+* Every query for data from a private embedded chart is counted. For example, you have an embedded dashboard with 10 charts and 5 selectors. Refreshing the dashboard page will count 10 queries.
+   
+   [You can estimate the number of queries from private embedded charts](./settings/seats.md#embedded-queries-count) by enabling [Usage Analytics](./operations/connection/create-usage-tracking.md). If the total number of such queries exceeds the per-instance limit, you may have to purchase more seats.
+   
+   When the limit on the number of queries from private embedded charts is exceeded and [automatic seat purchase](./settings/seats.md#purchase-automatically) is enabled, there is no automatic repurchase of new seats.
+
 ### Trial period {#trial}
 
 New {{ datalens-name }} users can take advantage of a 30-day trial period during which teamwork is free. At the end of the trial period, you will need to link a billing account to start paying for seats or reduce the consumption per instance to one seat.
@@ -61,6 +85,5 @@ The cost of using {{ datalens-name }} depends on the number of seats per instanc
 
 #### See also {#see-also}
 
-* [Updated pricing policy as of December 1](./pricing-changes.md)
 * [Pricing and payment questions](./qa/pricing.md)
 * [Managing seats in {{ datalens-name }}](./settings/seats.md)

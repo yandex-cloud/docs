@@ -660,10 +660,14 @@ items:
             href: cli-ref/mfa-enforcement/list.md
           - name: list-audience
             href: cli-ref/mfa-enforcement/list-audience.md
+          - name: list-excluded-audience
+            href: cli-ref/mfa-enforcement/list-excluded-audience.md
           - name: update
             href: cli-ref/mfa-enforcement/update.md
           - name: update-audience
             href: cli-ref/mfa-enforcement/update-audience.md
+          - name: update-excluded-audience
+            href: cli-ref/mfa-enforcement/update-excluded-audience.md
       - name: organization
         items:
           - name: Overview

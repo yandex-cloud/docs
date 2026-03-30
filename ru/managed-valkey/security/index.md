@@ -46,6 +46,14 @@ description: Управление доступом в сервисе по соз
 
 {% include [managed-redis.restorer](../../_roles/managed-redis/restorer.md) %}
 
+#### managed-redis.user {#managed-redis-user}
+
+{% include [managed-redis.user](../../_roles/managed-redis/user.md) %}
+
+#### managed-redis.switcher {#managed-redis-switcher}
+
+{% include [managed-redis.switcher](../../_roles/managed-redis/switcher.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../../_roles/managed-redis/editor.md) %}
@@ -53,6 +61,14 @@ description: Управление доступом в сервисе по соз
 #### managed-redis.admin {#managed-redis-admin}
 
 {% include [managed-redis.admin](../../_roles/managed-redis/admin.md) %}
+
+#### managed-redis.maintenanceTask.viewer {#managed-redis-maintenanceTask-viewer}
+
+{% include [managed-redis.maintenanceTask.viewer](../../_roles/managed-redis/maintenanceTask/viewer.md) %}
+
+#### managed-redis.maintenanceTask.editor {#managed-redis-maintenanceTask-editor}
+
+{% include [managed-redis.maintenanceTask.editor](../../_roles/managed-redis/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 

@@ -11,5 +11,14 @@ flowchart BT
     managed-redis.editor --> managed-redis.admin
     managed-redis.viewer --> managed-redis.restorer
     managed-redis.restorer --> managed-redis.editor
+    managed-redis.switcher --> managed-redis.editor
+    managed-redis.viewer --> managed-redis.switcher
+    managed-redis.maintenanceTask.editor --> managed-redis.editor
+    managed-redis.maintenanceTask.viewer --> managed-redis.viewer
+    managed-redis.user --> managed-redis.editor
     managed-redis.auditor --> managed-redis.viewer
+    managed-redis.auditor --> managed-redis.maintenanceTask.viewer["`managed-redis.
+    maintenanceTask.viewer`"]
+    managed-redis.maintenanceTask.viewer --> managed-redis.maintenanceTask.editor["`managed-redis.
+    maintenanceTask.editor`"]
 ```

@@ -13,9 +13,16 @@ flowchart BT
     restorer`"] --> mdb.restorer
     managed-opensearch.admin["`managed-opensearch.
     admin`"] --> mdb.admin
+    managed-opensearch.user --> managed-opensearch.editor
     managed-opensearch.auditor --> managed-opensearch.viewer
     managed-opensearch.viewer --> managed-opensearch.restorer
     managed-opensearch.editor["`managed-opensearch.
     editor`"] --> managed-opensearch.admin
     managed-opensearch.restorer --> managed-opensearch.editor
+    managed-opensearch.maintenanceTask.editor --> managed-opensearch.editor
+    managed-opensearch.maintenanceTask.viewer --> managed-opensearch.viewer
+    managed-opensearch.maintenanceTask.viewer --> managed-opensearch.maintenanceTask.editor["`managed-opensearch.
+    maintenanceTask.editor`"]
+    managed-opensearch.auditor --> managed-opensearch.maintenanceTask.viewer["`managed-opensearch.
+    maintenanceTask.viewer`"]
 ```

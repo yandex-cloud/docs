@@ -17,14 +17,14 @@ StartFilesRecovery runs recovery process of selected files to specific Compute C
   "compute_instance_id": "string",
   "backup_id": "string",
   "opts": {
-    "overwrite": "Overwrite",
-    "reboot_if_needed": "bool",
     // Includes only one of the fields `original`, `custom`
     "original": "TargetPathOriginal",
     "custom": {
       "path": "string"
-    }
+    },
     // end of the list of possible fields
+    "overwrite": "Overwrite",
+    "reboot_if_needed": "bool"
   },
   "source_ids": [
     "string"
@@ -52,16 +52,6 @@ The number of elements must be greater than 0. ||
 
 #|
 ||Field | Description ||
-|| overwrite | enum **Overwrite**
-
-Overwrite options declares the behavior for files that already exists on the file system.
-
-- `OVERWRITE_ALL`: All overwrites all existing files by recovered ones.
-- `OVERWRITE_OLDER`: Older overwrites older files only.
-- `OVERWRITE_NONE`: None does not overwrites files at all. ||
-|| reboot_if_needed | **bool**
-
-specifies whether the recovery plan is able to reboot host if needed. ||
 || original | **[TargetPathOriginal](#yandex.cloud.backup.v1.TargetPathOriginal)**
 
 Keep original paths of files.
@@ -76,6 +66,16 @@ Set custom folder for file recovery.
 Includes only one of the fields `original`, `custom`.
 
 Path strategy for selected files. ||
+|| overwrite | enum **Overwrite**
+
+Overwrite options declares the behavior for files that already exists on the file system.
+
+- `OVERWRITE_ALL`: All overwrites all existing files by recovered ones.
+- `OVERWRITE_OLDER`: Older overwrites older files only.
+- `OVERWRITE_NONE`: None does not overwrites files at all. ||
+|| reboot_if_needed | **bool**
+
+specifies whether the recovery plan is able to reboot host if needed. ||
 |#
 
 ## TargetPathOriginal {#yandex.cloud.backup.v1.TargetPathOriginal}
@@ -104,17 +104,10 @@ Custom folder for file recovery. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "progress_percentage": "double",
-    "compute_instance_id": "string",
-    "backup_id": "string",
-    "source_ids": [
-      "string"
-    ]
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -142,7 +135,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[StartFilesRecoveryMetadata](#yandex.cloud.backup.v1.StartFilesRecoveryMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -157,7 +150,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -172,20 +165,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## StartFilesRecoveryMetadata {#yandex.cloud.backup.v1.StartFilesRecoveryMetadata}
-
-#|
-||Field | Description ||
-|| progress_percentage | **double** ||
-|| compute_instance_id | **string**
-
-Required field. Destination instance ID. ||
-|| backup_id | **string**
-
-Required field. Backup ID. ||
-|| source_ids[] | **string**
-
-The number of elements must be greater than 0. ||
 |#

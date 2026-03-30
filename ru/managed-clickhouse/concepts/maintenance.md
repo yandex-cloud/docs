@@ -19,6 +19,14 @@ description: Под техническим обслуживанием в {{ mch-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security.md#managed-clickhouse-maintenanceTask-viewer) `managed-clickhouse.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security.md#managed-clickhouse-maintenanceTask-editor) `managed-clickhouse.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ## Порядок обслуживания {#maintenance-order}
 
 Порядок технического обслуживания кластеров {{ mch-name }} определяется количеством [шардов](sharding.md) и входящих в них хостов:

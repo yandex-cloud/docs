@@ -18,6 +18,16 @@ flowchart BT
     managed-postgresql.editor["`managed-postgresql.
     editor`"] --> managed-postgresql.admin
     managed-postgresql.viewer --> managed-postgresql.restorer
-    managed-postgresql.restorer --> managed-postgresql.editor
     managed-postgresql.auditor --> managed-postgresql.viewer
+    managed-postgresql.restorer --> managed-postgresql.editor
+    managed-postgresql.user --> managed-postgresql.editor
+    managed-postgresql.switcher --> managed-postgresql.editor
+    managed-postgresql.viewer --> managed-postgresql.switcher["`managed-postgresql.
+    switcher`"]
+    managed-postgresql.maintenanceTask.editor --> managed-postgresql.editor
+    managed-postgresql.maintenanceTask.viewer --> managed-postgresql.viewer
+    managed-postgresql.maintenanceTask.viewer --> managed-postgresql.maintenanceTask.editor["`managed-postgresql.
+    maintenanceTask.editor`"]
+    managed-postgresql.auditor --> managed-postgresql.maintenanceTask.viewer["`managed-postgresql.
+    maintenanceTask.viewer`"]
 ```

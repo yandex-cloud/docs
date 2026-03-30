@@ -12,12 +12,14 @@
 `baremetal.images.count` | 10 ||
 || Number of [private subnets](../baremetal/concepts/private-network.md#private-subnet)
 `baremetal.privateSubnets.count` | 2 ||
-|| Number of private subnets you can associate with a single server
+|| Number of private subnets per server interface
 `baremetal.privateSubnetsPerServerInterface.count` | 1 ||
 || Number of [dedicated public subnets](../baremetal/concepts/public-network.md#public-subnet)
 `baremetal.dedicatedPublicSubnets.count` | 1 ||
 || Number of pools in dedicated public subnets
 `baremetal.dedicatedPublicSubnetsHardwarePools.count` | 1 ||
+|| Number of all static routes in a cloud
+`baremetal.staticRoutes.count` | 10 ||
 |#
 
 ^1^ This quota is defined automatically. Contact [support]({{ link-console-support }}) to increase your quota.

@@ -7,7 +7,7 @@ description: Follow this guide to create your own connector (connection type) an
 
 If you are a {{ datalens-short-name }} partner, you can create a connector (connection type) of your own and add it to {{ marketplace-full-name }} or the [connections]({{ link-datalens-main }}/connections/new) page. With the help of your connector, users will be able to create datasets, charts, and dashboards based on your data.
 
-If you have more than 1,000 customers and want to replicate your designs for their use, follow this guide. If you have fewer customers, use [workbook export](../../workbooks-collections/export-and-import.md#export-workbook) and [object embedding](../../security/embedded-objects.md). You can also [add your creations to {{ datalens-gallery }}](../../concepts/gallery.md#suggest).
+If you have more than 1,000 customers and want to replicate your designs for them to use, follow this guide. If you have fewer customers, use [workbook export](../../workbooks-collections/export-and-import.md#export-workbook) and [object embedding](../../security/embedded-objects.md). You can [contribute to the Gallery yourself](../../concepts/gallery.md#suggest).
 
 Advantages of working with a connector for {{ datalens-short-name }} partners:
 
@@ -115,7 +115,7 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
      from cryptography.hazmat.primitives.asymmetric import padding
      
      public_key_datalens_pem = '''-----BEGIN PUBLIC KEY-----...''' # DataLens public RSA key.
-     private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key.
+     private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key. 
      datalens_key_version, partner_key_version = '1', '1' # Key versions.
      
      data = json.dumps({'db_name': 'db_name_123'}) # JSON with the user database in the {{ CH }} cluster.
@@ -126,7 +126,7 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
          password=None,
      )
      ciphertext = public_key_datalens.encrypt(data.encode(), padding.PKCS1v15()) # Encrypted JSON message with the user database.
-     signature = private_key_partner.sign(ciphertext, padding.PKCS1v15(), hashes.SHA1()) # Encrypted message signature.
+     signature = private_key_partner.sign(ciphertext, padding.PKCS1v15(), hashes.SHA1()) # Encrypted message signature. 
      
      access_token = ':'.join((
          datalens_key_version,

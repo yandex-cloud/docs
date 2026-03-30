@@ -4,6 +4,12 @@ flowchart BT
     managed-spark.viewer --> managed-spark.user
     managed-spark.user --> managed-spark.editor
     managed-spark.editor --> managed-spark.admin
+    managed-spark.auditor --> managed-spark.maintenanceTask.viewer["`managed-spark.
+    maintenanceTask.viewer`"]
+    managed-spark.maintenanceTask.viewer --> managed-spark.maintenanceTask.editor["`managed-spark.
+    maintenanceTask.editor`"]
+    managed-spark.maintenanceTask.viewer --> managed-spark.viewer
+    managed-spark.maintenanceTask.editor --> managed-spark.editor
     managed-spark.integrationProvider["`managed-spark.
     integrationProvider`"]
 ```

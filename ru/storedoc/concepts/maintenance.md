@@ -18,6 +18,14 @@ description: Под техническим обслуживанием в {{ mmg-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-mongodb-maintenanceTask-viewer) `managed-mongodb.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-mongodb-maintenanceTask-editor) `managed-mongodb.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ## Порядок обслуживания {#maintenance-order}
 
 Порядок технического обслуживания кластеров {{ mmg-name }} определяется количеством хостов и наличием [шардов](sharding.md).

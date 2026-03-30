@@ -43,10 +43,11 @@ Prepare a network infrastructure to host your availability group.
 
     - Management console {#console}
 
-       1. Open the **{{ vpc-name }}** section in the folder where you want to create a cloud network.
-       1. Click **Create network**.
+       1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
+       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
        1. Specify `ya-network` as the network name.
-       1. Click **Create network**.
+       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
     - Bash {#bash}
       
@@ -83,7 +84,7 @@ Prepare a network infrastructure to host your availability group.
       1. Select the network: `ya-network`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **Add subnet**.
       1. Specify `ya-sqlserver-rc1a` as the name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Enter the subnet CIDR, including the IP address and subnet mask: `192.168.1.0/28`.
+      1. Enter the subnet CIDR: IP address and subnet mask, `192.168.1.0/28`.
       1. Click **Create subnet**.
 
       Repeat the same steps for the subnets with the following names and CIDRs:
@@ -567,7 +568,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 ### Install and configure Active Directory {#install-ad}
 
-1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password. 
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password. 
 1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
 1. On `ya-ad`, run PowerShell and set the required server roles:
 
@@ -644,9 +645,9 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 ### Create users and groups in Active Directory {#create-ad-users-groups}
 
-1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 
-1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
+1. Connect to the `ya-ad` VM from `ya-jump1` under the same account using RDP.
 
 1. On `ya-ad`, run PowerShell and create the `mssql-svc` service account:
 
@@ -1002,7 +1003,7 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 
 1. From `ya-jump1`, connect to the `ya-mssql1` VM under the same account using RDP. Configure a static IP address with its own subnet mask:
 
@@ -1032,7 +1033,7 @@ Install SQL Server on your database servers:
 
 ### Create a Windows Server failover cluster {#configure-failover-cluster}
 
-1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 1. From `ya-jump1`, connect to the `ya-mssql1` VM as `yantoso\Administrator` using RDP.
 1. Create a cluster of three DB servers:
 

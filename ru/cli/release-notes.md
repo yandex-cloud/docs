@@ -7,6 +7,18 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.204.0 (30.03.26) {#version0.204.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.204.0}
+
+##### {{ org-full-name }} {#organizations-0.204.0}
+
+Добавлены команды для просмотра и обновления списка пользователей и групп, к которым не применяется политика MFA:
+* `yc organization-manager mfa-enforcement list-excluded-audience`;
+* `yc organization-manager mfa-enforcement update-excluded-audience`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.203.0 (26.03.26) {#version0.203.0}
 
 #### Изменения в CLI {#cli-0.203.0}
@@ -20,8 +32,6 @@ description: На странице представлены релизы CLI, а
 Добавлены параметры для выбора метода аллокации CIDR-блока при создании публичной подсети:
 * `yc baremetal public-subnet create --cidr-auto-allocation`;
 * `yc baremetal public-subnet create --cidr-manual-allocation`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.202.0 (23.03.26) {#version0.202.0}
 

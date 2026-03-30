@@ -10,6 +10,12 @@ flowchart BT
     managed-spqr.auditor --> mdb.auditor    
     managed-spqr.editor --> managed-spqr.admin
     managed-spqr.viewer --> managed-spqr.restorer
-    managed-spqr.restorer --> managed-spqr.editor
     managed-spqr.auditor --> managed-spqr.viewer
+    managed-spqr.restorer --> managed-spqr.editor
+    managed-spqr.maintenanceTask.editor --> managed-spqr.editor
+    managed-spqr.maintenanceTask.viewer --> managed-spqr.viewer
+    managed-spqr.auditor --> managed-spqr.maintenanceTask.viewer["`managed-spqr.
+    maintenanceTask.viewer`"]
+    managed-spqr.maintenanceTask.viewer --> managed-spqr.maintenanceTask.editor["`managed-spqr.
+    maintenanceTask.editor`"]
 ```

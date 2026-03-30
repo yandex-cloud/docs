@@ -16,6 +16,14 @@ You can set the preferred maintenance time when [creating a cluster](../operatio
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Viewing information on maintenance tasks requires the `managed-airflow.maintenanceTask.viewer` [role](../security/index.md#managed-airflow-maintenanceTask-viewer) or higher.
+
+Managing maintenance tasks requires the `managed-airflow.maintenanceTask.editor` [role](../security/index.md#managed-airflow-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## See also {#see-also}
 
 * [Managing maintenance in a {{ maf-name }} cluster](../operations/cluster-maintenance.md)

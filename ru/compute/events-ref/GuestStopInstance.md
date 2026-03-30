@@ -90,9 +90,7 @@ editable: false
   "details": {
     "instanceId": "string",
     "instanceName": "string"
-  },
-  "requestParameters": "object",
-  "response": "object"
+  }
 }
 ```
 
@@ -126,8 +124,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 The error result of the operation in case of failure or cancellation. ||
 || details | **[EventDetails](#yandex.cloud.audit.compute.GuestStopInstance.EventDetails)** ||
-|| requestParameters | **object** ||
-|| response | **object** ||
 |#
 
 ## IamAuthentication {#yandex.cloud.audit.IamAuthentication}

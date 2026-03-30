@@ -1,0 +1,1 @@
+In this case, the network traffic in {{ vpc-name }} subnets intended for addresses from the static route destination prefix will go to the `Next hop` address, even if this address is in a private {{ baremetal-name }} subnet.

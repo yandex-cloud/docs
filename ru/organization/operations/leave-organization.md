@@ -5,7 +5,11 @@ description: Следуя данной инструкции, вы узнаете
 
 # Покинуть организацию
 
-Если вы пользователь [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport), вы можете самостоятельно покинуть организацию. Для этого:
+Если вы пользователь [с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport), вы можете самостоятельно покинуть организацию. 
+
+{% include [organization-deny-user-listing](../../_includes/organization/organization-deny-user-listing.md) %}
+
+Чтобы покинуть организацию: 
 
 {% list tabs group=instructions %}
 
@@ -18,6 +22,24 @@ description: Следуя данной инструкции, вы узнаете
       При необходимости воспользуйтесь строкой поиска или фильтром вверху страницы.
   1. В строке с вашим пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне подтвердите выход из организации.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для выхода из организации:
+
+     ```bash
+     yc organization-manager organization leave --help
+     ```
+
+  1. Чтобы покинуть организацию, выполните команду, указав [идентификатор](./organization-get-id.md) этой организации:
+
+     ```bash
+     yc organization-manager organization leave <идентификатор_организации>
+     ```
 
 {% endlist %}
 

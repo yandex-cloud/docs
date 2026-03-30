@@ -48,6 +48,10 @@ description: Управление доступом в сервисе по соз
 
 {% include [opensearch.restorer](../../_roles/managed-opensearch/restorer.md) %}
 
+#### managed-opensearch.user {#managed-opensearch-user}
+
+{% include [managed-opensearch.user](../../_roles/managed-opensearch/user.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../../_roles/managed-opensearch/editor.md) %}
@@ -55,6 +59,14 @@ description: Управление доступом в сервисе по соз
 #### managed-opensearch.admin {#managed-opensearch-admin}
 
 {% include [opensearch.admin](../../_roles/managed-opensearch/admin.md) %}
+
+#### managed-opensearch.maintenanceTask.viewer {#managed-opensearch-maintenanceTask-viewer}
+
+{% include [managed-opensearch.maintenanceTask.viewer](../../_roles/managed-opensearch/maintenanceTask/viewer.md) %}
+
+#### managed-opensearch.maintenanceTask.editor {#managed-opensearch-maintenanceTask-editor}
+
+{% include [managed-opensearch.maintenanceTask.editor](../../_roles/managed-opensearch/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 

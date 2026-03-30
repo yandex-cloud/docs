@@ -11,7 +11,7 @@ description: '{{ datalens-full-name }} is a business analytics service. That all
 
 
 
-For usage examples, see [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery).
+For usage examples, see [Gallery]({{ link-datalens-main }}/gallery).
 
 
 ## How {{ datalens-short-name }} works {#how-dl-works}

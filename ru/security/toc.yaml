@@ -125,6 +125,8 @@ items:
             href: tutorials/single-sign-on/saml-ovpn.md
           - name: Настройка единого входа в Cloud.ru по стандарту SAML
             href: tutorials/single-sign-on/saml-cloud-ru.md
+          - name: Настройка единого входа в VK Cloud по стандарту SAML
+            href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Настройка единого входа в Sentry по стандарту SAML
             href: tutorials/single-sign-on/saml-sentry.md
       - name: Сетевая безопасность

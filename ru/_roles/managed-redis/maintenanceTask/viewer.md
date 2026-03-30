@@ -1,0 +1,3 @@
+Роль `managed-redis.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-valkey/concepts/maintenance.md) кластеров Valkey™, а также о таких [кластерах](../../../managed-valkey/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, о [хостах](../../../managed-valkey/concepts/instance-types.md) и [резервных копиях](../../../managed-valkey/concepts/backup.md) кластеров, о [квотах](../../../managed-valkey/concepts/limits.md#mrd-quotas) и операциях с ресурсами сервиса Yandex Managed Service for Valkey™.
+
+Включает разрешения, предоставляемые ролью `managed-redis.auditor`.

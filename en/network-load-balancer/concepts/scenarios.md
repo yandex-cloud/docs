@@ -42,6 +42,12 @@ When adding or removing VMs from the group, the load balancer's target group wil
 ## {{ managed-k8s-name }} cluster {#nlb-mk8s}
 To use a network load balancer as part of services within a {{ managed-k8s-name }} cluster, you need to create a service of the `LoadBalancer` type. Then the cluster itself will create network load balancer objects according to the provided manifests and will monitor the load balancer's target group receiving VMs from all node groups of that cluster.
 
+{% note warning %}
+
+Do not modify or delete the network load balancer and target groups automatically created in your folder via the {{ yandex-cloud }} interfaces (the management console, {{ TF }}, CLI, or API). This may cause incorrect operation of the {{ managed-k8s-name }} cluster.
+
+{% endnote %}
+
 To learn more about deploying a service using a network load balancer in a Kubernetes cluster, see [Granting access to an app running in a Kubernetes cluster](../../managed-kubernetes/operations/create-load-balancer.md).
 
 
