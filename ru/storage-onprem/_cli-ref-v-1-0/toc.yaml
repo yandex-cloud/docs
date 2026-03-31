@@ -1,0 +1,162 @@
+items:
+  - name: Overview
+    href: cli-ref/cli.md
+  - name: access-keys
+    items:
+      - name: Overview
+        href: cli-ref/cli_access-keys.md
+      - name: create
+        href: cli-ref/cli_access-keys_create.md
+      - name: delete
+        href: cli-ref/cli_access-keys_delete.md
+      - name: list
+        href: cli-ref/cli_access-keys_list.md
+  - name: buckets
+    items:
+      - name: Overview
+        href: cli-ref/cli_buckets.md
+      - name: create
+        href: cli-ref/cli_buckets_create.md
+      - name: delete
+        href: cli-ref/cli_buckets_delete.md
+      - name: get
+        items:
+          - name: Overview
+            href: cli-ref/cli_buckets_get.md
+          - name: acl
+            href: cli-ref/cli_buckets_get_acl.md
+          - name: cors
+            href: cli-ref/cli_buckets_get_cors.md
+          - name: lifecycle
+            href: cli-ref/cli_buckets_get_lifecycle.md
+          - name: max_size
+            href: cli-ref/cli_buckets_get_max_size.md
+          - name: object_lock
+            href: cli-ref/cli_buckets_get_object_lock.md
+          - name: policy
+            href: cli-ref/cli_buckets_get_policy.md
+          - name: settings
+            href: cli-ref/cli_buckets_get_settings.md
+          - name: storage_class
+            href: cli-ref/cli_buckets_get_storage_class.md
+          - name: tags
+            href: cli-ref/cli_buckets_get_tags.md
+          - name: versioning
+            href: cli-ref/cli_buckets_get_versioning.md
+      - name: list
+        href: cli-ref/cli_buckets_list.md
+      - name: update
+        items:
+          - name: Overview
+            href: cli-ref/cli_buckets_update.md
+          - name: acl
+            href: cli-ref/cli_buckets_update_acl.md
+          - name: cors
+            href: cli-ref/cli_buckets_update_cors.md
+          - name: lifecycle
+            href: cli-ref/cli_buckets_update_lifecycle.md
+          - name: max_size
+            href: cli-ref/cli_buckets_update_max_size.md
+          - name: object_lock
+            href: cli-ref/cli_buckets_update_object_lock.md
+          - name: policy
+            href: cli-ref/cli_buckets_update_policy.md
+          - name: storage_class
+            href: cli-ref/cli_buckets_update_storage_class.md
+          - name: tags
+            href: cli-ref/cli_buckets_update_tags.md
+          - name: versioning
+            href: cli-ref/cli_buckets_update_versioning.md
+  - name: completion
+    items:
+      - name: Overview
+        href: cli-ref/cli_completion.md
+      - name: bash
+        href: cli-ref/cli_completion_bash.md
+      - name: fish
+        href: cli-ref/cli_completion_fish.md
+      - name: powershell
+        href: cli-ref/cli_completion_powershell.md
+      - name: zsh
+        href: cli-ref/cli_completion_zsh.md
+  - name: config
+    items:
+      - name: Overview
+        href: cli-ref/cli_config.md
+      - name: init
+        href: cli-ref/cli_config_init.md
+      - name: profile
+        href: cli-ref/cli_config_profile.md
+      - name: show
+        href: cli-ref/cli_config_show.md
+  - name: help
+    href: cli-ref/cli_help.md
+  - name: login
+    items:
+      - name: Overview
+        href: cli-ref/cli_login.md
+      - name: renew
+        href: cli-ref/cli_login_renew.md
+  - name: service-accounts
+    items:
+      - name: Overview
+        href: cli-ref/cli_service-accounts.md
+      - name: create
+        href: cli-ref/cli_service-accounts_create.md
+      - name: delete
+        href: cli-ref/cli_service-accounts_delete.md
+      - name: get
+        href: cli-ref/cli_service-accounts_get.md
+      - name: list
+        href: cli-ref/cli_service-accounts_list.md
+      - name: update
+        href: cli-ref/cli_service-accounts_update.md
+      - name: update-role
+        href: cli-ref/cli_service-accounts_update-role.md
+  - name: settings
+    items:
+      - name: Overview
+        href: cli-ref/cli_settings.md
+      - name: login
+        href: cli-ref/cli_settings_login.md
+  - name: tenants
+    items:
+      - name: Overview
+        href: cli-ref/cli_tenants.md
+      - name: activate
+        href: cli-ref/cli_tenants_activate.md
+      - name: create
+        href: cli-ref/cli_tenants_create.md
+      - name: delete
+        href: cli-ref/cli_tenants_delete.md
+      - name: get
+        href: cli-ref/cli_tenants_get.md
+      - name: list
+        href: cli-ref/cli_tenants_list.md
+      - name: members
+        items:
+          - name: Overview
+            href: cli-ref/cli_tenants_members.md
+          - name: change
+            href: cli-ref/cli_tenants_members_change.md
+          - name: list
+            href: cli-ref/cli_tenants_members_list.md
+      - name: update
+        href: cli-ref/cli_tenants_update.md
+  - name: users
+    items:
+      - name: Overview
+        href: cli-ref/cli_users.md
+      - name: add
+        href: cli-ref/cli_users_add.md
+      - name: get
+        href: cli-ref/cli_users_get.md
+      - name: list
+        href: cli-ref/cli_users_list.md
+      - name: lock
+        href: cli-ref/cli_users_lock.md
+      - name: unlock
+        href: cli-ref/cli_users_unlock.md
+      - name: whoami
+        href: cli-ref/cli_users_whoami.md
+path: ru/storage-onprem/_cli-ref-v-1-0/toc.yaml

@@ -68,12 +68,8 @@ Here is a request example to get a report for a billing account for a given peri
   grpcurl -H "authorization: Bearer <IAM_token>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      },
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z",
       "aggregation_period": "MONTH"
     }' \
     billing.api.cloud.yandex.net:443 \
@@ -170,7 +166,7 @@ Here is a request example to get a report for a billing account for a given peri
             "expense": {
               "value": "13500.50"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       }
@@ -189,12 +185,8 @@ Here is a request example to get usage details for specific clouds, filtered by 
   grpcurl -H "authorization: Bearer <IAM_token>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      },
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z",
       "cloud_ids": ["b1gvlrnlw2e6********", "b1gia87mbaom********"],
       "service_ids": ["compute", "storage"],
       "aggregation_period": "MONTH"
@@ -297,7 +289,7 @@ Here is a request example to get usage details for specific clouds, filtered by 
             "expense": {
               "value": "4500.00"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       },
@@ -354,7 +346,7 @@ Here is a request example to get usage details for specific clouds, filtered by 
             "expense": {
               "value": "3150.25"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       }
@@ -373,12 +365,8 @@ Here is a request example to get metadata about available clouds, services, and 
   grpcurl -H "authorization: Bearer <IAM_token>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      }
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z"
     }' \
     billing.api.cloud.yandex.net:443 \
     yandex.cloud.billing.usage_records.v1.MetadataService/GetUsage
@@ -445,8 +433,8 @@ Here is a request example to get metadata about available clouds, services, and 
       }
     ],
     "date_range": {
-      "start_date": "2024-01-01T00:00:00Z",
-      "end_date": "2024-01-31T23:59:59Z"
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z"
     }
   }
   ```

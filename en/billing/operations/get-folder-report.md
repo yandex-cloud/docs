@@ -1,6 +1,6 @@
 # Exporting extended usage details
 
-You can get a CSV file with your general or per-resource spending details. You can download the file once or set up regular export.
+You can get a CSV file with your general or per-resource spending details. You can either [download](#single-time-download) the file once or [set up](#set-up-regular-download) its regular export.
 
 ## One-time export {#single-time-download}
 
@@ -9,11 +9,15 @@ You can get a CSV file with your general or per-resource spending details. You c
 - {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Select the account you want to get details for.
+  1. Select the account you want the details for.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. At the top right, click **More** and select **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
-  1. Select the time period to get the details for.
-  1. Click **{{ ui-key.yacloud_billing.billing.account.detail.popup-csv_button_download }}**.
+  1. At the top right, click **More** and select **{{ ui-key.yacloud_org.billing.account.detail.button_download-details }}**.
+  1. In the window that opens, select:
+     * Export file format: `CSV` or `PDF`.
+     * Time period you want the details for.
+     * Display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * Detailed view type: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+  1. Click **{{ ui-key.yacloud_org.billing.account.detail.popup-export_button_download }}**.
 
 {% endlist %}
 
@@ -23,17 +27,13 @@ You can get a CSV file with your general or per-resource spending details. You c
 
 1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md). In the folder name, specify the project or client to use the folder.
 
-1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. {{ yandex-cloud }} will save detail files to this bucket. You can save details in multiple buckets.
+1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. {{ yandex-cloud }} will save the files with details to this bucket. You can save your details in multiple buckets.
 
-   {% note alert %}
+    {% note alert %}
+    
+    {% include [billing-partner-bucket-alert](../../_includes/billing-partner-bucket-alert.md) %}
 
-   Bucket requirements:
- 
-   * Do not make your bucket public; otherwise, anyone will be able to download your expense details using the bucket link.
-   * Do not add [encryption](../../storage/concepts/encryption.md) to the bucket.
-   * Do not configure an [access policy](../../storage/concepts/policy.md) for the bucket.
-
-   {% endnote %}
+    {% endnote %}
 
 1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, or `billing.accounts.editor`.
 
@@ -44,18 +44,18 @@ You can get a CSV file with your general or per-resource spending details. You c
 - {{ billing-interface }} {#billing}
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Select the account you want to get details for.
-  1. In the left-hand panel, select **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
-  1. Click **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
-  1. In the **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** window that opens:
-     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** field, enter the name of the bucket to store the CSV file with details.
-     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** field, enter the directory name for the file. It must end with the `/` character.
-     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_locale }}** field, select the display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
-     * In the **{{ ui-key.yacloud_org.billing.account.exports.field_detail-type }}** field, select the type of details: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+  1. Select the account you want the details for.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. At the top right, click **More** and select **{{ ui-key.yacloud_org.billing.account.detail.button_create-periodic-export }}**.
+  1. In the window that opens, specify the following:
+     * Name of the bucket to store the CSV file with details.
+     * Name of the file folder. Make sure the last character is `/`.
+     * Display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * Detailed view type: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
          {% note tip %}
 
-         If you select `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` for regular export of details, you can also view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id`](#format) field (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
+         If you select `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` for regular export of details, the [`resource_id`](#format) field will allow you to view, among others, the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
 
          {% endnote %}
 
@@ -64,15 +64,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
 {% endlist %}
 
-A new file with details is created in the bucket daily. The file name contains the prefix and date that details are collected for. The file is overwritten and updated with new data every hour.
-
-The information can be updated in any daily file within a month.
-
-{% note tip %}
-
-Files with details from buckets are not deleted automatically, but you can configure scheduled deletion. For more information, see [Object lifecycle](../../storage/concepts/lifecycles.md) ({{ objstorage-name }} refers to files in a bucket as _objects_).
-
-{% endnote %}
+{% include [billing-partner-detalization-file-info](../../_includes/billing-partner-detalization-file-info.md) %}
 
 ## Expense details file format {#format}
 
@@ -86,7 +78,7 @@ The table contains the following columns:
 * `cloud_name`: Cloud name.
 * `folder_id`: Folder ID.
 * `folder_name`: Name of the folder at the time of exporting the details. This field may be empty if you deleted the folder before exporting the details.
-* `resource_id`: Resource ID, resource name, or subscription ID. Use only for regular exports. The value of this field may be empty if the use of the service refers to the entire folder or it does not contain any resources. The services and `resource_id` column values are mapped as follows:
+* `resource_id`: Resource ID, resource name, or subscription ID. Use only for regular export. The value of this field may be empty if the use of the service refers to the entire folder or it does not contain any resources. The services and `resource_id` column values are mapped as follows:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
    * {{ objstorage-name }}: Bucket name.
    * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.
@@ -127,8 +119,8 @@ The table contains the following columns:
 {% endcut %}
 
 
-##### See also
+##### See also {#see-also}
 
-* [View usage details for the cloud](check-charges.md)
+* [View usage details for the cloud](./check-charges.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

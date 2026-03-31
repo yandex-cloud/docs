@@ -1,0 +1,8 @@
+default:
+  objstorage-onprem-name: On-premises Yandex Object Storage
+  objstorage-full-name: Yandex Object Storage
+  objstorage-name: Object Storage
+  k8s: Kubernetes
+  PG: PostgreSQL
+  MG: MongoDB
+  ZK: ZooKeeper

@@ -1,3 +1,8 @@
+---
+title: Organization in {{ yandex-cloud }}
+description: Organization is a workspace that combines various types of {{ yandex-cloud }} resources and enables users to work with them.
+---
+
 # Organization
 
 _Organization_ is a workspace that combines different types of {{ yandex-cloud }} resources and users.
