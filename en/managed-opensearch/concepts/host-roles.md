@@ -27,6 +27,7 @@ For a cluster to be highly available and covered by a [service level agreement (
 
 * [{#T}](../tutorials/migration-to-opensearch.md)
 * [{#T}](../tutorials/opensearch-index-policy.md)
+* [{#T}](../tutorials/opensearch-cold-storage-policy.md)
 * [{#T}](../tutorials/opensearch-to-object-storage.md)
 * [{#T}](../tutorials/opensearch-yandex-lemmer.md)
 

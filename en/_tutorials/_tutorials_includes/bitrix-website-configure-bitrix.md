@@ -1,5 +1,5 @@
 Install and configure 1C-Bitrix:
-1. Open the 1C-Bitrix: Site Management web interface. To do so, in your browser, go to `http://<VM_public_IP_address>/`. This should open a page prompting you to install 1C-Bitrix.
+1. Open the 1C-Bitrix: Site Management web interface. Do it by going to `http://<VM_public_IP_address>/` in your browser. This should open a page prompting you to install 1C-Bitrix.
 1. Click **Next**.
 
    ![Step 1](../../_assets/tutorials/bitrix-website/bitrix-website1.png)
@@ -19,7 +19,7 @@ Install and configure 1C-Bitrix:
 1. Configure the database:
    1. In the **Server** field, enter the fully qualified domain name (FQDN) of the DB you created. To find out this name:
       1. In the [management console]({{ link-console-main }}), open the folder page in a new browser tab.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. In the window that opens, select the `BitrixMySQL` cluster you created earlier.
       1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab in the left-hand menu.
       1. In the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** field, hover over the host name (format: `rc1c-cfazv1db********`) and copy the database FQDN by clicking ![copy](../../_assets/copy.svg). The FQDN will be added to the host name, so the **Server** field should contain a name in `rc1c-cfazv1db********.{{ dns-zone }}` format.

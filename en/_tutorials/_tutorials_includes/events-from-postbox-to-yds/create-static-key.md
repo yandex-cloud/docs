@@ -5,7 +5,7 @@ Create a [static access key](../../../iam/concepts/authorization/access-key.md) 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** and then select `postbox-user` from the list of service acounts. In the window that opens, do the following:
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** and select `postbox-user` from the list of service accounts. In the window that opens:
 
       1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.

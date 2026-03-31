@@ -1,3 +1,8 @@
+---
+title: Pushing a Helm chart to {{ container-registry-name }}
+description: In this tutorial, you will learn how to push Helm charts to {{ container-registry-name }} repositories.
+---
+
 # Pushing a Helm chart to a registry
 
 You can push [Helm Charts](https://helm.sh/docs/topics/charts/) to a {{ container-registry-name }} [repository](../../concepts/repository.md). {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).

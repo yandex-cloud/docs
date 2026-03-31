@@ -288,8 +288,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
           }
         }
         maintenance_window {
-          type = <maintenance_type>
-          day  = <day_of_week>
+          type = "<maintenance_type>"
+          day  = "<day_of_week>"
           hour = <hour>
         }
       }
@@ -1037,3 +1037,4 @@ To create an {{ OS }} cluster copy:
 
 
 {% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
+

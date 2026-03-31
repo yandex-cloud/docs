@@ -184,6 +184,10 @@ items:
             href: operations/external-nodes-connect-ipsec.md
           - name: Подключение сервера {{ baremetal-name }} как внешнего узла
             href: operations/bms-server-connect.md
+      - name: Работа с объектами {{ k8s }} из консоли управления
+        items:
+          - name: Подключение к терминалу запущенного контейнера
+            href: operations/kubernetes-console/pod-terminal.md
   - name: Практические руководства
     items:
       - name: Все руководства

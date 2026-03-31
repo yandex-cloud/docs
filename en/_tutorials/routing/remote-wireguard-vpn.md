@@ -52,10 +52,10 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-     1. Specify the service account name, e.g., `sa-firezone`.
+     1. Enter the service account name, e.g., `sa-firezone`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -88,9 +88,8 @@ The infrastructure support costs include:
    - Management console {#console}
 
      1. On the management console [home page]({{ link-console-main }}), select a folder.
-     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-     1. Find the `sa-firezone` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
-     1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+     1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+     1. Find the `sa-firezone` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
      1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the `admin` role.
 
    - CLI {#cli}
@@ -105,7 +104,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Set up a CLI profile to run operations on behalf of the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -135,7 +134,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-     1. Create a CLI profile to run operations on behalf of the service account:
+     1. Create a CLI profile to run operations under the service account:
 
          ```bash
          yc config profile create sa-firezone
@@ -190,13 +189,13 @@ To use Firezone and Keycloak, you need to register a domain. Make sure to delega
    {% note warning %}
 
       Using this configuration, you are going to deploy a resource-heavy infrastructure.
-      Make sure you have sufficient quotas in Yandex Cloud.
+      Check whether your cloud quotas allow you to deploy your resources.
 
    {% endnote %}
 
    {% cut "See the required resource reference" %}
 
-      | Resource                                      | Amount |
+      | Resource                                      | Quantity |
       | ------------------------------------------- | ---------- |
       | Virtual machines                          | 2          |
       | VM vCPUs                      | 4          |
@@ -231,13 +230,13 @@ To use Firezone and Keycloak, you need to register a domain. Make sure to delega
          terraform init
          ```
 
-     1. Preview the list of new cloud resources:
+     1. Check the list of new cloud resources:
 
          ```bash
          terraform plan
          ```
 
-     1. Create resources:
+     1. Create the resources:
 
          ```bash
          terraform apply
@@ -289,13 +288,13 @@ To use Firezone and Keycloak, you need to register a domain. Make sure to delega
       terraform init
       ```
 
-  1. Preview the list of new cloud resources:
+  1. Check the list of new cloud resources:
 
       ```bash
       terraform plan
       ```
 
-  1. Create resources:
+  1. Create the resources:
 
       ```bash
       terraform apply
@@ -336,7 +335,7 @@ To use Firezone and Keycloak, you need to register a domain. Make sure to delega
    - **Client ID**: `firezone`
    - **Client secret**: `client_secret` you saved earlier. To get it again, navigate to the `keycloak-config` and run `terraform output keycloak_config_for_firezone`. Enter the value without quotes.
    - **Discovery Document URI**: `discovery_document_uri` you saved earlier. To get it again, navigate to the `keycloak-config` and run `terraform output keycloak_config_for_firezone`. Enter the value without quotes.
-   - **Redirect URI**: Leave it blank.
+   - **Redirect URI**: Leave blank.
    - Enable **Auto-create users** to automatically add authenticated Keycloak users to Firezone.
 1. Click **Save** in the **OIDC Configuration** section to apply the changes.
 

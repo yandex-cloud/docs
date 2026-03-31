@@ -63,6 +63,9 @@ The infrastructure support costs include:
     1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../compute/security/index.md#compute-editor) and [alb.editor](../../application-load-balancer/security/index.md#alb-editor) roles for the folder to the service account.
     1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for the service account in JSON format.
 1. If your folder does not have a {{ vpc-name }} [network](../../vpc/concepts/network.md#network) yet, [create](../../vpc/operations/network-create.md) one. [Create](../../vpc/operations/subnet-create.md) a subnet as well.
+
+    {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. The new cluster infrastructure will automatically be assigned the default [security group](../../vpc/concepts/security-groups.md) which is created along with the network. [Add](../../vpc/operations/security-group-add-rule.md) the following rules for _incoming_ traffic to this group:
 
     {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-type }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-target }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
@@ -253,7 +256,8 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
 
         {% note warning %}
 
-        Once the cluster is created, you will not be able to assign a static IP address to the L7 load balancer.
+        * Once the cluster is created, you will not be able to assign a static IP address to the L7 load balancer.
+        * Do not modify or delete the network load balancer and its child resources created using {{ managed-k8s-name }} via the {{ yandex-cloud }} interfaces (the management console, {{ TF }}, CLI, or API). This may cause incorrect operation of the cluster.
 
         {% endnote %}
 

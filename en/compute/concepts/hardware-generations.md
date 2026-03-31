@@ -41,11 +41,7 @@ For VMs with 6 or more vCPUs: 32. ||
 
 ^1^ For VMs without [GPUs](./gpus.md) hosted on two [NUMA](https://en.wikipedia.org/wiki/Non-uniform_memory_access) nodes of a physical server.
 
-{% note warning %}
-
-To guarantee the operability and performance of VMs with large numbers of disk devices and network interfaces, such numbers of devices and interfaces must be supported not by the VM hardware generation alone but by the OS as well, plus provided with enough vCPUs and RAM.
-
-{% endnote %}
+{% include [warn-performance-many-devices](../_includes_service/warn-performance-many-devices.md) %}
 
 ## Assigning a generation to a VM {#locking-generations}
 

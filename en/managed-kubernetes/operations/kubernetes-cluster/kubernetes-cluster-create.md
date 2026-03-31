@@ -86,6 +86,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
+        {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * `--public-ip`: Flag indicating that the {{ managed-k8s-name }} cluster needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
 
        {% include [nat-instance-restriction](../../../_includes/managed-kubernetes/nat-instance-restriction.md) %}
@@ -205,6 +207,9 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
      * [Subnets](../../../vpc/concepts/network.md#subnet): Description of the subnets to connect the {{ managed-k8s-name }} cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
+
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * [Service account](#before-you-begin) for the {{ managed-k8s-name }} cluster and [nodes](../../concepts/index.md#node-group) and [role settings]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) for this account. Create separate [service accounts](../../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and nodes, as required. If you already have a suitable service account, you do not need to describe it again.
 
      >Here is an example of the configuration file structure:
@@ -266,7 +271,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% note info %}
 
-      Cloud labels for a {{ k8s }} cluster are composed according to certain [rules](../../concepts/index.md#cluster-labels).
+     Cloud labels for a {{ k8s }} cluster are composed according to certain [rules](../../concepts/index.md#cluster-labels).
 
      {% endnote %}
 
@@ -312,7 +317,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% note warning %}
 
-      You cannot enable the Calico network policy controller and the Cilium tunnel mode at the same time. You cannot enable them after creating a cluster either.
+     You cannot enable the Calico network policy controller and the Cilium tunnel mode at the same time. You cannot enable them after creating a cluster either.
 
      {% endnote %}
 
@@ -346,6 +351,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   * For a base master, provide one `masterSpec.locations` parameter in the request.
   * For a highly available master placed across three availability zones, provide three `masterSpec.locations` parameters in the request. In each one, specify different availability zones and subnets.
   * For a highly available master placed in a single availability zone, provide three `masterSpec.locations` parameters in the request. In each one, specify the same availability zone and subnet.
+
+  {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
   {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 

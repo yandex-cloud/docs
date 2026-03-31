@@ -71,7 +71,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    |-------------------------------------|------------------|
    | Folders                             | 3                |
    | Instance groups                     | 1                |
-   | Virtual machines                    | 5                |
+   | VMs                                 | 5                |
    | VM vCPUs                            | 14               |
    | VM RAM                              | 22 GB            |
    | Disks                               | 5                |
@@ -105,7 +105,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 
@@ -120,8 +120,8 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account:
 
        1. On the management console [home page]({{ link-console-main }}), select your cloud.
-       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+       1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+       1. Click ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
        1. In the window that opens, click **{{ ui-key.yacloud_components.acl.label.service-accounts }}** and select the `sa-terraform` service account.
        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
        1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -258,7 +258,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    cd yc-dmz-with-high-available-ting-ngfw
    ```
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -451,13 +451,13 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 
 1. In the **Summary** section of the left-hand menu, select **Password**. Enter the old password from the `terraform output fw-a_admin_password` output and set a new password.
 
-1. In the **System** section of the left-hand menu, select **Settings** -> **General**. In the **Hostname** field, specify `fw-a`. In the **Time zone** field, select your time zone. Under **DNS servers**, enter `192.168.1.2` as the IP address of the cloud DNS server in the `mgmt` segment. Click **Save**.
+1. In the **System** section of the left-hand menu, select **Settings** → **General**. In the **Hostname** field, specify `fw-a`. In the **Time zone** field, select your time zone. Under **DNS servers**, enter `192.168.1.2` as the IP address of the cloud DNS server in the `mgmt` segment. Click **Save**.
 
-1. In the left-hand menu, in the **Services** section, select **Network time** -> **General**. In the **Time servers** section, specify the addresses of NTP servers (see the [list of recommended NTP servers](../../tutorials/infrastructure-management/ntp.md)). Tick the checkbox next to the preferred server in the **Prefer** column. Click **Save**.
+1. In the left-hand menu, in the **Services** section, select **Network time** → **General**. In the **Time servers** section, specify the addresses of NTP servers (see the [list of recommended NTP servers](../../tutorials/infrastructure-management/ntp.md)). Tick the checkbox next to the preferred server in the **Prefer** column. Click **Save**.
 
 1. In the left-hand menu, in the **Interfaces** section, select **\[WAN\]**. In the **Description** field, specify `mgmt`. Click **Save**.
 
-1. In the left-hand menu, in the **System** section, select **Routes** -> **Configuration**. Click `+` to add a route. In the **Network address** field, specify `192.168.2.0/24`. In the **Gateway** field, select `MGMT_DHCP - 192.168.1.1`. In the **Description** field, specify `route to mgmt-zone2`. Click **Save**. Click **Apply**.
+1. In the left-hand menu, in the **System** section, select **Routes** → **Configuration**. Click `+` to add a route. In the **Network address** field, specify `192.168.2.0/24`. In the **Gateway** field, select `MGMT_DHCP - 192.168.1.1`. In the **Description** field, specify `route to mgmt-zone2`. Click **Save**. Click **Apply**.
 
 1. In the left-hand menu, in the **Interfaces** section, select **Port destinations**. In the **New interface** field, select `vtnet1` for port and put `public` in the **Description** field. Click `+`. In the **New interface** field, select `vtnet2` for port and put `dmz` in the **Description** field. Click `+`. Click **Save**.
 
@@ -467,7 +467,7 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 
 1. An interface configuration update message will appear at the top of the page. Click **Apply changes**.
 
-1. In the left-hand menu, in the **System** section, select **Routes** -> **Configuration**. Click `+` to add a route. Add static routes based on the table below. Once all routes are added, click **Apply**.
+1. In the left-hand menu, in the **System** section, select **Routes** → **Configuration**. Click `+` to add a route. Add static routes based on the table below. Once all routes are added, click **Apply**.
 
 | Network address        | Gateway                   | Description                     |
 |-------------------|------------------------|-----------------------------|
@@ -475,15 +475,15 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 | `198.18.235.0/24` | `MGMT_DHCP - 192.168.1.1` | `route to nlb-healthcheck-net1` |
 | `198.18.248.0/24` | `MGMT_DHCP - 192.168.1.1` | `route to nlb-healthcheck-net2` |
 
-1. In the left-hand menu, in the **System** section, select **Gateways** -> **Single**. In the `PUBLIC_DHCP` gateway line, click the pencil symbol. In the **Main gateway** field, tick the checkbox and click **Save**. At the top of the page, click **Apply changes**.
+1. In the left-hand menu, in the **System** section, select **Gateways** → **Single**. In the `PUBLIC_DHCP` gateway line, click the pencil symbol. In the **Main gateway** field, tick the checkbox and click **Save**. At the top of the page, click **Apply changes**.
 
 #### Diagnostics for basic settings {#diagnostics-base-settings-fw-a}
 
-1. In the left-hand menu, in the **System** section, select **Routes** -> **Status**. Make sure the routing information output includes the static routes you added and the default `172.16.1.1` gateway.
+1. In the left-hand menu, in the **System** section, select **Routes** → **Status**. Make sure the routing information output includes the static routes you added and the default `172.16.1.1` gateway.
 
-1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** -> **View DNS records**. In the **Host name or IP address** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **View DNS records** and check that the domain name resolves to public IP addresses.
+1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** → **View DNS records**. In the **Host name or IP address** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **View DNS records** and check that the domain name resolves to public IP addresses.
 
-1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** -> **Ping**. In the **Host** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **Ping** and check that ping is successful. In the **Host** field, enter the IP address of the default `192.168.1.1` cloud gateway in the `mgmt` segment. Click **Ping** and check that ping is successful.
+1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** → **Ping**. In the **Host** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **Ping** and check that ping is successful. In the **Host** field, enter the IP address of the default `192.168.1.1` cloud gateway in the `mgmt` segment. Click **Ping** and check that ping is successful.
 
    ```
    ---  ping statistics ---
@@ -505,14 +505,14 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 | `TCP_8080`     | Port  | `8080` |
 | `yandex`       | Host  | `ya.ru` |
 
-1. In the left-hand menu, in the **Firewall** section, select **Rules** -> **mgmt**. By default, TING has rules that allow access to the FW network interface in the `mgmt` segment via ports `443`, `22`, `80`. Edit these rules by clicking on the pencil symbol next to each rule in turn:
+1. In the left-hand menu, in the **Firewall** section, select **Rules** → **mgmt**. By default, TING has rules that allow access to the FW network interface in the `mgmt` segment via ports `443`, `22`, `80`. Edit these rules by clicking on the pencil symbol next to each rule in turn:
    * The rule for port `80` is used for FW health checks by the `route-switcher-lb-...` NLB. In the **Sender** field, select `healthcheck_net` as alias. In the **Description** field, specify `NLB healthcheck`. Click **Save**.
    * The rule for port `443` is used to manage FW over HTTPS. In the **Sender** field, select `mgmt` as alias. In the **Description** field, specify `HTTPS FW management`. Optionally, in the **Logging** field, tick the **Log packets matching the rule** checkbox. Click **Save**.
    * The rule for port `22` is used to manage FW over SSH. In the **Sender** field, select `mgmt` as alias. In the **Description** field, specify `SSH FW management`. Optionally, in the **Logging** field, tick the **Log packets matching the rule** checkbox. Click **Save**.
 
 1. In the firewall rules for the `mgmt` interface, add a rule for access from the `mgmt` segment to the `dmz` segment for management purposes. To add a rule, click `+`. In the **Sender** field, select `mgmt` as alias. In the **Recipient** field, select `dmz` as alias. In the **Description** field, specify `mgmt to dmz`. Optionally, in the **Logging** field, tick the **Log packets matching the rule** checkbox. Click **Save**.
 
-1. In the left-hand menu, in the **Firewall** section, select **Rules** -> **dmz**. For a performance and fault tolerance test, add a rule to send ICMP packets from the `dmz` segment to the `ya.ru` domain on the internet. To add a rule, click `+`. In the **Protocol** field, select `ICMP`. Leave any ICMP type. In the **Sender** field, select `dmz` as alias. In the **Recipient** field, select `yandex` as alias. In the **Description** field, specify `ping from dmz to ya.ru`. Optionally, in the **Logging** field, tick the **Log packets matching the rule** checkbox. Click **Save**.
+1. In the left-hand menu, in the **Firewall** section, select **Rules** → **dmz**. For a performance and fault tolerance test, add a rule to send ICMP packets from the `dmz` segment to the `ya.ru` domain on the internet. To add a rule, click `+`. In the **Protocol** field, select `ICMP`. Leave any ICMP type. In the **Sender** field, select `dmz` as alias. In the **Recipient** field, select `yandex` as alias. In the **Description** field, specify `ping from dmz to ya.ru`. Optionally, in the **Logging** field, tick the **Log packets matching the rule** checkbox. Click **Save**.
 
 1. After adding all the rules on the **Firewall: Rules: dmz** page, click **Apply**.
 
@@ -526,9 +526,9 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 
    {% endnote %}
 
-1. In the left-hand menu, in the **Firewall** section, select **NAT** -> **Port redirection**. Add a rule to route user requests to the network load balancer in the `dmz` segment downstream of which the application's web server group is located. Click `+` to add a rule. In the **Interface** field, select only the `public` interface. In the **Sender** field, select **Additional**, then select `public` as alias. In the **Recipient** field, select `public address`. In the **Destination port range** field, select `TCP_8080` for the **from:** and **to:** fields. In the **Redirect target IP address** field, select `dmz_web_server` as alias. In the **Redirect target port** field, select `TCP_8080`. Optionally, in the **Logging** field, tick the packet logging checkbox. In the **Description** field, specify `DNAT public to dmz-web-server`. In the **Filter rule association** field, select `Add associated rule`. Click **Save**.
+1. In the left-hand menu, in the **Firewall** section, select **NAT** → **Port redirection**. Add a rule to route user requests to the network load balancer in the `dmz` segment downstream of which the application's web server group is located. Click `+` to add a rule. In the **Interface** field, select only the `public` interface. In the **Sender** field, select **Additional**, then select `public` as alias. In the **Recipient** field, select `public address`. In the **Destination port range** field, select `TCP_8080` for the **from:** and **to:** fields. In the **Redirect target IP address** field, select `dmz_web_server` as alias. In the **Redirect target port** field, select `TCP_8080`. Optionally, in the **Logging** field, tick the packet logging checkbox. In the **Description** field, specify `DNAT public to dmz-web-server`. In the **Filter rule association** field, select `Add associated rule`. Click **Save**.
 
-1. In the left-hand menu, in the **Firewall** section, select **NAT** -> **Outbound**. In the **Mode** section, enable `Manual creation of outbound NAT rules (rules will not be created automatically)`. Click **Save**.
+1. In the left-hand menu, in the **Firewall** section, select **NAT** → **Outbound**. In the **Mode** section, enable `Manual creation of outbound NAT rules (rules will not be created automatically)`. Click **Save**.
 
 1. On the **Firewall: NAT: Outbound** page, add a rule requiring that the application responds through the same firewall the user's request had come through:
    * Click `+` to add a rule.
@@ -555,9 +555,9 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 
    {% note info %}
 
-     After you are done configuring firewall rules, NAT rules, and checking FW management access, you can disable the management anti-blocking rule. Before you disable anti-blocking, make sure you have a firewall rule in place that allows you to connect to the FW management interface. Otherwise, you will block management access for yourself.
+     After you are done configuring firewall rules, NAT rules, and checking FW management access, you can disable the management anti-blocking rule. Before you disable anti-blocking, make sure you have a firewall rule in place that allows you to connect to the FW management interface. Otherwise, you will block access to management for yourself.
 
-     To disable management anti-blocking, select **Settings** -> **Additional** in the left-hand menu in the **Firewall** section. In the **Disable anti-blocking** field, check **Disable management anti-blocking rule**. Click **Save**.
+     To disable management anti-blocking, select **Settings** → **Additional** in the left-hand menu in the **Firewall** section. In the **Disable anti-blocking** field, check **Disable management anti-blocking rule**. Click **Save**.
 
    {% endnote %}
 
@@ -569,13 +569,13 @@ Connect to the FW-B management web interface at `https://192.168.2.10`. Admin cr
 
 1. In the **Summary** section of the left-hand menu, select **Password**. Enter the old password from the `terraform output fw-b_admin_password` output and set a new password.
 
-1. In the **System** section of the left-hand menu, select **Settings** -> **General**. In the **Hostname** field, specify `fw-b`. In the **Time zone** field, select your time zone. Under **DNS servers**, enter `192.168.2.2` as the IP address of the cloud DNS server in the `mgmt` segment. Click **Save**.
+1. In the **System** section of the left-hand menu, select **Settings** → **General**. In the **Hostname** field, specify `fw-b`. In the **Time zone** field, select your time zone. Under **DNS servers**, enter `192.168.2.2` as the IP address of the cloud DNS server in the `mgmt` segment. Click **Save**.
 
-1. In the left-hand menu, in the **Services** section, select **Network time** -> **General**. In the **Time servers** section, specify the addresses of NTP servers (see the [list of recommended NTP servers](../../tutorials/infrastructure-management/ntp.md)). Tick the checkbox next to the preferred server in the **Prefer** column. Click **Save**.
+1. In the left-hand menu, in the **Services** section, select **Network time** → **General**. In the **Time servers** section, specify the addresses of NTP servers (see the [list of recommended NTP servers](../../tutorials/infrastructure-management/ntp.md)). Tick the checkbox next to the preferred server in the **Prefer** column. Click **Save**.
 
 1. In the left-hand menu, in the **Interfaces** section, select **\[WAN\]**. In the **Description** field, specify `mgmt`. Click **Save**.
 
-1. In the left-hand menu, in the **System** section, select **Routes** -> **Configuration**. Click `+` to add a route. In the **Network address** field, specify `192.168.1.0/24`. In the **Gateway** field, select `MGMT_DHCP - 192.168.2.1`. In the **Description** field, specify `route to mgmt-zone1`. Click **Save**. Click **Apply**.
+1. In the left-hand menu, in the **System** section, select **Routes** → **Configuration**. Click `+` to add a route. In the **Network address** field, specify `192.168.1.0/24`. In the **Gateway** field, select `MGMT_DHCP - 192.168.2.1`. In the **Description** field, specify `route to mgmt-zone1`. Click **Save**. Click **Apply**.
 
 1. In the left-hand menu, in the **Interfaces** section, select **Port destinations**. In the **New interface** field, select `vtnet1` for port and put `public` in the **Description** field. Click `+`. In the **New interface** field, select `vtnet2` for port and put `dmz` in the **Description** field. Click `+`. Click **Save**.
 
@@ -585,7 +585,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10`. Admin cr
 
 1. An interface configuration update message will appear at the top of the page. Click **Apply changes**.
 
-1. In the left-hand menu, in the **System** section, select **Routes** -> **Configuration**. Click `+` to add a route. Add static routes based on the table below. Once all routes are added, click **Apply**.
+1. In the left-hand menu, in the **System** section, select **Routes** → **Configuration**. Click `+` to add a route. Add static routes based on the table below. Once all routes are added, click **Apply**.
 
    | Network address | Gateway | Description |
    | --- | --- | --- |
@@ -593,15 +593,15 @@ Connect to the FW-B management web interface at `https://192.168.2.10`. Admin cr
    | `198.18.235.0/24` | `MGMT_DHCP - 192.168.2.1` | `route to nlb-healthcheck-net1` |
    | `198.18.248.0/24` | `MGMT_DHCP - 192.168.2.1` | `route to nlb-healthcheck-net2` |
 
-1. In the left-hand menu, in the **System** section, select **Gateways** -> **Single**. In the `PUBLIC_DHCP` gateway line, click the pencil symbol. In the **Main gateway** field, tick the checkbox and click **Save**. At the top of the page, click **Apply changes**.
+1. In the left-hand menu, in the **System** section, select **Gateways** → **Single**. In the `PUBLIC_DHCP` gateway line, click the pencil symbol. In the **Main gateway** field, tick the checkbox and click **Save**. At the top of the page, click **Apply changes**.
 
 #### Diagnostics for basic settings {#diagnostics-base-settings-fw-b}
 
-1. In the left-hand menu, in the **System** section, select **Routes** -> **Status**. Make sure the routing information output includes the static routes you added and the default `172.16.2.1` gateway.
+1. In the left-hand menu, in the **System** section, select **Routes** → **Status**. Make sure the routing information output includes the static routes you added and the default `172.16.2.1` gateway.
 
-1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** -> **View DNS records**. In the **Host name or IP address** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **View DNS records** and check that the domain name resolves to public IP addresses.
+1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** → **View DNS records**. In the **Host name or IP address** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **View DNS records** and check that the domain name resolves to public IP addresses.
 
-1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** -> **Ping**. In the **Host** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **Ping** and check that `ping` is successful. In the **Host** field, enter the IP address of the default `192.168.2.1` cloud gateway in the `mgmt` segment. Click **Ping** and check that `ping` is successful.
+1. In the left-hand menu, in the **Interfaces** section, select **Diagnostics** → **Ping**. In the **Host** field, enter the internet domain name of the resource, e.g., `ya.ru`. Click **Ping** and check that `ping` is successful. In the **Host** field, enter the IP address of the default `192.168.2.1` cloud gateway in the `mgmt` segment. Click **Ping** and check that `ping` is successful.
 
    ```
    ---  ping statistics ---
@@ -615,7 +615,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10`. Admin cr
 
 ## Enable the route switcher {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to the `mgmt` folder, select **{{ network-load-balancer-name }}**, and go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
+After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
 
 Once FW-A and FW-B get the `Healthy` status, change the `route-switcher` module's `start_module` value to `true` in the `route-switcher.tf` file. To enable the module, run these commands:
 
@@ -650,7 +650,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
    ssh -i pt_key.pem <login>@<VM_internal_IP_address_in_DMZ_segment>
    ```
 
-1. Connect to the FW-A management web interface at `https://192.168.1.10`. In the left-hand menu, in the **Firewall** section, select **Logs** -> **Live view**. In the log filter, select `label`, then `contains` and `ping from dmz to ya.ru`. Click `+`.
+1. Connect to the FW-A management web interface at `https://192.168.1.10`. In the left-hand menu, in the **Firewall** section, select **Logs** → **Live view**. In the log filter, select `label`, then `contains` and `ping from dmz to ya.ru`. Click `+`.
 
 1. To check whether or not the DMZ VM can access a public resource on the internet, run this command:
    
@@ -705,7 +705,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.

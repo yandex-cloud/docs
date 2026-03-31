@@ -23,6 +23,12 @@ items:
             href: operations/operation-connection.md
           - name: Canceling an operation
             href: operations/cancel-operation.md
+      - name: Tutorials
+        items:
+          - name: >-
+              Configuring permissions for access to a secret created by {{
+              connection-manager-name }} for a {{ mpg-name }} user
+            href: tutorials/conn-man-secret-access.md
       - name: Concepts
         items:
           - name: Connection

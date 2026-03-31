@@ -30,7 +30,7 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-    [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following ingress rule:
+    [Configure all cluster security groups](../../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following inbound rule:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -64,7 +64,7 @@ Rule settings depend on the connection method you select:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-            This rule permits all outbound traffic, allowing you to connect to the cluster and install any necessary certificates and tools on your VM.
+            This rule permits all outbound traffic, allowing you to install any necessary certificates and tools on your VM.
 
 {% endlist %}
 
@@ -81,7 +81,7 @@ For more information about security groups, see [{#T}](../../concepts/network.md
 
 ## Obtaining an SSL certificate {#get-ssl-cert}
 
-Publicly accessible {{ MY }} hosts only support encrypted connections. To assess them, get an SSL certificate:
+Publicly accessible {{ MY }} hosts only support encrypted connections. To use them, get an SSL certificate:
 
 {% include [install-certificate](../../../_includes/mdb/mmy/install-certificate.md) %}
 

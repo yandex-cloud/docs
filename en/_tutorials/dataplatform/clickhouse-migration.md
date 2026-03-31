@@ -3,7 +3,7 @@
 You can migrate data from your {{ CH }} cluster to a {{ mch-name}} cluster by using:
 
 * [Built-in `remote` function](#transfer-remote). This method is suitable for migrating individual tables.
-* [Built-in backup/restore commands and a {{ objstorage-full-name }} bucket](#backup-objstorage). Use this method to migrate both individual tables and an entire database.
+* [Built-in `BACKUP`/`RESTORE` commands and a {{ objstorage-full-name }} bucket](#backup-objstorage). Use this method to migrate both individual tables and an entire database.
 
 You can also migrate a database from a {{ CH }} cluster to a {{ mch-name}} cluster using {{ data-transfer-name }}. For more information about this method, see [this tutorial](../../tutorials/dataplatform/ch-to-mch-migration.md).
 
@@ -75,47 +75,78 @@ To migrate a table from a third-party {{ CH }} cluster to a {{ mch-name }} clust
 
 For more details on using the `remote` function, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/table-functions/remote).
 
-## Migrating data using the backup/restore commands and an {{ objstorage-name }} bucket {#backup-objstorage}
+## Migrating data using the BACKUP/RESTORE commands and an {{ objstorage-name }} bucket {#backup-objstorage}
 
 {% note warning %}
 
-You need {{ CH }} version 22.10 or later to work with the backup/restore commands in a third-party cluster.
+To work with the `BACKUP`/`RESTORE` commands in a third-party cluster, you need {{ CH }} version 22.10 or newer.
 
 {% endnote %}
 
-You can use the backup/restore commands and an {{ objstorage-name }} bucket to migrate both individual tables and an entire database from a third-party {{ CH }} cluster. To do this:
+You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket to migrate either individual tables or an entire database from a third-party {{ CH }} cluster.
 
-1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster).
+1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with [User management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) enabled.
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role.
 1. [Create a static key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 
     Save both the key and its ID, as you will need them in the next steps.
 
-1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
-1. Connect to the source cluster.
+1. [Create an {{ objstorage-name }}](../../storage/operations/buckets/create.md) bucket.
+
+
+1. If [encryption](../../storage/concepts/encryption.md) is enabled for the bucket, [assign](../../kms/operations/key-access.md#add-access-binding) to the service account the [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) role for the encryption key linked to the bucket.
+
+
+1. Connect to the source cluster as a user with the `BACKUP` privilege for the database. By default, it is the `admin` user's privilege. To assign it to another user, run this query:
+
+    ```sql
+    GRANT BACKUP ON <DB_name>.* TO <username>;
+    ```
+
 1. Run the following command to save the backup of your table to the {{ objstorage-name }} bucket:
 
     ```sql
-    BACKUP TABLE <DB_name>.<table_name> TO S3('<Object_Storage_bucket_endpoint>', '<service_account_static_key_ID>', '<service_account_static_key>');
+    BACKUP TABLE <DB_name>.<table_name> TO S3(
+      'https://storage.yandexcloud.net/<Object_Storage_bucket_name>',
+      '<service_account_static_key_ID>',
+      '<service_account_static_key>'
+    );
     ```
 
     To migrate the entire database, run the command below:
 
     ```sql
-    BACKUP DATABASE <DB_name> TO S3('<Object_Storage_bucket_endpoint>', '<service_account_static_key_ID>', '<service_account_static_key>');
+    BACKUP DATABASE <DB_name> TO S3(
+      'https://storage.yandexcloud.net/<Object_Storage_bucket_name>',
+      '<service_account_static_key_ID>',
+      '<service_account_static_key>'
+    );
     ```
 
-1. [Connect to the target {{ mch-name }} cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
+1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) as a user with the `CREATE DATABASE`, `CREATE TABLE`, and `INSERT` privileges for the database. By default, these are the `admin` user's privileges. To assign them to another user, run this query:
+
+    ```sql
+    GRANT CREATE DATABASE, CREATE TABLE, INSERT ON <DB_name>.* TO <username>;
+    ```
+
 1. Run the following command to restore your table from a backup:
 
     ```sql
-    RESTORE TABLE <DB_name>.<table_name> FROM S3('<Object_Storage_bucket_endpoint>', '<service_account_static_key_ID>', 'service_account_static_key>');
+    RESTORE TABLE <DB_name>.<table_name> FROM S3(
+      'https://storage.yandexcloud.net/<Object_Storage_bucket_name>',
+      '<service_account_static_key_ID>',
+      '<service_account_static_key>'
+    );
     ```
 
-    To restore an entire database, use this command: 
+    To restore the entire database, use this command: 
 
     ```sql
-    RESTORE DATABASE <DB_name> FROM S3('<Object_Storage_bucket_endpoint>', '<service_account_static_key_ID>', 'service_account_static_key>');
+    RESTORE DATABASE <DB_name> FROM S3(
+      'https://storage.yandexcloud.net/<Object_Storage_bucket_name>',
+      '<service_account_static_key_ID>',
+      '<service_account_static_key>'
+    );
     ```
 
 1. Check that the restore operation was successful:
@@ -132,4 +163,4 @@ You can use the backup/restore commands and an {{ objstorage-name }} bucket to m
         SHOW DATABASES;
         ```
 
-For more details on using the backup/restore commands with an S3 storage, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/backup#backuprestore-using-an-s3-disk).
+For more details on using the `BACKUP`/`RESTORE` commands with an S3 storage, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/backup#backuprestore-using-an-s3-disk).

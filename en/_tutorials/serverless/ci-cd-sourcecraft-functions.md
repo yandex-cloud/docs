@@ -26,7 +26,7 @@ This [service account](../../iam/concepts/users/service-accounts.md) will be use
 
   1. Log in to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
   1. On the left side of the screen, click the line with the name of the folder where you want to deploy a function from {{ sf-name }}.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `functions-cicd-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-admin }}` [role](../../functions/security/index.md#functions-admin).
@@ -311,7 +311,7 @@ Make sure in {{ sf-name }} there is now a function with the name you specified i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you previously created the service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. The list should now contain `test-function-nodejs`. Select it.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, you should now see the function's version with the same timestamp as the [CI/CD process execution](#check-ci-cd).
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.

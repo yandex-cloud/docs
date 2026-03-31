@@ -45,11 +45,11 @@ The minimum billing unit of outgoing traffic is 1 GB.
 
 
 
-## Cost calculation examples {#price-example}
+## Calculation examples {#price-example}
 
-### Video hosting cost {#hosting-example}
+### Video hosting pricing {#hosting-example}
 
-Let's assume you need to calculate the monthly cost for using {{ video-name }} as per the following data:
+Let’s assume you need to calculate the monthly cost for using {{ video-name }} as per the following data:
 
 * Number of uploaded videos: `10 items`.
 * Duration of each video: `10 minutes`.
@@ -65,13 +65,13 @@ We also assume that the videos (both the original and the streaming content) are
 {% include notitle [usd-video.md](../_pricing_examples/video/usd-video.md) %}
 
 
-### Streams cost {#stream-example}
+### Broadcasting pricing {#stream-example}
 
-Let's assume you need to calculate the monthly cost for a stream as per the following data:
+Let's assume you need to calculate the monthly cost of broadcasting as per the following data:
 
-* Stream duration: `60 minutes`.
-* Stream recording size: `3 GB`.
-* Outgoing traffic (total size of the transmitted content when viewed): `20 GB`.
+* Broadcast duration: `60 minutes`.
+* Broadcast video size: `3 GB`.
+* Outgoing traffic (total video transmitted to viewers): `20 GB`.
 
 
 

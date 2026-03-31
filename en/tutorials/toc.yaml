@@ -1157,6 +1157,8 @@ items:
         href: dataplatform/mmy-to-mgp.md
       - name: Configuring an index policy in {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
+      - name: Configuring a cold storage policy in {{ mos-name }}
+        href: dataplatform/opensearch-cold-storage-policy.md
       - name: >-
           Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
           using {{ data-transfer-name }}
@@ -1233,6 +1235,14 @@ items:
         href: dataplatform/postgresql-to-opensearch.md
       - name: Fixing string sorting issues in {{ PG }} after a glibc upgrade
         href: dataplatform/postgresql-glibc-collation-issues.md
+      - name: >-
+          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
+          mpg-full-name }}
+        href: dataplatform/job-pyspark-secret-access.md
+      - name: >-
+          Configuring permissions for access to a secret created by {{
+          connection-manager-name }} for a {{ mpg-name }} user
+        href: dataplatform/conn-man-secret-access.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
@@ -1331,6 +1341,10 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: >-
+          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
+          mpg-full-name }}
+        href: dataplatform/job-pyspark-secret-access.md
       - name: Running a PySpark job in {{ myt-full-name }}
         href: dataplatform/yt-run-spark-job.md
   - name: Microsoft products in {{ yandex-cloud }}

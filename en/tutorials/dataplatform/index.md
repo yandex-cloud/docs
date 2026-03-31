@@ -109,6 +109,7 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ OS }} {#opensearch}
 
 * [{#T}](opensearch-index-policy.md)
+* [{#T}](opensearch-cold-storage-policy.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)
 * [{#T}](opensearch-to-object-storage.md)
@@ -141,6 +142,8 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](rds-to-mpg.md)
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](postgresql-glibc-collation-issues.md)
+* [{#T}](job-pyspark-secret-access.md)
+* [{#T}](conn-man-secret-access.md)
 
 ## {{ VLK }} {#valkey}
 
@@ -222,6 +225,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](metastore-and-spark.md)
 * [{#T}](airflow-spark-min.md)
 * [{#T}](spark-objstorage-integration.md)
+* [{#T}](job-pyspark-secret-access.md)
 
 
 ## {{ myt-full-name }} {#ytsaurus}

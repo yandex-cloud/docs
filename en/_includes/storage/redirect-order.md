@@ -1,0 +1,1 @@
+If a request matches the conditions of more than one redirect rule, the last matching one will apply regardless of how closely the object key matches the condition prefix.

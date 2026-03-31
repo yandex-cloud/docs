@@ -1,10 +1,6 @@
----
-canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
----
-
 # Model fine-tuning in {{ ml-platform-name }} Notebooks
 
-You can [fine-tune]({{ link-docs-ai }}ai-studio/concepts/tuning/index) language models enabled by {{ foundation-models-full-name }} through APIs or {{ ml-sdk-name }} to better understand the specific features of your tasks. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
+You can [fine-tune]({{ link-docs-ai }}ai-studio/concepts/tuning/index) {{ foundation-models-full-name }} language models for them to understand your tasks better via the API or {{ ml-sdk-name }}. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
 
 In this tutorial, you will fine-tune a model in {{ ml-platform-name }} using the SDK. You can also clone the [repository](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) and run the notebook locally by changing the [authentication settings]({{ link-docs-ai }}ai-studio/sdk/index).
 

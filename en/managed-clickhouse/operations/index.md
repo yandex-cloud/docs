@@ -12,6 +12,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 * [Updating cluster settings](update.md)
 * [{#T}](change-server-level-settings.md)
 * [{#T}](change-query-level-settings.md)
+* [Maintenance](cluster-maintenance.md)
 * [{#T}](cluster-patch-version.md)
 * [{#T}](cluster-version-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
@@ -55,7 +56,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 ## Logs and monitoring {#monitoring-and-logs}
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Cluster and host state monitoring](monitoring.md)
+* [Cluster and host status monitoring](monitoring.md)
 * [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md)
 
 

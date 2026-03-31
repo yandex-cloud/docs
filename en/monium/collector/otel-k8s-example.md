@@ -1,6 +1,6 @@
 ---
 title: Setting up a demo app to collect app telemetry in a cluster
-description: How to set up a demo app in a {{ k8s }} cluster and send telemetry to {{ monium-name }}
+description: How to set up a demo app in a {{ k8s }} cluster and send telemetry to {{ monium-name }}.
 ---
 
 # Setting up a demo app and collecting telemetry in {{ k8s }}

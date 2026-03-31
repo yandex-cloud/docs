@@ -1,3 +1,8 @@
+---
+title: Pushing a Helm chart to a {{ cloud-registry-name }}
+description: In this tutorial, you will learn how to push Helm charts to a {{ cloud-registry-name }}.
+---
+
 # Pushing a Helm chart to a registry
 
 You can push a [Helm chart](https://helm.sh/docs/topics/charts/) to a [registry](../../concepts/registry.md) in {{ cloud-registry-name }}. {{ cloud-registry-name }} stores Helm charts as [Docker images](../../concepts/artifacts/docker.md).

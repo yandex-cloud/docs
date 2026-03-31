@@ -37,10 +37,10 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
 
 - Management console {#console}
 
-  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **Create resource** and select **Network**.
-  1. Specify the network name: `usergate-network`.
-  1. Enable the **Create subnets** option.
-  1. Click **Create network**.
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/vpc/vpc-icon.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
+  1. Specify `usergate-network` as the network name.
+  1. Enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 - CLI {#cli}
 
@@ -113,14 +113,14 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
   
@@ -130,7 +130,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -147,12 +147,12 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve your IP address.
-  1. In the list of services, select **{{ vpc-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
-  1. Click **Reserve address**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve an IP address.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. In the window that opens, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Click **Reserve address**.
+  1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI {#cli}
 
@@ -200,7 +200,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
@@ -223,7 +223,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-firewall`.
@@ -330,7 +330,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
   
@@ -340,7 +340,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -431,28 +431,27 @@ Create a [static route](../../vpc/concepts/routing.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a static route.
-  1. In the list of services, select **{{ vpc-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
-  1. Click **Create**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**.
   1. Specify the route table name Follow these naming requirements:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
   1. Optionally, describe the route table.
   1. Select `usergate-network`.
-  1. Click **Add route**.
-  1. In the window that opens, specify the destination subnet prefix (`0.0.0.0`) and select `0` from the drop-down list.
-  1. In the **next hop** field, specify the `usergate-firewall` internal IP address.
-  1. Click **Add**.
-  1. Click **Create route table**.
+  1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+  1. In the window that opens, specify the destination subnet prefix(`0.0.0.0`) and select `0` from the drop-down list.
+  1. Specify **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}**: Internal IP address of the UserGate `usergate-firewall` VM.
+  1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+  1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
   Link your route table to a subnet that will use its static routes:
 
-  1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
-  1. Click ![image](../../_assets/options.svg) next to `usergate-subnet-{{ region-id }}-d`.
-  1. In the menu that opens, select **Link route table**.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Click ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}** next to `usergate-subnet-{{ region-id }}-d`.
   1. In the window that opens, select your route table from the list.
-  1. Click **Link**.
+  1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}
 
@@ -549,7 +548,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 
   To create a route table with [static routes](../../vpc/concepts/routing.md):
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `name`: Route table name. Use the following name format:
 
@@ -560,7 +559,7 @@ Create a [static route](../../vpc/concepts/routing.md):
         * `destination_prefix`: Destination CIDR block.
         * `next_hop_address`: gateway VM internal IP address serving as the next hop for the [allowed](../../vpc/concepts/network.md#subnet) traffic.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      resource "yandex_vpc_route_table" "usergate-rt-d" {
@@ -575,18 +574,18 @@ Create a [static route](../../vpc/concepts/routing.md):
 
      To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `netword id` field, e.g., `network_id = "${yandex_vpc_network.lab-net.id}"`.
 
-     For more information about the `yandex_vpc_route_table` {{ TF }} resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
+     For more information about `yandex_vpc_route_table` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Make sure your configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
         ```hcl
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -596,7 +595,7 @@ Create a [static route](../../vpc/concepts/routing.md):
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

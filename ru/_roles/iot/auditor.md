@@ -1,1 +1,1 @@
-Роль `iot.auditor` позволяет просматривать метаинформацию об устройствах и реестрах устройств, а также брокерах и квотах в Yandex IoT Core.
+Роль `iot.auditor` позволяет просматривать метаинформацию об [устройствах](../../iot-core/concepts/index.md#device) и [реестрах](../../iot-core/concepts/index.md#registry) устройств, а также о [брокерах](../../iot-core/concepts/index.md#broker) и [квотах](../../iot-core/concepts/limits.md#iot-quotas) в Yandex IoT Core.

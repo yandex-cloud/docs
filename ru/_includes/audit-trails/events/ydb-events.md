@@ -8,4 +8,7 @@
 `RestoreBackup` | Восстановление базы данных из бэкапа
 `StartDatabase` | Запуск базы данных
 `StopDatabase` | Остановка базы данных
+`AlterTopic` | Изменение [топика]({{ ydb.docs }}/concepts/glossary#topic)
+`CreateTopic` | Создание топика
+`DeleteTopic` | Удаление топика
 `UpdateDatabase` | Изменение базы данных

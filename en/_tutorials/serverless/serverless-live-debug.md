@@ -51,7 +51,7 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-live-debug`.
 
@@ -110,7 +110,7 @@ The infrastructure support costs include:
     
       1. Make sure the configuration files are correct.
 
-          1. In the command line, navigate to the directory where you created the configuration file.
+          1. In the command line, navigate to the directory you created the configuration file in.
           1. Run a check using this command:
 
               ```bash
@@ -183,14 +183,14 @@ The infrastructure support costs include:
 
       1. Make sure the configuration files are correct.
 
-          1. In the command line, navigate to the directory where you created the configuration file.
+          1. In the command line, navigate to the directory you created the configuration file in.
           1. Run a check using this command:
 
               ```
                terraform plan
               ```
 
-              If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+              If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
 
       1. Deploy the cloud resources.
 
@@ -208,7 +208,7 @@ The infrastructure support costs include:
 
 ## Deploy your resources {#create-resources}
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up a CLI profile to run operations under the service account:
 
     {% list tabs group=instructions %}
 
@@ -237,7 +237,7 @@ The infrastructure support costs include:
           key_algorithm: RSA_2048
           ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to run operations under the service account:
 
           ```
           yc config profile create sa-live-debug

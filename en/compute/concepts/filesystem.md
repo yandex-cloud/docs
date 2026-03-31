@@ -1,5 +1,5 @@
 ---
-title: File storages
+title: File storages for {{ compute-full-name }} VM instances
 description: In this article, you will learn about the concept of file storages, their types, as well as related requirements and limitations.
 ---
 

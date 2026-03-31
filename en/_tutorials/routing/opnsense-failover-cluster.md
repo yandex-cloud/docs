@@ -77,7 +77,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
   1. Click **{{ ui-key.yacloud.baremetal.label_load-image }}**.
   1. Name your OPNsense image. Follow these naming requirements:
@@ -98,7 +98,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the `{{ region-id }}-m4` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `opnsense-private-subnet-m4`.
@@ -106,7 +106,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
 {% endlist %}
 
-## Lease {{ baremetal-name }} servers {#rent-servers}
+## Renting {{ baremetal-name }} servers {#rent-servers}
 
 {% list tabs group=instructions %}
 

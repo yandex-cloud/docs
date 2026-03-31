@@ -840,6 +840,10 @@ items:
                 href: api-ref/grpc/MfaEnforcement/updateAudience.md
               - name: ListAudience
                 href: api-ref/grpc/MfaEnforcement/listAudience.md
+              - name: UpdateExcludedAudience
+                href: api-ref/grpc/MfaEnforcement/updateExcludedAudience.md
+              - name: ListExcludedAudience
+                href: api-ref/grpc/MfaEnforcement/listExcludedAudience.md
           - name: Operation
             items:
               - name: Overview
@@ -1297,6 +1301,10 @@ items:
                 href: api-ref/MfaEnforcement/updateAudience.md
               - name: ListAudience
                 href: api-ref/MfaEnforcement/listAudience.md
+              - name: UpdateExcludedAudience
+                href: api-ref/MfaEnforcement/updateExcludedAudience.md
+              - name: ListExcludedAudience
+                href: api-ref/MfaEnforcement/listExcludedAudience.md
           - name: Operation
             items:
               - name: Overview

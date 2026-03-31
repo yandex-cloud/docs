@@ -107,7 +107,7 @@ To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
 
 ### Configure WSL {#setup-wsl}
 
-1. Check whether WSL is installed on your PC. To do this, run the following command in the CLI:
+1. Check whether WSL is installed on your PC. Do it by running this command in the CLI terminal:
 
    ```bash
    wsl -l
@@ -149,9 +149,9 @@ We use the Linux terminal to perform the following steps.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Specify the service account name, e.g., `sa-terraform`.
+   1. Name your service account, e.g., `sa-terraform`.
 
        The naming requirements are as follows:
 
@@ -164,8 +164,8 @@ We use the Linux terminal to perform the following steps.
    1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account:
 
        1. On the management console [home page]({{ link-console-main }}), select your cloud.
-       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+       1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+       1. Click ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
        1. In the window that opens, click **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the `sa-terraform` service account.
        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
        1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -302,7 +302,7 @@ We use the Linux terminal to perform the following steps.
     cd yc-dmz-with-high-available-ngfw
     ```
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs %}
 
@@ -525,7 +525,7 @@ Similarly, configure the `eth1`, `eth2`, `eth3`, and `eth4` network interfaces:
 1. For `eth1`, specify **ExternalZone** under **Security Zone**. Do not rename this interface.
 1. Rename the `eth2` interface to `dmz`, enable **Interface leads to DMZ**, and specify **DMZZone**.
 
-   Set up **Automatic Hide NAT** to hide the addresses of internet-facing VMs hosted in the DMZ segment. To do this:
+   Set up **Automatic Hide NAT** to hide the addresses of internet-facing VMs hosted in the DMZ segment. Proceed as follows:
 
       1. In the `dmz` interface edit dialog, click `Net_10.160.1.0` and navigate to the **NAT** tab.
       1. Enable **Add automatic address translation rules**, select **Hide** from the drop-down list, and then enable **Hide behind gateway**.
@@ -636,7 +636,7 @@ In the same way, set up the `FW-B` gateway static NAT table based on the table b
 
 ## Enable the route switcher {#enable-route-switcher}
 
-After completing the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to the `mgmt` folder, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**, and go to the `route-switcher-lb-...` page. Expand the target group and check whether its resources are `Healthy`. If they are `Unhealthy`, make sure `FW-A` and `FW-B` are [configured](#configure-gateways) correctly and running.
+After you complete the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, make sure `FW-A` and `FW-B` are [configured](#configure-gateways) correctly and running.
 
 Once the `FW-A` and `FW-B` status changes to `Healthy`, open the `route-switcher.tf` file and change the `route-switcher` `start_module` value to `true`. To enable the module, run these commands:
 
@@ -723,7 +723,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.

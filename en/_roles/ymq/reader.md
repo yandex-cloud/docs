@@ -1,1 +1,1 @@
-The `ymq.reader` role grants permission to read and delete messages, set message visibility timeouts, and clear a queue of messages. It allows you to get a list of queues and queue information.
+The `ymq.reader` role grants permission to read and delete [messages](../../message-queue/concepts/message.md), set message [visibility timeouts](../../message-queue/concepts/visibility-timeout.md), and clear a [queue](../../message-queue/concepts/queue.md) of messages. It allows you to get a list of queues and queue information.

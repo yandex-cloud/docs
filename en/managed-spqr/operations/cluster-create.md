@@ -51,7 +51,7 @@ keywords:
         * For standard sharding, specify the infrastructure host configuration under **{{ ui-key.yacloud.spqr.section_infra }}**.
         * For advanced sharding, specify the router host configuration under **{{ ui-key.yacloud.spqr.section_router }}**.
 
-            Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}** specify the coordinator host configuration.
+            Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}**, configure the coordinator hosts.
 
         To specify your computing resource configuration:
 
@@ -74,11 +74,11 @@ keywords:
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
 
-        * Database name. Acceptable length is from 1 to 63 characters. Can contain lowercase and uppercase Latin letters, numbers, underscores, and hyphens.
+        * Database name. Acceptable length is from 1 to 63 characters. May contain lowercase and uppercase Latin letters, numbers, underscores, and hyphens.
 
-        * Username. Acceptable length is from 1 to 63 characters. Can contain lowercase and uppercase Latin letters, numbers, underscores, and hyphens, but can't start with a hyphen.
+        * Username. Acceptable length is from 1 to 63 characters. May contain lowercase and uppercase Latin letters, numbers, underscores, and hyphens, but cannot start with a hyphen.
 
-        * Password: It may be from 8 to 128 characters long.
+        * Password. It may be from 8 to 128 characters long.
 
     1. Configure advanced cluster settings:
 

@@ -65,7 +65,7 @@ Firebase:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `jwt-api-gw`.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -238,7 +238,7 @@ Firebase:
      * `name`: API gateway name.
      * `spec`: API gateway specification.
 
-     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -301,7 +301,7 @@ Deploy a static website.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. On the bucket creation page:
         1. Enter the bucket name: `bucket-for-tutorial`.
@@ -377,7 +377,7 @@ Deploy a static website.
           * `bucket`: Bucket name.
           * `acl`: Bucket access settings.
 
-        For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
+        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
      1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -397,7 +397,7 @@ Deploy a static website.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to upload your objects.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click `bucket-for-tutorial`.
      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the objects you [previously generated](#project-prepare) in the `build` folder.
      1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../storage/concepts/storage-class.md). The [bucket configuration](../../storage/concepts/bucket.md#bucket-settings) determines the default storage class.
@@ -492,7 +492,7 @@ Deploy a static website.
           * `index_document`: Absolute path to the website home page file. This is a required parameter.
           * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
 
-        For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
      1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

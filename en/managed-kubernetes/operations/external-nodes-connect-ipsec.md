@@ -19,6 +19,8 @@ You can see the solution architecture in the diagram below:
 
 1. [Create](../../vpc/operations/network-create.md) your main cloud network with three [subnets](../../vpc/concepts/network.md#subnet) in different availability zones.
 
+    {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. In the main network, [create](kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster with a [highly available](../../managed-kubernetes/concepts/index.md#master) master.
 
     To create an external node group, the {{ managed-k8s-name }} cluster must operate in [tunnel mode](../concepts/network-policy.md#cilium). You can only enable this mode when creating the cluster.

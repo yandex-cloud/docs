@@ -44,7 +44,7 @@ In your {{ k8s }} cluster, prepare and run the application you need to grant acc
 
 {% cut "How to ensure access to an application via HTTPS" %}
 
-Check these tutorials:
+See these guides:
 
 * [{#T}](../tutorials/new-kubernetes-project.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
@@ -208,12 +208,7 @@ Set up the required infrastructure:
 
 When you create a `LoadBalancer` type service, the {{ yandex-cloud }} controller creates and configures for you a [network load balancer](../../network-load-balancer/concepts/index.md) with a public IP address in your folder.
 
-{% note warning %}
-
-* You will be charged for the network load balancer you created based on the [pricing policy](../../network-load-balancer/pricing.md).
-* Do not modify or delete the network load balancer and the target groups that are automatically created in your folder after creating a `LoadBalancer` type service.
-
-{% endnote %}
+{% include [note-nlb](../../_includes/managed-kubernetes/note-nlb.md) %}
 
 1. Save the following specification for creating a `LoadBalancer` type service to a YAML file named `load-balancer.yaml`:
 

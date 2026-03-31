@@ -24,6 +24,12 @@ items:
             href: operations/workspaces/manage-access.md
           - name: Удалить окружение
             href: operations/workspaces/delete.md
+      - name: Алерты
+        items:
+          - name: Посмотреть алерты
+            href: operations/alerts/view.md
+          - name: Работа с алертами
+            href: operations/alerts/work.md
       - name: Контроль данных ({{ dspm-name }})
         items:
           - name: Обзор

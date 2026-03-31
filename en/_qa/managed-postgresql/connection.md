@@ -1,7 +1,7 @@
 #### Can I access a cluster from within {{ yandex-cloud }}? {#conn-from-yc}
 
 You can connect to {{ mpg-short-name }} cluster hosts:
-* Via the internet, if you configured public access for these hosts. These hosts can only be accessed over SSL.
+* Via the internet, if you configured public access for these hosts. You can only access such hosts over SSL.
 * From {{ yandex-cloud }} virtual machines located in the same cloud network. For hosts without public access, SSL is not required to connect to them from these virtual machines.
 * From a [{{ serverless-containers-full-name }} container](../../serverless-containers/concepts/index.md). For hosts without public access, this container must be located in the same cloud network.
 

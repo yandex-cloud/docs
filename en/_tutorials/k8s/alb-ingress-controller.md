@@ -62,6 +62,9 @@ The support cost for this solution includes:
 The [Ingress resource](../../application-load-balancer/k8s-ref/ingress.md) defines:
 
 * L7 load balancer parameters set using annotations.
+
+    {% include [note-nlb](../../_includes/managed-kubernetes/note-alb.md) %}
+
 * Rules for incoming traffic distribution between [{{ k8s }} services](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
     Services acting as {{ alb-name }} backends may be specified in the Ingress resource either directly or as part of [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) or [GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) backend groups.
@@ -394,9 +397,9 @@ Create test applications and Ingress resource:
 
      * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If set to `true`, the support is enabled. This setting only applies when `pathType` is set to `Exact`.
 
-     * `ingress.alb.yc.io/balancing-panic-threshold`: [Panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints falls below this value. The default value is `0`, which means the panic mode will never be activated.
+     * `ingress.alb.yc.io/balancing-panic-threshold`: [Panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints drops below the specified threshold. The default value is `0`, which means the panic mode will never be activated.
 
-     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic will be evenly distributed across other availability zones. The default value is `0`. For more info on locality-aware routing, see [this guide](../../application-load-balancer/concepts/backend-group.md#locality).
+     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic is split equally between other zones. The default value is `0`. [More on locality-aware routing](../../application-load-balancer/concepts/backend-group.md#locality).
 
      * `ingress.alb.yc.io/autoscale-max-size`: Maximum total number of resource units. By default, it is unlimited. Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone. Learn more about the autoscaling settings [here](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 
@@ -647,7 +650,7 @@ Create test applications and Ingress resource:
 
      Learn more in [{#T}](../../application-load-balancer/concepts/backend-group.md).
 
-  1. In the same directory, create a file named `ingress-http.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }}:
+  1. In the same directory, create a file named `ingress-http.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }} L7 load balancer:
 
      ```yaml
      apiVersion: networking.k8s.io/v1
@@ -768,7 +771,7 @@ Create test applications and Ingress resource:
 
 {% endlist %}
 
-By default, the {{ alb-name }} ingress controller listens for application health check requests from the L7 load balancer on TCP port `10501` and checks the health of [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If `kube-proxy` is healthy, then, even though an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod running that application or to a different node.
+By default, the {{ alb-name }} ingress controller receives application [health check](../../application-load-balancer/concepts/backend-group.md#health-checks) requests from the L7 load balancer on TCP port `10501` and health-checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If `kube-proxy` is healthy, then, even though an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod running that application or to a different node.
 
 You can use the [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) or [GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) resource settings to customize health checks. Learn more in [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 

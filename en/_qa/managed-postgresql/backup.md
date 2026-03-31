@@ -4,7 +4,11 @@ Yes, you can switch to another cloud network when restoring a cluster from a bac
 
 #### Can I change the retention period for automatic backups? {#backup-retain-days}
 
-You can set the retention period for automatic backups during cluster [creation](../../managed-postgresql/operations/cluster-create.md) or [modification](../../managed-postgresql/operations/update.md#change-additional-settings).
+You can set a retention period for automatic backups:
+
+* When [creating](../../managed-postgresql/operations/cluster-create.md) or [updating](../../managed-postgresql/operations/update.md#change-additional-settings) a cluster. Possible values: between 7 and 60 days.
+
+* When [creating](../../managed-postgresql/operations/backup-retention-policies.md#create-policy) backup policies. Possible values: between 7 and 1095 days (up to three years).
 
 #### Do I need the wal2json plugin if I am only doing data replication and not copying? {#wal2json}
 
@@ -46,4 +50,4 @@ You can only restore a backup to a new cluster.
 
 #### Can I restore a single database from a backup? {#restore-one-database}
 
-No, you cannot restore a specific database. You can only restore the entire cluster with all its databases.
+No, you cannot select specific databases. You can only restore the entire cluster with all its databases.

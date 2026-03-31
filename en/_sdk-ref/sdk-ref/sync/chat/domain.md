@@ -4,7 +4,7 @@
 
 A class for Chat API domain operations.
 
-This class provides functionality for working with the [Yandex Cloud OpenAI Compatible API\_BaseChat\_URL](https://yandex.cloud/docs/ai-studio/concepts/openai-compatibility). It serves as the foundation for chat operations.
+This class provides functionality for working with the [Yandex Cloud OpenAI Compatible API\_BaseChat\_URL](https://aistudio.yandex.ru/docs/ai-studio/concepts/api#openai). It serves as the foundation for chat operations.
 
 **completions**\: *[ChatCompletions](completions.md#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions)*{#yandex_ai_studio_sdk._chat.Chat.completions}
 

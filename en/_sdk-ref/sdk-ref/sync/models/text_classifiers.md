@@ -32,7 +32,7 @@ Execute the text classification on the provided input text.
 
 If only labels are specified, apply a zero-shot classifier. If samples are also specified - it is a case of the few-shot classifier. If nothing is specified, use the classify method, but it is only available for pre-trained models.
 
-Read more about the classifiers in [the documentation](https://yandex.cloud/docs/foundation-models/concepts/classifier/).
+Read more about the classifiers in [the documentation](https://aistudio.yandex.ru/docs/ai-studio/concepts/classifier/).
 
 #|
 || Parameters | 

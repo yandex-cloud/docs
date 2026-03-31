@@ -1,5 +1,5 @@
 ---
-title: Organization
+title: Organization in the {{ yandex-cloud }} resource model
 description: Organization is a workspace that combines various types of {{ yandex-cloud }} resources and enables users to work with them.
 ---
 

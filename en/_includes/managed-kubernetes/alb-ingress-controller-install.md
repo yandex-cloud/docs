@@ -4,6 +4,8 @@
 
 To balance the load and distribute traffic between {{ k8s }} applications, you can use an [{{ alb-full-name }} ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It will launch the L7 load balancer and its auxiliary resources when you create an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
+{% include [note-nlb](../../_includes/managed-kubernetes/note-alb.md) %}
+
 ## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../cli-install.md) %}
@@ -34,7 +36,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
 1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the cluster you need and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Click the name of your cluster and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB ingress controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 

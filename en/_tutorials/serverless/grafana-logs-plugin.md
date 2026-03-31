@@ -83,7 +83,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `grafana-plugin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `logging.reader` role.
@@ -153,18 +153,18 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
      * `role`: Role being assigned.
 
-     For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
+     For more information about `yandex_iam_service_account` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-     If you described the configuration correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will show them.
+     If you described the configuration correctly, the terminal will display information about the service account. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -197,7 +197,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `grafana-plugin` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -249,18 +249,18 @@ The cost of resources includes a fee for logging operations and log storage in a
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_key).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_key).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -270,7 +270,7 @@ The cost of resources includes a fee for logging operations and log storage in a
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
 
@@ -324,7 +324,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you created the `grafana-plugin` service account.
-  1. Select **{{ cloud-logging-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
   1. Enter `grafana-plugin` as the log group name.
   1. Set the log group record retention period.
@@ -383,18 +383,18 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * `retention_period`: Retention period for log group records.
 
-     For more information about `yandex_logging_group` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/logging_group).
+     For more information about `yandex_logging_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/logging_group).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -404,7 +404,7 @@ The cost of resources includes a fee for logging operations and log storage in a
      terraform apply
      ```
 
-  1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+  1. Confirm creating the resources: type `yes` and press **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

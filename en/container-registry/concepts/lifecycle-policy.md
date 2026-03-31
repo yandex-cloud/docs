@@ -2,7 +2,7 @@
 
 A [Docker image](docker-image.md) lifecycle policy lets you set [rules](#lifecycle-rules) for deleting Docker images automatically.
 
-You can [configure a lifecycle policy](../operations/lifecycle-policy/lifecycle-policy-create.md) using the [{{ yandex-cloud }} CLI](../../cli/).
+To learn how to set rules, see [Creating a lifecycle policy](../operations/lifecycle-policy/lifecycle-policy-create.md).
 
 {% note warning %}
 

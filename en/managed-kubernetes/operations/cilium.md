@@ -10,7 +10,7 @@ To use the Cilium network policy controller in a cluster:
 
 ## Getting started {#before-you-begin}
 
-### Set up the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -40,16 +40,20 @@ To use the Cilium network policy controller in a cluster:
         * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}**: `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}`. Specify security groups for the node groups.
 
+    {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-    1. Download the [k8s-cilium.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cilium-setup/blob/main/k8s-cilium.tf) configuration file to the same working directory. You will need this file to create the following resources:
+    1. Download the [k8s-cilium.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cilium-setup/blob/main/k8s-cilium.tf) configuration file to the same working directory. You need this file to create the following resources:
 
-        * [Network](../../vpc/concepts/network.md#network).
-        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * [Network](../../vpc/concepts/network.md#network) and [subnet](../../vpc/concepts/network.md#subnet).
+
+            {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
         * {{ managed-k8s-name }} cluster.
         * Node group for the cluster.
         * [Service account](../../iam/concepts/users/service-accounts.md) for the cluster and its node group.

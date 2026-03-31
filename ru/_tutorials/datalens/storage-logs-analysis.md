@@ -60,6 +60,7 @@
      make_bucket: <имя_бакета>
      ```
 
+
 - {{ TF }} {#tf}
 
   {% include [terraform-role](../../_includes/storage/terraform-role.md) %}
@@ -91,6 +92,7 @@
   1. Создайте бакет.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - API {#api}
 
@@ -136,6 +138,7 @@
 
      Где `--bucket` — имя бакета, для которого надо включить логирование действий.
 
+
 - {{ TF }} {#tf}
   
   Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
@@ -174,6 +177,7 @@
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
+
 - API {#api}
 
   Используйте метод REST API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md).
@@ -184,7 +188,9 @@
 
 ### Создайте кластер {{ CH }} {#create-ch-cluster}
 
+
 Для создания кластера {{ mch-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](../../managed-clickhouse/security.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
@@ -199,9 +205,11 @@
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** в поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** выберите `burstable`.
 
+     
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -225,6 +233,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  
   Чтобы создать кластер:
 
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
@@ -251,6 +260,8 @@
         --datalens-access=true \
         --websql-access=true
      ```
+
+
 
 - {{ TF }} {#tf}
 
@@ -311,6 +322,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
 - API {#api}
   
   Используйте метод REST API [create](../../managed-clickhouse/api-ref/Cluster/create.md).
@@ -336,9 +348,11 @@
 
 {% endlist %}
 
+
 ### Создайте статический ключ {#create-static-key}
 
 Для создания таблицы с доступом к {{ objstorage-name }} вам понадобится статический ключ. [Создайте его](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните идентификатор и секретную часть ключа.
+
 
 ### Создайте таблицу в БД {#create-table}
 

@@ -104,7 +104,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -142,9 +142,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your service account folder.
-      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-      1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
+      1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+      1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
 
    - CLI {#cli}
 
@@ -161,7 +161,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% endlist %}
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -315,7 +315,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
 
-1. Select **{{ compute-name }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
 1. Select `test-cr-vm` from the list of VMs.
 
@@ -391,7 +391,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
 
-1. Select **{{ container-registry-name }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
 
 1. Select `test-registry`.
 
@@ -419,7 +419,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 - Manually {#manual}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
-    1. Select **{{ container-registry-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
     1. Select `test-registry`.
     1. Select the `hello-world` repository.
     1. For each Docker image in the repository, click ![image](../../_assets/console-icons/ellipsis.svg).

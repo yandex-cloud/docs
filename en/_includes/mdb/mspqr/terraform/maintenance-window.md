@@ -4,8 +4,8 @@ To set the maintenance window that will also apply to stopped clusters, add the 
 resource "yandex_mdb_sharded_postgresql_cluster" "<cluster_name>" {
   ...
   maintenance_window {
-    type = <maintenance_type>
-    day  = <day_of_week>
+    type = "<maintenance_type>"
+    day  = "<day_of_week>"
     hour = <hour>
   }
   ...

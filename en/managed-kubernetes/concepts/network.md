@@ -15,6 +15,8 @@ You can also:
 * Request a [public IP address](../../vpc/concepts/ips.md) to access the [cluster](./index.md#kubernetes-cluster) from outside {{ yandex-cloud }}.
 * Configure [network policy controllers](network-policy.md) to manage the address space within the cluster.
 
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 ## Network resources {#network-resources}
 
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:

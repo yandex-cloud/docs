@@ -192,9 +192,9 @@ The infrastructure support costs include:
 
 1. Once the `terraform apply` process is complete, the command line will show the information you need to connect to the test VM and run {{ objstorage-name }} tests. Later on, you can view this information by running the `terraform output` command:
 
-    {% cut "Information about the deployed resources" %}
+    {% cut "Information about the deployed resources " %}
 
-    | Name | Description | Sample value |
+    | Name | Description | Value (example) |
     | ----------- | ----------- | ----------- |
     | `path_for_private_ssh_key` | File with a private key used to connect to the NAT instances and test VM over SSH | `./pt_key.pem` |
     | `vm_username` | NAT instance and test VM username | `admin` |
@@ -206,10 +206,10 @@ The infrastructure support costs include:
 
 ## Test the solution {#check}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder where you created the resources.
-1. Select **{{ compute-name }}**.
-1. Select `test-s3-vm` from the list of VM instances.
-1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Select `test-s3-vm` from the list of VMs.
+1. Navigate to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
 1. Click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
 1. Enter the `admin` username and the password from the `terraform output test_vm_password` command output (without quotation marks).
 

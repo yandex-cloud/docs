@@ -1,3 +1,8 @@
+---
+title: '{{ ml-platform-name }} file storages'
+description: In this tutorial, you will learn what file storages are.
+---
+
 # File storages
 
 _File storage_ is a way to store information that provides quick access to large amounts of data. With file storages, you can store up to 8 TB of data and access it from your {{ ml-platform-name }} notebooks. You can upload datasets, fine-tuning results, [models](models/index.md), logs, and any other files to your file storage.

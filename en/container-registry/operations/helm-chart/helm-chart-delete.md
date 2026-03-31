@@ -1,3 +1,8 @@
+---
+title: Deleting a Helm chart from a {{ container-registry-name }} repository
+description: Follow this guide to delete a Helm chart from a {{ container-registry-name }} repository.
+---
+
 # Deleting a Helm chart from a registry
 
 You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
@@ -8,11 +13,11 @@ You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ contai
 
 - CLI {#cli}
 
-   To delete a Helm chart locally, run the command below:
+  To delete a Helm chart locally, run the command below:
 
-   ```bash
-   helm repo remove {{ registry }}/<registry_ID>/<Helm_chart_name>:<version>
-   ```
+  ```bash
+  helm repo remove {{ registry }}/<registry_ID>/<Helm_chart_name>:<version>
+  ```
 
 {% endlist %}
 
@@ -22,14 +27,14 @@ You can delete [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ contai
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To delete a Helm chart uploaded to {{ container-registry-name }}, run the command you would use to [delete](../docker-image/docker-image-delete.md) Docker images:
+  To delete a Helm chart uploaded to {{ container-registry-name }}, run the command you would use to [delete](../docker-image/docker-image-delete.md) Docker images:
 
-   ```bash
-   yc container image delete <image_ID>
-   ```
+  ```bash
+  yc container image delete <image_ID>
+  ```
 
 {% endlist %}

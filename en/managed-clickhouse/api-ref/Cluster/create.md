@@ -3830,7 +3830,7 @@ apiPlayground:
             description: |-
               **boolean**
               If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
-              Default value: **false**.
+              Default value: **true** for versions 26.3 and higher, **false** for versions 26.2 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert).
             type: boolean
           waitForAsyncInsert:
@@ -8844,7 +8844,7 @@ Default value: **QUOTA_MODE_DEFAULT**.
 
 If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
 
-Default value: **false**.
+Default value: **true** for versions 26.3 and higher, **false** for versions 26.2 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert). ||
 || waitForAsyncInsert | **boolean**

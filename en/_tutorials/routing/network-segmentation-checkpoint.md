@@ -1,6 +1,6 @@
 # Cloud infrastructure segmentation with the Check Point next-generation firewall
 
-In this tutorial, we will deploy a secure network infrastructure based on the Check Point next-generation firewall. It will include three segments hosting resources grouped by function and isolated from other resources. We will host public-facing applications in the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and cloud management resources in the `mgmt` segment. The segments will communicate through a [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall) VM providing end-to-end protection and traffic management between the segments.
+In this tutorial, we will deploy a secure network infrastructure based on the Check Point next-generation firewall. It will include three segments hosting resources grouped by function and isolated from other resources. For example, the dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment will host public-facing applications, and the `mgmt` segment is for the cloud infrastructure management resources. The segments will communicate through a [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall) VM providing end-to-end protection and traffic management between the segments.
 
 If you need to ensure the NGFW’s fault tolerance and the deployed applications’ high availability, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
 
@@ -91,7 +91,7 @@ To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
 
 ### Configure WSL {#setup-wsl}
 
-1. Check whether you have WSL installed on your PC. To do this, run this command in the CLI terminal:
+1. Check whether you have WSL installed on your PC. Do it by running this command in the CLI terminal:
   
    ```bash
    wsl -l
@@ -134,7 +134,7 @@ We use the Linux terminal to perform the following steps.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 
@@ -142,15 +142,14 @@ We use the Linux terminal to perform the following steps.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the account:
 
          1. On the management console [home page]({{ link-console-main }}), select your cloud.
-         1. Click the **Access permissions** tab.
-         1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
-         1. Click **Edit roles**.
-         1. In the dialog that opens, click **Add role** and select the `admin` role. 
+         1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+         1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+         1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the `admin` role. 
 
 - CLI {#cli}
 
@@ -281,7 +280,7 @@ We use the Linux terminal to perform the following steps.
    cd yc-network-segmentation-with-checkpoint
    ```
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -551,7 +550,7 @@ In the same way, configure the `eth1` and `eth2` network interfaces:
    | public | 172.16.1.0 | 255.255.255.0 |
    | dmz | 10.160.1.0 | 255.255.255.0 |
 
-   For the DMZ network, configure Automatic Hide NAT rules to hide the addresses of DMZ-hosted internet-facing VMs behind the firewall public IP address. To do this:
+   For the DMZ network, configure Automatic Hide NAT rules to hide the addresses of DMZ-hosted internet-facing VMs behind the firewall public IP address. Proceed as follows:
       1. In the `dmz` network editing dialog, navigate to the **NAT** tab.
       1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list, and enable **Hide behind the gateway**.
 

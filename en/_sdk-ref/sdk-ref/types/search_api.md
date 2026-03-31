@@ -1,4 +1,4 @@
-# Search API
+# Yandex Search API
 
 ## Generative serch
 
@@ -128,7 +128,7 @@ A class representing the result of a generative search request.
 
 **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.text}
 
-Generative answer itself. Note that footnootes like **[N]** in the text refers to **GenerativeSearchResult.sources[N]** source.
+Generative answer itself. Note that footnotes like **[N]** in the text refers to **GenerativeSearchResult.sources[N]** source.
 
 **role**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult.role}
 
@@ -158,13 +158,13 @@ List of search queries sent to model
 
 Alias to **GenerativeSearchResult.text**.
 
-Only to add some compatibility with raw Search API answer which have “content” field in protobufs and REST answers unlike other parts of this SDK.
+Only to add some compatibility with raw Yandex Search API answer which have “content” field in protobufs and REST answers unlike other parts of this SDK.
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.config.**FilterType**{#yandex_ai_studio_sdk._search_api.generative.result.yandex_ai_studio_sdk._search_api.generative.config.FilterType}
 
 yandex\_ai\_studio\_sdk.\_search\_api.generative.config.**FilterType**{#yandex_ai_studio_sdk._search_api.generative.config.FilterType}
 
-Generative search filter type which describes dict formats eligible to use with generative search API.
+Generative search filter type which describes dict formats eligible to use with generative search.
 
 alias of [**DateFilterType**](#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) | [**FormatFilterType**](#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) | [**LangFilterType**](#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)
 

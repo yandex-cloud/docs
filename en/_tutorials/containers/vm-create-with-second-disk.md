@@ -1,10 +1,10 @@
-# Creating a VM from a {{ coi }} with an additional volume for a Docker container
+# Creating a VM from a {{ coi }} and an additional volume for a Docker container
 
-In this tutorial, you will create a [VM](../../compute/concepts/vm.md) from a [{{ coi }}](../../cos/concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional 10 GB [volume](../../container-registry/concepts/docker-volume.md) attached.
+In this tutorial, you will create a [VM](../../compute/concepts/vm.md) from a [{{ coi }}](../../cos/concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional [volume](../../container-registry/concepts/docker-volume.md) of 10 GB.
 
 ## Getting started {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
+If the required Docker image has been pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
 
 ## Create a VM from a {{ coi }} with an additional volume for a Docker container {#create-vm}
 
@@ -16,7 +16,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for creating a VM:
+  1. View the description of the CLI command to create a VM:
 
      ```bash
      yc compute instance create-with-container --help
@@ -41,7 +41,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
          host_path: /home/yc-user/coi-data
      ```
 
-     When creating a VM via the CLI, a default user is created: `yc-user`.
+     When creating a VM through the CLI, the system creates a default user: `yc-user`.
   1. Create a VM with multiple disks:
 
      ```bash
@@ -51,7 +51,8 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --create-boot-disk size=30 \
        --create-disk name=data-disk,size=10,device-name=coi-data \
        --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
-       --ssh-key <path_to_public_part_of_SSH_key> \
+       --ssh-key <path_to_SSH_key_public_part> \
+       --service-account-name <service_account_name> \
        --docker-compose-file docker-compose.yaml
      ```
 
@@ -63,14 +64,15 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
      * `--network-interface`: [Network](../../vpc/concepts/network.md#network) parameters:
-       * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) to host the VM.
+       * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) where the VM will reside.
        * `nat-ip-version`: [Public IPv4 address](../../vpc/concepts/ips.md) assignment method.
-     * `--ssh-key`: Path to the file with the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * `--docker-compose-file`: YAML file with container specification.
+     * `--ssh-key`: Path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+     * `--service-account-name`: Name of the service account you created [earlier](#before-you-begin).
+     * `--docker-compose-file`: YAML container specification file.
 
      Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
   1. Check the result.
-     1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
+     1. [Connect to the VM over SSH](../../compute/operations/vm-connect/ssh.md).
      1. Get the ID of the running Docker container:
 
         ```bash
@@ -90,7 +92,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         sudo docker exec -it 1f71******** bash
         ```
 
-     1. View the list of attached disks. Pay attention to the mounted `/dev/vdb 11G 24M 9.9G 1% /data` disk:
+     1. See the list of attached disks. Note the mounted `/dev/vdb 11G 24M 9.9G 1% /data` disk:
 
         ```bash
         df -H

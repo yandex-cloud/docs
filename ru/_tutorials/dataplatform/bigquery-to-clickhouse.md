@@ -10,7 +10,7 @@
 * возможность задать формат выгрузки данных и степень сжатия;
 * значительное сокращение объема данных и времени на их миграцию, а значит и снижение стоимости миграции.
 
-Однако при таком способе данные переносятся <q>как есть</q>, без трансформации или копирования обновившихся инкрементов.
+Однако при таком способе данные переносятся «как есть», без трансформации или копирования обновившихся инкрементов.
 
 Чтобы перенести базу данных из Google BigQuery в {{ mch-name }}:
 
@@ -59,16 +59,20 @@
 
 ### Создайте ресурсы {{ yandex-cloud }} {#create-yandex-res}
 
+
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader` для доступа к бакету {{ objstorage-name }}.
 
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
 
+
 1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера:
 
-      * укажите созданный ранее сервисный аккаунт.
-      * включите параметр **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}**.
+    
+    * Укажите созданный ранее сервисный аккаунт.
 
-1. [Включите отказоустойчивость с помощью хостов Zookeeper](../../managed-clickhouse/operations/zk-hosts.md).
+    
+    * Включите опцию **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}**.
+    * [Добавьте хосты {{ ZK }}](../../managed-clickhouse/operations/zk-hosts.md), чтобы обеспечить высокую доступность кластера.
 
 1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md). При создании [включите публичный доступ](../../storage/operations/buckets/bucket-availability.md) на чтение объектов и к списку объектов в бакете.
 
@@ -76,6 +80,7 @@
 
 1. Создайте файл `credentials.boto` с параметрами доступа к ресурсам Google Cloud и {{ yandex-cloud }}:
 
+    
     ```boto
     [Credentials]
     gs_service_client_id  =<сервисный_аккаунт_Google_Cloud>
@@ -91,12 +96,17 @@
       host={{ s3-storage-host }}
     ```
 
+
     Где:
 
     * `gs_service_client_id` — имя [сервисного аккаунта Google Cloud](https://cloud.google.com/iam/docs/service-account-overview) вида `service-account-name@project-id.iam.gserviceaccount.com`.
     * `gs_service_key_file` — абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud.
+
+    
     * `aws_access_key_id` — идентификатор ключа сервисного аккаунта {{ yandex-cloud }}.
     * `aws_secret_access_key` — секретный ключ сервисного аккаунта {{ yandex-cloud }}.
+
+
     * `default_project_id` — [идентификатор проекта Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
 
 1. Создайте файл скрипта `main.py`, который выполняет сжатие и миграцию данных:

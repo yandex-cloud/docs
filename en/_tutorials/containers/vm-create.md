@@ -18,7 +18,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
   1. Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using suggestions:
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using the suggestions:
 
       * Optionally, enter the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** of the Docker container you will run on the VM. Follow these naming requirements:
 
@@ -43,6 +43,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
       * Optionally, enable **{{ ui-key.yacloud.compute.instances.create.field_coi-privileged }}** to allow the Docker container processes to access all VM resources.
 
   1. Click **{{ ui-key.yacloud.common.apply }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the service account you [created earlier](#before-you-begin).
   1. Use [this guide](../../compute/operations/vm-create/create-linux-vm.md) to configure the remaining VM parameters.
 
 - CLI with the help of parameters {#cli}
@@ -65,7 +66,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
        --name my-vm \
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
-       --service-account-name my-robot \
+       --service-account-name <service_account_name> \
        --create-boot-disk size=30 \
        --public-ip \
        --platform standard-v3 \
@@ -81,7 +82,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
      * `--name`: VM name.
      * `--zone`: Availability zone.
      * `--ssh-key`: Contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-     * `--service-account-name`: Service account name.
+     * `--service-account-name`: Name of the service account you created [earlier](#before-you-begin).
      * `--create-boot-disk size`: Boot disk size.
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
@@ -144,7 +145,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
-       --service-account-name my-service-account \
+       --service-account-name <service_account_name> \
        --public-ip
      ```
 
@@ -157,7 +158,7 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
-     * `--service-account-name`: Service account name.
+     * `--service-account-name`: Name of the service account you created [earlier](#before-you-begin).
      * `--public-ip`: Public IP address allocated to the VM.
 
      Result:
