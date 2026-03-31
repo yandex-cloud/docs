@@ -95,6 +95,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
+       {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * `--memory`: Amount of memory allocated for {{ managed-k8s-name }} nodes.
      * `--name`: {{ managed-k8s-name }} node group name.
      * `--network-acceleration-type`: Select the [network acceleration](../../../compute/concepts/software-accelerated-network.md) type:
@@ -255,6 +257,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
          {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * To create a node group with a fixed number of nodes, add the `fixed_scale` section:
 
        ```hcl
@@ -363,6 +367,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
 
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
+    {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
   * [Deployment policy](../../concepts/node-group/deploy-policy.md) parameters:

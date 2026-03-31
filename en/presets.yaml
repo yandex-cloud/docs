@@ -2374,9 +2374,16 @@ default:
         egress|number: 5.369143105
         egress|string: ₸5.369143105
     transcoding:
+      live:
+        v1|number: 13.24356033
+        v1|string: ₸13.24356033
       vod:
         v1|number: 5.592857401
         v1|string: ₸5.592857401
+    used_space:
+      live:
+        v1|number: 0.015632495
+        v1|string: ₸0.015632495
   sku|KZT|ydb:
     v1:
       serverless:
@@ -2392,14 +2399,6 @@ default:
       128k:
         12h|number: 0.745714269
         12h|string: ₸0.745714269
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: ₸119.575291231
-        requests|string: Free
-        storage|pricingRate:
-          720|string: ₸0.166076742
-        storage|string: Free
   sku|KZT|yq:
     network:
       ingress:
@@ -2955,9 +2954,16 @@ default:
         egress|number: 1.05408
         egress|string: ₽1.05408
     transcoding:
+      live:
+        v1|number: 2.6
+        v1|string: ₽2.6
       vod:
         v1|number: 1.098
         v1|string: ₽1.098
+    used_space:
+      live:
+        v1|number: 0.003069
+        v1|string: ₽0.003069
   sku|RUB|ydb:
     v1:
       serverless:
@@ -2973,14 +2979,6 @@ default:
       128k:
         12h|number: 0.14639999
         12h|string: ₽0.14639999
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: ₽23.47524
-        requests|string: Free
-        storage|pricingRate:
-          720|string: ₽0.03260449
-        storage|string: Free
   sku|RUB|yq:
     network:
       ingress:
@@ -3516,9 +3514,16 @@ default:
         egress|number: 0.008639999
         egress|string: $0.008639999
     transcoding:
+      live:
+        v1|number: 0.021311472
+        v1|string: $0.021311472
       vod:
         v1|number: 0.008999999
         v1|string: $0.008999999
+    used_space:
+      live:
+        v1|number: 0.000025156
+        v1|string: $0.000025156
   sku|USD|ydb:
     v1:
       serverless:
@@ -3861,6 +3866,7 @@ default:
           exports:
             button_create-periodic-export: Create periodic export
             button_open-yandex-query: Process in YQ
+            button_resume-export: Resume
             field_bucket: Bucket
             field_detail-type: Usage details
             field_locale: Language
@@ -3968,7 +3974,7 @@ default:
           add-role: Add role
         label:
           service-accounts: Service accounts
-          title: Configuring access bindings
+          title: Granting access
           user-accounts: User accounts
         resource-acl:
           label_bindings: Roles
@@ -4401,7 +4407,7 @@ default:
         save-changes: Save
       app:
         security:
-          control_rules_rWmUV: Control rules
+          control_rules_rWmUV: Rules and exceptions
           label_workspace_12Kax: Workspace
       application:
         overview:
@@ -4445,9 +4451,12 @@ default:
             label_title: Clouds and services
             label_type: Type
           exports:
+            column_service_account: Service account
             field_bucket: Bucket
+            field_date: Start from
             field_detail-type: Usage details
             field_locale: Language
+            field_period: Export historical data
             field_prefix: Path within the bucket
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
@@ -4467,6 +4476,11 @@ default:
         accounts:
           dialog_button_create: Create an account
           listing_button_create: Create an account
+        exports:
+          ServiceAccountAddField:
+            addNewServiceAccount: Create service account
+        providers:
+          button_ca-roles-update: Add roles
       center-layout:
         Layout:
           organization-description_kvoUz: Users & applications
@@ -4673,6 +4687,8 @@ default:
             button_create: Create
             field_description: Description
         folder:
+          service-account:
+            popup-robot_button_save: Save
           service-accounts:
             dialog_select-service-account_create-new-action: Create a new one
       kspm:
@@ -4825,7 +4841,7 @@ default:
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Set password policy
           UserpoolPageLayout:
-            title_userpool_acl_5rdMM: Access rights to the userpool
+            title_userpool_acl_5rdMM: Access rights
           UserpoolPasswordPolicyForm:
             attempts_before_lockout_ay7Le: Number of failed password attempts before lockout
             brute_force_protection_msHno: Brute force protection
@@ -4884,9 +4900,25 @@ default:
         userpools: User pools
         users: Users
       security-center:
+        alert:
+          action_alert_analysis: Alert analysis
         alerts:
+          caption_assignee: Assignee
+          caption_category: Threat type
+          caption_classification: Classification
+          caption_created-by: Created by
+          caption_incident: Incident
+          caption_modified-at: Modified at
+          caption_sensor: Source
+          caption_status: Status
+          caption_title: Alert
           sink:
             action_create: Create sink
+          title_alert_comments: Comments
+          title_alert_details: Details
+          title_alert_history: History
+          title_alert_overview: Overview
+          title_alert_recommendations: Recommendations
         dspm:
           title_data-sources: Data sources
           title_scan-jobs: Regular scans
@@ -4894,11 +4926,16 @@ default:
           title_clusters: Clusters
           title_dashboard: Dashboard
         label_acl-diagnostics: CIEM
+        label_alerts: Alerts
         label_comp: Compliance
         label_dspm: DSPM
         label_kspm: KSPM
         label_settings: Security Deck parameters
       security:
+        alerts:
+          comment_form:
+            send: Send
+          filters-button: Filters
         comp:
           SetsTable:
             action_disable_5hgkz: Disable verification
@@ -7083,7 +7120,6 @@ default:
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
-            label_yq: Query
             label_yq_ru: Yandex Query
             value_audit-trails: Trail
             value_compute: Virtual machine instance
@@ -7310,6 +7346,8 @@ default:
           label_pods: Pods
           label_tab-logs: Logs
           label_tab-yaml: YAML
+        WorkloadsActions:
+          pod-exec_jwJ3R: Terminal
       kafka:
         button_add-topic: Add topic
         button_create-connector: Create connector
@@ -11087,7 +11125,6 @@ default:
           repository:
             name: >-
               cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1771418848696431394901031348572912380488071835858
-            tag: 8.4.18
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
         tag: 1.0.5+003

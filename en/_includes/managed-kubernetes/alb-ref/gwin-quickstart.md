@@ -4,10 +4,12 @@ Gwin is a tool for managing {{ alb-full-name }} in {{ managed-k8s-full-name }} c
 
 Follow this guide to install the Gwin controller in a {{ managed-k8s-name }} cluster. Based on the Ingress or Gateway API resource configurations, the controller automatically deploys an {{ alb-name }} that:
 
-  * Automatically gets a dynamic public IP address.
-  * Accepts HTTP traffic on port `80`.
-  * Accepts HTTPS traffic on port `443` using a certificate in {{ certificate-manager-name }}.
-  * Sends GET requests to a test service named `example-service`.
+* Automatically gets a dynamic public IP address.
+* Accepts HTTP traffic on port `80`.
+* Accepts HTTPS traffic on port `443` using a certificate in {{ certificate-manager-name }}.
+* Sends GET requests to a test service named `example-service`.
+
+{% include [note-alb](../note-alb.md) %}
 
 ## Required paid resources {#paid-resources}
 
@@ -22,13 +24,13 @@ The infrastructure support cost includes:
 
 1. {% include [cli-install](../../cli-install.md) %}
 
-   {% include [default-catalogue](../../default-catalogue.md) %}
+    {% include [default-catalogue](../../default-catalogue.md) %}
 
 1. {% include [configure-sg-manual](../security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [configure-sg-alb-manual](../security-groups/configure-sg-alb-manual.md) %}
+    {% include [configure-sg-alb-manual](../security-groups/configure-sg-alb-manual.md) %}
 
-   {% include [sg-common-warning](../security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../security-groups/sg-common-warning.md) %}
 
 1. [Create](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. When creating, specify the preconfigured security groups.
 
@@ -36,24 +38,62 @@ The infrastructure support cost includes:
 
 1. {% include [kubectl-install](../kubectl-install.md) %}
 
-1. [Create a service account](../../../iam/operations/sa/create.md) the controller will use to create {{ alb-name }} resources and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles for the folder:
+1. [Create an {{ iam-short-name }} service account](../../../iam/operations/sa/create.md) the controller will use to create {{ alb-name }} resources and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles for the folder:
 
-   * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor): To create {{ alb-name }} resources.
-   * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
-   * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): If you use cloud certificates registered with [{{ certificate-manager-full-name }}](../../../certificate-manager/).
-   * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager-editor): If you use {{ managed-k8s-name }} cluster certificates. In this case, the controller creates the relevant cloud certificates.
-   * [compute.viewer](../../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../../application-load-balancer/concepts/target-group.md).
-   * [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer): To enable the controller to determine the network for deploying the L7 load balancer.
-   * [smart-web-security.editor](../../../smartwebsecurity/security/index.md#smart-web-security-editor): To connect a {{ sws-full-name }} [profile](../../../smartwebsecurity/concepts/profiles.md) to an L7 load balancer's virtual host. This role is optional.
-   * [logging.writer](../../../logging/security/index.md#logging-writer): If the [Gateway](../../../managed-kubernetes/alb-ref/gateway.md) resource specifies a [log group](../../../logging/concepts/log-group.md) to write L7 load balancer logs to {{ cloud-logging-full-name }}. This role is optional.
+    * [alb.editor](../../../application-load-balancer/security/index.md#alb-editor): To create {{ alb-name }} resources.
+    * [vpc.publicAdmin](../../../vpc/security/index.md#vpc-public-admin): To manage external network connectivity.
+    * [certificate-manager.certificates.downloader](../../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use cloud certificates registered in [{{ certificate-manager-full-name }}](../../../certificate-manager/).
+    * [certificate-manager.editor](../../../certificate-manager/security/index.md#certificate-manager-editor): To use {{ managed-k8s-name }} cluster certificates. In this case, the controller creates the relevant cloud certificates.
+    * [compute.viewer](../../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../../application-load-balancer/concepts/target-group.md).
+    * [k8s.viewer](../../../managed-kubernetes/security/index.md#k8s-viewer): To determine the network where the controller will deploy the L7 load balancer.
+    * [smart-web-security.editor](../../../smartwebsecurity/security/index.md#smart-web-security-editor): To connect a {{ sws-full-name }} [profile](../../../smartwebsecurity/concepts/profiles.md) to an L7 load balancer's virtual host. This role is optional.
+    * [logging.writer](../../../logging/security/index.md#logging-writer): If the [Gateway](../../../managed-kubernetes/alb-ref/gateway.md) resource specifies a [log group](../../../logging/concepts/log-group.md) for writing L7 load balancer logs to {{ cloud-logging-full-name }}. This role is optional.
 
-1. [Create an authorized access key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account in JSON format and save it to the `sa-key.json` file:
+1. Select the Gwin authentication method in the {{ yandex-cloud }} API to create and manage load balancers in {{ alb-full-name }}.
 
-    ```bash
-    yc iam key create \
-      --service-account-name <service_account_name> \
-      --output sa-key.json
-    ```
+    Authentication requires an [IAM token](../../../iam/concepts/authorization/iam-token.md) with a limited TTL. You can get the IAM token from the cluster using the following tools:
+    * [Workload identity federation](../../../iam/concepts/workload-identity.md): Connects external systems to {{ yandex-cloud }} via the [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) protocol without using long-lived keys. This is a more secure method that minimizes the risk of credential leakage and the possibility of unauthorized access.
+    * [Authorized key](../../../iam/concepts/authorization/key.md): RSA-2048 or RSA-4096 key with an unlimited lifetime.
+
+    {% list tabs group=authentication %}
+
+    - Workload identity federation {#wlif}
+
+      1. [Configure](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md) support for a workload identity federation in the cluster and node group.
+      1. [Create](../../../iam/operations/wlif/setup-wlif.md#create-wlif) a workload identity federation:
+          * For **{{ ui-key.yacloud.iam.federations.field_issuer }}** and **{{ ui-key.yacloud.iam.federations.field_audiences }}**, use the **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** value obtained during cluster configuration.
+          * For **{{ ui-key.yacloud.iam.federations.field_jwks }}**, use the **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}** value obtained during cluster configuration.
+      1. [Associate](../../../iam/operations/wlif/setup-wlif.md#create-federated-credential) the {{ iam-short-name }} service account with the federation.
+
+          Use the following value as the external subject ID:
+          
+          ```text
+          system:serviceaccount:<namespace>:<{{ k8s }}_service_account_name>
+          ```
+
+          Where:
+          * `<namespace>`: Cluster namespace where you want to install Gwin.
+          * `<{{ k8s }}_service_account_name>`: Name of the {{ k8s }} service account for Gwin. The default value is `gwin`.
+
+            {% note tip %}
+
+            To rename the {{ k8s }} service account for Gwin during [the Helm chart installation](#helm-install), provide `--set controller.names.serviceAccount=<{{ k8s }}_service_account_name>`.
+
+            {% endnote %}
+
+      For more information, see [{#T}](../../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md).
+
+    - Authorized key {#authorized-key}
+
+      [Create](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for the {{ iam-short-name }} service account in JSON format and save it to the `sa-key.json` file:
+
+      ```bash
+      yc iam key create \
+        --service-account-name <{{ iam-short-name }}_service_account_name> \
+        --output sa-key.json
+      ```
+
+    {% endlist %}
 
 ## Installing Gwin {#install}
 
@@ -63,12 +103,12 @@ The infrastructure support cost includes:
 1. Click the name of the [{{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gwin](/marketplace/products/yc/gwin) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-
-   * **Namespace**: Create a new [namespace](../../../managed-kubernetes/concepts/index.md#namespace), e.g., `gwin-space`. If you leave the default namespace, Gwin may work incorrectly.
-   * **Application name**: Specify the application name.
-   * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) Gwin will operate from.
-   * **Service account key**: Copy the contents of the `sa-key.json` file.
-
+    * **Namespace**: Create a new [namespace](../../../managed-kubernetes/concepts/index.md#namespace), e.g., `gwin-space`. If you leave the default namespace, Gwin may work incorrectly.
+    * **Application name**: Specify the application name.
+    * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) Gwin will operate from.
+1. Depending on the authentication method you have selected, specify one of the following parameters:
+    * **Service account key**: Copy the contents of the `sa-key.json` file.
+    * **Service account associated with WLIF**: Select the {{ iam-short-name }} service account configured earlier.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application status to change to `Deployed`.
 
@@ -76,23 +116,43 @@ The infrastructure support cost includes:
 
 1. {% include [helm-install](../helm-install.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Gwin controller, run this command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Gwin controller, run a command below for the selected authentication method:
 
-    ```bash
-    helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
-      --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
-      --untar \
-    helm install \
-      --namespace <namespace> \
-      --create-namespace \
-      --set controller.folderId=<folder_ID> \
-      --set-file controller.ycServiceAccount.secret.value=./sa-key.json \
-      gwin ./gwin-chart
-    ```
+    {% list tabs group=authentication %}
 
-      If you set `namespace` to its default, Gwin may work incorrectly. We recommend specifying a value different from all existing namespaces, e.g., `gwin-space`.
+    - Workload identity federation {#wlif}
 
-      You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
+      ```bash
+      helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
+        --untar \
+      helm install \
+        --namespace <namespace> \
+        --create-namespace \
+        --set controller.folderId=<folder_ID> \
+        --set controller.ycServiceAccount.workloadIdentityFederation.serviceAccountID=<{{ iam-short-name }}_service_account_ID> \
+        gwin ./gwin-chart
+      ```
+
+    - Authorized key {#authorized-key}
+
+      ```bash
+      helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
+        --untar \
+      helm install \
+        --namespace <namespace> \
+        --create-namespace \
+        --set controller.folderId=<folder_ID> \
+        --set-file controller.ycServiceAccount.secret.value=./sa-key.json \
+        gwin ./gwin-chart
+      ```
+
+    {% endlist %}
+
+    If you set `namespace` to its default, Gwin may work incorrectly. We recommend specifying a value different from all existing namespaces, e.g., `gwin-space`.
+
+    You can get the folder ID with the [list of folders in the cloud](../../../resource-manager/operations/folder/get-id.md).
 
 ## Create a test app {#create-test-app}
 
@@ -297,6 +357,10 @@ To test the Gwin controller, create a test application named `example-app`:
           certificateID: "<certificate_ID>"
       ```
 
+      Use the certificate ID you saved earlier.
+
+      To find out the security group IDs, [get information about the L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-get.md).
+
     - Ingress {#ingress}
 
       ```yaml
@@ -328,6 +392,10 @@ To test the Gwin controller, create a test application named `example-app`:
               - example.com
             secretName: "yc-certmgr-cert-id-<certificate_ID>"
       ```
+
+      Use the certificate ID you saved earlier.
+
+      To find out the security group IDs, [get information about the L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-get.md).
 
     {% endlist %}
 

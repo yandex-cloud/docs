@@ -69,7 +69,8 @@
     * ![image](../../_assets/console-icons/smartphone.svg) — SMS-сообщением;
     * ![image](../../_assets/console-icons/logo-telegram.svg) — сообщением в Telegram-бот;
     * ![image](../../_assets/console-icons/handset.svg) — прозвоном на указанный номер телефона (работает только для эскалаций сервиса {{ monitoring-name }});
-    * ![image](../../_assets/console-icons/antenna-signal.svg) — отправкой сообщений на заданные URL-адреса.
+    * ![image](../../_assets/console-icons/antenna-signal.svg) — отправкой сообщений на заданные URL-адреса;
+    * ![image](../../_assets/console-icons/logo-yandex-messenger.svg) — сообщением в {{ messenger-full-name }}.
 
 ## Вебхуки {#webhook}
 

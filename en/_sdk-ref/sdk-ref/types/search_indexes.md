@@ -18,6 +18,12 @@ the timestamp when the file was created
 
 **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._search_indexes.file.SearchIndexFile.id}
 
+yandex\_ai\_studio\_sdk.\_search\_indexes.index\_type.**ProtoSearchIndexTypeTypeT** = *TypeVar(ProtoSearchIndexTypeTypeT, bound=Union)*{#yandex_ai_studio_sdk._search_indexes.index_type.ProtoSearchIndexTypeTypeT}
+
+**Type:**[**TypeVar**](https://docs.python.org/3/library/typing.html#typing.TypeVar)
+
+Invariant [**TypeVar**](https://docs.python.org/3/library/typing.html#typing.TypeVar) bound to [**typing.Union**](https://docs.python.org/3/library/typing.html#typing.Union)[**yandex.cloud.ai.assistants.v1.searchindex.search\_index\_pb2.TextSearchIndex**, **yandex.cloud.ai.assistants.v1.searchindex.search\_index\_pb2.VectorSearchIndex**, **yandex.cloud.ai.assistants.v1.searchindex.search\_index\_pb2.HybridSearchIndex**].
+
 ## *class* yandex\_ai\_studio\_sdk.\_search\_indexes.index\_type.**BaseSearchIndexType**{#yandex_ai_studio_sdk._search_indexes.index_type.BaseSearchIndexType}
 
 A class for search index types.

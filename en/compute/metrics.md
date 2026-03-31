@@ -11,4 +11,4 @@ This section describes the {{ compute-name }} metrics delivered to [{{ monitorin
 
 #### See also {#see-also}
 
-* [{#T}](operations/metrics-pull.md)
+[{#T}](./operations/metrics-pull.md)

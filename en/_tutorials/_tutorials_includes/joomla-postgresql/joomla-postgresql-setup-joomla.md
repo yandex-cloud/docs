@@ -4,7 +4,8 @@
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder with the cluster. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
       1. Select the `joomla-pg-cluster` cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
       1. Hover over the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** field in the row with each host and click ![Copy](../../../_assets/console-icons/copy.svg) to copy the host FQDN. Save the values you copied, as you will need them later.
 

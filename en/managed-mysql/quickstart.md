@@ -68,4 +68,4 @@ To get started:
 
 * Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a {{ mmy-name }} cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
-* Check [questions and answers](qa/general.md).
+* Check out the [questions and answers](qa/general.md).

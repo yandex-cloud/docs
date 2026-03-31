@@ -19,4 +19,6 @@ a set of methods for managing MFA enforcements
 || [List](list.md) | returns MFA enforcements for the specified organization ||
 || [UpdateAudience](updateAudience.md) | updates specified MFA enforcement's audience ||
 || [ListAudience](listAudience.md) | returns specified MFA enforcement's audience ||
+|| [UpdateExcludedAudience](updateExcludedAudience.md) | updates specified MFA enforcement's excluded audience ||
+|| [ListExcludedAudience](listExcludedAudience.md) | returns specified MFA enforcement's excluded audience ||
 |#

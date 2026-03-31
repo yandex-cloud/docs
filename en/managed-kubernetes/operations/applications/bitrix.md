@@ -27,17 +27,17 @@ There are two available environment types:
 
    You can use the admin environment to install stable versions of Bitrix applications.
 
-* Product environment, which supports all admin features but does not allow you to modify Bitrix components. There is no admin panel in the product environment.
+* Production environment, which supports all admin features but does not allow you to modify Bitrix components. There is no admin panel in the production environment.
 
-  You can run multiple `Deployment` replicas in your product environment, which provides fault tolerance.
+  Use the production environment for a highly available, fault-tolerant Bitrix installation.
 
-  To set up the product environment, you will need to prepare images based on the provided ones by adding the relevant Bitrix files.
+  To deploy the production environment, you need to prepare your custom images by adding the relevant Bitrix files to the provided base images.
 
-  You can only set up the product environment using a Helm chart.
+  You can only deploy the production environment using a Helm chart.
 
 {% note info %}
 
-The admin and product environments share these assets:
+The admin and production environments share these assets:
 
 * {{ MY }} database
 * {{ objstorage-name }} bucket
@@ -50,7 +50,7 @@ The admin and product environments share these assets:
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. In your {{ managed-k8s-name }} cluster, create a new [namespace](../../concepts/index.md#namespace) named `bitrix-space` for the admin environment, and `bitrix-prod`, for the product environment.
+1. In the {{ managed-k8s-name }} cluster, create new [namespaces](../../concepts/index.md#namespace) for the admin and production environments, e.g., `bitrix-admin` and `bitrix-prod`.
 1. If you want to use your own certificate for the Bitrix website, create a `Secret` resource in both environments’ namespaces as follows:
 
     ```yaml
@@ -75,7 +75,9 @@ The admin and product environments share these assets:
    * **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
      * **Innodb Flush Log At Trx Commit**: `2`
      * **Innodb Strict Mode**: `Disabled`
-     * **Sync Binlog**: `1000`
+     * **Join Buffer Size**: `2621440`
+     * **Sort Buffer Size**: `2621440`
+     * **Sync Binlog**: `0`
      * **Transaction Isolation**: `read committed`
 
 1. If you need to use the queue server (Bitrix Push and Pull module), create a secret key for it:
@@ -88,7 +90,7 @@ The admin and product environments share these assets:
 
     Save the command output.
 
-1. If you are going to use the product environment, prepare {{ container-registry-name }} resources to push the required Docker images:
+1. If you are going to use the production environment, prepare {{ container-registry-name }} resources to push the required Docker images:
 
    1. Create a container registry:
 
@@ -115,7 +117,7 @@ The admin and product environments share these assets:
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Bitrix](/marketplace/products/yc/bitrix-env) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
-   * **Namespace**: Select the namespace you created earlier.
+   * **Namespace**: Select the namespace you created earlier for admin environment.
    * **Application name**: Specify the application name.
    * **Volume size**: Specify the [volume](../../concepts/volume.md) size for storing Bitrix files, in `Gi`.
    * **Storage class**: Select the storage class for the volume.
@@ -139,7 +141,7 @@ The admin and product environments share these assets:
      * **Email**: Git repo user email.
      * **Access key**: Specify Base64-encoded contents of the repo access public key.
 
-   * **Use cron to run agents**: Enable to run Bitrix agents on the schedule specified in `ConfigMap` `<app_name>-bitrix-space-cron`. By default, `ConfigMap` enables running agent jobs every minute, and backup jobs, every 24 hours. You can also add your own schedule.
+   * **Use cron to run agents**: Enable to run Bitrix agents on the schedule specified in `ConfigMap` `<app_name>-<namespace_for_admin_environment>-cron`. By default, `ConfigMap` enables running agent jobs every minute, and backup jobs, every 24 hours. You can also add your own schedule.
    * **Use queue server**: Enable to use a queue server (the Bitrix Push and Pull module). The `Deployment` resource for server deployment will start in a separate pod.
    * **Secret key**: If you enabled **Use queue server**, provide the secret key you created previously.
    * **Use Sphinx**: Enable to use Sphinx, a full-text search engine. The `Deployment` resource for Sphinx deplyment will start in a separate pod.
@@ -149,12 +151,9 @@ The admin and product environments share these assets:
    * **Storage class for S3**: `csi-s3`, default.
    * **S3 key ID**, **S3 secret key**: Specify the ID and secret key of the static key you [got previously](#before-you-begin).
    * **S3 bucket**: Specify the name of the {{ objstorage-name }} bucket you [created previously](#before-you-begin).
-   * **Upload directory size**: Specify the size for the upload directory in the bucket, in `Gi`.
-   * **Backup directory size**: Specify the size for the backup directory in the bucket, in `Gi`.
    * **SMTP server**, **SMTP port**, **Mailbox user**, **Mailbox password**: Specify the mail server connection properties.
-   * **{{ MY }} host**, **Database user**, **Database user password**, **Database**: Specify properties for connection to the {{ MY }} database in the {{ mmy-name }} cluster you [created previously](#before-you-begin).
-   * **NGINX version**: Select the NGINX version for Bitrix.
-   * **PHP version**: Select the PHP version for Bitrix.
+   * **{{ MY }} host**, **Database user**, **Database user password**, **Database**: Specify properties for connection to the {{ MY }} database in the {{ mmy-name }} MySQL cluster you [created previously](#before-you-begin).
+   * **PHP version**: Specify the PHP version for Bitrix. Available versions: `8.2.30`, `8.3.30`, and `8.4.18`.
    * **Use bitrixsetup.php**: Select to install Bitrix from scratch.
    * **Use restore.php**: Select to restore Bitrix from a backup.
 
@@ -174,7 +173,7 @@ The admin and product environments share these assets:
      --version {{ mkt-k8s-key.yc_bitrix-env.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace bitrix-space \
+     --namespace <namespace_for_admin_environment> \
      --set volumeSize="<Bitrix_volume_size>" \
      --set fqdn="<Bitrix_website_domain_name>" \
      --set loadBalancerIP="<load_balancer_IP_address>" \
@@ -196,23 +195,22 @@ The admin and product environments share these assets:
      --set msmtprc.user="<email_server_user_name>" \
      --set msmtprc.password="<email_server_user_password>" \
      --set push.key="<secret_key_of_Bitrix_Push_server>" \
-     --set-json 'mysql={"host":"<{{ MY }}_host_FQDN>","login":"<{{ MY }}_user_name>","password":"<{{ MY }}_user_password>","database":"<{{ MY }}_database_name>"}' \
+     --set-json 'mysql={"host":"<MySQL_host_FQDN>","login":"<MySQL_user_name>","password":"<MySQL_user_password>","database":"<MySQL_database_name>"}' \
      --set certmanager.enabled=false \
      --set tls.existingSecret="<name_of_secret_with_certificate>" \
      --set features.cache=<use_Redis_cache> .
      bitrix ./bitrix/
    ```
 
-   When using _certmanager_ to issue a certificate, instead of the `tls.existingSecret` and `certmanager.enabled=false` parameters, specify the following ones:
+   When using `certmanager` to issue a certificate, instead of the `tls.existingSecret` and `certmanager.enabled=false` parameters, specify the following ones:
 
    * `certmanager.issuer=<Issuer_or_ClusterIssuer_resource>`
    * `certmanager.email=<email_for_Lets_Encrypt_notifications>`
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Bitrix product environment, do the following:
-   1. Create a new [namespace](../../concepts/index.md#namespace) in your cluster: `bitrix-prod`.
-   1. Create a local folder named `bitrix` or, if your project is uploaded to a Git repository, clone your repository to this folder:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Bitrix production environment, proceed as follows:
+   1. If your project is uploaded to a Git repository, clone your repository to the `bitrix` folder:
 
        ```shell
        git clone <repository_SSH_URL> bitrix
@@ -223,13 +221,15 @@ The admin and product environments share these assets:
       1. Download the `bitrix-admin-php` image:
 
          ```shell
-         docker pull {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.tag }}
+         docker pull {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<PHP_version>
          ```
+
+         The possible PHP version values are `8.2.30`, `8.3.30`, and `8.4.18`.
 
       1. Tag the registry you [created earlier](#before-you-begin):
 
          ```shell
-         docker tag {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:{{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.tag }} {{ registry }}/<registry_ID>/bitrix-env/bitrix/bitrix-admin-php
+         docker tag {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<PHP_version> {{ registry }}/<registry_ID>/bitrix-env/bitrix/bitrix-admin-php
          ```
 
       1. In the `bitrix` folder home directory, create a file named `Dockerfile-php` with the following contents:
@@ -240,7 +240,7 @@ The admin and product environments share these assets:
           WORKDIR /home/bitrix/www
           ```
 
-      1. Build a Docker image to set up the product environment by running this command:
+      1. Build a Docker image to deploy the production environment by running this command:
 
          ```shell
          docker build --platform linux/amd64 \
@@ -264,7 +264,7 @@ The admin and product environments share these assets:
          --version {{ mkt-k8s-key.yc_bitrix-env.helmChart.tag }} \
          --untar && \
        helm install \
-         --namespace bitrix-prod \
+         --namespace <namespace_for_production_environment> \
          --set environment=prod \
          --set replicaCount=<number_of_Bitrix_pod_replicas> \
          --set fqdn="<Bitrix_website_domain_name>" \
@@ -293,7 +293,7 @@ The admin and product environments share these assets:
          bitrix ./bitrix/
        ```
 
-       When using _certmanager_ to issue a certificate, instead of the `tls.existingSecret` and `certmanager.enabled=false` parameters, specify the following ones:
+       When using `certmanager` to issue a certificate, instead of the `tls.existingSecret` and `certmanager.enabled=false` parameters, specify the following ones:
 
        * `certmanager.issuer="<Issuer_or_ClusterIssuer_resource>"`
        * `certmanager.email="<email_for_Lets_Encrypt_notifications>"`
@@ -307,10 +307,9 @@ To work with a repository, you need the admin environment.
 1. Connect to the pod container from the admin environment:
 
    ```shell
-   kubectl -n bitrix-space exec \
+   kubectl -n <namespace_for_admin_environment> exec \
      <bitrix_main_pod_name> \
-     -c git -it -- \
-     sh /home/bitrix/www $
+     -c git -it -- sh
    ```
 
 1. The container supports `git` commands, as well as a utility script, `/scripts/commit-all.sh`, to push all changes from the `bitrix` directory to the repo you configured in the previous steps. To use it, run this command:
@@ -321,7 +320,5 @@ To work with a repository, you need the admin environment.
 
 ## See also {#see-also}
 
+* [1C Bitrix: Web environment](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=32&LESSON_ID=29234&LESSON_PATH=3903.4862.29228.29234)
 * [Container environment for Bitrix](https://github.com/bitrix-tools/env-docker)
-* [1C Bitrix: Site Management](https://dev.1c-bitrix.ru/docs/php.php#tab-admins-link)
-* [1C Bitrix24](https://helpdesk.bitrix24.ru/)
-* [1C Bitrix: Solutions for industries](https://dev.1c-bitrix.ru/docs/solutions.php)

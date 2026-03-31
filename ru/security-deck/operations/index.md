@@ -13,6 +13,11 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./workspaces/manage-access.md).
 * [{#T}](./workspaces/delete.md).
 
+## Алерты {#alerts}
+
+* [{#T}](./alerts/view.md)
+* [{#T}](./alerts/work.md)
+
 ## Модуль контроля данных ({{ dspm-name }}) {#dspm}
 
 * [{#T}](./dspm/create-data-source.md).

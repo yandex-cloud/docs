@@ -17,6 +17,7 @@ keywords:
 * [Managing cluster hosts](cluster-hosts.md)
 * [Managing shards](shards.md)
 * [Connecting to a database](connect.md)
+* [Managing backups](cluster-backups.md)
 * [Maintenance](cluster-maintenance.md)
 * [Viewing cluster logs](cluster-logs.md)
 * [Deleting a cluster](cluster-delete.md)

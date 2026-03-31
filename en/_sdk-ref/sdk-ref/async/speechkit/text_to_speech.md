@@ -1,4 +1,4 @@
-# Domain
+# Function
 
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.function.**AsyncTextToSpeechFunction**{#yandex_ai_studio_sdk._speechkit.text_to_speech.function.AsyncTextToSpeechFunction}
 
@@ -8,7 +8,7 @@ Text to Speech function for creating synthesis object which provides methods for
 
 Creates TextToSpeech object with provides methods for voice synthesizing.
 
-To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://yandex.cloud/docs/speechkit/stt)
+To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://aistudio.yandex.ru/docs/speechkit/stt)
 
 #|
 || Parameters | 
@@ -34,21 +34,20 @@ To learn more about parameters and their formats and possible values, refer to [
 
 *async* **run**(*input*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTextToSpeech.run}
 
-Run a speech synthesis for given *text* and return joined result.
+Run a speech synthesis for given *input* and return joined result.
 
-To change initial search settings use **.configure** method:
+To change initial tts settings use **.configure** method:
 
 ```python
->>> search = sdk.speechkit.text_to_speech(audio_format='mp3')
->>> search = search.configure(audio_format='WAV')
+>>> tts = sdk.speechkit.text_to_speech(audio_format='mp3')
+>>> tts = tts.configure(audio_format='WAV')
 ```
 
 #|
 || Parameters | 
 
-- **text** – Text to vocalize.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Timeout, or the maximum time to wait for the request to complete in seconds.
-- **input** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
+- **input** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – Text to vocalize.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Timeout, or the maximum time to wait for the request to complete in seconds. ||
 || Returns | synthesis result; joined in case of >1 chunks in synthesis response. ||
 || Return type | [*TextToSpeechResult*](../../types/speechkit.md#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult) ||
 |#
@@ -157,7 +156,7 @@ Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container 
 
 **WAV** = *1*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTextToSpeech.AudioFormat.WAV}
 
-Audio bit depth 16-bit signed little-endian (Linear PCM) paked into WAV container format
+Audio bit depth 16-bit signed little-endian (Linear PCM) packed into WAV container format
 
 **OGG\_OPUS** = *2*{#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTextToSpeech.AudioFormat.OGG_OPUS}
 
@@ -270,7 +269,7 @@ Returns the new object with config fields overrode by passed values.
 
 To return set value back to default, pass *None* value.
 
-To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://yandex.cloud/docs/speechkit/stt)
+To learn more about parameters and their formats and possible values, refer to [TTS documentation](https://aistudio.yandex.ru/docs/speechkit/stt)
 
 #|
 || Parameters | 
@@ -292,10 +291,10 @@ To learn more about parameters and their formats and possible values, refer to [
 
 **create\_bistream**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=600*){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTextToSpeech.create_bistream}
 
-Creates a bidirectional stream object for using [Yandex SpeechKit Streaming synthesis](https://yandex.cloud/en/docs/speechkit/tts/api/tts-streaming).
+Creates a bidirectional stream object for using [Yandex SpeechKit Streaming synthesis](https://aistudio.yandex.ru/docs/speechkit/tts/api/tts-streaming).
 
 #|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – GRPC timeout in seconds that defines the maximum lifetime of the entire stream. The timeout countdown begins from the moment of the first stream interaction. ||
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – gRPC timeout in seconds that defines the maximum lifetime of the entire stream. The timeout countdown begins from the moment of the first stream interaction. ||
 || Return type | [*TTSBidirectionalStreamTypeT*](../../types/other.md#yandex_ai_studio_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT) ||
 |#
 
@@ -313,31 +312,12 @@ Creates a bidirectional stream object for using [Yandex SpeechKit Streaming synt
 
 Bidirectional SpeechKit TTS API which allows to write requests and read synthesized result in realtime
 
-*async* **write**(*input*){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.write}
+*async* **flush**(){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.flush}
 
-Write a input to be synthesized
+Send message to server to force synthesis with already given input
 
 #|
-|| Parameters | **input** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
 || Return type | None ||
-|#
-
-*async* **read**(){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.read}
-
-Read chunk of synthesized result.
-
-Returns **None** in case of closed stream.
-
-#|
-|| Return type | [*TextToSpeechResult*](../../types/speechkit.md#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult) \| None ||
-|#
-
-*async* **gen**(){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.gen}
-
-Returns generator over all synthesized result parts.
-
-#|
-|| Return type | [*AsyncGenerator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncGenerator)[[*TextToSpeechResult*](../../types/speechkit.md#yandex_ai_studio_sdk._speechkit.text_to_speech.result.TextToSpeechResult)] ||
 |#
 
 *async* **done\_writing**(){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.done_writing}
@@ -352,10 +332,29 @@ It is very important to close the stream to properly release resources.
 || Return type | None ||
 |#
 
-*async* **flush**(){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.flush}
+*async* **gen**(){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.gen}
 
-Send message to server to force synthesis with already given input
+Returns generator over all synthesized result parts.
 
 #|
+|| Return type | [*AsyncGenerator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.AsyncGenerator)[[*ProtoModelResultTypeT*](../../types/other.md#yandex_ai_studio_sdk._types.result.ProtoModelResultTypeT)] ||
+|#
+
+*async* **read**(){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.read}
+
+Read chunk of synthesized result.
+
+Returns **None** in case of closed stream.
+
+#|
+|| Return type | [*ProtoModelResultTypeT*](../../types/other.md#yandex_ai_studio_sdk._types.result.ProtoModelResultTypeT) \| None ||
+|#
+
+*async* **write**(*input*){#yandex_ai_studio_sdk._speechkit.text_to_speech.tts.AsyncTTSBidirectionalStream.write}
+
+Send given input into the stream.
+
+#|
+|| Parameters | **input** ([*InputTypeT*](../../types/other.md#yandex_ai_studio_sdk._speechkit.bistream.InputTypeT)) ||
 || Return type | None ||
 |#

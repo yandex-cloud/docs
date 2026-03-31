@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of Telegram bot support includes:
 
-* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to run the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 
@@ -50,8 +50,8 @@ Register your bot in Telegram and get a token.
     /newbot
     ```
 
-1. In the `name` field, enter a name for the bot, e.g., `Serverless Hello Telegram Bot`. This is the name the bot users will see.
-1. In the `username` field, specify a username for the bot, e.g., `ServerlessHelloTelegramBot`. You can use it to locate the bot in Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `name` field, enter a name for the bot, e.g., `Serverless Hello Telegram Bot`. This is the name users will see when chatting with the bot.
+1. In the `username` field, specify a username for the bot, e.g., `ServerlessHelloTelegramBot`. You can use it to find the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
     As a result, you will get a token. Save it, as you will need it later.
 
@@ -72,7 +72,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
@@ -94,7 +94,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the created bucket.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket.
   1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. In the window that opens, select `sayhello.png` from the saved archive. The management console will display the file selected for upload.
@@ -109,8 +109,8 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the created bucket.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the previously created bucket.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket.
   1. Select `sayhello.png`.
   1. Click **{{ ui-key.yacloud.storage.file.button_generate }}**.
   1. Make sure the image is accessible through the link in your browser.
@@ -126,7 +126,7 @@ Create and configure an [API gateway](../../api-gateway/concepts/index.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Name the gateway: `for-serverless-hello-telegram-bot`.
   1. Clear the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field and paste this code:
@@ -166,7 +166,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter the function name: `fshtb-function`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -233,8 +233,8 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select your folder.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the `for-serverless-hello-telegram-bot` API gateway.
   1. Update the API gateway specification by adding the `fshtb-function` section at the end of the code:
 
@@ -297,7 +297,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 
 ## Test your Telegram bot {#test-bot}
 
-Talk to the bot:
+Chat with the bot:
 
 1. Open Telegram and search for the bot using the previously created `username`.
 1. Send `/start` to the chat.

@@ -46,10 +46,10 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-     1. Enter a name for the bucket following the [naming conventions](../../storage/concepts/bucket.md#naming).
+     1. Enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
      1. Limit the maximum bucket size, if required.
      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
      1. Select the default [storage class](../../storage/concepts/storage-class.md).
@@ -69,7 +69,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
      1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
@@ -77,7 +77,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
 
      1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
      1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-     1. Wait for the database to run. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     1. Wait for the database to start. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
      1. Select the created database.
      1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it when creating functions.
 
@@ -90,7 +90,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the database.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Select the database on the **{{ ui-key.yacloud.ydb.databases.label_title }}** page.
      1. To open the database root directory, navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
      1. To query your database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner. The **{{ ui-key.yacloud.ydb.sql.label_query }}** page will open.
@@ -136,7 +136,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you created the bucket and the database.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter a name, e.g., `add-task`, and description for the function.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -226,7 +226,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
 - API {#api}
 
-  Use the [create](../../functions/functions/api-ref/Function/create.md), [createVersion](../../functions/functions/api-ref/Function/createVersion.md), and [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings.md) API methods for the [Function](../../functions/functions/api-ref/Function/index.md) resource.
+  Use the [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion), and [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) API methods for the [Function](../../functions/functions/api-ref/Function) resource.
 
 
 {% endlist %}
@@ -240,7 +240,7 @@ To enable interaction between services, create an API gateway:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created your bucket, database, and functions.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Enter a name and description for the gateway.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, add this specification:
@@ -258,7 +258,7 @@ To enable interaction between services, create an API gateway:
              bucket: <bucket>
              object: index.html
              presigned_redirect: false
-             service_account: <service_account>
+             service_account_id: <service_account_ID>
            operationId: static
        /add:
           post:
@@ -283,7 +283,7 @@ To enable interaction between services, create an API gateway:
        Where:
 
        * `bucket`: Name of the bucket containing `index.html`.
-       * `service_account`: ID of the service account you created when [setting up your environment](#prepare).
+       * `service_account_id`: ID of the service account you created when [setting up your environment](#prepare).
        * `/add` section, `function_id` parameter: `add-task` function ID.
        * `/list` section, `function_id` parameter: `list-tasks` function ID.
        * `/delete` section, `function_id` parameter: `delete-task` function ID.
@@ -307,7 +307,7 @@ To enable interaction between services, create an API gateway:
              bucket: <bucket>
              object: index.html
              presigned_redirect: false
-             service_account: <service_account>
+             service_account_id: <service_account_ID>
            operationId: static
        /add:
          post:
@@ -332,7 +332,7 @@ To enable interaction between services, create an API gateway:
      Where:
 
      * `bucket`: Name of the bucket containing `index.html`.
-     * `service_account`: ID of the service account you created when [setting up your environment](#prepare).
+     * `service_account_id`: ID of the service account you created when [setting up your environment](#prepare).
      * `/add` section, `function_id` parameter: `add-task` function ID.
      * `/list` section, `function_id` parameter: `list-tasks` function ID.
      * `/delete` section, `function_id` parameter: `delete-task` function ID.

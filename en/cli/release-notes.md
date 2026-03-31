@@ -7,13 +7,44 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.199.0 (12/03/26) {#version0.199.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.199.0}
+
+##### {{ mch-name }} {#mch-01.199.0}
+
+You can now specify the host type in the `managed-clickhouse cluster add-zookeeper` command:
+
+* `yc managed-clickhouse cluster add-zookeeper --host type=<host_type>`
+
+##### {{ mpg-name }} {#mpg-01.199.0}
+
+* Removed obsolete and unsupported {{ PG }} versions: 9.6, 10, 10-1c, 11, 11-1c, 12, 12-1c.
+* When creating a {{ mpg-name }} cluster with the `yc managed-postgresql cluster create` command, version 16 is used by default.
+
+## Previous releases {#previous-release}
+
+### Version 0.198.0 (09/03/26) {#version0.198.0}
+
+#### Changes to the CLI {#cli} {#cli-0.198.0}
+
+Fixed an issue related to checking for updates.
+
+#### Changes to {{ yandex-cloud }} services {#services-0.198.0}
+
+##### {{ compute-name }} {#compute-0.198.0}
+
+Added the `--os-nvidia-driver` flag to the `yc compute image create` command to specify the NVIDIA driver version when creating a VM:
+
+* `yc compute image create --os-nvidia-driver <nvidia-driver>`
+
 ### Version 0.197.0 (05/03/26) {#version0.197.0}
 
 #### Changes to {{ yandex-cloud }} services {#services-0.197.0}
 
 ##### {{ alb-name }} {#alb-0.197.0}
 
-Supported client certificates in the following commands:
+Added support for client certificates in the following commands:
 * `yc application-load-balancer add-listener`
 * `yc application-load-balancer add-http-listener`
 * `yc application-load-balancer add-stream-listener`
@@ -43,7 +74,7 @@ Added options for managing secondary private subnets to the following commands:
 
 ##### {{ dns-name }} {#dns-0.197.0}
 
-Supported DNS record descriptions in the following commands:
+Added support for DNS record descriptions to the following commands:
 * `yc dns zone list-records`
 * `yc dns zone add-records`
 * `yc dns zone delete-records`
@@ -67,10 +98,8 @@ Added support for the `--parameters` flag to the following commands:
 
 ##### {{ vpc-name }} {#vpc-0.197.0}
 
-* Added the `--internal-ipv4 subnet=<subnet>` parameter to the `yc vpc address create` command to enable creating internal IPv4 addresses.
+* The `yc vpc address create` command now supports creating internal IPv4 addresses using the `--internal-ipv4 subnet=<subnet>` parameter.
 * `yc vpc address` now supports the `list-by-subnet` command to list addresses by subnet: `yc vpc address list-by-subnet --subnet-id <subnet-id>`.
-
-## Previous releases {#previous-release}
 
 ### Version 0.196.0 (02/03/26) {#version0.196.0}
 
@@ -95,7 +124,7 @@ Added support for the `labels` parameter.
 
 
 ##### {{ mmg-name }}
-Added autoscaling and maintenance window settings for the `create` and `restore` commands.
+Added autoscaling and maintenance window settings for the `create` and `restore` commands:
 * `yc managed-mongodb cluster create`
 * `restore --maintenance-window --disk-size-autoscaling`
 
@@ -104,7 +133,7 @@ Added autoscaling and maintenance window settings for the `create` and `restore`
 * Added autoscaling and maintenance window settings for the `create` and `restore` commands:
   * `yc managed-postgresql cluster create`
   * `restore --maintenance-window --disk-size-autoscaling`
-* Removed the flag for disabling autofailover.
+* Removed the autofailover disable flag.
 
 ##### {{ mrd-name }}
 Added autoscaling and maintenance window settings for the `create` and `restore` commands:
@@ -121,15 +150,16 @@ Added the `--reserved-instance-pool-id` and `--variables` parameters to the Node
 #### Changes in {{ yandex-cloud }} services
 
 ##### {{ mmg-name }}
-* Added autoscaling and maintenance window settings for the `create` and `restore` commands:
-  * yc managed-mongodb cluster create
-  * restore --maintenance-window --disk-size-autoscaling
 
+Added autoscaling and maintenance window settings for the `create` and `restore` commands:
+* `yc managed-mongodb cluster create`
+* `restore --maintenance-window --disk-size-autoscaling`
 
 ##### {{ mrd-name }}
-* Added autoscaling and maintenance window settings for the `create` and `restore` commands:
-  * yc managed-redis cluster create
-  * restore --maintenance-window --disk-size-autoscaling
+
+Added autoscaling and maintenance window settings for the `create` and `restore` commands:
+* `yc managed-redis cluster create`
+* `restore --maintenance-window --disk-size-autoscaling`
 
 ### Version 0.194.0 (19/02/26) {#version0.194.0}
 
@@ -205,7 +235,7 @@ The below node group management commands now support the `--enable-workload-iden
 #### Changes in {{ yandex-cloud }} services
 
 ##### {{ connection-manager-name }}
-Added the `--secret-folder-id` flag for connection create commands, i.e., `yc metadata-hub connection-manager connection create`.
+Added the `--secret-folder-id` flag for connection create commands, `yc metadata-hub connection-manager connection create`.
 
 ##### {{ sw-name }}
 Fixed the cron expression example for a schedule: 
@@ -462,7 +492,7 @@ Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb 
 
 ##### {{ ig-name }}
 
-* Added commands to manage the zonal shift in {{ ig-name }}:
+* Added commands to manage the zonal shift mode in {{ ig-name }}:
   * `yc compute instance-group disable-zones`
   * `yc compute instance-group enable-zones`
 
@@ -1928,7 +1958,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Changes to the CLI {#cli}
 
-* Added the global `--jq` parameter. It is used for filtering and converting the output with the help of jq templates. Examples:
+* Added the global `--jq` parameter. It is used for filtering and converting the output with the help of jq templates. Here are some examples:
   * `yc iam role list --jq '.[].id'`
   * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
 
@@ -2819,7 +2849,7 @@ Fixed the `yc compute instance-group update` command issue where the instance gr
 
 ##### {{ kms-name }} {#kms}
 
-* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../kms/).
+* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The feature is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../kms/).
 
 ### Version 0.107.0 (15/06/23) {#version0.107.0}
 
@@ -3989,7 +4019,7 @@ Added support for {{ org-full-name }}.
 
 ##### {{ sf-name }} {#serverless-functions}
 
-* `yc serverless trigger create` command
+* `yc serverless trigger create` command.
 
   The `--invoke-container-name`, `--invoke-container-id`, and `--invoke-container-path` parameters allow you to specify the {{ serverless-containers-name }} for the trigger.
 
@@ -4041,7 +4071,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 #### {{ dataproc-name }} {#dataproc}
 
-* `yc dataproc job create-<JOB-TYPE>` command
+* `yc dataproc job create-<JOB-TYPE>` command.
 
   Now, after starting a job, its execution log is displayed in the terminal.
 
@@ -4121,7 +4151,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 **{{ mrd-full-name }}**
 
-* `yc managed-redis cluster create` command
+* `yc managed-redis cluster create` command.
 
   Added the `--disk-type-id [local-ssd|network-ssd]` parameter for disk type selection.
 
@@ -4220,7 +4250,7 @@ Added commands for managing the allowed IP addresses for pushing and pulling Doc
 
 **{{ mrd-full-name }}**
 
-* `yc managed-redis cluster create` command
+* `yc managed-redis cluster create` command.
 
   Added the `--enable-tls` flag, which allows you to enable TLS when creating a {{ RD }} cluster.
 
@@ -4363,7 +4393,7 @@ Added primary support for {{ mkf-name }}:
 
 **{{ mmy-name }}, {{ mpg-name }}**
 
-* `yc <managed DB service name> cluster update` command
+* `yc <managed DB service name> cluster update` command.
 
   Added the `--websql-access` flag to manage access from the [management console]({{ link-console-main }}).
 
@@ -4399,14 +4429,14 @@ Added primary support for {{ mkf-name }}:
 
 **{{ mmy-name }}**
 
-* `yc managed-mysql user grant-permission` command
+* `yc managed-mysql user grant-permission` command.
 
   Added the `--permissions` parameter supporting `ALL_PRIVILEGES` (synonymous to `ALL`).
 
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command
+* `yc managed-kubernetes cluster create` command.
 
   Added the `--cluster-ipv6-range`, `--dual-stack`, and `--service-ipv6-range` flags that allow you to create {{ k8s }} clusters with concurrent use of IPv4 and IPv6.
 * `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands.
@@ -4576,7 +4606,7 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 **{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-full-name }}, {{ mmg-name }}**
 
-* `yc <managed DB service name> cluster update` command
+* `yc <managed DB service name> cluster update` command.
 
   Added the `--maintenance-window-anytime` and `--maintenance-window-weekly` parameters to specify maintenance window parameters. They will be used to schedule cluster maintenance.
 * Added the `yc <managed DB service name> cluster reschedule-maintenance` command to manage a scheduled cluster maintenance job.
@@ -4595,7 +4625,7 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 ##### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command
+* `yc managed-kubernetes cluster create` command.
 
   The `--version` parameter value is now used correctly when creating a regional cluster.
 
@@ -4727,7 +4757,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes node-group create` command
+* `yc managed-kubernetes node-group create` command.
 
   Changed the default platform and number of cores used when creating a node group. The Intel Cascade Lake (`standard-v2`) platform is now used in a dual-core (`cores: 2`) configuration.
 
@@ -4770,7 +4800,7 @@ Added support for {{ api-gw-full-name }}.
 
 **{{ mrd-full-name }}**
 
-* `yc managed-redis host list` command
+* `yc managed-redis host list` command.
 
   The output now includes columns with the `type` and `shard_name` values.
 
@@ -4801,7 +4831,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command
+* `yc managed-kubernetes cluster create` command.
 
   Added the `--node-ipv4-mask-size` parameter to configure the size of `CIDR` allocated to each cluster node.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
@@ -4813,7 +4843,7 @@ Added support for {{ api-gw-full-name }}.
 
 **{{ mch-name }}, {{ mpg-name }}, {{ mmy-name }}**
 
-* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster restore`, and `yc <managed DB service name> host add` commands
+* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster restore`, and `yc <managed DB service name> host add` commands.
 
   Added the `subnet-name` property to the `--host` parameter to specify a subnet by name.
 
@@ -4826,10 +4856,10 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ coi }} {#coi}
 
-* `yc compute instance create-with-container` command
+* `yc compute instance create-with-container` command.
 
   Added mounting of `docker volumes` into a Docker container created in {{ coi }} by using the `container-volume-tmpfs` and `container-volume-host-path` parameters.
-* `yc compute instance update-container` command
+* `yc compute instance update-container` command.
 
   Now you can update `docker volumes` in a Docker container created in {{ coi }}.
 
@@ -4847,7 +4877,7 @@ Added support for {{ api-gw-full-name }}.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command
+* `yc managed-kubernetes cluster create` command.
 
   Added the `--kms-key-id` and `--kms-key-name` parameters for creating a {{ k8s }} cluster with secret encryption in KMS.
 
@@ -4940,10 +4970,10 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command
+* `yc managed-kubernetes cluster create` command.
 
   Added the `--enable-network-policy` flag to create a {{ k8s }} cluster with [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) support.
-* `yc k8s cluster get-credentials` command
+* `yc k8s cluster get-credentials` command.
 
   Added the `--context-name` parameter allowing the user to specify the name of the `context` created in `kubeconfig`.
 
@@ -4963,7 +4993,7 @@ Added support for {{ api-gw-full-name }}.
   Added an option to provide resource names as command arguments. Now the `yc <service> <resource> create --name <resource name>` and `yc <service> <resource> create <resource name>` commands are equal.
 
   For example, instead of the `yc managed-kubernetes cluster create --name my-cluster ...` command, you can now use the `yc managed-kubernetes cluster create my-cluster ...` command.
-* ` yc <service> <resource> set-access-binding` commands
+* ` yc <service> <resource> set-access-binding` commands.
 
   Added a warning that the command is going to delete assigned roles. If the user runs the command directly (rather than using another command or script), they are asked for confirmation.
 
@@ -4994,13 +5024,13 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes node-group create` command
+* `yc managed-kubernetes node-group create` command.
 
   Added the `--auto-scale` flag allowing to create a dynamic-size node group controlled by [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler#cluster-autoscaler).
 
 #### {{ compute-name }} {#compute}
 
-* `yc compute instance create` command
+* `yc compute instance create` command.
 
   If you set the `--gpus` flag, the `gpu-standard-v1` platform is automatically selected.
 
@@ -5044,7 +5074,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * `yc compute instance create` and `yc compute instance update` commands.
 
   The platform parameter is renamed from `--platform-id` to `--platform`. The old flag name is still supported.
-* `yc compute instance create` command
+* `yc compute instance create` command.
 
   The SSH key added using the `--ssh-key` parameter is now saved to the metadata with the `ssh-keys` key instead of `ec2-user-data`.
 
@@ -5074,7 +5104,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **{{ mrd-full-name }}**
 
-* `{{ yc-mdb-rd }} cluster update` command
+* `{{ yc-mdb-rd }} cluster update` command.
 
   Added renaming a cluster using the `--new-name` parameter.
 
@@ -5231,19 +5261,19 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ container-registry-name }} {#container-registry}
 
-* `yc compute instance create-with-container` command
+* `yc compute instance create-with-container` command.
 
   The `--create-boot-disk` parameter no longer supports `snapshot-*` properties.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command
+* `yc managed-kubernetes cluster create` command.
 
   Added parameters for master type management: `--regional`, `--region`, and `--master-location`.
 * `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands.
 
   Added parameters for maintenance policy management: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
-* `yc managed-kubernetes node-groups update` command
+* `yc managed-kubernetes node-groups update` command.
 
   Added parameters for maintenance policy management: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
 
@@ -5265,13 +5295,13 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **All managed database services**
 
-* `yc <managed DB service name> create clusters` command
+* `yc <managed DB service name> create clusters` command.
 
   Added the following default value for the `--*resource-preset` parameter: s2.micro.
 
 **{{ mmg-name }}**
 
-* `{{ yc-mdb-mg }} create clusters` command
+* `{{ yc-mdb-mg }} create clusters` command.
 
   For the `--mongodb-version` parameter, changed the default value from 3.6 to 4.0.
 
@@ -5342,10 +5372,10 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **{{ mpg-name }}**
 
-* `{{ yc-mdb-pg }} cluster update` command
+* `{{ yc-mdb-pg }} cluster update` command.
 
   Added the `--connection-pool-discard` flag to disable the connection pooler.
-* `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update` commands
+* `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update` commands.
 
   You can now specify a login and set user access permissions using the `--login` and `--grants` parameters.
 
@@ -5497,13 +5527,13 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * `yc compute instance update` command.
 
   Added the `--service-account-id` and `--service-account-name` parameters to add or change a service account for an existing VM.
-* `yc compute instance create` command
+* `yc compute instance create` command.
 
   Changed the default number of cores used when creating a VM based on Intel Cascade Lake (`standard-v2`). Now it is `cores: 2`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster update` command
+* `yc managed-kubernetes cluster update` command.
 
   Added the `--default-gateway-v4-address` flag, which allows you to update the gateway address for an existing {{ k8s }} cluster.
 
@@ -5523,7 +5553,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ compute-name }} {#compute-cloud}
 
-* `yc compute instance create` command
+* `yc compute instance create` command.
 
   Added the `--gpus` parameter to specify the number of GPUs for a virtual machine.
 

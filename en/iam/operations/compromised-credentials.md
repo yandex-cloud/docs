@@ -5,7 +5,9 @@ description: In this tutorial, you will learn what you should do if your secrets
 
 # Handling secrets that are available in the public domain
 
-{{ yandex-cloud }} automatically [searches for publicly available secrets](../../security/operations/search-secrets.md). Keep track of how secrets are used to ensure the safety of your data and infrastructure. If your secrets are compromised:
+{{ yandex-cloud }} automatically [searches for publicly available secrets](../../security/operations/search-secrets.md). If a secret is exposed publicly, the organization owner or user indicated as the {{ iam-name }} notification recepient in the organization settings will get an email from the {{ yandex-cloud }} support address. Keep track of how secrets are used to ensure the safety of your data and infrastructure.
+
+If your secrets are compromised:
 
 1. [Revoke and reissue secrets](#revoke-credentials).
 1. [Check for any unauthorized actions](#searching-unauthorized-access).

@@ -77,7 +77,7 @@ You can configure a bucket:
   `WebsiteConfiguration` | Top-level header of the website description.
   `RedirectAllRequestsTo` | Contains the configuration for redirecting all requests.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo`.
   `HostName` | Host to which all requests to the bucket are redirected.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
-  `Protocol` | Protocol used for redirects: `http` or `https`. This is an optional parameter.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
+  `Protocol` | Protocol used for redirects: `http` or `https`. Optional element.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
 
 - For conditional redirects
 
@@ -113,15 +113,15 @@ You can configure a bucket:
   `IndexDocument/Suffix` | Website home page.
   `ErrorDocument/Key` | Document the user sees in case of `4xx` errors.
   `RoutingRules` | `RoutingRule` container.<br/>It must include at least one rule.
-  `RoutingRule` | Routing rule.<br/>It defines the conditions and conditional redirects.
-  `Condition` | Container of conditions to trigger the redirect.<br/>If a routing rule does not contain any conditions, all requests are redirected.<br/>The container must include at least one rule.
-  `KeyPrefixEquals` | This condition sets the name prefix for the object the requests are redirected from.<br/>`KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not set. If `KeyPrefixEquals` and `HttpErrorCodeReturnedEquals` are set, the condition is met when both the parameters are `true`.
+  `RoutingRule` | Routing rule.<br/>Defines the conditions and conditional redirects.
+  `Condition` | Container of conditions to trigger the redirect. If a routing rule does not contain any conditions, all requests are redirected.<br/>If a request matches the conditions of multiple redirect rules, the last matching one will apply regardless of how closely the object key matches the condition prefix.<br/>The container must include at least one rule.
+  `KeyPrefixEquals` | This condition sets the key prefix for the object the requests are redirected from.<br/>`KeyPrefixEquals` is required if `HttpErrorCodeReturnedEquals` is not set. If `KeyPrefixEquals` and `HttpErrorCodeReturnedEquals` are set, the condition is met when both the parameters are `true`.
   `HttpErrorCodeReturnedEquals` | This condition specifies the error code that triggers a redirect.<br/>`HttpErrorCodeReturnedEquals` is required if `KeyPrefixEquals` is not set. If `KeyPrefixEquals` and `HttpErrorCodeReturnedEquals` are set, the condition is met when both the parameters are `true`.
-  `Redirect` | Redirect container.<br/>You can redirect a request to a different page, different host, or change the protocol.<br/>`RoutingRule` must contain at least one `Redirect` element.<br/>A redirect must contain at least one of the following elements: `Protocol`, `HostName`, `ReplaceKeyPrefixWith`, `ReplaceKeyWith`, or `HttpRedirectCode`.
+  `Redirect` | Redirect container.<br/>You can redirect a request to a different page, different host, or change the protocol.<br/>`RoutingRule` must contain at least one `Redirect` element.<br/>The redirect must contain at least one of the following elements: `Protocol`, `HostName`, `ReplaceKeyPrefixWith`, `ReplaceKeyWith`, or `HttpRedirectCode`.
   `Protocol` | In the `Location` header of the response, a redirect indicates which protocol, `http` or `https`, should be used.<br/>This parameter is optional if other redirects apply.
-  `HostName` | In the `Location` response header, the redirect indicates the host name to use.<br/>This parameter is optional if other redirects apply.
-  `ReplaceKeyPrefixWith` | The redirect specifies the object key name prefix to replace the `KeyPrefixEquals` value in the redirect request.<br/>It is incompatible with `ReplaceKeyWith`.<br/>This parameter is optional if other redirects apply.
-  `ReplaceKeyWith` | The redirect specifies the object key to use in the `Location` header.<br/>It is incompatible with `ReplaceKeyPrefixWith`.<br/>This parameter is optional if other redirects apply.
+  `HostName` | In the `Location` response header, a redirect indicates the host name to be used.<br/>This parameter is optional if other redirects apply.
+  `ReplaceKeyPrefixWith` | The redirect specifies the object key prefix to replace the `KeyPrefixEquals` value in the redirect request.<br/>Incompatible with `ReplaceKeyWith`.<br/>This parameter is optional if other redirects apply.
+  `ReplaceKeyWith` | The redirect specifies the object key to use in the `Location` header.<br/>Incompatible with `ReplaceKeyPrefixWith`.<br/>This parameter is optional if other redirects apply.
   `HttpRedirectCode` | In the `Location` response header, the redirect specifies the `HTTP redirect code`.<br/>The possible value is any `3xx` code.<br/>This parameter is optional if other redirects apply.
 
 {% endlist %}

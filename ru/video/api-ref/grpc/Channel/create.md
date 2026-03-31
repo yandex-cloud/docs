@@ -33,6 +33,9 @@ Creates a new channel in the specified organization.
       "allowed_domains": [
         "string"
       ]
+    },
+    "video": {
+      "show_source_file_before_transcoding": "bool"
     }
   }
 }
@@ -87,6 +90,9 @@ If not specified, default advertisement settings are applied. ||
 Settings for HTTP Referer verification to control content embedding.
 Restricts which domains can embed content from this channel.
 If not specified or disabled, content can be embedded on any domain. ||
+|| video | **[ChannelVideoSettings](#yandex.cloud.video.v1.ChannelVideoSettings)**
+
+Settings for displaying video ||
 |#
 
 ## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings}
@@ -154,6 +160,19 @@ Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
 Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#
 
+## ChannelVideoSettings {#yandex.cloud.video.v1.ChannelVideoSettings}
+
+Settings for displaying video
+
+#|
+||Field | Description ||
+|| show_source_file_before_transcoding | **bool**
+
+Instruct the player to allow playback of the raw source file while
+transcoding is in progress. Once a transcoded version is available,
+the source file will no longer be used. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -193,6 +212,9 @@ Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[
         "allowed_domains": [
           "string"
         ]
+      },
+      "video": {
+        "show_source_file_before_transcoding": "bool"
       }
     }
   }
@@ -333,6 +355,9 @@ If not specified, default advertisement settings are applied. ||
 Settings for HTTP Referer verification to control content embedding.
 Restricts which domains can embed content from this channel.
 If not specified or disabled, content can be embedded on any domain. ||
+|| video | **[ChannelVideoSettings](#yandex.cloud.video.v1.ChannelVideoSettings2)**
+
+Settings for displaying video ||
 |#
 
 ## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings2}
@@ -398,4 +423,17 @@ Only relevant when enable is set to true.
 Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
 
 Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
+|#
+
+## ChannelVideoSettings {#yandex.cloud.video.v1.ChannelVideoSettings2}
+
+Settings for displaying video
+
+#|
+||Field | Description ||
+|| show_source_file_before_transcoding | **bool**
+
+Instruct the player to allow playback of the raw source file while
+transcoding is in progress. Once a transcoded version is available,
+the source file will no longer be used. ||
 |#

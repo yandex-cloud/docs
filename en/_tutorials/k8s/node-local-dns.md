@@ -88,6 +88,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 ### Set up your environment {#prepare-env}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}

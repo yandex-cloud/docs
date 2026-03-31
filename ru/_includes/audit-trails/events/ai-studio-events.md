@@ -8,6 +8,7 @@
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса
 `dedicated_instance.UpdateDedicatedInstance` | Изменение выделенного инстанса
+`guardrails.ChangeDefaultGuardrail` | Изменение системного правила модерации
 `guardrails.CreateDictionary` | Создание [словаря] фраз и регулярных выражений в [правиле модерации]
 `guardrails.CreateGuardrail` | Создание правила модерации
 `guardrails.DeleteDictionary` | Удаление словаря фраз и регулярных выражений из правила модерации

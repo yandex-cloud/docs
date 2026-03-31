@@ -24,9 +24,9 @@ keywords:
 
 1. Установите пакет `pyspark` и [необходимые зависимости](https://spark.apache.org/docs/3.5.6/api/python/getting_started/install.html#dependencies) в вашем окружении с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/).
 
-   {% note info %}
+   {% note warning %}
 
-   В настоящее время поддерживается подключение только с версией PySpark `3.5.6`.
+   Версия PySpark в вашем окружении должна соответствовать версии {{ SPRK }} в кластере. В настоящее время поддерживается подключение с версиями PySpark `3.5.6` и `3.5.7`.
 
    {% endnote %}
 

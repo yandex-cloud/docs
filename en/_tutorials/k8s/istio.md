@@ -37,10 +37,10 @@ The support cost for this solution includes:
 
         1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
         1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ k8s }} cluster and node group will reside.
-        1. [Create service accounts](../../iam/operations/sa/create.md):
+        1. [Create these service accounts](../../iam/operations/sa/create.md):
 
             * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ k8s }} cluster. This service account will be used to create resources for your {{ k8s }} cluster.
-            * Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md). The nodes will use this account to pull the required [Docker images](../../container-registry/concepts/docker-image.md) from the [registry](../../container-registry/concepts/registry.md).
+            * Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md). Nodes will use this account to pull the required [Docker images](../../container-registry/concepts/docker-image.md) from the [registry](../../container-registry/concepts/registry.md).
 
             {% note tip %}
 
@@ -71,7 +71,7 @@ The support cost for this solution includes:
 
                 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-        1. Specify the following in `k8s-cluster.tf`:
+        1. In the `k8s-cluster.tf` file, specify the following:
 
             * [Folder ID](../../resource-manager/operations/folder/get-id.md).
             * {{ k8s }} version for the {{ k8s }} cluster and node groups.
@@ -79,13 +79,13 @@ The support cost for this solution includes:
             * {{ k8s }} cluster CIDR.
             * Name of the {{ managed-k8s-name }} cluster service account.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -94,6 +94,8 @@ The support cost for this solution includes:
             {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
     {% endlist %}
+
+    {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

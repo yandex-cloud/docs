@@ -107,6 +107,8 @@ Public API access is on to manage the {{ k8s }} auxiliary services with the help
 
 The infrastructure uses the managed {{ alb-name }} solution for web app load balancing. {{ managed-k8s-name }} dynamically creates the {{ alb-name }} [L7 load balancer](../application-load-balancer/concepts/application-load-balancer.md) with the help of [Ingress](../managed-kubernetes/alb-ref/ingress.md) objects. The {{ alb-name }} [ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md) monitors changes to Ingress objects and modifies the relevant load balancer settings, including its creation and deletion. Ingress is part of the app installation [Helm chart](https://helm.sh/docs/topics/charts/).
 
+{% include [note-alb](../_includes/managed-kubernetes/note-alb.md) %}
+
 {{ alb-name }} is integrated with [{{ certificate-manager-full-name }}](../certificate-manager/index.yaml), a service that automatically gets your [Let's Encrypt](https://letsencrypt.org) certificates for you.
 
 ## Scaling features and modifications {#scaling-features}

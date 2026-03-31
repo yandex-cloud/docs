@@ -1,11 +1,11 @@
-To set up the [maintenance window](../../../../managed-mysql/concepts/maintenance.md) that will also apply to disabled clusters, add the `maintenance_window` section to the cluster description:
+To set up the [maintenance window](../../../../managed-mysql/concepts/maintenance.md) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
 ```hcl
 resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
   ...
   maintenance_window {
-    type = <maintenance_type>
-    day  = <day_of_week>
+    type = "<maintenance_type>"
+    day  = "<day_of_week>"
     hour = <hour>
   }
   ...

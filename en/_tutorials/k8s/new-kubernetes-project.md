@@ -53,6 +53,8 @@ The support cost for this solution includes:
      --zone {{ region-id }}-a
    ```
 
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 ### Register a domain zone and add a certificate {#register-domain}
 
 1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
@@ -309,7 +311,7 @@ To access {{ container-registry-name }}, [add a rule](../../managed-kubernetes/o
 
 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Create {{ k8s }} resources {#create-k8s-res}
+## Set up {{ k8s }} resources {#create-k8s-res}
 
 {% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
@@ -516,7 +518,7 @@ To set up an [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), 
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for the resources you no longer need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 

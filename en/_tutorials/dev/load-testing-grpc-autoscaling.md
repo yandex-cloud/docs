@@ -1,7 +1,7 @@
-# Deploying and load testing a gRPC service with scaling in {{ managed-k8s-full-name }}
+# Deploying and load testing a scalable gRPC service in {{ managed-k8s-full-name }}
 
 
-Follow this tutorial to deploy an autoscaling [gRPC](https://grpc.io/docs/) service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
+Follow this tutorial to deploy an autoscalable gRPC service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 
 {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
@@ -353,7 +353,7 @@ This tutorial will use a gRPC service as a test target.
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. If you had set up [CNAME records](../../dns/concepts/resource-record.md#cname) in {{ dns-name }}, [delete the DNS zone](../../dns/operations/zone-delete.md).
 1. [Delete the L7 load balancer](../../application-load-balancer/operations/application-load-balancer-delete.md).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

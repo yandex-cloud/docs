@@ -1,3 +1,8 @@
+---
+title: Supported tools for working with {{ cns-name }}
+description: List of supported tools for working with {{ cns-name }}.
+---
+
 # Supported tools
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}

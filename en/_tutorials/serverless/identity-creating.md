@@ -91,11 +91,11 @@ To create an infrastructure using {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-postbox-tf.git
         ```
 
-     1. Navigate to the repository directory. Make sure it contains the following files:
+     1. Navigate to the repository directory. It should now contain the following files:
         * `postbox-email-identity.tf`: New infrastructure configuration
         * `postbox-email-identity.auto.tfvars`: User data file
 
-   Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:
+   Learn more about the properties of {{ TF }} resources in the relevant provider guides:
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
    * [Assigning access permissions](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
@@ -136,7 +136,7 @@ After creating the infrastructure, [test the service](#test).
 
 Make sure the address was successfully created and send a test email:
 1. In the [management console]({{ link-console-main }}), select the folder where you created the address.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Select the address you created and make sure the test status on the address page has changed to `Success`.
 1. [Send](../../postbox/operations/send-email.md) a test email.
 

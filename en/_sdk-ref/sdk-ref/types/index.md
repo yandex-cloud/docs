@@ -6,7 +6,7 @@
 - [Tuning](tuning.md)
 - [Result types for models](model_results.md)
 - [Datasets](datasets.md)
-- [Search API](search_api.md)
+- [Yandex Search API](search_api.md)
 - [Messages](message.md)
 - [Run types](runs.md)
 - [Search index types](search_indexes.md)

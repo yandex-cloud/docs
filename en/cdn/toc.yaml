@@ -53,6 +53,8 @@ items:
             href: operations/resources/labeling.md
           - name: Configuring dedicated IP addressing
             href: operations/resources/dedicated-ip-addressing.md
+          - name: Configuring a TLS profile
+            href: operations/resources/configure-tls-profile.md
           - name: Deleting a resource
             href: operations/resources/delete-resource.md
           - name: Viewing resource statistics
@@ -142,7 +144,7 @@ items:
             href: concepts/origins-shielding.md
           - name: Following request redirects
             href: concepts/follow-redirects.md
-          - name: Hiding origin headers
+          - name: Hiding of origin headers
             href: concepts/hiding-headers.md
       - name: Request redirect
         href: concepts/http-rewrite.md

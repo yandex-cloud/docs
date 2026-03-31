@@ -48,6 +48,9 @@ To get started with {{ managed-k8s-name }}:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: To create a single master host in the selected availability zone. Specify the cloud network and select the subnet for the master host.
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: To create a single master host in each availability zone. Specify the cloud network and subnet for each availability zone.
+
+     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
    * Select [security groups](operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify the IP address range to allocate addresses to [pods](concepts/index.md#pod) from.
@@ -101,6 +104,9 @@ To create a {{ managed-k8s-name }} node group:
 
    * Select [security groups](operations/connect/security-groups.md).
    * Select the availability zone and subnet to place the {{ managed-k8s-name }} group nodes in.
+
+     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the access credentials for the {{ managed-k8s-name }} group nodes over SSH:
    * **{{ ui-key.yacloud.compute.instances.create.field_user }}**: Enter the username.
    * **{{ ui-key.yacloud.compute.instances.create.field_key }}**: Paste the contents of the [public key](operations/node-connect-ssh.md#creating-ssh-keys) file.

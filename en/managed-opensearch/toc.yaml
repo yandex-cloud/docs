@@ -61,6 +61,8 @@ items:
     items:
       - name: Configuring an index policy in {{ mos-name }}
         href: tutorials/opensearch-index-policy.md
+      - name: Configuring a cold storage policy in {{ mos-name }}
+        href: tutorials/opensearch-cold-storage-policy.md
       - name: Uploading logs from {{ at-name }}
         hidden: true
         href: tutorials/trails-to-opensearch.md

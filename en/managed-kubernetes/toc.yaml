@@ -141,11 +141,16 @@ items:
           - name: Managing access to a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
           - name: >-
+              Supporting an {{ iam-short-name }} workload identity federation in
+              a {{ k8s }} cluster
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md
+          - name: >-
               Getting a list of available master configurations in a {{ k8s }}
               cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md
-          - name: Monitoring cluster health status {{ k8s }}
+          - name: Cluster health state monitoring {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md

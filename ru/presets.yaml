@@ -382,6 +382,7 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  messenger-full-name: Яндекс Мессенджер
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
@@ -2374,9 +2375,16 @@ default:
         egress|number: 5.369143105
         egress|string: "5,369143105\_₸"
     transcoding:
+      live:
+        v1|number: 13.24356033
+        v1|string: "13,24356033\_₸"
       vod:
         v1|number: 5.592857401
         v1|string: "5,592857401\_₸"
+    used_space:
+      live:
+        v1|number: 0.015632495
+        v1|string: "0,015632495\_₸"
   sku|KZT|ydb:
     v1:
       serverless:
@@ -2392,14 +2400,6 @@ default:
       128k:
         12h|number: 0.745714269
         12h|string: "0,745714269\_₸"
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: "119,575291231\_₸"
-        requests|string: Не тарифицируется
-        storage|pricingRate:
-          720|string: "0,166076742\_₸"
-        storage|string: Не тарифицируется
   sku|KZT|yq:
     network:
       ingress:
@@ -2955,9 +2955,16 @@ default:
         egress|number: 1.05408
         egress|string: "1,05408\_₽"
     transcoding:
+      live:
+        v1|number: 2.6
+        v1|string: "2,6\_₽"
       vod:
         v1|number: 1.098
         v1|string: "1,098\_₽"
+    used_space:
+      live:
+        v1|number: 0.003069
+        v1|string: "0,003069\_₽"
   sku|RUB|ydb:
     v1:
       serverless:
@@ -2973,14 +2980,6 @@ default:
       128k:
         12h|number: 0.14639999
         12h|string: "0,14639999\_₽"
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: "23,47524\_₽"
-        requests|string: Не тарифицируется
-        storage|pricingRate:
-          720|string: "0,03260449\_₽"
-        storage|string: Не тарифицируется
   sku|RUB|yq:
     network:
       ingress:
@@ -3516,9 +3515,16 @@ default:
         egress|number: 0.008639999
         egress|string: "0,008639999\_$"
     transcoding:
+      live:
+        v1|number: 0.021311472
+        v1|string: "0,021311472\_$"
       vod:
         v1|number: 0.008999999
         v1|string: "0,008999999\_$"
+    used_space:
+      live:
+        v1|number: 0.000025156
+        v1|string: "0,000025156\_$"
   sku|USD|ydb:
     v1:
       serverless:
@@ -3861,6 +3867,7 @@ default:
           exports:
             button_create-periodic-export: Создать регулярный экспорт
             button_open-yandex-query: Обработать в YQ
+            button_resume-export: Возобновить
             field_bucket: Бакет
             field_detail-type: Детализация
             field_locale: Язык
@@ -3968,7 +3975,7 @@ default:
           add-role: Добавить роль
         label:
           service-accounts: Сервисные аккаунты
-          title: Настройка прав доступа
+          title: Выдача доступа
           user-accounts: Пользовательские аккаунты
         resource-acl:
           label_bindings: Роли
@@ -4401,7 +4408,7 @@ default:
         save-changes: Сохранить
       app:
         security:
-          control_rules_rWmUV: Правила контроля
+          control_rules_rWmUV: Правила и исключения
           label_workspace_12Kax: Окружение
       application:
         overview:
@@ -4445,9 +4452,12 @@ default:
             label_title: Облака и сервисы
             label_type: Тип
           exports:
+            column_service_account: Сервисный аккаунт
             field_bucket: Бакет
+            field_date: Загрузить отчёты начиная с
             field_detail-type: Детализация
             field_locale: Язык
+            field_period: Экспорт данных за предыдущий период
             field_prefix: Путь внутри бакета
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
@@ -4467,6 +4477,11 @@ default:
         accounts:
           dialog_button_create: Создать аккаунт
           listing_button_create: Создать аккаунт
+        exports:
+          ServiceAccountAddField:
+            addNewServiceAccount: Создать сервисный аккаунт
+        providers:
+          button_ca-roles-update: Добавить роли
       center-layout:
         Layout:
           organization-description_kvoUz: Пользователи и приложения
@@ -4673,6 +4688,8 @@ default:
             button_create: Создать
             field_description: Описание
         folder:
+          service-account:
+            popup-robot_button_save: Сохранить
           service-accounts:
             dialog_select-service-account_create-new-action: Создать новый
       kspm:
@@ -4825,7 +4842,7 @@ default:
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Настроить политику
           UserpoolPageLayout:
-            title_userpool_acl_5rdMM: Права доступа к пулу пользователей
+            title_userpool_acl_5rdMM: Права доступа
           UserpoolPasswordPolicyForm:
             attempts_before_lockout_ay7Le: "Количество неудачных попыток ввода пароля до\_блокировки"
             brute_force_protection_msHno: Защита пароля от подбора
@@ -4884,9 +4901,25 @@ default:
         userpools: Пулы пользователей
         users: Пользователи
       security-center:
+        alert:
+          action_alert_analysis: Анализ алерта
         alerts:
+          caption_assignee: Ответственный
+          caption_category: Тип угрозы
+          caption_classification: Классификация
+          caption_created-by: Создан
+          caption_incident: Инцидент
+          caption_modified-at: Изменён
+          caption_sensor: Источник
+          caption_status: Статус
+          caption_title: Алерт
           sink:
             action_create: Создать приёмник
+          title_alert_comments: Комментарии
+          title_alert_details: Детали
+          title_alert_history: История
+          title_alert_overview: Обзор
+          title_alert_recommendations: Рекомендации
         dspm:
           title_data-sources: Источники данных
           title_scan-jobs: Регулярные сканирования
@@ -4894,11 +4927,16 @@ default:
           title_clusters: Кластеры
           title_dashboard: Дашборд
         label_acl-diagnostics: Диагностика доступа
+        label_alerts: Алерты
         label_comp: Соответствие требованиям
         label_dspm: Контроль данных
         label_kspm: Контроль Kubernetes{trademark}
         label_settings: Параметры Security Deck
       security:
+        alerts:
+          comment_form:
+            send: Отправить
+          filters-button: Фильтры
         comp:
           SetsTable:
             action_disable_5hgkz: Выключить проверку
@@ -7088,7 +7126,6 @@ default:
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
-            label_yq: Query
             label_yq_ru: Yandex Query
             value_audit-trails: Трейл
             value_compute: Виртуальная машина
@@ -7315,6 +7352,8 @@ default:
           label_pods: Поды
           label_tab-logs: Логи
           label_tab-yaml: YAML
+        WorkloadsActions:
+          pod-exec_jwJ3R: Терминал
       kafka:
         button_add-topic: Добавить топик
         button_create-connector: Создать коннектор
@@ -11092,7 +11131,6 @@ default:
           repository:
             name: >-
               cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1771418848696431394901031348572912380488071835858
-            tag: 8.4.18
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
         tag: 1.0.5+003

@@ -1,4 +1,4 @@
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create and set up a cloud network](#create-network).
 1. [Create a VM in the cloud](#create-vm).
 1. [Create a {{ MY }} DB cluster](#create-mysql).
@@ -7,7 +7,7 @@
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -38,10 +38,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `bitrixwebsite` VM.
-1. [Delete](../../managed-mysql/operations/cluster-delete.md) the {{ MY }} database cluster named `Bitrix`.
+1. [Delete](../../compute/operations/vm-control/vm-delete.md) `bitrixwebsite`.
+1. [Delete](../../managed-mysql/operations/cluster-delete.md) the `Bitrix{{ MY }}` cluster database.
 
 If you reserved a static public IP address specifically for this VM:
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
-1. Go to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
+1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
 1. Find the required IP address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.delete }}**.

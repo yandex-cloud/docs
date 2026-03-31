@@ -7,12 +7,14 @@ description: In this article, you will learn what {{ objstorage-full-name }} buc
 
 Conditions determine the cases when the rule applies.
 
+## Condition keys {#keys}
+
 Condition key | Description
 ----- | -----
 `aws:principaltype` | States the type of entity the request is sent to.
 `aws:referer` | Compares the request’s Referer with the one specified in the policy.
 `aws:securetransport` | Indicates whether the request was sent using SSL encryption.
-`aws:sourceip` | Compares the IP address the request came from and the IP addresses of [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy), e.g., the ones provided in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, with the IP addresses specified in the policy.<br/><br/>The condition is satisfied if at least one IP address matches those in the policy. For more information, see [Bucket access via a chain of reverse proxy servers](../../../concepts/policy.md#access-via-reverse-proxy).
+`aws:sourceip` | Compares the IP address the request came from and the IP addresses of [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy), e.g., the ones provided in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, with the IP addresses specified in the policy.<br/><br/>The condition is satisfied if at least one IP address matches those in the policy. For more information, see [Bucket access via a chain of reverse proxy servers](../../../concepts/policy.md#access-via-reverse-proxy).<br/><br/>If you only need to check the client's original IP address while ignoring the proxy servers, use the `yc:originip` condition. Use this option for improved access security.
 `aws:useragent` | Compares the request's UserAgent values with those specified in the policy.
 `aws:userid` | Compares the user ID in {{ iam-short-name }} with the one specified in the policy.
 `s3:authtype` | Restricts incoming requests to use a specific authentication method.
@@ -37,6 +39,8 @@ Condition key | Description
 `s3:x-amz-server-side-encryption-aws-kms-key-id` | Requires a specific key for server-side encryption.
 `s3:x-amz-storage-class` | Filters access by [storage class](../../../concepts/storage-class.md).
 `s3:x-amz-website-redirect-location` | Allows you to redirect requests to an object to another object or URL if the website is static.
+`yc:access-key-id` | Compares the [static access key](../../../../iam/concepts/authorization/access-key.md) ID with the one specified in the policy.<br/><br/>For example, you can use different static keys issued to a single [service account](../../../../iam/concepts/users/service-accounts.md) to segregate access to specific buckets or prefixes within a bucket.
+`yc:originip` | Compares the source IP address the request came from with the one specified in the policy.<br/><br/>Unlike the `aws:sourceip` condition, this one _ignores_ any reverse proxy server IP addresses, e.g., those provided in the `X-Forwarded-For` header.<br/><br/>Use the `yc:originip` condition for a higher level of access security.
 `yc:private-endpoint-id` | Sets access via [{{ vpc-short-name }} service connections](../../../../vpc/concepts/private-endpoint.md). Contains a service connection ID.
 
 {% include [conditions-combining-and](../../../../_includes/storage/conditions-combining-and.md) %}

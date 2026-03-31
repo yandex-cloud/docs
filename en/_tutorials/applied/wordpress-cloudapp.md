@@ -192,7 +192,7 @@ Make sure WordPress is working correctly:
 1. Test email notifications:
 
    1. In the admin dashboard, go to the settings section.
-   1. Try recovering the password using the **Lost your password?** function.
+   1. Try resetting the password using **Lost your password?**.
    1. Check the mailbox you specified for the password reset email.
 
    {% note info %}

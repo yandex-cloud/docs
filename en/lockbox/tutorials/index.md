@@ -15,3 +15,4 @@ description: Various {{ lockbox-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](nodejs-cron-restart-vm.md)
 * [{#T}](secure-password-script.md)
 * [{#T}](data-transfer-direct-to-mch.md)
+* [{#T}](job-pyspark-secret-access.md)

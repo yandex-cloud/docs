@@ -481,7 +481,7 @@ Calculates the absolute value.
 
 **asap**(*source: timeseries_vector*): *timeseries_vector*
 
-Smooths timeseries based on the [ASAP algorithm](http://futuredata.stanford.edu/asap/).
+Smooths timeseries based on the [ASAP algorithm](https://github.com/stanford-futuredata/ASAP).
 Timeseries points are averaged using a moving average with a dynamic window. The window width is automatically selected so as to remove as much noise as possible while retaining important information.
 
 #### ceil

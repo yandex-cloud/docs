@@ -44,15 +44,15 @@ To learn more about connection methods, see [Connecting to a {{ CH }} cluster](.
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell? {#get-ssl-error}
 
-Here is the full text of the error:
+Complete error message:
 
 ```text
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means that the service was unable to verify the website certificate against the revocation list when trying to connect.
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 

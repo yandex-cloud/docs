@@ -2,6 +2,10 @@
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.operation.**AsyncOperation**{#yandex_ai_studio_sdk._types.operation.AsyncOperation}
 
+**Context**{#yandex_ai_studio_sdk._types.operation.AsyncOperation.Context}
+
+alias of [**OperationContext**](#yandex_ai_studio_sdk._types.operation.OperationContext)
+
 *async* **cancel**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_ai_studio_sdk._types.operation.AsyncOperation.cancel}
 
 #|
@@ -37,6 +41,10 @@
 |#
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.operation.**Operation**{#yandex_ai_studio_sdk._types.operation.Operation}
+
+**Context**{#yandex_ai_studio_sdk._types.operation.Operation.Context}
+
+alias of [**OperationContext**](#yandex_ai_studio_sdk._types.operation.OperationContext)
 
 **cancel**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_ai_studio_sdk._types.operation.Operation.cancel}
 
@@ -113,3 +121,9 @@ OperationErrorInfo(code: ‘int’, message: ‘str’, details: ‘Iterable[str
 **message**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.operation.OperationErrorInfo.message}
 
 **details**\: *[Iterable](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)[[str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._types.operation.OperationErrorInfo.details}
+
+## *class* yandex\_ai\_studio\_sdk.\_types.operation.**OperationContext**{#yandex_ai_studio_sdk._types.operation.OperationContext}
+
+OperationContext(id: ‘str’)
+
+**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._types.operation.OperationContext.id}

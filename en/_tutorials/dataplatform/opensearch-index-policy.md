@@ -31,11 +31,11 @@ The support cost for this solution includes:
 
     - Manually {#manual}
 
-        1. [Create a {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) of the configuration you need with public access to a group of hosts with the `DATA` role.
+        1. [Create a {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster) of your preferred configuration with public access to any host group.
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+        1. If there are security groups in your cluster, make sure they are configured correctly and allow connections to the [{{ mos-name }} cluster](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
     - Using {{ TF }} {#tf}
 
@@ -76,24 +76,7 @@ The support cost for this solution includes:
 
 1. Check the connection to the cluster using [cURL](https://curl.haxx.se/):
 
-    {% include [default-connstring](../../_includes/mdb/mos/default-connstring.md) %}
-
-    You can get the host FQDN with the [list of hosts in the cluster](../../managed-opensearch/operations/host-groups.md#list-hosts).
-
-    If the connection is successful, you will see a message like this:
-
-    ```bash
-    {
-      "name" : "....{{ dns-zone }}",
-      "cluster_name" : "...",
-      "cluster_uuid" : "...",
-      "version" : {
-      "distribution" : "opensearch",
-      ...
-      },
-      "tagline" : "The OpenSearch Project: https://opensearch.org/"
-    }
-    ```
+    {% include [default-connstring](../../_tutorials/_tutorials_includes/opensearch/check-connection.md) %}
 
 ## Create a policy {#create-policy}
 
@@ -104,7 +87,7 @@ The support cost for this solution includes:
         --user admin:<password> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:9200/_plugins/_ism/policies/rollover_policy' \
+        --request PUT 'https://<{{ OS }}_host_address_with_public_access>:9200/_plugins/_ism/policies/rollover_policy' \
         --data '
             {
                 "policy": {
@@ -148,7 +131,7 @@ The support cost for this solution includes:
         --user admin:<password> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:9200/_index_template/ism_rollover?pretty' \
+        --request PUT 'https://<{{ OS }}_host_address_with_public_access>:9200/_index_template/ism_rollover?pretty' \
         --data '
             {
                 "index_patterns": ["log*"],
@@ -169,7 +152,7 @@ The support cost for this solution includes:
         --user admin:<password> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:9200/log-000001?pretty' \
+        --request PUT 'https://<{{ OS }}_host_address_with_public_access>:9200/log-000001?pretty' \
         --data '
             {
                 "aliases": {
@@ -187,7 +170,7 @@ The support cost for this solution includes:
         --user admin:<password> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:9200/_plugins/_ism/explain/log-000001?pretty'
+        --request GET 'https://<{{ OS }}_host_address_with_public_access>:9200/_plugins/_ism/explain/log-000001?pretty'
     ```
 
     You will get a message like this in the results:
@@ -215,7 +198,7 @@ The support cost for this solution includes:
         --user admin:<password> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:9200/log/_doc?pretty' \
+        --request POST 'https://<{{ OS }}_host_address_with_public_access>:9200/log/_doc?pretty' \
         --data '
             {
                 "num": "101",
@@ -231,7 +214,7 @@ The support cost for this solution includes:
         --user admin:<password> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET '<address_of_{{ OS }}_host_with_DATA_role>:9200/_cat/indices?pretty'
+        --request GET '<{{ OS }}_host_address_with_public_access>:9200/_cat/indices?pretty'
     ```
 
     Five minutes is the default time to re-check policy conditions.

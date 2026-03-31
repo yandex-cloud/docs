@@ -109,14 +109,14 @@ For more information, see [{#T}](../../security/overview.md).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -244,7 +244,7 @@ For more information, see [{#T}](../../security/overview.md).
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request protocol is used.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Check the configuration using this command:
 
@@ -286,7 +286,7 @@ For more information, see [{#T}](../../security/overview.md).
 
 ## Conditional request redirects {#redirects-on-conditions}
 
-Using routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. This enables you to redirect object requests to different web pages (if the object was removed) or redirect the requests that return errors. {{ objstorage-full-name }} has [limits](../../concepts/limits.md#storage-limits) on the maximum number of rules for conditional request redirects.
+  With redirect rules, you can redirect requests to remote objects or requests that return an error to another web page. The redirection takes place according to a condition consisting of the key prefix of the object and the HTTP code of the response. {{ objstorage-full-name }} has [limits](../../concepts/limits.md#storage-limits) on the maximum number of rules for conditional request redirects.
 
 {% list tabs group=instructions %}
 
@@ -301,6 +301,9 @@ Using routing rules, you can redirect requests based on the object name prefixes
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} would have returned for the request without a redirect.
       * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key prefix in the request. You can learn more about keys and how static websites work [here](#static-site-information).
+    
+     {% include [redirect-order](../../../_includes/storage/redirect-order.md) %}
+    
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set the following redirect parameters:
       * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** to use for sending redirected requests.
       * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host to which all requests meeting the specified condition will be redirected.
@@ -358,6 +361,8 @@ Using routing rules, you can redirect requests based on the object name prefixes
      
        * `httpErrorCodeReturnedEquals`: HTTP response code.
        * `keyPrefixEquals`: Object key prefix.
+
+       {% include [redirect-order](../../../_includes/storage/redirect-order.md) %}
        
      * `redirect`: Redirect settings:
      
@@ -449,7 +454,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the relevant API method (the **For conditionally redirecting requests** tab).
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Check the configuration using this command:
 

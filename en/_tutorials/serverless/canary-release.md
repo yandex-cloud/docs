@@ -19,9 +19,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of resources to support a web application includes:
-* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+The web application support cost includes:
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Create a service account {#create-account}
 
@@ -30,9 +30,9 @@ The cost of resources to support a web application includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `canary-sa`.
+  1. Name the service account: `canary-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -97,21 +97,21 @@ The cost of resources to support a web application includes:
       Where:
 
       * `name`: Service account name. This is a required setting.
-      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value defined by the provider.
+      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
       * `role`: Role being assigned.
 
-      For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
+      For more information about `yandex_iam_service_account` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the command line, navigate to the directory you created the configuration file in.
       1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If you described the configuration correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will show them.
+      If you described the configuration correctly, the terminal will display information about the service account. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 
@@ -201,7 +201,7 @@ Tag the first function version as `stable` and the second one as `canary`.
         }
         ``` 
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -221,7 +221,7 @@ Tag the first function version as `stable` and the second one as `canary`.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+       You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
     1. Apply the changes:
 
@@ -249,7 +249,7 @@ Tag the first function version as `stable` and the second one as `canary`.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `canary`.
     1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -393,18 +393,18 @@ Tag the first function version as `stable` and the second one as `canary`.
      * `canary.0.variables`: Variables for the canary release.
      * `spec`: API gateway specification.
 
-     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about resource properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the new resources and their properties. If the configuration contains any errors, {{ TF }} will show them. 
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 
@@ -414,7 +414,7 @@ Tag the first function version as `stable` and the second one as `canary`.
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 

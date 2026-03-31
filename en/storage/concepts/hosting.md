@@ -49,7 +49,11 @@ To enable hosting, you need [public access](../operations/buckets/bucket-availab
 
 * For conditional redirects.
 
-  Using routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. This enables you to redirect object requests to different web pages (if the object was removed) or redirect the requests that return errors. {{ objstorage-full-name }} has [limits](./limits.md#storage-limits) on the maximum number of rules for conditional request redirects.
+  With redirect rules, you can redirect requests to remote objects or requests that return an error to another web page. The redirection takes place according to a condition consisting of the key prefix of the object and the HTTP code of the response.
+  
+  {% include [redirect-order](../../_includes/storage/redirect-order.md) %}
+
+  {{ objstorage-full-name }} has [limits](./limits.md#storage-limits) on the maximum number of rules for conditional request redirects.
 
   {% cut "Example of a rule that redirects a request to a deleted folder to a different page" %}
 

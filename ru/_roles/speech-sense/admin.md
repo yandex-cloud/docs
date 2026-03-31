@@ -1,3 +1,3 @@
-Роль `speech-sense.admin`, назначенная на пространство или проект, позволяет выполнять любые действия в нем: просматривать диалоги, редактировать подключения, запускать анализ. Роль дает право назначать роли другим пользователям.
+Роль `speech-sense.admin`, назначенная на [пространство](../../speechsense/concepts/resources-hierarchy.md#space) или [проект](../../speechsense/concepts/resources-hierarchy.md#project), позволяет выполнять любые действия в нем: просматривать [диалоги](../../speechsense/concepts/dialogs.md), редактировать [подключения](../../speechsense/concepts/resources-hierarchy.md#connection), запускать [анализ](../../speechsense/concepts/assistants.md#analysis). Роль дает право назначать роли другим пользователям.
 
 Включает разрешения, предоставляемые ролями `speech-sense.editor` и `speech-sense.data.editor`.

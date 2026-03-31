@@ -23,7 +23,7 @@
 
           The backup start time is specified in the [cluster settings](update.md#change-additional-settings).
 
-      1. Specify backup storage parameters. You can keep backups permanently or set a retention period (at least seven days).
+      1. Configure backup storage. You can store backups for 7 to 1,095 days (up to three years).
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -57,7 +57,7 @@
       * `day-of-month`: Day of month. The possible value is `1–31`.
       * `month`: Month. The possible values are `1–12` or `JAN–DEC`.
       * `day-of-week`: Day of week. The possible values are `0–6` or `SUN–SAT`.
-      * `retain-for-days`: Backup retention period in days. The minimum value is `7`.
+      * `retain-for-days`: Backup retention period in days. The possible value range is `7–1095` (up to three years).
 
         The `day-of-month`, `month`, and `day-of-week` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
         
@@ -96,7 +96,7 @@
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -124,8 +124,8 @@
       * `dayOfMonth`: Day of the month. The possible value is `1-31`.
       * `month`: Month. The possible values are `1-12` or `JAN-DEC`.
       * `dayOfWeek`: Day of week. The possible values are `0-6` or `SUN-SAT`.
-      * `retainForDays`: Backup retention period in days. The minimum value is `7`.
-        
+      * `retainForDays`: Backup retention period in days. The possible value range is `7–1095` (up to three years).
+
         The `dayOfMonth`, `month`, and `dayOfWeek` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
         
         Cron expressions also support the following special characters:
@@ -151,7 +151,7 @@
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -188,7 +188,7 @@
         * `day_of_month`: Day of month. The possible value is `1–31`.
         * `month`: Month. The possible values are `1–12` or `JAN–DEC`.
         * `day_of_week`: Day of week. The possible values are `0–6` or `SUN–SAT`.
-        * `retain_for_days`: Backup retention period in days. The minimum value is `7`.
+        * `retain_for_days`: Backup retention period in days. The possible value range is `7–1095` (up to three years).
 
           The `day_of_month`, `month`, and `day_of_week` define the schedule for creating backups. The schedule is defined as a cron expression without hours and minutes.
           
@@ -261,7 +261,7 @@
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -282,7 +282,7 @@
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -352,7 +352,7 @@
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -372,7 +372,7 @@
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

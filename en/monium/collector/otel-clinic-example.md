@@ -1,6 +1,6 @@
 ---
 title: Setting up a demo app for a vet clinic
-description: How to set up a demo Java application and send telemetry to {{ monium-name }}
+description: How to set up a demo Java application and send telemetry to {{ monium-name }}.
 ---
 
 # Setting up a demo Java app and collecting telemetry

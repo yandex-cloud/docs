@@ -60,13 +60,13 @@ The support cost for this solution includes:
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -74,6 +74,8 @@ The support cost for this solution includes:
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
+
+   {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

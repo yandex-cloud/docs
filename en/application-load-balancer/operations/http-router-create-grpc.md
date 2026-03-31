@@ -5,7 +5,7 @@ description: In this tutorial, you will learn how to create an HTTP router for g
 
 # Creating an HTTP router for gRPC traffic
 
-To create an [HTTP router](../concepts/http-router.md) and add a [route](../concepts/http-router.md#routes) to it:
+To create an [HTTP router](../concepts/http-router.md) and add a [route](../concepts/http-router.md#routes) for gRPC traffic to it:
 
 {% list tabs group=instructions %}
 

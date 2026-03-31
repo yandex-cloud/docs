@@ -21,7 +21,7 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role (or higher)](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -103,7 +103,7 @@ To learn more about creating a cluster, see [this guide](./operations/cluster-cr
 
     - Connecting with SSL {#with-ssl}
 
-        1. Get an SSL certificate:
+        1. Get the SSL certificate:
 
             {% include [unix-certificate](../_includes/mdb/mvk/unix-certificate.md) %}
 
@@ -130,4 +130,4 @@ To learn more about creating a cluster, see [this guide](./operations/cluster-cr
 
 * Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect/index.md).
-* Check [questions and answers](qa/general.md).
+* Check out the [questions and answers](qa/general.md).

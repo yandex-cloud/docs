@@ -106,7 +106,7 @@ Create an [API gateway](../../api-gateway/concepts/index.md) for interaction bet
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `gate-1`.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
@@ -126,7 +126,7 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
@@ -161,9 +161,9 @@ Create a {{ ydb-short-name }} database in [Serverless mode](../../ydb/concepts/s
       Leave the **Suggest Hostname** field blank.
 
   1. Click **Save and continue**.
-  1. Under **Permissions**, select `Access to user avatar` and click **Save and continue**.
-  1. Under **Email address**, specify your email address and click **Save and continue**.
-  1. Check the data and click **Everything is correct. Create the app**.
+  1. Under **Data access**, select `Access to user picture` and click **Save and continue**.
+  1. Under **Email for communication**, specify your email address and click **Save and continue**.
+  1. Check the data and click **Everything is correct, create app**.
 
   You can read more about the {{ yandex-oauth }} features in [this guide](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
 
@@ -262,7 +262,7 @@ To create tables in the database, navigate to the project files folder and run t
 
 Get an [OAuth token](../../iam/concepts/authorization/oauth-token.md):
 
-1. Go to [{{ yandex-oauth }}]({{ link-cloud-oauth }}). Before issuing a token, the service may request data access.
+1. [Go](../../console/operations/select-service.md#select-service) to [{{ yandex-oauth }}]({{ link-cloud-oauth }}). Before issuing a token, the service may request data access.
 1. Save the token: you will need it for uploading code.
 
 

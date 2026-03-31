@@ -57,7 +57,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}** at the top right.
+   1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}** at the top right.
    1. Enter the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `site-d`.
    1. Add a folder description if required.
    1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. 
@@ -92,11 +92,11 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
       }
       ```
 
-      For more information about the `yandex_resourcemanager_folder` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more information about `yandex_resourcemanager_folder` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, navigate to the directory you created the configuration file in.
 
       1. Check the configuration using this command:
 
@@ -116,7 +116,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform plan
          ```
 
-         If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+         If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
 
    1. Deploy the cloud resources.
 
@@ -126,7 +126,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform apply
          ```
 
-      1. Confirm the creation of the resources: in the terminal, type `yes` and press **Enter**.
+      1. Confirm creating the resources: type `yes` and press **Enter**.
 
       This will create the folder in the specified cloud. You can check the new folder and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -147,7 +147,7 @@ Repeat these steps to create a second folder named `site-b`.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `site-d`.
-  1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
@@ -164,7 +164,7 @@ Repeat these steps to create a second folder named `site-b`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-d`.
@@ -182,10 +182,10 @@ Repeat these steps to create a second folder named `site-b`.
 - Management console {#console}
   
    1. In the [management console]({{ link-console-main }}), select the folder containing your VM.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the VM list, select `cisco-router-d`.
-   1. Go to the ![image](../../_assets/compute/serial-console.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
-   1. Wait for the operating system to fully start up.
+   1. Go to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+   1. Wait for the operating system to boot.
    1. To switch to privileged mode, run this command in the serial console:
 
       ```bash

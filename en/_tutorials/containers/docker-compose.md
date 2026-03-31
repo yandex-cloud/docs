@@ -1,10 +1,10 @@
 # Creating a VM from a {{ coi }} with multiple Docker containers
 
-In this tutorial, you will create a VM with multiple Docker containers from a [{{ coi }}](../../cos/concepts/index.md) image. A VM is created based on the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
+In this tutorial, you will create a VM with multiple Docker containers from a [{{ coi }}](../../cos/concepts/index.md) image. You will be creating your VM using the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
 
 ## Getting started {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
+If the required Docker image has been pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
 
 ## Create a VM with multiple Docker containers {#docker-compose}
 
@@ -16,8 +16,8 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a VM with multiple Docker containers from a {{ coi }}:
-  1. View the description of the CLI command to create a VM from a {{ coi }}:
+  To create a {{ coi }} VM with multiple Docker containers from:
+  1. View the description of the CLI command for creating a {{ coi }} VM:
 
      ```bash
      yc compute instance create-with-container --help
@@ -49,7 +49,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
        --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
-       --service-account-name default-sa \
+       --service-account-name <service_account_name> \
        --docker-compose-file docker-compose.yaml
      ```
 
@@ -62,13 +62,13 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
      * `--network-interface`: VM network settings.
-     * `--service-account-name`: Service account name.
-     * `--docker-compose-file`: YAML file with container specification.
+     * `--service-account-name`: Name of the service account you created [earlier](#before-you-begin).
+     * `--docker-compose-file`: YAML file with the container specification.
 
      Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
   1. Check the result.
-     1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
-     1. View a list of running Docker containers:
+     1. [Connect to the VM over SSH](../../compute/operations/vm-connect/ssh.md).
+     1. View the list of running Docker containers:
 
         ```bash
         sudo docker ps -a

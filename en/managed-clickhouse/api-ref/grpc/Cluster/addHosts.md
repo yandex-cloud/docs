@@ -43,7 +43,7 @@ Configurations for ClickHouse hosts that should be added to the cluster.
 The number of elements must be greater than 0. ||
 || copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Whether to copy schema to new ClickHouse hosts from replicas. ||
+Deprecated. The schema is always copied to new ClickHouse replicas in order to avoid potential data loss. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.clickhouse.v1.HostSpec}

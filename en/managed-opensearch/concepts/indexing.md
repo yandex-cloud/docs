@@ -20,7 +20,7 @@ For all codecs, a compression level from `1` to `6` (inclusive) can be set. High
 
 ### Comparing codecs {#codec-comparison}
 
-The following codecs (with compression levels in parentheses) were selected for a comparison:
+The following codecs (with compression levels in parentheses) were taken for a comparison:
 
 * lz4(3)
 * zlib(3)
@@ -30,7 +30,7 @@ The following codecs (with compression levels in parentheses) were selected for 
 
 #### Test environment {#test-environment}
 
-We tested a {{ mos-name }} cluster in {{ yandex-cloud }}. The measurements were performed in the following environment:
+We tested a {{ mos-name }} cluster in {{ yandex-cloud }}, collecting metrics in the following environment:
 
 * {{ mos-name }} cluster configuration:
 
@@ -39,13 +39,13 @@ We tested a {{ mos-name }} cluster in {{ yandex-cloud }}. The measurements were 
     * Disk type: `network-ssd`
     * Disk size: `10` GB
 
-* The test tool ([OpenSearch Benchmark]({{ os.docs }}/benchmark/)) settings:
+* The tool used for the test, [OpenSearch Benchmark]({{ os.docs }}/benchmark/), had the following parameters:
 
     * Profile: `http_logs`
     * Number of clients: `8`
     * Batch size: `5000` documents
 
-* Configuration of the [VM](../../compute/concepts/vm.md) used to run OpenSearch Benchmark:
+* [VM](../../compute/concepts/vm.md) configuration to run OpenSearch Benchmark was as follows:
 
     * OS: `Ubuntu 24.04 LTS`
     * vCPU: `8`
@@ -54,7 +54,7 @@ We tested a {{ mos-name }} cluster in {{ yandex-cloud }}. The measurements were 
 
 #### Test results {#test-results}
 
-Results of measurements:
+Measurement results:
 
 | Criterion                                   | lz4(3) | zlib(3) | zstd(5) | lzma(1) | lzma(5) |
 |--------------------------------------------|:------:|:-------:|:-------:|:-------:|:-------:|
@@ -102,5 +102,6 @@ The action will briefly close the index to apply the new codec setting. Once the
 * [{#T}](../tutorials/migration-from-standalone.md)
 * [{#T}](../tutorials/migration-to-opensearch.md)
 * [{#T}](../tutorials/opensearch-index-policy.md)
+* [{#T}](../tutorials/opensearch-cold-storage-policy.md)
 * [{#T}](../tutorials/opensearch-to-clickhouse.md)
 * [{#T}](../tutorials/opensearch-yandex-lemmer.md)

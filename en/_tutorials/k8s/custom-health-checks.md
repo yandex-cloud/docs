@@ -42,7 +42,7 @@ The support cost for this solution includes:
 
 ## Get your cloud ready {#before-begin}
 
-### Set up your infrastructure {#infra}
+### Set up the infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -78,18 +78,18 @@ The support cost for this solution includes:
       * {{ k8s }} node group.
       * {{ container-registry-full-name }}.
 
-   1. Specify the following in the `k8s-custom-health-checks.tf` file:
+   1. In `k8s-custom-health-checks.tf`, specify the following:
 
-      * `folder_id`: Cloud folder ID, same as in the provider settings.
+      * `folder_id`: Cloud folder ID as specified in the provider settings.
       * `k8s_version`: {{ k8s }} version. Available versions are listed in [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -98,6 +98,8 @@ The support cost for this solution includes:
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
+
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
 ### Install the {{ alb-name }} ingress controller {#install-alb-ingress-controller}
 
@@ -253,7 +255,7 @@ To set up an address for the load balancer:
    1. [Reserve a static public IP address](../../vpc/operations/get-static-ip.md) for your {{ alb-name }}.
 
    1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
-
+   
    1. To map the address to the domain, [create an A record](../../dns/operations/resource-record-create.md) for the delegated domain. Specify the reserved IP address as the record value.
    1. Make sure the A record is added:
 
@@ -279,13 +281,13 @@ To set up an address for the load balancer:
       * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to map the reserved IP address to the delegated domain.
 
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -341,6 +343,8 @@ To create resources:
    1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
 
       The load balancer's creation logs are generated and displayed in real time. Any errors that occur will also be logged.
+
+   {% include [note-alb](../../_includes/managed-kubernetes/note-alb.md) %}
 
 ## Check the result {#check-result}
 

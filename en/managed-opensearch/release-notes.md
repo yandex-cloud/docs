@@ -5,6 +5,10 @@ description: This section contains the {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+## February 2026 {#feb-2026}
+
+A new {{ OS }} version is out: [3.5](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.5.0.md).
+
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.

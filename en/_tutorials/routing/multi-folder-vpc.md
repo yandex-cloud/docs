@@ -70,7 +70,7 @@ For granular network access management, use [security groups](../../vpc/concepts
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![Create icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+     1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![image](../../_assets/console-icons/ellipsis.svg) → ![Create icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
      1. Specify the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `net-folder`.
      1. Disable **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** to create your network and subnets manually.
      1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
@@ -186,10 +186,10 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
-     1. In the list of services, select **{{ vpc-name }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Specify the network name: `shared-net`.
-     1. Disable [Create subnets](../../vpc/operations/subnet-create.md) to create subnets manually.
+     1. Disable the [{{ ui-key.yacloud.vpc.networks.create.field_is-default }}](../../vpc/operations/subnet-create.md) option to create subnets manually.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
    - CLI {#cli}
@@ -245,9 +245,9 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
-     1. In the list of services, select **{{ vpc-name }}**.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click `shared-net`.
-     1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet name: `subnet-a`, `subnet-b`, or `subnet-d`.
      1. Select the availability zone from the drop-down list: `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`, respectively.
      1. Enter the subnet CIDR: IP address `10.1.11.0` and subnet mask `24`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
@@ -340,7 +340,7 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
-  1. In the list of services, select **{{ vpc-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click `shared-net`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to `subnet-b` and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. Select `dev-folder` from the drop-sown list.
@@ -386,7 +386,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following settings:
   Create the Linux-based `net-vm` VM in `net-folder`:
 
   1. In the [management console]({{ link-console-main }}), select `net-folder`.
-  1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:

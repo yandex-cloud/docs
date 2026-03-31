@@ -1,3 +1,8 @@
+---
+title: Getting information about existing Helm charts in {{ cloud-registry-name }}
+description: Follow this guide to get a list of Helm charts in {{ cloud-registry-name }}.
+---
+
 # Getting information about existing Helm charts
 
 You can get a list of [Helm charts](https://helm.sh/docs/topics/charts/) from a [registry](../../concepts/registry.md) in {{ cloud-registry-name }}. Helm charts in {{ cloud-registry-name }} are stored as [Docker images](../../concepts/artifacts/docker.md).

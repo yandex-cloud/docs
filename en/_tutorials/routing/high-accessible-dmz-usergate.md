@@ -75,7 +75,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    | ----------- | ----------- |
    | Folders | 3 |
    | Instance groups | 1 |
-   | Virtual machines | 5 |
+   | VMs | 5 |
    | VM vCPUs | 14 |
    | VM RAM | 38 GB |
    | Disks | 5 |
@@ -109,7 +109,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 
@@ -124,8 +124,8 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account:
 
        1. On the management console [home page]({{ link-console-main }}), select your cloud.
-       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+       1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+       1. Click ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
        1. In the window that opens, click **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the `sa-terraform` service account.
        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
        1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -262,7 +262,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    cd yc-dmz-with-high-available-usergate-ngfw
    ```
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -461,7 +461,7 @@ Connect to the FW-A management web interface at `https://192.168.1.10:8001`. Use
 
 1. In the left-hand menu, in the **Network** section, select **Virtual Routers**. Click `—` (em dash) in the **Static routes** column for **Default virtual router**. Click **Add** to add the static routes from the table: 
 
-   | Name | Enabled | Destination address | Gateway |
+   | Field | Enabled | Destination address | Gateway |
    | --- | --- | --- | --- |
    | `route to mgmt-zone2` | ![image](../../_assets/common/yes.svg) | `192.168.2.0/24` | `192.168.1.1` | 
    | `route to dmz-zone2` | ![image](../../_assets/common/yes.svg) | `10.160.2.0/24` | `10.160.1.1` |
@@ -532,7 +532,7 @@ Optionally, you can update your UserGate version.
 
 1. In the left-hand menu, under **Libraries**, select **IP addresses**. In the **Groups** section, add groups. For each group, under **Addresses from the selected group**, add IP addresses according to this table:
 
-   | Name | Threat level | Addresses from the selected group |
+   | Field | Threat level | Addresses from the selected group |
    | ----------- | ----------- | ----------- |
    | `mgmt` | Medium | `192.168.1.0/24`<br>`192.168.2.0/24` |
    | `dmz` | Medium | `10.160.1.0/24`<br>`10.160.2.0/24` |
@@ -584,7 +584,7 @@ Optionally, you can update your UserGate version.
 
 1. Add the remaining rules from the table below to complete the configuration example with basic rules for testing firewall policies, publishing a test application from the `dmz` segment, and testing its fault tolerance. Note that you do not need to recreate the `Web-server port forwarding on FW-a` rule. 
 
-   | # | Name | Action | Logging | Source zone | Source address | Destination zone | Destination address | Service |
+   | # | Field | Action | Logging | Source zone | Source address | Destination zone | Destination address | Service |
    | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
    | 1 | `Web-server port forwarding on FW-a` | Allow | Log session start | `Untrusted` | Any | `DMZ` | `dmz-web-server` | `TCP_8080` |
    | 2 | `Mgmt to DMZ` | Allow | Log session start | `Management` | `mgmt` | `DMZ` | `dmz` | Any |
@@ -613,7 +613,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
 
 1. In the left-hand menu, in the **Network** section, select **Virtual Routers**. Click `—` (em dash) in the **Static routes** column for **Default virtual router**. Click **Add** to add the static routes from the table: 
 
-   | Name | Enabled | Destination address | Gateway |
+   | Field | Enabled | Destination address | Gateway |
    | --- | --- | --- | --- |
    | `route to mgmt-zone1` | ![image](../../_assets/common/yes.svg) | `192.168.1.0/24` | `192.168.2.1` | 
    | `route to dmz-zone1` | ![image](../../_assets/common/yes.svg) | `10.160.1.0/24` | `10.160.2.1` |
@@ -645,7 +645,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
 
 1. In the left-hand menu, under **Libraries**, select **IP addresses**. In the **Groups** section, add groups. For each group, under **Addresses from the selected group**, add IP addresses according to this table:
 
-   | Name | Threat level | Addresses from the selected group |
+   | Field | Threat level | Addresses from the selected group |
    | ----------- | ----------- | ----------- |
    | `mgmt` | Medium | `192.168.1.0/24`<br>`192.168.2.0/24` |
    | `dmz` | Medium | `10.160.1.0/24`<br>`10.160.2.0/24` |
@@ -691,7 +691,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
 
 1. Add the remaining rules from the table below to complete the configuration example with basic rules for testing firewall policies, publishing a test application from the `dmz` segment, and testing its fault tolerance. Note that you do not need to recreate the `Web-server port forwarding on FW-b` rule. 
 
-   | # | Name | Action | Logging | Source zone | Source address | Destination zone | Destination address | Service |
+   | # | Field | Action | Logging | Source zone | Source address | Destination zone | Destination address | Service |
    | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
    | 1 | `Web-server port forwarding on FW-b` | Allow | Log session start | `Untrusted` | Any | `DMZ` | `dmz-web-server` | `TCP_8080` |
    | 2 | `Mgmt to DMZ` | Allow | Log session start | `Management` | `mgmt` | `DMZ` | `dmz` | Any |
@@ -700,7 +700,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
 
 ## Enable the route switcher {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to the `mgmt` folder, select **{{ network-load-balancer-name }}**, and go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
+After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
 
 Once FW-A and FW-B get the `Healthy` status, change the `route-switcher` module's `start_module` value to `true` in the `route-switcher.tf` file. To enable the module, run this command:
 
@@ -790,7 +790,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.

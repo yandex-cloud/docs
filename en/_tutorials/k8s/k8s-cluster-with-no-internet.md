@@ -102,13 +102,13 @@ The support cost for this solution includes:
 
       The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For more information on the configuration of the resources you create using these modules, see the relevant library pages.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -117,6 +117,8 @@ The support cost for this solution includes:
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
+
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
 ## Set up a virtual machine {#vm}
 
@@ -153,7 +155,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * Security group for the VM.
          * VM.
 
-      1. Specify the following in `virtual-machine-for-k8s.tf`:
+      1. In `virtual-machine-for-k8s.tf`, specify the following:
 
          * Folder ID.
          * ID of the network created along with the {{ managed-k8s-name }} cluster.
@@ -161,13 +163,13 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * Username to use for connecting to the VM over SSH.
          * Absolute path to the public part of the SSH key for connecting to the VM.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
          ```bash
          terraform validate
          ```
 
-         {{ TF }} will show any errors found in your configuration files.
+         {{ TF }} will display any configuration errors detected in your files.
 
       1. Create the required infrastructure:
 
@@ -238,7 +240,7 @@ To ensure the {{ managed-k8s-name }} cluster time remains synchronized with anot
         ...
         ```
 
-        For more information about the `yandex_vpc_subnet` settings, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/vpc_subnet).
+        For more information about the `yandex_vpc_subnet` settings, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Apply the changes:
 

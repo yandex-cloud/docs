@@ -16,7 +16,7 @@ To create a bot:
 1. [Set up an API gateway](#config-api-gateway).
 1. [Set up a webhook for your bot](#config-webhook).
 1. [Test your bot](#check-result).
-1. [Customize the agent](#customize).
+1. [Customize the agent](#what-is-next).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -62,7 +62,7 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the token for acces
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Select the `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` secret type.
@@ -130,9 +130,10 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Enter a name for the bucket following the [naming conventions](../../storage/concepts/bucket.md#naming).
+  1. Enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
   1. Specify the maximum bucket size: `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -200,7 +201,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
 ## Create service accounts {#create-sa}
 
-Create two [service accounts](../../iam/concepts/users/service-accounts.md):
+Create these two [service accounts](../../iam/concepts/users/service-accounts.md):
 
 * `sa-apigw`: This one will be used for executing the {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
 * `sa-workflows`: This one will be used for executing the workflow steps.
@@ -209,9 +210,10 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Specify the service account name: `sa-apigw`.
+  1. Enter a name for the service account: `sa-apigw`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `serverless.workflows.executor` [role](../../iam/roles-reference.md).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -223,6 +225,8 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
   * `{{ roles-yagpt-user }}`
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  1. If you do not have [jq](https://stedolan.github.io/jq/download/) yet, install it.
 
   1. View a description of the CLI command to create a service account:
 
@@ -458,7 +462,8 @@ This example uses the {{ gpt-pro }} (`name: yandexgpt`) text model. You can use 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
   1. Choose the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
@@ -568,7 +573,8 @@ Where:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the name of the API gateway. Follow these naming requirements:
 
@@ -628,11 +634,17 @@ Where:
 {% endlist %}
 
 
-## Set up a webhook for your bot {#config-webhook}
+## Set up a webhook for your bot {#setup-webhook}
+
+If you do not have [cURL](https://curl.haxx.se) yet, install it.
+
+{% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
+
+Set up a webhook for your bot:
 
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- Bash {#bash}
 
   Run this command:
 

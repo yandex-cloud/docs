@@ -3,7 +3,7 @@
 
 As an example, we will create a skill called <q>Parrot</q>, which repeats everything a user writes or says. The example is available in two programming languages: Python and Node.js.
 
-To add an Alice skill based on a [function](../../functions/concepts/function.md):
+To add a skill for Alice based on a [function](../../functions/concepts/function.md):
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Prepare the skill code](#prepare-code).
@@ -13,7 +13,7 @@ To add an Alice skill based on a [function](../../functions/concepts/function.md
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-You can find more information about developing skills for Alice [here](https://yandex.ru/dev/dialogs/alice/doc/development-docpage/#test__dev-cycle).
+More on [developing a skill for Alice](https://yandex.ru/dev/dialogs/alice/doc/development-docpage/#test__dev-cycle).
 
 ## Getting started {#before-you-begin}
 
@@ -42,8 +42,8 @@ To create a [version](../../functions/concepts/function.md#version) of a functio
 Once created, the function will contain only information about itself: name, description, unique ID, etc. The actual skill code will be added to the function version.
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create the function in.
-1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![curly-brackets-function](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
-1. Enter a function name. The naming requirements are as follows:
+1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![curly-brackets-function](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
+1. Enter a function name. Follow these naming requirements:
 
     {% include [name-format](../../_includes/name-format.md) %}
 

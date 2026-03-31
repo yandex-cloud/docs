@@ -54,15 +54,15 @@ The support cost includes:
         * `cluster_name`: Cluster name.
         * `pg_version`: {{ PG }} version for 1C:Enterprise. The names of such versions end with `-1c`.
         * `db_name`: Database name.
-        * `username` and `password`: Name and user password of the database owner.
+        * `username` and `password`: Database owner username and password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
        ```bash
        terraform validate
        ```
 
-       {{ TF }} will show any errors found in your configuration files.
+       {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -86,7 +86,7 @@ Add the created database as an information base to 1C:Enterprise. When adding th
 * **Database name**: Name of the database you specified when creating the {{ mpg-name }} cluster.
 * **Database user**: Username of the database owner.
 * **User password**: Password of the database owner.
-* **Create database if none present**: Disabled.
+* **Create a database if none exists**: Disabled.
 
 ### {{ PG }} extensions to support 1C:Enterprise {#extensions}
 

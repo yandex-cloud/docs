@@ -49,6 +49,8 @@ items:
             href: operations/resources/enable-secure-token.md
           - name: Настроить локационные правила
             href: operations/resources/location-rules.md
+          - name: Настроить имя сервера для SNI
+            href: operations/resources/configure-server-name.md
           - name: Отключить ресурс
             href: operations/resources/disable-resource.md
           - name: Управление метками ресурса

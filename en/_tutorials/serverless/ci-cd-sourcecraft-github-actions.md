@@ -32,7 +32,7 @@ You will use this [service account](../../iam/concepts/users/service-accounts.md
 
   1. Log in to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
   1. On the left side of the screen, click the line with the name of the folder where you want to deploy your container.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `github-action`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these roles:
@@ -267,7 +267,8 @@ After saving the changes, the `demo-service-connection-workflow` workflow will s
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the list, you should see `demo-serverless-container1`; select it.
 
       Under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, you should now see the container revision with the same timestamp as the [CI/CD process execution](#check-ci-cd).

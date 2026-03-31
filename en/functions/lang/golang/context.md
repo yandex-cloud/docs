@@ -6,6 +6,7 @@ description: In this article, you will learn about the Go function invocation co
 # Go function invocation context
 
 _Invocation context_ is an object that is optionally accepted by the [request handler](handler.md). It is a [context.Context](https://pkg.go.dev/context#Context) type object providing an interface you can use to get more information about the Go function version properties:
+* `yFunctionFolderID`: Folder containing the function.
 * `lambdaRuntimeFunctionName`: Function ID (`string`).
 * `lambdaRuntimeFunctionVersion`: Function version ID (`string`).
 * `lambdaRuntimeMemoryLimit`: Amount of memory specified when creating the version, MB (`int`).

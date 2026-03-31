@@ -56,7 +56,7 @@ The infrastructure support cost for this tutorial includes:
 
   {% endnote %}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install the following tools one by one by running the relevant commands in the terminal:
 
      * [WebStorm](https://www.jetbrains.com/webstorm/) or [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/):
        ```bash
@@ -116,7 +116,7 @@ The infrastructure support cost for this tutorial includes:
 
 - macOS {#macos}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install the following tools one by one by running the relevant commands in the terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -160,7 +160,7 @@ The infrastructure support cost for this tutorial includes:
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
        ```
 
-     * [Node.js](https://nodejs.org/en/) `16.16.0`:
+     * [Node.js](https://nodejs.org/en/) `16.16.0` or higher:
 
        ```bash
        brew install node@16
@@ -400,7 +400,7 @@ Create a database named `game-data` to store the game data and a database named 
     location_id: {{ region-id }}
     ```
 
-1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, it is `grpcs://ydb.serverless.yandexcloud.net:2135`.
+1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, it equals `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
     ```bash
     echo "export YDB_DATA_STREAMS_ENDPOINT=<DB_Document_API_endpoint>" >> ~/.bashrc && . ~/.bashrc
@@ -600,7 +600,7 @@ Create a database named `game-data` to store the game data and a database named 
 
 Your working folder will contain the following resources once your project is deployed:
 
-* {{ sf-name }}:
+* Functions from {{ sf-name }}:
 
   * `get-state`
   * `get-config`
@@ -698,7 +698,7 @@ During project deployment, the system created these service accounts:
 1. Inject new values into the secret named `game-secrets`:
 
     1. In the [management console]({{ link-console-main }}), select your working folder.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select `capturing-queue`.
     1. Copy the value from the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field and save it to the `YMQ_CAPTURE_QUEUE_URL` variable:
 
@@ -736,7 +736,7 @@ During project deployment, the system created these service accounts:
 
 ## Create an {{ api-gw-name }} {#apigw-create}
 
-During project deployment, the system created these service accounts:
+The following service accounts were created when deploying the project:
 * `apigw-s3-viewer` with the `storage.viewer` role to read objects from the {{ objstorage-name }} bucket.
 * `apigw-fn-caller` with the `{{ roles-functions-invoker }}` role to invoke {{ sf-name }}.
 

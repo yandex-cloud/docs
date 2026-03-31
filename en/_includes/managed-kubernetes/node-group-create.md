@@ -79,6 +79,9 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**:
    * Select the [availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) to place the group nodes in.
+
+       {% include [note-vpc-resources](note-vpc-resources.md) %}
+
    * Optionally, you can place nodes of a group with the fixed scaling type across multiple availability zones. To do this, click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and subnet.
 
    {% include [autoscaled-node-group-restriction](autoscaled-node-group-restriction.md) %}

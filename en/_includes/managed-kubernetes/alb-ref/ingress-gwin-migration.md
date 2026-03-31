@@ -2,6 +2,8 @@
 
 Follow this tutorial to migrate your {{ k8s }} apps from an {{ alb-name }} ingress controller to the new Gwin controller for {{ managed-k8s-name }}.
 
+
+
 To migrate your app from an {{ alb-name }} ingress controller to the Gwin controller:
 
 1. [Install Gwin](#gwin-install).
@@ -10,6 +12,10 @@ To migrate your app from an {{ alb-name }} ingress controller to the Gwin contro
 1. [Make sure your load balancing is correct](#check-load-balancing).
 1. [Redirect traffic to the new load balancer](#dns-switch).
 1. [Delete the resources you no longer need](#clear-out).
+
+## Getting started {#before-you-begin}
+
+For the converter script to work, all [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the `ingress.alb.yc.io` API group must be described in the cluster. Make sure the installed Helm chart with the ingress controller is version `0.2.9` or higher or install the [relevant resource configurations](../../../managed-kubernetes/alb-ref/index.md#ingress) manually.
 
 ## Installing Gwin {#gwin-install}
 

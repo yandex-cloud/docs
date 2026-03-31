@@ -151,6 +151,14 @@ items:
         href: tutorials/glibc-collation-issues.md
       - name: Writing data from a device to a database
         href: tutorials/data-recording.md
+      - name: >-
+          Connecting to {{ mpg-name }} from a PySpark job in {{ msp-full-name }}
+          using a {{ lockbox-name }} secret
+        href: tutorials/job-pyspark-secret-access.md
+      - name: >-
+          Configuring permissions for access to a secret created by {{
+          connection-manager-name }} for a {{ mpg-name }} user
+        href: tutorials/conn-man-secret-access.md
       - name: Replication and migration
         items:
           - name: Logical replication in {{ PG }}

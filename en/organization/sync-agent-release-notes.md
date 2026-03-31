@@ -7,6 +7,25 @@ description: This page presents a list of sync agent releases and the updates of
 
 ## Current version {#latest-release}
 
+### Version 0.40.0 (10/03/26) {#version0.40.0}
+
+#### Changes to {{ org-sync-agent-name }}
+
+* Now you can get an IAM token from the metadata service to access the {{ org-full-name }} API.
+
+{% cut "Checksums" %}
+
+| Platform   | Checksum (sha-256) |
+|-------------|-----------------------------|
+| `linux/amd64` | `c999643fd28d08076ff1d25ddf11e56a4a854fa4f2189109994b68d33974f698` |
+| `linux/arm64` | `74462de7defbd5beacab48d181697eb8d5efafbd198ff9ee55a38f9e34f38df5` |
+| `darwin/amd64` | `42a80a36d1d91bb095df3db1a57bc9f4002bcea30ecb87edf922d82c4aa16b96` |
+| `darwin/arm64` | `5b5f5a8ac35b3eef908ee4bf67414cbf58cd4be5b7d55cf3f67f10604ca17f78` |
+| `windows/amd64` | `d1e8c771afff4a08eb4fcc23dcba0352796a3f67ede7a9329650a3c4b5a8c12c` |
+| `windows/arm64` | `bd490392a86f809b66f70416f779058147d19f1f8700f4a30e62b2f17a202000` |
+
+{% endcut %}
+
 ### Version 0.39.0 (27/02/26) {#version0.39.0}
 
 #### Changes to {{ org-sync-agent-name }} {#changes-version0.39.0}
@@ -36,7 +55,7 @@ description: This page presents a list of sync agent releases and the updates of
 
 #### Changes in the {{ org-full-name }} sync agent {#changes-version0.38.0}
 
-* Fixed incorrect parsing of AD objects in case there are unknown attributes.
+* Fixed incorrect parsing of AD objects containing unknown attributes.
 
 * Fixed CN escaping in LDAP filters.
 

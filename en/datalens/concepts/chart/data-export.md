@@ -25,7 +25,7 @@ In {{ datalens-short-name }}, you can export data from charts:
 * [Background data export](#background-export) with extended limits of up to 1 GB:
 
   * Available only for paginated [Tables](../../visualization-ref/table-chart.md) created in the [wizard](./dataset-based-charts.md). Exports data from all the table's pages.
-  * Format: `CSV` file.
+  * File format: `CSV`.
   * First, the file is generated in the background, then a download link is created. File preparation takes up to 30 minutes.
 
 Any user with access permissions for a chart can export its data unless you [disable data export](#data-export-disable).

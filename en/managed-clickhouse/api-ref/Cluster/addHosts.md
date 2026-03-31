@@ -31,7 +31,8 @@ apiPlayground:
         copySchema:
           description: |-
             **boolean**
-            Whether to copy schema to new ClickHouse hosts from replicas.
+            Deprecated. The schema is always copied to new ClickHouse replicas in order to avoid potential data loss.
+          deprecated: true
           type: boolean
       additionalProperties: false
     definitions:
@@ -135,7 +136,7 @@ Configurations for ClickHouse hosts that should be added to the cluster.
 The number of elements must be greater than 0. ||
 || copySchema | **boolean**
 
-Whether to copy schema to new ClickHouse hosts from replicas. ||
+Deprecated. The schema is always copied to new ClickHouse replicas in order to avoid potential data loss. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.clickhouse.v1.HostSpec}

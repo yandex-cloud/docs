@@ -48,7 +48,7 @@
 
 #### Что произойдет, если не привязать банковскую карту при создании платежного аккаунта? {#no-linked-card}
 
-{% include [initail-payment-amout](../../_includes/billing/initial-payment-amount.md) %}
+{% include [initial-payment-amount](../../_includes/billing/initial-payment-amount.md) %}
 
 {% note warning %}
 
