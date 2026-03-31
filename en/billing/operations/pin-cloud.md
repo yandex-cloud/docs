@@ -76,9 +76,9 @@ Linking a cloud or another container to a [suspended account](../concepts/billin
 
 {% endnote %}
 
-## How to check the cloud's link {#check-binding}
+## Checking a cloud's link {#check-binding}
 
-To check the cloud's or service's link to a billing account:
+To check a cloud's or service's link to a billing account:
 
 {% list tabs group=instructions %}
 
@@ -88,7 +88,7 @@ To check the cloud's or service's link to a billing account:
   1. Select the billing account the new cloud or service was linked to.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
 
-  The list should feature a new entry with the ID of the linked cloud or service.
+  The list should include a new entry showing the ID of the linked cloud or service.
 
 {% endlist %}
 

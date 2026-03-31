@@ -3837,7 +3837,6 @@ default:
             popup-grant-activation_button_activate: Активировать
           detail:
             button_create-periodic-export: Регулярный экспорт
-            button_download-csv: Выгрузить в CSV
             button_export: Экспорт детализации
             column_cloud-name: Облако
             column_cost: Стоимость потребления
@@ -3858,7 +3857,6 @@ default:
             label_to: До
             label_top-cost: Стоимость потребления
             label_top-total: К оплате
-            popup-csv_button_download: Скачать
             tab_label: По меткам
             tab_product: По продуктам
             tab_service: По сервисам
@@ -3872,7 +3870,6 @@ default:
             field_detail-type: Детализация
             field_locale: Язык
             field_prefix: Папка
-            label_create-export-title: Создание регулярного экспорта
             label_include-resources: Поресурсная
             label_not-include-resources: Общая
             locale_value_en-lang: English
@@ -4453,12 +4450,8 @@ default:
             label_type: Тип
           exports:
             column_service_account: Сервисный аккаунт
-            field_bucket: Бакет
             field_date: Загрузить отчёты начиная с
-            field_detail-type: Детализация
-            field_locale: Язык
             field_period: Экспорт данных за предыдущий период
-            field_prefix: Путь внутри бакета
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
           proposals_page:

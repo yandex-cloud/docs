@@ -3836,7 +3836,6 @@ default:
             popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
-            button_download-csv: Export to CSV
             button_export: Export details
             column_cloud-name: Cloud
             column_cost: Consumption cost
@@ -3857,7 +3856,6 @@ default:
             label_to: To
             label_top-cost: Consumption cost
             label_top-total: Due and payable
-            popup-csv_button_download: Download
             tab_label: By labels
             tab_product: By product
             tab_service: By service
@@ -3871,7 +3869,6 @@ default:
             field_detail-type: Usage details
             field_locale: Language
             field_prefix: Directory
-            label_create-export-title: Create periodic export
             label_include-resources: Resource
             label_not-include-resources: General
             locale_value_en-lang: English
@@ -4452,12 +4449,8 @@ default:
             label_type: Type
           exports:
             column_service_account: Service account
-            field_bucket: Bucket
             field_date: Start from
-            field_detail-type: Usage details
-            field_locale: Language
             field_period: Export historical data
-            field_prefix: Path within the bucket
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
           proposals_page:

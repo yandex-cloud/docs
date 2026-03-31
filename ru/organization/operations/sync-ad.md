@@ -20,7 +20,9 @@ description: Следуя данной инструкции, вы сможете
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) ему следующие роли на [организацию](../concepts/organization.md), в которой находится нужный пул пользователей:
 
     {% include [ad-synk-sa-roles](../../_includes/organization/ad-synk-sa-roles.md) %}
-1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните [авторизованный ключ](../../iam/concepts/authorization/key.md) для вашего [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+1. (Опционально) [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните [авторизованный ключ](../../iam/concepts/authorization/key.md) для вашего [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+
+    {% include [ad-synk-iam-via-metadata-warning](../../_includes/organization/ad-synk-iam-via-metadata-warning.md) %}
 
 ## Подготовьте контроллер домена {{ microsoft-idp.ad-short }} {#dc-setup}
 
@@ -29,6 +31,8 @@ description: Следуя данной инструкции, вы сможете
 ## Настройте и запустите агент синхронизации {#setup-agent}
 
 Вы можете установить [агент](../concepts/ad-sync.md#sync-agent) синхронизации на любой сервер под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).
+
+Если вы устанавливаете агент синхронизации на [виртуальную машину](../../compute/concepts/vm.md) {{ compute-full-name }}, [подключите](../../compute/operations/vm-control/vm-connect-sa.md) к этой виртуальной машине созданный [ранее](#prepare-org) сервисный аккаунт.
 
 Прежде, чем приступать к синхронизации, откройте на сервере, где вы будете запускать агента, следующие [TCP](https://ru.wikipedia.org/wiki/TCP)-порты для входящего и исходящего сетевого трафика:
 
@@ -64,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
       To check service status: sudo systemctl status yc-identityhub-sync-agent
       yc-identityhub-sync-agent is installed to /usr/bin/yc-identityhub-sync-agent
       ```
-  1. Скопируйте на ваш сервер файл с сохраненным ранее авторизованным ключом сервисного аккаунта.
+  1. (Опционально) Если для аутентификации агента в API {{ yandex-cloud }} вы будете использовать авторизованный ключ сервисного аккаунта, скопируйте на ваш сервер файл с сохраненным ранее авторизованным ключом.
 
       Для этого вы можете воспользоваться командой `scp` или любым другим подходящим инструментом.
   1. В любом текстовом редакторе откройте [YAML](https://yaml.org/)-файл с конфигурацией агента синхронизации. В примере ниже используется редактор `nano`:
