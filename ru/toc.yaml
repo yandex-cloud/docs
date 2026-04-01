@@ -149,8 +149,6 @@ items:
     href: speechsense/index.yaml
   - name: Object Storage
     href: storage/index.yaml
-  - name: On-premises Yandex Object Storage
-    href: storage-onprem/index.yaml
   - name: Техническая поддержка {{ yandex-cloud }}
     href: support/index.yaml
   - name: Serverless Integrations

@@ -421,7 +421,7 @@ description: Из статьи вы узнаете про виджет Advanced-
 
 `[DataLens](https://datalens.ru)`
 
-[{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }})
+[{{ datalens-short-name }}]({{ link-datalens-main }})
 
 ### Вставка кода {#code}
 
