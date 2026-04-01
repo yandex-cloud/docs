@@ -616,6 +616,10 @@ description: В статье приведен полный справочник 
 
 {% include [organization-manager.groups.externalManager](../_roles/organization-manager/groups/externalManager.md) %}
 
+#### organization-manager.groups.viewer {#organization-manager-groups-viewer}
+
+{% include [organization-manager-groups-viewer](../_roles/organization-manager/groups/viewer.md) %}
+
 #### organization-manager.groups.editor {#organization-manager-groups-editor}
 
 {% include [organization-manager-groups-editor](../_roles/organization-manager/groups/editor.md) %}
@@ -1699,6 +1703,10 @@ description: В статье приведен полный справочник 
 #### k8s.cluster-api.editor {#k8s-cluster-api-editor}
 
 {% include [k8s.cluster-api.editor](../_roles/k8s/cluster-api/editor.md) %}
+
+#### k8s.cluster-api.admin {#k8s-cluster-api-admin}
+
+{% include [k8s.cluster-api.admin](../_roles/k8s/cluster-api/admin.md) %}
 
 #### k8s.cluster-api.cluster-admin {#k8s-cluster-api-cluster-admin}
 

@@ -510,7 +510,7 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       console:
-        str-1c: 13-1c, 14-1c, 15-1c, 16-1c и 17-1c
+        str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
       tf:
         latest: '17'
         str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, 17 и 17-1c

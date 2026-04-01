@@ -48,6 +48,10 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 {% include [k8s.cluster-api.editor](../../_roles/k8s/cluster-api/editor.md) %}
 
+#### k8s.cluster-api.admin {#k8s-cluster-api-admin}
+
+{% include [k8s.cluster-api.admin](../../_roles/k8s/cluster-api/admin.md) %}
+
 #### k8s.cluster-api.cluster-admin {#k8s-cluster-api-cluster-admin}
 
 {% include [k8s.cluster-api.cluster-admin](../../_roles/k8s/cluster-api/cluster-admin.md) %}
