@@ -42,6 +42,10 @@ Possible property names:
 
 - `aws-v1-http-token`: Enables access to IAM credentials with AWS flavored metadata (IMDSv1). Values: enabled, disabled
 
+- `aws-v2-http-endpoint`: Enables access to AWS flavored metadata (IMDSv2). Values: enabled, disabled
+
+- `aws-v2-http-token`: Enables access to STS credentials with AWS flavored metadata (IMDSv2). Values: enabled, disabled
+
 - `gce-http-endpoint`: Enables access to GCE flavored metadata. Values: enabled, disabled
 
 - `gce-http-token`: Enables access to IAM credentials with GCE flavored metadata. Values: enabled, disabled ||

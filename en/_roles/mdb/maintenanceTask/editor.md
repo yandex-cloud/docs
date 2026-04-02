@@ -1,0 +1,5 @@
+The `mdb.maintenanceTask.editor` role enables managing maintenance tasks for managed database clusters.
+
+Users with this role can view information on maintenance tasks for managed database clusters and modify such tasks, view information on managed database clusters and access permissions granted for them, on cluster hosts and backups, as well as on service quotas and resource operations.
+
+This role includes the `mdb.maintenanceTask.viewer`, `managed-clickhouse.maintenanceTask.editor`, `managed-greenplum.maintenanceTask.editor`, `managed-kafka.maintenanceTask.editor`, `managed-mongodb.maintenanceTask.editor`, `managed-mysql.maintenanceTask.editor`, `managed-opensearch.maintenanceTask.editor`, `managed-postgresql.maintenanceTask.editor`, `managed-redis.maintenanceTask.editor`, and `managed-spqr.maintenanceTask.editor` permissions.

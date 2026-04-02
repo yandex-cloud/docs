@@ -1191,42 +1191,12 @@ default:
       subnet_29: dn2tkuvap6istmk4dz5a
       subnet_31: dn2gf7ncn54qfzez6xhp
     server:
-      ba_i100_h:
-        1_day: dn2itj42rjvc71ogavf8
-        1_month: dn242492ooe8t9884pit
-        12_month: dn2kpfi79f38bl6hdpjs
-        3_month: dn2nqpla60m77p6rshuu
-        6_month: dn27o61er1shatjmrf82
-      ba_i101_h:
-        1_day: dn2bv21cnlvsnksqgrta
-        1_month: dn281facl7sfi9ga5o5m
-        12_month: dn2gb7uf15hc3vuf2t6n
-        3_month: dn24flm3irtuk4mheb7u
-        6_month: dn2ssntfp7dcr3213bu1
-      ba_i102_s:
-        1_day: dn2lje1ou5judp2gooai
-        1_month: dn243nnpi79c04cj181o
-        12_month: dn2k8rbi48paspive2co
-        3_month: dn2d089djar2i3humc2g
-        6_month: dn2kfg25ck5a3gkjoog2
       ba_i103_s_10g:
         1_day: dn2d1eocobn8amlmll3r
         1_month: dn2p7pofnj0beukb0erb
         12_month: dn20q66guu76is04nktv
         3_month: dn2mcqi74h70gor1pm4n
         6_month: dn2d06jhdbolrd6osgc2
-      ba_i104_sh:
-        1_day: dn2kvvtf8b4edrq2j4k3
-        1_month: dn213ucd95oojvm9dogd
-        12_month: dn2cqjm2tl3ocejdld92
-        3_month: dn277i5jopu2u3bbhrls
-        6_month: dn2qugeptlh0210ev4i7
-      ba_i105_sh:
-        1_day: dn20mllfiaqcj26n61lu
-        1_month: dn2pa25aki9ot51roaj0
-        12_month: dn2rjpas623nq40gm0tj
-        3_month: dn273o8bqg2dtfi0tfme
-        6_month: dn2hjphr6r37l8f9gekr
       ba_i106_sh_10g:
         1_day: dn247633ncch74qta3t0
         1_month: dn209gne5ncks8amg0sr
@@ -1305,12 +1275,6 @@ default:
         12_month: dn21fsqmbhvseaof5pf6
         3_month: dn2pstl57mu8t3c1qm4q
         6_month: dn2jc74moe4laf8m6m7j
-      ba_i211_8s_25g:
-        1_day: dn2r257e3luaj45oh26w
-        1_month: dn2xasypkkbyq7s2jat6
-        12_month: dn2fysufhjzeuuean7vs
-        3_month: dn2wa5sleev34ncu4d4y
-        6_month: dn2mpw7fjopn3wgbotkb
       ba_i215_ss_10g:
         1_day: dn2h6lrfdk4nac5wgwuq
         1_month: dn2mgkgws5vkgcmx66i7
@@ -1395,12 +1359,6 @@ default:
         12_month: dn2o37ubk4t3iaow63jt
         3_month: dn2wch2v5lriafthzrjf
         6_month: dn2s3j7tgubgjk7l5azt
-      ba-i209-ss-1-10g-p1:
-        1_day: dn234x5yvleikg5uygye
-        1_month: dn2lsktejmmm6sjyhmrl
-        12_month: dn2mx27jy4d2vup4zzu2
-        3_month: dn2njr4vnpuiqmalpdko
-        6_month: dn24onufuxs2vhpub2pd
       ba-i217-s-1-10g:
         1_day: dn2r5rks2csdg6435bp4
         1_month: dn25qijyv3bobflplxne
@@ -5618,12 +5576,14 @@ default:
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
         label_images: Загрузочные образы
+        label_images_duoXD: Загрузочные образы
         label_kvm-console_37Kma: KVM-консоль
         label_load-image: Загрузить образ
         label_lockbox-key: Ключ
         label_lockbox-name: Имя
         label_lockbox-version: Версия
         label_networks: VRF
+        label_networks_kHgng: VRF
         label_password-lockbox: Секрет Lockbox
         label_password-plain: Новый пароль
         label_public-ip-ephemeral: Из эфемерной подсети
@@ -5631,6 +5591,8 @@ default:
         label_public-ip-no: Без адреса
         label_public-ip-via-dhcp: Назначить по DHCP
         label_public-subnets: Публичные адреса и подсети
+        label_public-subnets_v16CV: Публичные адреса и подсети
+        label_servers_sCNgb: Серверы
         label_subnetworks_uU4LH: Приватные подсети
         label_vrf-interconnect-direct-type: Идентификатор соединения
         label_vrf-interconnect-select-type: Способ настройки

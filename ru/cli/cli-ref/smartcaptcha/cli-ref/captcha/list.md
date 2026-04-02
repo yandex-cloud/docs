@@ -4,21 +4,21 @@ editable: false
 
 # yc smartcaptcha captcha list
 
-List captchas
+Retrieves the list of Captcha resources in the specified folder.
 
 #### Command Usage
 
 Syntax:
 
-`yc smartcaptcha captcha list [Flags...] [Global Flags...]`
+`yc smartcaptcha captcha list <FOLDER-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
-|| `--limit` | `int`
+|| `--folder-id` | `string`
 
-The maximum number of items to list. Default is 1000 items ||
+ID of the folder that the captcha belongs to. Currently page_size, page_token, filter and order_by are not supported and List method will return all captchas in the folder. ||
 |#
 
 #### Global Flags
@@ -27,42 +27,39 @@ The maximum number of items to list. Default is 1000 items ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
+|| `--timeout` | `string`
 
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
-|| `--cloud-id` | `string`
-
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--syntax` | `string`
+
+CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
 || `-h`, `--help` | Display help for the command. ||
 |#

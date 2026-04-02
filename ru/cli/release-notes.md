@@ -7,6 +7,54 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.0.0 (02.04.26) {#version1.0.0}
+
+#### Изменения в системных командах CLI {#yc-1.0.0}
+
+* Отключен gRPC Service Discovery для ускорения работы CLI у пользователей с большим количеством поисковых доменов в {{ dns-name }}.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-1.0.0}
+
+##### {{ compute-name }} {#compute-1.0.0}
+
+В команды `yc compute instance create` и `yc compute instance update` добавлен параметр `--metadata-options` для получения метаданных IMDSv2 экземпляра, например `--metadata-options aws-v2-http-endpoint=enabled,aws-v2-http-token=enabled`.
+
+##### {{ mch-name }} {#mch-1.0.0}
+
+Опция `--copy-schema` форсированно включена и объявлена `deprecated` в команде `yc managed-clickhouse host add`.
+
+##### {{ mos-name }} {#mos-1.0.0}
+
+Добавлена возможность изменения `disk-type-id` в команде `yc managed-opensearch node-group update`.
+
+##### {{ captcha-name }} {#captcha-1.0.0}
+
+Команды `yc smartcaptcha` переведены на новый синтаксис. Для использования старого синтаксиса используйте параметр `--syntax=1` при выполнении команд:
+* `yc smartcaptcha captcha create`;
+* `yc smartcaptcha captcha delete`;
+* `yc smartcaptcha captcha get`;
+* `yc smartcaptcha captcha get-secret-key`;
+* `yc smartcaptcha captcha list`;
+* `yc smartcaptcha captcha update`.
+
+##### {{ sws-name }} {#sws-1.0.0}
+
+* Команды `yc smartwebsecurity` переведены на новый синтаксис. Для использования старого синтаксиса используйте параметр `--syntax=1` при выполнении команд:
+  * `yc smartwebsecurity security-profile create`;
+  * `yc smartwebsecurity security-profile delete`;
+  * `yc smartwebsecurity security-profile get`;
+  * `yc smartwebsecurity security-profile list`;
+  * `yc smartwebsecurity security-profile update`.
+* Изменен вывод команды `yc smartwebsecurity get`.
+
+##### {{ metadata-hub-name }} {#metadata-hub-1.0.0}
+
+Добавлены параметры `--warehouse-bucket` и `--warehouse-path` для настройки бакета {{ objstorage-name }}, который будет использоваться в качестве хранилища данных Hive Metastore (`warehouse`):
+* `yc managed-metastore cluster create --warehouse-bucket --warehouse-path`;
+* `yc managed-metastore cluster update --warehouse-bucket --warehouse-path`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.204.0 (30.03.26) {#version0.204.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services-0.204.0}
@@ -16,8 +64,6 @@ description: На странице представлены релизы CLI, а
 Добавлены команды для просмотра и обновления списка пользователей и групп, к которым не применяется политика MFA:
 * `yc organization-manager mfa-enforcement list-excluded-audience`;
 * `yc organization-manager mfa-enforcement update-excluded-audience`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.203.0 (26.03.26) {#version0.203.0}
 

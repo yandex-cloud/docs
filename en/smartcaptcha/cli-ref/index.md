@@ -4,7 +4,7 @@ editable: false
 
 # yc smartcaptcha
 
-Manage Yandex SmartCaptcha resources
+Manage SmartCaptcha resources
 
 #### Command Usage
 
@@ -20,17 +20,23 @@ Aliases:
 
 #### Command Tree
 
-- [yc smartcaptcha captcha](captcha/index.md) — Manage captchas
+- [yc smartcaptcha captcha](captcha/index.md) — A set of methods for managing Captcha resources.
 
-  - [yc smartcaptcha captcha create](captcha/create.md) — Create a captcha
+  - [yc smartcaptcha captcha create](captcha/create.md) — Creates a captcha in the specified folder using the data specified in the request.
 
-  - [yc smartcaptcha captcha delete](captcha/delete.md) — Delete the specified captcha
+  - [yc smartcaptcha captcha delete](captcha/delete.md) — Deletes the specified captcha.
 
-  - [yc smartcaptcha captcha get](captcha/get.md) — Show information about the specified captcha
+  - [yc smartcaptcha captcha get](captcha/get.md) — Returns the specified Captcha resource.
 
-  - [yc smartcaptcha captcha list](captcha/list.md) — List captchas
+  - [yc smartcaptcha captcha get-secret-key](captcha/get-secret-key.md) — Returns the secret data of specified Captcha resource.
 
-  - [yc smartcaptcha captcha update](captcha/update.md) — Update the specified captcha
+  - [yc smartcaptcha captcha list](captcha/list.md) — Retrieves the list of Captcha resources in the specified folder.
+
+  - [yc smartcaptcha captcha update](captcha/update.md) — Updates the specified captcha.
+
+- [yc smartcaptcha v1](v1/index.md) — Call commands using API version v1
+
+
 
 #### Global Flags
 
@@ -38,42 +44,39 @@ Aliases:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
+|| `--timeout` | `string`
 
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
-|| `--cloud-id` | `string`
-
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--syntax` | `string`
+
+CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
 || `-h`, `--help` | Display help for the command. ||
 |#

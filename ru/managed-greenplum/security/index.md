@@ -93,6 +93,14 @@ keywords:
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
+
 При создании кластера {{ GP }} вместе с ним автоматически создается пользователь-администратор с ролью `mdb_admin`. Эта роль заменяет суперпользователя при работе с БД и не является аналогом роли `{{ roles-mdb-admin }}` в {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../concepts/cluster-users.md).
 
 #### vpc.publicAdmin {#vpc-public-admin}

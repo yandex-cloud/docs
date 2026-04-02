@@ -4,118 +4,410 @@ editable: false
 
 # yc smartcaptcha captcha create
 
-Create a captcha
+Creates a captcha in the specified folder using the data specified in the request.
 
 #### Command Usage
 
 Syntax:
 
-`yc smartcaptcha captcha create <CAPTCHA-NAME> [Flags...] [Global Flags...]`
+`yc smartcaptcha captcha create <FOLDER-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc compute instance create -r request.yaml ||
+|| `--allowed-sites` | `[]string`
+
+List of allowed host names, see documentation. ||
+|| `--challenge-type` | `enum`
+
+Additional task type of the captcha. Possible Values: 'image-text', 'silhouettes', 'kaleidoscope' ||
+|| `--complexity` | `enum`
+
+Complexity of the captcha. Possible Values: 'easy', 'medium', 'hard', 'force-hard' ||
+|| `--deletion-protection` | Determines whether captcha is protected from being deleted. ||
+|| `--description` | `string`
+
+Optional description of the captcha. ||
+|| `--disallow-data-processing` | If true, Yandex team won't be able to read internal data. ||
+|| `--folder-id` | `string`
+
+ID of the folder to create a captcha in. ||
+|| `--labels` | `map<string><string>`
+
+Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
 
-A name of the captcha. ||
-|| `--labels` | `key=value[,key=value...]`
+Name of the captcha. The name must be unique within the folder. ||
+|| `--override-variants` | `shorthand/json`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
-|| `--complexity` | `string`
+List of variants to use in security_rules
 
-Captcha complexity.
-* 'MEDIUM': Used by default. Medium chance to pass pre-check and normal advanced challenge.
-* 'EASY': High chance to pass pre-check and easy advanced challenge.
-* 'HARD': Little chance to pass pre-check and hard advanced challenge.
-* 'FORCE_HARD': Impossible to pass pre-check and hard advanced challenge. ||
+{% cut "Description" %}
+
+> - challenge-type (structure)\
+Additional task type of the captcha.
+> - complexity (structure)\
+Complexity of the captcha.
+> - description (string)\
+Optional description of the rule. 0-512 characters long.
+> - pre-check-type (structure)\
+Basic check type of the captcha.
+> - uuid (string)\
+Unique identifier of the variant.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+[
+  {
+    challenge-type = IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE,
+    complexity = EASY|MEDIUM|HARD|FORCE_HARD,
+    description = string,
+    pre-check-type = CHECKBOX|SLIDER,
+    uuid = string
+  }, ...
+]
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+[
+  {
+    "challenge-type": "IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE",
+    "complexity": "EASY|MEDIUM|HARD|FORCE_HARD",
+    "description": "string",
+    "pre-check-type": "CHECKBOX|SLIDER",
+    "uuid": "string"
+  }, ...
+]
+```
+
+{% endcut %} ||
+|| `--pre-check-type` | `enum`
+
+Basic check type of the captcha. Possible Values: 'checkbox', 'slider' ||
+|| `--security-rules` | `shorthand/json`
+
+List of security rules.
+
+{% cut "Description" %}
+
+> - condition (structure)\
+The condition for matching the rule.
+>> - headers ([]structure)\
+Captcha request headers.
+>>> - name (string)\
+Name of header (case insensitive).
+>>> - value (structure)\
+Value of the header.
+>>>> - match (oneof)\
+Oneof match field
+>>>>> - exact-match (string)\
+Exact match condition.
+>>>>> - exact-not-match (string)\
+Exact not match condition.
+>>>>> - prefix-match (string)\
+Prefix match condition.
+>>>>> - prefix-not-match (string)\
+Prefix not match condition.
+>>>>> - pire-regex-match (string)\
+PIRE regex match condition.
+>>>>> - pire-regex-not-match (string)\
+PIRE regex not match condition.
+>> - host (structure)\
+*AND* semantics implied.
+>>> - host-matcher (structure)\
+Host matcher.
+>>>> - match (oneof)\
+Oneof match field
+>>>>> - exact-match (string)\
+Exact match condition.
+>>>>> - exact-not-match (string)\
+Exact not match condition.
+>>>>> - prefix-match (string)\
+Prefix match condition.
+>>>>> - prefix-not-match (string)\
+Prefix not match condition.
+>>>>> - pire-regex-match (string)\
+PIRE regex match condition.
+>>>>> - pire-regex-not-match (string)\
+PIRE regex not match condition.
+>>> - hosts ([]structure)\
+List of hosts. OR semantics implied.
+>>>> - match (oneof)\
+Oneof match field
+>>>>> - exact-match (string)\
+Exact match condition.
+>>>>> - exact-not-match (string)\
+Exact not match condition.
+>>>>> - prefix-match (string)\
+Prefix match condition.
+>>>>> - prefix-not-match (string)\
+Prefix not match condition.
+>>>>> - pire-regex-match (string)\
+PIRE regex match condition.
+>>>>> - pire-regex-not-match (string)\
+PIRE regex not match condition.
+>> - source-ip (structure)\
+The IP address of the requester.
+>>> - geo-ip-match (structure)\
+Geo locations to match with.
+>>>> - locations ([]string)\
+*OR semantics implied. ISO 3166-1 alpha 2
+>>> - geo-ip-not-match (structure)\
+Geo locations to not match with.
+>>>> - locations ([]string)\
+*OR semantics implied. ISO 3166-1 alpha 2
+>>> - ip-ranges-match (structure)\
+IP ranges to match with.
+>>>> - ip-ranges ([]string)\
+*OR* semantics implied.
+>>> - ip-ranges-not-match (structure)\
+IP ranges to not match with.
+>>>> - ip-ranges ([]string)\
+*OR* semantics implied.
+>> - uri (structure)\
+URI where captcha placed.
+>>> - path (structure)\
+Path of the URI RFC3986.
+>>>> - match (oneof)\
+Oneof match field
+>>>>> - exact-match (string)\
+Exact match condition.
+>>>>> - exact-not-match (string)\
+Exact not match condition.
+>>>>> - prefix-match (string)\
+Prefix match condition.
+>>>>> - prefix-not-match (string)\
+Prefix not match condition.
+>>>>> - pire-regex-match (string)\
+PIRE regex match condition.
+>>>>> - pire-regex-not-match (string)\
+PIRE regex not match condition.
+>>> - queries ([]structure)\
+*AND* semantics implied
+>>>> - key (string)\
+Key of the query parameter.
+>>>> - value (structure)\
+Value of the query parameter.
+>>>>> - match (oneof)\
+Oneof match field
+>>>>>> - exact-match (string)\
+Exact match condition.
+>>>>>> - exact-not-match (string)\
+Exact not match condition.
+>>>>>> - prefix-match (string)\
+Prefix match condition.
+>>>>>> - prefix-not-match (string)\
+Prefix not match condition.
+>>>>>> - pire-regex-match (string)\
+PIRE regex match condition.
+>>>>>> - pire-regex-not-match (string)\
+PIRE regex not match condition.
+> - description (string)\
+Optional description of the rule. 0-512 characters long.
+> - name (string)\
+Name of the rule. The name is unique within the captcha. 1-50 characters long.
+> - override-variant-uuid (string)\
+Variant UUID to show in case of match the rule. Keep empty to use defaults.
+> - priority (integer)\
+Priority of the rule. Lower value means higher priority.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+[
+  {
+    condition = {
+      headers = [
+        {
+          name = string,
+          value = {
+            match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
+          }
+        }, ...
+      ],
+      host = {
+        host-matcher = {
+          match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
+        },
+        hosts = [
+          {
+            match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
+          }, ...
+        ]
+      },
+      source-ip = {
+        geo-ip-match = {
+          locations = string,...
+        },
+        geo-ip-not-match = {
+          locations = string,...
+        },
+        ip-ranges-match = {
+          ip-ranges = string,...
+        },
+        ip-ranges-not-match = {
+          ip-ranges = string,...
+        }
+      },
+      uri = {
+        path = {
+          match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
+        },
+        queries = [
+          {
+            key = string,
+            value = {
+              match = exact-match=string | exact-not-match=string | pire-regex-match=string | pire-regex-not-match=string | prefix-match=string | prefix-not-match=string
+            }
+          }, ...
+        ]
+      }
+    },
+    description = string,
+    name = string,
+    override-variant-uuid = string,
+    priority = integer
+  }, ...
+]
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+[
+  {
+    "condition": {
+      "headers": [
+        {
+          "name": "string",
+          "value": {
+            "match": {
+              "exact-match": "string",
+              "exact-not-match": "string",
+              "pire-regex-match": "string",
+              "pire-regex-not-match": "string",
+              "prefix-match": "string",
+              "prefix-not-match": "string"
+            }
+          }
+        }, ...
+      ],
+      "host": {
+        "host-matcher": {
+          "match": {
+            "exact-match": "string",
+            "exact-not-match": "string",
+            "pire-regex-match": "string",
+            "pire-regex-not-match": "string",
+            "prefix-match": "string",
+            "prefix-not-match": "string"
+          }
+        },
+        "hosts": [
+          {
+            "match": {
+              "exact-match": "string",
+              "exact-not-match": "string",
+              "pire-regex-match": "string",
+              "pire-regex-not-match": "string",
+              "prefix-match": "string",
+              "prefix-not-match": "string"
+            }
+          }, ...
+        ]
+      },
+      "source-ip": {
+        "geo-ip-match": {
+          "locations": [
+            "string", ...
+          ]
+        },
+        "geo-ip-not-match": {
+          "locations": [
+            "string", ...
+          ]
+        },
+        "ip-ranges-match": {
+          "ip-ranges": [
+            "string", ...
+          ]
+        },
+        "ip-ranges-not-match": {
+          "ip-ranges": [
+            "string", ...
+          ]
+        }
+      },
+      "uri": {
+        "path": {
+          "match": {
+            "exact-match": "string",
+            "exact-not-match": "string",
+            "pire-regex-match": "string",
+            "pire-regex-not-match": "string",
+            "prefix-match": "string",
+            "prefix-not-match": "string"
+          }
+        },
+        "queries": [
+          {
+            "key": "string",
+            "value": {
+              "match": {
+                "exact-match": "string",
+                "exact-not-match": "string",
+                "pire-regex-match": "string",
+                "pire-regex-not-match": "string",
+                "prefix-match": "string",
+                "prefix-not-match": "string"
+              }
+            }
+          }, ...
+        ]
+      }
+    },
+    "description": "string",
+    "name": "string",
+    "override-variant-uuid": "string",
+    "priority": "integer"
+  }, ...
+]
+```
+
+{% endcut %} ||
 || `--style-json` | `string`
 
 JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console. ||
-|| `--pre-check-type` | `string`
-
-Basic check type of the captcha.
-* 'CHECKBOX': Used by default. User must click the "I am not a robot" button.
-* 'SLIDER': User must move the slider from left to right. ||
-|| `--challenge-type` | `string`
-
-Additional task.
-* 'IMAGE_TEXT': Used by default. Text recognition: The user has to type a distorted text from the picture into a special field.
-* 'SILHOUETTES': Silhouettes: The user has to mark several icons from the picture in a particular order.
-* 'KALEIDOSCOPE': Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider. ||
-|| `--allowed-site` | `value[,value]`
-
-List of allowed host names. ||
-|| `--turn-off-hostname-check` | Turn off host name check. ||
-|| `--security-rules-file` | `string`
-
-Path to a text file that contains security rules array in YAML format. Content example:
-
-- name: rule1
-  priority: "11"
-  description: My first security rule. This rule it's just example to show possibilities of configuration.
-  override_variant_uuid: variant-1
-  condition:
-    host:
-      hosts:
-        - exact_match: example.com
-        - exact_match: example.net
-    uri:
-      path:
-        prefix_match: /form
-      queries:
-        - key: firstname
-          value:
-            pire_regex_match: .*ivan.*
-        - key: lastname
-          value:
-            pire_regex_not_match: .*petr.*
-    headers:
-      - name: User-Agent
-        value:
-          pire_regex_match: .*curl.*
-      - name: Referer
-        value:
-          pire_regex_not_match: .*bot.*
-    source_ip:
-      ip_ranges_match:
-        ip_ranges:
-          - 1.2.33.44
-          - 2.3.4.56
-      ip_ranges_not_match:
-        ip_ranges:
-          - 8.8.0.0/16
-          - 10::1234:1abc:1/64
-      geo_ip_match:
-        locations:
-          - ru
-          - es
-      geo_ip_not_match:
-        locations:
-          - us
-          - fm
-          - gb
-- name: rule2
-  priority: "12"
-  override_variant_uuid: variant-2
-  condition:
-    uri:
-      path:
-        prefix_match: /form ||
-|| `--override-variants-file` | `string`
-
-Path to a text file that contains variants array in YAML format. Content example:
-
-- uuid: variant-1
-  description: override variant 1
-  complexity: EASY
-  pre_check_type: CHECKBOX
-  challenge_type: SILHOUETTES
-- uuid: variant-2
-  description: override variant 2
-  complexity: HARD
-  pre_check_type: CHECKBOX
-  challenge_type: KALEIDOSCOPE ||
+|| `--turn-off-hostname-check` | Turn off host name check, see documentation. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
@@ -125,42 +417,39 @@ Path to a text file that contains variants array in YAML format. Content example
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
+|| `--timeout` | `string`
 
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
-|| `--cloud-id` | `string`
-
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--syntax` | `string`
+
+CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
 || `-h`, `--help` | Display help for the command. ||
 |#

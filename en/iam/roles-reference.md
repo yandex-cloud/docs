@@ -1465,6 +1465,19 @@ For more information, see [{#T}](../lockbox/security/index.md).
 
 {% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
+
+
 ## {{ maf-full-name }} {#managed-airflow-roles}
 
 #### managed-airflow.auditor {#managed-airflow-auditor}
