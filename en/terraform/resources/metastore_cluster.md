@@ -20,7 +20,15 @@ resource "yandex_metastore_cluster" "my_metastore_cluster" {
 
   cluster_config = {
     resource_preset_id = "c2-m8"
+    warehouse_config = {
+      s3 = {
+        bucket = "my-metastore-warehouse"
+        path   = "data/warehouse"
+      }
+    }
   }
+
+  version = "4.2"
 
   maintenance_window = {
     type = "WEEKLY"
@@ -42,6 +50,10 @@ resource "yandex_metastore_cluster" "my_metastore_cluster" {
 
 - `cluster_config` [Block]. Hive Metastore cluster configuration.
   - `resource_preset_id` (**Required**)(String). The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
+  - `warehouse_config` [Block]. Warehouse configuration for Hive Metastore. Required for HMS version 4.2+.
+    - `s3` (**Required**)[Block]. S3-compatible storage configuration for warehouse.
+      - `bucket` (**Required**)(String). Name of the S3 bucket used as warehouse storage.
+      - `path` (String). Path prefix within the bucket for warehouse data.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion. By default is set to `false`.
 - `description` (String). The resource description.

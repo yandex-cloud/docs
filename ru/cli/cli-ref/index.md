@@ -110,9 +110,9 @@ Syntax:
 
 - [yc serverless](serverless/cli-ref/index.md) — Manage Serverless resources.
 
-- [yc smartcaptcha](smartcaptcha/cli-ref/index.md) — Manage Yandex SmartCaptcha resources
+- [yc smartcaptcha](smartcaptcha/cli-ref/index.md) — Manage SmartCaptcha resources
 
-- [yc smartwebsecurity](smartwebsecurity/cli-ref/index.md) — Manage Yandex SmartWebSecurity resources
+- [yc smartwebsecurity](smartwebsecurity/cli-ref/index.md) — Manage SmartWebSecurity resources
 
 - [yc storage](storage/cli-ref/index.md) — Manage Yandex Object Storage resources
 

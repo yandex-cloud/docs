@@ -1,6 +1,6 @@
 ---
-title: '{{ yds-full-name }} use cases'
-description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
+title: Step-by-step guides for using {{ yds-full-name }}
+description: Step-by-step guides for working with {{ yds-full-name }} in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ yds-name }}
@@ -16,7 +16,7 @@ description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
 
 ## Working with the AWS SDK
 
-* [Preparing the environment](aws-sdk/prepare.md)
+* [Setting up the environment](aws-sdk/prepare.md)
 * [Creating a data stream](aws-sdk/create.md)
 * [Sending data to a stream](aws-sdk/send.md)
 * [Deleting a data stream](aws-sdk/delete.md)

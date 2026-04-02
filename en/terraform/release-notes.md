@@ -6,6 +6,17 @@ editable: false
 
 
 
+## 0.196.0 (April 2, 2026)
+##### FEATURES:
+* mysql: add yandex_mdb_mysql_database_v2 resource and datasource
+* metastore: add warehouse_config support to yandex_metastore_cluster resource and data source
+* mdb_clickhouse: add kafka settings message_max_bytes and batch_size
+##### BUG FIXES:
+* mdb_clickhouse: prevent "new element appeared" error for implicitly created shards
+* CDN: fix resource options disable_proxy_force_ranges and proxy_cache_methods_set
+* opensearch: fix subnets compare in special envirionment
+* crypto: fixed plugin crash when trying to create certificate using YC Certificate Manager with incorrect params
+
 ## 0.195.0 (March 30, 2026)
 ##### FEATURES:
 * datacatalog: new yandex_datacatalog_catalog resource and data-source were added

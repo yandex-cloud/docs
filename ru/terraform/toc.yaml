@@ -1047,6 +1047,9 @@ items:
                   - name: mdb_mysql_database
                     href: data-sources/mdb_mysql_database.md
                     title: ''
+                  - name: mdb_mysql_database_v2
+                    href: data-sources/mdb_mysql_database_v2.md
+                    title: ''
                   - name: mdb_mysql_user
                     href: data-sources/mdb_mysql_user.md
                     title: ''
@@ -1064,6 +1067,9 @@ items:
                     title: ''
                   - name: mdb_mysql_database
                     href: resources/mdb_mysql_database.md
+                    title: ''
+                  - name: mdb_mysql_database_v2
+                    href: resources/mdb_mysql_database_v2.md
                     title: ''
                   - name: mdb_mysql_user
                     href: resources/mdb_mysql_user.md

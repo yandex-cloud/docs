@@ -173,6 +173,8 @@ items:
             href: security/index.md
           - name: Дополнительные настройки серверов
             href: concepts/server-advanced-settings.md
+          - name: Консоль управления
+            href: concepts/console.md
           - name: Справочник CLI (англ.)
             items:
               - name: Overview

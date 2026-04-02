@@ -5444,10 +5444,32 @@ items:
                 href: cli-ref/smartcaptcha/cli-ref/captcha/delete.md
               - name: get
                 href: cli-ref/smartcaptcha/cli-ref/captcha/get.md
+              - name: get-secret-key
+                href: cli-ref/smartcaptcha/cli-ref/captcha/get-secret-key.md
               - name: list
                 href: cli-ref/smartcaptcha/cli-ref/captcha/list.md
               - name: update
                 href: cli-ref/smartcaptcha/cli-ref/captcha/update.md
+          - name: v1
+            items:
+              - name: Overview
+                href: cli-ref/smartcaptcha/cli-ref/v1/index.md
+              - name: captcha
+                items:
+                  - name: Overview
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/index.md
+                  - name: create
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/create.md
+                  - name: delete
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/delete.md
+                  - name: get
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/get.md
+                  - name: get-secret-key
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/get-secret-key.md
+                  - name: list
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/list.md
+                  - name: update
+                    href: cli-ref/smartcaptcha/cli-ref/v1/captcha/update.md
       - name: smartwebsecurity
         items:
           - name: Overview
@@ -5466,6 +5488,30 @@ items:
                 href: cli-ref/smartwebsecurity/cli-ref/security-profile/list.md
               - name: update
                 href: cli-ref/smartwebsecurity/cli-ref/security-profile/update.md
+          - name: v1
+            items:
+              - name: Overview
+                href: cli-ref/smartwebsecurity/cli-ref/v1/index.md
+              - name: security-profile
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/v1/security-profile/update.md
       - name: storage
         items:
           - name: Overview
