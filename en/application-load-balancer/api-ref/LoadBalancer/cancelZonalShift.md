@@ -165,7 +165,13 @@ The number of elements must be greater than 0. ||
             // end of the list of possible fields
             "certificateIds": [
               "string"
-            ]
+            ],
+            "clientCertificatesVerification": {
+              "requireClientCertificate": "boolean",
+              // Includes only one of the fields `bytes`
+              "bytes": "string"
+              // end of the list of possible fields
+            }
           },
           "sniHandlers": [
             {
@@ -192,7 +198,13 @@ The number of elements must be greater than 0. ||
                 // end of the list of possible fields
                 "certificateIds": [
                   "string"
-                ]
+                ],
+                "clientCertificatesVerification": {
+                  "requireClientCertificate": "boolean",
+                  // Includes only one of the fields `bytes`
+                  "bytes": "string"
+                  // end of the list of possible fields
+                }
               }
             }
           ]
@@ -690,6 +702,9 @@ ID's of the TLS server certificates from [Certificate Manager](/docs/certificate
 RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
 The number of elements must be greater than 0. ||
+|| clientCertificatesVerification | **[ClientCertificatesVerification](#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification)**
+
+Client certificates verification settings. ||
 |#
 
 ## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
@@ -710,6 +725,22 @@ To get the list of all available backend groups, make a [BackendGroupService.Lis
 
 The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
 If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
+|#
+
+## ClientCertificatesVerification {#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification}
+
+Client certificates verification settings.
+
+#|
+||Field | Description ||
+|| requireClientCertificate | **boolean**
+
+If true, ALB will reject connections without a valid client certificate. ||
+|| bytes | **string**
+
+Trusted certificate authority certificates bundle (PEM text).
+
+Includes only one of the fields `bytes`. ||
 |#
 
 ## SniMatch {#yandex.cloud.apploadbalancer.v1.SniMatch}

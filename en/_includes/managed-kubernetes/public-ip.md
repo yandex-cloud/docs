@@ -1,0 +1,5 @@
+Public IP addresses are required for [connecting](../../managed-kubernetes/operations/connect/index.md) to nodes from the internet and to connect nodes to external resources, such as Docker image registries ([{{ container-registry-name }}](../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../cloud-registry/concepts/index.md), or [Docker Hub](https://hub.docker.com/)) and [{{ objstorage-name }}](../../storage/concepts/bucket.md) buckets.
+
+To provide nodes with internet access, assign them a public IP address and [configure](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-nodegroup) a security group. As an alternative to public IP addresses, you can also create and configure a [NAT gateway](../../vpc/operations/create-nat-gateway.md) or a [NAT instance](../../vpc/tutorials/nat-instance/index.md) in the subnet hosting the nodes.
+
+If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [this {{ vpc-full-name }} guide](../../vpc/concepts/routing.md#internet-routes).

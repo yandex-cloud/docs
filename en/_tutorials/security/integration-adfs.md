@@ -1,4 +1,4 @@
-# Authentication using {{ microsoft-idp.ad-short }}
+# Authentication via {{ microsoft-idp.ad-short }}
 
 With an [identity federation](../../organization/concepts/add-federation.md), you can set up Single Sign-On (SSO) and use {{ microsoft-idp.ad-full }} in conjunction with [{{ microsoft-idp.adfs-full }}]({{ link-adfs }}) ({{ microsoft-idp.adfs-abbreviated }}) for cloud authentication.
 
@@ -50,7 +50,7 @@ To create a federation:
 
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+  1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
   1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page.
 
@@ -147,7 +147,7 @@ To create a federation:
 
   1. Describe the federation parameters in the configuration file.
 
-      Configuration file structure example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -169,7 +169,7 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md).
-      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional parameter.
+      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional setting.
       * `issuer`: Identity provider (IdP) ID that will be used for authentication.
 
           Specify a link in `http://<AD_FS_farm_FQDN>/adfs/services/trust` format.
@@ -211,7 +211,7 @@ To create a federation:
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will show them.
+      If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors in the configuration.
 
   1. Create a federation.
 
@@ -282,7 +282,7 @@ To create a federation:
 
 ## Specify certificates for the federation {#add-certificate}
 
-When informing {{ org-full-name }} that a user has been authenticated, the identity provider signs the message with its own certificate. To enable {{ org-name }} to verify this certificate, add it to your federation:
+When informing {{ org-full-name }} that a user has been authenticated, the identity provider signs the message with its own certificate. To enable {{ org-full-name }} to verify this certificate, add it to your federation:
 
 1. Get an {{ microsoft-idp.adfs-abbreviated }} farm certificate:
 

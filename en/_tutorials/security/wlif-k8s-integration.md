@@ -143,7 +143,7 @@ The infrastructure support cost includes:
       1. [Go](../../console/operations/select-service.md#select-service) to **{{ objstorage-name }}**.
       1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the bucket creation page:
-         1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
+         1. Enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
          
          1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
 
@@ -207,7 +207,7 @@ The infrastructure support cost includes:
    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
-   1. Select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**.
+   1. Select **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID, e.g., `secret`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store.
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -225,7 +225,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, e.g., `sa-lockbox`.
+      1. Specify the service account name, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    {% endlist %}

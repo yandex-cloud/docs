@@ -5,7 +5,7 @@ description: В статье описаны поля для интеграцио
 
 # FoundationModelsCall
 
-Интеграция с [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/).
+Интеграция с [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/).
 
 Поля `generate`, `classify`, `fewShotClassify` и `vision` — взаимоисключающие, можно использовать только одно из них.
 

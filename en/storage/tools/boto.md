@@ -78,7 +78,7 @@ description: In this article, you will learn about boto3 and boto, how to instal
 
 - {{ sf-full-name }} {#functions}
 
-  For an example, see this [video conversion guide](../tutorials/video-converting-queue.md).
+  For an example, see this [video conversion guide](../tutorials/video-converting-queue/index.md).
 
 {% endlist %}
 

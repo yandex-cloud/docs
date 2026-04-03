@@ -55,7 +55,7 @@ description: In this tutorial, you will learn how to change access permissions f
 
       Where `--access-binding` contains access permission settings:
 
-      * `role`: [Role](../../security/index.md#roles-list).
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       For example, the following command will assign roles to multiple users and a single service account:

@@ -5,7 +5,7 @@ description: In this guide, you will learn how to set up workload identity feder
 
 # Setting up workload identity federations
 
-{% include [move-groups-api](../../../_includes/iam/wlif-instructions-intro.md) %}
+{% include [wlif-instructions-intro](../../../_includes/iam/wlif-instructions-intro.md) %}
 
 To set up authentication in the {{ yandex-cloud }} API via a workload identity federation:
 
@@ -79,7 +79,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
       Where:
 
-      * `--name`: Name of the new federation, e.g., `sample-iam-federation`. The naming requirements are as follows:
+      * `--name`: Name of the new federation, e.g., `sample-iam-federation`. Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       * `--issuer`: URL of the OIDC provider.
@@ -131,7 +131,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
       Where:
 
-      * `name`: Name of the new federation, e.g., `sample-iam-federation`. The naming requirements are as follows:
+      * `name`: Name of the new federation, e.g., `sample-iam-federation`. Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder to create the workload identity federation in.
@@ -164,6 +164,12 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 {% endlist %}
 
 ## Create federated credentials {#create-federated-credential}
+
+{% note warning %}
+
+{% include [access-control-sa-wlif-notice](../../../_includes/iam/access-control-wlif-notice.md) %}
+
+{% endnote %}
 
 Federated credentials refer to the link established between a workload identity federation, a {{ yandex-cloud }} service account, and an external subject. Federated credentials are used to identify external subjects in {{ iam-full-name }}.
 

@@ -1,12 +1,12 @@
 ---
 title: How to create an OIDC application in {{ org-full-name }}
-description: Follow this guide to create an OIDC application in {{ org-name }} to authenticate your organization’s users in external apps using OpenID Connect SSO.
+description: Follow this guide to create an OIDC application in {{ org-full-name }} to authenticate your organization’s users in external apps using OpenID Connect SSO.
 ---
 
 # Creating an OIDC application in {{ org-full-name }}
 
 
-To authenticate your [organization’s](../../concepts/organization.md) users in external apps using [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on, create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and on your service provider’s side.
+To authenticate your [organization’s](../../concepts/organization.md) users in external apps using [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on, create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider’s side.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -214,21 +214,21 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
 
      Where:
 
-     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your OIDC app in. This is a required parameter.
-     * `name`: OIDC app name. This is a required parameter. The name must be unique within the organization and follow the naming requirements:
+     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your OIDC app in. This is a required setting.
+     * `name`: OIDC app name. This is a required setting. The name must be unique within the organization and follow the naming requirements:
 
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-     * `description`: OIDC app description. This is an optional parameter.
+     * `description`: OIDC app description. This is an optional setting.
      * `client_grant`: OAuth client connection settings:
-       * `client_id`: OAuth client ID. This is a required parameter.
+       * `client_id`: OAuth client ID. This is a required setting.
        * `authorized_scopes`: Specify the same attributes as when creating the OAuth client.
      * `group_claims_settings`: Settings for sending user group claims to the service provider:
        * `group_distribution_type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
          * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
          * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.
          * `NONE`: Service provider will not get any of the groups the user belongs to.
-     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter.
+     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
      For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
@@ -236,7 +236,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp application oauth application list --organization-id <organization_ID>
@@ -252,7 +252,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
 
 ## Set up your application {#setup-application}
 
-To integrate an external application with the OIDC application you created in {{ org-name }}, complete the setup both on the service provider side and in {{ org-name }}.
+To integrate an external application with the OIDC application you created in {{ org-full-name }}, complete the setup both on the service provider side and in {{ org-full-name }}.
 
 ### Set up integration on the service provider side {#setup-sp}
 
@@ -271,7 +271,7 @@ Depending on the options supported by your service provider, you can configure t
       {% include [oidc-app-sp-parameter-list](../../../_includes/organization/oidc-app-sp-parameter-list.md) %}
 
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. On the service provider side, set up integration with your {{ org-name }} OIDC application by specifying the parameters you copied and the generated secret. If you need help, refer to your service provider's documentation or support team.
+  1. On the service provider side, set up integration with your {{ org-full-name }} OIDC application by specifying the parameters you copied and the generated secret. If you need help, refer to your service provider's documentation or support team.
 
 - Configuration URL
 
@@ -281,13 +281,13 @@ Depending on the options supported by your service provider, you can configure t
 
       This URL exposes all configuration values required on the service provider side (except for the secret).
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. If your service provider supports using a configuration URL to configure the application, set up integration with your {{ org-name }} OIDC application on the service provider side by specifying the copied link and secret. If you need help, refer to your service provider's documentation or support team.
+  1. If your service provider supports using a configuration URL to configure the application, set up integration with your {{ org-full-name }} OIDC application on the service provider side by specifying the copied link and secret. If you need help, refer to your service provider's documentation or support team.
 
 {% endlist %}
 
-### Configure your OIDC application in {{ org-name }} {#setup-idp}
+### Configure your OIDC application in {{ org-full-name }} {#setup-idp}
 
-Before configuring your OIDC application in {{ org-name }}, get the redirect URI from your service provider. Then, navigate to the OIDC application settings in {{ org-name }}:
+Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider. Then, navigate to the OIDC application settings in {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -380,7 +380,7 @@ Before configuring your OIDC application in {{ org-name }}, get the redirect URI
 
 ### Configure users and groups {#users-and-groups}
 
-For your organization's users to be able to authenticate in an external app with a {{ org-name }} OIDC application, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to this OIDC application:
+For your organization's users to be able to authenticate in an external app with a {{ org-full-name }} OIDC application, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to this OIDC application:
 
 {% note info %}
 

@@ -5,6 +5,8 @@ description: Follow this guide to create an ID token for authenticating a servic
 
 # Getting a service account ID token
 
+{% include [access-control-sa-idtoken-notice](../../../_includes/iam/access-control-sa-idtoken-notice.md) %}
+
 To use {{ iam-full-name }} for authentication in an external system with [OIDC](https://openid.net/specs/openid-connect-core-1_0.html) authentication support, you need to get an [ID token](../../concepts/authorization/id-token.md). You can only get an ID token for a [service account](../../concepts/users/service-accounts.md).
 
 To get an ID token:
@@ -49,7 +51,7 @@ To get an ID token:
       Where:
 
       * `--subject-id`: [ID](./get-id.md) of the service account to create an ID token for.
-      * `--audience`: Target resource for the token. This is an optional parameter. If left unspecified, this value defaults to the service account ID specified in the `subject-id` parameter.
+      * `--audience`: Target resource for the token. This is an optional setting. If left unspecified, this value defaults to the service account ID specified in the `subject-id` parameter.
 
       In response, the command will output the [body](../../concepts/authorization/id-token.md#token-format) of the created service account ID token to the standard output stream (`STDOUT`).
 

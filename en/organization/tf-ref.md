@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ org-full-name }}'
-description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ org-name }}.
+description: This page lists the {{ TF }} provider resources and data sources supported by {{ org-full-name }}.
 ---
 
 # {{ TF }} reference for {{ org-full-name }}
@@ -9,7 +9,7 @@ description: This page gives information about the {{ TF }} provider resources a
 
 ## Resources {#resources}
 
-{{ org-name }} supports the following {{ TF }} provider resources:
+{{ org-full-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -34,7 +34,7 @@ description: This page gives information about the {{ TF }} provider resources a
 
 ## Data sources {#data-sources}
 
-{{ org-name }} supports the following {{ TF }} provider data sources:
+{{ org-full-name }} supports the following {{ TF }} provider data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |

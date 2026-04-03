@@ -77,7 +77,7 @@ To make sure all authentication requests from {{ yandex-cloud }} contain a digit
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 * [Guide on setting up SAML-based identity federations](../../../organization/concepts/add-federation.md#federation-usage).
 * [Guide on configuring a SAML-based federation with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
@@ -86,7 +86,7 @@ To make sure all authentication requests from {{ yandex-cloud }} contain a digit
 
 In organizations with a lot of users, you may need to grant the same access permissions for {{ yandex-cloud }} resources to multiple users at once. In which case it is more efficient to issue roles and permissions to groups rather than individual users.
 
-If you have created user groups in your identity provider or plan to do so, you can [map user groups](../../../organization/operations/federation-group-mapping.md) between the IdP and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
+If you have created user groups in your identity provider or plan to do so, you can [map user groups](../../../organization/operations/federation-group-mapping.md) between the IdP and {{ org-full-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-full-name }}.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -131,7 +131,7 @@ The best approach to account management, in terms of security, is using identity
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Remove all the accounts that have a Yandex ID from your organization, except those on the list of allowed exceptions. For the remaining Yandex ID accounts, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 
@@ -174,7 +174,7 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Set **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
@@ -204,7 +204,7 @@ You can conveniently control access to resources via [user groups](../../../orga
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Remove the group access permissions from the accounts that do not require them.
 
@@ -363,7 +363,7 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` primitive roles assigned and replace them with [service granular roles](../../../iam/roles-reference.md) based on your role matrix.
 
@@ -443,7 +443,7 @@ To control access more selectively and implement the principle of least privileg
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. [Assign](../../../iam/operations/roles/grant.md) the `{{ roles-auditor }}` role to users requiring no data access.
 1. Remove the excessive account permissions using {{ iam-short-name }}.
@@ -511,7 +511,7 @@ The cloud entities with service accounts assigned must be registered and limited
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Remove the service accounts from the cloud entities that do not require them.
 
@@ -590,7 +590,7 @@ Follow the principle of least privilege and [assign to the service account](../.
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 * Use {{ sd-full-name }} to [view](../../../security-deck/operations/ciem/view-permissions.md) the full list of a service account's access permissions.
 * Use {{ sd-name }} to [revoke](../../../security-deck/operations/ciem/revoke-permissions.md) the service account’s excessive access permissions.
@@ -646,7 +646,7 @@ Each service account with extended permissions should be placed as a resource in
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Remove](../../../iam/operations/roles/revoke.md) the unnecessary service account permissions using {{ iam-short-name }}.
 
@@ -807,7 +807,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissue) for rotating keys depending on their type.
 
@@ -827,7 +827,7 @@ In addition to service account access permissions, you can define [scopes](../..
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
   1. If all API keys have their minimum required scopes specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -843,7 +843,7 @@ In addition to service account access permissions, you can define [scopes](../..
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key with a specified scope.
 
@@ -880,7 +880,7 @@ To get an IAM token when executing a function, [assign](../../../functions/opera
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation for service accounts to provide temporary access to critical data by following this [guide](../../../iam/operations/sa/impersonate-sa.md).
 
@@ -1193,7 +1193,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Remove the keys from the metadata of the VMs with deviations found:
 
@@ -1208,7 +1208,7 @@ From inside a VM, metadata is available in the following formats:
 * Google Compute Engine (some fields are not supported).
 * Amazon EC2 (some fields are not supported).
 
-Amazon EC2 Instance Metadata Service version 1 (IMDSv1) has a number of drawbacks. The most critical of them is that there is a risk of compromising a service account token via the metadata service using a Server-Side Request Forgery (SSRF) attack. For more information, see the [official AWS blog](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). Therefore, AWS has released IMDSv2, the second version of the metadata service.
+Amazon EC2 Instance Metadata Service version 1 (IMDSv1) has a number of drawbacks. The most critical of them is the risk of a service account token getting compromised through the metadata service by means of a server-side request forgery (SSRF) attack. For more information, see the [official AWS blog](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). Therefore, AWS has released IMDSv2, the second version of the metadata service.
 
 So far, {{ yandex-cloud }} does not support version 2, so it is strongly recommended to technically disable getting a service account token via the Amazon EC2 metadata service.
 
@@ -1246,7 +1246,7 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) parameter to `DISABLED` for the found VMs:
 
@@ -1281,7 +1281,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 * [Two-factor authentication: Yandex ID](https://yandex.com/support/id/authorization/twofa.html)
 * [KeyCloak: Creating other credentials](https://www.keycloak.org/docs/latest/server_admin/#creating-other-credentials)
@@ -1515,7 +1515,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If any roles granted to untrusted administrators are found, investigate why and remove the respective permissions.
 
@@ -1855,7 +1855,7 @@ Make sure these groups have no public access to your resources: clouds, folders,
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If you detect that `All users` and `All authenticated users` have the access permissions that they should not have, remove these permissions.
 
@@ -1884,7 +1884,7 @@ Make sure the contact information is valid and messages are sent to multiple per
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Specify up-to-date contact information using the [guide](../../../billing/operations/change-data.md#change-address).
 
@@ -1914,7 +1914,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Guide on managing labels](../../../resource-manager/operations/manage-labels.md)
 
@@ -1938,7 +1938,7 @@ To get notifications of security-related events, such as vulnerability detection
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 1. [Make sure](../../../resource-manager/concepts/notify.md) that notifications are set up.
 1. Enable the **Security** option in the notification settings in the management console.
@@ -2034,7 +2034,7 @@ For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
 | --- | --- |
 | IAM27 | Informational |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [{#T}](../../../security-deck/operations/ciem/view-permissions.md).
 [{#T}](../../../security-deck/operations/ciem/revoke-permissions.md).

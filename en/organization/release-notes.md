@@ -1,6 +1,6 @@
 ---
 title: '{{ org-full-name }} release notes'
-description: This section contains the {{ org-name }} release notes.
+description: This section contains the {{ org-full-name }} release notes.
 ---
 
 
@@ -40,7 +40,7 @@ description: This section contains the {{ org-name }} release notes.
 
 ## Q2 2025 {#q2-2025}
 
-* {{ org-name }} is now in [Public Preview](../overview/concepts/launch-stages.md).
+* {{ org-full-name }} is now in [Public Preview](../overview/concepts/launch-stages.md).
 * Enabled the use of [refresh tokens](../iam/concepts/authorization/refresh-token.md#token-enabling) in the {{ yandex-cloud }} CLI. {{ tag-cli }}
 
 ## Q1 2025 {#q1-2025}

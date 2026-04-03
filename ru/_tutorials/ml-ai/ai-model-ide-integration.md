@@ -1,6 +1,6 @@
 Вы можете облегчить процесс разработки в [Visual Studio Code](https://code.visualstudio.com/) с помощью моделей `Qwen3-235B-A22B`, `GPT-OSS-120b` и других. Модели способны генерировать код, конвертировать его в другие языки программирования, помогать с отладкой и поиском ошибок в коде, анализировать данные, писать документацию и другое.
 
-В этом руководстве вы настроите интеграцию моделей в Visual Studio Code с помощью сервиса {{ foundation-models-full-name }} и расширения [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
+В этом руководстве вы настроите интеграцию моделей в Visual Studio Code с помощью сервиса {{ ai-studio-full-name }} и расширения [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
 
 {% note info %}
 
@@ -15,7 +15,7 @@
 1. [Подключитесь к модели](#connection).
 1. [Протестируйте модель](#test).
 
-В стоимость поддержки инфраструктуры для подключения к модели из редактора кода входит плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
+В стоимость поддержки инфраструктуры для подключения к модели из редактора кода входит плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
 
 ## Подготовьте инфраструктуру {#infra}
 

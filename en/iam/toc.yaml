@@ -41,13 +41,13 @@ items:
             href: operations/sa/delete.md
       - name: Access policies
         items:
-          - name: Getting a list of supported policies
+          - name: Getting a list of supported policy templates
             href: operations/access-policies/list.md
-          - name: Assigning a policy for a resource
+          - name: Creating a policy for a resource
             href: operations/access-policies/assign.md
-          - name: Viewing policies assigned for a resource
+          - name: Viewing policies created for a resource
             href: operations/access-policies/view-assigned.md
-          - name: Revoking a policy
+          - name: Delete policy
             href: operations/access-policies/revoke.md
       - name: Roles
         items:
@@ -147,10 +147,10 @@ items:
         items:
           - name: Overview
             href: concepts/access-control/index.md
-          - name: Access policies
-            href: concepts/access-control/access-policies.md
           - name: Roles
             href: concepts/access-control/roles.md
+          - name: Access policies
+            href: concepts/access-control/access-policies.md
           - name: System groups
             href: concepts/access-control/system-group.md
           - name: Public groups

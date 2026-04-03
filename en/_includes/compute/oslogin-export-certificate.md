@@ -1,4 +1,4 @@
-To export the SSH certificate of a {{ org-name }} organization user or [service account](../../iam/concepts/users/service-accounts.md) to a local computer:
+To export the SSH certificate of a {{ org-full-name }} organization user or [service account](../../iam/concepts/users/service-accounts.md) to a local computer:
 
 {% list tabs group=instructions %}
 

@@ -2,7 +2,7 @@
 
 [Zabbix](https://www.zabbix.com/) is an open-source, enterprise-level monitoring system for tracking the performance and health of servers, networks, apps, and other IT resources. Zabbix supports SAML authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Zabbix via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Zabbix.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Zabbix via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Zabbix.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -36,7 +36,7 @@ For the users of your organization to be able to access Zabbix:
 
 ## Set up the integration {#setup-integration}
 
-To integrate Zabbix with the SAML app you created in {{ org-name }}, complete the setup both on the Zabbix side and in {{ org-name }}.
+To integrate Zabbix with the SAML app you created in {{ org-full-name }}, complete the setup both on the Zabbix side and in {{ org-full-name }}.
 
 ### Set up the SAML application in Zabbix {#setup-sp}
 
@@ -60,7 +60,7 @@ To set up the SAML application in Zabbix, the user needs  the **Super admin role
 
         {% endnote %}
 
-    1. Configure a link between Zabbix and {{ org-name }}:
+    1. Configure a link between Zabbix and {{ org-full-name }}:
 
         1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
         1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
@@ -69,7 +69,7 @@ To set up the SAML application in Zabbix, the user needs  the **Super admin role
 
             {% note info %}
 
-            If you do not specify the address in **SLO service URL**, on logout of Zabbix, the user will be redirected to the Zabbix authentication form, not the {{ org-name }} authentication form.
+            If you do not specify the address in **SLO service URL**, on logout of Zabbix, the user will be redirected to the Zabbix authentication form, not the {{ org-full-name }} authentication form.
 
             {% endnote %}
 
@@ -77,7 +77,7 @@ To set up the SAML application in Zabbix, the user needs  the **Super admin role
 
         {% note info %}
 
-        This attribute is used as username when authenticating in Zabbix. You can specify any attribute name you want, but it must match the name of the user attribute which has the `SubjectClaims.preferred_username` value in your {{ org-name }} app.
+        This attribute is used as username when authenticating in Zabbix. You can specify any attribute name you want, but it must match the name of the user attribute which has the `SubjectClaims.preferred_username` value in your {{ org-full-name }} app.
 
         {% endnote %}
 
@@ -85,7 +85,7 @@ To set up the SAML application in Zabbix, the user needs  the **Super admin role
     
         {% note warning %}
 
-        The **SP entity ID** value must be exactly the same in both Zabbix and your {{ org-name }} application. 
+        The **SP entity ID** value must be exactly the same in both Zabbix and your {{ org-full-name }} application. 
         
         {% endnote %}
 
@@ -101,13 +101,13 @@ To set up the SAML application in Zabbix, the user needs  the **Super admin role
 
     1. If the **Enable JIT provisioning** option is on, configure the automatic user creation settings in Zabbix. To do this, enable the **Configure JIT provisioning** option and follow these steps:
 
-        1. In the **Group name attribute** field, specify `groups`: this attribute defines a user group in your {{ org-name }} app, which provides access to Zabbix.
+        1. In the **Group name attribute** field, specify `groups`: this attribute defines a user group in your {{ org-full-name }} app, which provides access to Zabbix.
 
         1. In the **User name attribute** field, enter `givenname`.
 
         1. In the **User last name attribute** field, enter `surname`.
          
-        1. Under **User group mapping**, map your {{ org-name }} app's user group to the appropriate group and role in Zabbix. This will enable new users to automatically get their assigned group and role in Zabbix. To do this, click **Add** and follow these steps:
+        1. Under **User group mapping**, map your {{ org-full-name }} app's user group to the appropriate group and role in Zabbix. This will enable new users to automatically get their assigned group and role in Zabbix. To do this, click **Add** and follow these steps:
 
             1. In the **SAML group pattern** field, specify a pattern to search for SAML app group names.
 
@@ -220,7 +220,7 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add users {#add-users}
 
-For your organization's users to be able to authenticate in Zabbix with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML app:
+For your organization's users to be able to authenticate in Zabbix with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML app:
 
 {% note info %}
 

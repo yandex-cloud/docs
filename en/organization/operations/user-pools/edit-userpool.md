@@ -1,6 +1,6 @@
 ---
 title: How to edit a user pool in {{ org-full-name }}
-description: Follow this guide to edit a user pool in {{ org-name }}.
+description: Follow this guide to edit a user pool in {{ org-full-name }}.
 ---
 
 # Editing a user pool
@@ -21,6 +21,7 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
 
   1. Specify a new [domain](../../concepts/domains.md) to use if there are no other domains associated with the pool.
   1. Add or delete labels.
+  1. Update the data users can edit on the [My account](../../concepts/my-account.md) portal.
   1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
 - CLI {#cli}
@@ -71,6 +72,12 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
        labels            = {
          <key> = "<value>"
        }
+       user_settings {
+          allow_edit_self_contacts = <true_or_false>
+          allow_edit_self_info = <true_or_false>
+          allow_edit_self_login = <true_or_false>
+          allow_edit_self_password = <true_or_false>
+       }
      }
      ```
 
@@ -83,6 +90,11 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
      * `description`: New user pool description.
      * `default_subdomain`: New default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
      * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md).
+     * `user_settings`: User data available for editing on the [My account](../../concepts/my-account.md) portal. Includes the following options:
+       * `allow_edit_self_contacts`: Editing contact details.
+       * `allow_edit_self_info`: Editing personal data.
+       * `allow_edit_self_login`: Editing username.
+       * `allow_edit_self_password`: Editing password.
 
      For more information about `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 

@@ -8,6 +8,12 @@ If a resource has child resources, all permissions from the parent resource will
 
 For more information on access management in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
+{% note info %}
+
+Even if an [operation](../../api-design-guide/concepts/about-async.md) with resources pertaining to {{ yandex-cloud }} [services](../../overview/concepts/services.md) is allowed by a [role](../../iam/concepts/access-control/roles.md), it may still be blocked if the [organization](../../organization/concepts/organization.md) is subject to an [access policy](../../iam/concepts/access-control/access-policies.md) prohibiting this operation.
+
+{% endnote %}
+
 ## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
@@ -299,7 +305,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
-     Here is a configuration file example:
+     Here is an example of the configuration file structure:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -322,7 +328,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will show them. 
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. {{ TF }} will show any errors in the configuration. 
  
   1. Assign roles.
   

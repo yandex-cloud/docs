@@ -8,3 +8,7 @@ description: This page provides reference information on the {{ cloud-logging-na
 This section describes the {{ cloud-logging-name }} metrics delivered to [{{ monitoring-name }}](../monitoring/).
 
 {% include [cloud-logging](../_includes/monitoring/metrics-ref/cloud-logging.md) %}
+
+#### See also {#see-also}
+
+[{#T}](./tutorials/log-group-record-monitoring.md)

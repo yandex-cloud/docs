@@ -1,4 +1,4 @@
-To revoke an access policy assigned for an [organization](../../organization/concepts/organization.md):
+To delete an access policy created for an [organization](../../organization/concepts/organization.md), follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -6,20 +6,20 @@ To revoke an access policy assigned for an [organization](../../organization/con
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. [Get](../../organization/operations/manage-access-policies.md#view-assigned) a list of access policy IDs assigned for the organization.
+  1. [Get](../../organization/operations/manage-access-policies.md#view-assigned) a list of IDs of access policy templates assigned for the organization.
   1. Run this command:
 
       ```bash
       yc organization-manager organization unbind-access-policy \
         --name <organization_name> \
-        --access-policy-template-id=<access_policy_ID>
+        --access-policy-template-id=<policy_template_ID>
       ```
 
       Where:
 
-      * `--name`: Name of the organization you want to revoke the policy from. Instead of the organization name, you can provide its [ID](../../organization/operations/organization-get-id.md) in the `--id` parameter.
-      * `--access-policy-template-id`: ID of the access policy you want to revoke from the specified organization.
-  1. [Make sure](../../organization/operations/manage-access-policies.md#view-assigned) the policy has been revoked.
+      * `--name`: Name of the organization to delete the policy for. Instead of the organization name, you can provide its [ID](../../organization/operations/organization-get-id.md) in the `--id` parameter.
+      * `--access-policy-template-id`: ID of the access policy template you want to delete from the specified organization.
+  1. [Make sure](../../organization/operations/manage-access-policies.md#view-assigned) the policy was deleted.
 
 - API {#api}
 

@@ -1,6 +1,6 @@
 # Дообучение моделей в {{ ml-platform-name }} Notebooks
 
-Вы можете [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/index) языковые модели {{ foundation-models-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
+Вы можете [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/index) языковые модели {{ ai-studio-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
 
 В этом руководстве вы дообучите модель в {{ ml-platform-name }} с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации]({{ link-docs-ai }}ai-studio/sdk/index).
 

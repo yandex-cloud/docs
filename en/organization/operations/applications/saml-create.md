@@ -1,12 +1,12 @@
 ---
 title: How to create a SAML application in {{ org-full-name }}
-description: Follow this guide to create a SAML application in {{ org-name }} to authenticate your organization's users to external apps using SAML-based single sign-on (SSO).
+description: Follow this guide to create a SAML application in {{ org-full-name }} for the users of your organization to authenticate to external apps using SAML-based single sign-on (SSO).
 ---
 
 # Creating a SAML application in {{ org-full-name }}
 
 
-To authenticate your [organization](../../concepts/organization.md)'s users to external apps using [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based SSO, create a [SAML application](../../concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and on your service provider side.
+To authenticate your [organization](../../concepts/organization.md)'s users to external apps using [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based SSO, create a [SAML application](../../concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider side.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -107,13 +107,13 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
      Where:
 
-     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your SAML application in. This is a required parameter.
-     * `name`: SAML application name. This is a required parameter. The name must be unique within the organization and follow the naming requirements:
+     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your SAML application in. This is a required setting.
+     * `name`: SAML application name. This is a required setting. The name must be unique within the organization and follow the naming requirements:
 
          {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-     * `description`: SAML application description. This is an optional parameter.
-     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter.
+     * `description`: SAML application description. This is an optional setting.
+     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
      For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
@@ -133,7 +133,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
 ## Set up your application {#setup-application}
 
-To integrate an external application with the created SAML application in {{ org-name }}, complete the setup on the service provider side and in {{ org-name }}.
+To integrate an external application with the created SAML application in {{ org-full-name }}, complete the setup on the service provider side and in {{ org-full-name }}.
 
 ### Set up integration on the service provider side {#setup-sp}
 
@@ -152,7 +152,7 @@ Depending on the options supported by your service provider, you can set the req
       {% include [saml-app-sp-parameter-list](../../../_includes/organization/saml-app-sp-parameter-list.md) %}
 
   1. Download the app certificate under **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** by clicking **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}**.
-  1. On the service provider side, set up integration with your {{ org-name }} SAML application by pasting the copied parameters and adding the certificate you downloaded. If you need help, refer to your service provider's documentation or support team.
+  1. On the service provider side, set up integration with your {{ org-full-name }} SAML application by pasting the copied parameters and adding the certificate you downloaded. If you need help, refer to your service provider's documentation or support team.
 
 - Metadata file
 
@@ -172,9 +172,9 @@ Depending on the options supported by your service provider, you can set the req
 
 {% endlist %}
 
-### Set up the SAML application in {{ org-name }} {#setup-idp}
+### Set up the SAML application in {{ org-full-name }} {#setup-idp}
 
-Before configuring your SAML application in {{ org-name }}, get the required setting values from your service provider. Then, navigate to the SAML application settings in {{ org-name }}.
+Before configuring your SAML application in {{ org-full-name }}, get the required setting values from your service provider. Then, navigate to the SAML application settings in {{ org-full-name }}.
 
 {% list tabs group=instructions %}
 
@@ -209,8 +209,8 @@ Before configuring your SAML application in {{ org-name }}, get the required set
      Where:
 
      * `--id`: SAML application ID. This is a required setting.
-     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
-     * `--acs-urls`: URL or comma-separated URLs to which {{ org-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     * `--acs-urls`: URL or comma-separated URLs to which {{ org-full-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
      * `--signature-mode`: SAML response elements that will be digitally signed. The possible values are:
        * `assertion_only`: Only the provided user attributes.
        * `response_only`: Full SAML response.
@@ -260,9 +260,9 @@ Before configuring your SAML application in {{ org-name }}, get the required set
 
      Where:
 
-     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your SAML application in. This is a required parameter.
-     * `entity_id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
-     * `acs_urls`: List of URLs {{ org-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your SAML application in. This is a required setting.
+     * `entity_id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     * `acs_urls`: List of URLs {{ org-full-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
      * `signature_mode`: SAML response elements that will be digitally signed. The possible values are:
        * `ASSERTION_ONLY`: Only the provided user attributes.
        * `RESPONSE_ONLY`: Full SAML response.
@@ -284,13 +284,13 @@ Before configuring your SAML application in {{ org-name }}, get the required set
 
 ### Configure user and group attributes {#setup-attributes}
 
-You can configure the attributes {{ org-name }} will transmit to the service provider:
+You can configure the attributes {{ org-full-name }} will transmit to the service provider:
 
 {% include [saml-app-update-assertions](../../../_includes/organization/saml-app-update-assertions.md) %}
 
 ### Configure users and groups {#users-and-groups}
 
-For your organization's users to be able to authenticate in an external application with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to the SAML application:
+For your organization's users to be able to authenticate in an external application with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to the SAML application:
 
 {% note info %}
 

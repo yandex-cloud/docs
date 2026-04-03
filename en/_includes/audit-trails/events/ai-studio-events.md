@@ -3,7 +3,7 @@ Event name | Description
 `batch_inference.CancelBatchInference` | Stopping a model in batch mode
 `batch_inference.DeleteBatchInference` | Deleting a processing result in batch mode
 `batch_inference.StartBatchInference` | Running a model in batch mode
-`dedicated_instance.CreateDedicatedInstance` | Creating a [dedicated instance]({{ link-docs-ai }}/ai-studio/concepts/generation/dedicated-instance.md)
+`dedicated_instance.CreateDedicatedInstance` | Creating a [dedicated instance]({{ link-docs-ai }}/ai-studio/concepts/generation/dedicated-instance)
 `dedicated_instance.DeleteDedicatedInstance` | Deleting a dedicated instance
 `dedicated_instance.StartDedicatedInstance` | Starting a dedicated instance
 `dedicated_instance.StopDedicatedInstance` | Stopping a dedicated instance

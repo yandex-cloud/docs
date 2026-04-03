@@ -1,6 +1,6 @@
 ---
 title: How to assign a user as an organization administrator in {{ org-full-name }}
-description: Follow this guide to assign a user as an organization administrator in {{ org-name }}.
+description: Follow this guide to assign a user as an organization administrator in {{ org-full-name }}.
 ---
 
 # Assigning a user as an organization administrator
@@ -70,7 +70,7 @@ description: Follow this guide to assign a user as an organization administrator
       * `role`: Specify the `organization-manager.admin` role. For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
       * `userAccount:<user_ID>`: ID of the user Yandex account.
 
-      To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Create the resources:
 

@@ -7,3 +7,4 @@
 * [Настройте федерацию удостоверений](./setup-federation.md).
 * [Настройте сопоставление групп пользователей](./federation-group-mapping.md).
 * [Обновите SAML-сертификат {{ yandex-cloud }} в федерации удостоверений](./renew-yc-certificate.md).
+* [Удалите федерацию удостоверений](./delete-federation.md).

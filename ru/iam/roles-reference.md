@@ -1229,7 +1229,7 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../iot-core/security/index.md).
 
 
-## {{ foundation-models-full-name }} {#fm-roles}
+## {{ ai-studio-full-name }} {#fm-roles}
 
 #### ai.playground.user {#ai-playground-user}
 
@@ -1343,7 +1343,7 @@ description: В статье приведен полный справочник 
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
-Подробнее см. [Управление доступом в {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
+Подробнее см. [Управление доступом в {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
 ## {{ kms-full-name }} {#kms-roles}

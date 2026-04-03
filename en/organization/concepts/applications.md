@@ -1,20 +1,20 @@
 ---
 title: Applications in {{ org-full-name }}
-description: In {{ org-name }}, you can authenticate {{ yandex-cloud }} users in external applications using SAML and OIDC applications with single sign-on technology.
+description: In {{ org-full-name }}, you can authenticate {{ yandex-cloud }} users in external applications using SAML and OIDC applications with single sign-on technology.
 ---
 
 # Applications in {{ org-full-name }}
 
 
-Your [organization's](./organization.md) users can authenticate in external applications using [single sign-on](https://en.wikipedia.org/wiki/Single_sign-on) (SSO). With this in mind, {{ org-name }} allows creating _applications_, i.e., {{ yandex-cloud }} [resources](../../overview/roles-and-resources.md#resources) containing integration settings for {{ org-full-name }} as an _identity provider_ (IdP) on the one hand and a third-party _service provider_ (SP) on the other.
+Your [organization's](./organization.md) users can authenticate in external applications using [single sign-on](https://en.wikipedia.org/wiki/Single_sign-on) (SSO). With this in mind, {{ org-full-name }} allows creating _applications_, i.e., {{ yandex-cloud }} [resources](../../overview/roles-and-resources.md#resources) containing integration settings for {{ org-full-name }} as an _identity provider_ (IdP) on the one hand and a third-party _service provider_ (SP) on the other.
 
-{{ org-name }} supports the [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) and [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on standards.
+{{ org-full-name }} supports the [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) and [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on standards.
 
 The role of service providers can be played by various SSO-enabled services, either based on the [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) or [on-premise](https://en.wikipedia.org/wiki/On-premises_software) model, e.g., [{{ yandex-360 }}](https://360.yandex.ru/), [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Jenkins](https://www.jenkins.io/), [Jira](https://www.atlassian.com/software/jira), and many more.
 
 ## SAML applications {#saml}
 
-In {{ org-name }}, you can [create](../operations/applications/saml-create.md) SAML applications that allow configuring SAML-based single sign-on on the {{ org-name }} side and provide the values you need to set up integration on the service provider's side.
+In {{ org-full-name }}, you can [create](../operations/applications/saml-create.md) SAML applications that allow configuring SAML-based single sign-on on the {{ org-full-name }} side and provide the values you need to set up integration on the service provider's side.
 
 The external applications can only be accessed by {{ yandex-cloud }} organization users either explicitly [added](../operations/applications/saml-create.md#users-and-groups) to the relevant SAML application or belonging to [user groups](./groups.md) explicitly added to it.
 
@@ -27,22 +27,22 @@ The basic concept of user authentication via SAML-based single sign-on is as des
 {% include [SAML authentication diagram](../../_mermaid/other/identity-hub/saml-authentication.md) %}
 
 1. The {{ yandex-cloud }} user selects SSO authentication on the external application's (service provider's) authentication page.
-1. The service provider sends a SAML request to {{ org-name }} (identity provider) and redirects the user to the {{ org-name }}'s login URL. If you enable signature verification for SAML requests from the service provider, authentication will not start for as long as the request has no signature or the signature is invalid.
-1. The user authenticates in {{ org-name }} with their credentials.
-1. If {{ org-name }} has a SAML app corresponding to this external application, the authenticated user is [added](../operations/applications/saml-create.md#users-and-groups) to this SAML app, and the incoming SAML request is correct, {{ org-name }} will send to the service provider a signed (and encrypted if the relevant option is on) SAML response containing the user's attributes.
+1. The service provider sends a SAML request to {{ org-full-name }} (identity provider) and redirects the user to the {{ org-full-name }}'s login URL. If you enable signature verification for SAML requests from the service provider, authentication will not start for as long as the request has no signature or the signature is invalid.
+1. The user authenticates in {{ org-full-name }} with their credentials.
+1. If {{ org-full-name }} has a SAML app corresponding to this external application, the authenticated user is [added](../operations/applications/saml-create.md#users-and-groups) to this SAML app, and the incoming SAML request is correct, {{ org-full-name }} will send to the service provider a signed (and encrypted if the relevant option is on) SAML response containing the user's attributes.
 1. The service provider checks the SAML response and its signature for correctness and, if successful, grants the user access to the external application.
-1. As soon as the user logs out of the external application, the service provider sends a SAML request to {{ org-name }} and redirects the user to the {{ org-name }}'s logout URL.
+1. As soon as the user logs out of the external application, the service provider sends a SAML request to {{ org-full-name }} and redirects the user to the {{ org-full-name }}'s logout URL.
 
 The parties exchange SAML data in [XML](https://en.wikipedia.org/wiki/XML) format.
 
-### Identity provider ({{ org-name }}) side setup {#saml-idp-setup}
+### Identity provider ({{ org-full-name }}) side setup {#saml-idp-setup}
 
-For the integration to work correctly on the {{ org-name }} side, you need to set up several integration parameters in your SAML application. Get the required values for these parameters from your service provider:
+For the integration to work correctly on the {{ org-full-name }} side, you need to set up several integration parameters in your SAML application. Get the required values for these parameters from your service provider:
 
 * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}`: Unique service provider ID.
 
-    The value must be the same on the service provider's and {{ org-name }} side.
-* `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}`: URL {{ org-name }} will send the SAML response to.
+    The value must be the same on the service provider's and {{ org-full-name }} side.
+* `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}`: URL {{ org-full-name }} will send the SAML response to.
 
     The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
 
@@ -66,7 +66,7 @@ For the integration to work correctly on the {{ org-name }} side, you need to se
 
 #### User and group attributes {#saml-attributes}
 
-By default, a new SAML app is created with a specific set of user-related _attributes_ {{ org-name }} will provide to the service provider. This set includes:
+By default, a new SAML app is created with a specific set of user-related _attributes_ {{ org-full-name }} will provide to the service provider. This set includes:
 
 Attribute name | Attribute value | Provided value
 --- | --- | ---
@@ -88,7 +88,7 @@ In addition to the user attributes mentioned above, the SAML response may contai
 
 {% note info %}
 
-If no value is set for a user attribute on the {{ org-name }} side, this attribute will not be present in the SAML response.
+If no value is set for a user attribute on the {{ org-full-name }} side, this attribute will not be present in the SAML response.
 
 {% endnote %}
 
@@ -100,11 +100,11 @@ The download link for the XML metadata file and the metadata URL are available o
 
 {% include [saml-app-sp-parameter-list](../../_includes/organization/saml-app-sp-parameter-list.md) %}
 
-Additionally, the user attributes set up on the {{ org-name }} side must be set up and able to be correctly processed on the service provider's side.
+Additionally, the user attributes set up on the {{ org-full-name }} side must be set up and able to be correctly processed on the service provider's side.
 
 #### Digital signature verification key certificate {#saml-certificate}
 
-In addition to setting up the above parameters, make sure the service provider configuration includes a certificate the service provider will use to verify the digital signature {{ org-name }} will sign its SAML responses with.
+In addition to setting up the above parameters, make sure the service provider configuration includes a certificate the service provider will use to verify the digital signature {{ org-full-name }} will sign its SAML responses with.
 
 {% include [saml-app-cert-intro-phrase](../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 
@@ -119,11 +119,11 @@ You must additionally specify on the service provider's side what data will be s
 * Full SAML response.
 * Full SAML response and, separately, the provided attributes.
 
-The signing mode configured on the service provider's side must be the same as the signing mode on the {{ org-name }} side.
+The signing mode configured on the service provider's side must be the same as the signing mode on the {{ org-full-name }} side.
 
 ## OIDC apps {#oidc}
 
-In {{ org-name }}, you can [create](../operations/applications/oidc-create.md) OpenID Connect (OIDC) applications that allow configuring OIDC-based single sign-on on the {{ org-name }} side and provide the values you need to set up integration on the service provider's side.
+In {{ org-full-name }}, you can [create](../operations/applications/oidc-create.md) OpenID Connect (OIDC) applications that allow configuring OIDC-based single sign-on on the {{ org-full-name }} side and provide the values you need to set up integration on the service provider's side.
 
 The external applications can only be accessed by {{ yandex-cloud }} organization users either explicitly [added](../operations/applications/oidc-create.md#users-and-groups) to the relevant OIDC application or belonging to [user groups](./groups.md) explicitly added to it.
 
@@ -138,18 +138,18 @@ The basic concept of user authentication via OIDC-based single sign-on is as des
 {% include [OIDC authentication diagram](../../_mermaid/other/identity-hub/oidc-authentication.md) %}
 
 1. The {{ yandex-cloud }} user selects SSO authentication on the external application's (service provider's) authentication page.
-1. The service provider sends an authentication request to {{ org-name }} (identity provider) and redirects the user to the {{ org-name }}'s login URL specified in the `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` field.
-1. The user authenticates in {{ org-name }} with their credentials.
-1. If {{ org-name }} has an OIDC app mapped to this external application, the authenticated user is added to this OIDC app, and the received authentication request is correct, {{ org-name }} sends an authorization code to the service provider and redirects the user back to the external app.
-1. At the address specified in the `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}` field, the service provider requests an [ID token](../../iam/concepts/authorization/id-token.md) and access token from {{ org-name }}. The request contains the [app secret](#oidc-secret), which {{ org-name }} uses to verify the request.
-1. If the service provider sent a valid secret, {{ org-name }} sends an ID token and access token to the service provider.
+1. The service provider sends an authentication request to {{ org-full-name }} (identity provider) and redirects the user to the {{ org-full-name }}'s login URL specified in the `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` field.
+1. The user authenticates in {{ org-full-name }} with their credentials.
+1. If {{ org-full-name }} has an OIDC app mapped to this external application, the authenticated user is added to this OIDC app, and the received authentication request is correct, {{ org-full-name }} sends an authorization code to the service provider and redirects the user back to the external app.
+1. At the address specified in the `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}` field, the service provider requests an [ID token](../../iam/concepts/authorization/id-token.md) and access token from {{ org-full-name }}. The request contains the [app secret](#oidc-secret), which {{ org-full-name }} uses to verify the request.
+1. If the service provider sent a valid secret, {{ org-full-name }} sends an ID token and access token to the service provider.
 1. The service provider checks the received ID token using a public key that it [got](https://{{ auth-main-host }}/oauth/jwks/keys) from {{ yandex-cloud }} using the ID from the `kid` field of the ID token header. If the check is successful, the service provider grants the user access to the external application.
 
 The parties exchange OIDC data in [JSON](https://en.wikipedia.org/wiki/JSON) format.
 
 ### OIDC app secret {#oidc-secret}
 
-An _app secret_ is generated by users on the OIDC app side in {{ org-name }}. It is a random fixed-length string starting with the `yccs__` prefix.
+An _app secret_ is generated by users on the OIDC app side in {{ org-full-name }}. It is a random fixed-length string starting with the `yccs__` prefix.
 
 An app secret must be specified in the integration settings on the service provider side and will be used to verify requests coming from the service provider.
 
@@ -163,13 +163,13 @@ Once a secret is deleted in the OIDC app, remember to provide a new secret in th
 
 {{ yandex-cloud }} does not store OIDC app secrets, and the user can only see them when creating them. Once you refresh or close the browser page where a secret has been generated, the content of that secret becomes unavailable.
 
-### Identity provider ({{ org-name }}) side setup {#oidc-idp-setup}
+### Identity provider ({{ org-full-name }}) side setup {#oidc-idp-setup}
 
-For the integration to work correctly on the {{ org-name }} side, you need to [specify](../operations/applications/oidc-create.md#setup-idp) the [redirect URI](#oidc-redirect-uri) address (addresses) in the OIDC app, select user [attributes](#oidc-user-attributes) to send to the service provider, and generate an [app secret](#oidc-secret). Before configuring your OIDC application in {{ org-name }}, get the redirect URI address (addresses) from your service provider.
+For the integration to work correctly on the {{ org-full-name }} side, you need to [specify](../operations/applications/oidc-create.md#setup-idp) the [redirect URI](#oidc-redirect-uri) address (addresses) in the OIDC app, select user [attributes](#oidc-user-attributes) to send to the service provider, and generate an [app secret](#oidc-secret). Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider.
 
 #### Redirect URI {#oidc-redirect-uri}
 
-_Redirect URI_ is an address on the external application side where the user will get redirected if successfully authenticated in {{ org-name }}.
+_Redirect URI_ is an address on the external application side where the user will get redirected if successfully authenticated in {{ org-full-name }}.
 
 The redirect URI must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
 

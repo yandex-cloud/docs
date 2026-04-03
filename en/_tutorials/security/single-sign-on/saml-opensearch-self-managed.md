@@ -2,7 +2,7 @@
 
 [{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI. 
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ OS }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and in {{ OS }}.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ OS }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and in {{ OS }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -36,7 +36,7 @@ For the users of your organization to be able to access {{ OS }}:
 
 ## Set up the integration {#setup-integration}
 
-To configure {{ OS }} integration with the SAML app you created in {{ org-name }}, complete the configuration both on the {{ OS }} cluster side and in {{ org-name }}.
+To configure {{ OS }} integration with the SAML app you created in {{ org-full-name }}, complete the configuration both on the {{ OS }} cluster side and in {{ org-full-name }}.
 
 1. Get the metadata for the [new app](#create-app):
 
@@ -77,7 +77,7 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
 
          # SAML authentication domain for {{ org-full-name }}
          yandex_saml_auth_domain:
-           order: 1 # What we recommend: 1 or 2
+           order: 1 # What we recommend:one or two
            http_enabled: true
            transport_enabled: false
            http_authenticator:
@@ -123,7 +123,7 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
       
         {% endnote %}
 
-    1. To map {{ org-full-name }} user groups to internal {{ OS }} roles during SAML authentication, edit the `roles_mapping.yml` file for **{{ OS }} Security Plugin**. Add the required [groups](../../../organization/concepts/groups.md) from {{ org-name }} to the `backend_roles` section of the relevant {{ OS }} roles, as shown below.
+    1. To map {{ org-full-name }} user groups to internal {{ OS }} roles during SAML authentication, edit the `roles_mapping.yml` file for **{{ OS }} Security Plugin**. Add the required [groups](../../../organization/concepts/groups.md) from {{ org-full-name }} to the `backend_roles` section of the relevant {{ OS }} roles, as shown below.
 
         ```yaml
         # ...
@@ -134,8 +134,8 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
           reserved: false
           backend_roles:
             - "admin"
-            - "opensearch-users" # group created in {{ org-name }} 
-          description: "Allow full access for opensearch-users group from {{ org-name }}"
+            - "opensearch-users" # group created in {{ org-full-name }} 
+          description: "Allow full access for opensearch-users group from {{ org-full-name }}"
   
         # ... 
         ```
@@ -155,7 +155,7 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
             1. Click the name of the role you need, e.g., `all_access`.
             1. Go to the **Mapped users** tab.
             1. Click **Manage mapping**.
-            1. In the **Backend roles** field, specify the {{ org-name }} [user group](../../../organization/concepts/groups.md) to map with the {{ OS }} role, e.g., `opensearch-users`.
+            1. In the **Backend roles** field, specify the {{ org-full-name }} [user group](../../../organization/concepts/groups.md) to map with the {{ OS }} role, e.g., `opensearch-users`.
             1. Click **Map**.
 
         {% endcut %}
@@ -233,7 +233,7 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add users {#add-users}
 
-For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-name }} SAML app, you need to explicitly add these users and groups to that app.
+For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-full-name }} SAML app, you need to explicitly add these users and groups to that app.
 
 {% note info %}
 
@@ -282,7 +282,7 @@ To make sure both your SAML app and its integration with {{ OS }} work correctly
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.
 1. On the {{ OS }} Dashboards authentication page, click **Log in with single sign-on**.
-1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user must be a member of a group added to the app.
+1. On the {{ yandex-cloud }} authentication page, enter the email address and user password. The user must be a member of a group added to the app.
 1. Make sure you have successfully authenticated in {{ OS }} Dashboards.
 1. If you have configured role mapping:
      1. Click the user icon in {{ OS }} Dashboards.

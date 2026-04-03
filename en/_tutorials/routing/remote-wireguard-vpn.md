@@ -87,7 +87,7 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-     1. On the management console [home page]({{ link-console-main }}), select a folder.
+     1. On the [home page]({{ link-console-main }}) of the management console, select a folder.
      1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
      1. Find the `sa-firezone` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
      1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the `admin` role.

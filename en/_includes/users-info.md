@@ -19,6 +19,10 @@
 
     * **{{ ui-key.yacloud.common.id }}**: User ID.
     * **{{ ui-key.yacloud_org.entity.user.caption.email }}**: User email address.
+    * **Company name**: Name of the company the user works for.
+    * **Department**: User’s division or department.
+    * **Position**: User’s job title.
+    * **Employee ID**: User’s digital code from the corporate HR system.
 
     {% note info %}
 

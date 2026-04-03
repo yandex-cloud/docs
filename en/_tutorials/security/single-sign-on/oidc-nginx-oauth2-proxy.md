@@ -2,20 +2,20 @@
 
 Some applications have no built-in support for [single sign-on](https://en.wikipedia.org/wiki/Single_sign-on) (SSO). However, you may sometimes need to configure user authentication in such applications using {{ org-full-name }}.
 
-In this guide, you will use the [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) utility combined with a reverse proxy to integrate a simple application with {{ org-full-name }} and restrict access to it exclusively to specified {{ org-name }} users via [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC)-based single sign-on.
+In this guide, you will use the [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) utility combined with a reverse proxy to integrate a simple application with {{ org-full-name }} and restrict access to it exclusively to specified {{ org-full-name }} users via [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC)-based single sign-on.
 
-This guide uses [nginx](https://nginx.org/en/) as the proxy server and a static HTML page as the test application. To enable your {{ org-name }} users to access the test application, you will create and configure an [OIDC app](../../../organization/concepts/applications.md#oidc). Additionally, you will need a {{ compute-full-name }} [VM instance](../../../compute/concepts/vm.md) to run `nginx` and `OAuth2 Proxy` and host your test application. Furthermore, to implement secure access to the test application, you will need a domain name and an SSL certificate issued for it.
+This guide uses [nginx](https://nginx.org/en/) as the proxy server and a static HTML page as the test application. To enable your {{ org-full-name }} users to access the test application, you will create and configure an [OIDC app](../../../organization/concepts/applications.md#oidc). Additionally, you will need a {{ compute-full-name }} [VM instance](../../../compute/concepts/vm.md) to run `nginx` and `OAuth2 Proxy` and host your test application. Furthermore, to implement secure access to the test application, you will need a domain name and an SSL certificate issued for it.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
-To configure application access for your {{ org-name }} users, do the following:
+To configure application access for your {{ org-full-name }} users, do the following:
 
-1. [Create and configure an OIDC app in {{ org-name }}](#setup-oidc-app).
+1. [Create and configure an OIDC app in {{ org-full-name }}](#setup-oidc-app).
 1. [Configure the test application VM](#setup-server).
 1. [Set up the integration](#setup-integration).
 1. [Make sure your integration works correctly](#validate).
 
-## Creating and configuring an OIDC app in {{ org-name }} {#setup-oidc-app}
+## Creating and configuring an OIDC app in {{ org-full-name }} {#setup-oidc-app}
 
 ### Creating an OIDC app {#create-app}
 
@@ -105,7 +105,7 @@ To configure application access for your {{ org-name }} users, do the following:
       yc organization-manager idp application oauth application create \
         --organization-id <organization_ID> \
         --name website-oidc-app \
-        --description "OIDC app to configure {{ org-name }} user access to the website" \
+        --description "OIDC app to configure {{ org-full-name }} user access to the website" \
         --client-id <OAuth_client_ID> \
         --authorized-scopes openid,email,profile \
         --group-distribution-type none
@@ -113,10 +113,10 @@ To configure application access for your {{ org-name }} users, do the following:
 
       Where:
 
-      * `--organization-id`: [ID of the organization](../../../organization/operations/organization-get-id.md) you want to create your OIDC app in. This is a required parameter.
-      * `--name`: OIDC app name. This is a required parameter.
-      * `--description`: OIDC app description. This is an optional parameter.
-      * `--client-id`: OAuth client ID you got in Step 2. This is a required parameter.
+      * `--organization-id`: [ID of the organization](../../../organization/operations/organization-get-id.md) you want to create your OIDC app in. This is a required setting.
+      * `--name`: OIDC app name. This is a required setting.
+      * `--description`: OIDC app description. This is an optional setting.
+      * `--client-id`: OAuth client ID you got in Step 2. This is a required setting.
       * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
       * `--group-distribution-type`: Set to `none` as user groups are not provided to `OAuth2 Proxy`.
 
@@ -127,7 +127,7 @@ To configure application access for your {{ org-name }} users, do the following:
       id: ek0odpetc1o4********
       name: website-oidc-app
       organization_id: bpf2c65rqcl8********
-      description: OIDC app to configure {{ org-name }} user access to the website
+      description: OIDC app to configure {{ org-full-name }} user access to the website
       group_claims_settings:
         group_distribution_type: NONE
       client_grant:
@@ -195,7 +195,7 @@ To configure application access for your {{ org-name }} users, do the following:
 
 ### Add a user {#add-user}
 
-For your {{ org-name }} users to be able to authenticate in the test application over the OIDC protocol, you need to explicitly add these users and/or [user groups to this OIDC application](../../../organization/concepts/groups.md).
+For your {{ org-full-name }} users to be able to authenticate in the test application over the OIDC protocol, you need to explicitly add these users and/or [user groups to this OIDC application](../../../organization/concepts/groups.md).
 
 {% note info %}
 
@@ -282,7 +282,7 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the security group you created [earlier](#prepare-env).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../../_includes/compute/create/access-ssh-key.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `my-nginx-vm`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -396,7 +396,7 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
         ```bash
         sudo mkdir /var/www/$MY_DOMAIN
         sudo touch /var/www/$MY_DOMAIN/index.html \
-          && echo "<h1>Your Web application that is available to your {{ org-name }} users only</h1>" | sudo tee -a /var/www/$MY_DOMAIN/index.html
+          && echo "<h1>Your Web application that is available to your {{ org-full-name }} users only</h1>" | sudo tee -a /var/www/$MY_DOMAIN/index.html
         ```
 1. Generate a self-signed SSL certificate for your domain. To do this, run the command and enter values as prompted:
 
@@ -552,9 +552,9 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
         * `client_id`: `ClientID` value of the OAuth client obtained [earlier](#create-app) when creating the OIDC app.
         * `client_secret`: Secret value you generated in the OIDC app.
         * `cookie_secret`: Cookie secret you generated and saved earlier.
-        * `email_domains`: List of email domains for which {{ org-name }} user authentication in the test app is allowed.
+        * `email_domains`: List of email domains for which {{ org-full-name }} user authentication in the test app is allowed.
 
-            `OAuth2 Proxy` checks the email domain specified in the `{{ ui-key.yacloud_org.page.user.field_user-email }}` field of the user's settings in {{ org-name }} (the `email` [attribute](../../../organization/concepts/applications.md#oidc-attributes)).
+            `OAuth2 Proxy` checks the email domain specified in the `{{ ui-key.yacloud_org.page.user.field_user-email }}` field of the user's settings in {{ org-full-name }} (the `email` [attribute](../../../organization/concepts/applications.md#oidc-attributes)).
 
             In the `email_domains` field, specify the email domain of the user you previously added to your OIDC app. If you added a user group to the OIDC app, specify the email domain of a group user on whose behalf you will test authentication. You can specify multiple domains, comma-separated.
 

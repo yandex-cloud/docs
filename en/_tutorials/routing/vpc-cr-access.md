@@ -209,7 +209,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add your credentials to the environment variables:
+      1. Add the credentials to the environment variables:
          ```
          export YC_TOKEN=$(yc iam create-token)
          ```

@@ -1,9 +1,9 @@
-# Configuring a {{ sw-name }} workflow integrated with {{ tracker-full-name }}, {{ foundation-models-full-name }}, and {{ postbox-full-name }}
+# Configuring a {{ sw-name }} workflow integrated with {{ tracker-full-name }}, {{ ai-studio-full-name }}, and {{ postbox-full-name }}
 
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index), and [{{ postbox-full-name }}](../../postbox/index.yaml).
+In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index), and [{{ postbox-full-name }}](../../postbox/index.yaml).
 
 Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ gpt-pro }} to analyze the workcompleted within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
 
@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of support for the new infrastructure includes:
 
 * Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to the secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for using {{ foundation-models-full-name }} (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+* Fee for using {{ ai-studio-full-name }} (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for using {{ tracker-full-name }} (see [{{ tracker-name }} pricing]({{ link-tracker-cloudless }}pricing)).
 * Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
 
@@ -231,7 +231,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
 ## Create a {{ sw-name }} workflow {#setup-workflow}
 
-1. Select the specification you will use to create your workflow. Both the above specifications use integrations with {{ tracker-full-name }}, {{ foundation-models-full-name }}, and {{ postbox-full-name }}; however, they analyze the input data differently.
+1. Select the specification you will use to create your workflow. Both the above specifications use integrations with {{ tracker-full-name }}, {{ ai-studio-full-name }}, and {{ postbox-full-name }}; however, they analyze the input data differently.
 
     {% list tabs %}
 

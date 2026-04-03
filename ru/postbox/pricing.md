@@ -62,7 +62,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|postbox }}']}
-    excludeSkuIds={['{{ pc|postbox.email.size.v1 }}']}
     installationCode="ru"
     currency="RUB"
   />

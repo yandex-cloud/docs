@@ -1,4 +1,4 @@
-# Authentication using {{ microsoft-idp.entra-id-full }}
+# Authentication via {{ microsoft-idp.entra-id-full }}
 
 With an [identity federation](../../organization/concepts/add-federation.md), you can use [{{ microsoft-idp.entra-id-full }}]({{ link-azure-ad }}) ({{ microsoft-idp.entra-id-short }}) to authenticate users within an organization.
 
@@ -34,7 +34,7 @@ In Microsoft Azure, a SAML application acts as an identity provider (IdP). Creat
 
 1. In the window that opens:
 
-   1. Name the application.
+   1. Enter the application name.
 
    1. Select **Integrate any other application you don't find in the gallery (Non-gallery)**.
 
@@ -173,7 +173,7 @@ Add users to the IdP server:
 
   1. Describe the federation parameters in the configuration file.
 
-      Configuration file structure example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -195,7 +195,7 @@ Add users to the IdP server:
       * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md).
-      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional parameter.
+      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional setting.
       * `issuer`: ID of the IdP server to use for authentication.
 
           Use the link from the **{{ microsoft-idp.entra-full }}** ID field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
@@ -241,7 +241,7 @@ Add users to the IdP server:
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will show them.
+      If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors in the configuration.
 
   1. Create a federation.
 
@@ -315,7 +315,7 @@ Add users to the IdP server:
 
 ### Add certificates {#add-certificate}
 
-While authenticating, the {{ org-name }} service should be able to verify the IdP server certificate. To enable this, add the [downloaded](#azure-settings) certificate to the federation:
+While authenticating, the {{ org-full-name }} service should be able to verify the IdP server certificate. To enable this, add the [downloaded](#azure-settings) certificate to the federation:
 
 {% list tabs group=instructions %}
 

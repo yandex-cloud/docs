@@ -15,17 +15,17 @@ In this section, you will learn about:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% include [role-note](../../_includes/compute/role-note.md) %}
-
-To assign a role for a resource, a user should have the `compute.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `compute.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
+
+{% include [role-note](../../_includes/compute/role-note.md) %}
 
 ## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign roles for individual resources of the service:
+You can also assign roles for individual resources within the service:
 
 {% list tabs group=instructions %}
 
@@ -117,7 +117,7 @@ You can also assign roles for individual resources of the service:
 
 {% include [iam.serviceAccounts.user](../../_roles/iam/serviceAccounts/user.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} guides.
 
 ### Primitive roles {#primitive-roles}
 

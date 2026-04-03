@@ -18,8 +18,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select the cluster.
-  1. Navigate to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
+  1. Select the cluster and open the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      You will see the list of operations with the cluster.
 
@@ -46,7 +45,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, information about operations is output as text. To get more details, specify `yaml` or `json` for the output data using the `--format` parameter:
+  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
 
   ```bash
   yc managed-kubernetes cluster list-operations <cluster_name_or_ID> --format yaml

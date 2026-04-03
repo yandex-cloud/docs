@@ -1,11 +1,11 @@
 title: '{{ ycdr-full-name }}'
 description:
   - >-
-    {{ ycdr-full-name }} enables monitoring and response to {{ yandex-cloud }}
-    infrastructure incidents.  {{ ycdr-name }} is developed based on {{
-    yandex-cloud }}'s in-house Security Operations Center (SOC).  It collects
-    data from the cloud infrastructure to detect anomalies. When {{ ycdr-name }}
-    detects an anomaly, it creates an <a
+    {{ ycdr-full-name }} enables monitoring and responding to {{ yandex-cloud }}
+    infrastructure incidents.  {{ ycdr-name }} is built around {{ yandex-cloud
+    }}'s in-house Security Operations Center (SOC).  It collects data from the
+    cloud infrastructure to detect anomalies. When {{ ycdr-name }} detects an
+    anomaly, it creates an <a
     href="https://yandex.cloud/en/docs/security-deck/concepts/alerts">alert</a>
     indicating a potential incident.
 meta:
@@ -14,9 +14,18 @@ meta:
     {{ ycdr-full-name }} collects the infrastructure settings data of your {{
     yandex-cloud }} services.
 links:
+  - title: Getting started
+    description: Create your first investigation and run a KQL query
+    href: quickstart.md
   - title: Concepts
     description: Learn about its concepts and resources
     href: concepts/
+  - title: Step-by-step guides
+    description: How to create investigations and work with queries
+    href: operations/
+  - title: KQL reference
+    description: KQL (Kusto Query Language) syntax description
+    href: kql-reference.md
   - title: Access management
-    description: Configure access permissions for the service
+    description: Configure access permissions to use this service
     href: security/

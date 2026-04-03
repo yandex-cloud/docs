@@ -279,7 +279,7 @@ items:
         href: tutorials/auto-upload.md
       - name: >-
           Setting up {{ sw-name }} integration with {{ tracker-full-name }}, {{
-          foundation-models-full-name }}, and {{ postbox-full-name }}
+          ai-studio-full-name }}, and {{ postbox-full-name }}
         href: tutorials/tracker-yandexgpt-postbox-integrations.md
       - name: Developing an AI agent-supported Telegram bot
         href: tutorials/telegram-ai-bot-workflows.md

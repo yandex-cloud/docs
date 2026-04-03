@@ -7,11 +7,11 @@ description: Access management in {{ ycdr-full-name }}, a monitoring and inciden
 
 In this section, you will learn about:
 * [Resources you can assign a role for](#resources).
-* [Roles this service has](#roles-list).
+* [Roles existing in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `ycdr.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `ycdr.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -27,7 +27,14 @@ To assign a role for a resource, a user should have the `ycdr.admin` role or one
 
 #### ycdr.admin {#ycdr-admin}
 
-{% include [ycdr.admin](../../_roles/ycdr/admin.md) %}
+The `ycdr.admin` role grants full access to the {{ ycdr-name }} features:
+
+* Viewing investigations and query results.
+* Creating, editing, and deleting investigations.
+* Creating and running queries.
+* Working with templates.
+* Managing access permissions.
+* Configuring a {{ ycdr-name }} instance.
 
 ### Primitive roles {#primitive-roles}
 
@@ -37,7 +44,7 @@ To assign a role for a resource, a user should have the `ycdr.admin` role or one
 
 #### What's next {#what-is-next}
 
-* [How to assign a role](../../iam/operations/roles/grant.md).
-* [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [How to assign a role](../../iam/operations/roles/grant.md)
+* [How to revoke a role](../../iam/operations/roles/revoke.md)
+* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md)
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance)

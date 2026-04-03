@@ -133,9 +133,9 @@
 
      Where:
 
-     * `organization_id`: [ID of the organization](../../organization/operations/organization-get-id.md) you want to create your SAML application in. This is a required parameter.
-     * `name`: SAML application name. This is a required parameter.
-     * `attributes`: List of attributes {{ org-name }} will be delivering to the service provider. Each attribute contains:
+     * `organization_id`: [ID of the organization](../../organization/operations/organization-get-id.md) you want to create your SAML application in. This is a required setting.
+     * `name`: SAML application name. This is a required setting.
+     * `attributes`: List of attributes {{ org-full-name }} will be delivering to the service provider. Each attribute contains:
        * `name`: Attribute name unique to your application.
        * `value`: Attribute value. The possible values are:
 

@@ -59,7 +59,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{{ yds-name }}](spec-constructor/datastreams.md)
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
-* [{{ foundation-models-full-name }}](spec-constructor/yagpt.md)
+* [{{ ai-studio-full-name }}](spec-constructor/yagpt.md)
 * [{{ sw-full-name }}](spec-constructor/workflows.md)
 * [Swagger UI](spec-constructor/swagger.md)
 

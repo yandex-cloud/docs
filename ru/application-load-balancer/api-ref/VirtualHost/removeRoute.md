@@ -295,7 +295,12 @@ To get the route name, make a [VirtualHostService.Get](/docs/application-load-ba
           },
           "securityProfileId": "string"
         },
-        "disableSecurityProfile": "boolean"
+        "disableSecurityProfile": "boolean",
+        "clientCertificateForward": {
+          "httpHeader": "string",
+          "issuerHeaderName": "string",
+          "subjectHeaderName": "string"
+        }
       }
     ],
     "modifyRequestHeaders": [
@@ -564,6 +569,9 @@ Route configuration. ||
 || disableSecurityProfile | **boolean**
 
 Whether set to 'true' disables security profile for the route. ||
+|| clientCertificateForward | **[ClientCertificateForward](#yandex.cloud.apploadbalancer.v1.ClientCertificateForward)**
+
+Client certificates forwarding settings. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}
@@ -1158,4 +1166,25 @@ Required field. Specifies the name of the header in the request. ||
 Specifies how the header match will be performed to route the request.
 In the absence of value a request that has specified header name will match,
 regardless of the header's value. ||
+|#
+
+## ClientCertificateForward {#yandex.cloud.apploadbalancer.v1.ClientCertificateForward}
+
+#|
+||Field | Description ||
+|| httpHeader | **string**
+
+If specified, ALB will set specified header with the provided client certificate (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-cert|client-cert|x-ssl-client-cert|) ```. ||
+|| issuerHeaderName | **string**
+
+If specified, ALB will set specified header with the provided client certificate's Issuer (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-issuer-dn|client-cert-issuer|x-ssl-client-issuer-dn|) ```. ||
+|| subjectHeaderName | **string**
+
+If specified, ALB will set specified header with the provided client certificate's Subject (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-subject-dn|client-cert-subject|x-ssl-client-subject-dn|) ```. ||
 |#

@@ -52,13 +52,13 @@ Create a service account you will use to authenticate in the {{ video-name }} AP
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the following command to create a service account:
+  To create a service account, run the following command:
 
   ```bash
   yc iam service-account create --name sa-video-api
   ```
 
-  Where `--name` is the service account name in the following format:
+  Where `--name` is the service account name, formatted as follows:
 
   {% include [name-format](../../_includes/name-format.md) %}
 

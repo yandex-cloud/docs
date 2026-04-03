@@ -11,7 +11,7 @@ The `ChangeStreamHistoryLost` error occurs when the total copy time of the {{ MG
 
 **Solution**:
 
-* Increase the oplog size (10% of the cluster disk size by default). To increase the oplog size in a {{ mmg-name }} source cluster, contact [support]({{ link-console-support }}). To change the oplog size in case of a custom source installation, see the relevant {{ MG }} guide.
+* Increase the oplog size (5% of the cluster disk size by default). To increase the oplog size in a {{ mmg-name }} source cluster, contact [support]({{ link-console-support }}). To change the oplog size in case of a custom source installation, see the relevant {{ MG }} guide.
 * Enable [parallel data copying](../../../../data-transfer/concepts/sharded.md) to speed up the copying stage.
 * Limit the list of transferable objects in the [transfer settings](../../../../data-transfer/operations/transfer.md#create).
 

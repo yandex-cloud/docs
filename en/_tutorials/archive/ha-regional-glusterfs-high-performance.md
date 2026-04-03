@@ -95,7 +95,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -121,7 +121,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to run operations under the service account:
          ```
          yc config profile create sa-glusterfs
          ```
@@ -143,7 +143,7 @@ The infrastructure support costs include:
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add your credentials to the environment variables:
+      1. Add the credentials to the environment variables:
          ```
          export YC_TOKEN=$(yc iam create-token)
          export YC_CLOUD_ID=$(yc config get cloud-id)

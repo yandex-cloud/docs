@@ -1,6 +1,6 @@
 ---
 title: How to get information about a user pool in {{ org-full-name }}
-description: Follow this guide to get information about a user pool in {{ org-name }}.
+description: Follow this guide to get information about a user pool in {{ org-full-name }}.
 ---
 
 # Getting information about a user pool

@@ -75,6 +75,77 @@
   node_version: 1.13.3
   ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  Чтобы получить информацию о группе узлов {{ managed-k8s-name }}:
+
+  1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Создайте конфигурационный файл {{ TF }} с описанием источника данных `yandex_kubernetes_node_group` в блоке `data` и запрашиваемыми параметрами в блоках `output`, по одному параметру на блок. Например:
+
+      ```hcl
+      data "yandex_kubernetes_node_group" "my_node_group" {
+        node_group_id = "<идентификатор_группы_узлов>"
+      }
+
+      output "node_group_status" {
+        value = data.yandex_kubernetes_node_group.my_node_group.status
+      }
+      ```
+
+      Где:
+
+      * `node_group_status` — имя переменной, значение которой будет выводиться в результате.
+      * `data.yandex_kubernetes_node_group.my_node_group.status` — запрашиваемый параметр. В этом случае — состояние группы узлов.
+
+      Список параметров группы узлов, которые можно запросить таким образом, см. в [документации провайдера {{ TF }}]({{ tf-provider-datasources-link }}/kubernetes_node_group).
+
+      {% note tip %}
+
+      Чтобы запросить всю доступную информацию о группе узлов, добавьте в файл блок `output` с таким содержимым:
+
+      ```hcl
+      output "node_group" {
+        value = data.yandex_kubernetes_node_group.my_node_group
+      }
+      ```
+
+      {% endnote %}
+
+  1. Проверьте корректность конфигурационных файлов:
+
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }}.
+
+      1. Выполните команду:
+
+          ```bash
+          terraform validate
+          ```
+
+          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Выполните команду:
+
+      ```bash
+      terraform apply
+      ```
+
+      {{ TF }} отобразит значения выходных переменных в терминале.
+
+  1. Чтобы проверить результат, выполните следующую команду с указанием нужной переменной, например:
+
+      ```bash
+      terraform output node_group_status
+      ```
+
+      Результат:
+
+      ```text
+      "running"
+      ```
+
 - API {#api}
 
   Чтобы получить подробную информацию о группе узлов, воспользуйтесь методом REST API [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) или вызовом gRPC API [NodeGroupService/Get](../../managed-kubernetes/api-ref/grpc/NodeGroup/get.md).

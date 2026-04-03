@@ -1,5 +1,11 @@
 # Creating a service account
 
+{% note warning %}
+
+Creating service accounts may be prohibited by [access policies](../../concepts/access-control/access-policies.md) at the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../../organization/concepts/organization.md) level.
+
+{% endnote %}
+
 Create a [service account](../../concepts/users/service-accounts.md) to manage resources under a different account.
 
 You must have the `{{ roles-iam-sa-admin }}` [role](../../../iam/security/#iam-serviceAccounts-admin) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create a service account.
@@ -26,7 +32,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Check the description of the command for creating a service account:
+  1. View the description of the command for creating a service account:
 
       ```bash
       yc iam service-account create --help
@@ -38,7 +44,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
       yc iam service-account create --name my-robot
       ```
 
-      Follow these naming requirements:
+      The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -57,10 +63,10 @@ A service account is created inside a [folder](../../../resource-manager/concept
      ```
 
      * `name`: Service account name. This is a required parameter.
-     * `description`: Service account description. This is an optional parameter.
-     * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value specified in the provider settings.
+     * `description`: Service account description. This is an optional setting.
+     * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
 
-     For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
+     For more information about `yandex_iam_service_account` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iam_service_account).
     
   1. Make sure the configuration files are correct.
 

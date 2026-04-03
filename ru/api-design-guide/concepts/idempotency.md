@@ -20,7 +20,7 @@ Idempotency-Key: <UUID>
 
 {% note info %}
 
-Сервисы искусственного интеллекта {{ foundation-models-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность даже с заголовком `Idempotency-Key`.
+Сервисы искусственного интеллекта {{ ai-studio-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность даже с заголовком `Idempotency-Key`.
 
 {% endnote %}
 

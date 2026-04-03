@@ -1,6 +1,6 @@
 ---
 title: How to delete members from a user group in {{ org-full-name }}
-description: Follow this guide to delete members from a user group in {{ org-name }}.
+description: Follow this guide to delete members from a user group in {{ org-full-name }}.
 ---
 
 # Deleting members

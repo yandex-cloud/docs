@@ -1,8 +1,8 @@
 
 
-Узнайте, как с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ foundation-models-full-name }}.
+Узнайте, как с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }}.
 
-В данном руководстве вы создадите простого AI-агента, который через функцию {{ sf-name }} будет получать информацию о погоде, взаимодействовать с [языковой моделью]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ foundation-models-full-name }} и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
+В данном руководстве вы создадите простого AI-агента, который через функцию {{ sf-name }} будет получать информацию о погоде, взаимодействовать с [языковой моделью]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
 
 ![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
 
@@ -33,7 +33,7 @@
 
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
 * Плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
-* Плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
+* Плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
 * Плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
 * Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
 
@@ -823,12 +823,12 @@
          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите сервисный аккаунт `function-sa`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
              * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
-             * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
+             * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
                 
                  Укажите идентификатор каталога, в котором вы создаете инфраструктуру.
-             * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
+             * `BASE_URL` — URL сервиса {{ ai-studio-full-name }}: `https://{{ api-host-llm }}/v1`.
 
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
              * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** укажите `API_KEY` и выберите созданный ранее секрет `api-key-secret`, его версию и ключ `api-key`.
@@ -879,13 +879,13 @@
       * `--environment` — переменные окружения:
 
           * `FOLDER_ID` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, сохраненный ранее при создании сервисного аккаунта.
-          * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
+          * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
                 
                  Укажите идентификатор каталога, в котором вы создаете инфраструктуру.
 
-          * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
+          * `BASE_URL` — URL сервиса {{ ai-studio-full-name }}: `https://{{ api-host-llm }}/v1`.
 
       Результат:
 

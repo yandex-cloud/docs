@@ -1,13 +1,13 @@
 # Creating a SAML app in {{ org-full-name }} for integration with {{ mgl-name }}
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ mgl-full-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and {{ mgl-name }}.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ mgl-full-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and {{ mgl-name }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 For the users of your organization to be able to access {{ mgl-name }}:
 
 1. [Create a {{ GL }} instance](#create-mgl-instance).
-1. [Create an app in {{ org-name }}](#create-app).
+1. [Create an app in {{ org-full-name }}](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
@@ -48,7 +48,7 @@ For the users of your organization to be able to access {{ mgl-name }}:
 
 {% endlist %}
 
-## Create an app in {{ org-name }} {#create-app}
+## Create an app in {{ org-full-name }} {#create-app}
 
 {% list tabs group=instructions %}
 
@@ -86,7 +86,7 @@ To enable {{ GL }} authentication using OmniAuth, add an authentication provider
 
    * **Label**: Name of the authentication provider. Specify any name, e.g., `Identity Hub`.
    * **Assertion consumer service URL**: HTTPS endpoint of the {{ GL }} instance. To create this URL, add `/users/auth/saml/callback` to your {{ GL }} instance URL, such as `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
-   * **IDP certificate fingerprint**: SHA1 fingerprint of a public certificate key. Use the **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}** field value you got when creating the app in {{ org-name }}.
+   * **IDP certificate fingerprint**: SHA1 fingerprint of a public certificate key. Use the **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}** field value you got when creating the app in {{ org-full-name }}.
    * **IDP SSO target URL**: IdP URL. Use the **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** field value.
    * **Issuer**: Unique ID of the application where user authentication will be performed, such as `https://example.gitlab.yandexcloud.net`.
    * **Name identifier format**: Name ID format. Set it to `Persistent`.
@@ -141,7 +141,7 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add a user {#add-user}
 
-For your organization's users to be able to authenticate in {{ GL }} with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
+For your organization's users to be able to authenticate in {{ GL }} with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
 
 {% note info %}
 

@@ -11,6 +11,8 @@ If you do not have a service account yet, [create one](../sa/create.md) and [ass
 
 ## Creating an API key {#create-api-key}
 
+{% include [access-control-sa-apikey-notice](../../../_includes/iam/access-control-sa-apikey-notice.md) %}
+
 To create a service account API key:
 
 {% list tabs group=instructions %}
@@ -25,7 +27,7 @@ To create a service account API key:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the create API key command:
+  1. See the description of the command for creating an API key:
 
       ```bash
       yc iam api-key create --help
@@ -67,7 +69,7 @@ To create a service account API key:
 
           {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
-      * `--expires-at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format. For example, `2026-01-01T21:00:00Z`. This is an optional setting.
+      * `--expires-at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is an optional setting.
       * `api_key.yaml`: File to save the response to.
       
       As a result, you will get the `api_key.yaml` file with the API key value in the `secret` field:
@@ -117,7 +119,7 @@ To create a service account API key:
 
           {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
-      * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format. For example, `2026-01-01T21:00:00Z`. This is an optional setting.
+      * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is an optional setting.
       * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional setting.
       * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the API key value to, in order to avoid its possible leak through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
           * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the API key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
@@ -166,7 +168,7 @@ To create a service account API key:
 
   * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional setting.
 
-  You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
+  Alternatively, you can create an API key via the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
 
 {% endlist %}
 

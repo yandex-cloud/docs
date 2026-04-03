@@ -1,6 +1,6 @@
 ---
 title: Getting a list of user pools in {{ org-full-name }}
-description: Follow this guide to get a list of user pools in an {{ org-name }}.
+description: Follow this guide to get a list of user pools in an {{ org-full-name }}.
 ---
 
 # Getting a list of user pools

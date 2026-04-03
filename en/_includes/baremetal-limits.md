@@ -6,6 +6,8 @@
 `baremetal.servers.count` for businesses | 5 ||
 || Number of servers
 `baremetal.servers.count` for individuals^1^ | 2 ||
+|| Number of [custom-configured](../baremetal/concepts/server-custom-configurations.md) servers in a build process per cloud
+`baremetal.assemblingServers.count` | 0 ||
 || Number of [VRFs](../baremetal/concepts/private-network.md#vrf-segment)
 `baremetal.vrfs.count` | 20 ||
 || Number of images

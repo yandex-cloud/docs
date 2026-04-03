@@ -16,7 +16,7 @@ Added a new [configuration](concepts/configurations.md), gt4i.1 (1 GPU NVIDIA T4
 
 Discontinued supporting foundation model tuning in {{ ml-platform-name }}. Previously tuned models will no longer be supported along with their base models in accordance with their [life cycle]({{ link-docs-ai }}ai-studio/concepts/generation/models#model-lifecycle).
 
-Use the {{ foundation-models-full-name }} [tools]({{ link-docs-ai }}ai-studio/concepts/tuning/index) to tune models.
+Use the {{ ai-studio-full-name }} [tools]({{ link-docs-ai }}ai-studio/concepts/tuning/index) to tune models.
 
 ## Release as of 11/11/24 {#111124}
 

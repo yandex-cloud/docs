@@ -121,7 +121,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
      1. Navigate to the **{{ ui-key.yacloud.common.label_access-rights }}** tab on the key page.
-     1. On the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** page, find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
+     1. On the **Service account access permissions** page, find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
      1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
      1. In the dialog that opens, click **Add role** and select `kms.keys.encrypterDecrypter`.
 
@@ -190,7 +190,7 @@ The infrastructure support cost includes:
 
         Where:
 
-        * `--name`: Secret name This is a required setting.
+        * `--name`: Secret name (required).
         * `--kms-key-id`: {{ kms-short-name }} key ID.
         * `--description`: Secret description. This is an optional setting.
         * `--payload`: Secret content in YAML or JSON format.
@@ -224,7 +224,7 @@ The infrastructure support cost includes:
 
         Where:
 
-        * `name`: Secret name This is a required setting.
+        * `name`: Secret name (required).
         * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional setting.
         * `kms_key_id`: ID of the [{{ kms-name }}](../../kms/concepts/key.md) encryption key used to encrypt your secret.
         * `entries`: Secret content.

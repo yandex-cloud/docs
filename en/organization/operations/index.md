@@ -123,6 +123,6 @@ description: In this article, you will learn how to work with {{ org-full-name }
 
 * [{#T}](./sync-ad.md)
 
-## {{ org-name }} billing management {#manage-billing}
+## {{ org-full-name }} billing management {#manage-billing}
 
 * [{#T}](./manage-billing.md)

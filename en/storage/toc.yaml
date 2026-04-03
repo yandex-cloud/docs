@@ -51,6 +51,8 @@ items:
             href: operations/buckets/enable-logging.md
           - name: Managing object locks
             href: operations/buckets/configure-object-lock.md
+          - name: Managing object metadata export
+            href: operations/buckets/manage-s3-inventory.md
           - name: Managing bucket labels
             href: operations/buckets/tagging.md
           - name: Getting bucket information and statistics
@@ -294,7 +296,7 @@ items:
         href: tutorials/log-ingestion.md
       - name: Building a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: Deploying a web application using the Java Servlet API
         href: tutorials/java-servlet-todo-list.md
@@ -321,7 +323,13 @@ items:
           objstorage-short-name }} bucket
         href: tutorials/vision-ocrrecognizer-storage.md
       - name: Converting a video to a GIF in Python
-        href: tutorials/video-converting-queue.md
+        items:
+          - name: Overview
+            href: tutorials/video-converting-queue/index.md
+          - name: Management console
+            href: tutorials/video-converting-queue/console.md
+          - name: '{{ TF }}'
+            href: tutorials/video-converting-queue/terraform.md
       - name: Automating tasks using {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
       - name: Processing files with usage details in {{ billing-name }}
@@ -396,6 +404,8 @@ items:
         href: concepts/presigned-post-forms.md
       - name: Storage class
         href: concepts/storage-class.md
+      - name: Object metadata export
+        href: concepts/s3-inventory.md
       - name: Bucket actions logging mechanism
         href: concepts/server-logs.md
       - name: Backups

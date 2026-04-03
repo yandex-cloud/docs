@@ -16,7 +16,7 @@ To set up integration with {{ data-catalog-name }} in {{ ai-studio-name }}:
 
 ### Required paid resources {#paid-resources}
 
-The integration infrastructure cost includes a fee for {{ agents-atelier-name }} based on the number of tokens in request and response (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). You start paying for the agent as soon as you activate it.
+The integration infrastructure cost includes a fee for {{ agents-atelier-name }} based on the number of tokens in request and response (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). You start paying for the agent as soon as you activate it.
 
 
 ## Set up your infrastructure {#infra}

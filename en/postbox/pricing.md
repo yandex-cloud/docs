@@ -54,7 +54,6 @@ Calculating cost of 65,500 emails per month:
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|postbox }}']}
-    excludeSkuIds={['{{ pc|postbox.email.size.v1 }}']}
     installationCode="ru"
     currency="USD"
   />

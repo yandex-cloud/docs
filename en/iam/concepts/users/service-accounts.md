@@ -5,6 +5,8 @@ description: A service account is an account that can be used by a program to ma
 
 # Service accounts
 
+{% include [access-control-sa-general-notice](../../../_includes/iam/access-control-sa-general-notice.md) %}
+
 {% include [sa-def](../../_includes_service/sa-def.md) %}
 
 ## What are service accounts used for {#sa-usage}

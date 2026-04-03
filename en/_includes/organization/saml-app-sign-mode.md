@@ -4,6 +4,6 @@
 
 {% note warning %}
 
-The signing mode configured for the SAML app on the {{ org-name }} side must be the same as the signing mode on the service provider's side.
+The signing mode configured for the SAML app on the {{ org-full-name }} side must be the same as the signing mode on the service provider's side.
 
 {% endnote %}

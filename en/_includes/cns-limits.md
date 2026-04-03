@@ -1,3 +1,11 @@
+#### Quotas {#cns-quotas}
+
+#|
+|| Type of limit | Value ||
+|| Number of SMS to send per month 
+`notifications.smsPerMonth.rate` | 100 ||
+|#
+
 #### Limits {#limits}
 
 **Type of limit** | **Value**
@@ -8,7 +16,6 @@ Maximum number of [SMS notification](../notifications/concepts/sms.md) channels 
 Maximum number of SMS notification channels with a [shared sender](../notifications/concepts/sms.md#common-sender) per cloud | 1
 Maximum number of SMS notification channels with an [individual sender](../notifications/concepts/sms.md#individual-sender) per cloud | 10
 Maximum number of [test phone numbers](../notifications/concepts/sms.md#sandbox) per SMS notification channel | 10
-Maximum number of SMS messages per cloud^1^ | 100 per month
 Maximum [mobile push notification](../notifications/concepts/push.md) message size | 4 KB
 Maximum [browser push notification](../notifications/concepts/browser.md) message size | 3 KB
 Maximum SMS message length | 1,600 characters (10 segments)
@@ -22,4 +29,4 @@ Maximum number of SMS messages to verify test numbers per cloud | 20 per day
 Maximum number of topics per cloud | 1,000
 Maximum number of subscriptions per topic | 1,000
 
-^1^ Moving forward, the limit on the maximum number of SMS messages per cloud will become a [quota](#quotas). You will be able to increase it by contacting support.
+All quotas and limits apply to the cloud.

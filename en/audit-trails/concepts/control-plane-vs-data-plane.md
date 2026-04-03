@@ -6,7 +6,7 @@
 
 Management events include actions performed to configure {{ yandex-cloud }} resources. By default, {{ at-name }} logs management events for all supported services in your {{ yandex-cloud }} account.
 
-Events related to actions such as creating, updating, or deleting infrastructure components, users, or policies belong to this type of events. For instance, creating an instance group, creating a federation in {{ org-name }}, or deleting a database cluster are all management events.
+Events related to actions such as creating, updating, or deleting infrastructure components, users, or policies belong to this type of events. For instance, creating an instance group, creating a federation in {{ org-full-name }}, or deleting a database cluster are all management events.
 
 Management events are logged if the [trail](./trail.md) settings enable the collection of management events and an audit log collection scope is specified.
 

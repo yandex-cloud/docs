@@ -26,9 +26,9 @@ When deploying multiple applications in {{ yandex-cloud }}, create an independe
 
 In some cases, such as organizing an [MK8S](../../managed-kubernetes/index.yaml) multi-cluster, where a separate zonal cluster is deployed in each availability zone, you may need multi-level traffic distribution. At input, the traffic will be received by an L7 load balancer, which will distribute it to one of the zonal clusters. Next, at the zonal cluster level, the traffic will be received by a [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) type service (built around an L3 load balancer), and from there distributed among the relevant cluster pods for processing.   
 
-You can use the [Application Load Balancer](../../network-load-balancer/index.yaml) as an L7 load balancer.
+You can use the [Application Load Balancer](../../application-load-balancer/index.yaml) as an L7 load balancer.
 
-You can use the [Network Load Balancer](../../application-load-balancer/index.yaml) as L3 load balancers.
+You can use the [Network Load Balancer](../../network-load-balancer/index.yaml) as L3 load balancers.
 
 The multi-level balancing schemes, where an L3 load balancer distributes traffic to L7 load balancers downstream of it, are not supported and are not recommended.
 

@@ -36,7 +36,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
         quay.io/keycloak/keycloak:21.1.2 start-dev
         ```
 
-    As long as the container is running, the {{ keycloak }} administrator account will be available at [http://localhost:8080/admin](http://localhost:8080/admin) or [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin). The default login parameters are as follows:
+    As long as the container is running, the {{ keycloak }} administrator account will be available at [http://localhost:8080/admin](http://localhost:8080/admin) or [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin). The default login credentials are as follows:
 
     * **User name or email**: `admin`
     * **Password**: `Pa55w0rd`
@@ -51,7 +51,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
     1. Log in to the {{ keycloak }} administrator account at: `http://<IP_or_URL_{{ keycloak }}>:8080/admin`.
 
-        If you are using a local server from a Docker image, the default login credentials are:
+        If you are using a local server from a Docker image, the default login credentials are as follows:
 
         * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin)
         * **User name or email**: `admin`
@@ -81,7 +81,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens, do the following:
+  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
 
       1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
 
@@ -123,7 +123,7 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
 ## Add the {{ keycloak }} certificate to the federation {#add-certificate}
 
-To make sure that {{ org-name }} can verify the {{ keycloak }} server certificate during authentication, add the certificate to the federation:
+To make sure that {{ org-full-name }} can verify the {{ keycloak }} server certificate during authentication, add the certificate to the federation:
 
 {% list tabs group=instructions %}
 
@@ -151,7 +151,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 1. Log in to the {{ keycloak }} administrator account at: `http://<IP_or_URL_{{ keycloak }}>:8080/admin`.
 
-    If you are using a local server from a Docker image, the default login credentials are:
+    If you are using a local server from a Docker image, the default login credentials are as follows:
 
     * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin)
     * **User name or email**: `admin`
@@ -278,7 +278,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. [Create a user group](../../organization/operations/create-group.md) named `yc_demo_group` in {{ org-name }} and [authorize it](../../organization/operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
+  1. [Create a user group](../../organization/operations/create-group.md) named `yc_demo_group` in {{ org-full-name }} and [authorize it](../../organization/operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
 
   1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
@@ -331,7 +331,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
       Where:
       * `folder_id`: The folder the role is assigned for.
 
-      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider documentation.
+      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
 
   1. Create the resources:
 
@@ -355,7 +355,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     {% endcut %}
 
-    If you have set up everything correctly, the browser will redirect you to the authentication page in {{ keycloak }}.
+    If you have set up everything correctly, the browser will redirect you to the {{ keycloak }} authentication page.
 
 1. Enter the username and password for the test federated user (`demo_user1`) and click **Sign in**.
 

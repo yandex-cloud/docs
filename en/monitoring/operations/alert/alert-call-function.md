@@ -32,7 +32,7 @@ To send POST requests when an alert triggers:
   1. In the [management console]({{ link-console-main }}), go to the folder containing the resources you need to track in {{ monitoring-name }}.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account, e.g., `sa-alert-webhook`.
+  1. Specify the service account name, e.g., `sa-alert-webhook`.
   1. Add the `{{ roles-functions-invoker }}` and `{{ roles-functions-viewer }}` roles.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -79,19 +79,19 @@ To send POST requests when an alert triggers:
 
             def handler(event, context):
                 alert = event # For convenience, save the event to the alert variable.
-                required_attributes = ["alertId", "status"] # Array of required input parameters in JSON format.
+                required_attributes = ["alertId", "alertStatus"] # Array of required input parameters in JSON format.
                 
                 # If the function input is not JSON or has missing required parameters, the function will not run.
-                if not alert or all(attr in required_attributes for attr in alert):
+                if not alert or not all(attr in alert for attr in required_attributes):
                     return
                 
                 result = None
                 # If the function is invoked when the alert status is ALARM, send a request to WEBHOOK_ALARM_URL.
                 # If the function is invoked when the alert status is OK, send a request to WEBHOOK_OK_URL.
                 # Do not invoke the function in case of other alert statuses.
-                if alert["status"] == "ALARM":
+                if alert["alertStatus"] == "ALARM":
                     result = webhook(WEBHOOK_ALARM_URL, alert["alertId"])
-                elif alert["status"] == "OK":
+                elif alert["alertStatus"] == "OK":
                     result = webhook(WEBHOOK_OK_URL, alert["alertId"])
                 else:
                     pass
@@ -166,7 +166,7 @@ To send POST requests when an alert triggers:
         "alertId": "<alert_ID>",
         "alertName": "alert-function",
         "folderId": "<folder_ID>",
-        "status": "OK"
+        "alertStatus": "OK"
       }
       ```
 

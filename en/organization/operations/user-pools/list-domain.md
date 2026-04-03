@@ -1,6 +1,6 @@
 ---
 title: How to get a list of domains in a {{ org-full-name }} user pool or federation
-description: Follow this guide to get a list of domains in an {{ org-name }} user pool or federation.
+description: Follow this guide to get a list of domains in an {{ org-full-name }} user pool or federation.
 ---
 
 # Getting a list of domains

@@ -1,6 +1,6 @@
 ---
 title: How to grant access to an OIDC app in {{ org-full-name }}
-description: In this article, you will learn how to set up access to an OIDC app in {{ org-name }}.
+description: In this article, you will learn how to set up access to an OIDC app in {{ org-full-name }}.
 ---
 
 # Setting up access for OIDC app users in {{ org-full-name }}

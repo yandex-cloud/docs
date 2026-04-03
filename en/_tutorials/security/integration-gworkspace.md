@@ -204,7 +204,7 @@ To create a federation:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
@@ -284,7 +284,7 @@ To create a federation:
 
 ### Add certificates {#add-certificate}
 
-While authenticating, the {{ org-name }} service should be able to verify the IdP server certificate. To enable this, download a certificate from the open Google Workspace **Google IdP Information** page and add it to the created federation:
+While authenticating, the {{ org-full-name }} service should be able to verify the IdP server certificate. To enable this, download a certificate from the open Google Workspace **Google IdP Information** page and add it to the created federation:
 
 {% list tabs group=instructions %}
 

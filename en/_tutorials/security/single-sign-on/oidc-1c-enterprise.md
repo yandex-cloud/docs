@@ -3,7 +3,7 @@
 
 [1C:Enterprise](https://scloud.ru/1s-predpriyatie/) is a development platform for 1C accounting and business automation applications. The platform supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to 1C:Enterprise with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-name }} and 1C:Enterprise.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to 1C:Enterprise with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and 1C:Enterprise.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -137,7 +137,7 @@ To complete this tutorial, you may need a valid [1C:ITS agreement](https://its.1
 
 ## Set up the integration {#setup-integration}
 
-Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-name }}.
+Set up the 1C:Enterprise integration with the OIDC app you created in {{ org-full-name }}.
 
 
 ### Configure your OIDC application in {{ org-full-name }} {#setup-idp}

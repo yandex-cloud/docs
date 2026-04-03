@@ -21,9 +21,10 @@ meta:
     to corporate apps in a centralized way over SAML and OpenID Connect
     (identity provider) protocols.
   keywords:
-    - keyword: '{{ org-name }}'
     - keyword: '{{ org-full-name }}'
-    - keyword: '{{ org-name }}'
+    - keyword: Identity Hub
+    - keyword: '{{ org-full-name }}'
+    - keyword: Identity Hub
     - keyword: '{{ yandex-cloud }} for businesses'
     - keyword: corporate access to {{ yandex-cloud }}
     - keyword: corporate cloud

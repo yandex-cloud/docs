@@ -1,8 +1,8 @@
 
 
-Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ foundation-models-full-name }} [text generation models]({{ link-docs-ai }}ai-studio/concepts/generation/models) to provide generative responses.
+Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ ai-studio-full-name }} [text generation models]({{ link-docs-ai }}ai-studio/concepts/generation/models) to provide generative responses.
 
-Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ foundation-models-full-name }} [language model]({{ link-docs-ai }}ai-studio/concepts/generation/models), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
+Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ ai-studio-full-name }} [language model]({{ link-docs-ai }}ai-studio/concepts/generation/models), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
 
 ![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
 
@@ -33,7 +33,7 @@ You can create these resources [automatically](#automatic-setup) or [manually](#
 
 The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Text generation fee (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+* Text generation fee (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
@@ -455,12 +455,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `function-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
+             * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
                  Example: `gpt://<folder_ID>/yandexgpt/latest`.
                 
                  Where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
-             * `BASE_URL`: {{ foundation-models-full-name }} URL, `https://{{ api-host-llm }}/v1`.
+             * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
              * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** field, specify `API_KEY` and select the previously created `api-key-secret`, its version, and `api-key`.
         * If you prefer to opt out of logging so as not to pay for {{ cloud-logging-name }}, disable the **{{ ui-key.yacloud.logging.field_logging }}** option to disable logging.

@@ -7,19 +7,15 @@ description: Access management in {{ interconnect-name }}. To allow access to {{
 
 {% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-To allow access to {{ interconnect-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
+To allow access to {{ interconnect-name }} resources, assign the relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can be [assigned](../../iam/operations/roles/grant.md) for a parent resource (folder or cloud) or an organization.
+
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) for {{ resmgr-full-name }}.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 Roles for a resource can be assigned by users who have one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
-
-{% note info %}
-
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} guide.
-
-{% endnote %}
 
 ## Assigning roles {#grant-roles}
 
@@ -36,7 +32,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
 ## Roles this service has {#roles-list}
 
-The list below shows all roles used for access control in {{ interconnect-name }}.
+The list below shows all the roles used for access control in {{ interconnect-name }}.
 
 {% include [interconnect](../../_mermaid/roles/interconnect.md) %}
 

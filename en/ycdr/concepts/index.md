@@ -9,13 +9,21 @@ description: '{{ ycdr-name }} is a service that collects the infrastructure sett
 
 {{ ycdr-full-name }} provides incident monitoring and response in {{ yandex-cloud }}. {{ ycdr-name }} is built around {{ yandex-cloud }}'s in-house Security Operations Center (SOC). This service collects data from the cloud infrastructure to detect anomalies. When {{ ycdr-name }} detects an anomaly, it creates an [alert](../../security-deck/concepts/alerts.md) indicating a potential incident.
 
+## Access to the service {#access}
+
+{% note info %}
+
+You get access to {{ ycdr-name }} in the {{ sd-name }} interface in [{{ cloud-center }}]({{ cloud-center-link }}) after your access request gets approved.
+
+{% endnote %}
+
 The {{ yandex-cloud }} SIEM system analyzes the collected data. Events are sent to the SIEM system via a _collector_. The collector is installed in a {{ managed-k8s-name }} cluster, which ensures its scalability and fault-tolerance.
 
 The collector must have access to the external network to send events to the {{ yandex-cloud }} SIEM. Yet, since events are sent over the TLS protocol and SIEM is physically located in the {{ yandex-cloud }} infrastructure, the data remains inside the data center.
 
 The collector works at the [cloud](../../resource-manager/concepts/resources-hierarchy.md) level. Each cloud must have a dedicated collector for sending events.
 
-The collector architecture comprises two modules:
+The collector architecture includes the following modules:
 
 1. `Vector`-based component for collecting and sending events. It enables receiving events from `osquery` agents and random events over HTTP.
 1. `syslog` event collection component which collects events and sends them to the `Vector`-based component for further processing.

@@ -82,4 +82,6 @@
           prefix_match: /api
 ```
 
+Where `priority` is the rule [priority](../../smartwebsecurity/concepts/rules.md#rules-order).
+
 {% endcut %}

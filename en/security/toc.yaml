@@ -43,7 +43,7 @@ items:
         href: standard/encryption.md
       - name: Collecting, monitoring, and analyzing audit logs
         href: standard/audit-logs.md
-      - name: Application security
+      - name: Application protection
         href: standard/app-security.md
       - name: Security {{ k8s }}
         href: standard/kubernetes-security.md
@@ -74,8 +74,8 @@ items:
       - name: Authentication and access management
         items:
           - name: >-
-              Access control for user groups with different roles in {{ org-name
-              }}
+              Access control for user groups with different roles in {{
+              org-full-name }}
             href: tutorials/authentication/user-group-access-control.md
           - name: >-
               Using a service account with an {{ oslogin }} profile for VM
@@ -85,7 +85,7 @@ items:
             href: tutorials/authentication/integration-adfs.md
           - name: Google Workspace authentication
             href: tutorials/authentication/integration-gworkspace.md
-          - name: Authentication via {{ microsoft-idp.entra-id-full }}
+          - name: Authentication using {{ microsoft-idp.entra-id-full }}
             href: tutorials/authentication/integration-azure.md
           - name: Keycloak authentication
             href: tutorials/authentication/integration-keycloak.md
@@ -185,8 +185,8 @@ items:
             href: >-
               tutorials/virtualenv-safe-config/nlb-with-target-resource-group-vm.md
           - name: >-
-              Migrating services from an external NLB to an L7 ALB with an
-              internal NLB as a target
+              Migrating services from an external NLB to L7 ALB with an internal
+              NLB as a target
             href: tutorials/virtualenv-safe-config/nlb-as-target-resource-alb.md
       - name: Data encryption and key management
         items:
@@ -248,7 +248,7 @@ items:
             href: >-
               tutorials/data-encryption-and-key-management/wlif-gitlab-integration.md
           - name: >-
-              Uploading objects into an {{ objstorage-name }} bucket using an
+              Uploading objects into an {{ objstorage-name }} bucket with an
               ephemeral access key
             href: >-
               tutorials/data-encryption-and-key-management/ephemeral-key-storage.md
@@ -270,7 +270,7 @@ items:
             href: tutorials/audit-logs/logging-functions.md
           - name: Processing {{ at-name }} events
             href: tutorials/audit-logs/audit-trails.md
-          - name: Exporting audit logs to {{ mes-name }}
+          - name: Uploading audit logs to {{ mes-name }}
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true
           - name: Exporting audit logs to MaxPatrol SIEM
@@ -295,7 +295,7 @@ items:
             href: tutorials/audit-logs/logging.md
           - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
             href: tutorials/audit-logs/coi-fluent-bit-logging.md
-      - name: Application security
+      - name: Application protection
         items:
           - name: >-
               Installing an NGINX ingress controller with a {{
@@ -303,7 +303,7 @@ items:
             href: tutorials/app-security/nginx-ingress-certificate-manager.md
           - name: Building a CI/CD pipeline in {{ GL }} with serverless products
             href: tutorials/app-security/ci-cd-serverless.md
-          - name: Building an interactive serverless application using WebSocket
+          - name: Creating an interactive serverless application using WebSocket
             href: tutorials/app-security/websocket-app.md
           - name: >-
               Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name

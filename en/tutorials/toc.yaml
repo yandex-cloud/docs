@@ -1747,7 +1747,7 @@ items:
             href: ml-ai/speechsense/bitrix24.md
           - name: Working with an AI assistant in {{ speechsense-name }}
             href: ml-ai/speechsense/ai-assistant.md
-      - name: Using {{ foundation-models-full-name }} generative models
+      - name: Using {{ ai-studio-full-name }} generative models
         items:
           - name: >-
               Integrating generative models into Visual Studio Code as a coding

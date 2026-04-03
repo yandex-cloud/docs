@@ -28,13 +28,20 @@ A key is an ID of an object in a bucket.
 
 Objects are stored in a flat structure, although GUI-based [tools](../tools/index.md) allow you to use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because you can write keys as paths in a file system, e.g., `top_level_prefix/subprefix/text_data.txt`. In the {{ yandex-cloud }} management console, prefixes are called directories.
 
-A key must:
+The requirements for the key are as follows:
+* UTF-8 encoded.
+* Less than 1024 bytes in size.
 
-* Be UTF-8 encoded.
-* Be less than 1024 bytes in size.
-* Not contain these characters: `: * ? " < > | !`.
+Used characters:
 
-The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`, `\`. Other characters may cause various issues in {{ objstorage-name }}.
+#|
+|| **Category** | **List** | **Comment** ||
+|| Optimal | `[a-zA-Z0-9]`, `!`, `-`, `_`, `.`, `*`, `'`, `(`, `)` | These characters are generally safe to use. ||
+|| Special processing may be required | `&`, `$`, `@`,`=`, `;`, `:`, `/`, `+`, `,`, `?`, spaces and [ASCII control characters](https://en.wikipedia.org/wiki/Control_character) with codes `0`-`31` and `127` | These characters must be URL-encoded or presented in hexadecimal (HEX) format. Some of them are non-printable and may not be supported by your browser, so they too require special processing. ||
+|| Not recommended | `\`, `{`, `}`, `^`, ``` ` ```, `%`, `[`, `]`, `"`, `<`, `>`, `~`, ```|```, `#` and characters from the extended [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII) table with codes `128`-`255` | These characters require significant special processing, which may differ depending on your software. ||
+|#
+
+For more information about keys in the AWS S3 API, see the [Naming Amazon S3 objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html) page.
 
 ### Directory {#folder}
 
@@ -155,3 +162,4 @@ Response codes:
 ### See also {#see-also}
 
 * [{#T}](../security/overview.md)
+

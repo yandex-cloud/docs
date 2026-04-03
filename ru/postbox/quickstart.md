@@ -12,11 +12,6 @@
 1. Создайте ключ для сервисного аккаунта:
    * Для отправки письма с помощью AWS CLI [создайте](../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
    * Для отправки письма по протоколу SMTP [создайте](../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ. При создании API-ключа задайте область действия `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
-1. Сгенерируйте ключ для создания DKIM-подписи:
-
-    ```
-    openssl genrsa -out privatekey.pem 2048
-    ```
 
 ## Создайте адрес {#create-address}
 
@@ -36,7 +31,19 @@
 
 ## Пройдите проверку владения доменом {#verify-domain}
 
-{% include [check-domain](../_includes/postbox/check-domain.md) %}
+{% include [check-domain-intro](../_includes/postbox/check-domain-intro.md) %}
+
+**Пример создания ресурсных записей в {{ dns-full-name }}**
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    {% include [check-domain-simple](../_includes/postbox/check-domain-simple.md) %}
+
+    Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсных записей. Если статус проверки не изменится в течение 24 часов, нажмите кнопку **{{ ui-key.yacloud.postbox.button_run-verification }}**.
+
+{% endlist %}
 
 ## Отправьте проверочное письмо {#send-test-email}
 

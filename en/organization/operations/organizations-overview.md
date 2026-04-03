@@ -1,6 +1,6 @@
 ---
 title: Managing organizations in {{ org-full-name }}
-description: This section contains step-by-step guides on managing organizations in {{ org-name }}.
+description: This section contains step-by-step guides on managing organizations in {{ org-full-name }}.
 ---
 
 # Managing organizations in {{ org-full-name }}

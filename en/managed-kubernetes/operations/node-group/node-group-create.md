@@ -195,6 +195,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          container_runtime {
            type = "containerd"
          }
+         network_interface {
+           nat = <assign_public_IP_addresses>
+         }
          labels {
            "<cloud_label_name>"="<cloud_label_value>"
          }
@@ -240,6 +243,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
+       * `network_interface.nat`: Assign random public [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} pool to the nodes, `true` or `false`.
+
+         {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
        * `labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
        * `node_labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
        * `scale_policy`: Scaling settings.
@@ -379,6 +386,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
+  * To assign random public [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} pool to the nodes, provide the `IPV4` value in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` parameter.
+
+    {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
   * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide `network-ssd-nonreplicated` for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
     You can only change the size of non-replicated disks in 93 GB increments. The maximum size of this type of disk is 4 TB.
@@ -413,7 +424,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
 
-  * To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+  * To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 

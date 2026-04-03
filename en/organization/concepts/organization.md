@@ -7,7 +7,7 @@ description: Organization is a workspace that combines various types of {{ yande
 
 An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings.
 
-When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
+When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-full-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
 
 {{ yandex-cloud }} organization structure:
 
@@ -20,9 +20,9 @@ Within an organization, users deal with {{ yandex-cloud }} resources. Organizati
 You can set up access to an organization's resources for individual users or user groups. You have the following tools for that:
 
 * [User groups](groups.md): Allow issuing identical access permissions to several users at the same time.
-* [Identity federation](add-federation.md): Implements a single sign-on system for users within an organization – even users without a Yandex account.
+* [Identity federations](add-federation.md): Implement a single sign-on system for users within an organization, even without a Yandex account.
 * [User pools](user-pools.md): Allow grouping [local users](../../iam/concepts/users/accounts.md#local) into containers.
-* [{{ iam-full-name }}](../../iam/concepts/index.md): Provides users with roles they need to perform specific operations with a particular {{ yandex-cloud }} resource.
+* [{{ iam-full-name }}](../../iam/concepts/index.md): Enables you to enforce restrictions on operations via [access policies](../../iam/concepts/access-control/access-policies.md) and provides users with roles they need to perform specific operations with a particular {{ yandex-cloud }} resource.
 
 ## Organization security management {#security}
 

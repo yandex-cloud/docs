@@ -4,6 +4,8 @@ _{{ sts-name }}_: {{ iam-name }} component used to get _temporary access keys_ c
 
 Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../storage/).
 
+{% include [access-control-sa-stskey-notice](../../_includes/iam/access-control-sa-stskey-notice.md) %}
+
 With temporary keys, you can set up granular access to {{ objstorage-name }} [buckets](../../storage/concepts/bucket.md) for multiple users with a single [service account](../../iam/concepts/users/service-accounts.md). The service account permissions must include all the permissions you want to grant using temporary keys.
 
 A temporary access key is created based on a [static key](../../iam/concepts/authorization/access-key.md), but, unlike it, it has a limited lifetime and access permissions. Access permissions and lifetime are set for each temporary key individually.

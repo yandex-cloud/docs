@@ -1,7 +1,7 @@
 # Как создать бота в Telegram с поддержкой AI-агента с помощью {{ sw-full-name }}
 
 
-С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) на базе сервиса [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
+С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) на базе сервиса [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
 В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы создадите AI-агента, организуете хранение данных в [{{ objstorage-full-name }}](../../storage/) и [{{ lockbox-full-name }}](../../lockbox/), настроите логику бота в [{{ sw-full-name }}](../../serverless-integrations/) и вебхук для запуска по ссылке.
 
@@ -30,7 +30,7 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
 * плата за хранение секрета и запросы к нему (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
 * плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
 * плата за получение и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
