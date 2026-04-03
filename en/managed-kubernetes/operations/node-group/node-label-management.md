@@ -47,8 +47,8 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
         * Specify the {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the IP address assignment method:
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign random [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} address pool.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` not to assign public IP addresses.
         * Specify how {{ managed-k8s-name }} nodes should be placed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
@@ -137,7 +137,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
      1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-        For more on how to create such a file, see [{#T}](node-group-create.md).
+        For more on how to create this file, see [{#T}](node-group-create.md).
      1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
         ```hcl
@@ -264,7 +264,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, add the `node_labels` section:
 
@@ -337,7 +337,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the {{ k8s }} labels you no longer need from `node_labels`.
 

@@ -18,7 +18,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
      The following settings will become available:
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**.
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**.
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** with which the {{ managed-k8s-name }} group will be created.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** of the new {{ managed-k8s-name }} group.
 
    {% note warning %}
 
@@ -34,7 +34,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * Select a [platform](../../compute/concepts/vm-platforms.md).
    * Enter the required number of [GPUs](../../compute/concepts/gpus.md) and vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
    * Optionally, make the VM instance [preemptible](../../compute/concepts/preemptible-vm.md) by checking the relevant box.
-   * Optionally, enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
+   * Optionally, enable a [software accelerated network](../../compute/concepts/software-accelerated-network.md).
 
      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}
 
@@ -62,16 +62,10 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * Specify the {{ managed-k8s-name }} node disk size.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the IP address assignment method:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` to assign random [IP addresses](../../vpc/concepts/address.md) from the {{ yandex-cloud }} address pool to the nodes.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` not to assign public IP addresses.
 
-     {% note info %}
-
-     {% include [nodes-internet-access](nodes-internet-access.md) %}
-
-     {% include [nodes-internet-access-additional](nodes-internet-access-additional.md) %}
-
-     {% endnote %}
+     {% include [public-ip](public-ip.md) %}
 
    * Select [security groups](../../vpc/concepts/security-groups.md).
 

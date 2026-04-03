@@ -14,7 +14,7 @@ The organization does not allow personal accounts with `@yandex.ru` email addres
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 We recommend avoiding the use of personal `@yandex.ru` portal accounts in the corporate environment. Instead, delegate organization ownership to domain users to enable centralized security policy management and controlled access to corporate resources.
 
@@ -22,7 +22,7 @@ We recommend avoiding the use of personal `@yandex.ru` portal accounts in the co
 
 **Y360-8**
 
-The organization use single sign-on (SSO) access implemented through an external SAML-compatible identity provider (IdP). Domain users must not coexist with SSO accounts. If you do not have a dedicated IdP, you can use {{ org-full-name }}. To do so, create a SAML application in {{ org-name }} and configure it both on the {{ org-name }} side and the service provider side.
+The organization use single sign-on (SSO) access implemented through an external SAML-compatible identity provider (IdP). Domain users must not coexist with SSO accounts. If you do not have a dedicated IdP, you can use {{ org-full-name }}. To do so, create a SAML application in {{ org-full-name }} and configure it both on the {{ org-full-name }} side and the service provider side.
 
 For more information, see [Creating a SAML application in {{ org-full-name }}](../../../organization/operations/applications/saml-create.md).
 
@@ -40,7 +40,7 @@ This control involves checking that all issued OAuth tokens comply with the prin
 
 {% list tabs group=instructions %}
 
-- Checking from the {{ yandex-360 }} console {#yandex-360-console}
+- Performing a check in the {{ yandex-360 }} console {#yandex-360-console}
 
   To check the list of connected applications:
 
@@ -178,7 +178,7 @@ Service apps can request various scopes and interact with corporate resources. U
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 * By default, [prohibit](https://yandex.ru/dev/api360/doc/ru/ref/ServiceApplicationsService/ServiceApplicationsService_Deactivate) users from connecting any service apps (whitelist only). Audit the list of connected service applications and their scopes on a regular basis.
 * Have new connections approved by your information security team and tighten up access control.

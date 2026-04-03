@@ -3,7 +3,7 @@
 
 [MTS Web Services (MWS)](https://mws.ru/) is an ecosystem of services and platform solutions for building and managing IT infrastructure. MWS supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to MWS with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and MWS.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to MWS with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and MWS.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -122,10 +122,10 @@ If you do not have an MWS account, create one:
 
      Where:
 
-     * `--organization-id`: [ID of the organization](../../../organization/operations/organization-get-id.md) you want to create your OIDC app in. This is a required parameter.
-     * `--name`: OIDC app name. This is a required parameter.
-     * `--description`: OIDC app description. This is an optional parameter.
-     * `--client-id`: OAuth client ID you got in Step 2. This is a required parameter.
+     * `--organization-id`: [ID of the organization](../../../organization/operations/organization-get-id.md) you want to create your OIDC app in. This is a required setting.
+     * `--name`: OIDC app name. This is a required setting.
+     * `--description`: OIDC app description. This is an optional setting.
+     * `--client-id`: OAuth client ID you got in Step 2. This is a required setting.
      * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
      * `--group-distribution-type`: Set to `none` as user groups are not provided to MWS.
 
@@ -152,7 +152,7 @@ If you do not have an MWS account, create one:
 
 ## Set up the integration {#setup-integration}
 
-To configure MWS integration with the OIDC app you created in {{ org-name }}, complete the configuration both on the MWS side and in {{ org-name }}.
+To configure MWS integration with the OIDC app you created in {{ org-full-name }}, complete the configuration both on the MWS side and in {{ org-full-name }}.
 
 ### Get the application’s credentials {#get-credentials}
 
@@ -307,7 +307,7 @@ To set up OIDC authentication in MWS, create and configure an [identity federati
 
 ### Add a user {#add-user}
 
-For your organization's users to be able to authenticate in MWS with {{ org-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
+For your organization's users to be able to authenticate in MWS with {{ org-full-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
 
 {% note info %}
 

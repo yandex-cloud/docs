@@ -5,7 +5,7 @@ description: Follow this guide to create an {{ oslogin }} profile.
 
 # Creating an {{ oslogin }} profile
 
-By default, [enabling the {{ oslogin }} access](./os-login-access.md) automatically creates [{{ oslogin }} profiles](../concepts/os-login.md#os-login-profiles) for all users within your {{ org-name }}. At the same time, each user or [service account](../../iam/concepts/users/service-accounts.md) may have multiple {{ oslogin }} profiles, which you can create manually. Different profiles allow you to connect to [VMs](../../compute/concepts/vm.md) or [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes as different local users of those VMs or {{ k8s }} nodes.
+By default, [enabling the {{ oslogin }} access](./os-login-access.md) automatically creates [{{ oslogin }} profiles](../concepts/os-login.md#os-login-profiles) for all users within your {{ org-full-name }}. At the same time, each user or [service account](../../iam/concepts/users/service-accounts.md) may have multiple {{ oslogin }} profiles, which you can create manually. Different profiles allow you to connect to [VMs](../../compute/concepts/vm.md) or [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes as different local users of those VMs or {{ k8s }} nodes.
 
 For service accounts, {{ oslogin }} profiles are not created automatically. To connect to a VM or {{ k8s }} node as a service account, you need to manually create its {{ oslogin }} profile.
 
@@ -31,7 +31,7 @@ To create an {{ oslogin }} profile:
   
       Use the filter or search as needed.
   
-  1. On the user page, go to the **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens, do the following:
+  1. On the user page, go to the **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
 
       1. Enter the OS username that will be assigned to the organization user or service account when connecting to the VM. It must be unique within the folder.
 
@@ -120,8 +120,8 @@ To create an {{ oslogin }} profile:
 
           {% include [user-defined-uid-range-notice](../../_includes/organization/user-defined-uid-range-notice.md) %}
 
-      * `--home-directory`: Path to the user's home folder on the VM. This is an optional parameter. The default value is `/home/<username>`.
-      * `--shell`: Path to the command shell executable file on the VM. This is an optional parameter. The default value is `/bin/bash`.
+      * `--home-directory`: Path to the user's home folder on the VM. This is an optional setting. The default value is `/home/<username>`.
+      * `--shell`: Path to the command shell executable file on the VM. This is an optional setting. The default value is `/bin/bash`.
 
       Result:
 

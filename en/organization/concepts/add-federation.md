@@ -8,11 +8,11 @@ If your company has a user and access management system (e.g., {{ microsoft-idp.
 
 ## Configuring federations in {{ org-full-name }} {#federation-usage}
 
-With identity federations, you can configure a single sign-on (SSO) system and use corporate accounts for authentication in {{ org-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
+With identity federations, you can configure a single sign-on (SSO) system and use corporate accounts for authentication in {{ org-full-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
 
-In {{ org-name }}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
+In {{ org-full-name }}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
 
-Information about user logins and passwords is stored by the identity provider. When a user logs in to {{ org-name }}, they are directed to the identity provider (IdP) server for authentication. The federated user [profile](../operations/users-get.md#yandex-and-federated) in {{ org-name }} only stores the [attributes](../operations/setup-federation.md#claims-mapping) set when configuring the identity federation, and only after the user authenticates in {{ yandex-cloud }} for the first time.
+Information about user logins and passwords is stored by the identity provider. When a user logs in to {{ org-full-name }}, they are directed to the identity provider (IdP) server for authentication. The federated user [profile](../operations/users-get.md#yandex-and-federated) in {{ org-full-name }} only stores the [attributes](../operations/setup-federation.md#claims-mapping) set when configuring the identity federation, and only after the user authenticates in {{ yandex-cloud }} for the first time.
 
 If authentication is successful, the user gets access to {{ yandex-cloud }} services.
 
@@ -24,25 +24,25 @@ You can set up identity federations for different identity providers:
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
-* [Other SAML-compatible identity providers](../operations/setup-federation.md).
+* [Other SAML-compatible identity providers](../operations/setup-federation.md)
 
 ### Signing authentication requests {#encrypted-assertions}
 
-You can enable signing authentication requests with a digital signature for additional security. You need to additionally set up a relying party trust between your {{ org-name }} identity federation and your identity provider (IdP).
+You can enable signing authentication requests with a digital signature for additional security. You need to additionally set up a relying party trust between your {{ org-full-name }} identity federation and your identity provider (IdP).
 
 #### Setting up a relying party trust between an identity federation and an IdP {#build-trust}
 
-You set up a relying party trust between an {{ org-name }} identity federation and an identity provider in two steps:
+You set up a relying party trust between an {{ org-full-name }} identity federation and an identity provider in two steps:
 
 * Setting up a relying party trust on the identity federation side.
 
-    When informing {{ org-name }} that a user has been authenticated, the identity provider signs the message with its own certificate. For {{ org-name }} to verify the signature, download and [add](../operations/setup-federation.md#add-certificate-fed) the certificate to your identity federation.
+    When informing {{ org-full-name }} that a user has been authenticated, the identity provider signs the message with its own certificate. For {{ org-full-name }} to verify the signature, download and [add](../operations/setup-federation.md#add-certificate-fed) the certificate to your identity federation.
 
     {% include [federation-certificates-note](../../_includes/organization/federation-certificates-note.md) %}
 
 * Setting up a relying party trust on the IdP server side.
 
-    When the {{ org-name }} identity federation sends a request to the identity provider, it signs such requests with a {{ yandex-cloud }} SAML certificate. For the identity provider to be able to verify the signature, download and add a {{ yandex-cloud }} SAML certificate to your IdP server.
+    When the {{ org-full-name }} identity federation sends a request to the identity provider, it signs such requests with a {{ yandex-cloud }} SAML certificate. For the identity provider to be able to verify the signature, download and add a {{ yandex-cloud }} SAML certificate to your IdP server.
 
     A {{ yandex-cloud }} SAML certificate is valid for 5 years. You can view the certificate expiration date when creating an identity federation or updating its settings.
 
@@ -52,7 +52,7 @@ You set up a relying party trust between an {{ org-name }} identity federation a
 
 In [organizations](organization.md) with many [users](membership.md), you may need to issue the same access permissions for {{ yandex-cloud }} resources to more than one user. In which case it is easier to issue roles and permissions to [groups](groups.md) rather than individual users.
 
-If you have created user groups in your identity provider or plan to do so, you can [map user groups](../operations/federation-group-mapping.md) between the IdP and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
+If you have created user groups in your identity provider or plan to do so, you can [map user groups](../operations/federation-group-mapping.md) between the IdP and {{ org-full-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-full-name }}.
 
 {% include [group-mapping-roles-necessary](../../_includes/organization/group-mapping-roles-necessary.md) %}
 

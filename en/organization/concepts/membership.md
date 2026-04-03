@@ -20,7 +20,7 @@ A user can be an owner or member of multiple organizations at the same time. You
 
 {% note tip %}
 
-By default, all {{ org-name }} users can view information about all the other users in the same organization. You can [restrict](../operations/hide-user-info.md) this feature by reserving it for specially authorized users only.
+By default, all {{ org-full-name }} users can view information about all other users in the same organization. You can [restrict](../operations/hide-user-info.md) this feature by reserving it for specially authorized users only.
 
 {% endnote %}
 

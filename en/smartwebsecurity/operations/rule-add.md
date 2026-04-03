@@ -108,7 +108,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
       }
       ```
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 
@@ -126,7 +126,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
 {% endlist %}
 
-If the `Deny` action is set for the default basic rule and the requests are sent to {{ captcha-name }} for verification, [add](captcha-rule.md) an allowing rule.
+If the `Deny` action is set for the default basic rule and the requests are sent to {{ captcha-name }} for verification, [add](captcha-rule.md) an allowing rule. Learn more about rule priorities in [{#T}](../concepts/rules.md#rules-order).
 
 ### See also {#see-also}
 

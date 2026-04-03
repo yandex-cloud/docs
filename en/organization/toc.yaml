@@ -209,7 +209,7 @@ items:
             href: operations/revoke-role.md
       - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
         href: operations/sync-ad.md
-      - name: Billing management in {{ org-name }}
+      - name: Billing management in {{ org-full-name }}
         href: operations/manage-billing.md
   - name: Tutorials
     items:

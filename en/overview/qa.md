@@ -102,7 +102,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 ### Machine learning {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/qa/all)
 * [{{ speechsense-full-name }}](../speechsense/qa/index.md)
 * [{{ translate-full-name }}]({{ link-docs-ai }}translate/qa/index)

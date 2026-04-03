@@ -2,7 +2,7 @@
 
 [SonarQube](https://www.sonarsource.com/products/sonarqube/) is a platform that automatically scans source code to identify errors and vulnerabilities and evaluate test coverage. SonarQube supports SAML authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to SonarQube via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and SonarQube.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to SonarQube via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and SonarQube.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -40,7 +40,7 @@ SAML integration is supported for SonarQube Developer Edition and higher.
 
 {% endnote %}
 
-To integrate SonarQube with the SAML app you created in {{ org-name }}, complete the configuration both on the SonarQube side and in {{ org-name }}.
+To integrate SonarQube with the SAML app you created in {{ org-full-name }}, complete the configuration both on the SonarQube side and in {{ org-full-name }}.
 
 ### Set up the SAML app in SonarQube {#setup-sp}
 
@@ -57,7 +57,7 @@ Then complete the steps below:
 
 #### Connect SonarQube to the IdP {#connect-idp}
 
-Configure a link between SonarQube and {{ org-name }}:
+Configure a link between SonarQube and {{ org-full-name }}:
 
 1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
@@ -70,7 +70,7 @@ Configure a link between SonarQube and {{ org-name }}:
 
 #### Map user attributes {#user-mapping}
 
-Set up mapping between user object fields in SonarQube and {{ org-name }}:
+Set up mapping between user object fields in SonarQube and {{ org-full-name }}:
 
 1. In the **SAML user login attribute** field, specify `login`.
 1. In the **SAML user name attribute** field, specify `fullname`.
@@ -95,7 +95,7 @@ You can set up which group to assign users to upon login. To do this, you need t
 
 1. At the top of the page, from the **Configuration** section, go to **Security** -> **Groups**.
 1. Click **Create Group**.
-1. In the **Name** field, enter a name for the group, e.g., `test-group`. You will need to create the group when setting up the app in {{ org-name }}.
+1. In the **Name** field, enter a name for the group, e.g., `test-group`. You will need to create the group when setting up the app in {{ org-full-name }}.
 1. Click **Create**.
 1. To configure permissions for the group:
     1. In the **Security** menu, go from the **Groups** section to the **Global Permissions** section.
@@ -159,7 +159,7 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add users {#add-users}
 
-For your organization's users to be able to authenticate in SonarQube with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to your SAML app.
+For your organization's users to be able to authenticate in SonarQube with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to your SAML app.
 
 {% note info %}
 
@@ -208,6 +208,6 @@ To ensure that your SAML app and integration with SonarQube are working correctl
 1. In your browser, navigate to the address of your SonarQube instance, e.g., `https://<your-domain>`.
 1. If you were logged in to SonarQube, log out.
 1. On the SonarQube authentication page, click **Log in with SAML**.
-1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user or group they belong to must be added to the application.
+1. On the {{ yandex-cloud }} authentication page, enter the email address and user password. The user or group they belong to must be added to the application.
 1. Make sure you have authenticated in SonarQube.
 1. If you have configured role mapping, go to the user profile in SonarQube and make sure the appropriate group is displayed under **Groups**. 

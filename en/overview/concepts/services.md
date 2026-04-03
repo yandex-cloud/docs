@@ -9,10 +9,10 @@ There are different service packages available in different [regions](region.md)
 | Service                                                                          | Description | Russia | Kazakhstan
 |---------------------------------------------------------------------------------|---|---|---|
 | [{{ gost-gateway-name }}](../../gost-gateway/index.yaml)                        | {{ preview-stage }} Information protection service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ ai-studio-full-name }}]({{ link-docs-ai }})                  | Platform for creating AI applications and AI agents based on large generative models | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ api-gw-full-name }}](../../api-gateway/index.yaml)                          | Service for managing API gateways | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ alb-full-name }}](../../application-load-balancer/index.yaml)               | Service for distributing incoming traffic between web application components | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ at-full-name }}](../../audit-trails/index.yaml)                             | Service for collecting and exporting audit logs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ ai-studio-full-name }}]({{ link-docs-ai }})                  | Platform for creating AI applications and AI agents based on large generative models | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ baremetal-full-name }}](../../baremetal/index.yaml)                         | Service for leasing a dedicated physical server | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml)     | TLS certificate management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml)                       | {{ preview-stage }} Service for deploying applications based on {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |

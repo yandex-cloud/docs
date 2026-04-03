@@ -1,6 +1,6 @@
 ---
 title: How to verify a domain in a {{ org-full-name }} user pool or federation
-description: Follow this guide to verify a domain in an {{ org-name }} user pool or federation.
+description: Follow this guide to verify a domain in an {{ org-full-name }} user pool or federation.
 ---
 
 # Verifying a domain

@@ -75,7 +75,7 @@
 ## Машинное обучение {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
-* [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/release-notes/index)
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/release-notes/index)
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/release-notes/index)
 * {{ speechkit-full-name }}: [распознавание]({{ link-docs-ai }}speechkit/release-notes-stt) и [синтез]({{ link-docs-ai }}speechkit/release-notes-tts)
 * [{{ sk-hybrid-full-name }}]({{ link-docs-ai }}speechkit-hybrid/release-notes)

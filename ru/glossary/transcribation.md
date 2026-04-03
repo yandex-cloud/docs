@@ -82,7 +82,7 @@ description: Транскрибация — это перевод речи из 
 
 ## Полезные материалы {#useful-materials}
 
-* [Документация {{ speechkit-name }}]({{ link-docs-ai }}speechkit)
+* [Документация {{ speechkit-name }}]({{ link-docs-ai }}speechkit/overview)
 * Блог:
     * [Автоматизация контакт-центра. Часть 1. Голосовые роботы](https://yandex.cloud/ru/blog/posts/2019/09/solutions-for-call-centers-robots)
     * [Автоматизация контакт-центра. Часть 2. Речевая аналитика](https://yandex.cloud/ru/blog/posts/2019/09/solutions-for-call-centers-speech-analytics)

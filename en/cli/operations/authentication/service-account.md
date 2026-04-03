@@ -11,6 +11,12 @@ When performing actions on behalf of a service account, ensure that it has the r
 
 {% endnote %}
 
+{% note warning %}
+
+Creating service accounts and their [keys](../../../iam/concepts/users/service-accounts.md#sa-key) may be prohibited by [access policies](../../../iam/concepts/access-control/access-policies.md) at the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../../organization/concepts/organization.md) level.
+
+{% endnote %}
+
 Learn how to get authenticated in the {{ yandex-cloud }} CLI:
 
 * [On behalf of a service account using impersonation](#use-impersonation). Using [impersonation](../../../iam/concepts/access-control/impersonation.md) is the recommended and most secure way to get authenticated in the {{ yandex-cloud }} CLI.

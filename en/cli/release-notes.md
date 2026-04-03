@@ -7,6 +7,79 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.201.0 (19/03/26) {#version0.201.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ baremetal-name }}
+
+Added the `yc baremetal vrf update` command to manage VRF static routes.
+
+## Previous releases {#previous-release}
+
+### Version 0.200.0 (18/03/26) {#version0.200.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ interconnect-name }}
+
+Added commands to get lists of private and public connections in a specified trunk:
+* `yc cic trunk-connection list-private-connections`
+* `yc cic trunk-connection list-public-connections`
+
+##### {{ baremetal-name }}
+
+Added the `yc baremetal public-prefix-pool` command to manage the set of public IP prefixes (address ranges) in {{ baremetal-name }}.
+
+##### {{ mgp-name }}
+
+Fixed a typo in the `yc managed-greenplum pxf update` command.
+
+##### {{ sws-name }}
+
+{{ sws-name }} has been added to the beta command tree and is available via the `yc beta smartwebsecurity` command.
+
+### Version 0.199.0 (16/03/26) {#version0.199.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ compute-name }}
+
+Added the `--os-nvidia-driver` parameter to the image creation command:
+
+```bash
+yc compute image create --os-nvidia-driver <nvidia-driver>
+```
+
+##### {{ mos-name }}
+
+Added the `http-max-initial-line-length` configuration parameter to these cluster management commands:
+* `yc managed-opensearch cluster create`
+* `yc managed-opensearch cluster update`
+
+
+##### {{ mch-name }}
+
+You can now specify the host type in the `add-zookeeper` command:
+
+```bash
+yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
+```
+
+##### {{ mpg-name }}
+
+Removed obsolete PostgreSQL versions (9.6, 10, 10-1c, 11, 11-1c, 12, 12-1c) from the `yc managed-postgresql cluster create` cluster creation command, and changed the default version to `16`.
+
+##### {{ mmy-name }}
+
+* Added the `yc managed-mysql database update` database update command. 
+* Added support of `deletion protection` for MySQL databases.
+
+##### {{ captcha-name }}
+
+{{ captcha-name }} has been added to the beta command tree and is available via the `yc beta smartcaptcha` command.
+
+
 ### Version 0.199.0 (12/03/26) {#version0.199.0}
 
 #### Changes to {{ yandex-cloud }} services {#services-0.199.0}
@@ -21,8 +94,6 @@ You can now specify the host type in the `managed-clickhouse cluster add-zookeep
 
 * Removed obsolete and unsupported {{ PG }} versions: 9.6, 10, 10-1c, 11, 11-1c, 12, 12-1c.
 * When creating a {{ mpg-name }} cluster with the `yc managed-postgresql cluster create` command, version 16 is used by default.
-
-## Previous releases {#previous-release}
 
 ### Version 0.198.0 (09/03/26) {#version0.198.0}
 
@@ -44,7 +115,7 @@ Added the `--os-nvidia-driver` flag to the `yc compute image create` command to 
 
 ##### {{ alb-name }} {#alb-0.197.0}
 
-Added support for client certificates in the following commands:
+Supported client certificates in the following commands:
 * `yc application-load-balancer add-listener`
 * `yc application-load-balancer add-http-listener`
 * `yc application-load-balancer add-stream-listener`
@@ -74,13 +145,13 @@ Added options for managing secondary private subnets to the following commands:
 
 ##### {{ dns-name }} {#dns-0.197.0}
 
-Added support for DNS record descriptions to the following commands:
+Supported DNS record descriptions in the following commands:
 * `yc dns zone list-records`
 * `yc dns zone add-records`
 * `yc dns zone delete-records`
 * `yc dns zone replace-records`
 
-##### {{ org-name }} {#org-0.197.0}
+##### {{ org-full-name }} {#org-0.197.0}
 
 Added support for the `--parameters` flag to the `yc organization-manager organization bind-access-policy` command.
 
@@ -98,7 +169,7 @@ Added support for the `--parameters` flag to the following commands:
 
 ##### {{ vpc-name }} {#vpc-0.197.0}
 
-* The `yc vpc address create` command now supports creating internal IPv4 addresses using the `--internal-ipv4 subnet=<subnet>` parameter.
+* Added the `--internal-ipv4 subnet=<subnet>` parameter to the `yc vpc address create` command to enable creating internal IPv4 addresses.
 * `yc vpc address` now supports the `list-by-subnet` command to list addresses by subnet: `yc vpc address list-by-subnet --subnet-id <subnet-id>`.
 
 ### Version 0.196.0 (02/03/26) {#version0.196.0}
@@ -126,19 +197,19 @@ Added support for the `labels` parameter.
 ##### {{ mmg-name }}
 Added autoscaling and maintenance window settings for the `create` and `restore` commands:
 * `yc managed-mongodb cluster create`
-* `restore --maintenance-window --disk-size-autoscaling`
+* `yc managed-mongodb cluster restore --maintenance-window --disk-size-autoscaling`
 
 
 ##### {{ mpg-name }}
 * Added autoscaling and maintenance window settings for the `create` and `restore` commands:
   * `yc managed-postgresql cluster create`
-  * `restore --maintenance-window --disk-size-autoscaling`
-* Removed the autofailover disable flag.
+  * `yc managed-postgresql cluster restore --maintenance-window --disk-size-autoscaling`
+* Removed the flag for disabling `autofailover`.
 
 ##### {{ mrd-name }}
 Added autoscaling and maintenance window settings for the `create` and `restore` commands:
   * `yc managed-redis cluster create`
-  * `restore --maintenance-window --disk-size-autoscaling`
+  * `yc managed-redis cluster restore --maintenance-window --disk-size-autoscaling`
 
 ##### {{ managed-k8s-name }}
 Added the `--reserved-instance-pool-id` and `--variables` parameters to the NodeGroup management methods, allowing you to specify VM reserve pools and custom variables, respectively:
@@ -153,7 +224,7 @@ Added the `--reserved-instance-pool-id` and `--variables` parameters to the Node
 
 Added autoscaling and maintenance window settings for the `create` and `restore` commands:
 * `yc managed-mongodb cluster create`
-* `restore --maintenance-window --disk-size-autoscaling`
+* `yc managed-mongodb cluster restore --maintenance-window --disk-size-autoscaling`
 
 ##### {{ mrd-name }}
 
@@ -238,7 +309,7 @@ The below node group management commands now support the `--enable-workload-iden
 Added the `--secret-folder-id` flag for connection create commands, `yc metadata-hub connection-manager connection create`.
 
 ##### {{ sw-name }}
-Fixed the cron expression example for a schedule: 
+Fixed the cron expression example for a schedule:
   * `yc serverless workflow create`
 
 ### Version 0.189.0 (02/02/26) {#version0.189.0}
@@ -246,7 +317,8 @@ Fixed the cron expression example for a schedule:
 #### Changes in {{ yandex-cloud }} services
 
 ##### {{ connection-manager-name }}
-Added the `--secret-folder-id` flag for connection create commands.
+Added the `--secret-folder-id` flag for connection create commands:
+  * `yc metadata-hub connection-manager connection create`
 
 ### Version 0.188.0 (26/01/26) {#version0.188.0}
 
@@ -311,7 +383,7 @@ Added commands for granting access permissions in {{ dataproc-name }}:
 * `yc dataproc cluster add-access-binding`
 * `yc dataproc cluster remove-access-binding`
   
-##### {{ org-name }} {#org-name-0.186.0}
+##### {{ org-full-name }} {#org-full-name-0.186.0}
 
 Added password complexity settings to the following commands:
 * `yc organization-manager idp userpool create`
@@ -344,8 +416,8 @@ Fixed Docker version parsing in the `yc container registry configure-docker` com
 ##### {{ mtr-name }} {#mtr-name-0.183.0}
 
 * Added the following commands for creating and updating {{ GP }} catalogs in {{ mtr-name }}:
-  * `yc managed trino catalog create greenplum`
-  * `yc managed trino catalog update greenplum`
+  * `yc managed-trino catalog create greenplum`
+  * `yc managed-trino catalog update greenplum`
 
 ### Version 0.182.0 (15/12/25) {#version0.182.0}
 
@@ -403,7 +475,7 @@ Added commands for managing artifact lifecycle policies in registries:
 
 Added the `yc iam access-key issue-ephemeral` command for issuing ephemeral static access keys.
 
-##### {{ org-name }} {#org-name-0.181.0}
+##### {{ org-full-name }} {#org-full-name-0.181.0}
 
 Added a list of supported values for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands.
 
@@ -438,10 +510,10 @@ Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb 
 ##### {{ mtr-short-name }}
 
 * Added the following commands for creating and updating a {{ TR }} catalog with a {{ MY }} connector for {{ mtr-name }}:
-  * `yc managed trino catalog create mysql`
-  * `yc managed trino catalog update mysql`
+  * `yc managed-trino catalog create mysql`
+  * `yc managed-trino catalog update mysql`
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Removed certain password policies from user pool management commands:
   * `yc organization-manager idp userpool create`
@@ -455,7 +527,7 @@ Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb 
 
 #### Changes in {{ yandex-cloud }} services
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Added commands for authorization policy management at the organization level:
   * `yc organization-manager organization list-access-policy-bindings`
@@ -602,7 +674,7 @@ Added commands for {{ mcp-hub-name }}:
 
 #### Changes in {{ yandex-cloud }} services
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 Added missing fields to SAML application management commands:
 
@@ -702,7 +774,7 @@ Added the `yc baremetal image` command for working with images:
 
 #### Changes in {{ yandex-cloud }} services
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Added the `yc organization-manager mfa-enforcement` command group.
 * Added commands for managing SAML federation users:
@@ -719,7 +791,7 @@ Added the `yc baremetal image` command for working with images:
 
 Added the `yc dns zone move` command to migrate a DNS zone to a different folder.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Added a new feature to the `yc organization-manager idp user create` command: you can now create a user without specifying a password. The password will be generated automatically.
 * Added the `yc organization-manager idp user reset-password` command to reset a user password.
@@ -751,7 +823,7 @@ Added DAG processor configuration for Airflow 3.0 and higher.
 * Added a command to get info about a resource by its ID.
 * Added the `get-by-vpc-network-id` and `get-by-cic-private-connection-id` commands.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Added the `yc organization-manager group list-effective` command to output groups to which the user belongs within an organization.
 * Added an ability to manage password policies when creating or updating a user pool.
@@ -794,7 +866,7 @@ Provided more specific descriptions of the `yc cloudrouter routing-instance crea
 
 Added the following commands for creating and updating Hudi catalogs for {{ mtr-name }}:
   * `yc managed-trino catalog create hudi`
-  * `yc managed trino catalog update hudi`
+  * `yc managed-trino catalog update hudi`
 
 ##### {{ myt-name }}
 
@@ -828,7 +900,7 @@ Added the `--page-token` parameter to the following commands for paginated prese
 * `yc cloud-registry registry list`
 * `yc cloud-registry registry list-artifact`
 
-##### {{ org-name }} {#org-name-0.169.0}
+##### {{ org-full-name }} {#org-full-name-0.169.0}
 
 The following commands now allow you to specify domain not just in the command itself, e.g., `yc organization-manager idp userpool domain get <user_pool_ID> <domain>` but also using the `--domain` parameter:
 * `yc organization-manager idp userpool domain get`
@@ -889,7 +961,7 @@ Fixed the display of the number of cores and added the processor frequency value
 
 * Fixed the `ERROR: Unsupported PostgreSQL version` error when updating a {{ PG }} 17 and 18 cluster in the `yc managed-postgresql cluster update` command.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 * Fixed the `yc organization-manager idp` commands.
 
@@ -955,13 +1027,13 @@ Added the `yc iam oauth-client-service` command group for managing OAuth client 
 
 ##### {{ managed-k8s-name }}
 
-Added the `--enable-workload-identity-federation` parameter that allows you to enable a [workload identity federation](../iam/concepts/workload-identity.md).
+Added the `--enable-workload-identity-federation` parameter that enables a [workload identity federation](../iam/concepts/workload-identity.md).
 
 The parameter is available in these commands:
 * `yc managed-kubernetes cluster create`
 * `yc managed-kubernetes cluster update`
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 Added new command groups:
 
@@ -1092,7 +1164,7 @@ Extended the following commands for managing reserved instance pools:
 
 Fixed the `--deletion-protection` flag in the `yc serverless eventrouter connector update` command.
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 
 Fixed the display of timestamps in the listing of SAML federation domains.
 
@@ -1123,7 +1195,7 @@ Added support for `ExtensionService` to the `yc managed-opensearch` command.
 ##### {{ cloud-desktop-name }}
 Added the `--update-policy` flag to the `desktops group update` command (the default value is `manual`).
 
-##### {{ org-name }}
+##### {{ org-full-name }}
 Added commands for managing SAML federation domains:
 * `yc organization-manager federation saml get-domain`
 * `yc organization-manager federation saml list-domains`
@@ -1735,7 +1807,7 @@ Added commands to link instances to reserved instance pools.
 ##### {{ objstorage-name }}
 
 * Added a parameter to the `yc storage bucket update` command to specify a {{ vpc-full-name }} [service connection](../vpc/concepts/private-endpoint.md) to access the bucket from:
-  * `--private-endpoint`, e.g.,`--enable-private-endpoints true --private-endpoints cba,abc`.
+  * `--private-endpoint`, e.g., `--enable-private-endpoints true --private-endpoints cba,abc`.
 
 ### Version 0.142.0 (30/01/25) {#version0.142.0}
 
@@ -4013,9 +4085,9 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 Added support for {{ org-full-name }}.
 
-{{ org-name }} is an enterprise solution that you can use to connect your organization to {{ yandex-cloud }} services and manage employee access to these services.
+{{ org-full-name }} is an enterprise solution that you can use to connect your organization to {{ yandex-cloud }} services and manage employee access to these services.
 
-{{ org-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). For more information about the service, refer to [this guide](../organization/).
+{{ org-full-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). For more information about the service, refer to [this guide](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 

@@ -10,7 +10,7 @@ description: This section contains the {{ iam-name }} release notes.
 
 ## February 2026 {#february-2026}
 
-* Added [access policy](concepts/access-control/access-policies.md) management. {{ tag-con }}
+* Added support for managing [access policies](concepts/access-control/access-policies.md). {{ tag-con }}
 * Added commands for access policy management at the organization, cloud, and folder level:
   * `yc organization-manager organization list-access-policy-bindings`
   * `yc organization-manager organization bind-access-policy`
@@ -146,8 +146,8 @@ description: This section contains the {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `organization-manager.idpInstances.billingAdmin` | Enables managing your subscription to the paid {{ org-name }} features.
-     `organization-manager.idpInstances.billingViewer` | Enables viewing the list of users who employ the {{ org-name }} authentication quota in the current reporting period, as well as viewing info on a subscription to the paid-for {{ org-name }} features and stats regarding the use of the quotas within this subscription.
+     `organization-manager.idpInstances.billingAdmin` | Enables managing your subscription to the paid {{ org-full-name }} features.
+     `organization-manager.idpInstances.billingViewer` | Enables viewing the list of users who employ the {{ org-full-name }} authentication quota in the current reporting period, as well as viewing info on a subscription to the paid-for {{ org-full-name }} features and stats regarding the use of the quotas within this subscription.
 
    {% endcut %}
 
@@ -168,9 +168,9 @@ description: This section contains the {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `organization-manager.groups.externalConverter` | Enables adding an attribute with an external group ID to {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-     `organization-manager.groups.externalCreator` | Enables creating {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-     `organization-manager.userpools.syncAgent` | Enables synchronizing {{ org-name }} users and groups with users and groups in Active Directory or another external source.
+     `organization-manager.groups.externalConverter` | Enables adding an attribute with an external group ID to {{ org-full-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+     `organization-manager.groups.externalCreator` | Enables creating {{ org-full-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+     `organization-manager.userpools.syncAgent` | Enables synchronizing {{ org-full-name }} users and groups with users and groups in Active Directory or another external source.
 
    {% endcut %}
 

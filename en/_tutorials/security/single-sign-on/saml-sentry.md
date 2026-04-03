@@ -2,7 +2,7 @@
 
 [Sentry](https://sentry.io/) is a real-time error monitoring and tracking platform for applications allowing developers to quickly detect, diagnose, and fix failures and performance issues.
 
-To allow your [organization's](../../../organization/concepts/organization.md) users to authenticate in Sentry via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it in {{ org-name }} and in Sentry.
+To allow your [organization's](../../../organization/concepts/organization.md) users to authenticate in Sentry via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it in {{ org-full-name }} and in Sentry.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -14,11 +14,11 @@ For SAML integration, your Sentry instance must have a public domain and a valid
 
 For your organization's users to be able to access Sentry:
 
-1. [Create an app in {{ org-name }}](#create-app).
+1. [Create an app in {{ org-full-name }}](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
-## Create an app in {{ org-name }} {#create-app}
+## Create an app in {{ org-full-name }} {#create-app}
 
 {% list tabs group=instructions %}
 
@@ -88,7 +88,7 @@ To set up endpoints, you need the organization slug, which is set to `sentry` by
 
 ### Add a user {#add-user}
 
-For your organization's users to be able to authenticate in Sentry with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
+For your organization's users to be able to authenticate in Sentry with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
 
 {% note info %}
 

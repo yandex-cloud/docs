@@ -12,7 +12,7 @@ description: Из статьи вы узнаете про асинхронные
 
 {% note info %}
 
-Сервисы искусственного интеллекта {{ foundation-models-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность.
+Сервисы искусственного интеллекта {{ ai-studio-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность.
 
 {% endnote %}
 

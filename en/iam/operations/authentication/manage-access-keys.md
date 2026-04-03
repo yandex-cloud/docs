@@ -11,6 +11,8 @@ Static access keys are created for [service accounts](../../concepts/users/servi
 
 ## Creating a static access key {#create-access-key}
 
+{% include [access-control-sa-statickey-notice](../../../_includes/iam/access-control-sa-statickey-notice.md) %}
+
 To create a service account static access key:
 
 {% list tabs group=instructions %}
@@ -76,7 +78,7 @@ To create a service account static access key:
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
       ```
 
-  1. Save the `key_id` and `secret` values. You will not be able to get the key again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key again.
 
 - {{ TF }} {#tf}
 
@@ -108,7 +110,7 @@ To create a service account static access key:
          * `entry_for_access_key`: Secret key to assign to the static access key ID value you are saving.
          * `entry_for_secret_key`: Secret key to assign to the secret key value you are saving.
 
-     For more information about the `yandex_iam_service_account_static_access_key` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more information about `yandex_iam_service_account_static_access_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 

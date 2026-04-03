@@ -1,6 +1,6 @@
 # Regular recognition of images and PDF documents from an {{ objstorage-short-name }} bucket
 
-In this tutorial, you will use [{{ vision-full-name }}]({{ link-docs-ai }}vision/) to set up automatic recognition of [supported image formats]({{ link-docs-ai }}vision/concepts/ocr/index.md#image-requirements) and PDF documents regularly uploaded to a [bucket]({{ link-docs }}/storage/concepts/bucket).
+In this tutorial, you will use [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) to set up automatic recognition of [supported image formats]({{ link-docs-ai }}vision/concepts/ocr/index#image-requirements) and PDF documents regularly uploaded to a [bucket]({{ link-docs }}/storage/concepts/bucket).
 
 
 ## Recognition process {#ocr}

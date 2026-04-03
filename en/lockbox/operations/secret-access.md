@@ -40,7 +40,7 @@ description: Follow this guide to configure access to a secret.
         Where:
         * `--id`: Secret ID.
         * `--user-account-id`: [User ID](../../organization/operations/users-get.md).
-        * `--role`: [Role](../security/index.md#roles-list).
+        * `--role`: [Role](../security/index.md#roles-list) to assign.
 
       * To a [service account](../../iam/concepts/users/service-accounts.md):
 
@@ -54,7 +54,7 @@ description: Follow this guide to configure access to a secret.
         Where:
         * `--id`: Secret ID.
         * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
-        * `--role`: [Role](../security/index.md#roles-list).
+        * `--role`: [Role](../security/index.md#roles-list) to assign.
 
 - {{ TF }} {#tf}
 
@@ -77,16 +77,16 @@ description: Follow this guide to configure access to a secret.
       Where:
 
       * `secret_id`: Secret ID.
-      * `role`: [Role](../security/index.md#roles-list).
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list) to assign.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_lockbox_secret_iam_member` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
+      For more information about `yandex_lockbox_secret_iam_member` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 
   1. Create the resources
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
       
-      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc lockbox secret list-access-binding <secret_ID>

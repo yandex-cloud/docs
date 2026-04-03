@@ -21,6 +21,12 @@ You can assign a role not only for the resource itself but also for its parent r
 
 To select roles, look them up in the [role reference](../../roles-reference.md).
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 ## Assigning a role for a cloud {#cloud-or-folder}
 
 {% list tabs group=instructions %}
@@ -255,7 +261,7 @@ To assign a role for an organization:
 
       For more information, see [this provider guide]({{ tf-provider-link }}).
 
-   1. Make sure the settings are correct.
+   1. Validate your configuration.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

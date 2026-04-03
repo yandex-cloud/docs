@@ -203,7 +203,12 @@ Creates a virtual host in the specified HTTP router.
         },
         "security_profile_id": "string"
       },
-      "disable_security_profile": "bool"
+      "disable_security_profile": "bool",
+      "client_certificate_forward": {
+        "http_header": "string",
+        "issuer_header_name": "string",
+        "subject_header_name": "string"
+      }
     }
   ],
   "modify_request_headers": [
@@ -374,6 +379,9 @@ Route configuration. ||
 || disable_security_profile | **bool**
 
 Whether set to 'true' disables security profile for the route. ||
+|| client_certificate_forward | **[ClientCertificateForward](#yandex.cloud.apploadbalancer.v1.ClientCertificateForward)**
+
+Client certificates forwarding settings. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}
@@ -970,6 +978,27 @@ In the absence of value a request that has specified header name will match,
 regardless of the header's value. ||
 |#
 
+## ClientCertificateForward {#yandex.cloud.apploadbalancer.v1.ClientCertificateForward}
+
+#|
+||Field | Description ||
+|| http_header | **string**
+
+If specified, ALB will set specified header with the provided client certificate (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-cert|client-cert|x-ssl-client-cert|) ```. ||
+|| issuer_header_name | **string**
+
+If specified, ALB will set specified header with the provided client certificate's Issuer (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-issuer-dn|client-cert-issuer|x-ssl-client-issuer-dn|) ```. ||
+|| subject_header_name | **string**
+
+If specified, ALB will set specified header with the provided client certificate's Subject (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-subject-dn|client-cert-subject|x-ssl-client-subject-dn|) ```. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -1175,7 +1204,12 @@ regardless of the header's value. ||
           },
           "security_profile_id": "string"
         },
-        "disable_security_profile": "bool"
+        "disable_security_profile": "bool",
+        "client_certificate_forward": {
+          "http_header": "string",
+          "issuer_header_name": "string",
+          "subject_header_name": "string"
+        }
       }
     ],
     "modify_request_headers": [
@@ -1410,6 +1444,9 @@ Route configuration. ||
 || disable_security_profile | **bool**
 
 Whether set to 'true' disables security profile for the route. ||
+|| client_certificate_forward | **[ClientCertificateForward](#yandex.cloud.apploadbalancer.v1.ClientCertificateForward2)**
+
+Client certificates forwarding settings. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute2}
@@ -2004,4 +2041,25 @@ Required field. Specifies the name of the header in the request. ||
 Specifies how the header match will be performed to route the request.
 In the absence of value a request that has specified header name will match,
 regardless of the header's value. ||
+|#
+
+## ClientCertificateForward {#yandex.cloud.apploadbalancer.v1.ClientCertificateForward2}
+
+#|
+||Field | Description ||
+|| http_header | **string**
+
+If specified, ALB will set specified header with the provided client certificate (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-cert|client-cert|x-ssl-client-cert|) ```. ||
+|| issuer_header_name | **string**
+
+If specified, ALB will set specified header with the provided client certificate's Issuer (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-issuer-dn|client-cert-issuer|x-ssl-client-issuer-dn|) ```. ||
+|| subject_header_name | **string**
+
+If specified, ALB will set specified header with the provided client certificate's Subject (if it is validated by trusted CA).
+
+Value must match the regular expression ``` (?i:ssl-client-subject-dn|client-cert-subject|x-ssl-client-subject-dn|) ```. ||
 |#

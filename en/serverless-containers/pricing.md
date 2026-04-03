@@ -83,7 +83,6 @@ Example of calculating the cost of a container with the following properties:
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|serverless-containers }}']}
-    excludeSkuIds={['{{ pc|serverless-containers.compute.ephemeral_disk }}', '{{ pc|serverless-containers.compute.provisioned_request.ephemeral_disk}}', '{{ pc|serverless-containers.compute.provision_enabled.ephemeral_disk }}']}
     installationCode="ru"
     currency="USD"
   />
@@ -92,3 +91,4 @@ Example of calculating the cost of a container with the following properties:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

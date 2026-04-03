@@ -1,6 +1,6 @@
 ---
 title: How to activate a user in {{ org-full-name }}
-description: Follow this guide to activate a user in {{ org-name }}.
+description: Follow this guide to activate a user in {{ org-full-name }}.
 ---
 
 # Activating a user
@@ -135,7 +135,7 @@ To activate a local user account:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp user get <user_ID>

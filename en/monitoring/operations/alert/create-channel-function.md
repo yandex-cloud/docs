@@ -36,7 +36,7 @@ When invoking a function in {{ sf-name }}, the alert or escalation will send a J
     "alertId": "",
     "alertName": "",
     "folderId": "",
-    "status": "",
+    "alertStatus": "",
     "annotations": {
         "key1": "value1",
         "key2": "value2"
@@ -47,7 +47,7 @@ When invoking a function in {{ sf-name }}, the alert or escalation will send a J
 * `alertId`: ID of the triggered alert (text).
 * `alertName`: Name of the triggered alert (text).
 * `folderId`: ID of the folder where the alert fired (text).
-* `status`: [Alert status](../../concepts/alerting/alert.md#alert-statuses) (text).
+* `alertStatus`: [Alert status](../../concepts/alerting/alert.md#alert-statuses) (text).
 * `annotations`: Values of annotations for the fired alert (`key:value` dictionary).
 
 For an example of invoking a function, see [{#T}](alert-call-function.md).

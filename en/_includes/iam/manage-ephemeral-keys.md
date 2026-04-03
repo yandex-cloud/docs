@@ -5,6 +5,8 @@ Ephemeral access keys are created for [Yandex accounts](../../iam/concepts/users
 
 ## Creating an ephemeral access key {#create}
 
+{% include [access-control-sa-ephemeralkey-notice](./access-control-sa-ephemeralkey-notice.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -32,7 +34,7 @@ Ephemeral access keys are created for [Yandex accounts](../../iam/concepts/users
       Where:
 
       * `--subject-id`: Service account ID. If this parameter is not specified, the system will generate the key for the user sending the request.
-      * `--session-name`: Session name, 1 to 64 characters long. It is required for identifying a session if the service account is [impersonated](../../iam/concepts/access-control/impersonation.md) for multiple users. This is a required parameter.
+      * `--session-name`: Session name, 1 to 64 characters long. It is required for identifying a session if the service account is [impersonated](../../iam/concepts/access-control/impersonation.md) for multiple users. This is a required setting.
       * `--policy`: Path to the [access policy](../../storage/concepts/policy.md) file as a [data schema](../../storage/s3/api-ref/policy/scheme.md) in JSON format. It this parameter is not specified, the key will grant full [bucket](../../storage/concepts/bucket.md) access.
       * `--duration`: Key lifespan, from `15m` to `12h`. It this parameter is not specified, the key lifespan will be limited to that of the current session's IAM token.
 

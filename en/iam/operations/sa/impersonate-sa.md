@@ -5,6 +5,12 @@ description: Follow this guide to perform operations on {{ yandex-cloud }} resou
 
 # Using impersonation
 
+{% note warning %}
+
+{% include [access-control-impersonation-notice](../../../_includes/iam/access-control-impersonation-notice.md) %}
+
+{% endnote %}
+
 [Impersonation](../../concepts/access-control/impersonation.md) enables a user to perform actions under a [service account](../../concepts/users/service-accounts.md) using the `--impersonate-service-account-id` parameter in the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) command.
 
 {% note info %}

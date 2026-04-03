@@ -20,7 +20,7 @@ As soon as the service gets your request with the `Idempotency-Key` header, it w
 
 {% note info %}
 
-AI services, such as {{ foundation-models-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }}, and {{ vision-full-name }}, do no support idempotency even with the `Idempotency-Key` header.
+AI services, such as {{ ai-studio-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }}, and {{ vision-full-name }}, do no support idempotency even with the `Idempotency-Key` header.
 
 {% endnote %}
 

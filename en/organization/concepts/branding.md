@@ -1,6 +1,6 @@
 ---
 title: Branding in {{ org-full-name }}
-description: '{{ org-name }} allows you to customize the appearance of authentication pages and login forms to align them with your corporate style and preferences.'
+description: '{{ org-full-name }} allows you to customize the appearance of authentication pages and login forms to align them with your corporate style and preferences.'
 ---
 
 # Branding
@@ -8,13 +8,13 @@ description: '{{ org-name }} allows you to customize the appearance of authentic
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-In {{ org-name }}, you can customize the appearance of authentication pages and login forms to align them with your corporate style and preferences.
+In {{ org-full-name }}, you can customize the appearance of authentication pages and login forms to align them with your corporate style and preferences.
 
 Authentication pages can be branded only if signing in via SSO to external [applications](./applications.md). The login pages of other {{ yandex-cloud }} services do not support branding.
 
 {% note info %}
 
-This functionality is available only to organizations that have paid for their [limit](../pricing.md) of {{ org-name }} users authenticating via SSO to external applications. If the the limit had been paid earlier but not in the new billing month, branding will stop working.
+This functionality is available only to organizations that have paid for their [limit](../pricing.md) of {{ org-full-name }} users authenticating via SSO to external applications. If the the limit had been paid earlier but not in the new billing month, branding will stop working.
 
 {% endnote %}
 

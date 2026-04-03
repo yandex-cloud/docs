@@ -76,7 +76,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, e.g., `sa-lockbox`.
+      1. Specify the service account name, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    {% endlist %}
@@ -166,7 +166,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
    Once you submit the code to the repository, the workflow will begin.
 
 1. In {{ GL }} left-hand menu, navigate to **Build** → **Pipelines**.
-1. Make sure the build's status is **Passed**. This means that the build was successful.
+1. Make sure the build status is **Passed**. This means that the build was successful.
 1. In the {{ GL }} left-hand menu, go to **Build** → **Jobs**.
 1. Click the last completed task to see the result of executing the script in the log:
 

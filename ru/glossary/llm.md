@@ -75,7 +75,7 @@ keywords:
 
 Модели могут подмечать закономерности, которые невооруженным взглядом не увидит даже опытный диагност. Помимо индивидуальной помощи пациентам, большие языковые модели используются в исследованиях болезней и разработке лекарств.
 
-Чтобы подробнее ознакомиться с примерами использования LLM, см. [Библиотека промптов {{ yagpt-name }}]({{ link-docs-ai }}ai-studio/prompts/yandexgpt/index).
+Чтобы подробнее ознакомиться с примерами использования LLM, см. [Библиотека промптов {{ yagpt-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
 
 ## Проблемы LLM {#disadvantages}
 
@@ -101,7 +101,7 @@ keywords:
 
 Для работы с большими языковыми моделями {{ yandex-cloud }} предлагает следующие инструменты:
 
-* Сервис [{{ foundation-models-full-name }}](/services/ai-studio/), включающий:
+* Сервис [{{ ai-studio-full-name }}](/services/ai-studio/), включающий:
   * [Модели]({{ link-docs-ai }}ai-studio/concepts/generation/models) генерации текста.
   * [Классификаторы]({{ link-docs-ai }}ai-studio/concepts/classifier/index) на базе {{ yagpt-name }}.
 * [{{ ml-platform-full-name }}](/services/datasphere/) — сервис, позволяющий создавать новые модели, а также дообучать фундаментальные, чтобы они точнее отвечали на ваши запросы. Подробнее см. в [документации](../datasphere/).

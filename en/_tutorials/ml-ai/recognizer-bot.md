@@ -3,7 +3,7 @@
 
 In this tutorial, you will create a Telegram bot that can:
 
-* [Synthesize speech]({{ link-docs-ai }}/speechkit/tts/index.md) from a message text and [recognize speech]({{ link-docs-ai }}/speechkit/stt/index.md) in voice messages using the {{ speechkit-full-name }} [Python SDK](https://pypi.org/project/yandex-speechkit/).
+* [Synthesize speech]({{ link-docs-ai }}/speechkit/tts/index) from a message text and [recognize speech]({{ link-docs-ai }}/speechkit/stt/index) in voice messages using the {{ speechkit-full-name }} [Python SDK](https://pypi.org/project/yandex-speechkit/).
 * [Recognize text]({{ link-docs-ai }}vision/concepts/ocr/index) in images using {{ vision-full-name }}.
 
 Authentication in the {{ yandex-cloud }} services is performed under a service account using an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token is contained in the handler context of the [function](../../functions/operations/function-sa.md) which manages user conversation with the bot.

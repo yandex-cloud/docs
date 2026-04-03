@@ -48,6 +48,12 @@ You can [exchange](../operations/wlif/setup-wlif.md#exchange-jwt-for-iam) an ext
 
 ## Federated credentials {#federated-credentials}
 
+{% note info %}
+
+{% include [access-control-sa-wlif-notice](../../_includes/iam/access-control-wlif-notice.md) %}
+
+{% endnote %}
+
 _Federated credentials_ refer to the link established between a workload identity federation, a {{ yandex-cloud }} service account, and an external subject.
 
 Federated credentials are created within an identity federation and require configuration of required parameters.
@@ -69,4 +75,5 @@ To create federated credentials, the user needs the following:
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/wlif-github-integration.md)
+* [{#T}](../tutorials/wlif-managed-k8s-integration.md)
 * [{#T}](../tutorials/wlif-k8s-integration.md)

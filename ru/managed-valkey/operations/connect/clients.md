@@ -111,7 +111,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [Подключение к кластеру](../../../_includes/mdb/mvk/connect/bash/after-connect.md) %}
 
-Подробнее о Sentinel см. в разделе [{#T}](../../concepts/replication.md) и [документации {{ VLK }}](https://redis.io/topics/sentinel).
+Подробнее о Sentinel см. в разделе [{#T}](../../concepts/replication.md) и [документации {{ VLK }}](https://valkey.io/topics/sentinel/).
 
 ## Подключение из графических IDE {#connection-ide}
 

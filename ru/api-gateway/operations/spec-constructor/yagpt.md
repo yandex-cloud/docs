@@ -1,9 +1,9 @@
 ---
-title: Добавить расширение {{ foundation-models-full-name }}
-description: Следуя данной инструкции, вы сможете добавить расширение {{ foundation-models-full-name }} с помощью конструктора спецификации.
+title: Добавить расширение {{ ai-studio-full-name }}
+description: Следуя данной инструкции, вы сможете добавить расширение {{ ai-studio-full-name }} с помощью конструктора спецификации.
 ---
 
-# Добавить расширение x-yc-apigateway-integration:http для интеграции с API генерации текста {{ foundation-models-full-name }}
+# Добавить расширение x-yc-apigateway-integration:http для интеграции с API генерации текста {{ ai-studio-full-name }}
 
 {% list tabs %}
 

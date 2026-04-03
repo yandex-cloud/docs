@@ -1,6 +1,6 @@
 ---
 title: How to edit a user group in {{ org-full-name }}
-description: Follow this guide to edit a user group in {{ org-name }}.
+description: Follow this guide to edit a user group in {{ org-full-name }}.
 ---
 
 # Editing a group

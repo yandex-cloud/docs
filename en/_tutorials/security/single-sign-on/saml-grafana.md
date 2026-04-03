@@ -2,7 +2,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports SAML authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Grafana Cloud.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -54,9 +54,9 @@ To configure SAML in Grafana Cloud, you need organization administrator permissi
 
 {% endlist %}
 
-## Set up integration {#setup-integration}
+## Set up the integration {#setup-integration}
 
-To integrate Grafana Cloud with the SAML app you created in {{ org-name }}, complete the setup both on the Grafana Cloud side and in {{ org-name }}.
+To integrate Grafana Cloud with the SAML app you created in {{ org-full-name }}, complete the setup both on the Grafana Cloud side and in {{ org-full-name }}.
 
 ### Set up the SAML application in Grafana Cloud {#setup-sp}
 
@@ -81,10 +81,10 @@ Configure a certificate to sign outgoing requests.
 
 #### Connecting Grafana to the IdP {#conect-idp}
 
-Configure a link between Grafana Cloud and {{ org-name }}:
+Configure a link between Grafana Cloud and {{ org-full-name }}:
 
-1. Under **Configure IdP using Grafana metadata**, copy and save the endpoint addresses for receiving metadata (*Metadata URL*) and sending user authentication requests (*Assertion Consumer Service URL*). You will need the latter in later steps when setting up integration in {{ org-name }}.
-1. Configure the endpoint address to receive metadata from {{ org-name }}:
+1. Under **Configure IdP using Grafana metadata**, copy and save the endpoint addresses for receiving metadata (*Metadata URL*) and sending user authentication requests (*Assertion Consumer Service URL*). You will need the latter in later steps when setting up integration in {{ org-full-name }}.
+1. Configure the endpoint address to receive metadata from {{ org-full-name }}:
 
     1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
@@ -93,7 +93,7 @@ Configure a link between Grafana Cloud and {{ org-name }}:
 
 #### Mapping user attributes {#user-mapping}
 
-Set up mapping between user object fields in Grafana Cloud and {{ org-name }}:
+Set up mapping between user object fields in Grafana Cloud and {{ org-full-name }}:
 
 1. Under **Assertion attributes mappings**, specify:
 
@@ -115,11 +115,11 @@ Set up mapping between user object fields in Grafana Cloud and {{ org-name }}:
     - Under **Editor**: `grafana-editor`
     - Under **Admin**: `grafana-admin`
 
-    You will need to create the groups when setting up the app in {{ org-name }}.
+    You will need to create the groups when setting up the app in {{ org-full-name }}.
 
 1. Below, in the **Name identifier format** field, select `Email address`.
 
-    To view and configure user attribute names in {{ org-name }}, use the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab in your application.
+    To view and configure user attribute names in {{ org-full-name }}, use the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab in your application.
 
 1. Save the settings by clicking **Save and enable**.
 
@@ -181,7 +181,7 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add a user {#add-user}
 
-For your organization's users to be able to authenticate in Grafana Cloud with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
+For your organization's users to be able to authenticate in Grafana Cloud with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
 
 {% note info %}
 

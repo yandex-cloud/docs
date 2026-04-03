@@ -13,7 +13,7 @@ For each group, you can choose one of the options to assign desktops to users:
 
 All desktop and desktop group operations are [logged](../operations/logging.md).
 
-A desktop is available to organization users created in [{{ org-name }}](../../organization/).
+A desktop is available to organization users created in [{{ org-full-name }}](../../organization/).
 
 {% include [access-options](../../_includes/cloud-desktop/access-options.md) %}
 

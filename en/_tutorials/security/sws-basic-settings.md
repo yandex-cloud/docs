@@ -309,19 +309,9 @@ An allowing rule for {{ captcha-name }} is requred in case the `{{ ui-key.yaclou
 
 ### Check the sequence in which the rules will apply {#rules-execution-order}
 
-Security profile rules apply to all traffic according to the priority: the lower the number, the higher the priority. The sequence in which the rules will apply is provided in the table below.
+{% include [waf-priority-rules](../../_includes/smartwebsecurity/waf-priority-rules.md) %}
 
-Priority | Rule name | Action | Rule description
---- | --- | --- | ---
-8000 | allow-captcha | Allow | Basic for captcha
-9000 | allow-by-list | Allow | Basic for white IP addresses
-9100 | block-by-list | Deny | Basic for black IP addresses
-9200 | block-by-geo  | Deny | Basic by regions
-900000  | api-protection | API protection | Smart Protection for the public API
-999900 | sp-rule-1 | Full protection | Smart Protection from a ready-made template
-1000000 |  | Allow | Basic default
-
-The `Allow` action is set for the basic default rule, while other rules are in the `Logging only` (dry run) mode. When switching rules to the real mode, set the `Deny` action for the basic default rule.
+Learn more about rule priorities in [{#T}](../../smartwebsecurity/concepts/rules.md#rules-order).
 
 ### Connect the security profile to the resources {#profile-connect}
 
@@ -491,7 +481,7 @@ To set a request limitation, estimate your standard service load first. If you u
 
 ### Test the ARL rules {#test-arl-rules}
 
-You usually need to test ARL rules only once, and then you can switch the real mode protection. However, in certain cases, rules might require more testing and adjustment.
+You normally need to test your ARL rules only once; then the security system can enter its regular operation mode. However, in certain cases, rules might require more testing and adjustment.
 
 You can use [{{ load-testing-name }}](../../load-testing/) to perform a load test. For more information on configuring HTTP load, see [{#T}](../../load-testing/tutorials/loadtesting-https-phantom.md).
 
@@ -640,7 +630,7 @@ You can also view extended logs in the {{ sws-name }} interface.
 
 Since WAF is configured for each web service individually, test WAF in logging mode for no less than a week. For ML WAF and Yandex Ruleset, the setup may take less time. During this stage, you may get false positives, so you should track them in logs and adjust the rule parameters. For example, if the rule with `id920280` gets triggered incorrectly when using HTTP/2, you can disable it immediately. This rule will work correctly with HTTP/1.1.
 
-Once WAF is configured and switched to the real mode, use logs and monitoring charts to regularly check the performance of its rules. This will allow you to track anomalies and adjust the protection specifically for your web app.
+Once WAF is configured and in regular operation mode, use logs and monitoring charts to check the rules on a regular basis. This will allow you to track anomalies and adjust the protection specifically for your web app.
 
 ## Further configuration of security policies {#further-configuration}
 

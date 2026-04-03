@@ -1,6 +1,6 @@
 ---
 title: Updating a {{ yandex-cloud }} SAML certificate in a {{ org-full-name }} identity federation
-description: Follow this guide to update a {{ yandex-cloud }} certificate in a {{ org-name }} identity federation.
+description: Follow this guide to update a {{ yandex-cloud }} certificate in a {{ org-full-name }} identity federation.
 ---
 
 # Updating a {{ yandex-cloud }} SAML certificate in an identity federation
@@ -19,7 +19,7 @@ To start using the new SAML certificate in a {{ org-full-name }} identity federa
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
   1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.

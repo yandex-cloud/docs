@@ -1,6 +1,6 @@
 ---
 title: How to set up a domain in an identity federation in {{ org-full-name }}
-description: Follow this guide to set up a domain in an identity federation in {{ org-name }}.
+description: Follow this guide to set up a domain in an identity federation in {{ org-full-name }}.
 ---
 
 # Setting up a domain in an identity federation

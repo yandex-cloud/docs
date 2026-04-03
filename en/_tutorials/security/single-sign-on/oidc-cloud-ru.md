@@ -2,7 +2,7 @@
 
 [Cloud.ru](https://cloud.ru/) is a Russian provider of cloud services, spanning IaaS, PaaS, AI/ML tools, and solutions for public, private, and hybrid cloud deployments, including support for infrastructure migration and operation. Cloud.ru supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Cloud.ru with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Cloud.ru.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Cloud.ru with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Cloud.ru.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -105,10 +105,10 @@ For the users of your organization to be able to access Cloud.ru:
 
      Where:
 
-     * `--organization-id`: [ID of the organization](../../../organization/operations/organization-get-id.md) you want to create your OIDC app in. This is a required parameter.
-     * `--name`: OIDC app name. This is a required parameter.
-     * `--description`: OIDC app description. This is an optional parameter.
-     * `--client-id`: OAuth client ID you got in Step 2. This is a required parameter.
+     * `--organization-id`: [ID of the organization](../../../organization/operations/organization-get-id.md) you want to create your OIDC app in. This is a required setting.
+     * `--name`: OIDC app name. This is a required setting.
+     * `--description`: OIDC app description. This is an optional setting.
+     * `--client-id`: OAuth client ID you got in Step 2. This is a required setting.
      * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
      * `--group-distribution-type`: Set to `none` as user groups are not provided to Cloud.ru.
 

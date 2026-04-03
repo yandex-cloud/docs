@@ -1,5 +1,11 @@
 # Roles
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 A _role_ is a set of permissions to perform operations with resources in {{ yandex-cloud }}.
 
 There are two types of roles:

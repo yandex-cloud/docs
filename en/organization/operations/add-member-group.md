@@ -1,6 +1,6 @@
 ---
 title: How to add members to a user group in {{ org-full-name }}
-description: Follow this guide to add members to a user group in {{ org-name }}.
+description: Follow this guide to add members to a user group in {{ org-full-name }}.
 ---
 
 # Adding members

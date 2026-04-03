@@ -111,7 +111,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|serverless-containers }}']}
-    excludeSkuIds={['{{ pc|serverless-containers.compute.ephemeral_disk }}', '{{ pc|serverless-containers.compute.provisioned_request.ephemeral_disk}}', '{{ pc|serverless-containers.compute.provision_enabled.ephemeral_disk }}']}
     installationCode="ru"
     currency="RUB"
   />
@@ -121,3 +120,4 @@ editable: false
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

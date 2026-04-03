@@ -2,7 +2,7 @@
 
 [Cloud.ru](https://cloud.ru/) is a Russian provider of cloud services, spanning IaaS, PaaS, AI/ML tools, and solutions for public, private, and hybrid cloud deployments, including support for infrastructure migration and operation.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Cloud.ru via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Cloud.ru.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Cloud.ru via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Cloud.ru.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -118,9 +118,9 @@ Users and groups added to a SAML application can be managed by a user with the `
 1. Log in to the Cloud.ru [console](https://console.cloud.ru/).
 1. Open the **Users** section and go to the **Federated users** tab.
 1. In the top-right corner, click **Add federation user**.
-1. Select the federation to add the user to.
+1. Select the federation you want to add the user to.
 1. Specify the user's email address.
-1. Grant the user the required access permissions for projects and platforms.
+1. Grant the user access permissions for projects and platforms.
 1. Click **Add**.
 
 ## Make sure your application works correctly {#validate}
@@ -131,7 +131,7 @@ Proceed as follows:
 
 1. In your browser, open the Cloud.ru [console](https://console.cloud.ru/) login page.
 1. If you were logged in, log out.
-1. On the login form, click **SSO**.
+1. On the login screen, click **SSO**.
 1. In the dialog that appears, enter the ID of the federation you created and click **Log in**.
-1. On the {{ yandex-cloud }} authentication page, enter your email address and user password.
+1. On the {{ yandex-cloud }} authentication page, enter the email address and user password.
 1. Make sure you have successfully authenticated to Cloud.ru.

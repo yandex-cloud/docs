@@ -44,7 +44,7 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `istio-space`. If you leave the default namespace, Istio may work incorrectly.
    * **Application name**: Specify the application name.
-   * **Install add-ons**: Select this option to automatically install the add-ons: [Kiali](https://kiali.io/) management console, and such components as Grafana, Prometheus and [Loki](/marketplace/products/yc/loki).
+   * **Install add-ons**: Select this option to automatically install the add-ons: [Kiali](https://kiali.io/) management console, Grafana, Prometheus, and [Loki](/marketplace/products/yc/loki).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application status to change to `Deployed`.
 
@@ -70,4 +70,4 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 
 ## See also {#see-also}
 
-* [Istio documentation](https://istio.io/latest/docs/).
+* [Istio documentation](https://istio.io/latest/docs/)

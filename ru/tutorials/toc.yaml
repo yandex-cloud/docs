@@ -1910,9 +1910,7 @@ items:
             href: ml-ai/speechsense/bitrix24.md
           - name: Работа с AI-ассистентом в {{ speechsense-name }}
             href: ml-ai/speechsense/ai-assistant.md
-      - name: >-
-          Использование генеративных нейросетей {{ foundation-models-full-name
-          }}
+      - name: Использование генеративных нейросетей {{ ai-studio-full-name }}
         items:
           - name: >-
               Интеграция генеративных моделей в Visual Studio Code в качестве

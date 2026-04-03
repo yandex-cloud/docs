@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ objstorage-full-name }}
-description: This page covers FAQ about {{ objstorage-name }}.
+description: This page covers questions and answers about {{ objstorage-name }}.
 ---
 
 # FAQ about {{ objstorage-name }}
@@ -98,7 +98,7 @@ For overwritable (PUT) and removable (DELETE) objects, the strong consistency mo
 
 #### Where is my data stored? {#qa-where}
 
-Data is stored in several geographically distributed data centers located in Russia. For more information, see [{#T}](../overview/concepts/geo-scope.md).
+
 
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
@@ -114,13 +114,12 @@ By default, the storage is accessed via HTTPS.
 {{ objstorage-name }} has internal SLAs and SLOs that guarantee a specific speed of sending data to the customer, which, among other things, depend on the storage class.
 
 The {{ objstorage-name }} response time depends on multiple factors:
-* Client-side performance (network speed, CPU load, or disk subsystem load).
-* Speed of trunks, connections between data centers, or client-server connections.
+* Client-side performance: network speed, CPU load, or disk subsystem load.
+* Speed of trunks, data center interconnects, or client-server connections.
 * Performance of {{ objstorage-name }} itself.
 
 This is why we cannot specify a particular response time value. However, we keep track of spikes in the response time and dips in the speed of sending data, and strive to improve the {{ objstorage-name }} performance.
 
-{% include [fz-152.md](../_qa/fz-152.md) %}
 
 {% include [logs.md](../_qa/logs.md) %}
 
@@ -156,4 +155,4 @@ The possible causes include:
 
 #### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}
 
-For resources hosted in a {{ vpc-short-name }} cloud network and having neither public IP address nor access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP address using DNS.
+For resources hosted in a {{ vpc-short-name }} cloud network and having no public IP address or internet access, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP address using DNS.

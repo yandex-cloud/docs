@@ -1,6 +1,6 @@
 ---
 title: Deleting an organization in {{ org-full-name }}
-description: In this tutorial, you will learn how to delete an organization in {{ org-name }}.
+description: In this tutorial, you will learn how to delete an organization in {{ org-full-name }}.
 ---
 
 # Deleting an organization
@@ -30,7 +30,7 @@ To delete an organization:
   1. To delete your current organization, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.dashboard.organization.action.delete-button }}** in the box with its name in the center of the screen.
 
   1. In the window that opens:
-
+  
      1. Specify when you want the organization to be deleted. Select one of the suggested periods or `Delete now`. The default organization deletion delay is seven days.
      1. Enter the organization name to confirm its deletion. 
 

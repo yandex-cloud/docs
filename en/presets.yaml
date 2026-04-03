@@ -215,7 +215,6 @@ default:
   forms-full-name: Yandex Forms
   forms-name: Forms
   forms-short-name: Forms
-  foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
   gl:
@@ -1604,9 +1603,6 @@ default:
         12_month: dn2o5qnxdn7jxgcatyif
         3_month: dn2mhzsdg7gtb4d4fckw
         6_month: dn2mj2rnkhctk4lzcz4c
-  pc|cloud_desktop:
-    image:
-      v1: dn2dd29vb1490vk3gd27
   pc|compute:
     hostgroup:
       cpu:
@@ -1780,10 +1776,6 @@ default:
         internal: dn2djih21mipc4jo77uk
       ingress:
         internal: dn2dj452r5cbun6bv52e
-  pc|postbox:
-    email:
-      size:
-        v1: dn2qr63b3orl3cuj3kjb
   pc|security_deck:
     access_transparency:
       subscription:
@@ -1792,31 +1784,11 @@ default:
       resources: dn2muudyflujxdk7e32n
     kspm:
       nodes: dn2ukunmpcmrnab3u5ko
-  pc|serverless-containers:
-    compute:
-      ephemeral_disk: dn2vwduzkfsisbr35uye
-      provision_enabled:
-        ephemeral_disk: dn27almsimyrl6a7ri4g
-      provisioned_request:
-        ephemeral_disk: dn2milq3cs7eibqagm64
   pc|storage:
     api:
       network:
         inet:
           egress: dn2fghbb6nhc0qgc03ta
-  pc|sws:
-    arl:
-      profile:
-        v1: dn2mkbp42irduj73psdf
-      requests:
-        v1: dn2ek1qtnkfte18mbnf6
-      rule:
-        v1: dn2oma528jt89898mj2d
-    waf:
-      exclusion_rule:
-        v1: dn2hf1qf6f44degef6mu
-      profile:
-        v1: dn2mlrae614s6vakq618
   pc|v1:
     commitment:
       selfcheckout:

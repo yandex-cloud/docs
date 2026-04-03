@@ -11,7 +11,7 @@ You can see the structure we described on the diagram below.
 We will use the following folders:
 
 * The **public** folder contains internet-facing resources.
-* The **mgmt** folder is for cloud infrastructure management and internal resources. It includes VMs for infrastructure protection and network segmentation into security zones (`fw`), a VM of the centralized firewall management server (`mgmt-server`), and a [WireGuard VPN](https://www.wireguard.com/) VM for secure management segment access (`jump-vm`).
+* The **mgmt** folder is for cloud infrastructure management and internal resources. It includes VMs for infrastructure protection and network segmentation into security zones (`fw`), a VM of the centralized firewall management server (`mgmt-server`), and a [WireGuard VPN](https://www.wireguard.com/) VM for secure access to the management segment over a VPN (`jump-vm`).
 * The **`dmz`** folder enables you to publish open-access applications .
 
 For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint). 
@@ -27,7 +27,7 @@ To deploy a secure Check Point NGFW-based network infrastructure:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-### Next-Generation Firewall {#next-generation-firewall}
+### Next-generation firewall {#next-generation-firewall}
 
 [{{ marketplace-full-name }}](/marketplace?categories=security) offers multiple NGFW solutions. This scenario uses [Check Point CloudGuard IaaS](/marketplace?publishers=f2evobrhpbdrcue7s9l5&tab=software). Its features include:
 * Firewall, NAT, IPS, antivirus, and anti-bot protection.
@@ -340,7 +340,7 @@ We use the Linux terminal to perform the following steps.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add your credentials to the environment variables:
+      1. Add the credentials to the environment variables:
          
          ```bash
          export YC_TOKEN=$(yc iam create-token)

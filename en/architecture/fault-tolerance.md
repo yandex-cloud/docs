@@ -23,7 +23,7 @@ Below are recommendations on designing a fault-tolerant infrastructure in {{ yan
 
 Currently, the following regions are available in {{ yandex-cloud }}:
 
-* **Russia** (ru-central1): `ru-central1-a`, `ru-central1-b`, and `ru-central1-d` availability zones.
+* **Russia** (ru-central1): `ru-central1-a`, `ru-central1-b`, `ru-central1-d`, and `ru-central1-e` availability zones.
 * **Kazakhstan** (kz1): `kz1-a` availability zone.
 
 A region provides direct network (IP) connectivity across availability zones, common [APIs](../overview/api.md), [SLAs](../overview/sla.md), and unified [pricing](../../prices) for cloud services.

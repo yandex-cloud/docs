@@ -7,9 +7,28 @@ description: This page presents a list of sync agent releases and the updates of
 
 ## Current version {#latest-release}
 
+### Version 0.41.0 (13/03/26) {#version0.41.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.41.0}
+
+* During full synchronization, the list of group members covered by the filter is obtained via LDAP.
+
+{% cut "Checksums" %}
+
+| Platform   | Checksum (sha-256) |
+|-------------|-----------------------------|
+| `linux/amd64` | `689ec3f3efb85b4447e008f29e70655e59dabbfbd0e616c22a21880cac3667dc` |
+| `linux/arm64` | `24dc53ada7a1bf2a15d18c54106d7f47b543d3d3e175fddaea56c6e0fb7287c1` |
+| `darwin/amd64` | `3909ce93f7d0d54915686cccc136b3498b556f8f51a562db309a2f45b1ca03ec` |
+| `darwin/arm64` | `1a53e843e201dc18ef6cb112cae12e79659546f5aac2bb245496174a6ca642e0` |
+| `windows/amd64` | `9749ca27d41f0b5cc1cfd0699805ecdee4797fc7f13f0a4c3f84a200dcee4079` |
+| `windows/arm64` | `0e4de91cdaa696d42db63d10decedb0fbfc8096e42b8497ffb787c33930e1f7b` |
+
+{% endcut %}
+
 ### Version 0.40.0 (10/03/26) {#version0.40.0}
 
-#### Changes to {{ org-sync-agent-name }}
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.40.0}
 
 * Now you can get an IAM token from the metadata service to access the {{ org-full-name }} API.
 

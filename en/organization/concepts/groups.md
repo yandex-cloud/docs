@@ -13,7 +13,7 @@ In addition to groups created by the administrator, {{ yandex-cloud }} also has 
 
 Groups may only have a one-level structure. You cannot create nested groups. Membership in a group provides all of its members with equal rights.
 
-If you use user groups in your identity provider (IdP) when working with [federations](add-federation.md), you can [map groups](add-federation.md#group-mapping) between the IdP and {{ org-name }}.
+If you use user groups in your identity provider (IdP) when working with [federations](add-federation.md), you can [map groups](add-federation.md#group-mapping) between the IdP and {{ org-full-name }}.
 
 ## Use cases {#examples}
 

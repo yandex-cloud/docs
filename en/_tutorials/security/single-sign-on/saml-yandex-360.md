@@ -2,7 +2,7 @@
 
 [Yandex 360](https://360.yandex.ru/) is a cloud platform for business offering tools for setting up corporate email addresses, collaboration, and document management. {{ yandex-360 }} supports SAML authentication to provide secure SSO for your organization’s users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ yandex-360 }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and {{ yandex-360 }}.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ yandex-360 }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and {{ yandex-360 }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -36,7 +36,7 @@ For the users of your organization to be able to access {{ yandex-360 }}:
 
 ## Set up the integration {#setup-integration}
 
-To configure {{ yandex-360 }} integration with the SAML app you created in {{ org-name }}, complete the configuration both on the {{ org-name }} side and in {{ yandex-360 }}.
+To configure {{ yandex-360 }} integration with the SAML app you created in {{ org-full-name }}, complete the configuration both on the {{ org-full-name }} side and in {{ yandex-360 }}.
 
 ### Set up the SAML application in {{ org-full-name }} {#setup-idp}
 
@@ -135,7 +135,7 @@ Make sure the domain from the `User.EmailAddress` attribute in the SAML response
 
 ### Add users {#add-users}
 
-For your organization's users to be able to authenticate in {{ yandex-360 }} with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to your SAML application.
+For your organization's users to be able to authenticate in {{ yandex-360 }} with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to your SAML application.
 
 {% note info %}
 
@@ -165,7 +165,7 @@ To make sure both your SAML app and {{ yandex-360 }} integration work correctly,
 1. In your browser, go to the {{ yandex-360 }} login page.
 1. If you were logged in to {{ yandex-360 }}, log out.
 1. On the authentication page, select Single Sign-On (SSO).
-1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user or group they belong to must be added to the application.
+1. On the {{ yandex-cloud }} authentication page, enter the email address and user password. The user or group they belong to must be added to the application.
 1. Make sure you have successfully authenticated in {{ yandex-360 }}.
 
 ### Troubleshooting setup issues {#troubleshooting}

@@ -1,6 +1,6 @@
 # Recognizing text in image archives using {{ vision-full-name }}
 
-Using [{{ vision-name }}]({{ link-docs-ai }}vision/) and [{{ objstorage-full-name }}](../../storage/), you can manage image text recognition and store both the source image archive and recognition results.
+Using [{{ vision-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) and [{{ objstorage-full-name }}](../../storage/), you can manage image text recognition and store both the source image archive and recognition results.
 
 To configure a text recognition infrastructure using {{ vision-name }} and automatically export the results to {{ objstorage-name }}:
 

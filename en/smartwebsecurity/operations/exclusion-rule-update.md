@@ -53,15 +53,41 @@ description: Follow this guide to edit a WAF exclusion rule.
         # Exclusion rule
         exclusion_rule {
           name = "<exclusion_rule_name>"
+          condition {
+            source_ip {
+              ip_ranges_match {
+                ip_ranges = [
+                  "<IP_address_range_1>",
+                  "<IP_address_range_2>",
+                  ...
+                  "<IP_address_range_n>"
+                ]
+              }
+              ip_ranges_not_match {
+                ip_ranges = [
+                  "<IP_address_range_3>",
+                  "<IP_address_range_4>",
+                  ...
+                  "<IP_address_range_y>"
+                ]
+              }
+            }
+          }
+
           exclude_rules {
             exclude_all = <true_or_false>
-            rule_ids    = ["rule_1_ID","rule_2_ID"]
+            rule_ids    = [
+              "rule_ID_1",
+              "rule_ID_2",
+              ...
+              "rule_ID_n",
+            ]
           }
         }
       }
       ```
 
-      For more information about `sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 

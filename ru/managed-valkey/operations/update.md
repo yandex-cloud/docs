@@ -21,7 +21,7 @@ description: Из статьи вы узнаете, как изменить на
 
 * [Настроить автоматическое увеличение размера хранилища](#disk-size-aut0scale).
 
-* [Настроить серверы](#change-valkey-config) {{ VLK }} согласно [документации {{ VLK }}](https://redis.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
+* [Настроить серверы](#change-valkey-config) {{ VLK }} согласно [документации {{ VLK }}](https://valkey.io/docs). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 

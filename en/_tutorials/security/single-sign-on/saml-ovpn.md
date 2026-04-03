@@ -1,6 +1,6 @@
 # Creating a SAML app in {{ org-full-name }} for integration with OpenVPN Access Server
 
-For your [organization's](../../../organization/concepts/organization.md) users to be able to authenticate in OpenVPN Access Server via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it on the {{ org-name }} side and OpenVPN Access Server side.
+For your [organization's](../../../organization/concepts/organization.md) users to be able to authenticate in OpenVPN Access Server via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it on the {{ org-full-name }} side and OpenVPN Access Server side.
 
 [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) is built on and compatible with the OpenVPN [open-source version](https://github.com/OpenVPN). It provides clients for Windows, Mac, Android, and iOS. You can also use its web UI to manage connections.
 
@@ -9,7 +9,7 @@ For your [organization's](../../../organization/concepts/organization.md) users 
 To grant access to OpenVPN Access Server to the users of your organization:
 
 1. [Get OpenVPN Access Server ready](#prepare-ovpn).
-1. [Create an app in {{ org-name }}](#create-app).
+1. [Create an app in {{ org-full-name }}](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
@@ -47,7 +47,7 @@ You can use an OpenVPN Access Server installation of your own, an SaaS version, 
 
 {% endcut %}
 
-## Create an app in {{ org-name }} {#create-app}
+## Create an app in {{ org-full-name }} {#create-app}
 
 {% list tabs group=instructions %}
 
@@ -121,7 +121,7 @@ Add SAML authentication on the OpenVPN server:
 
 ### Add a user {#add-user}
 
-For the users of your organization to be able to authenticate in OpenVPN Access Server with {{ org-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
+For the users of your organization to be able to authenticate in OpenVPN Access Server with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
 
 {% note info %}
 

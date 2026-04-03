@@ -3,6 +3,11 @@
 In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/private-network.md) and your on-premise resources. Network connectivity will be established using [{{ interconnect-name }}](../../interconnect/index.yaml) and [{{ cr-name }}](../../cloud-router/index.yaml).
 
 
+You can see the solution architecture in the diagram below:
+
+![bms-cic-onprem](../../_assets/tutorials/bms-cic-onprem.svg)
+
+
 The diagram above shows network connectivity between the {{ baremetal-full-name }} segment resources and customer’s remote on-premise resources connected to {{ yandex-cloud }} via {{ interconnect-name }}.
 
 To establish network connectivity between these resources and the customer's virtual network, you need to add the relevant {{ vpc-name }} subnet IP prefixes to the routing instance. For more on configuring this type of network connectivity, see the [relevant documentation](../../cloud-router/tutorials/bm-vrf-and-vpc-interconnect.md). 

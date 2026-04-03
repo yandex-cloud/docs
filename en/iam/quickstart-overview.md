@@ -61,15 +61,15 @@ There are the following subject types:
 
 ## Working with {{ org-full-name }} {#organization}
 
-{{ iam-short-name }} and [{{ org-full-name }}](../organization/) are closely related because {{ org-name }} also provides access management features – but at the organization level. For example, you can use {{ org-name }} for centralized [user management](../organization/operations/manage-users.md), which includes inviting new users.
+{{ iam-short-name }} and [{{ org-full-name }}](../organization/) are closely related because {{ org-full-name }} also provides access management features – but at the organization level. For example, you can use {{ org-full-name }} for centralized [user management](../organization/operations/manage-users.md), which includes inviting new users.
 
 You can also [create federations and manage them](../organization/operations/setup-federation.md) to pass single sign-on authentication in {{ yandex-cloud }} via your identity provider.
 
-[User group management](../organization/operations/manage-groups.md) also takes place in {{ org-name }}. For example, you can use the service to issue access permissions to a group. To use other {{ yandex-cloud }} interfaces to set up group access permissions, first create a group and add members to it in {{ org-name }}. With that done, you will be able to manage the group in many ways, e.g., give it permissions for a folder in the management console.
+[User group management](../organization/operations/manage-groups.md) also takes place in {{ org-full-name }}. For example, you can use the service to issue access permissions to a group. To use other {{ yandex-cloud }} interfaces to set up group access permissions, first create a group and add members to it in {{ org-full-name }}. With that done, you will be able to manage the group in many ways, e.g., give it permissions for a folder in the management console.
 
 ## What's next {#whats-next}
 
-* Learn [how to get started with {{ org-name }}](../organization/quickstart.md).
+* Learn [how to get started with {{ org-full-name }}](../organization/quickstart.md).
 * Read about billing accounts: what they are for and [how to create one](../getting-started/individuals/registration.md).
 * Learn about [resources and access management {{ yandex-cloud }}](../overview/roles-and-resources.md).
 * [Learn how to manage access to resources](quickstart.md).

@@ -1,6 +1,6 @@
 Where:
 
-* `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-name }}.
+* `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-full-name }}.
 * `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. For example:
 
     * `/etc/yc-identityhub-sync-agent/authorized_key.json` (for Linux)
@@ -76,15 +76,15 @@ Where:
 
         {% endnote %}
 
-    * `allow_to_capture_users`: Enables updating an existing user in the {{ org-name }} user pool if their login matches that of a {{ microsoft-idp.ad-short }} user being synchronized. The possible values are:
+    * `allow_to_capture_users`: Enables updating an existing user in the {{ org-full-name }} user pool if their login matches that of a {{ microsoft-idp.ad-short }} user being synchronized. The possible values are:
 
-        * `true`: Synchronization agent will update existing {{ org-name }} users to match their corresponding {{ microsoft-idp.ad-short }} accounts.
-        * `false`: Synchronization agent will not update existing {{ org-name }} users. If it detects matching logins in the user pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
-    * `allow_to_capture_groups`: Enables updating an existing {{ org-name }} user group if its name matches that of a {{ microsoft-idp.ad-short }} group being synchronized. The possible values are:
+        * `true`: Synchronization agent will update existing {{ org-full-name }} users to match their corresponding {{ microsoft-idp.ad-short }} accounts.
+        * `false`: Synchronization agent will not update existing {{ org-full-name }} users. If it detects matching logins in the user pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
+    * `allow_to_capture_groups`: Enables updating an existing {{ org-full-name }} user group if its name matches that of a {{ microsoft-idp.ad-short }} group being synchronized. The possible values are:
 
-        * `true`: Synchronization agent will update existing {{ org-name }} user groups to match their corresponding {{ microsoft-idp.ad-short }} groups.
-        * `false`: Synchronization agent will not update existing {{ org-name }} groups. If it detects matching group names in the pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
-    * `replacement_domain`: [Domain](../../organization/concepts/domains.md) associated with the {{ org-name }} user pool to which synchronized users and groups belong, e.g., `newdomain.idp.{{ dns-ns-host-sld }}`.
+        * `true`: Synchronization agent will update existing {{ org-full-name }} user groups to match their corresponding {{ microsoft-idp.ad-short }} groups.
+        * `false`: Synchronization agent will not update existing {{ org-full-name }} groups. If it detects matching group names in the pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
+    * `replacement_domain`: [Domain](../../organization/concepts/domains.md) associated with the {{ org-full-name }} user pool to which synchronized users and groups belong, e.g., `newdomain.idp.{{ dns-ns-host-sld }}`.
 
         This is an optional setting. Specify the `replacement_domain` value only if the domain name associated with the user pool does not match the domain name on the {{ microsoft-idp.ad-short }} domain controller.
     * `user_attribute_mapping`: User attribute mapping settings:
@@ -126,11 +126,11 @@ Where:
         If object filtering is not configured, {{ ad-sync-agent }} will attempt to synchronize all [available objects](../../organization/concepts/ad-sync.md#sync-objects) in the {{ microsoft-idp.ad-short }} folder.
     * `remove_user_behavior`: Controls what action should be applied to users on the {{ yandex-cloud }} side if the corresponding ones on the {{ microsoft-idp.ad-short }} side were deleted or ceased to satisfy the conditions specified in `sync_settings.filter` (e.g., if moved to another organization unit). This is an optional setting. The possible values are:
 
-        * `remove`: Users who were deleted ceased to satisfy the filter criteria will be deleted on the {{ org-name }} side. This is the default action.
-        * `block`: Users who were deleted ceased to satisfy the filter criteria will be deactivated on the {{ org-name }} side.
+        * `remove`: Users who were deleted ceased to satisfy the filter criteria will be deleted on the {{ org-full-name }} side. This is the default action.
+        * `block`: Users who were deleted ceased to satisfy the filter criteria will be deactivated on the {{ org-full-name }} side.
 
     {% note info %}
 
-    If synchronization reveals that a {{ microsoft-idp.ad-short }} user group was deleted or ceased to satisfy the filter criteria (e.g., if moved to another organization unit), such a group will be deleted on the {{ org-name }} side.
+    If synchronization reveals that a {{ microsoft-idp.ad-short }} user group was deleted or ceased to satisfy the filter criteria (e.g., if moved to another organization unit), such a group will be deleted on the {{ org-full-name }} side.
 
     {% endnote %}

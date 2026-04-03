@@ -51,7 +51,7 @@ description: Различные сценарии использования ма
 * [{#T}](speechsense/amocrm.md)
 * [{#T}](speechsense/ai-assistant.md)
 
-## Использование генеративных нейросетей {{ foundation-models-full-name }} {#generative-neuronets}
+## Использование генеративных нейросетей {{ ai-studio-full-name }} {#generative-neuronets}
 
 * [{#T}](ai-model-ide-integration.md)
 * [{#T}](data-catalog-integration.md)

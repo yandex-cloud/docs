@@ -2,16 +2,24 @@ title: Architecture solutions
 href: index.yaml
 noIndex: true
 items:
-  - name: Recommendations on fault tolerance in {{ yandex-cloud }}
-    href: fault-tolerance.md
-  - name: >-
-      Deploying a web app in a fault-tolerant configuration in {{ yandex-cloud
-      }}
-    href: app-in-k8s.md
-  - name: Fault tolerance testing in {{ yandex-cloud }}
+  - name: Fault tolerance
+    expanded: true
     items:
-      - name: Testing an {{ alb-name }}-based infrastructure
-        href: testing-zone-failure-for-alb.md
-      - name: Testing a {{ network-load-balancer-name }}-based infrastructure
-        href: testing-zone-failure.md
+      - name: Recommendations on fault tolerance in {{ yandex-cloud }}
+        href: fault-tolerance.md
+      - name: >-
+          Deploying a web app in a fault-tolerant configuration in {{
+          yandex-cloud }}
+        href: app-in-k8s.md
+      - name: Fault tolerance testing in {{ yandex-cloud }}
+        items:
+          - name: Testing an {{ alb-name }}-based infrastructure
+            href: testing-zone-failure-for-alb.md
+          - name: Testing a {{ network-load-balancer-name }}-based infrastructure
+            href: testing-zone-failure.md
+  - name: MLOps
+    expanded: true
+    items:
+      - name: MLOps management in {{ mgl-name }}
+        href: mlops-in-managed-gitlab.md
 path: en/architecture/toc.yaml

@@ -24,7 +24,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 ### Required paid resources {#paid-resources}
 
 * {{ speechsense-name }}: Number of characters in each text conversation (see [{{ speechsense-name }} pricing](../../../speechsense/pricing.md)).
-* AI assistant: Text generation (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). Once the assistant is activated, you start paying for it.
+* AI assistant: Text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). Once the assistant is activated, you start paying for it.
 
 ## Set up your infrastructure {#infrastructure-prepare}
 

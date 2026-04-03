@@ -18,6 +18,6 @@ Available integrations:
 * [{{ yds-name }}](datastreams.md)
 * [{{ ydb-name }}](ydb.md)
 * [{{ ml-platform-name }}](datasphere.md)
-* [{{ foundation-models-full-name }}](yagpt.md)
+* [{{ ai-studio-full-name }}](yagpt.md)
 * [{{ sw-full-name }}](workflows.md)
 * [Swagger UI](swagger.md)

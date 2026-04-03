@@ -47,7 +47,7 @@ The checks follow this algorithm:
 
 ## {{ iam-name }} {#iam}
 
-[{{ iam-name }}](./index.md) is a main method for managing access in {{ yandex-cloud }} using roles. It enables the basic access control policy. For more details, see [{#T}](./index.md#roles-list).
+[{{ iam-name }}](./index.md) is the primary tool for managing access in {{ yandex-cloud }} using roles and [access policies](../../iam/concepts/access-control/access-policies.md). It enables the basic access control policy. For more details, see [{#T}](./index.md#roles-list).
 
 The access grantees include:
 * Yandex account
@@ -125,7 +125,7 @@ Access is granted for a [bucket](../concepts/bucket.md) or [object](../concepts/
 
 In {{ objstorage-name }}, you can configure your bucket so that it is only accessible via {{ vpc-short-name }} service connections. The following mechanisms are provided:
 * **Policy-level bucket access restriction**: Bucket can be accessed from {{ vpc-short-name }} service connections with IDs specified in the policy. However, as the [flow chart](#scheme) shows, the bucket will still be accessible from the public network, e.g., though an object [ACL](#acl) or under another enabling rule in the policy. In addition, a bucket configured this way still supports [server-side copy](../operations/objects/copy.md), both from and to the bucket. For more information, see [Configure a bucket policy for access from service connections](../operations/buckets/access-via-vpc.md#setup-policy).
-* **Service-level bucket access restriction**: Bucket can be accessed only from {{ vpc-short-name }} service connections. Remember to specify particular names of connections. The bucket will not be accessible from the public network. There is a separate option enabling bucket access via the [management console]({{ link-console-main }}). For more information, see [Configure a restriction for access only from service connections](../operations/buckets/access-via-vpc.md#setup-service-restriction).
+* **Service-level bucket access restriction**: Bucket can be accessed only from {{ vpc-short-name }} service connections. Remember to specify particular names of connections. The bucket will not be accessible from the public network. There is a special option that enables bucket access via the [management console]({{ link-console-main }}). For more information, see [Configure a restriction for access only from service connections](../operations/buckets/access-via-vpc.md#setup-service-restriction).
 
 {% include [private-endpoint-ssc](../../_includes/storage/private-endpoint-ssc.md) %}
 

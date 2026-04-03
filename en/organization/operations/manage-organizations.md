@@ -1,6 +1,6 @@
 ---
 title: Creating or switching to a different organization in {{ org-full-name }}
-description: In this tutorial, you will learn how to create an additional organization or switch to a different organization in {{ org-name }}.
+description: In this tutorial, you will learn how to create an additional organization or switch to a different organization in {{ org-full-name }}.
 ---
 
 # Managing multiple organizations
@@ -34,7 +34,7 @@ Only users with Yandex accounts can create organizations. [Federated users](../.
 
   The name of the selected organization is displayed in the top-left corner of the {{ cloud-center }} window and in the section with the list of clouds and folders.
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}).
 

@@ -103,6 +103,8 @@ items:
             href: operations/renew-yc-certificate.md
           - name: Настроить домен в федерации удостоверений
             href: operations/manage-domain-in-federation.md
+          - name: Удалить федерацию удостоверений
+            href: operations/delete-federation.md
       - name: Управление пулами пользователей
         items:
           - name: Создать пул пользователей

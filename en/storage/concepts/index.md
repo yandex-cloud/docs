@@ -5,10 +5,10 @@ description: This article explains the basic {{ objstorage-name }} concepts.
 
 # {{ objstorage-name }} concepts
 
-{{ objstorage-name }} uses the following concepts:
+{{ objstorage-name }} uses the following basic terms:
 
 
-Concept | Description
+Term | Description
 --------|----------
 [Bucket](bucket.md) | {{ objstorage-name }} unit allocated for user data.
 [Object](object.md)  | File with data in any format.
@@ -17,6 +17,7 @@ Concept | Description
 [Partial object updates](object-patch.md) | Feature that enables partial updating and appending of objects data.
 [Encryption](encryption.md) | Data encryption algorithm.
 [Bucket object lifecycles](lifecycles.md) | Rules for automatically deleting objects and changing their storage class.
+[Object metadata export](s3-inventory.md) | Retrieving metadata of all bucket objects for further analysis and cataloging.
 [Pre-signed URLs](pre-signed-urls.md) | Method for granting anonymous users access to storage operations.
 [Multipart upload](multipart.md) | Method for uploading large objects.
 [Access control list](acl.md) | Tool for granting access to objects and buckets.

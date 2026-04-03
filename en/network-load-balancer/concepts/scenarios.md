@@ -7,6 +7,11 @@ description: In this tutorial, you will learn about using a network load balance
 
 
 ## VMs {#nlb-vm}
+
+The figure below shows an example of using a network load balancer with individual [VMs](../../compute/concepts/vm.md).
+
+![NLB-VM](../../_assets/network-load-balancer/nlb-vm.svg)
+
 A load balancer’s incoming traffic is distributed in a certain way among VMs located in the target groups downstream of the load balancer.
 
 If multiple traffic listeners are used on one load balancer, the traffic coming to these listeners will be distributed among all target groups connected to this load balancer simultaneously.
@@ -24,6 +29,11 @@ For more granular traffic listening, instead of creating multiple listeners per 
 
 
 ## Instance group {#nlb-ig}
+
+The figure below shows an example of using a network load balancer with an [instance group](../../compute/concepts/instance-groups/index.md).
+
+![NLB-IG](../../_assets/network-load-balancer/nlb-ig.svg)
+
 When creating an instance group, a target group for the network load balancer will also be created, which will include all VMs from this group.
 
 When adding or removing VMs from the group, the load balancer's target group will also reflect these changes.
@@ -40,6 +50,11 @@ When adding or removing VMs from the group, the load balancer's target group wil
 
 
 ## {{ managed-k8s-name }} cluster {#nlb-mk8s}
+
+The figure below shows an example of using a network load balancer with [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md).
+
+![NLB-MK8S](../../_assets/network-load-balancer/nlb-mk8s.svg)
+
 To use a network load balancer as part of services within a {{ managed-k8s-name }} cluster, you need to create a service of the `LoadBalancer` type. Then the cluster itself will create network load balancer objects according to the provided manifests and will monitor the load balancer's target group receiving VMs from all node groups of that cluster.
 
 {% note warning %}

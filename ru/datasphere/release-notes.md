@@ -16,7 +16,7 @@
 
 Прекращена поддержка дообучения фундаментальных моделей в {{ ml-platform-name }}. Уже дообученные модели перестанут поддерживаться вместе со своими базовыми моделями в соответствии с [жизненным циклом]({{ link-docs-ai }}ai-studio/concepts/generation/models#model-lifecycle).
 
-Для дообучения моделей используйте [инструменты]({{ link-docs-ai }}ai-studio/concepts/tuning/index) сервиса {{ foundation-models-full-name }}.
+Для дообучения моделей используйте [инструменты]({{ link-docs-ai }}ai-studio/concepts/tuning/index) сервиса {{ ai-studio-full-name }}.
 
 ## Релиз 11.11.2024 {#111124}
 

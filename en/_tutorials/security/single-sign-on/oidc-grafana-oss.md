@@ -2,7 +2,7 @@
 
 [Grafana Open Source Software (OSS)](https://grafana.com/oss/) is a free open-source data monitoring and visualization platform you can deploy on your own infrastructure. Grafana OSS supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana OSS with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana OSS.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana OSS with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Grafana OSS.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -137,7 +137,7 @@ For the users of your organization to be able to access Grafana OSS:
 
 ## Set up the integration {#setup-integration}
 
-To integrate Grafana OSS with the OIDC app you created in {{ org-name }}, complete the setup both on the Grafana OSS side and in {{ org-name }}.
+To integrate Grafana OSS with the OIDC app you created in {{ org-full-name }}, complete the setup both on the Grafana OSS side and in {{ org-full-name }}.
 
 ### Configure your OIDC application in {{ org-full-name }} {#setup-idp}
 
@@ -272,10 +272,10 @@ To configure OpenID Connect authentication in Grafana OSS, in the left-hand pane
 In the Generic OAuth settings:
 
 1. Under **Display name**, specify `OpenID Connect`.
-1. Under **Client ID**, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** field when setting up the OIDC application in {{ org-name }}.
-1. In the **Client Secret** field, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** section when setting up the OIDC application in {{ org-name }}.
+1. Under **Client ID**, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** field when setting up the OIDC application in {{ org-full-name }}.
+1. In the **Client Secret** field, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** section when setting up the OIDC application in {{ org-full-name }}.
 1. In the **Scopes** field, enter the following, one by one: `openid`, `email`, `profile`, `groups`.
-1. Click **Enter OpenID Connect Discovery URL** and then, in the window that opens, specify the URL you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}** field when setting up the OIDC application in {{ org-name }}.
+1. Click **Enter OpenID Connect Discovery URL** and then, in the window that opens, specify the URL you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}** field when setting up the OIDC application in {{ org-full-name }}.
 1. Enable **Allow sign up** to automatically create users on first sign-in.
 
 #### Configure role mapping {#role-mapping}
@@ -314,7 +314,7 @@ Proceed as follows:
 
 ### Add a user {#add-user}
 
-For your organization's users to be able to authenticate in Grafana OSS with {{ org-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
+For your organization's users to be able to authenticate in Grafana OSS with {{ org-full-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
 
 {% note info %}
 

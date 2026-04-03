@@ -1,6 +1,6 @@
 ---
 title: How to associate a domain with a user pool or a {{ org-full-name }} federation
-description: Follow this guide to associate a domain with a user pool or a {{ org-name }} federation.
+description: Follow this guide to associate a domain with a user pool or a {{ org-full-name }} federation.
 ---
 
 # Associating a domain

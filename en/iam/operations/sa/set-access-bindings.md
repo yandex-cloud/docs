@@ -104,7 +104,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        * `service_account_id`: ID of the service account to configure access for.
        * `role`: Role being assigned. This is a required setting.
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
        Here is an example of the configuration file structure:
 
@@ -268,7 +268,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        {% endnote %}
 
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
@@ -427,7 +427,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
        * `service_account_id`: ID of the service account to configure access for.
        * `role`: Role being assigned. This is a required setting.
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of granting the `test-sa` service account permissions to manage the `my-robot` service account using {{ TF }}" %}
 

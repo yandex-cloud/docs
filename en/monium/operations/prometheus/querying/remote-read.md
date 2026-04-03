@@ -13,7 +13,7 @@ description: Follow this guide to read metrics via the Remote API.
    ...
    remote_read:
      ...
-     - url: '<URL>' # You can get it upon request.
+     - url: 'https://{{ api-host-monitoring-1 }}/prometheus/workspaces/<workspace_ID>/api/v1/read'
        bearer_token: '<API_key>'
        # Alternatively, you can use a file (recommended):
        # bearer_token_file: '<name_of_file_with_API_key>'
@@ -35,7 +35,7 @@ description: Follow this guide to read metrics via the Remote API.
        # required_matchers:
        # [ <label_name>: <label_value> ... ]
    ```
-1. Restart {{ prometheus-name }} or reload the configuration.
+1. Restart {{ prometheus-name }} or reload the configuration. 
 
 ## Error examples {#errors}
 

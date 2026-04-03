@@ -27,6 +27,8 @@ This section provides recommendations on how to make the best use of {{ yandex-c
    * Assign users service and primitive level `editor` roles to enable them to create and delete resources.
    * Use [impersonation](../../iam/concepts/access-control/impersonation.md) to allow users to manage cloud resources on behalf of a service account. Use service accounts with the required roles rather than assigning roles to specific users. This approach temporarily expands user permissions without generating static credentials for the user.
 
+&#x2713; **Using access policies to restrict operations in a folder, cloud, or organization**: You can use [access policies](../../iam/concepts/access-control/access-policies.md) to block certain operations in a specific folder, cloud, or organization. Operations blocked by an access policy will be denied even if allowed by a user role.
+
 &#x2713; **Using the {{ roles-auditor }} role to prevent access to user data**: Assign the `{{ roles-auditor }}` role (the role with least privilege and without access to service data) to users who need no access to data, such as external contractors or auditors. To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
 
 &#x2713; **billing.accounts.owner protection**: After performing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a dedicated employee with a federated account.
@@ -56,6 +58,8 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 &#x2713; **Storing service account keys in secrets**: If using static keys, [store them in {{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox/index.md).
 
 &#x2713; **Periodic rotation of service account keys**: Keys with no expiration date ([authorized keys](../../iam/concepts/authorization/key.md) and [static keys](../../iam/concepts/authorization/access-key.md)) require [manual rotation](../../iam/operations/compromised-credentials.md#key-reissue). You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days.
+
+&#x2713; **Setting access policies to restrict service account usage**: With access policies, you can restrict service account creation, key generation, and impersonation in certain folders, clouds, or organizations. For more information, see [{#T}](../../iam/concepts/access-control/access-policies.md).
 
 ## Secrets {#secrets}
 

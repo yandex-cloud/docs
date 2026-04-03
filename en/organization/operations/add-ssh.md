@@ -5,7 +5,7 @@ description: Follow this guide to add SSH keys to a user profile to enable the u
 
 # Adding an SSH key
 
-Upload SSH keys to the {{ org-name }} profile of an organization user or [service account](../../iam/concepts/users/service-accounts.md) so that the user or service account can use these to connect to [VMs](../../compute/concepts/vm.md), {{ k8s }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group), and {{ baremetal-full-name }} [servers](../../baremetal/concepts/servers.md).
+Upload SSH keys to the {{ org-full-name }} profile of an organization user or [service account](../../iam/concepts/users/service-accounts.md) so that the user or service account can use these to connect to [VMs](../../compute/concepts/vm.md), {{ k8s }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group), and {{ baremetal-full-name }} [servers](../../baremetal/concepts/servers.md).
 
 [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair before you begin this tutorial, if you need to.
 
@@ -25,7 +25,7 @@ To add a public SSH key to a profile:
   
       Use the filter or search as needed.
 
-  1. Navigate to the **{{ ui-key.yacloud_org.user.title_ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens, do the following:
+  1. Navigate to the **{{ ui-key.yacloud_org.user.title_ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
   
       1. Name the SSH key you are adding.
 
@@ -103,7 +103,7 @@ To add a public SSH key to a profile:
       * `--name`: Uploaded key name.
       * `--subject-id`: Previously obtained ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `--data`: Contents of a public SSH key.
-      * `--expires-at`: Uploaded key expiration date. This is an optional parameter. It allows you to set any expiration date for the uploaded key. You can specify the value in two formats:
+      * `--expires-at`: Uploaded key expiration date. This is an optional setting. It allows you to set any expiration date for the uploaded key. You can specify the value in two formats:
 
           * Key expiration date in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.
           * Key validity period in hours and minutes, e.g., `1h` or `3h30m`.
@@ -125,7 +125,7 @@ To add a public SSH key to a profile:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_user_ssh_key" "my_user_ssh_key" {
@@ -143,9 +143,9 @@ To add a public SSH key to a profile:
       * `subject_id`: ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `data`: Contents of a public SSH key.
       * `name`: Uploaded key name.
-      * `expires_at`: Uploaded key expiration date. This is an optional parameter. It allows you to set any expiration time and date for the uploaded key. The value is set in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.
+      * `expires_at`: Uploaded key expiration date. This is an optional setting. It allows you to set any expiration time and date for the uploaded key. The value is set in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key).
 
   1. Make sure the configuration files are correct.
 
@@ -156,7 +156,7 @@ To add a public SSH key to a profile:
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
   1. Deploy the cloud resources.
 

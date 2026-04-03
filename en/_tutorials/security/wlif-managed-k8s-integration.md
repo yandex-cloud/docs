@@ -149,7 +149,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder with the {{ lockbox-name }} secret.
       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, e.g., `sa-lockbox`.
+      1. Specify the service account name, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
       1. Select the service account you created and save its ID, as you will need it later.
 
@@ -584,9 +584,9 @@ Below is a scenario that uses the `yc-metadata-server` DaemonSet controller on n
           projected:
             sources:
               - serviceAccountToken:
-                  path: sa-token
-                  expirationSeconds: 7200
-                  audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
+                path: sa-token
+                expirationSeconds: 7200
+                audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
     ```
 
     Where:
