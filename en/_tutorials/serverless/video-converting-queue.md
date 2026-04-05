@@ -150,7 +150,7 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -174,8 +174,8 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-api` function.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `ffmpeg-api` function.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select `ffmpeg-api`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, enter:
 
@@ -203,8 +203,8 @@ After the task is created, the number of messages in the queue increases by one 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder housing `converter-queue`.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. Select the `converter-queue` queue.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. Select `converter-queue`.
   1. Under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, you can see the number of enqueued messages and those being handled.
   1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**. View the **Overall queue stats** charts.
 
@@ -219,8 +219,8 @@ The trigger should invoke the converter function for each message in the queue. 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-converter` function.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `ffmpeg-converter` function.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select `ffmpeg-converter`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and specify the period over which you want to view them.
 
 {% endlist %}
@@ -232,8 +232,8 @@ The trigger should invoke the converter function for each message in the queue. 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-api` function.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the `ffmpeg-api` function.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select `ffmpeg-api`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, enter the following request:
 

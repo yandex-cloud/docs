@@ -6,6 +6,8 @@ description: In this article, you will learn about the purpose of a static acces
 # Static access keys compatible with the AWS API
 
 
+{% include [access-control-sa-statickey-notice](../../../_includes/iam/access-control-sa-statickey-notice.md) %}
+
 A static access key is required to authenticate a [service account](../users/service-accounts.md) in [AWS-compatible APIs](#supported-services).
 
 It consists of two parts:

@@ -119,7 +119,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|sws }}']}
-    excludeSkuIds={['{{ pc|sws.waf.profile.v1 }}', '{{ pc|sws.arl.requests.v1 }}', '{{ pc|sws.arl.profile.v1 }}', '{{ pc|sws.waf.exclusion_rule.v1 }}', '{{ pc|sws.arl.rule.v1 }}']}
     installationCode="ru"
     currency="RUB"
   />

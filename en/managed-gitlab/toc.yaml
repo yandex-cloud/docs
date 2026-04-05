@@ -11,11 +11,11 @@ items:
         href: operations/instance/instance-list.md
       - name: Creating and activating an instance
         href: operations/instance/instance-create.md
-      - name: Setting up security groups and access restrictions to an instance
+      - name: Setting up security groups and access restrictions for an instance
         href: operations/configure-security-group.md
       - name: Stopping and starting an instance
         href: operations/instance/instance-stop.md
-      - name: Editing instance settings
+      - name: Updating instance settings
         href: operations/instance/instance-update.md
       - name: Managing backups
         href: operations/instance/instance-backups.md
@@ -27,7 +27,7 @@ items:
         href: operations/instance/clean-up-disk-space.md
       - name: Deleting an instance
         href: operations/instance/instance-delete.md
-      - name: Adding and removing users from a project
+      - name: Creating and adding users to a project
         href: operations/create-user.md
       - name: Setting up approval rules
         href: operations/approval-rules.md
@@ -43,7 +43,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying {{ GLR }} on a {{ compute-full-name }} VM
+      - name: Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
         href: tutorials/install-gitlab-runner.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: tutorials/gitlab-lockbox-integration.md
@@ -69,6 +69,8 @@ items:
         href: tutorials/loadtesting-gitlab-ci.md
       - name: Integration with Argo CD
         href: tutorials/argo-cd.md
+      - name: Managing the MLOps lifecycle with ML Registry
+        href: tutorials/mlops-ml-registry.md
   - name: Concepts
     items:
       - name: Resource relationships

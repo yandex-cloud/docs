@@ -1,7 +1,8 @@
 Роль `managed-mysql.viewer` позволяет просматривать информацию о кластерах, хостах, базах данных и пользователях MySQL®, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах](../../managed-mysql/concepts/index.md) MySQL®;
+* просматривать информацию о [кластерах](../../managed-mysql/concepts/index.md) MySQL® и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../managed-mysql/concepts/maintenance.md) кластеров MySQL®;
 * просматривать информацию о [хостах](../../managed-mysql/concepts/instance-types.md) кластеров MySQL®;
 * просматривать информацию о базах данных MySQL®;
 * просматривать информацию о [пользователях](../../managed-mysql/concepts/user-rights.md) MySQL®;
@@ -12,4 +13,4 @@
 * просматривать информацию о [квотах](../../managed-mysql/concepts/limits.md#mmy-quotas) сервиса Managed Service for MySQL®;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for MySQL®.
 
-Включает разрешения, предоставляемые ролью `managed-mysql.auditor`.
+Включает разрешения, предоставляемые ролями `managed-mysql.auditor` и `managed-mysql.maintenanceTask.viewer`.

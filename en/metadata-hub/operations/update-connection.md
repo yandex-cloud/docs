@@ -13,7 +13,7 @@ To change connection settings:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection you want to edit.
   1. Select **{{ ui-key.yacloud.common.edit }}**.
@@ -54,7 +54,7 @@ To change connection settings:
 
           * `--user`: Username to connect to the cluster.
 
-          * `--password`: User password.
+          * `--password`: Password.
       
           * `--managed-cluster-id`: Cluster ID. You can get the cluster ID with the list of clusters in the folder.
 
@@ -101,7 +101,7 @@ To change connection settings:
           
           * `--user`: Username to connect to the cluster.
           
-          * `--password`: User password.
+          * `--password`: Password.
           
           * `--ca-certificate`: Path to your TLS CA certificate file.
           
@@ -272,7 +272,7 @@ To change connection settings:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: User password.
+            * `password.raw`: Password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -469,7 +469,7 @@ To change connection settings:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: User password.
+            * `password.raw`: Password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.

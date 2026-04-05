@@ -1,1 +1,1 @@
-The `serverless.mcpGateways.anonymousInvoker` role enables accessing [MCP servers]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index#servers), including via MCP Hub.
+The `serverless.mcpGateways.anonymousInvoker` role allows the user to access [MCP servers]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers), including access via MCP Hub.

@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ mspqr-full-name }}
-description: Videos of conferences and webinars on {{ mspqr-full-name }}.
+description: Video recordings of conferences and webinars on {{ mspqr-full-name }}.
 ---
 
 # Public materials about {{ mspqr-full-name }}
@@ -25,6 +25,12 @@ description: Videos of conferences and webinars on {{ mspqr-full-name }}.
   * Click [here](https://habr.com/ru/companies/yandex/articles/968468/) to read the article.
 
 ## Conferences and webinars {#conf-and-webinars}
+
+### 2026 {#2026-conf-and-webinars}
+
+* Launching {{ mspqr-full-name }} in Public Preview.
+
+  * [Webinar video](https://www.youtube.com/watch?v=CJue0zzvbLA).
 
 ### 2024: Saint HighLoad++ {#highload-2024}
 

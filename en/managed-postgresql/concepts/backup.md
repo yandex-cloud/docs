@@ -42,7 +42,7 @@ All cluster data is automatically backed up every day. You cannot disable automa
 * [Retention time](#storage).
 * Time interval during which the backup starts. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
-After a backup is created, it is compressed for storage. The exact backup size is not displayed.
+Once created, a backup is compressed for storage. The exact backup size is not displayed.
 
 Backups are only created on running clusters. If you are not using your {{ mpg-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings). A cluster that has no backups cannot be [stopped](../operations/cluster-stop.md#stop-cluster).
 
@@ -61,6 +61,8 @@ Storing backups in {{ mpg-name }}:
 * The retention time for backups of an existing cluster depends on the way they were created:
 
     * Automatic backups are stored for 7 days by default. When [creating](../operations/cluster-create.md) or [reconfiguring](../operations/update.md#change-additional-settings) a cluster, you can specify a different retention period between 7 and 60 days.
+
+    * Automatic backups [created](../operations/backup-retention-policies.md) with backup policies can be stored from 7 to 1095 days (up to three years).
 
     * Manual backups are stored with no time limit.
 

@@ -6,7 +6,7 @@ description: In this article, you will learn about disk types in {{ mch-name }},
 # Storage in {{ mch-name }}
 
 
-{{ mch-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
+{{ mch-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
@@ -142,7 +142,7 @@ For more information about limits on the number of hosts per cluster, see [Quota
 In {{ mch-name }}, if your storage runs out of space, `INSERT` queries, background merges, and mutations are suspended. They will resume automatically after [you expand the storage](../operations/update.md#change-disk-size).
 
 
-To monitor storage utilization, [set up alerts in {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration).
+To monitor your storage utilization, [set up alerts in {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration).
 
 
 ### Automatic storage expansion {#autoscaling}
@@ -155,7 +155,7 @@ To prevent situations where the disk runs out of free space and insert queries, 
 
 You can use either one or both thresholds. If you set both, make sure the immediate expansion threshold is not lower than the scheduled one.
 
-For a scheduled expansion, you need to set up a [maintenance window](maintenance.md#maintenance-window) schedule.
+For a scheduled expansion, you need to [set up a maintenance window](../operations/cluster-maintenance.md#set-maintenance-window) schedule.
 
 {% include [storage-resize-steps](../../_includes/mdb/mch/storage-resize-steps.md) %}
 

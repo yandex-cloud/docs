@@ -103,7 +103,7 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
-          - name: '{{ foundation-models-full-name }}'
+          - name: '{{ ai-studio-full-name }}'
             href: operations/spec-constructor/yagpt.md
           - name: '{{ sw-full-name }}'
             href: operations/spec-constructor/workflows.md

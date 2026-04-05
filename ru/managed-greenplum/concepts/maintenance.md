@@ -32,6 +32,14 @@ description: Под техническим обслуживанием в {{ mgp-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-greenplum-maintenanceTask-viewer) `managed-greenplum.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-greenplum-maintenanceTask-editor) `managed-greenplum.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ### Порядок обслуживания {#maintenance-order}
 
 Техническое обслуживание, связанное с обновлением ПО, проводится в следующем порядке:

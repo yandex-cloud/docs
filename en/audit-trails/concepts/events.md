@@ -362,6 +362,12 @@ Module name: `securitydeck.cspm`.
 
 {% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
 
+### {{ alerts-name }} module {#sd-alerts}
+
+Module name: `securitydeck.alerts`.
+
+{% include [sd-alerts-events](../../_includes/audit-trails/events/sd-alerts-events.md) %}
+
 ### {{ sd-name }} workspaces {#sd-orchestrator}
 
 Module name: `securitydeck.orchestrator`.

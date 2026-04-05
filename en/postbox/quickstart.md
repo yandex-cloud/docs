@@ -28,15 +28,7 @@ Use this guide to create your address and send a verification email.
     1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
     1. Specify the **{{ ui-key.yacloud.postbox.label_address }}** from which you will be sending emails. You can use a domain of any level.
-    1. Specify **{{ ui-key.yacloud.postbox.label_selector }}**: `postbox`.
-
-        {% note info %}
-
-        You can specify a selector other than `postbox`. You should only use the specified selector in a single resource record: the one you create at the [Pass domain ownership verification](#verify-domain) step.
-
-        {% endnote %}
-
-    1. Copy the contents of the `privatekey.pem` file you [created earlier](#service-account-and-keys) and paste it into the **{{ ui-key.yacloud.postbox.label_private-key }}** field.
+    1. Under **{{ ui-key.yacloud.postbox.section_dkim }}**, select **{{ ui-key.yacloud.postbox.label_signing-type-internal }}**.
     1. Optionally, [configure logging](operations/logs-write.md).
     1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 

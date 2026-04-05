@@ -124,7 +124,13 @@ items:
       - name: Сокращатель ссылок
         href: tutorials/serverless-url-shortener.md
       - name: Загрузка аудитных логов в MaxPatrol SIEM
-        href: tutorials/maxpatrol.md
+        items:
+          - name: Обзор
+            href: tutorials/maxpatrol/index.md
+          - name: Консоль управления
+            href: tutorials/maxpatrol/console.md
+          - name: '{{ TF }}'
+            href: tutorials/maxpatrol/terraform.md
       - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
         href: tutorials/postbox-webhook.md
   - name: Концепции

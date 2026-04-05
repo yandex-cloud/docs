@@ -1,0 +1,3 @@
+The `managed-redis.maintenanceTask.editor` role enables viewing info on [maintenance](../../../managed-valkey/concepts/maintenance.md) tasks for Valkey™ clusters and modifying such tasks, as well as viewing info on Valkey™ [clusters](../../../managed-valkey/concepts/index.md) and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../managed-valkey/concepts/instance-types.md) and cluster [backups](../../../managed-valkey/concepts/backup.md), and on [quotas](../../../managed-valkey/concepts/limits.md#mrd-quotas) and resource operations for Yandex Managed Service for Valkey™.
+
+This role includes the `managed-redis.maintenanceTask.viewer` permissions.

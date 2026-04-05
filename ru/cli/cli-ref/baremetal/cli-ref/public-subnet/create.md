@@ -24,7 +24,25 @@ Name of the  public subnet. ||
 Specifies a textual description of the public subnet. ||
 || `--prefix-length` | `int`
 
-Specifies a prefix_length of the public subnet. ||
+Deprecated. Use --cidr-auto-allocation or --cidr-manual-allocation instead. ||
+|| `--cidr-auto-allocation` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Automatic CIDR allocation from the system public prefix pool.
+
+Possible property names:
+
+- `prefix-length`: Prefix length for automatic CIDR allocation (1-31). (required) ||
+|| `--cidr-manual-allocation` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Manual CIDR allocation with explicit CIDR from user's own public prefix pool (BYOIP).
+
+Possible property names:
+
+- `cidr`: CIDR block for manual allocation. (required)
+
+- `public-prefix-pool-id`: Public prefix pool ID.
+
+- `public-prefix-pool-name`: Public prefix pool name. ||
 || `--hardware-pool-id` | `value[,value]`
 
 Specifies one or several hardware pool ids. ||
@@ -49,6 +67,9 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

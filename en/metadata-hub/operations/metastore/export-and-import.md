@@ -20,7 +20,8 @@ For more information about connecting to the bucket with configured bucket polic
 
 - Management console {#console}
 
-   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder.
+   1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the cluster you need and select ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.metastore.action_export }}**.
    1. In the window that opens, specify the following:
@@ -53,7 +54,7 @@ For more information about connecting to the bucket with configured bucket polic
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -77,11 +78,11 @@ For more information about connecting to the bucket with configured bucket polic
 
          You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/Cluster/exportData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/Cluster/exportData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -112,7 +113,7 @@ For more information about connecting to the bucket with configured bucket polic
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/Cluster/exportData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/Cluster/exportData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -126,7 +127,8 @@ Before importing, [upload](../../../storage/operations/objects/upload.md#simple)
 
    To import data to a {{ metastore-name }} cluster:
 
-   1. Navigate to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder.
+   1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the cluster you need and select ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
    1. In the window that opens, select the bucket you [created earlier](#before-you-begin) and the file to import the cluster data from.
@@ -155,7 +157,7 @@ Before importing, [upload](../../../storage/operations/objects/upload.md#simple)
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -179,11 +181,11 @@ Before importing, [upload](../../../storage/operations/objects/upload.md#simple)
 
          You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/Cluster/importData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/Cluster/importData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -214,7 +216,7 @@ Before importing, [upload](../../../storage/operations/objects/upload.md#simple)
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/Cluster/importData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/Cluster/importData.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

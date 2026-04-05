@@ -19,7 +19,7 @@ items:
             href: operations/cluster-version-update.md
           - name: Working with {{ VLK }} models
             href: operations/modules.md
-          - name: Stopping and starting a cluster
+          - name: Stopping and restarting a cluster
             href: operations/cluster-stop.md
           - name: Managing cluster hosts
             href: operations/hosts.md
@@ -71,7 +71,7 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Cluster and host state monitoring
+          - name: Cluster, host, and shard state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:

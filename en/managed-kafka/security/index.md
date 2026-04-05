@@ -43,6 +43,10 @@ The chart below shows the roles existing in the service and their permission inh
 {% include [managed-kafka.viewer](../../_roles/managed-kafka/viewer.md) %}
 
 
+#### managed-kafka.user {#managed-kafka-user}
+
+{% include [managed-kafka.user](../../_roles/managed-kafka/user.md) %}
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../../_roles/managed-kafka/editor.md) %}
@@ -50,6 +54,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-kafka.admin {#managed-kafka-admin}
 
 {% include [managed-kafka.admin](../../_roles/managed-kafka/admin.md) %}
+
+#### managed-kafka.maintenanceTask.viewer {#managed-kafka-maintenanceTask-viewer}
+
+{% include [managed-kafka.maintenanceTask.viewer](../../_roles/managed-kafka/maintenanceTask/viewer.md) %}
+
+#### managed-kafka.maintenanceTask.editor {#managed-kafka-maintenanceTask-editor}
+
+{% include [managed-kafka.maintenanceTask.editor](../../_roles/managed-kafka/maintenanceTask/editor.md) %}
 
 #### managed-kafka.interfaceUser {#managed-kafka-interface-user}
 
@@ -67,6 +79,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

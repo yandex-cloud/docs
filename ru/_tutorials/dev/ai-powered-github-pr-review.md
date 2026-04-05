@@ -1,6 +1,6 @@
 
 
-В этом руководстве вы воспользуетесь возможностями [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ foundation-models-full-name }} для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
+В этом руководстве вы воспользуетесь возможностями [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
 
 Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в {{ yandex-cloud }} ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }}.
 
@@ -15,7 +15,7 @@
 1. Сценарий GitHub Actions с использованием полученного IAM-токена отправляет рабочему процессу {{ sw-full-name }} HTTP-запрос на формирование ревью. При этом в рабочий процесс {{ sw-name }} передается номер пул-реквеста.
 1. Рабочий процесс {{ sw-name }} получает в [секрете](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} [токен доступа](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) `personal access token (classic)` к репозиторию на GitHub.
 1. Рабочий процесс {{ sw-name }} с использованием токена доступа получает в репозитории на GitHub изменения, предлагаемые в пул-реквесте.
-1. Рабочий процесс {{ sw-name }} запрашивает у [модели]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ foundation-models-full-name }} формирование ревью изменений, предлагаемых в пул-реквесте. Модель возвращает сгенерированное ревью с комментариями и собственными предложениями по улучшению кода.
+1. Рабочий процесс {{ sw-name }} запрашивает у [модели]({{ link-docs-ai }}ai-studio/concepts/generation/models) {{ ai-studio-full-name }} формирование ревью изменений, предлагаемых в пул-реквесте. Модель возвращает сгенерированное ревью с комментариями и собственными предложениями по улучшению кода.
 1. Рабочий процесс {{ sw-name }} с использованием токена доступа публикует полученное ревью в пул-реквесте на GitHub.
 
 Чтобы настроить автоматическое ИИ-ревью пул-реквестов на GitHub:
@@ -41,7 +41,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для реализации сценария автоматического ИИ-ревью пул-реквестов входят:
-* плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
 * плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
 * плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md), если вы используете сервис [{{ cloud-logging-name }}](../../logging/) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
@@ -286,7 +286,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
     * `<имя_организации_на_GitHub>` — имя пользователя или организации — владельца репозитория на GitHub.
     * `<имя_репозитория>` — имя репозитория на GitHub.
     * `<идентификатор_секрета>` — сохраненный ранее идентификатор секрета {{ lockbox-name }}.
-    * `<имя_модели>` — [имя модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}. Например: `qwen3-235b-a22b-fp8`.
+    * `<имя_модели>` — [имя модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}. Например: `qwen3-235b-a22b-fp8`.
 
 1. Создайте рабочий процесс:
 

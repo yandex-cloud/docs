@@ -9,6 +9,14 @@ The certificate is configured when creating a resource. You can change it afterw
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
 
+## TLS profiles {#tls-profiles}
+
+{% include [tls-profiles-intro](../../_includes/cdn/tls-profiles-intro.md) %}
+
+{% include [tls-profiles-list](../../_includes/cdn/tls-profiles-list.md) %}
+
+You can do the setup via the API when [creating](../operations/resources/create-resource.md) or [updating](../operations/resources/configure-basics.md) a CDN resource. For more information, see [{#T}](../operations/resources/configure-tls-profile.md).
+
 
 ## Domain rights check {#domain-name-challenge}
 

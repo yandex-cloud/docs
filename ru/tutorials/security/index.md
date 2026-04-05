@@ -29,7 +29,7 @@ description: Различные сценарии использования по
 * [{#T}](distributed-secured-infrastructure.md)
 * [{#T}](different-folders-services.md)
 * [{#T}](alerts-monitoring.md)
-* [{#T}](maxpatrol.md)
+* [{#T}](maxpatrol/index.md)
 * [{#T}](export-logs-to-splunk.md)
 * [{#T}](export-logs-to-arcsight.md)
 * [{#T}](mgp-to-cloud-logging.md)

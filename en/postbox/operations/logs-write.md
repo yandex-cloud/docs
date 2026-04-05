@@ -17,8 +17,8 @@ You can set up logging when or after [creating](create-address.md) an address. T
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Select the address for which you want to configure logging.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.  
+    1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
     1. In the **{{ ui-key.yacloud.logging.label_destination }}** field, select:
-        * `{{ ui-key.yacloud.common.unspecified }}`: To disable logging.
         * `{{ ui-key.yacloud.common.folder }}`: To write logs to the default [log group](../../logging/concepts/log-group.md) for the folder where the address is located.
         * `{{ ui-key.yacloud.logging.label_loggroup }}`: To write logs to a custom log group. In the **{{ ui-key.yacloud.logging.label_loggroup }}** field, select the log group to write the logs to. If you do not have a log group, [create one](../../logging/operations/create-group.md).
     1. Optionally, to write logs for the emails switching from one status to another, enable **{{ ui-key.yacloud.postbox.label_mail-statuses }}**.

@@ -24,8 +24,8 @@ To create a VM:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-  1. In the list of services, select **{{ compute-short-name }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **VMs**.
   1. Click **Create VM**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `OpenCart` and select a public [OpenCart](/marketplace/products/yc/opencart-3) image.
@@ -60,7 +60,7 @@ To create a VM:
         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the preferred login for the user you will create on the VM, e.g., `ubuntu`.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter the VM name, e.g., `opencart`. Follow these naming requirements:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter the VM name, e.g., `opencart`. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -83,7 +83,7 @@ To create a DB cluster:
 
 - Management console
 
-  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ MY }} cluster**.
+  1. On the folder page in the [management console]({{ link-console-main }}), click ![plus](../../_assets/console-icons/plus.svg) **Create resource** and select **{{ MY }} cluster**.
   1. Specify a name for the cluster, e.g., `opencart`.
   1. Under **Host class**, select `s2.micro`. This configuration is sufficient for the system to run under a normal workload.
   1. Under **Database**, enter:
@@ -118,6 +118,6 @@ To stop paying for the resources you created:
 1. If you used a {{ MY }} database, [delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md). In this example, we created a DB cluster named `opencart`.
 
 If you reserved a static public IP address specifically for this VM:
-1. In your folder, select **{{ vpc-short-name }}**.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
 1. Navigate to the **IP addresses** tab.
 1. Find the required IP address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg), and select **Delete**.

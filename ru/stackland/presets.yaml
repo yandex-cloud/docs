@@ -6,6 +6,7 @@ default:
   lang: ru
   audience: external
   product: yandex-cloud
+  yandex-cloud: Yandex Cloud
   iam-full-name: Yandex Identity and Access Management
   objstorage-full-name: Yandex Object Storage
   mpg-full-name: Yandex Managed Service for PostgreSQL
@@ -33,11 +34,8 @@ default:
   iam-name: Identity and Access Management
   objstorage-name: Object Storage
   mpg-name: Managed Service for PostgreSQL
-  stackland-mpg-name: Managed Service for PostgreSQL
   mch-name: Managed Service for ClickHouse®
-  stackland-mch-name: Managed Service for ClickHouse®
   mkf-name: Managed Service for Apache Kafka®
-  stackland-mkf-name: Managed Service for Apache Kafka®
   maf-name: Managed Service for Apache Airflow™
   mtr-name: Managed Service for Trino
   monitoring-name: Monitoring

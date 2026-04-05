@@ -69,11 +69,11 @@ Actions for Smart Protection and Web Application Firewall rules:
 
 Actions for Advanced Rate Limiter rules:
 
-* _Block requests when exceeding the limit_: Requests above the specified limit over a period of time will be blocked until the limit period expires. The requesting client will get error `429`.
+* _Block requests in excess of the limit_. Requests above the specified limit over a period of time will be blocked until the limit period expires. The requesting client will get error `429`.
 
-* _Temporarily block all requests_: Requests above the specified limit over a period of time will be blocked for a fixed period of time, rather than until the end of the limit period. The requesting client will get error `429`. You can block requests for the period from 1 second to 24 hours.
+* _Temporarily block all requests_. Requests above the specified limit over a period of time will be blocked for a fixed period of time, rather than until the end of the limit period. The requesting client will get error `429`. You can block requests for a period from 1 second to 24 hours.
 
-* _Send over-limit requests for CAPTCHA verification_: Requests above the specified limit over a period of time will be sent to {{ captcha-name }}. 
+* _Send requests in excess of the limit to captcha_. Requests above the specified limit over a period of time will be sent to {{ captcha-name }}. 
 
     Requests exceeding the limit will be sent to CAPTCHA. You can configure CAPTCHA in the security profile to which the ARL profile is connected. This helps differentiate legitimate users from bots, ensuring that requests are not fully blocked and the application remains available.
 
@@ -86,3 +86,32 @@ Actions for Advanced Rate Limiter rules:
 To standardize client response pages for triggered rules, you can create your own [response templates](response-templates.md).
 
 The requests that were allowed by all rules and let through to the protected resource are called _legitimate_.
+
+## General principles of the rules {#rules-order}
+
+* All rules of a profile are triggered simultaneously; a single request may have several rules associated with it. The request's final action is determined by the highest-priority rule.
+* Assign higher priority to:
+     * Rules that allow requests.
+     * Rules with filtering based on specific parameters.
+
+  Otherwise, general rules with broader conditions may be applied to the request.
+* If you are using a WAF rule for a traffic slice, a separate Smart Protection rule against DDoS attacks is not required for that same slice, as it is already included in the WAF rule. Therefore, WAF rules have full protection and API protection modes.
+* In API protection mode, requests are not sent to {{ captcha-name }}. Use this mode for automated traffic, mobile applications, and requests with dynamic content loading, e.g., `ajax`, `xhr`, and `iframe`.
+* ARL profile rules apply after the security profile and may block some legitimate requests. Therefore, if you have configured allowing rules in the security profile, duplicate them in the ARL profile.
+* In `Logging only` mode, traffic handling is not affected by the rules; instead of them, the next lower priority rule in regular operation mode applies.
+
+### Security profile {#security-profile-rules-order}
+
+{% include [waf-priority-rules](../../_includes/smartwebsecurity/waf-priority-rules.md) %}
+
+### ARL profile {#arl-profile-rules-order}
+
+ARL profile rules are applied to traffic that has already been validated by security profile rules. The ARL profile has its own priority system, independent of how the security profile rules are prioritized. The lower the number, the higher the ARL rule priority. The sequence in which the rules will apply is provided in the table below.
+
+Priority | Rule name | Action | Rule description
+--- | --- | --- | ---
+1000 | arl-rule-1 | Block requests in excess of the limit | Limits general load on resource
+2000 | arl-rule-2 | Temporarily block all requests | Protects against bots, parsers, brute-force attacks, spam
+3000 | arl-rule-3 | Send requests in excess of limit to captcha | Limits requests to the API
+
+You can configure ARL rules with any priority values. In `Logging only` mode, ARL rules do not block requests but log over-limit events.

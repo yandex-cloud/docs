@@ -49,7 +49,6 @@ You are charged for disks whether the desktops are running or not.
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|cloud_desktop }}']}
-    excludeSkuIds={['{{ pc|cloud_desktop.image.v1 }}']}
     installationCode="ru"
     currency="USD"
   />

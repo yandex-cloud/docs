@@ -1,6 +1,6 @@
 # Создание внешней таблицы на базе таблицы из бакета {{ objstorage-full-name }} с помощью конфигурационного файла
 
-При [создании внешней таблицы](../../../managed-greenplum/operations/pxf/create-table.md) из таблицы, расположенной в бакете {{ objstorage-full-name }}, необходимо передать в запросе [статический ключ доступа](../../../iam/concepts/authorization/access-key.md) для сервисного аккаунта. Это можно сделать с помощью [протокола S3]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) и конфигурационного файла, хранящегося на HTTP-сервере.
+При [создании внешней таблицы](../../../managed-greenplum/operations/pxf/create-table.md) из таблицы, расположенной в бакете {{ objstorage-full-name }}, необходимо передать в запросе [статический ключ доступа](../../../iam/concepts/authorization/access-key.md) статический ключ доступа для сервисного аккаунта. Это можно сделать с помощью [протокола S3]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) и конфигурационного файла, хранящегося на HTTP-сервере.
 
 Чтобы создать внешнюю таблицу с помощью конфигурационного файла:
 
@@ -34,8 +34,6 @@
     
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
-
-    
     1. [Создайте виртуальную машину с Linux](../../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ GP }}.
 
 
@@ -47,6 +45,7 @@
 
     
     1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
+
 
 
 - {{ TF }} {#tf}
@@ -105,9 +104,8 @@
         terraform output -raw secret_key >> static-key.txt
         ```
 
-        Команда сохраняет в файл `static-key.txt` идентификатор статического ключа и статический ключ, они потребуются далее.
+        Команда сохраняет в файл `static-key.txt` идентификатор статического ключа и статический ключ, они потребуются далее.    
 
-    
     1. Перейдите в [консоль управления]({{ link-console-main }}) и [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для подсети, в которой расположен кластер.
 
 
@@ -231,8 +229,10 @@
     1. [Удалите облачную сеть](../../../vpc/operations/network-delete.md).
 
 
+
 - {{ TF }} {#tf}
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
 
 {% endlist %}

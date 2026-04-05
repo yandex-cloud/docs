@@ -70,13 +70,13 @@ The support cost for this solution includes:
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -85,9 +85,11 @@ The support cost for this solution includes:
 
    {% endlist %}
 
+   {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md) for the Gateway API.
+1. [Create a service account](../../iam/operations/sa/create.md) for Gateway API.
 1. [Assign it the following roles](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
@@ -502,13 +504,11 @@ To test the Gateway API, we will build two applications, `tutum/hello-world` and
    yc application-load-balancer load-balancer list
    ```
 
-   {% note info %}
-
    It may take several minutes to create the load balancer.
 
-   {% endnote %}
+   {% include [note-alb](../../_includes/managed-kubernetes/note-alb.md) %}
 
-## Test the Gateway API {#check-apps}
+## Test Gateway API {#check-apps}
 
 To test the Gateway API, open these links in your browser:
 * `app.prod.<domain_zone>`.

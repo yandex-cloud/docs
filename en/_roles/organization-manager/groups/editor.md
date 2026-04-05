@@ -6,3 +6,5 @@ Users with this role can:
 * View info on [user groups](../../../organization/concepts/groups.md), as well as create, modify, and delete them.
 * View the list of [users](../../../organization/concepts/groups.md) and [service accounts](../../../organization/concepts/groups.md) belonging to user groups.
 * View info on [access permissions](../../../iam/concepts/access-control/index.md) granted for user groups.
+
+This role includes the `organization-manager.groups.viewer` permissions.

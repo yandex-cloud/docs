@@ -43,7 +43,7 @@ For service accounts, {{ oslogin }} profiles are not created automatically. To c
 
 {% endnote %}
 
-A single user or service account in a {{ org-name }} can have multiple {{ oslogin }} profiles: different profiles allow you to connect to VMs as different local users of those VMs. To learn more about creating additional {{ oslogin }} profiles, see [{#T}](../operations/os-login-profile-create.md).
+A single user or service account in a {{ org-full-name }} can have multiple {{ oslogin }} profiles: different profiles allow you to connect to VMs as different local users of those VMs. To learn more about creating additional {{ oslogin }} profiles, see [{#T}](../operations/os-login-profile-create.md).
 
 Each {{ oslogin }} profile is assigned a numeric UID, which matches the user's [UID](https://en.wikipedia.org/wiki/User_identifier) in the VM operating systems. The {{ oslogin }} profile UID must be unique within both the [organization](./organization.md) and the VM OS.
 

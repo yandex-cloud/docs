@@ -39,7 +39,7 @@ Create a service account in the same folder where you are going to create the tr
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Specify the service account name: `maxpatrol-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -108,7 +108,7 @@ Assign the `audit-trails.viewer` and `yds.editor` roles to the `maxpatrol-sa` se
 
       Where:
 
-      * `--role`: Role being assigned.
+      * `--role`: Role to assign.
       * `--subject`: `maxpatrol-sa` service account ID.
 
       Result:
@@ -131,7 +131,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select `maxpatrol-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -165,7 +165,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
   {% note alert %}
 
-  Save `key_id` and `secret`. You will not be able to get the key value again.
+  Save the `key_id` and `secret` values. You will not be able to get the key value again.
 
   {% endnote %}
 
@@ -186,7 +186,7 @@ The database is required for the stream in `{{ yds-name }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_ydb }}**.
   1. Specify **{{ ui-key.yacloud.ydb.forms.label_field_name }}**: `maxpatrol-db`.
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
-  1. Keep the default values for all other parameters.
+  1. Leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
   Wait for the database status to change to `Running`.
@@ -241,7 +241,7 @@ The trail will upload organization resource logs to this data stream.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, select `maxpatrol-db`.
   1. Specify the **{{ ui-key.yacloud.common.name }}**: `maxpatrol-stream`.
-  1. Keep the default values for all other parameters.
+  1. Leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   Wait for the data stream status to change to `Running`.

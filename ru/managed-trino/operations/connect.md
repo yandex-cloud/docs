@@ -21,6 +21,7 @@ keywords:
 
 {% include [trino-cli-connect](../../_includes/managed-trino/trino-cli-connect.md) %}
 
+
 ## Подключение из графических IDE {#connection-ide}
 
 Перед подключением:

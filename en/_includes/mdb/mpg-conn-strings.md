@@ -8,7 +8,7 @@ If your cluster uses a <q>1C:Enterprise</q>-optimized {{ PG }} version, specify 
 * **Database name**: `<DB_name>`.
 * **Database user**: `<username>`.
 * **User password**: `<password>`.
-* **Create database if none present**: Disabled.
+* **Create a database if none exists**: Disabled.
 
 ## C++ (userver framework) {#cpp-userver}
 

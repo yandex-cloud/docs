@@ -1,0 +1,3 @@
+The `managed-mysql.maintenanceTask.viewer` role enables viewing info on [MySQL® clusters](../../../managed-mysql/concepts/index.md), their [maintenance](../../../managed-mysql/concepts/maintenance.md) tasks, and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../managed-mysql/concepts/instance-types.md) and cluster [backups](../../../managed-mysql/concepts/backup.md), and on [quotas](../../../managed-mysql/concepts/limits.md#mmy-quotas) and resource operations for Managed Service for MySQL®.
+
+This role includes the `managed-mysql.auditor` permissions.

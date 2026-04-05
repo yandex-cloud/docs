@@ -1,0 +1,3 @@
+The `managed-greenplum.maintenanceTask.viewer` role enables viewing info on [Greenplum® clusters](../../../managed-greenplum/concepts/index.md), their [maintenance](../../../managed-greenplum/concepts/maintenance.md) tasks, and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../managed-greenplum/concepts/instance-types.md) and cluster [backups](../../../managed-greenplum/concepts/backup.md), and on [quotas](../../../managed-greenplum/concepts/limits.md#quotas) and resource operations for Yandex MPP Analytics for PostgreSQL.
+
+This role includes the `managed-greenplum.auditor` permissions.

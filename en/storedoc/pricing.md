@@ -12,7 +12,7 @@ editable: false
 
 
 
-In this section, you can find the {{ mmg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+This section describes the {{ mmg-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% note tip %}
 
@@ -44,39 +44,39 @@ The {{ mmg-name }} usage cost includes:
 
 ### Database host usage {#rules-hosts-uptime}
 
-The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+You are charged for each hour of host uptime, based on its allocated computing resources. Supported resource configurations are listed in the [Host classes](concepts/instance-types.md) section. For vCPU and RAM prices, see [Pricing](#prices).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ SD }} host is unavailable for basic operations.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You will not be charged for the time when the {{ SD }} host is unavailable for basic operations.
 
-### Disk space usage {#rules-storage}
+### Disk usage {#rules-storage}
 
-You pay for the following:
+You are billed for the following:
 
 * Storage allocated for database clusters.
 
-    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more hosts, in increments of 93 GB.
+    * You can order non-replicated SSD storage (`network-ssd-nonreplicated`) only for clusters with three or more hosts, and it must be allocated in 93 GB increments.
 
-    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-        * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
-        * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
+    * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
+        * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
+        * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
 
-    For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
+    For details on platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
-* Amount of storage used by database backups that exceeds the allocated cluster storage.
+* Database backup storage exceeding the cluster’s allocated space.
 
-    * Backups are stored free of charge as long as the combined size of the database and all its backups is smaller than the selected storage size.
+    * You are not charged for storing backups as long as the combined size of the database and all its backups remains below the selected storage quota.
 
-    * When performing automatic backups, {{ mmg-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
+    * During automatic backups, {{ mmg-short-name }} does not create a full copy; instead, it saves the changes made to the database since the previous backup. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
 
-    * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
+    * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The price covers one month of use, based on 720 hours per month.  The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 
-* **{{ SD }}** hosts: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ SD }} hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
 
 Cost calculation for {{ SD }} hosts:
@@ -86,7 +86,7 @@ Cost calculation for {{ SD }} hosts:
 {% include [usd-mongodb-host](../_pricing_examples/storedoc/usd-host.md) %}
 
 
-Calculation for the storage cost and total cost:
+Storage and total cost calculation:
 
 
 
@@ -100,9 +100,9 @@ Calculation for the storage cost and total cost:
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-The prices for computing resources are the same for all types of hosts: `mongod`, `mongos`, and `mongocfg`.
+Prices for computing resources are the same for all host types: `mongod`, `mongos`, and `mongocfg`.
 
-Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
+Access to ultra-high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 
 

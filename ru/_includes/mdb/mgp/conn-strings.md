@@ -325,7 +325,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL  = "jdbc:postgresql://<FQDN_первичного_хоста-мастера>:{{ port-mgp }},<FQDN_резервного_хоста-мастера>:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER = "<имя_пользователя>";
           String DB_PASS = "<пароль_пользователя>";
 
@@ -366,7 +366,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL  = "jdbc:postgresql://<FQDN_первичного_хоста-мастера>:{{ port-mgp }},<FQDN_резервного_хоста-мастера>:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER = "<имя_пользователя>";
           String DB_PASS = "<пароль_пользователя>";
 

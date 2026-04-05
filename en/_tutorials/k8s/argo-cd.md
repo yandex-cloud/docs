@@ -85,13 +85,13 @@ The support cost for this solution includes:
      * {{ managed-k8s-name }} cluster CIDR.
      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
      * Name of the {{ container-registry-name }}.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
      terraform validate
      ```
 
-     {{ TF }} will show any errors found in your configuration files.
+     {{ TF }} will display any configuration errors detected in your files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -99,6 +99,8 @@ The support cost for this solution includes:
      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
+
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
 ### Install additional dependencies {#prepare}
 
@@ -129,7 +131,7 @@ Install the following tools in the local environment:
    ```
 
 1. Create [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
-   1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
+   1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the pop-up list.
    1. Click **Expand** next to **Variables**.
    1. Add these environment variables:
       * `CI_REGISTRY`: Address of the previously created registry in `{{ registry }}/<registry_ID>` format.

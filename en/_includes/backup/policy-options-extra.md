@@ -16,6 +16,20 @@
 
     {% endnote %}
 
+* Optionally, under **{{ ui-key.yacloud.backup.PolicyForm.PrePostDataCommandCardBlock.field_pre-post-data-command_mmRTZ }}**, set the actions {{ backup-name }} will perform before and after the data capture (taking the snapshot). To do this, enable **{{ ui-key.yacloud.backup.PolicyForm.PrePostDataCommandCardBlock.field_pre-data-command-enabled_sZ45C }}** and/or **{{ ui-key.yacloud.backup.PolicyForm.PrePostDataCommandCardBlock.field_post-data-command-enabled_rXvwj }}**, and specify the following settings:
+
+    * **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-cmd }}**: Command or path to the executable file that needs to be executed (run), e.g., `/usr/bin/pg_start_backup.sh`.
+    * **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-workdir }}**: Working directory to execute the command (run the file) in, e.g., `/var/lib/postgresql/`.
+    * **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-args }}**: Command line parameters that will be applied when executing the command (running the file), e.g., `--flush-all`.
+    * Enable **{{ ui-key.yacloud.backup.policy-form.field_pre-post-commands-stop-on-error }}** to stop the backup if there is a command execution (file running) error.
+
+    {% note info %}
+
+    Commands run as close to the snapshot time as possible, i.e., immediately before or after the data capture.
+    You can add no more than one command of each type per policy.
+
+    {% endnote %}
+
 * Optionally, under **{{ ui-key.yacloud.backup.policy-form.field_action-on-task-failure }}**, specify the backup settings in the event of failure:
 
     * **{{ ui-key.yacloud.backup.policy-form.field_attempts-qty }}**: Maximum number of retry attempts. If reached, the operation is considered failed. Attempts will stop as soon as the operation succeeds or when the specified number of attempts is reached, whichever comes earlier.

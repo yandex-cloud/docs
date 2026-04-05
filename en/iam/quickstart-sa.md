@@ -4,6 +4,8 @@ In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/serv
 
 This guide is intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](./roles-reference.md#admin) role for a cloud or folder. Users with the [`editor`](./roles-reference.md#editor) role can also create service accounts, but they cannot assign roles, so they cannot allow a service account to perform operations in {{ yandex-cloud }}.
 
+{% include [access-control-sa-general-notice](../_includes/iam/access-control-sa-general-notice.md) %}
+
 Checking for required roles is described in the [Getting started](#before-you-begin) section.
 
 You will learn how to:

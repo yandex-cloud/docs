@@ -1,0 +1,3 @@
+The `managed-mongodb.maintenanceTask.editor` role enables viewing info on [maintenance](../../../storedoc/concepts/maintenance.md) tasks for Yandex StoreDoc clusters and modifying such tasks, as well as viewing info on [Yandex StoreDoc clusters](../../../storedoc/concepts/index.md) and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../storedoc/concepts/instance-types.md) and cluster [backups](../../../storedoc/concepts/backup.md), and on [quotas](../../../storedoc/concepts/limits.md#mmg-quotas) and resource operations.
+
+This role includes the `managed-mongodb.maintenanceTask.viewer` permissions.

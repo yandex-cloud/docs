@@ -170,7 +170,7 @@ description: Следуя данной инструкции, вы сможете
             * `NEXT_AVAILABLE_WINDOW` — ближайшее доступное окно;
             * `SPECIFIC_TIME` — конкретная дата и время.
 
-        * `delayedUntil` — временная метка в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). Например, `2006-01-02T15:04:05Z`.
+        * `delayed_until` — временная метка в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). Например, `2006-01-02T15:04:05Z`.
 
             Параметр не используется с типом переноса `NEXT_AVAILABLE_WINDOW`.
 

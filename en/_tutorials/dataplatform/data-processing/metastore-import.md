@@ -180,7 +180,8 @@ Set up your infrastructure:
 
 In the `dataproc-source` cluster, create a test table named `countries`:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Open the `dataproc-source` cluster page.
 1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
@@ -303,7 +304,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. [Delete the objects](../../../storage/operations/objects/delete.md) from the bucket.
-1. Delete other resources depending on how they were created:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

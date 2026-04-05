@@ -2,8 +2,6 @@ title: Документация {{ yandex-cloud }}
 items:
   - name: Все разделы
     href: index.yaml
-  - name: AI Studio index
-    href: index-ai.yaml
   - name: API {{ yandex-cloud }}
     href: api-design-guide/index.yaml
   - name: API Gateway

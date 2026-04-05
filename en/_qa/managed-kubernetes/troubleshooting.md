@@ -294,17 +294,17 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 
 You can provide internet access to your {{ managed-k8s-name }} cluster nodes in several ways:
 * Set up a [NAT gateway](../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../vpc/tutorials/nat-instance/index.md). With [static routing](../../vpc/concepts/routing.md) in place, traffic will go through a gateway or a separate NAT instance.
-* [Assign a public IP address to your {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-update.md#update-settings).
+* [Assign a public IP addresses to your {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-update.md#node-internet-access).
 
 {% note info %}
 
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see [our {{ vpc-full-name }} article](../../vpc/concepts/routing.md#internet-routes).
+If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [our {{ vpc-full-name }} article](../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
 #### Why cannot I choose Docker as the container runtime? {#docker-runtime}
 
-Clusters running {{ k8s }} 1.24 or higher do not support the Docker container runtime. [Containerd](https://containerd.io/) is the only available runtime.
+Clusters running {{ k8s }} 1.24 or higher do not support the Docker container runtime. [containerd](https://containerd.io/) is the only available runtime.
 
 #### Error connecting a {{ GL }} repository to Argo CD {#argo-cd}
 
@@ -316,7 +316,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 This error occurs if access to {{ GL }} over HTTP(S) is disabled.
 
-**Solution**: Enable HTTP(S) access. To do this:
+**Solution**: Enable HTTP(S) access. Proceed as follows:
 
   1. In {{ GL }}, in the left-hand panel, select **Admin → Settings → General**.
   1. Under **Visibility and access controls**, find the **Enabled Git access protocols** setting.
@@ -338,7 +338,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
 {{ managed-k8s-name }} cluster time may not match the time of other resources, such as VMs, if they use different time synchronization sources. For example, a {{ managed-k8s-name }} cluster synchronizes with a time server (by default), whereas a VM synchronizes with a private or public NTP server.
 
-**Solution**: Set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server. To do this:
+**Solution**: Set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server. Proceed as follows:
 
 1. Specify the NTP server addresses in the [DHCP settings](../../vpc/concepts/dhcp-options.md) of the master subnets.
 

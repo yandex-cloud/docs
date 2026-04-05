@@ -10,11 +10,11 @@ description: Follow this guide to sync {{ org-full-name }} users and groups with
 
 If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) for user management and you want your users to be able to access {{ yandex-cloud }}, you do not need to create {{ yandex-cloud }} accounts for your users manually. Instead, you can [sync](../concepts/ad-sync.md) users and groups created in your {{ microsoft-idp.ad-short }} folder with {{ org-full-name }}.
 
-## Prepare {{ org-name }} for synchronization {#prepare-org}
+## Prepare {{ org-full-name }} for synchronization {#prepare-org}
 
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) to it.
-1. [Create](./user-pools/create-userpool.md) a user pool in {{ org-name }} and [associate](./user-pools/add-domain.md#userpool) with it a [domain](../concepts/domains.md) identical to the one used in the {{ microsoft-idp.ad-short }} [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)).
+1. [Create](./user-pools/create-userpool.md) a user pool in {{ org-full-name }} and [associate](./user-pools/add-domain.md#userpool) with it a [domain](../concepts/domains.md) identical to the one used in the {{ microsoft-idp.ad-short }} [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)).
 
     Associating your own domain with a [user pool](../concepts/user-pools.md) is optional. You can choose to associate another domain or the default one instead. In which case you will have to set up domain replacement in the `replacement_domain` parameter when configuring the [synchronization agent](../concepts/ad-sync.md#sync-agent). For more information, see [{#T}](../concepts/ad-sync.md#agent-config).
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) to it the following roles for the [organization](../concepts/organization.md) the user pool is in:

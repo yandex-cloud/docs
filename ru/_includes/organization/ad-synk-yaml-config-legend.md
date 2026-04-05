@@ -1,12 +1,6 @@
 Где:
 
 * `userpool_id` — идентификатор [пула пользователей](../../organization/concepts/user-pools.md) в {{ org-full-name }}.
-* `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в {{ yandex-cloud }}. Например:
-
-    * `/etc/yc-identityhub-sync-agent/authorized_key.json` (для Linux);
-    * `C:\\ProgramData\\YcIdentityHubSyncAgent\\authorized_key.json` (для Windows).
-
-    В параметре `cloud_credentials_file_path` вместо полного пути вы можете передать только имя файла. В этом случае файл будет сохранен в рабочей директории, заданной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
 * `replication_tokens_path` — путь к директории, в которой сохраняются токены с информацией о текущем прогрессе процессов [полной синхронизации](../../organization/concepts/ad-sync.md#full-sync). Необязательный параметр.
 
     Если параметр не задан, токены сохраняются в рабочей директории агента, указанной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
@@ -17,12 +11,29 @@
     * `/etc/yc-identityhub-sync-agent/` (для Linux);
     * `C:\\ProgramData\\YcIdentityHubSyncAgent\\` (для Windows).
 
+* `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в {{ yandex-cloud }}. Необязательный параметр: используется только при аутентификации агента в API {{ yandex-cloud }} с помощью авторизованного ключа.
+
+    Примеры значений:
+
+    * `/etc/yc-identityhub-sync-agent/authorized_key.json` (для Linux);
+    * `C:\\ProgramData\\YcIdentityHubSyncAgent\\authorized_key.json` (для Windows).
+
+    В параметре `cloud_credentials_file_path` вместо полного пути вы можете передать только имя файла. В этом случае файл будет сохранен в рабочей директории, заданной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
+
     {% note info %}
 
     Если в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename` заданы пути, отличные от пути, заданного в параметре `working_directory`, для выбранных сущностей будут использоваться пути, указанные в параметрах `cloud_credentials_file_path`, `replication_tokens_path` и/или `logger.file.filename`.
 
     {% endnote %}
 
+* `use_metadata_service` — параметр, управляющий аутентификацией агента в API {{ yandex-cloud }} с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и позволяющий агенту получать IAM-токены через [сервис метаданных](../../compute/concepts/vm-metadata.md) ВМ.
+
+    Возможные значения:
+
+    * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API {{ yandex-cloud }}. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
+
+        Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине {{ compute-full-name }}, к которой подключен сервисный аккаунт с [необходимыми](../../organization/concepts/ad-sync.md#yc-setup) правами доступа.
+    * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API {{ yandex-cloud }} будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
 * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне {{ microsoft-idp.ad-short }} [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
 * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне {{ microsoft-idp.ad-short }}:
 

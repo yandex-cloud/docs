@@ -209,7 +209,7 @@ items:
             href: operations/revoke-role.md
       - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
         href: operations/sync-ad.md
-      - name: Billing management in {{ org-name }}
+      - name: Billing management in {{ org-full-name }}
         href: operations/manage-billing.md
   - name: Tutorials
     items:
@@ -271,6 +271,14 @@ items:
             href: tutorials/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
             href: tutorials/single-sign-on/saml-ovpn.md
+          - name: MWS
+            href: tutorials/single-sign-on/oidc-mws.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
@@ -652,10 +660,14 @@ items:
             href: cli-ref/mfa-enforcement/list.md
           - name: list-audience
             href: cli-ref/mfa-enforcement/list-audience.md
+          - name: list-excluded-audience
+            href: cli-ref/mfa-enforcement/list-excluded-audience.md
           - name: update
             href: cli-ref/mfa-enforcement/update.md
           - name: update-audience
             href: cli-ref/mfa-enforcement/update-audience.md
+          - name: update-excluded-audience
+            href: cli-ref/mfa-enforcement/update-excluded-audience.md
       - name: organization
         items:
           - name: Overview
@@ -820,6 +832,10 @@ items:
                 href: api-ref/grpc/MfaEnforcement/updateAudience.md
               - name: ListAudience
                 href: api-ref/grpc/MfaEnforcement/listAudience.md
+              - name: UpdateExcludedAudience
+                href: api-ref/grpc/MfaEnforcement/updateExcludedAudience.md
+              - name: ListExcludedAudience
+                href: api-ref/grpc/MfaEnforcement/listExcludedAudience.md
           - name: Operation
             items:
               - name: Overview
@@ -1277,6 +1293,10 @@ items:
                 href: api-ref/MfaEnforcement/updateAudience.md
               - name: ListAudience
                 href: api-ref/MfaEnforcement/listAudience.md
+              - name: UpdateExcludedAudience
+                href: api-ref/MfaEnforcement/updateExcludedAudience.md
+              - name: ListExcludedAudience
+                href: api-ref/MfaEnforcement/listExcludedAudience.md
           - name: Operation
             items:
               - name: Overview

@@ -46,6 +46,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
+#### managed-clickhouse.user {#managed-clickhouse-user}
+
+{% include [managed-clickhouse.user](../_roles/managed-clickhouse/user.md) %}
+
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
 {% include [managed-clickhouse.editor](../_roles/managed-clickhouse/editor.md) %}
@@ -53,6 +57,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-clickhouse.admin {#managed-clickhouse-admin}
 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
+
+#### managed-clickhouse.maintenanceTask.viewer {#managed-clickhouse-maintenanceTask-viewer}
+
+{% include [managed-clickhouse.maintenanceTask.viewer](../_roles/managed-clickhouse/maintenanceTask/viewer.md) %}
+
+#### managed-clickhouse.maintenanceTask.editor {#managed-clickhouse-maintenanceTask-editor}
+
+{% include [managed-clickhouse.maintenanceTask.editor](../_roles/managed-clickhouse/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -69,6 +81,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../_roles/mdb/restorer.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

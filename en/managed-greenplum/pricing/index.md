@@ -61,7 +61,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 
 
-You can find the supported resource configurations in the [Host classes](../concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+Supported resource configurations are listed in the [Host classes](../concepts/instance-types.md) section. For vCPU and RAM prices, see [Pricing](#prices).
 
 The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ GP }} host is unavailable for basic operations.
 
@@ -91,11 +91,11 @@ You pay for the following:
 
   * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 
 * **Standard hosts**: Three `s3-c8-m32` hosts, Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
@@ -114,7 +114,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
 
-{{ mgp-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mgp-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

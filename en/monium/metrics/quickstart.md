@@ -2,20 +2,20 @@
 
 {{ monium-name }} allows you to work with the metrics of {{ yandex-cloud }} services as well as any other metrics uploaded to {{ monium-name }}, e.g., from your applications, infrastructure, or other clouds.
 
-This guide will help you create a dashboard and widgets showing the status of your {{ yandex-cloud }} resources.
+Follow this guide to create a dashboard and widgets displaying the state of your {{ yandex-cloud }} resources.
 
 {% note info %}
 
 The {{ yandex-cloud }} resource metrics are sent to {{ monium-name }} automatically. Many services also provide dashboards with ready-made widgets showing the status of your cloud resources.
 
-If you have no resources to test {{ monium-name }} on, create a [VM](../../compute/operations/vm-create/create-linux-vm.md).
+If you do not have any resources to test {{ monium-name }}, create a [VM](../../compute/operations/vm-create/create-linux-vm.md).
 
 {% endnote %}
 
 ## Create a new dashboard {#create-dashboard}
 
 1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **Dashboards** on the left.
-1. In the top-left corner, select the project of the folder containing the resource you need.
+1. In the top-left corner, select the folder project containing the resource in question.
 1. At the top right, click **Create**.
 1. At the top right, click ![image](../../_assets/console-icons/plus.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
 1. In the text field that appears, specify `Cross-service dashboard`.
@@ -44,8 +44,8 @@ If you have no resources to test {{ monium-name }} on, create a [VM](../../compu
 ## Add a section widget {#add-section}
 
 1. Click ![image](../../_assets/console-icons/plus.svg) and select **Section**.
-1. Drag the title and chart to the new section.
-1. Next to the section name, click the settings and enter the section title, e.g., `Virtual machines`.
+1. Drag the title and chart to the section you created.
+1. Next to the section name, click the settings and enter a section title, e.g., `Virtual machines`.
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. 
 
 ## Save the new dashboard {#save-dashboard}

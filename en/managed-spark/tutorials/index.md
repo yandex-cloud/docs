@@ -11,4 +11,5 @@ description: Various {{ msp-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](metastore-and-spark.md)
 * [{#T}](spark-simple-rw-job.md)
 * [{#T}](airflow-spark-min.md)
+* [{#T}](job-pyspark-secret-access.md)
 * [{#T}](airflow-automation.md)

@@ -63,7 +63,7 @@ To create an autoscaling {{ managed-k8s-name }} node group:
      {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Open the current {{ TF }} configuration file describing the node group.
 
-     For more information about creating this file, see [{#T}](../operations/node-group/node-group-create.md).
+     For more on how to create such a file, see [{#T}](../operations/node-group/node-group-create.md).
   1. Add a description of the new node group and specify the autoscaling settings under `scale_policy.auto_scale`:
 
      ```hcl
@@ -154,7 +154,7 @@ Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
        updateMode: "<VPA_update_mode>"
      ```
 
-     Where `updateMode` is the {{ k8s-vpa }} operation mode, `Auto` or `Off`.
+     Where `updateMode` is {{ k8s-vpa }}'s operating mode: `Off`, `Initial`, `Recreate`, or `InPlaceOrRecreate`. For more information, see [{#T}](../concepts/autoscale.md#vpa).
 
   1. Create a {{ k8s-vpa }} for your application:
 

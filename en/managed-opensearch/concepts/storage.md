@@ -30,7 +30,7 @@ The number of hosts with the `DATA` role you can create together with an {{ OS }
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
-To improve fault tolerance, you can set up [index replication](scalability-and-resilience.md#replication) (for multi-host cluster configurations only).
+To ensure [high-availability](high-availability.md), you can set up [index replication](scalability-and-resilience.md#replication) (only availablfor multi-host cluster configurations).
 
 
 ## Managing disk space {#manage-storage-space}

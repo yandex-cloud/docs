@@ -17,5 +17,9 @@ description: Setting up integration between {{ org-full-name }} and external app
 * [Selectel](./saml-selectel.md)
 * [SonarQube](./saml-sonarqube.md)
 * [OpenVPN Access Server](./saml-ovpn.md)
+* [MWS](./oidc-mws.md)
+* Cloud.ru
+   * [{#T}](./cloud-ru/saml-cloud-ru.md)
+   * [{#T}](./cloud-ru/oidc-cloud-ru.md)
 * [Sentry](./saml-sentry.md)
 * [Configuring single sign-on for applications that do not support SSO](./oidc-nginx-oauth2-proxy.md)

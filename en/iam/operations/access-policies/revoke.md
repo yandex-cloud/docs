@@ -1,15 +1,15 @@
 ---
-title: Revoking an access policy from a resource
-description: In this tutorial, you will learn how to revoke a {{ iam-full-name }} access policy from a folder, cloud, or organization.
+title: Deleting an access policy created for a resource
+description: In this tutorial, you will learn how to delete a {{ iam-full-name }} access policy from a folder, cloud, or organization.
 ---
 
-# Revoking an access policy
+# Deleting an access policy
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-You can revoke an access policy from a [folder](#folder), [cloud](#cloud), or [organization](#organization).
+You can delete an access policy created for a [folder](#folder), [cloud](#cloud), or [organization](#organization).
 
 {% note info %}
 
@@ -17,15 +17,15 @@ You can revoke an access policy from a [folder](#folder), [cloud](#cloud), or [o
 
 {% endnote %}
 
-## Revoking an access policy from a folder {#folder}
+## Deleting an access policy created for a folder {#folder}
 
 {% include [access-policies-revoke-folder](../../../_includes/iam/access-policies-revoke-folder.md) %}
 
-## Revoking an access policy from a cloud {#cloud}
+## Deleting an access policy created for a cloud {#cloud}
 
 {% include [access-policies-revoke-cloud](../../../_includes/iam/access-policies-revoke-cloud.md) %}
 
-## Revoking an access policy from an organization {#organization}
+## Deleting an access policy created for an organization {#organization}
 
 {% include [access-policies-revoke-org](../../../_includes/iam/access-policies-revoke-org.md) %}
 

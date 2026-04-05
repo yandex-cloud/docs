@@ -32,9 +32,13 @@ Aliases:
 
 - [yc organization-manager mfa-enforcement list-audience](list-audience.md) — List audience for the specified mfa enforcement
 
+- [yc organization-manager mfa-enforcement list-excluded-audience](list-excluded-audience.md) — List excluded audience for the specified mfa enforcement
+
 - [yc organization-manager mfa-enforcement update](update.md) — Update the specified mfa enforcement
 
 - [yc organization-manager mfa-enforcement update-audience](update-audience.md) — Update audience for the specified mfa enforcement
+
+- [yc organization-manager mfa-enforcement update-excluded-audience](update-excluded-audience.md) — Update excluded audience for the specified mfa enforcement
 
 #### Global Flags
 
@@ -51,6 +55,9 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

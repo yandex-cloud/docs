@@ -214,17 +214,23 @@ description: Из статьи вы узнаете, как задать наст
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}** — укажите имя схемы для хранения служебных таблиц (`__consumer_keeper`, `__data_transfer_mole_finder`).
 
-        Имя схемы должно соответствовать регулярному выражению:
+            Имя схемы должно соответствовать регулярному выражению:
 
-        ```text
-        ^[-_a-zA-Z0-9]*$
-        ```
+            ```text
+            ^[-_a-zA-Z0-9]*$
+            ```
 
-        Двойные кавычки в имени схемы не поддерживаются.
+            Двойные кавычки в имени схемы не поддерживаются.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}** — выберите для объединения содержимого таблиц. Подробнее см. в разделе [Особенности работы с эндпоинтами](../../../concepts/work-with-endpoints.md#postgresql).
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}** — при необходимости задайте детальные настройки параллельного копирования таблиц (если в трансфере заданы параметры параллельного копирования).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}** — при необходимости задайте детальные настройки [параллельного копирования таблиц](../../../../data-transfer/concepts/sharded.md) (если в трансфере заданы параметры параллельного копирования):
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.SnapshotTableShardingSettings.min_table_size.title }}** — минимальный размер таблицы для параллельного копирования. Таблицы меньшего размера будут скопированы в один поток.
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.SnapshotTableShardingSettings.degree_of_parallelism.title }}** — максимальное количество частей, на которые будет разделена таблица для параллельного копирования.
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.SnapshotTableShardingSettings.table_sharding_key_fields.title }}** — поля таблицы, по которым будет происходить разделение. Если поля не указаны, разделение будет происходить по первичному ключу.
 
 - CLI {#cli}
 

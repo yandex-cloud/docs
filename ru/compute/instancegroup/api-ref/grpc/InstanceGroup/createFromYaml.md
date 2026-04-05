@@ -189,7 +189,9 @@ The maximum string length in characters is 1048576. ||
         "gce_http_endpoint": "MetadataOption",
         "aws_v1_http_endpoint": "MetadataOption",
         "gce_http_token": "MetadataOption",
-        "aws_v1_http_token": "MetadataOption"
+        "aws_v1_http_token": "MetadataOption",
+        "aws_v2_http_endpoint": "MetadataOption",
+        "aws_v2_http_token": "MetadataOption"
       },
       "reserved_instance_pool_id": "string"
     },
@@ -487,7 +489,9 @@ may still be running.
   To resume the processes in the instance group,
 call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses#ResumeProcesses).
 The group status will change to `ACTIVE`. ||
-|| variables[] | **[Variable](#yandex.cloud.compute.v1.instancegroup.Variable)** ||
+|| variables[] | **[Variable](#yandex.cloud.compute.v1.instancegroup.Variable)**
+
+User-defined [variables](docs/compute/concepts/instance-groups/variables-in-the-template) for instance template rendering. ||
 || deletion_protection | **bool**
 
 Flag prohibiting deletion of the instance group.
@@ -813,9 +817,9 @@ For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/
 
 Type of instance network.
 
-- `STANDARD`
-- `SOFTWARE_ACCELERATED`
-- `HARDWARE_ACCELERATED` ||
+- `STANDARD`: Standard network.
+- `SOFTWARE_ACCELERATED`: Software accelerated network.
+- `HARDWARE_ACCELERATED`: Hardware accelerated network. ||
 |#
 
 ## PlacementPolicy {#yandex.cloud.compute.v1.instancegroup.PlacementPolicy}
@@ -843,8 +847,8 @@ Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
 
 Include or exclude action
 
-- `IN`
-- `NOT_IN` ||
+- `IN`: Include action
+- `NOT_IN`: Exclude action ||
 || values[] | **string**
 
 Affinity value or host ID or host group ID ||
@@ -902,6 +906,18 @@ Enabled access to IAM credentials with GCE flavored metadata
 || aws_v1_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| aws_v2_http_endpoint | enum **MetadataOption**
+
+Enabled access to AWS flavored metadata with session token (IMDSv2)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| aws_v2_http_token | enum **MetadataOption**
+
+Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
 
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
@@ -1284,8 +1300,12 @@ URL path to set for health checking requests. ||
 ||Field | Description ||
 || key | **string**
 
+Name of the variable.
+
 The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `. ||
 || value | **string**
+
+Value of the variable.
 
 The maximum string length in characters is 128. ||
 |#

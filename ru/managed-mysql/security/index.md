@@ -50,6 +50,14 @@ description: Управление доступом в сервисе по соз
 
 {% include [managed-mysql.restorer](../../_roles/managed-mysql/restorer.md) %}
 
+#### managed-mysql.user {#managed-mysql-user}
+
+{% include [managed-mysql.user](../../_roles/managed-mysql/user.md) %}
+
+#### managed-mysql.switcher {#managed-mysql-switcher}
+
+{% include [managed-mysql.switcher](../../_roles/managed-mysql/switcher.md) %}
+
 #### managed-mysql.editor {#managed-mysql-editor}
 
 {% include [managed-mysql.editor](../../_roles/managed-mysql/editor.md) %}
@@ -57,6 +65,14 @@ description: Управление доступом в сервисе по соз
 #### managed-mysql.admin {#managed-mysql-admin}
 
 {% include [managed-mysql.admin](../../_roles/managed-mysql/admin.md) %}
+
+#### managed-mysql.maintenanceTask.viewer {#managed-mysql-maintenanceTask-viewer}
+
+{% include [managed-mysql.maintenanceTask.viewer](../../_roles/managed-mysql/maintenanceTask/viewer.md) %}
+
+#### managed-mysql.maintenanceTask.editor {#managed-mysql-maintenanceTask-editor}
+
+{% include [managed-mysql.maintenanceTask.editor](../../_roles/managed-mysql/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -73,6 +89,18 @@ description: Управление доступом в сервисе по соз
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

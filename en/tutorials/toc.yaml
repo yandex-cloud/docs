@@ -250,6 +250,14 @@ items:
             href: security/single-sign-on/saml-sonarqube.md
           - name: OpenVPN Access Server
             href: security/single-sign-on/saml-ovpn.md
+          - name: MWS
+            href: security/single-sign-on/oidc-mws.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
@@ -1149,6 +1157,8 @@ items:
         href: dataplatform/mmy-to-mgp.md
       - name: Configuring an index policy in {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
+      - name: Configuring a cold storage policy in {{ mos-name }}
+        href: dataplatform/opensearch-cold-storage-policy.md
       - name: >-
           Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
           using {{ data-transfer-name }}
@@ -1225,6 +1235,14 @@ items:
         href: dataplatform/postgresql-to-opensearch.md
       - name: Fixing string sorting issues in {{ PG }} after a glibc upgrade
         href: dataplatform/postgresql-glibc-collation-issues.md
+      - name: >-
+          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
+          mpg-full-name }}
+        href: dataplatform/job-pyspark-secret-access.md
+      - name: >-
+          Configuring permissions for access to a secret created by {{
+          connection-manager-name }} for a {{ mpg-name }} user
+        href: dataplatform/conn-man-secret-access.md
       - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
@@ -1323,6 +1341,10 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: >-
+          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
+          mpg-full-name }}
+        href: dataplatform/job-pyspark-secret-access.md
       - name: Running a PySpark job in {{ myt-full-name }}
         href: dataplatform/yt-run-spark-job.md
   - name: Microsoft products in {{ yandex-cloud }}
@@ -1725,7 +1747,7 @@ items:
             href: ml-ai/speechsense/bitrix24.md
           - name: Working with an AI assistant in {{ speechsense-name }}
             href: ml-ai/speechsense/ai-assistant.md
-      - name: Using {{ foundation-models-full-name }} generative models
+      - name: Using {{ ai-studio-full-name }} generative models
         items:
           - name: >-
               Integrating generative models into Visual Studio Code as a coding

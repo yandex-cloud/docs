@@ -41,7 +41,6 @@
   metadata:
     name: <имя_пользователя>-role
   spec:
-    organizationID: stackland
     roleID: <идентификатор_роли>
     subject:
       kind: User

@@ -34,8 +34,8 @@ description: Follow this guide to create an address.
      
     {% endlist %}
 
+1. Optionally, [restrict the list of senders](../../postbox/operations/restrict-senders.md).
 1. Optionally, [configure logging](logs-write.md).
-1. Optionally, under **{{ ui-key.yacloud.postbox.section_restrictions }}**, enable **{{ ui-key.yacloud.postbox.label_restrict-senders }}** and specify the addresses allowed to send emails.  
 1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 
 To send emails, pass a [domain ownership check](check-domain.md).

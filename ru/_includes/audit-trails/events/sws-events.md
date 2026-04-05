@@ -14,6 +14,8 @@
 `DeleteMatchList` | Удаление списка адресов
 `DeleteSecurityProfile` | Удаление профиля безопасности
 `DeleteWafProfile` | Удаление профиля WAF
+`StartLoadBalancer` | Запуск прокси-сервера
+`StopLoadBalancer` | Остановка прокси-сервера
 `UpdateArlProfile` | Изменение профиля ARL
 `UpdateCustomPage` | Изменение шаблона страницы ответа
 `UpdateDomain` | Изменение домена

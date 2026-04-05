@@ -1,6 +1,6 @@
 ---
 title: How to assign permissions to a user pool in {{ org-full-name }}
-description: In this article, you will learn how to set up access for a user pool in {{ org-name }}.
+description: In this article, you will learn how to set up access for a user pool in {{ org-full-name }}.
 ---
 
 # Setting up access for pool users

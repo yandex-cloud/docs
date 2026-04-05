@@ -50,6 +50,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-postgresql.restorer](../../_roles/managed-postgresql/restorer.md) %}
 
+#### managed-postgresql.user {#managed-postgresql-user}
+
+{% include [managed-postgresql.user](../../_roles/managed-postgresql/user.md) %}
+
+#### managed-postgresql.switcher {#managed-postgresql-switcher}
+
+{% include [managed-postgresql.switcher](../../_roles/managed-postgresql/switcher.md) %}
+
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
 {% include [managed-postgresql.editor](../../_roles/managed-postgresql/editor.md) %}
@@ -57,6 +65,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-postgresql.admin {#managed-postgresql-admin}
 
 {% include [managed-postgresql.admin](../../_roles/managed-postgresql/admin.md) %}
+
+#### managed-postgresql.maintenanceTask.viewer {#managed-postgresql-maintenanceTask-viewer}
+
+{% include [managed-postgresql.maintenanceTask.viewer](../../_roles/managed-postgresql/maintenanceTask/viewer.md) %}
+
+#### managed-postgresql.maintenanceTask.editor {#managed-postgresql-maintenanceTask-editor}
+
+{% include [managed-postgresql.maintenanceTask.editor](../../_roles/managed-postgresql/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -73,6 +89,18 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

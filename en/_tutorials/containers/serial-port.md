@@ -5,15 +5,15 @@ To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/con
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a VM specification file](#prepare-specification-vm).
 1. [Create a Docker container specification file](#prepare-specification-docker).
-1. [Get the ID of the image to create the VM](#get-id).
-1. [Create a VM](#create-vm).
+1. [Get the ID of the image for creating the VM](#get-id).
+1. [Create your VM](#create-vm).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Get your cloud ready {#before-you-begin}
 
-If the required [Docker image](../../container-registry/concepts/docker-image.md) is pushed to [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
+If the required [Docker image](../../container-registry/concepts/docker-image.md) has been pushed to [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -25,7 +25,7 @@ If you do not have a [network](../../vpc/operations/network-create.md) or [subne
 
 The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static external [IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing)](../../vpc/pricing.md).
+* Fee for using a dynamic or static external [IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing)](../../vpc/pricing.md)).
 
 ## Create a VM specification file {#prepare-specification-vm}
 
@@ -48,11 +48,11 @@ The infrastructure support cost includes:
     - <public_SSH_key_for_connecting_to_VM>
   ```
 
-  In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
+  In the file configuration, set the username and specify the public part of the [SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) required to connect to the VM. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair on your own.
 
 {% endlist %}
 
-## Create a Docker container specification file {#prepare-specification-docker}
+## Create a Docker container spec file {#prepare-specification-docker}
 
 {% list tabs group=instructions %}
 
@@ -81,7 +81,7 @@ The infrastructure support cost includes:
   ```
 
   1. Create a VM with multiple [disks](../../compute/concepts/disk.md).
-     1. Get the ID of the image to create the VM:
+     1. Get the ID of the image for creating the VM:
 
         {% list tabs group=programming_language %}
 
@@ -107,7 +107,8 @@ The infrastructure support cost includes:
           --zone {{ region-id }}-a \
           --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
           --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
-          --create-boot-disk image-id=$IMAGE_ID
+          --create-boot-disk image-id=$IMAGE_ID \
+          --service-account-name <service_account_name>
         ```
 
         Where:
@@ -117,17 +118,18 @@ The infrastructure support cost includes:
         * `--metadata-from-file`: YAML [metadata](../../compute/concepts/vm-metadata.md) files for creating the VM.
 
             {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
-        * `--create-boot-disk`: ID of the image to create a boot disk from.
+        * `--create-boot-disk`: ID of the image for creating a boot disk from.
+        * `--service-account-name`: Name of the service account you created [earlier](#before-you-begin).
 
         Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
      1. Check the result.
-        1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Click the VM name, `coi-vm-with-sp`.
         1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 
 {% endlist %}
 
-## Get the ID of the image to create a VM {#get-id}
+## Get the ID of the image for creating the VM {#get-id}
 
 To get the ID of the latest image to create a VM, run:
 
@@ -157,7 +159,7 @@ To get the ID of the latest image to create a VM, run:
 
 - CLI {#cli}
 
-  Enter a name for the [subnet](../../vpc/operations/subnet-create.md) to create your VM in and run:
+  Enter a name for the [subnet](../../vpc/operations/subnet-create.md) where you will keep your VM and run:
 
   ```bash
   yc compute instance create \
@@ -173,7 +175,7 @@ To get the ID of the latest image to create a VM, run:
   * `--zone`: Availability zone.
   * `--network-interface`: VM network settings.
   * `--metadata-from-file`: YAML metadata files for creating the VM.
-  * `--create-boot-disk`: ID of the image to create a boot disk from.
+  * `--create-boot-disk`: ID of the image for creating a boot disk from.
 
 {% endlist %}
 
@@ -181,8 +183,8 @@ Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.fo
 
 ## Check the result {#check-result}
 
-To check the result of configuring data output from the Docker container to the serial port:
-1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+To check whether you correctly configured data output from the Docker container to the serial port:
+1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Click the VM name, `coi-vm-with-sp`.
 1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 

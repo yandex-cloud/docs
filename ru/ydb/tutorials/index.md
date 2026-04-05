@@ -32,5 +32,5 @@ description: Различные сценарии использования {{ y
 * [{#T}](api-gw-integration.md)
 * [{#T}](movies-database.md)
 * [{#T}](websocket-app.md)
-* [{#T}](maxpatrol.md)
+* [{#T}](maxpatrol/index.md)
 * [{#T}](postbox-webhook.md)

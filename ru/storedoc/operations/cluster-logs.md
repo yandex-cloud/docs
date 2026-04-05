@@ -2,7 +2,11 @@
 
 {{ mmg-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
-{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+{% note info %}
+
+{% include [log-duration](../../_includes/mdb/mmg/log-duration.md) %}
+
+{% endnote %}
 
 ## Получить лог кластера {#get-log}
 

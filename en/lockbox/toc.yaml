@@ -64,7 +64,7 @@ items:
         href: tutorials/data-transfer-direct-to-mch.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
@@ -72,6 +72,8 @@ items:
         href: tutorials/bucket-to-bucket-copying.md
       - name: Secure password transmission to an initialization script
         href: tutorials/secure-password-script.md
+      - name: Using a secret in a PySpark job to connect to {{ mpg-full-name }}
+        href: tutorials/job-pyspark-secret-access.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management
@@ -128,7 +130,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -1,0 +1,3 @@
+Роль `managed-airflow.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-airflow/concepts/maintenance.md) кластеров Apache Airflow™ и изменять такие задания, просматривать информацию о [кластерах Apache Airflow™](../../../managed-airflow/concepts/index.md#cluster) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../../../managed-airflow/concepts/limits.md#quotas) сервиса Managed Service for Apache Airflow™.
+
+Включает разрешения, предоставляемые ролью `managed-airflow.maintenanceTask.viewer`.

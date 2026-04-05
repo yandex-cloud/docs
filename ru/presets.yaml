@@ -215,7 +215,6 @@ default:
   forms-full-name: Яндекс Формы
   forms-name: Формы
   forms-short-name: Forms
-  foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
   gl:
@@ -279,6 +278,7 @@ default:
   license-manager: License Manager
   link-adfs: >-
     https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services
+  link-aistudio: https://aistudio.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
@@ -382,6 +382,7 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  messenger-full-name: Яндекс Мессенджер
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
@@ -509,7 +510,7 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       console:
-        str-1c: 13-1c, 14-1c, 15-1c, 16-1c и 17-1c
+        str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
       tf:
         latest: '17'
         str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, 17 и 17-1c
@@ -1190,42 +1191,12 @@ default:
       subnet_29: dn2tkuvap6istmk4dz5a
       subnet_31: dn2gf7ncn54qfzez6xhp
     server:
-      ba_i100_h:
-        1_day: dn2itj42rjvc71ogavf8
-        1_month: dn242492ooe8t9884pit
-        12_month: dn2kpfi79f38bl6hdpjs
-        3_month: dn2nqpla60m77p6rshuu
-        6_month: dn27o61er1shatjmrf82
-      ba_i101_h:
-        1_day: dn2bv21cnlvsnksqgrta
-        1_month: dn281facl7sfi9ga5o5m
-        12_month: dn2gb7uf15hc3vuf2t6n
-        3_month: dn24flm3irtuk4mheb7u
-        6_month: dn2ssntfp7dcr3213bu1
-      ba_i102_s:
-        1_day: dn2lje1ou5judp2gooai
-        1_month: dn243nnpi79c04cj181o
-        12_month: dn2k8rbi48paspive2co
-        3_month: dn2d089djar2i3humc2g
-        6_month: dn2kfg25ck5a3gkjoog2
       ba_i103_s_10g:
         1_day: dn2d1eocobn8amlmll3r
         1_month: dn2p7pofnj0beukb0erb
         12_month: dn20q66guu76is04nktv
         3_month: dn2mcqi74h70gor1pm4n
         6_month: dn2d06jhdbolrd6osgc2
-      ba_i104_sh:
-        1_day: dn2kvvtf8b4edrq2j4k3
-        1_month: dn213ucd95oojvm9dogd
-        12_month: dn2cqjm2tl3ocejdld92
-        3_month: dn277i5jopu2u3bbhrls
-        6_month: dn2qugeptlh0210ev4i7
-      ba_i105_sh:
-        1_day: dn20mllfiaqcj26n61lu
-        1_month: dn2pa25aki9ot51roaj0
-        12_month: dn2rjpas623nq40gm0tj
-        3_month: dn273o8bqg2dtfi0tfme
-        6_month: dn2hjphr6r37l8f9gekr
       ba_i106_sh_10g:
         1_day: dn247633ncch74qta3t0
         1_month: dn209gne5ncks8amg0sr
@@ -1304,12 +1275,6 @@ default:
         12_month: dn21fsqmbhvseaof5pf6
         3_month: dn2pstl57mu8t3c1qm4q
         6_month: dn2jc74moe4laf8m6m7j
-      ba_i211_8s_25g:
-        1_day: dn2r257e3luaj45oh26w
-        1_month: dn2xasypkkbyq7s2jat6
-        12_month: dn2fysufhjzeuuean7vs
-        3_month: dn2wa5sleev34ncu4d4y
-        6_month: dn2mpw7fjopn3wgbotkb
       ba_i215_ss_10g:
         1_day: dn2h6lrfdk4nac5wgwuq
         1_month: dn2mgkgws5vkgcmx66i7
@@ -1394,24 +1359,12 @@ default:
         12_month: dn2o37ubk4t3iaow63jt
         3_month: dn2wch2v5lriafthzrjf
         6_month: dn2s3j7tgubgjk7l5azt
-      ba-i209-ss-1-10g-p1:
-        1_day: dn234x5yvleikg5uygye
-        1_month: dn2lsktejmmm6sjyhmrl
-        12_month: dn2mx27jy4d2vup4zzu2
-        3_month: dn2njr4vnpuiqmalpdko
-        6_month: dn24onufuxs2vhpub2pd
       ba-i217-s-1-10g:
         1_day: dn2r5rks2csdg6435bp4
         1_month: dn25qijyv3bobflplxne
         12_month: dn22un44apyqndj2ei5l
         3_month: dn2dj4l3apo6jbjco3l7
         6_month: dn2loxxtnmlb45n3jmix
-      ba-i523-nh-2x25g-p1:
-        1_day: dn26k67ks64mcijvs4mi
-        1_month: dn2o4kgngionblzgk3vo
-        12_month: dn23p37j3glbg4z4efsq
-        3_month: dn2p7zaa2si3kzzt2pdj
-        6_month: dn2bp7nc54dby4wicpso
       ba-i523-nh-2x25g:
         1_day: dn23mesissp7dp5jufbd
         1_month: dn2su66lkggfhlfilzsh
@@ -1652,9 +1605,6 @@ default:
         12_month: dn2o5qnxdn7jxgcatyif
         3_month: dn2mhzsdg7gtb4d4fckw
         6_month: dn2mj2rnkhctk4lzcz4c
-  pc|cloud_desktop:
-    image:
-      v1: dn2dd29vb1490vk3gd27
   pc|compute:
     hostgroup:
       cpu:
@@ -1828,10 +1778,6 @@ default:
         internal: dn2djih21mipc4jo77uk
       ingress:
         internal: dn2dj452r5cbun6bv52e
-  pc|postbox:
-    email:
-      size:
-        v1: dn2qr63b3orl3cuj3kjb
   pc|security_deck:
     access_transparency:
       subscription:
@@ -1840,31 +1786,11 @@ default:
       resources: dn2muudyflujxdk7e32n
     kspm:
       nodes: dn2ukunmpcmrnab3u5ko
-  pc|serverless-containers:
-    compute:
-      ephemeral_disk: dn2vwduzkfsisbr35uye
-      provision_enabled:
-        ephemeral_disk: dn27almsimyrl6a7ri4g
-      provisioned_request:
-        ephemeral_disk: dn2milq3cs7eibqagm64
   pc|storage:
     api:
       network:
         inet:
           egress: dn2fghbb6nhc0qgc03ta
-  pc|sws:
-    arl:
-      profile:
-        v1: dn2mkbp42irduj73psdf
-      requests:
-        v1: dn2ek1qtnkfte18mbnf6
-      rule:
-        v1: dn2oma528jt89898mj2d
-    waf:
-      exclusion_rule:
-        v1: dn2hf1qf6f44degef6mu
-      profile:
-        v1: dn2mlrae614s6vakq618
   pc|v1:
     commitment:
       selfcheckout:
@@ -1882,13 +1808,6 @@ default:
                 v2: dn2na3cief147jjt20v7
             ram:
               v2: dn2886p1eilq0pn7jisp
-  pc|video:
-    transcoding:
-      live:
-        v1: dn2e4fbl2ulmcsfkorpg
-    used_space:
-      live:
-        v1: dn2n6f6hvsu4uvssegsx
   pc|ydb:
     cluster:
       v1:
@@ -2005,6 +1924,8 @@ default:
       ram:
         v3|number: 1.752216755
         v3|string: "1,752216755\_₸"
+    snapshot|number: 0.024235614
+    snapshot|string: "0,024235614\_₸"
     vm:
       cpu:
         c100:
@@ -2385,9 +2306,16 @@ default:
         egress|number: 5.369143105
         egress|string: "5,369143105\_₸"
     transcoding:
+      live:
+        v1|number: 13.24356033
+        v1|string: "13,24356033\_₸"
       vod:
         v1|number: 5.592857401
         v1|string: "5,592857401\_₸"
+    used_space:
+      live:
+        v1|number: 0.015632495
+        v1|string: "0,015632495\_₸"
   sku|KZT|ydb:
     v1:
       serverless:
@@ -2403,14 +2331,6 @@ default:
       128k:
         12h|number: 0.745714269
         12h|string: "0,745714269\_₸"
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: "119,575291231\_₸"
-        requests|string: Не тарифицируется
-        storage|pricingRate:
-          720|string: "0,166076742\_₸"
-        storage|string: Не тарифицируется
   sku|KZT|yq:
     network:
       ingress:
@@ -2552,6 +2472,8 @@ default:
       ram:
         v3|number: 0.3439984
         v3|string: "0,3439984\_₽"
+    snapshot|number: 0.00475798
+    snapshot|string: "0,00475798\_₽"
     vm:
       cpu:
         c100:
@@ -2964,9 +2886,16 @@ default:
         egress|number: 1.05408
         egress|string: "1,05408\_₽"
     transcoding:
+      live:
+        v1|number: 2.6
+        v1|string: "2,6\_₽"
       vod:
         v1|number: 1.098
         v1|string: "1,098\_₽"
+    used_space:
+      live:
+        v1|number: 0.003069
+        v1|string: "0,003069\_₽"
   sku|RUB|ydb:
     v1:
       serverless:
@@ -2982,14 +2911,6 @@ default:
       128k:
         12h|number: 0.14639999
         12h|string: "0,14639999\_₽"
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: "23,47524\_₽"
-        requests|string: Не тарифицируется
-        storage|pricingRate:
-          720|string: "0,03260449\_₽"
-        storage|string: Не тарифицируется
   sku|RUB|yq:
     network:
       ingress:
@@ -3525,9 +3446,16 @@ default:
         egress|number: 0.008639999
         egress|string: "0,008639999\_$"
     transcoding:
+      live:
+        v1|number: 0.021311472
+        v1|string: "0,021311472\_$"
       vod:
         v1|number: 0.008999999
         v1|string: "0,008999999\_$"
+    used_space:
+      live:
+        v1|number: 0.000025156
+        v1|string: "0,000025156\_$"
   sku|USD|ydb:
     v1:
       serverless:
@@ -3765,9 +3693,6 @@ default:
         field_organization: Организация
         field_payment-type: Способ оплаты
         field_person-type: Тип аккаунта
-        label_step-company_title: Данные о компании
-        label_step-contacts_title: Контакты
-        label_step-individual_title: Персональные данные
         label_step-payment_title: Платёжные данные
       create-account:
         label_option_card: Пополнение вручную
@@ -3843,7 +3768,6 @@ default:
             popup-grant-activation_button_activate: Активировать
           detail:
             button_create-periodic-export: Регулярный экспорт
-            button_download-csv: Выгрузить в CSV
             button_export: Экспорт детализации
             column_cloud-name: Облако
             column_cost: Стоимость потребления
@@ -3864,7 +3788,6 @@ default:
             label_to: До
             label_top-cost: Стоимость потребления
             label_top-total: К оплате
-            popup-csv_button_download: Скачать
             tab_label: По меткам
             tab_product: По продуктам
             tab_service: По сервисам
@@ -3873,11 +3796,11 @@ default:
           exports:
             button_create-periodic-export: Создать регулярный экспорт
             button_open-yandex-query: Обработать в YQ
+            button_resume-export: Возобновить
             field_bucket: Бакет
             field_detail-type: Детализация
             field_locale: Язык
             field_prefix: Папка
-            label_create-export-title: Создание регулярного экспорта
             label_include-resources: Поресурсная
             label_not-include-resources: Общая
             locale_value_en-lang: English
@@ -3961,6 +3884,9 @@ default:
         folder:
           dashboard:
             label_compute: Compute Cloud
+          service-account:
+            label_add-role: Добавить роль
+            popup-robot_button_add: Создать
     yacloud_components:
       acl-filters:
         placeholder:
@@ -3977,7 +3903,7 @@ default:
           add-role: Добавить роль
         label:
           service-accounts: Сервисные аккаунты
-          title: Настройка прав доступа
+          title: Выдача доступа
           user-accounts: Пользовательские аккаунты
         resource-acl:
           label_bindings: Роли
@@ -4410,7 +4336,7 @@ default:
         save-changes: Сохранить
       app:
         security:
-          control_rules_rWmUV: Правила контроля
+          control_rules_rWmUV: Правила и исключения
           label_workspace_12Kax: Окружение
       application:
         overview:
@@ -4454,10 +4380,9 @@ default:
             label_title: Облака и сервисы
             label_type: Тип
           exports:
-            field_bucket: Бакет
-            field_detail-type: Детализация
-            field_locale: Язык
-            field_prefix: Путь внутри бакета
+            column_service_account: Сервисный аккаунт
+            field_date: Загрузить отчёты начиная с
+            field_period: Экспорт данных за предыдущий период
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
           proposals_page:
@@ -4476,6 +4401,11 @@ default:
         accounts:
           dialog_button_create: Создать аккаунт
           listing_button_create: Создать аккаунт
+        exports:
+          ServiceAccountAddField:
+            addNewServiceAccount: Создать сервисный аккаунт
+        providers:
+          button_ca-roles-update: Добавить роли
       center-layout:
         Layout:
           organization-description_kvoUz: Пользователи и приложения
@@ -4485,6 +4415,8 @@ default:
           profile_8kyBA: Профиль
           security_7zQ3g: Вход и безопасность
       cloud-components:
+        AclDashboard:
+          action_assign-roles_41Nj1: Назначить роли
         manage-cert-dialog:
           action-generate-new-certificate: Сгенерировать новый сертификат
           table:
@@ -4680,6 +4612,8 @@ default:
             button_create: Создать
             field_description: Описание
         folder:
+          service-account:
+            popup-robot_button_save: Сохранить
           service-accounts:
             dialog_select-service-account_create-new-action: Создать новый
       kspm:
@@ -4832,7 +4766,7 @@ default:
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Настроить политику
           UserpoolPageLayout:
-            title_userpool_acl_5rdMM: Права доступа к пулу пользователей
+            title_userpool_acl_5rdMM: Права доступа
           UserpoolPasswordPolicyForm:
             attempts_before_lockout_ay7Le: "Количество неудачных попыток ввода пароля до\_блокировки"
             brute_force_protection_msHno: Защита пароля от подбора
@@ -4891,9 +4825,25 @@ default:
         userpools: Пулы пользователей
         users: Пользователи
       security-center:
+        alert:
+          action_alert_analysis: Анализ алерта
         alerts:
+          caption_assignee: Ответственный
+          caption_category: Тип угрозы
+          caption_classification: Классификация
+          caption_created-by: Создан
+          caption_incident: Инцидент
+          caption_modified-at: Изменён
+          caption_sensor: Источник
+          caption_status: Статус
+          caption_title: Алерт
           sink:
             action_create: Создать приёмник
+          title_alert_comments: Комментарии
+          title_alert_details: Детали
+          title_alert_history: История
+          title_alert_overview: Обзор
+          title_alert_recommendations: Рекомендации
         dspm:
           title_data-sources: Источники данных
           title_scan-jobs: Регулярные сканирования
@@ -4901,11 +4851,16 @@ default:
           title_clusters: Кластеры
           title_dashboard: Дашборд
         label_acl-diagnostics: Диагностика доступа
+        label_alerts: Алерты
         label_comp: Соответствие требованиям
         label_dspm: Контроль данных
         label_kspm: Контроль Kubernetes{trademark}
         label_settings: Параметры Security Deck
       security:
+        alerts:
+          comment_form:
+            send: Отправить
+          filters-button: Фильтры
         comp:
           SetsTable:
             action_disable_5hgkz: Выключить проверку
@@ -5029,6 +4984,8 @@ default:
             labelServiceAccountField: Сервисный аккаунт
           label_rule-kind_3PswX: Тип правила
           module-cspm_gozhj: Контроль конфигурации (CSPM)
+          namespace-checkbox_85krx: Пространство имен
+          section-title_9BLTm: Объекты (опционально)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
           WorkspaceEditPageLayout:
@@ -5592,12 +5549,14 @@ default:
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
         label_images: Загрузочные образы
+        label_images_duoXD: Загрузочные образы
         label_kvm-console_37Kma: KVM-консоль
         label_load-image: Загрузить образ
         label_lockbox-key: Ключ
         label_lockbox-name: Имя
         label_lockbox-version: Версия
         label_networks: VRF
+        label_networks_kHgng: VRF
         label_password-lockbox: Секрет Lockbox
         label_password-plain: Новый пароль
         label_public-ip-ephemeral: Из эфемерной подсети
@@ -5605,6 +5564,8 @@ default:
         label_public-ip-no: Без адреса
         label_public-ip-via-dhcp: Назначить по DHCP
         label_public-subnets: Публичные адреса и подсети
+        label_public-subnets_v16CV: Публичные адреса и подсети
+        label_servers_sCNgb: Серверы
         label_subnetworks_uU4LH: Приватные подсети
         label_vrf-interconnect-direct-type: Идентификатор соединения
         label_vrf-interconnect-select-type: Способ настройки
@@ -5655,6 +5616,8 @@ default:
         button_resource-deactivate-raw-logs: Выключить
         button_resource-locations-empty-action: Добавить правило
         button_wizard-create: Создать и продолжить
+        CdnResourceFormWizard:
+          section_wizard-static-response_6DKzY: Настройки ответа
         column_location-rule-pattern: Регулярное выражение
         column_name: Название
         colunm_location-weight: Вес правила
@@ -5740,6 +5703,13 @@ default:
         label_status-backup: Резервный
         label_use-bucket-site: Использовать сайт бакета
         md_value_certificate-le: Let's Encrypt^®^
+        sections:
+          StaticResponseSection:
+            field_static-response-enabled_sPsQU: Настраиваемый HTTP-ответ
+            field_static-response-type_5KyYv: Тип ответа
+            option_static-response_data_rLo9U: Задать содержимое ответа
+            option_static-response_redirect_o58we: Настроить перенаправление
+            section_static-response_hGcUL: Настройки ответа
         value_active: Основной
         value_backup: Резервный
         value_certificate-custom: Сертификат из Certificate Manager
@@ -6032,7 +6002,6 @@ default:
           label_time-min_many: минут
           label_time-min_zero: минут
           label_time-sec_many: секунд
-        unspecified: Не задано
         update: Обновить
         updated-at: Дата изменения
         user: Пользователь
@@ -7085,7 +7054,6 @@ default:
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
-            label_yq: Query
             label_yq_ru: Yandex Query
             value_audit-trails: Трейл
             value_compute: Виртуальная машина
@@ -7312,6 +7280,8 @@ default:
           label_pods: Поды
           label_tab-logs: Логи
           label_tab-yaml: YAML
+        WorkloadsActions:
+          pod-exec_jwJ3R: Терминал
       kafka:
         button_add-topic: Добавить топик
         button_create-connector: Создать коннектор
@@ -8015,7 +7985,6 @@ default:
         label_selector: Селектор
         label_signing-type-internal: Простая
         section_dkim: Настройка подписи писем (DKIM)
-        section_restrictions: Ограничения
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
@@ -8364,7 +8333,15 @@ default:
           label_http-router: HTTP-роутер
           label_virtual-host: Виртуальный хост
         AttachSecurityProfileDialog:
+          ApiGatewayItem:
+            label_api-gateway_5Nttt: API-шлюз
           label_add-resource_v4U3g: Добавить ресурс
+          label_api-gateway_sKMCK: API-шлюз
+          label_domain_9Bo38: Домен
+          label_virtual-host_tYim5: Виртуальный хост
+          ProxyServerItem:
+            label_domain_1hgsY: Домен
+            label_proxy-server_w9BGG: Прокси-сервер
         baseRulesTitle_xcJEe: Базовые правила
         CreateDomain:
           createDomain_b2Ykj: Добавить домен
@@ -8914,6 +8891,8 @@ default:
           ConnectMcpTools:
             add-mcp-tool_dyEgv: Добавить инструменты
           create-agent_1txyW: Создать агента
+          CreateAgentCard:
+            create-agent_button-text_n2qCs: Создать агента
           CreateMcpServerForm:
             access-type_aPzxZ: Доступ
             access-type_private_b4gkg: Приватный
@@ -8935,6 +8914,8 @@ default:
           McpServersList:
             label_create-mcp-gateway_3o3Vu: Создать MCP-сервер
           name_hTzhB: Имя
+          Overview3:
+            action-card_create-ai-agent_ahZQH: Создать AI-агента
       ydb:
         browse:
           button_create: Создать
@@ -9844,6 +9825,13 @@ default:
                     PostgresTargetAdvancedSettings:
                       save_tx_boundaries:
                         title: Сохранение границ транзакций
+                    SnapshotTableShardingSettings:
+                      degree_of_parallelism:
+                        title: Максимальное количество частей таблицы
+                      min_table_size:
+                        title: Порог разбиения в байтах
+                      table_sharding_key_fields:
+                        title: Ключи параллельной загрузки таблицы
             transfer:
               console:
                 form:
@@ -11071,7 +11059,6 @@ default:
           repository:
             name: >-
               cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1771418848696431394901031348572912380488071835858
-            tag: 8.4.18
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
         tag: 1.0.5+003
@@ -11112,7 +11099,7 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-3
+        tag: 2.1.7-4
     yc_gatekeeper:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
@@ -11135,7 +11122,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.10
+        tag: v1.1.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

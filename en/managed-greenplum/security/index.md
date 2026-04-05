@@ -56,6 +56,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-greenplum.restorer](../../_roles/managed-greenplum/restorer.md) %}
 
+#### managed-greenplum.user {#managed-greenplum-user}
+
+{% include [managed-greenplum.user](../../_roles/managed-greenplum/user.md) %}
+
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
 {% include [managed-greenplum.editor](../../_roles/managed-greenplum/editor.md) %}
@@ -63,6 +67,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-greenplum.admin {#managed-greenplum-admin}
 
 {% include [managed-greenplum.admin](../../_roles/managed-greenplum/admin.md) %}
+
+#### managed-greenplum.maintenanceTask.viewer {#managed-greenplum-maintenanceTask-viewer}
+
+{% include [managed-greenplum.maintenanceTask.viewer](../../_roles/managed-greenplum/maintenanceTask/viewer.md) %}
+
+#### managed-greenplum.maintenanceTask.editor {#managed-greenplum-maintenanceTask-editor}
+
+{% include [managed-greenplum.maintenanceTask.editor](../../_roles/managed-greenplum/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -79,6 +91,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 When you create a {{ GP }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not analogous to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
 

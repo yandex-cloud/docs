@@ -20,7 +20,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the command for adding members to the {{ org-name }} user group:
+  1. See the description of the command for adding members to the {{ org-full-name }} user group:
 
       ```bash
       yc organization-manager group add-members --help
@@ -37,7 +37,7 @@
 
       Where:
 
-      * `--name`: User group name. This is a required parameter.
+      * `--name`: User group name. This is a required setting.
       * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
       * `--subject-id`: ID of the member to add to the group.
 

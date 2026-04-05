@@ -99,7 +99,7 @@ This guide assumes that you already have a configured web resource. If your reso
   - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
     1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
     1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Enter a name for the proxy server, e.g., `test-proxy`.
@@ -167,7 +167,7 @@ This guide uses a ready-made security profile template.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
@@ -309,19 +309,9 @@ An allowing rule for {{ captcha-name }} is requred in case the `{{ ui-key.yaclou
 
 ### Check the sequence in which the rules will apply {#rules-execution-order}
 
-Security profile rules apply to all traffic according to the priority: the lower the number, the higher the priority. The sequence in which the rules will apply is provided in the table below.
+{% include [waf-priority-rules](../../_includes/smartwebsecurity/waf-priority-rules.md) %}
 
-Priority | Rule name | Action | Rule description
---- | --- | --- | ---
-8000 | allow-captcha | Allow | Basic for captcha
-9000 | allow-by-list | Allow | Basic for white IP addresses
-9100 | block-by-list | Deny | Basic for black IP addresses
-9200 | block-by-geo  | Deny | Basic by regions
-900000  | api-protection | API protection | Smart Protection for the public API
-999900 | sp-rule-1 | Full protection | Smart Protection from a ready-made template
-1000000 |  | Allow | Basic default
-
-The `Allow` action is set for the basic default rule, while other rules are in the `Logging only` (dry run) mode. When switching rules to the real mode, set the `Deny` action for the basic default rule.
+Learn more about rule priorities in [{#T}](../../smartwebsecurity/concepts/rules.md#rules-order).
 
 ### Connect the security profile to the resources {#profile-connect}
 
@@ -380,21 +370,21 @@ To see how the security profile rules work, check the logs.
 - L7 load balancer {#balancer}
 
   1. Make sure that [logging](../../smartwebsecurity/operations/configure-logging.md) is configured.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer with an associated security profile.
   1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
 - API gateway {#api-gateway}
   
   1. Make sure that [logging](../../api-gateway/operations/api-gw-logs-write.md) is configured.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Select the API gateway with an associated security profile.
   1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
 - Domain {#domain}
 
   1. Make sure that [logging](../../smartwebsecurity/operations/proxy-create.md) is configured.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
   1. Select the proxy server your security profile is associated with.
   1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
@@ -417,7 +407,7 @@ Use logs and monitoring charts to check the performance of your rules:
 
 - Management console {#console}
 
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select **{{ ui-key.yacloud.common.monitoring }}**.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
@@ -442,7 +432,7 @@ To set a request limitation, estimate your standard service load first. If you u
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the security profile.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `arl-site-protection`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -491,7 +481,7 @@ To set a request limitation, estimate your standard service load first. If you u
 
 ### Test the ARL rules {#test-arl-rules}
 
-You usually need to test ARL rules only once, and then you can switch the real mode protection. However, in certain cases, rules might require more testing and adjustment.
+You normally need to test your ARL rules only once; then the security system can enter its regular operation mode. However, in certain cases, rules might require more testing and adjustment.
 
 You can use [{{ load-testing-name }}](../../load-testing/) to perform a load test. For more information on configuring HTTP load, see [{#T}](../../load-testing/tutorials/loadtesting-https-phantom.md).
 
@@ -521,7 +511,7 @@ After disabling the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-r
 
 - Management console {#console}
 
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select **{{ ui-key.yacloud.common.monitoring }}**.
   1. Examine the data displayed on the charts:
      * **Allowed by ARL Profile RPS**: Number of incoming requests per second not exceeding the ARL profile limit.
@@ -552,7 +542,7 @@ You may need to disable certain rules to prevent false positives and create excl
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the security profile.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `waf-site-protection`.
   1. Enable rule sets, e.g., ML WAF and Yandex Ruleset. To view the rules it includes, click the row with its description.
@@ -640,7 +630,7 @@ You can also view extended logs in the {{ sws-name }} interface.
 
 Since WAF is configured for each web service individually, test WAF in logging mode for no less than a week. For ML WAF and Yandex Ruleset, the setup may take less time. During this stage, you may get false positives, so you should track them in logs and adjust the rule parameters. For example, if the rule with `id920280` gets triggered incorrectly when using HTTP/2, you can disable it immediately. This rule will work correctly with HTTP/1.1.
 
-Once WAF is configured and switched to the real mode, use logs and monitoring charts to regularly check the performance of its rules. This will allow you to track anomalies and adjust the protection specifically for your web app.
+Once WAF is configured and in regular operation mode, use logs and monitoring charts to check the rules on a regular basis. This will allow you to track anomalies and adjust the protection specifically for your web app.
 
 ## Further configuration of security policies {#further-configuration}
 

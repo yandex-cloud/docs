@@ -1,4 +1,4 @@
-# Authentication using Google Workspace
+# Google Workspace authentication
 
 With an [identity federation](../../organization/concepts/add-federation.md), you can use [Google Workspace](https://workspace.google.com/) to authenticate users in an organization.
 
@@ -57,7 +57,7 @@ To create a federation:
 
       1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
   
-      1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+      1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, paste the link from the **Entity ID** field on the **Google IdP Information** page in Google Workspace. The link should have the following format:
 
           ```text
           https://accounts.google.com/o/saml2?idpid=<SAML_app_ID>
@@ -145,7 +145,7 @@ To create a federation:
 
   1. Describe the federation parameters in the configuration file.
 
-      Configuration file structure example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -166,7 +166,7 @@ To create a federation:
       * `name`: Federation name. It must be unique within the folder.
       * `description`: Federation description.
       * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). 
-      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional parameter.
+      * `labels`: Set of key/value label pairs assigned to the federation. This is an optional setting.
       * `issuer`: ID of the IdP server to use for authentication.
 
           Use the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
@@ -211,7 +211,7 @@ To create a federation:
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will show them. 
+      If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors in the configuration. 
 
   1. Create a federation.
 
@@ -284,7 +284,7 @@ To create a federation:
 
 ### Add certificates {#add-certificate}
 
-While authenticating, the {{ org-name }} service should be able to verify the IdP server certificate. To enable this, download a certificate from the open Google Workspace **Google IdP Information** page and add it to the created federation:
+While authenticating, the {{ org-full-name }} service should be able to verify the IdP server certificate. To enable this, download a certificate from the open Google Workspace **Google IdP Information** page and add it to the created federation:
 
 {% list tabs group=instructions %}
 

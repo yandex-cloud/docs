@@ -48,6 +48,10 @@ The diagram below shows available service roles and their permission inheritance
 
 {% include [opensearch.restorer](../../_roles/managed-opensearch/restorer.md) %}
 
+#### managed-opensearch.user {#managed-opensearch-user}
+
+{% include [managed-opensearch.user](../../_roles/managed-opensearch/user.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../../_roles/managed-opensearch/editor.md) %}
@@ -55,6 +59,14 @@ The diagram below shows available service roles and their permission inheritance
 #### managed-opensearch.admin {#managed-opensearch-admin}
 
 {% include [opensearch.admin](../../_roles/managed-opensearch/admin.md) %}
+
+#### managed-opensearch.maintenanceTask.viewer {#managed-opensearch-maintenanceTask-viewer}
+
+{% include [managed-opensearch.maintenanceTask.viewer](../../_roles/managed-opensearch/maintenanceTask/viewer.md) %}
+
+#### managed-opensearch.maintenanceTask.editor {#managed-opensearch-maintenanceTask-editor}
+
+{% include [managed-opensearch.maintenanceTask.editor](../../_roles/managed-opensearch/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -71,6 +83,14 @@ The diagram below shows available service roles and their permission inheritance
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

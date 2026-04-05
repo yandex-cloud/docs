@@ -5,6 +5,13 @@ description: This section contains the {{ sd-name }} release notes.
 
 # {{ sd-full-name }} release notes
 
+## February 2026 {#february-2026}
+
+* The modules [DSPM](./concepts/dspm.md), [CSPM](./concepts/cspm.md), [KSPM](./concepts/kspm.md), and the [AI assistant](concepts/ai-assistant.md)are now available at the [Preview](../overview/concepts/launch-stages.md) stage.
+* Starting February 2, 2025, [KSPM](./concepts/kspm.md) is subject to the [pricing policy](pricing.md#kspm-rules).
+* [CSPM](./concepts/cspm.md) now supports new [security standards](./concepts/cspm.md#standards), namely, PCI DSS (Payment Card Industry Data Security Standard) and FSTEC requirements for protection of personal data (Order No. 21).
+* New rules for compliance with all supported security standards were implemented in [CSPM](./concepts/cspm.md).
+
 ## January 2026 {#january-2026}
 
 * Introduced fixed-price subscriptions for [DSPM](./concepts/dspm.md). You can purchase a subscription instead of paying for the actual resource consumption. The subscription pricing will soon be available in the [Pricing policy](pricing.md) section.

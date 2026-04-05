@@ -11,6 +11,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 
 | Service name | API references |
 | ---------------- | --------------- |
+| {{ ai-studio-full-name }}       | [Text generation gRPC API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/grpc/)<br>[Text generation REST API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/)<br>[Embeddings gRPC]({{ link-docs-ai }}ai-studio/embeddings/api-ref/grpc/)<br>[Embeddings REST]({{ link-docs-ai }}ai-studio/embeddings/api-ref/)<br>[YandexART gRPC]({{ link-docs-ai }}ai-studio/image-generation/api-ref/grpc/)<br>[YandexART REST]({{ link-docs-ai }}ai-studio/image-generation/api-ref/) |
 | {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |
 | {{ alb-full-name }}                     | [gRPC](../application-load-balancer/api-ref/grpc/)<br>[REST](../application-load-balancer/api-ref/) |
 | {{ at-full-name }}                      | [gRPC](../audit-trails/api-ref/grpc)<br>[REST](../audit-trails/api-ref/) |
@@ -33,7 +34,6 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ data-transfer-full-name }}           | [gRPC](../data-transfer/api-ref/grpc/)<br>[REST](../data-transfer/api-ref/) |
 | {{ iam-full-name }}                     | [gRPC](../iam/api-ref/grpc/)<br>[REST](../iam/api-ref/) |
 | {{ iot-full-name }}                     | [Devices gRPC](../iot-core/api-ref/grpc/)<br>[Devices REST](../iot-core/api-ref/)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/)<br>[Broker REST](../iot-core/broker/api-ref/) |
-| {{ foundation-models-full-name }}       | [Text generation gRPC API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/grpc/)<br>[Text generation REST API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/)<br>[{{ assistant-api }} gRPC]({{ link-docs-ai }}ai-studio/assistants/api-ref/grpc/)<br>[{{ assistant-api }} REST]({{ link-docs-ai }}ai-studio/assistants/api-ref/)<br>[Embeddings gRPC]({{ link-docs-ai }}ai-studio/embeddings/api-ref/grpc/)<br>[Embeddings REST]({{ link-docs-ai }}ai-studio/embeddings/api-ref/)<br>[YandexART gRPC]({{ link-docs-ai }}ai-studio/image-generation/api-ref/grpc/)<br>[YandexART REST]({{ link-docs-ai }}ai-studio/image-generation/api-ref/) |
 | {{ kms-full-name }}                     | [gRPC](../kms/api-ref/grpc/)<br>[REST](../kms/api-ref/) |
 | {{ load-testing-full-name }}            | [gRPC](../load-testing/user/api-ref/grpc/)<br>[REST](../load-testing/user/api-ref/) |
 | {{ lockbox-name }} {{ tag-preview }} | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |

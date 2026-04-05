@@ -61,4 +61,14 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
+      - type: basic-card
+        title: MLOps management in Yandex Managed Service for GitLab
+        text: >-
+          Managing the lifecycle of ML models using ML Registry in Yandex
+          Managed Service for GitLab.
+        urlTitle: MLOps management in Yandex Managed Service for GitLab
+        url: mlops-in-managed-gitlab
+        border: shadow
+        controlPosition: content
+        animated: false
 links: []

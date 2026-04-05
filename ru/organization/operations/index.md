@@ -53,6 +53,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./federation-group-mapping.md)
 * [{#T}](./renew-yc-certificate.md)
 * [{#T}](./manage-domain-in-federation.md)
+* [{#T}](./delete-federation.md)
 
 ## Управление пулами пользователей {#manage-userpools}
 

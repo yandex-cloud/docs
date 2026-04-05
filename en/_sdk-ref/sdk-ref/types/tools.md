@@ -114,7 +114,7 @@ Whether to enforce strict parameter validation
 
 A generative search tool that can be called by LLMs/Assistants models.
 
-To learn more about generative search itself, refer to [generative search documentation](https://yandex.cloud/docs/search-api/concepts/generative-response#body)
+To learn more about generative search itself, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
 
 Objects of this class could be used in any place which requires [**BaseTool**](../internals/bases.md#yandex_ai_studio_sdk._tools.tool.BaseTool) instance, but not every place/feature supports all of the tool types.
 

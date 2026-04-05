@@ -46,6 +46,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-redis.restorer](../../_roles/managed-redis/restorer.md) %}
 
+#### managed-redis.user {#managed-redis-user}
+
+{% include [managed-redis.user](../../_roles/managed-redis/user.md) %}
+
+#### managed-redis.switcher {#managed-redis-switcher}
+
+{% include [managed-redis.switcher](../../_roles/managed-redis/switcher.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../../_roles/managed-redis/editor.md) %}
@@ -53,6 +61,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-redis.admin {#managed-redis-admin}
 
 {% include [managed-redis.admin](../../_roles/managed-redis/admin.md) %}
+
+#### managed-redis.maintenanceTask.viewer {#managed-redis-maintenanceTask-viewer}
+
+{% include [managed-redis.maintenanceTask.viewer](../../_roles/managed-redis/maintenanceTask/viewer.md) %}
+
+#### managed-redis.maintenanceTask.editor {#managed-redis-maintenanceTask-editor}
+
+{% include [managed-redis.maintenanceTask.editor](../../_roles/managed-redis/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -69,6 +85,18 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

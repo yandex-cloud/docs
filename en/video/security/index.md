@@ -2,8 +2,8 @@
 
 In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles existing in this service](#roles-list).
 
 ## Access management {#about-access-control}
 
@@ -11,7 +11,7 @@ Access to {{ video-name }} is controlled by assigning permissions within the [or
 
 The operations available to {{ video-name }} users are determined by their roles. You can assign roles to a Yandex account, [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about access management in {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
-To assign a role for a resource, a user should have the `video.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `video.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -23,7 +23,7 @@ You can assign a role for a [channel](../concepts/index.md#channels) from the {{
 
 You can add a user to {{ video-name }} as follows:
 * Send an invitation from the {{ video-name }} [interface]({{ link-video-main }}) by specifying the email address the user used to sign up to the organization.
-* [Grant](../../organization/security/index.md) access permissions via the {{ org-name }} interface.
+* [Grant](../../organization/security/index.md) access permissions via the {{ org-full-name }} interface.
 
 ## Roles this service has {#roles-list}
 

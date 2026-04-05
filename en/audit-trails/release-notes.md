@@ -87,7 +87,7 @@ description: This section contains the {{ at-name }} release notes.
 
   {% endcut %}
 
-  {% cut "{{ org-name }}" %}
+  {% cut "{{ org-full-name }}" %}
 
   [Management events](./concepts/format.md):
 
@@ -434,11 +434,11 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `CreateCluster` | Creating an {{ SPRK }} cluster
-  `DeleteCluster` | Deleting an {{ SPRK }} cluster
-  `StartCluster` | Starting an {{ SPRK }} cluster
-  `StopCluster` | Stopping an {{ SPRK }} cluster
-  `UpdateCluster` | Updating an {{ SPRK }} cluster
+  `CreateCluster` | Creating a {{ SPRK }} cluster
+  `DeleteCluster` | Deleting a {{ SPRK }} cluster
+  `StartCluster` | Starting a {{ SPRK }} cluster
+  `StopCluster` | Stopping a {{ SPRK }} cluster
+  `UpdateCluster` | Updating a {{ SPRK }} cluster
   
   {% endcut %}
 
@@ -460,7 +460,7 @@ Added new events for the services:
 
   {% endcut %}
 
-  {% cut "{{ org-name }}" %}
+  {% cut "{{ org-full-name }}" %}
 
   [Management events](./concepts/format.md):
 
@@ -617,7 +617,7 @@ Added new events for the services:
 
   {% endcut %}
 
-  {% cut "{{ org-name }}" %}
+  {% cut "{{ org-full-name }}" %}
 
   [Management events](./concepts/format.md):
 
@@ -851,7 +851,7 @@ Added new events for the services:
   `BatchCreateServer` | Leasing several {{ baremetal-name }} [servers](../baremetal/concepts/servers.md) at the same time
   `CreateExternalConnection` | Creating a [private connection](../baremetal/concepts/private-network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
   `CreatePrivateSubnet` | Creating a [private subnet](../baremetal/concepts/private-network.md#private-subnet)
-  `CreateServer` | Leasing a {{ baremetal-name }} server
+  `CreateServer` | {{ baremetal-name }} server rent
   `CreateVRF` | Creating a [virtual network segment](../baremetal/concepts/private-network.md#vrf-segment) (VRF)
   `DeleteExternalConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
   `DeletePrivateSubnet` | Deleting a private subnet
@@ -1166,7 +1166,7 @@ Added new events for the services:
 
 Added new events for the services:
 
-  {% cut "{{ org-name }}" %}
+  {% cut "{{ org-full-name }}" %}
 
   [Management events](./concepts/format.md):
 
@@ -1228,7 +1228,7 @@ Added new events for the services:
 
   {% endcut %}
 
-  {% cut "{{ org-name }}" %}
+  {% cut "{{ org-full-name }}" %}
 
   [Management events](./concepts/format.md):
 
@@ -1704,7 +1704,7 @@ Added new events for the services:
 
   {% endcut %}
 
-  {% cut "{{ org-name }}" %}
+  {% cut "{{ org-full-name }}" %}
 
   [Management events](./concepts/format.md):
 

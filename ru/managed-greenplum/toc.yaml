@@ -25,6 +25,8 @@ items:
             href: operations/cluster-backups.md
           - name: Управление доступом к кластеру
             href: operations/cluster-access.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подключение
@@ -111,6 +113,8 @@ items:
             href: operations/monitoring.md
           - name: Передача логов кластера в {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
+          - name: Чтение логов через SQL
+            href: operations/sql-log-access.md
       - name: Вспомогательные утилиты
         href: operations/greenplum-db.md
   - name: Практические руководства

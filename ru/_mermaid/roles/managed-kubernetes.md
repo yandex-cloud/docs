@@ -1,5 +1,6 @@
 ```mermaid
 flowchart BT
+    k8s.cluster-api.editor ~~~ k8s.cluster-api.admin
     k8s.cluster-api.editor ~~~ k8s.cluster-api.cluster-admin
     k8s.cluster-api.viewer ~~~ k8s.cluster-api.editor
     k8s.editor --> k8s.admin

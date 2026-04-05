@@ -2,7 +2,7 @@
 
 An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings.
 
-When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
+When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-full-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
 
 
 {{ yandex-cloud }} organization structure:
@@ -166,9 +166,9 @@ To assign a role to a user:
 
 If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. This way, employees will access {{ yandex-cloud }} services using their corporate accounts.
 
-You do not need to use any third-party user and access management systems. You can create a [user pool](./concepts/user-pools.md) to house [local user](../iam/concepts/users/accounts.md#local) accounts as you create them within your {{ org-name }} [organization](./concepts/organization.md).
+You do not need to use any third-party user and access management systems. You can create a [user pool](./concepts/user-pools.md) to house [local user](../iam/concepts/users/accounts.md#local) accounts as you create them within your {{ org-full-name }} [organization](./concepts/organization.md).
 
-Moreover, {{ org-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
+Moreover, {{ org-full-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
 
 For more information, see these sections:
 * [{#T}](./concepts/add-federation.md)

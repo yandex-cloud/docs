@@ -5,7 +5,7 @@
 
 
 
-In this tutorial, we will deploy a {{ yandex-cloud }} Microsoft Windows Server Datacenter consisting of a single server with pre-installed Active Directory and Remote Desktop Services. You can select one of the images with preset quotas for 5, 10, 25, 50, and 100 users. In our example, we will select a 5-user quota.
+In this tutorial, we will deploy a {{ yandex-cloud }} Microsoft Windows Server Datacenter consisting of a single server with pre-installed Active Directory and Remote Desktop Services. Images are available with preset quotas for 5, 10, 25, 50, and 100 users. Select the version with the necessary quota. All examples are given for a server with a quota for five users.
 
 {% note warning %}
 
@@ -39,7 +39,7 @@ The cost of Microsoft Windows Server with Remote Desktop Services infrastructure
 
 * Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for {{ yandex-cloud }} outbound internet traffic (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -52,10 +52,11 @@ Create a cloud network named `my-network` with subnets in all availability zones
    - Management console {#console}
 
      To create a [cloud network](../../vpc/concepts/network.md):
-     1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
-     1. Click **Create network**.
-     1. Specify the network name: `my-network`.
-     1. Click **Create network**.
+     1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. Specify `my-network` as the network name.
+     1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
    - CLI {#cli}
 
@@ -83,10 +84,10 @@ Create a cloud network named `my-network` with subnets in all availability zones
 
        To create a subnet:
        1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
-       1. Click the cloud network name.
+       1. Click the name of your cloud network.
        1. Click **Add subnet**.
-       1. Fill out the form: enter `my-subnet-d` as the subnet name and select the `{{ region-id }}-d` availability zone from the drop-down list.
-       1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+       1. Specify `my-subnet-d` as the name and select the `{{ region-id }}-d` availability zone from the drop-down list.
+       1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
        1. Click **Create subnet**.
 
      - CLI {#cli}
@@ -124,11 +125,11 @@ If you are going to create your VM via the CLI, create the `setpass` file with a
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-You can read more about the best practices regarding Active Directory safety on the [MS official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+To learn about the best practices for securing Active Directory, see [this MS guide]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a Windows Server Remote Desktop Services VM {#add-vm}
 
-Create an internet-facing VM with pre-installed Windows Server and Remote Desktop Services.
+Create a virtual machine for Windows Server with Remote Desktop Services. This VM will have internet access.
 
 {% list tabs group=instructions %}
 
@@ -137,8 +138,8 @@ Create an internet-facing VM with pre-installed Windows Server and Remote Deskto
   1. On the folder dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, type `RDS` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
@@ -146,7 +147,7 @@ Create an internet-facing VM with pre-installed Windows Server and Remote Deskto
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
-      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Network named `my-network` and subnet named `my-subnet-d`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `my-network` and `my-subnet-d`.
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `my-rds-vm`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -182,10 +183,11 @@ Create an internet-facing VM with pre-installed Windows Server and Remote Deskto
    {% list tabs group=instructions %}
    
    - Management console {#console}
-   
-     1. On the folder dashboard in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
+
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your preemptible VM.
+     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
      1. Select the `my-rds-vm` VM.
-     1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **Restart**.
+     1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
    
    - CLI {#cli}
    
@@ -199,7 +201,7 @@ Create an internet-facing VM with pre-installed Windows Server and Remote Deskto
    
    {% endlist %}
 
-1. Connect to `my-rds-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as the username and your password.
+1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 1. Assign Active Directory roles:
 
     {% list tabs group=programming_language %}
@@ -225,7 +227,7 @@ Create an internet-facing VM with pre-installed Windows Server and Remote Deskto
       
     {% endlist %}
 
-   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
+   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as your username and your password. Restart PowerShell.
 
 ## Set up firewall rules {#firewall}
 

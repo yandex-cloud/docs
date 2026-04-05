@@ -38,7 +38,6 @@
       metadata:
         name: user-admin-role
       spec:
-        organizationID: stackland
         roleID: admin
         subject:
           kind: User
@@ -48,7 +47,6 @@
       Где:
 
       * `metadata.name` — уникальное имя привязки роли.
-      * `organizationID` — идентификатор организации.
       * `roleID` — идентификатор роли (например, `admin`, `editor`, `viewer`).
       * `kind` — тип субъекта. Для пользователя укажите `User`.
       * `name` — имя пользователя (`username` для локальных пользователей или `name_id` для пользователей из SAML-федерации).
@@ -90,7 +88,6 @@
       metadata:
         name: stackland-cluster-admins
       spec:
-        organizationID: stackland
         roleID: admin
         subject:
           kind: Group
@@ -100,7 +97,6 @@
       Где:
 
       * `metadata.name` — уникальное имя привязки роли.
-      * `organizationID` — идентификатор организации.
       * `roleID` — идентификатор роли.
       * `kind` — тип субъекта. Для группы укажите `Group`.
       * `name` — имя группы.

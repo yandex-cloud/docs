@@ -1,4 +1,9 @@
-# {{ kafka-ui }} for {{ KF }}
+---
+title: '{{ kafka-ui }} web interface for {{ KF }}'
+description: In this tutorial, you will learn about the capabilities of the {{ kafka-ui }} web interface for {{ KF }}.
+---
+
+# {{ kafka-ui }} web interface for {{ KF }}
 
 To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help you track data streams, troubleshoot issues, manage [brokers](../concepts/brokers.md), your cluster, [producers and consumers](../concepts/producers-consumers.md). To learn more about its features, see [{#T}](../concepts/kafka-ui.md).
 
@@ -11,7 +16,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Enable **{{ ui-key.yacloud.kafka.field_kafka-ui }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -23,7 +28,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -40,7 +45,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. To enable the {{ KF }} web UI, add the `config.kafka_ui` section to the cluster description. In this section, provide `enabled` set to `true`:
 
@@ -55,7 +60,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
           }
         }
         ```
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -95,10 +100,10 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update. Specify `configSpec.kafkaUiConfig.enabled` to update the setting for enabling {{ kafka-ui }}.
+        * `updateMask`: Comma-separated string of settings to update. Specify `configSpec.kafkaUiConfig.enabled` to update the setting for enabling {{ kafka-ui }}.
         * `configSpec.kafkaUiConfig.enabled`: Set to `true` to enable {{ kafka-ui }}.
 
-       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
@@ -140,10 +145,10 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`). Specify `config_spec.kafka_ui_config.enabled` to update the setting for enabling {{ kafka-ui }}.
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`). Specify `config_spec.kafka_ui_config.enabled` to update the setting for enabling {{ kafka-ui }}.
         * `config_spec.kafka_ui_config.enabled`: Set to `true` to enable {{ kafka-ui }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -168,7 +173,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
   {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
   ```
 
-  You can find the link to {{ kafka-ui }} in the `kafka_ui.url` parameter.
+  You can find the link to the {{ kafka-ui }} web UI in the `kafka_ui.url` parameter.
   
   You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

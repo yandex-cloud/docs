@@ -18,6 +18,14 @@ description: Под техническим обслуживанием в {{ mmy-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-mysql-maintenanceTask-viewer) `managed-mysql.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-mysql-maintenanceTask-editor) `managed-mysql.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ## Порядок обслуживания {#maintenance-order}
 
 В однохостовых кластерах {{ mmy-name }} техническое обслуживание проходит хост-мастер. Поэтому если во время технического обслуживания потребуется перезагрузка мастера, такой кластер станет недоступным.

@@ -5,7 +5,7 @@ description: This article describes the fields for the FoundationModelsCall inte
 
 # FoundationModelsCall
 
-Integration with [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/).
+Integration with [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/).
 
 The `generate`, `classify`, `fewShotClassify`, and `vision` fields are mutually exclusive: you can use only one of them.
 

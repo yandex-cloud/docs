@@ -51,13 +51,13 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** service.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -105,7 +105,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select `sa-win-disk-connect`.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
@@ -113,7 +113,7 @@ The cost for bucket support includes:
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key. After you close this dialog, the key value will no longer be available.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
 
   1. Create an access key for the `sa-win-disk-connect` service account:
 
@@ -134,7 +134,7 @@ The cost for bucket support includes:
 
      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
-  1. Save `key_id` and `secret`. You will not be able to get the secret key again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the secret key again.
 
 - API {#api}
 
@@ -153,16 +153,16 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
  
 - AWS CLI {#cli}
   
   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
-  1. Create a bucket by entering its name following the [naming requirements](../../storage/concepts/bucket.md#naming):
+  1. Create a bucket by entering its name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming):
   
      ```bash
      aws --endpoint-url https://{{ s3-storage-host }} \
@@ -199,14 +199,14 @@ The cost for bucket support includes:
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory you created the configuration file in.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
   
@@ -216,7 +216,7 @@ The cost for bucket support includes:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -238,7 +238,7 @@ The cost for bucket support includes:
    1. Enter the connection name: `s3-connect`.
    1. Select the storage type by entering `4` in the terminal.
    1. Select the provider by entering `1` in the terminal.
-   1. Select manual entry of credentials by entering `1` in the terminal.
+   1. Select manual entry of credentials by typing `1` in the terminal.
    1. In the terminal, enter the secret key ID you [got previously](#create-static-key).
    1. In the terminal, enter the secret key value you [got previously](#create-static-key).
    1. Specify the region by entering `{{ region-id }}` in the terminal.

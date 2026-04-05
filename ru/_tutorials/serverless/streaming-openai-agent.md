@@ -1,7 +1,7 @@
 # Создание агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на {{ sf-full-name }} и {{ api-gw-name }}
 
 
-В этом руководстве вы создадите агент со стримингом ответа через [веб-сокеты](https://{{ lang }}.wikipedia.org/wiki/WebSocket) на [{{ sf-full-name }}](../../functions/) и [{{ api-gw-full-name }}](../../api-gateway/). Функция будет использовать [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) для работы с моделями [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt).
+В этом руководстве вы создадите агент со стримингом ответа через [веб-сокеты](https://{{ lang }}.wikipedia.org/wiki/WebSocket) на [{{ sf-full-name }}](../../functions/) и [{{ api-gw-full-name }}](../../api-gateway/). Функция будет использовать [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) для работы с моделями [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
 
 Когда агент обрабатывает сложные запросы, ему может потребоваться продолжительное время на ответ. Например, при генерации больших текстов с рассуждениями, поиске и индексации. В таких случаях важно видеть прогресс и получать частичные результаты по мере готовности. Стриминг ответа позволяет сразу выводить токены или фразы, промежуточные сообщения и статусы шагов, отображать логи, а затем — финальный ответ, не дожидаясь завершения всего сценария. Это повышает воспринимаемую скорость, обеспечивает более интерактивный UI/UX, дает возможность отмены, повтора и динамического обновления интерфейса. Стриминг поддерживается большинством фреймворков. В OpenAI Agents SDK также предусмотрен [стриминг](https://openai.github.io/openai-agents-python/streaming/).
 
@@ -54,7 +54,7 @@
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
 
 * Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
-* Плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
+* Плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
 * Плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
 * Плата за получение и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
@@ -498,8 +498,8 @@
          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите сервисный аккаунт `agent-streamer-sa`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-             * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
-             * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
+             * `BASE_URL` — URL сервиса {{ ai-studio-full-name }}: `https://{{ api-host-llm }}/v1`.
+             * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
 
@@ -557,8 +557,8 @@
       * `--service-account-id` — идентификатор сервисного аккаунта `agent-streamer-sa`.
       * `--environment` — переменные окружения:
 
-          * `BASE_URL` — URL сервиса {{ foundation-models-full-name }}: `https://{{ api-host-llm }}/v1`.
-          * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ foundation-models-full-name }}.
+          * `BASE_URL` — URL сервиса {{ ai-studio-full-name }}: `https://{{ api-host-llm }}/v1`.
+          * `MODEL_NAME` — [URI модели]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation) генерации текста {{ ai-studio-full-name }}.
 
               Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
 

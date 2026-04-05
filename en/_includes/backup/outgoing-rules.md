@@ -24,4 +24,10 @@ When installing the [{{ backup-name }} agent](../../backup/concepts/agent.md) on
 
 Once the {{ backup-name }} agent is installed, you can delete this rule.
 
+To access the VM over [SSH](../../compute/operations/vm-connect/ssh.md), add the following incoming traffic rule:
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+
 {% endnote %}

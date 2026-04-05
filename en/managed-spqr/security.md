@@ -58,6 +58,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-spqr.admin](../_roles/managed-spqr/admin.md) %}
 
+#### managed-spqr.maintenanceTask.viewer {#managed-spqr-maintenanceTask-viewer}
+
+{% include [managed-spqr.maintenanceTask.viewer](../_roles/managed-spqr/maintenanceTask/viewer.md) %}
+
+#### managed-spqr.maintenanceTask.editor {#managed-spqr-maintenanceTask-editor}
+
+{% include [managed-spqr.maintenanceTask.editor](../_roles/managed-spqr/maintenanceTask/editor.md) %}
+
 #### mdb.auditor {#mdb-auditor}
 
 {% include [mdb-auditor](../_roles/mdb/auditor.md) %}
@@ -73,6 +81,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../_roles/mdb/restorer.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

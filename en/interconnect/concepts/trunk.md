@@ -96,6 +96,15 @@ You can use such trunks to set up both [private](./priv-con.md) and [public](./p
 
 {% endnote %}
 
+There is a limitation on the packet transfer rate per second (packets per second) for a trunk connection via a partner, which is calculated using the following formula:
+
+`PpsRate (Pps) = Capacity (Mbps) × 101.166667`
+
+Where:
+
+* `PpsRate`: Maximum packet transfer rate per second (Pps).
+* `Capacity`: Throughput of the trunk connection in megabits per second (Mbps).
+
 
 ## Connection multiplexing (802.1Q) {#mux}
 

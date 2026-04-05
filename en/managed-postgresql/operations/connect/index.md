@@ -77,7 +77,7 @@ For more information about security groups, see [{#T}](../../concepts/network.md
 
 ## Obtaining an SSL certificate {#get-ssl-cert}
 
-Publicly accessible {{ PG }} hosts only support encrypted connections. To assess them, get an SSL certificate:
+Publicly accessible {{ PG }} hosts support only encrypted connections. To use them, get an SSL certificate:
 
 {% include [install-certificate](../../../_includes/mdb/mpg/install-certificate.md) %}
 

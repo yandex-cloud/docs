@@ -1,9 +1,9 @@
-# Настройка рабочего процесса {{ sw-name }} с интеграцией с {{ tracker-full-name }}, {{ foundation-models-full-name }} и {{ postbox-full-name }}
+# Настройка рабочего процесса {{ sw-name }} с интеграцией с {{ tracker-full-name }}, {{ ai-studio-full-name }} и {{ postbox-full-name }}
 
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}](../../postbox/index.yaml).
+В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}](../../postbox/index.yaml).
 
 Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}about-tracker#ochered) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
 
@@ -36,7 +36,7 @@
 В стоимость поддержки создаваемой инфраструктуры входят:
 
 * плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md));
-* плата за использование {{ foundation-models-full-name }} (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за использование {{ ai-studio-full-name }} (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
 * плата за использование {{ tracker-full-name }} (см. [тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
 * плата за использование {{ postbox-full-name }} (см. [тарифы {{ postbox-name }}](../../postbox/pricing.md)).
 
@@ -231,7 +231,7 @@
 
 ## Создайте рабочий процесс {{ sw-name }} {#setup-workflow}
 
-1. Выберите спецификацию, которую вы будете использовать для создания рабочего процесса. Обе приведенные спецификации используют интеграции с {{ tracker-full-name }}, {{ foundation-models-full-name }} и {{ postbox-full-name }}, но по-разному анализируют исходные данные.
+1. Выберите спецификацию, которую вы будете использовать для создания рабочего процесса. Обе приведенные спецификации используют интеграции с {{ tracker-full-name }}, {{ ai-studio-full-name }} и {{ postbox-full-name }}, но по-разному анализируют исходные данные.
 
     {% list tabs %}
 

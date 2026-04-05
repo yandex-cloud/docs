@@ -44,6 +44,7 @@
 * [{{ mrd-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-redis)
 * [{{ ydb-full-name }}](../../audit-trails/concepts/events.md#ydb)
 * [{{ message-queue-full-name }}](../../audit-trails/concepts/events.md#ymq)
+* [{{ metadata-hub-full-name }}](../../audit-trails/concepts/events.md#metadata-hub)
 * [{{ network-load-balancer-full-name }}](../../audit-trails/concepts/events.md#network-load-balancer)
 * [{{ objstorage-full-name }}](../../audit-trails/concepts/events.md#objstorage)
 * [{{ yq-full-name }}](../../audit-trails/concepts/events.md#yq)

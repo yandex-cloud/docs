@@ -29,7 +29,7 @@ The infrastructure support cost includes:
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -78,20 +78,20 @@ Set up the infrastructure:
         * Buckets for input and output data.
         * Two {{ dataproc-name }} clusters.
 
-    1. Specify the following in `dataproc-to-dataproc.tf`:
+    1. In `dataproc-to-dataproc.tf`, specify the following:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `input-bucket`: Input data bucket name.
         * `output-bucket`: Output data bucket name.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -107,7 +107,7 @@ Set up the infrastructure:
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
-   To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
+   To find out the {{ metastore-name }} cluster IP address, open the [management console]({{ link-console-main }}), then [go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**, and select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
 
 ## Create a test table {#create-table}
 
@@ -211,7 +211,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. [Delete the objects](../../../storage/operations/objects/delete.md) from the buckets.
-1. Delete other resources depending on how they were created:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

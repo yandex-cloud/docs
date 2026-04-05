@@ -13,6 +13,7 @@ The availability of the invocation context from within the function and the meth
 
 If you are using the [YcFunction interface](model/yc-function.md) as your programming model, the invocation context is a `yandex.cloud.sdk.functions.Context` class object. To get information about the function version properties, use this object's methods in the handler method:
 
+* `getFunctionFolderId()`: Returns the folder containing the function.
 * `getFunctionId()`: Returns the string ID of the function.
 * `getFunctionVersionId()`: Returns the string ID of the function version.
 * `getMemoryLimitInMB()`: Returns the amount of memory specified when creating the version, MB.

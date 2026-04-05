@@ -5,10 +5,14 @@ description: This section contains the {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## February 2026 {#feb-2026}
+
+* New {{ MY }} minor versions are out: [8.4.7](https://docs.percona.com/percona-server/8.4/release-notes/8.4.7-7.html), [8.0.43](https://docs.percona.com/percona-server/8.0/release-notes/8.0.43-34.html), and [5.7.44-54](https://docs.percona.com/percona-server/5.7/release-notes/5.7.44-54.html). Cluster updates scheduled.
+
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
-* Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
+* Added execution details for [cluster operations](operations/cluster-list.md#list-operations).
 
 ## November 2025 {#nov-2025}
 
@@ -38,7 +42,7 @@ Added [integration with {{ connection-manager-name }}](operations/update.md#conn
 
 ## October 2024 {#oct-2024}
 
-You can now [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
+Added support for [setting a retention period for automatic backups](operations/cluster-backups.md#set-backup-retain).
 
 
 ## September 2024 {#sep-2024}

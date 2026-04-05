@@ -1,15 +1,15 @@
 ---
-title: Getting a list of available access policies
-description: In this tutorial, you will learn how to get a list of {{ iam-full-name }} access policies you can assign for {{ yandex-cloud }} resources.
+title: Getting a list of available access policy templates
+description: In this tutorial, you will learn how to get a list of {{ iam-full-name }} access policy templates you can assign for {{ yandex-cloud }} resources.
 ---
 
-# Getting a list of supported access policies
+# Getting a list of supported access policy templates
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-To get a list of [supported](../../concepts/access-control/access-policies.md#supported-policies) access policies:
+To get a list of [supported](../../concepts/access-control/access-policies.md#supported-policies) access policy templates:
 
 {% list tabs group=instructions %}
 
@@ -47,6 +47,15 @@ To get a list of [supported](../../concepts/access-control/access-policies.md#su
   |                                                    |                                                         | to the organization            |
   | organization.denyUserListing                       | organization-deny-user-listing                          | Deny listing of users in the   |
   |                                                    |                                                         | organization                   |
+  | serverless.restrictPrivateNetworkInvocation        | serverless-restrict-private-network-invocation          | Restrict serverless functions  |
+  |                                                    |                                                         | and containers invocation from |
+  |                                                    |                                                         | private vpc networks (by vpc   |
+  |                                                    |                                                         | network ids and/or by private  |
+  |                                                    |                                                         | vpc addresses)                 |
+  | serverless.restrictPublicInvocation                | serverless-restrict-public-invocation                   | Restrict serverless functions  |
+  |                                                    |                                                         | and containers invocation      |
+  |                                                    |                                                         | from public ip addresses by    |
+  |                                                    |                                                         | whitelist                      |
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
   ```
 

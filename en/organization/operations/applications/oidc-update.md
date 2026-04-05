@@ -1,6 +1,6 @@
 ---
 title: How to update an OIDC application in {{ org-full-name }}
-description: Follow this guide to update an OIDC application in {{ org-name }}.
+description: Follow this guide to update an OIDC application in {{ org-full-name }}.
 ---
 
 # Updating an OIDC application in {{ org-full-name }}
@@ -134,15 +134,15 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
 
     Where:
 
-    * `application_id`: OIDC app ID. This is a required parameter.
-    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC application belongs to. This is a required parameter.
-    * `name`: New name for the OIDC app. The name must be unique within the organization and follow the naming requirements:
+    * `application_id`: OIDC app ID. This is a required setting.
+    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC application belongs to. This is a required setting.
+    * `--name`: New name for the OIDC app. The name must be unique within the organization and follow the naming requirements:
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-    * `description`: New description for the OIDC app. This is an optional parameter.
+    * `description`: New description for the OIDC app. This is an optional setting.
     * `client_grant`: OAuth client connection settings:
-      * `client_id`: OAuth client ID. This is a required parameter.
+      * `client_id`: OAuth client ID. This is a required setting.
       * `authorized_scopes`: New user attributes that will be available to the service provider. Specify one or more attributes in square brackets. Possible attributes:
         * `openid`: User ID. Required attribute.
         * `profile`: Additional user details, such as first name, last name, and avatar.
@@ -155,7 +155,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
         * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
         * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.
         * `NONE`: Service provider will not get any of the groups the user belongs to.
-    * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional parameter.
+    * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
     For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
@@ -163,7 +163,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
 
     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    You can check the updates of resources and their settings either in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+    You can check the updates of resources and their settings either in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
     ```bash
     yc organization-manager idp application oauth application get <app_ID>
@@ -263,9 +263,9 @@ To update the service provider configuration in an OIDC app:
 
     Where:
 
-    * `oauth_client_id`: OAuth client ID. This is a required parameter.
-    * `name`: New name for the OAuth client. This is an optional parameter.
-    * `redirect_uris`: New list of redirect URIs. Specify one or more URIs in square brackets. This is an optional parameter.
+    * `oauth_client_id`: OAuth client ID. This is a required setting.
+    * `name`: New name for the OAuth client. This is an optional setting.
+    * `redirect_uris`: New list of redirect URIs. Specify one or more URIs in square brackets. This is an optional setting.
     * `scopes`: New user attributes that will be available to the service provider. Specify one or more attributes in square brackets. Possible attributes:
       * `openid`: User ID. Required attribute.
       * `profile`: Additional user details, such as first name, last name, and avatar.
@@ -353,7 +353,7 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
 
     Where:
 
-    * `oauth_client_id`: ID of the OAuth client for which you are creating a new secret. This is a required parameter.
+    * `oauth_client_id`: ID of the OAuth client for which you are creating a new secret. This is a required setting.
 
     For more information about `yandex_iam_oauth_client_secret` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
 

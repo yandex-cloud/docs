@@ -2,6 +2,7 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [кластерах](../../managed-spqr/concepts/index.md) Sharded PostgreSQL и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на техническое обслуживание кластеров Sharded PostgreSQL;
 * просматривать информацию о [хостах](../../managed-spqr/concepts/instance-types.md) кластеров Sharded PostgreSQL;
 * просматривать информацию о базах данных в кластерах Sharded PostgreSQL;
 * просматривать информацию о пользователях в кластерах Sharded PostgreSQL;
@@ -10,4 +11,4 @@
 * просматривать информацию о [квотах](../../managed-spqr/concepts/limits.md#mspqr-quotas) сервиса Managed Service for Sharded PostgreSQL;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for Sharded PostgreSQL.
 
-Включает разрешения, предоставляемые ролью `managed-spqr.auditor`.
+Включает разрешения, предоставляемые ролями `managed-spqr.auditor` и `managed-spqr.maintenanceTask.viewer`.

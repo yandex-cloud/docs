@@ -64,7 +64,7 @@ You can apply a configuration to an email using the following methods:
 
     The configuration must reside in the same folder as the address. If no configuration of the given name is found in the folder the address is in, you will get an error when sending your email. The configuration provided in the `X-Ses-Configuration-Set` header overrides the configuration associated with the address.
 
-* By providing the configuration name in the `ConfigurationSetName` field, if using the AWS-compatible API [`SendEmail` method](../aws-compatible-api/api-ref/send-email).
+* By providing the configuration name in the `ConfigurationSetName` field, if using the AWS-compatible API [`SendEmail`](../aws-compatible-api/api-ref/send-email) method.
 
     The configuration must reside in the same folder as the address. If no configuration of the given name is found in the folder the address is in, you will get an error when sending your email. The configuration provided in the `ConfigurationSetName` field overrides the configuration associated with the address.
 
@@ -76,7 +76,7 @@ The configuration settings are applied to the email the moment you send it. If y
 
 ## Sender {#sender}
 
-A sender is a confirmed domain mailbox used to send emails. You can limit the list of allowed senders when [creating](../operations/create-address.md) or editing an address.
+A sender is a confirmed domain mailbox used to send emails. You can [limit the list of allowed senders](../../postbox/operations/restrict-senders.md) when creating or editing an address.
 
 ## Subscription {#subscription}
 

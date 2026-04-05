@@ -52,7 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of resources includes:
 
-* Fee for bucket data storage and data operations (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
+* Fee for data storage in a bucket and data operations (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
 * Cluster usage fee (see [{{ mpg-full-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Fee for invoking functions (see [{{ sf-full-name }} pricing](../../../functions/pricing.md)).
 * Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../../lockbox/pricing.md)).
@@ -748,7 +748,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. [Delete](../../../functions/operations/function/function-delete.md) the {{ sf-name }} functions.
 1. Delete the connection to the {{ mpg-name }} cluster database:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder you want to delete the connection in.
+    1. In the [management console]({{ link-console-main }}), select the folder to delete a connection from.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. In the `speechsense-upload-metadata-connection` connection row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
@@ -756,7 +756,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. Delete the {{ sw-name }} workflow:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder you want to delete the workflow in.
+    1. In the [management console]({{ link-console-main }}), select the folder to delete a workflow from.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to `wf-speechsense-upload` and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.

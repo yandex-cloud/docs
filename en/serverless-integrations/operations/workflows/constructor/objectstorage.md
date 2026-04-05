@@ -29,7 +29,7 @@ description: Follow this guide to add interaction with {{ objstorage-full-name }
           {% cut "If you are adding an object to the bucket" %}
 
           * `BINARY`: Object content will be decoded from [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64) format.
-          * `TEXT`: Object content will be saved in plain text format.
+          * `TEXT`: Object content will be saved as UTF-8 encoded plain text. If the file has a different encoding, {{ sw-name }} will return an error, or the workflow will run incorrectly.
           * `JSON`: Object text containing JSON will be saved as a [JSON](https://en.wikipedia.org/wiki/JSON) structure.
 
           {% endcut %}
@@ -38,7 +38,7 @@ description: Follow this guide to add interaction with {{ objstorage-full-name }
 
           * `BINARY`: Object content will be encoded in [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64) format.
           * `JSON`: Object content will be received as a [JSON](https://en.wikipedia.org/wiki/JSON) structure.
-          * `TEXT`: Object content will be received in plain text format.
+          * `TEXT`: Object content will be received as UTF-8 encoded plain text. If the file has a different encoding, {{ sw-name }} will return an error, or the workflow will run incorrectly.
           * `EXCEL`: Object content will be converted into an array of pages, where each page is an array of string arrays. Supported formats: `XLAM`, `XLSM`, `XLSX`, `XLTM`, and `XLTX`.
           * `CSV`: Object content will be converted into an array of string arrays by dividing the strings based on the following separators: comma (`,`) and line break.
 

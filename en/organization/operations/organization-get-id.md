@@ -27,6 +27,12 @@ To find out the organization ID:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  1. See the description of the CLI command for getting a list of organizations:
+
+      ```bash
+      yc organization-manager organization list --help
+      ```
+
   1. {% include [get-federation-id-cli](../../_includes/organization/get-federation-id-cli.md) %}
 
 - API {#api}

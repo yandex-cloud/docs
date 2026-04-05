@@ -3,7 +3,7 @@
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
-`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса]({{ link-docs-ai }}/ai-studio/concepts/generation/dedicated-instance.md)
+`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса]({{ link-docs-ai }}/ai-studio/concepts/generation/dedicated-instance)
 `dedicated_instance.DeleteDedicatedInstance` | Удаление выделенного инстанса
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса

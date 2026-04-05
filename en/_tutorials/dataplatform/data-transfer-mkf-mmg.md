@@ -6,16 +6,16 @@ A {{ mmg-name }} cluster can ingest data from {{ KF }} topics in real time.
 To start data delivery:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration. To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
+        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
@@ -56,19 +56,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Download the [data-transfer-mkf-mmg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-mongodb/blob/main/data-transfer-mkf-mmg.tf) configuration file to the same working directory.
+        1. Download the [data-transfer-mkf-mmg.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-mongodb/blob/main/data-transfer-mkf-mmg.tf) configuration file to your current working directory.
 
             This file describes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing connections to the {{ mkf-name }} and {{ mmg-name }} clusters.
+            * [Security group](../../vpc/concepts/security-groups.md) and the rules allowing connections to the {{ mkf-name }} and {{ mmg-name }} clusters.
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic named `sensors`.
-            * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
+            * {{ KF }} user named `mkf-user` with `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the `sensors` topic.
             * {{ mmg-name }} target cluster.
             * {{ SD }} database named `db1`.
-            * {{ SD }} user named `mmg-user` with the `readWrite` access permissions for the `db1` database.
+            * {{ SD }} user named `mmg-user` with `readWrite` access permissions for the `db1` database.
             * Transfer.
 
         1. In the `data-transfer-mkf-mmg.tf` file, specify these variables:
@@ -77,7 +77,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `source_user_password`: `mkf-user` password in the source cluster.
             * `target_mg_version`: {{ SD }} version in the target cluster.
             * `target_user_password`: `mmg-user` password in the target cluster.
-            * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
+            * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#prepare-transfer).
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -95,15 +95,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install these tools:
+1. Install the following tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
@@ -113,9 +113,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your test data {#prepare-data}
 
-Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
+Suppose the {{ KF }} `sensors` topic in the source cluster receives JSON-formatted data from car sensors.
 
-Create a local `sample.json` file with the following test data:
+On your local machine, create a `sample.json` file with the following test data:
 
 {% cut "sample.json" %}
 
@@ -157,7 +157,7 @@ Create a local `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
@@ -181,7 +181,7 @@ Create a local `sample.json` file with the following test data:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
-                Insert the data schema in JSON format:
+                Paste the data schema in JSON format:
 
                 {% cut "json" %}
 
@@ -262,7 +262,7 @@ Create a local `sample.json` file with the following test data:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -280,9 +280,9 @@ Create a local `sample.json` file with the following test data:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-Make sure data from the {{ mkf-name }} source cluster topic can be transferred to the {{ mmg-name }} cluster:
+Check that data from the {{ mkf-name }} source cluster’s topic is transferred to the {{ mmg-name }} cluster:
 
 1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
@@ -300,11 +300,11 @@ Make sure data from the {{ mkf-name }} source cluster topic can be transferred t
 
     To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Make sure that the {{ mmg-name }} cluster's `sensors` collection contains the data that was sent:
+1. Verify that the {{ mmg-name }} cluster's `sensors` collection contains the data you sent:
 
     1. [Connect to the {{ mmg-name }} cluster](../../storedoc/operations/connect/index.md).
 
-    1. Get the contents of the `sensors` collection using the query below:
+    1. Retrieve the contents of the `sensors` collection using the following query:
 
         ```sql
         db.sensors.find()
@@ -314,15 +314,15 @@ Make sure data from the {{ mkf-name }} source cluster topic can be transferred t
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=instructions %}
 

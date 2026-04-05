@@ -1,9 +1,9 @@
 ---
-title: How to work with DNS zones and resource records. Step-by-step guide
+title: How to work with DNS zones and resource records. Step-by-step guides
 description: 'Step-by-step guide for working with DNS zones and resource records in {{ yandex-cloud }}. In this guide, you will learn how to create private and public DNS zones, manage them, and work with DNS resource records: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT.'
 ---
 
-# Step-by-step guide for {{ dns-name }}
+# Step-by-step guides for {{ dns-name }}
 
 ## DNS zones {#dns-zones}
 
@@ -11,6 +11,7 @@ description: 'Step-by-step guide for working with DNS zones and resource records
 - [{#T}](zone-create-public.md)
 - [{#T}](zone-update.md)
 - [{#T}](zone-access.md)
+- [{#T}](zone-move-folder.md)
 - [{#T}](operation-logs.md)
 - [{#T}](zone-delete.md)
 

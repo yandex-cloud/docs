@@ -6,6 +6,8 @@
 
 In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../application-load-balancer/) and its auxiliary resources when a {{ k8s }} user announces the `Gateway` resource in a {{ managed-k8s-name }} cluster.
 
+{% include [note-alb](note-alb.md) %}
+
 ## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../cli-install.md) %}
@@ -44,7 +46,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
    * **Subnet 1 ID**, **Subnet 2 ID**, **Subnet 3 ID**: Select [subnets](../../vpc/concepts/network.md#subnet) where your [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) will reside.
    * **Service account key**: Paste the contents of the `sa-key.json` file or create a new [service account](../../iam/concepts/users/service-accounts.md) [key](../../iam/concepts/authorization/key.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

@@ -336,9 +336,7 @@ items:
             href: tutorials/index.md
           - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
             href: tutorials/s2s-vpn.md
-          - name: >-
-              Installing Ghost CMS in {{ objstorage-name }} using {{
-              cloud-apps-name }}
+          - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
             href: tutorials/ghost-cms-cloudapp.md
           - name: Installing WordPress High Availability using {{ cloud-apps-name }}
             href: tutorials/wordpress-cloudapp.md

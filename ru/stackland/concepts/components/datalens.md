@@ -51,7 +51,7 @@
 
 Для работы {{ datalens-name }} необходимы следующие компоненты:
 
-* [{{ stackland-mpg-name }}](postgresql.md) — хранение данных {{ datalens-name }}.
+* [{{ mpg-name }}](postgresql.md) — хранение данных {{ datalens-name }}.
 * [{{ iam-name }}](iam.md) — аутентификация и авторизация пользователей.
 
 ## Конфигурация {#configuration}

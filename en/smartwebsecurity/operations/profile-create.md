@@ -90,9 +90,9 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
      Where:
 
      * `--name`: Security profile name. This is a required setting. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
-     * `--description`: Text description of the security profile. This is an optional parameter.
+     * `--description`: Text description of the security profile. This is an optional setting.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
       * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 
@@ -174,7 +174,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
       * `advanced_rate_limiter_profile_id`: [ARL profile](../concepts/arl.md) ID. This is an optional setting.
       * `security_rule`: Security [rule](../concepts/rules.md) description:
          * `name`: Security rule name.
-         * `priority`: Rule [priority](../concepts/rules.md). The possible values range from 1 to 1,000,000.
+         * `priority`: Rule [priority](../concepts/rules.md#rules-order). The possible values range from 1 to 1,000,000.
          * `smart_protection`: Description of the [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the action type specified in the `mode` parameter.
             * `mode`: [Rule action](../concepts/rules.md#rule-action). It can be either `FULL` to enable full protection, where suspicious requests are challenged with CAPTCHA, or `API` to enable API protection, where suspicious requests are blocked.
          * `waf`: Web application firewall rule description. To add a WAF rule, you must first [create a WAF profile](waf-profile-create.md). The optional setting section contains:
@@ -182,7 +182,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
       If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.
 
-      For more information about `yandex_sws_security_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 

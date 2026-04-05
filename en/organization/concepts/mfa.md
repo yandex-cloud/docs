@@ -3,7 +3,7 @@ title: Multi-factor authentication (MFA) in {{ org-full-name }}
 description: In {{ org-full-name }}, you can configure MFA for federated and local users to enhance the protection level of their accounts.
 ---
 
-# Multi-factor authentication in {{ org-name }}
+# Multi-factor authentication in {{ org-full-name }}
 
 In {{ org-full-name }}, you can configure [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) (MFA) for [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) user accounts.
 
@@ -21,7 +21,7 @@ _MFA policies_ specify the multi-factor authentication requirements enforced on 
 
     {% include [mfa-create-policy-step6-ss1](../../_includes/organization/mfa-create-policy-step6-ss1.md) %}
 
-You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
+You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-full-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
 
 For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups.
 

@@ -1,3 +1,3 @@
-Users with the `yq.viewer` role can view queries and their results.
+The `yq.viewer` role allows you to view the service metadata, including the information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [connections](../../query/concepts/glossary.md#connection), [bindings](../../query/concepts/glossary.md#binding), [queries](../../query/concepts/glossary.md#query), and [runs](../../query/concepts/glossary.md#jobs), including query texts and results.
 
 This role includes the `yq.auditor` permissions.

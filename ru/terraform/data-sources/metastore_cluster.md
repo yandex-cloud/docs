@@ -28,6 +28,10 @@ data "yandex_metastore_cluster" "metastore_cluster_by_id" {
 
 - `cluster_config` [Block]. Hive Metastore cluster configuration.
   - `resource_preset_id` (**Required**)(String). The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
+  - `warehouse_config` [Block]. Warehouse configuration for Hive Metastore.
+    - `s3` [Block]. S3-compatible storage configuration for warehouse.
+      - `bucket` (String). Name of the S3 bucket used as warehouse storage.
+      - `path` (String). Path prefix within the bucket for warehouse data.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion. By default is set to `false`.
 - `description` (String). The resource description.

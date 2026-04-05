@@ -67,7 +67,7 @@ Make sure to meet the following prerequisites:
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens, do the following:
+  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
 
       1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
 
@@ -101,7 +101,7 @@ Make sure to meet the following prerequisites:
 
 ## Add the {{ microsoft-idp.adfs-abbreviated }} certificate to the federation {#add-certificate}
 
-To enable {{ org-name }} to verify the {{ microsoft-idp.adfs-abbreviated }} certificate during authentication, add the certificate to the federation:
+To enable {{ org-full-name }} to verify the {{ microsoft-idp.adfs-abbreviated }} certificate during authentication, add the certificate to the federation:
 
 {% list tabs group=instructions %}
 
@@ -369,7 +369,7 @@ To configure such a policy:
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. [Create a user group](../../organization/operations/create-group.md) named `yc-demo-group` in {{ org-name }} and [authorize it](../../organization/operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
+  1. [Create a user group](../../organization/operations/create-group.md) named `yc-demo-group` in {{ org-full-name }} and [authorize it](../../organization/operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
 
   1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
@@ -427,7 +427,7 @@ To configure such a policy:
 
          {% include [adfs-group-note](../../_includes/organization/adfs-group-note.md) %}
 
-      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider documentation.
+      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
 
   1. Create the resources:
 
@@ -453,7 +453,7 @@ To configure such a policy:
 
     {% endcut %}
 
-    If you have set up everything correctly, the browser will redirect you to the authentication page in {{ microsoft-idp.adfs-abbreviated }}.
+    If you have set everything up correctly, the browser will redirect you to the {{ microsoft-idp.adfs-abbreviated }} authentication page.
 
 1. Enter the credentials of the `adfs_demo_user@example.com` user you [created earlier](#create-user) and click **Sign in**.
 

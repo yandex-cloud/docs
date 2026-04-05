@@ -23,7 +23,7 @@ Below are recommendations on designing a fault-tolerant infrastructure in {{ yan
 
 Currently, the following regions are available in {{ yandex-cloud }}:
 
-* **Russia** (ru-central1): `ru-central1-a`, `ru-central1-b`, and `ru-central1-d` availability zones.
+* **Russia** (ru-central1): `ru-central1-a`, `ru-central1-b`, `ru-central1-d`, and `ru-central1-e` availability zones.
 * **Kazakhstan** (kz1): `kz1-a` availability zone.
 
 A region provides direct network (IP) connectivity across availability zones, common [APIs](../overview/api.md), [SLAs](../overview/sla.md), and unified [pricing](../../prices) for cloud services.
@@ -135,7 +135,7 @@ Placement of platform service hosts in different availability zones is the key m
 
 ### High availability managed databases (MDB) {#mdb-ha}
 
-According to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms.
+According to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements.
 
 {% note warning %}
 
@@ -262,4 +262,7 @@ Any fault tolerance solutions require regular testing in various fault scenarios
 
 ## See also {#see-also}
 
-* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md)
+* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md).
+* [{#T}](../managed-postgresql/concepts/high-availability.md).
+* [{#T}](../managed-mysql/concepts/high-availability.md).
+* [{#T}](../managed-opensearch/concepts/high-availability.md).

@@ -2143,8 +2143,6 @@ items:
         href: events-ref/DeleteInstanceGroup.md
       - name: DeleteInstanceGroupInstances
         href: events-ref/DeleteInstanceGroupInstances.md
-      - name: DeleteNode
-        href: events-ref/DeleteNode.md
       - name: DeletePlacementGroup
         href: events-ref/DeletePlacementGroup.md
       - name: DeleteReservedInstancePool
@@ -2159,28 +2157,18 @@ items:
         href: events-ref/DetachInstanceFilesystem.md
       - name: DetachInstanceNetworkInterface
         href: events-ref/DetachInstanceNetworkInterface.md
-      - name: DisableNode
-        href: events-ref/DisableNode.md
       - name: DisableSnapshotSchedule
         href: events-ref/DisableSnapshotSchedule.md
       - name: DisableZones
         href: events-ref/DisableZones.md
-      - name: DumpMemory
-        href: events-ref/DumpMemory.md
-      - name: EnableNode
-        href: events-ref/EnableNode.md
       - name: EnableSnapshotSchedule
         href: events-ref/EnableSnapshotSchedule.md
       - name: EnableZones
         href: events-ref/EnableZones.md
-      - name: EvacuateNode
-        href: events-ref/EvacuateNode.md
       - name: GuestStopInstance
         href: events-ref/GuestStopInstance.md
       - name: MigrateInstance
         href: events-ref/MigrateInstance.md
-      - name: MigrateNode
-        href: events-ref/MigrateNode.md
       - name: PauseInstanceGroup
         href: events-ref/PauseInstanceGroup.md
       - name: PreemptInstance
@@ -2231,10 +2219,6 @@ items:
         href: events-ref/UpdateInstanceMetadata.md
       - name: UpdateInstanceNetworkInterface
         href: events-ref/UpdateInstanceNetworkInterface.md
-      - name: UpdateInstanceUnderlayInterface
-        href: events-ref/UpdateInstanceUnderlayInterface.md
-      - name: UpdateNode
-        href: events-ref/UpdateNode.md
       - name: UpdatePlacementGroup
         href: events-ref/UpdatePlacementGroup.md
       - name: UpdateReservedInstancePool

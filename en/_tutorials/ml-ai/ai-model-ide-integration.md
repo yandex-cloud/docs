@@ -1,6 +1,6 @@
 You can facilitate software development in [Visual Studio Code](https://code.visualstudio.com/) with `Qwen3-235B-A22B`, `GPT-OSS-120b`, and other models. The models can generate code, convert it to other programming languages, help you with debugging and error detection in code, analyze data, write documentation, and more.
 
-In this tutorial, you will integrate the models into your Visual Studio Code with the help of {{ foundation-models-full-name }} and the [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) or [Roo Code](https://roocode.com/) extension.
+In this tutorial, you will integrate the models into your Visual Studio Code with the help of {{ ai-studio-full-name }} and the [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) or [Roo Code](https://roocode.com/) extension.
 
 {% note info %}
 
@@ -15,7 +15,7 @@ To use models as an assistant in the code editor:
 1. [Connect to the model](#connection).
 1. [Test the model](#test).
 
-The infrastructure support fee for connecting to the model from the code editor includes a text generation fee (see the [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+The infrastructure support fee for connecting to the model from the code editor includes a text generation fee (see the [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 
 ## Set up your infrastructure {#infra}
 

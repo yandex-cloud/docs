@@ -506,6 +506,21 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Datacatalog
+            items:
+              - name: Data Sources
+                items:
+                  - name: datacatalog_catalog
+                    href: data-sources/datacatalog_catalog.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: datacatalog_catalog
+                    href: resources/datacatalog_catalog.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Identity Hub
             items:
               - name: Data Sources
@@ -1032,6 +1047,9 @@ items:
                   - name: mdb_mysql_database
                     href: data-sources/mdb_mysql_database.md
                     title: ''
+                  - name: mdb_mysql_database_v2
+                    href: data-sources/mdb_mysql_database_v2.md
+                    title: ''
                   - name: mdb_mysql_user
                     href: data-sources/mdb_mysql_user.md
                     title: ''
@@ -1049,6 +1067,9 @@ items:
                     title: ''
                   - name: mdb_mysql_database
                     href: resources/mdb_mysql_database.md
+                    title: ''
+                  - name: mdb_mysql_database_v2
+                    href: resources/mdb_mysql_database_v2.md
                     title: ''
                   - name: mdb_mysql_user
                     href: resources/mdb_mysql_user.md

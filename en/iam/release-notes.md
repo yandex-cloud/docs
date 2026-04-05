@@ -8,6 +8,23 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## February 2026 {#february-2026}
+
+* Added support for managing [access policies](concepts/access-control/access-policies.md). {{ tag-con }}
+* Added commands for access policy management at the organization, cloud, and folder level:
+  * `yc organization-manager organization list-access-policy-bindings`
+  * `yc organization-manager organization bind-access-policy`
+  * `yc organization-manager organization unbind-access-policy` {{ tag-cli }}
+* Added the following [roles](roles-reference.md):
+
+   {% cut "Yandex Cloud Backup" %}
+
+     User role | Description
+     --- | ---
+     `backup.auditor` | Allows viewing details on virtual machines and BareMetal servers connected to Cloud Backup, backup policies and service quotas, your cloud and folder.
+
+   {% endcut %}
+
 ## December 2025 {#december-2025}
 
 * Added the `yc iam access-key issue-ephemeral` command for issuing [ephemeral keys](concepts/authorization/ephemeral-keys.md). {{ tag-cli }}
@@ -129,8 +146,8 @@ description: This section contains the {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `organization-manager.idpInstances.billingAdmin` | Enables managing your subscription to the paid {{ org-name }} features.
-     `organization-manager.idpInstances.billingViewer` | Enables viewing the list of users who employ the {{ org-name }} authentication quota in the current reporting period, as well as viewing info on a subscription to the paid-for {{ org-name }} features and stats regarding the use of the quotas within this subscription.
+     `organization-manager.idpInstances.billingAdmin` | Enables managing your subscription to the paid {{ org-full-name }} features.
+     `organization-manager.idpInstances.billingViewer` | Enables viewing the list of users who employ the {{ org-full-name }} authentication quota in the current reporting period, as well as viewing info on a subscription to the paid-for {{ org-full-name }} features and stats regarding the use of the quotas within this subscription.
 
    {% endcut %}
 
@@ -151,9 +168,9 @@ description: This section contains the {{ iam-name }} release notes.
 
      User role | Description
      --- | ---
-     `organization-manager.groups.externalConverter` | Enables adding an attribute with an external group ID to {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-     `organization-manager.groups.externalCreator` | Enables creating {{ org-name }} user groups when synchronizing with user groups in Active Directory or another external source.
-     `organization-manager.userpools.syncAgent` | Enables synchronizing {{ org-name }} users and groups with users and groups in Active Directory or another external source.
+     `organization-manager.groups.externalConverter` | Enables adding an attribute with an external group ID to {{ org-full-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+     `organization-manager.groups.externalCreator` | Enables creating {{ org-full-name }} user groups when synchronizing with user groups in Active Directory or another external source.
+     `organization-manager.userpools.syncAgent` | Enables synchronizing {{ org-full-name }} users and groups with users and groups in Active Directory or another external source.
 
    {% endcut %}
 

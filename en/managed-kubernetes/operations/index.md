@@ -78,6 +78,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-get-stats.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)

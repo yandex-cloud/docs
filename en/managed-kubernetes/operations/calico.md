@@ -27,6 +27,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Manually {#manual}
 
      1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
+
+         {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -44,8 +47,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
      1. Download the [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf) configuration file of the [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) to the same working directory. This file describes:
-        * [Network](../../vpc/operations/network-create.md).
-        * Subnet.
+        * [Network](../../vpc/operations/network-create.md) with a subnet.
+
+            {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
         * {{ managed-k8s-name }} cluster.
         * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and [node group](../concepts/index.md#node-group).
         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
@@ -58,13 +63,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * {{ managed-k8s-name }} cluster CIDR.
         * Name of the {{ managed-k8s-name }} cluster service account.
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

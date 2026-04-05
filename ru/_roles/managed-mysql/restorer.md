@@ -2,7 +2,8 @@
 
 Пользователи с этой ролью могут:
 * просматривать информацию о резервных копиях [кластеров](../../managed-mysql/concepts/index.md) MySQL® и восстанавливать кластеры из [резервных копий](../../managed-mysql/concepts/backup.md);
-* просматривать информацию о кластерах MySQL®;
+* просматривать информацию о кластерах MySQL® и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../managed-mysql/concepts/maintenance.md) кластеров MySQL®;
 * просматривать информацию о [хостах](../../managed-mysql/concepts/instance-types.md) кластеров MySQL®;
 * просматривать информацию о базах данных MySQL®;
 * просматривать информацию о [пользователях](../../managed-mysql/concepts/user-rights.md) MySQL®;

@@ -47,7 +47,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|cloud_desktop }}']}
-    excludeSkuIds={['{{ pc|cloud_desktop.image.v1 }}']}
     installationCode="ru"
     currency="RUB"
   />

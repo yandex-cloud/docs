@@ -18,7 +18,7 @@ Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }
   1. To enable {{ connection-manager-full-name }} integration with the existing managed database clusters, select **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}** in the advanced cluster settings. After saving the cluster settings, all its connections will be created automatically. You cannot disable this integration setting.
   1. To check an automatically created connection, go to [{{ connection-manager-name }}]({{ link-console-main }}/link/metadata-hub/connection-manager) in the management console.
 
-  In the connection list, you can view the connections created for your clusters and [configure access](../operations/connection-access.md) to them. In the list of connection [dependencies](../operations/view-connection.md#dependencies), you can view which managed database clusters are using this connection. Also, you can view the list of [operations](../operations/operation-connection.md) and their status for the connection you select.
+  In the connection list, you can view the connections created for your clusters and [configure access](../operations/connection-access.md) to them. In the list of connection [dependencies](../operations/view-connection.md#dependencies), you can view which managed database clusters are using this connection. Also, you can view the list of [operations](../operations/operation-connection.md) and their status for the connectioin you select.
 
 {% endlist %}
 
@@ -29,7 +29,7 @@ Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Enter a name and database type for the connection.
@@ -62,3 +62,4 @@ Once you create a connection, you can [view its settings](../operations/update-c
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+

@@ -66,7 +66,7 @@ description: This section contains {{ api-gw-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Upgraded the [{{ foundation-models-full-name }} integration](operations/spec-constructor/yagpt.md) form in the specification constructor.
+* Upgraded the [{{ ai-studio-full-name }} integration](operations/spec-constructor/yagpt.md) form in the specification constructor.
 * Updated [integration with {{ objstorage-full-name }}](operations/spec-constructor/object-storage.md): changed the logic of managing the response code returned if a queried object is not in the specified bucket.
 
 ## August 2024 {#august-2024}

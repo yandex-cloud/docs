@@ -24,6 +24,13 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 # {{ mch-full-name }} release notes
 
+## February 2026 {#feb-2026}
+
+* Added the **Performance diagnostics** tool for real-time cluster performance analysis via the GUI. This feature is currently in [Preview](../overview/concepts/launch-stages.md). To participate in testing, contact [support]({{ link-console-support }}).
+* Added the ability to enable `mysql_protocol` via {{ TF }}. {{ tag-tf }}
+* New {{ CH }} version is out: 26.1. It supports `DELETE` operations for Delta Lake.
+* Now the management console displays the full DBMS version so you can track minor updates. {{ tag-con }}
+
 ## January 2026 {#jan-2026}
 
 * Increased the maximum number of [shards](./concepts/sharding.md) per cluster to 100. This enables more flexible horizontal scaling of a cluster.

@@ -2,7 +2,7 @@ title: Yandex Cloud Billing
 description:
   - >-
     With Yandex Cloud Billing, you can get information on how much resources you
-    have have used, monitor your costs, and pay for the resources you consume.
+    have used, monitor your costs, and pay for the resources you consume.
   - >-
     In Yandex Cloud, you pay only for the resources you have consumed and their
     actual usage time.
@@ -10,7 +10,7 @@ meta:
   title: Yandex Cloud Billing
   description: >-
     With Yandex Cloud Billing, you can get information on how much resources you
-    have have used, monitor your costs, and pay for the resources you consume.
+    have used, monitor your costs, and pay for the resources you consume.
   keywords:
     - keyword: yandex billing
     - keyword: cloud billing
@@ -20,30 +20,107 @@ meta:
     - keyword: paying for {{ yandex-cloud }}
     - keyword: pay for {{ yandex-cloud }}
     - keyword: use of {{ yandex-cloud }} resources
-links:
-  - title: Getting started
-    description: Create your first billing account
-    href: quickstart/
-  - title: Step-by-step guides
-    description: How to perform routine operations
-    href: operations/
-  - title: Concepts
-    description: Introduction to the terms and concepts used in the service
-    href: concepts/
-  - title: Paying for resources
+blocks:
+  - type: card-layout-block
+    title: Yandex Cloud Billing
     description: >-
-      Learn about the payment methods and billing cycles for individuals,
-      businesses, and individual entrepreneurs
-    href: payment/
-  - title: Access management
-    description: Set up access rights to manage your billing account
-    href: security/
-  - title: Pricing policy
-    description: Prices and rates of Yandex Cloud services
-    href: pricing
-  - title: FAQ
-    description: Answers to frequently asked questions
-    href: qa/all
-  - title: API reference
-    description: HTTP API method descriptions
-    href: api-ref/
+      With Yandex Cloud Billing, you can get information on how much resources
+      you have used, monitor your costs, and pay for the resources you consume.
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Create your first billing account
+        urlTitle: Registering an account in Yandex Cloud
+        url: quickstart/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/rocket.svg
+          dark: assets/icons/rocket.svg
+      - type: basic-card
+        title: Step-by-step guides
+        text: How to perform routine operations
+        urlTitle: All Yandex Cloud Billing guides
+        url: operations/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/list-ol.svg
+          dark: assets/icons/list-ol.svg
+      - type: basic-card
+        title: Concepts
+        text: Introduction to the terms and concepts used in the service
+        urlTitle: All concepts
+        url: concepts/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/bookmark.svg
+          dark: assets/icons/bookmark.svg
+      - type: basic-card
+        title: Paying for resources
+        text: >-
+          Learn about the payment methods and billing cycles for individuals,
+          businesses, and individual entrepreneurs
+        urlTitle: Paying for resources
+        url: payment/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/receipt.svg
+          dark: assets/icons/receipt.svg
+      - type: basic-card
+        title: Access management
+        text: Set up access rights to manage your billing account
+        urlTitle: Access management in Yandex Cloud Billing
+        url: security/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/persons-lock.svg
+          dark: assets/icons/persons-lock.svg
+      - type: basic-card
+        title: Pricing policy
+        text: Prices and rates of Yandex Cloud services
+        urlTitle: Yandex Cloud pricing policy
+        url: pricing
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/calculator.svg
+          dark: assets/icons/calculator.svg
+      - type: basic-card
+        title: FAQ
+        text: Find answers to frequently asked questions
+        urlTitle: All questions about Yandex Cloud Billing
+        url: qa/all
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/circle-question.svg
+          dark: assets/icons/circle-question.svg
+      - type: basic-card
+        title: API reference
+        text: Use the REST API to manage your billing account
+        urlTitle: 'Billing API: REST reference'
+        url: api-ref
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/code.svg
+          dark: assets/icons/code.svg
+links: []

@@ -33,7 +33,7 @@ Create a backup of the website and DB files using one of the following methods:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Make sure the selected [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in at least one [availability zone](../../overview/concepts/geo-scope.md). To do this, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+Make sure the selected [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in at least one [availability zone](../../overview/concepts/geo-scope.md). To do this, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** on the folder dashboard. If the list contains a network, click its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -45,11 +45,11 @@ The cost of maintaining a WordPress website includes:
 ## Create a VM for WordPress {#create-vm}
 
 To create a VM:
-1. On the [folder dashboard](../../resource-manager/concepts/resources-hierarchy.md#folder) of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) public image containing the required components: Linux, Apache web server, {{ MY }} DBMS, and PHP interpreter.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in. If you are not sure which one to choose, leave the default.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside. If you are not sure which one to choose, leave the default.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the [disk type](../../compute/concepts/disk.md#disks_types) and set the required size.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and RAM size:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -58,12 +58,12 @@ To create a VM:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-   * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not there, [create it](../../vpc/operations/subnet-create.md).
-   * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address to your VM from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
+   * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the relevant [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is missing, [create it](../../vpc/operations/subnet-create.md).
+   * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-   * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+   * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `wordpress-vm`.
@@ -87,7 +87,7 @@ To connect to the VM, specify its public IP address.
 
 To copy the VM's public IP address:
 1. Open the folder page in the [management console]({{ link-console-main }}).
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Find the created VM and click its name.
 1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, copy the IP address from the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field.
@@ -407,7 +407,7 @@ Use [Let’s Encrypt](https://letsencrypt.org/) to install the [certificate](../
 
 {% endlist %}
 
-### Get an SSL certificate{#get-ssl}
+### Get an SSL certificate {#get-ssl}
 
 {% list tabs group=operating_system %}
 

@@ -53,14 +53,15 @@ Store your private key securely, as you will not be able to connect to the VM wi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create an infrastructure for your bastion host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Specify the network name: `external-bastion-network`.
   1. Disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Create a subnet:
 
-     1. At the top right, click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Select `external-bastion-network`.
+     1. At the top right, click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet parameters:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-external-segment`
@@ -78,14 +79,15 @@ Store your private key securely, as you will not be able to connect to the VM wi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create an infrastructure for your bastion host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Specify the network name: `internal-bastion-network`.
   1. Disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Create a subnet:
 
-     1. At the top right, click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
+     1. Select `internal-bastion-network`.
+     1. At the top right, click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet parameters:
 
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `bastion-internal-segment`
@@ -107,7 +109,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) and make the ba
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create an infrastructure for your bastion host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and `external-bastion-network`.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and select `external-bastion-network`.
   1. In the left-hand menu, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Specify the security group name: `secure-bastion-sg`.
@@ -132,7 +134,7 @@ Create a security group and set up rules for inbound traffic from the bastion ho
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create an infrastructure for your bastion host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and `internal-bastion-network`.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** and select `internal-bastion-network`.
   1. In the left-hand menu, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Specify the security group name: `internal-bastion-sg`.
@@ -166,7 +168,7 @@ The bastion host will need a static [public IP address](../../vpc/concepts/addre
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create an infrastructure for your bastion host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. In the window that opens, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
@@ -182,7 +184,7 @@ After you created the subnet and security group, create a virtual server for the
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `NAT instance based on Ubuntu 22.04 LTS` and select a public [NAT instance based on Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure the first network interface:
@@ -237,7 +239,7 @@ If you already have a virtual machine, [add](../../compute/operations/vm-control
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public image with any OS, e.g., [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure a network interface:

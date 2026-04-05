@@ -46,6 +46,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-mongodb.restorer](../../_roles/managed-mongodb/restorer.md) %}
 
+#### managed-mongodb.user {#managed-mongodb-user}
+
+{% include [managed-mongodb.user](../../_roles/managed-mongodb/user.md) %}
+
+#### managed-mongodb.switcher {#managed-mongodb-switcher}
+
+{% include [managed-mongodb.switcher](../../_roles/managed-mongodb/switcher.md) %}
+
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
 {% include [managed-mongodb.editor](../../_roles/managed-mongodb/editor.md) %}
@@ -53,6 +61,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-mongodb.admin {#managed-mongodb-admin}
 
 {% include [managed-mongodb.admin](../../_roles/managed-mongodb/admin.md) %}
+
+#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenanceTask-viewer}
+
+{% include [managed-mongodb.maintenanceTask.viewer](../../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
+
+#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenanceTask-editor}
+
+{% include [managed-mongodb.maintenanceTask.editor](../../_roles/managed-mongodb/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -69,6 +85,18 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

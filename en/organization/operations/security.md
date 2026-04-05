@@ -1,6 +1,6 @@
 ---
 title: Guides for managing access in {{ org-full-name }}
-description: This section contains step-by-step guides on managing organizations in {{ org-name }}.
+description: This section contains step-by-step guides on managing organizations in {{ org-full-name }}.
 ---
 
 # Access management in {{ org-full-name }}

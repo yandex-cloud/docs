@@ -122,7 +122,7 @@ In the security folder, create a network with subnets for your L7 load balancer 
 - Management console {#console}
 
   1. Go to the new folder, `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `alb-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -176,7 +176,7 @@ To consolidate folder resources into a single network, [move](../../vpc/operatio
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Select the `alb-network` cloud network.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the `subnet-service-1` row and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. Select `service-1` from the drop-sown list.
@@ -200,7 +200,7 @@ The rules should allow outgoing and incoming traffic from the load balancer subn
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `service-1`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `service-1-security-group`.
@@ -230,7 +230,7 @@ The rules should allow incoming internet traffic on port `80` as well as traffic
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `alb-security-group`.
@@ -259,7 +259,7 @@ The rules should allow outgoing traffic from the management VM to port `22` on y
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `vm-security-group`.
@@ -291,7 +291,7 @@ Create a security profile using a preset template:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
   1. Enter `sws-profile` as the profile name.
@@ -315,7 +315,7 @@ To restrict external traffic, web app VMs will not have external IP addresses.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
@@ -377,7 +377,7 @@ You can only use the wizard to create and add resources from a single folder, i.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**. The wizard will take you to the target group creation page.
 
 {% endlist %}
@@ -501,7 +501,7 @@ When creating a load balancer using the wizard, you can add resources only from 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `secured-entry-point`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Repeat the steps you followed to [create a target group for the `service-1` folder](#setup-target-group) and create the `service-2` target group. Configure the target as follows:

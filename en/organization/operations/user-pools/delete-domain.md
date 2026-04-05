@@ -1,6 +1,6 @@
 ---
 title: How to remove a domain from a {{ org-full-name }} user pool or federation
-description: Follow this guide to delete a domain from an {{ org-name }} user pool or federation.
+description: Follow this guide to delete a domain from an {{ org-full-name }} user pool or federation
 ---
 
 # Deleting a domain

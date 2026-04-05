@@ -12,4 +12,5 @@ description: This section contains step-by-step guides for {{ postbox-name }}.
 * [{#T}](send-templated-email.md)
 * [{#T}](create-configuration.md)
 * [{#T}](bind-configuration.md)
+* [{#T}](restrict-senders.md)
 * [{#T}](logs-write.md)

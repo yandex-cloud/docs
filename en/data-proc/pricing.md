@@ -28,7 +28,7 @@ The total cost of using {{ dataproc-name }} includes:
 * Markup on computing resources for using the {{ dataproc-name }} service.
 * The cost of using the {{ compute-name }} network drives.
 * The cost of using {{ cloud-logging-full-name }} to collect and store logs.
-* Amount of outgoing traffic.
+* Outgoing traffic volume.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 

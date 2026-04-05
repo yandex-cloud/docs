@@ -6,8 +6,8 @@ At this step, you will prepare the VM environment to deploy and set up Joomla.
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder to create your infrastructure in.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and choose `joomla-cert`.
+        1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
+        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and select the `joomla-cert` certificate.
         1. In the top panel, click ![ArrowUpFromLine](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**, select `{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}`, and click **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_download }}**. A file with the `certificate.pem` certificate will be saved to your computer.
         1. Repeat the previous step and download the private key by selecting `{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_private_key_only }}`. Rename the downloaded private key file to `private_key.pem`.
         1. Save the downloaded `certificate.pem` and `private_key.pem` files: you will need them to configure the web server.

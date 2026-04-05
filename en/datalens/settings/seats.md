@@ -24,6 +24,7 @@ On this tab, the administrator can do the following:
 * Manage seat [auto-purchasing](#purchase-automatically).
 * [View the number of seats](#number-of-seats) in the instance, including available ones.
 * [Increase or reduce the number of seats](#number-of-seats) in the instance.
+* [View the number of queries from private embedded objects](#packet-queries) in an instance.
 * [View the list of users](#users-and-seats) with seats.
 * [Reassign seats](#reassign) from user to user.
 * [Manually assign seats](#manual-assignment).
@@ -35,9 +36,9 @@ On this tab, the administrator can do the following:
 
 Seats are issued automatically to all users upon first login to {{ datalens-name }}. First, new users get seats from among the available, i.e., unassigned ones.
 
-By default, the **Purchase automatically** option is enabled for seats. Therefore, if an instance has no available seats left, a seat will be automatically purchased and assigned to every new user on their login to {{ datalens-name }}.
+By default, the **Purchase automatically** option is enabled for seats. Therefore, if an instance has no available seats left, a seat will be automatically purchased and assigned to every new user on their login to {{ datalens-name }}. Automatic purchase of seats does not apply when the limit on the [number of queries from private embedded objects](#packet-queries) is exceeded. In this case, additional seats are purchased manually.
 
-The administrator can disable this option if required. In which case the administrator becomes fully responsible for purchasing and assigning seats to new users: they can either [increase the number of seats](#number-of-seats) in an instance (to maintain the number of available seats) or [manually issue seats](#manual-assignment) to new users.
+The administrator can disable the automatic seat purchase option if required. In which case the administrator becomes fully responsible for purchasing and assigning seats to new users: they can either [increase the number of seats](#number-of-seats) in an instance (to maintain the number of available seats) or [manually issue seats](#manual-assignment) to new users.
 
 ## Viewing and managing the number of seats {#number-of-seats}
 
@@ -61,6 +62,33 @@ The approaches to increasing and reducing the number of seats are different.
    When you reduce the number of seats, the change will apply on the first day of the next month. Until then, you are charged for the initial number of seats. In the seat settings, you will see a banner reminding you of the scheduled seat reduction. The banner will also have a cancel button in case you change your mind and want to cancel the reduction.
       
    The system will select seats to remove from among the available ones, and the rest, from those assigned to users. In the user list, such seats will have this status: `Until <date_of_seat_reduction>`. Their users will also see a warning in the interface. On the reduction date, the seat status will change to `Inactive`, and the users will be unable to access the {{ datalens-short-name }} interface. The administrator can activate such seats so that the user gets a free seat or a newly purchased one, or reassign seats from other users.
+
+## Viewing the number of queries from private embedded objects {#packet-queries}
+
+The **Queries from private embedded objects** section displays the total number of queries from private embedded charts over the current month for the entire {{ datalens-short-name }} instance.
+
+The following limits apply: 2,000 queries from private embedded charts per seat per month. This limit does not apply to each individual seat, but rather to the entire {{ datalens-name }} instance based on the calculation:
+
+   > 2,000 queries x Number of seats
+
+Only successfully completed requests for retrieving data to render charts are counted. If multiple requests are required to render a single chart, this is counted as one request. For more information, see [{#T}](../pricing.md#packet-queries).
+
+You can [estimate the number of queries from private embedded charts](#embedded-queries-count) by enabling [Usage Analytics](../operations/connection/create-usage-tracking.md).
+
+### Estimating the number of queries from private embedded charts {#embedded-queries-count}
+
+To estimate the number of queries from private embedded charts:
+
+1. Create a [Usage Analytics](../operations/connection/create-usage-tracking.md) connection with the **Automatically create a dashboard, charts, and dataset over the connection** option enabled.
+1. Open the **DataLens Usage Analytics Detailed** dashboard.
+1. Under **Users and Dashboard Views**, open the **Requests Count** chart for editing.
+1. Add a filter to display statistics only for private embedded objects. To do this, drag the `user_id` field to the **Filters** section and select `__ANONYMOUS_USER_OF_EMBEDDED_DATALENS__`.
+1. Add a filter to display statistics only for charts. To do this, drag the `chartkind` field to the **Filters** section and select `ql`, `editor`, and `datalens`.
+1. Configure the filter to display statistics for the current or any another month. To do this, remove the `event_date` field from the **Dashboard filters** section and set the required date range for this field in the **Filters** section.
+
+   The chart will display the number of queries from private embedded charts over the specified period.
+
+1. If necessary, save the changes in the current chart or create a copy of the chart and add it to the dashboard.
 
 ## Viewing the list of users with seats {#users-and-seats}
 

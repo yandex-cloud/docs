@@ -584,9 +584,9 @@
           projected:
             sources:
               - serviceAccountToken:
-                path: sa-token
-                expirationSeconds: 7200
-                audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
+                  path: sa-token
+                  expirationSeconds: 7200
+                  audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
     ```
 
     Где:

@@ -17,6 +17,8 @@ items:
             href: operations/zone-update.md
           - name: Configuring DNS zone access permissions
             href: operations/zone-access.md
+          - name: Moving a DNS zone to a different folder
+            href: operations/zone-move-folder.md
           - name: Viewing operations with DNS zones
             href: operations/operation-logs.md
           - name: Deleting a DNS zone
@@ -65,7 +67,7 @@ items:
           Configuring {{ dns-name }} to access managed database clusters from
           other cloud networks
         href: tutorials/mdb-dns-peering.md
-      - name: Creating an ACME resolver webhook for responses to DNS01 checks
+      - name: Creating an ACME resolver webhook for responses to DNS01 challenges
         href: tutorials/cert-manager-webhook.md
       - name: Assigning a domain name to a web server VM
         items:

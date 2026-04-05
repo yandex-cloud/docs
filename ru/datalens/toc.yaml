@@ -1470,4 +1470,7 @@ items:
       - name: Dataset version mismatch. Refresh the page to continue
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DATASET_REVISION_MISMATCH.md
+      - name: Ошибка при блокировке всплывающего окна
+        hidden: true
+        href: troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md
 path: ru/datalens/toc.yaml

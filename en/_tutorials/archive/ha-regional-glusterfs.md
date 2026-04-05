@@ -95,7 +95,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -121,7 +121,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to run operations under the service account:
          ```
          yc config profile create sa-glusterfs
          ```

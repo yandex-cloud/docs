@@ -10,7 +10,7 @@ editable: false
 {% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
 
-In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
+This section describes the {{ mkf-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% note tip %}
 
@@ -31,7 +31,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 ## Cluster status {#running-stopped}
 
-The prices apply differently depending on the cluster status:
+Pricing applies differently depending on cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -52,7 +52,7 @@ The {{ mkf-name }} usage cost includes:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+The host operation cost is charged per hour based on what computing resources you allocate for it. Supported resource configurations are listed in the [Host classes](concepts/instance-types.md) section. For vCPU and RAM prices, see [Pricing](#prices).
 
 You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-short-name }} hosts based on the expected replication load. Adding {{ ZK }} or {{ kraft-short-name }} hosts depends on the cluster configuration:
 
@@ -61,7 +61,7 @@ You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-s
 * {{ kraft-short-name }} hosts are added to the cluster if its {{ KF }} version is 3.6 or higher and if it contains more than one {{ KF }} host and uses {{ kraft-short-name }} as the coordination service (on separate hosts).
 * {{ kraft-short-name }} hosts are not added to the cluster if its {{ KF }} version is 3.6 or higher and if it uses {{ kraft-short-name }} as the coordination service (combined mode). 
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -72,9 +72,9 @@ You pay for the storage allocated for database clusters.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The price covers one month of use, based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
@@ -93,7 +93,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

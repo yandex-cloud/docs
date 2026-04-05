@@ -106,7 +106,7 @@ description: Из статьи вы узнаете, что такое трейл
 * [{#T}](../tutorials/alerts-monitoring.md)
 * [{#T}](../tutorials/logging-functions.md)
 * [{#T}](../tutorials/audit-trails.md)
-* [{#T}](../tutorials/maxpatrol.md)
+* [{#T}](../tutorials/maxpatrol/index.md)
 * [{#T}](../tutorials/export-logs-to-splunk.md)
 * [{#T}](../tutorials/export-logs-to-arcsight.md)
 * [{#T}](../tutorials/audit-trails-events-to-kuma/console.md)

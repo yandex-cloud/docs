@@ -36,7 +36,7 @@ To view active {{ k8s }} control rules:
           * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_high_cahHH }}
       * **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}**: Rule name and brief summary.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.standards_iv6a5 }}**: Icon(s) for the [security standards](../../../security-deck/concepts/workspace.md#standards) that are using this rule. If the icon is colored, it means the rule is checked for the corresponding standard. If the icon is gray, it means it is not.
-      * **{{ ui-key.yacloud_org.security.workspaces.label_rule-kind_3PswX }}**: How the infrastructure controlled in the workspace is checked for compliance with this rule:      
+      * **{{ ui-key.yacloud_org.security.workspaces.label_rule-kind_3PswX }}**: How the infrastructure controlled in the workspace is checked for compliance with this rule:
           * `runtime`
           * `admission`
       * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.resources_field_id }}**: Rule ID in {{ yandex-cloud }}.

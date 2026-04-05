@@ -12,8 +12,12 @@
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте рабочее окружение](#environment-prepare).
+
+
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте статический ключ доступа](#create-static-key).
+
+
 1. [Создайте бакет](#bucket-create).
 1. [Настройте подключение к {{ objstorage-name }}](#rclone-config).
 1. [Смонтируйте бакет](#bucket-mount).
@@ -44,6 +48,7 @@
 
     {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
+
 ## Создайте сервисный аккаунт {#create-sa}
 
 {% list tabs group=instructions %}
@@ -57,7 +62,7 @@
   1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `storage.editor`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
-- CLI {#cli}
+- YC CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -65,25 +70,25 @@
 
   1. Создайте сервисный аккаунт с именем `sa-win-disk-connect`:
 
-  ```bash
-  yc iam service-account create --name sa-win-disk-connect
-  ```
+      ```bash
+      yc iam service-account create --name sa-win-disk-connect
+      ```
 
-  Требования к формату имени:
+      Требования к формату имени:
 
-  {% include [name-format](../../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
-  Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте роль сервисному аккаунту роль `storage.editor`:
 
-  ```bash
-  yc resource-manager folder add-access-binding <идентификатор_каталога> \
-    --role storage.editor \
-    --subject serviceAccount:<идентификатор_сервисного_аккаунта>
-  ```
+      ```bash
+      yc resource-manager folder add-access-binding <идентификатор_каталога> \
+        --role storage.editor \
+        --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+      ```
   
-  Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md)
+      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md)
 
 - API {#api}
 
@@ -93,12 +98,9 @@
   
 {% endlist %}
 
-
 {% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
 
-
 ## Создайте статический ключ доступа {#create-static-key}
-
 
 {% list tabs group=instructions %}
 
@@ -113,7 +115,7 @@
   1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ. После закрытия диалога значение ключа будет недоступно.
 
-- CLI {#cli}
+- YC CLI {#cli}
 
   1. Создайте ключ доступа для сервисного аккаунта `sa-win-disk-connect`:
 
@@ -142,7 +144,6 @@
 
 {% endlist %}
 
-
 {% include [get-static-key-info](../../_includes/storage/get-static-key-result.md) %}
 
 
@@ -159,7 +160,7 @@
   1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
  
-- AWS CLI {#cli}
+- AWS CLI {#aws-cli}
   
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
   1. Создайте бакет, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
@@ -174,6 +175,7 @@
      ```text
      make_bucket: <имя_бакета>
      ```
+
 
 - {{ TF }} {#tf}
 
@@ -218,6 +220,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
+
 - API {#api}
 
   Используйте метод REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызов gRPC API [BucketService/Create](../../storage/api-ref/grpc/Bucket/create.md) или метод S3 API [create](../../storage/s3/api-ref/bucket/create.md).
@@ -239,8 +242,12 @@
    1. Выберите тип хранилища: введите в терминал значение `4`.
    1. Выберите провайдера: введите в терминал значение `1`.
    1. Выберите ручной способ ввода учетных данных: введите в терминал значение `1`.
+
+   
    1. Введите в терминале идентификатор секретного ключа, [полученный ранее](#create-static-key).
    1. Введите в терминале значение секретного ключа, [полученное ранее](#create-static-key).
+
+
    1. Укажите регион: введите в терминал значение `{{ region-id }}`.
    1. Укажите эндпоинт: введите в терминал значение `{{ s3-storage-host }}`.
    1. Остальные настройки можно оставить по умолчанию — нажмите **Enter**, чтобы их пропустить.

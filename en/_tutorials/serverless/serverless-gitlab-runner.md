@@ -82,7 +82,7 @@ Variable              | By default         | Required | Description
 
 The infrastructure support cost includes:
 
-* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for the number of container invocations, computing resources allocated to the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
 * Fee for storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 
@@ -105,7 +105,7 @@ Create a [{{ lockbox-full-name }}](../../lockbox/) secret with the runner authen
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [secret](../../lockbox/concepts/secret.md) name: `gitlab-runner-token`.
   1. Under **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
@@ -178,7 +178,8 @@ Create two service accounts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `gitlab-runner-caller`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-serverless-containers-invoker }}`.
@@ -186,7 +187,8 @@ Create two service accounts:
   1. Similarly, create the `gitlab-runner-lockbox-payload-viewer` service account without assigning a role to it.
   1. Assign a role for the secret to the `gitlab-runner-lockbox-payload-viewer` service account:
 
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+      1. Open the [management console]({{ link-console-main }}).
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
       1. Select the `gitlab-runner-token` secret.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -235,7 +237,7 @@ Create two service accounts:
 
       * `--name`: Secret name.
       * `--id`: Folder ID.
-      * `--role`: Role being assigned.
+      * `--role`: Role to assign.
       * `--service-account-name`: Service account name.
 
       Result:
@@ -271,7 +273,8 @@ Create an [API key](../../iam/concepts/authorization/api-key.md) for the service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `gitlab-runner-caller` service account you created earlier.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select the `yc.serverless.containers.invoke` [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
@@ -328,7 +331,8 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}** from the list of services.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. Enter a name for the container: `serverless-gitlab-runner`.
   1. Click **{{ ui-key.yacloud.common.create }}**.

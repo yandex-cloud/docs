@@ -6,7 +6,10 @@ editable: false
 
 # {{ cns-full-name }} quotas and limits
 
-In {{ cns-name }}, there are certain _limits_, i.e., technical constraints of the {{ yandex-cloud }} architecture. You cannot change the limits.
+{{ cns-name }} has the following limitations:
 
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
+
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
 {% include [cns-limits](../../_includes/cns-limits.md) %}

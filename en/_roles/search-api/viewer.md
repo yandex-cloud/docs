@@ -1,3 +1,3 @@
-The `search-api.viewer` role enables viewing info on Yandex Search API [quotas]({{ link-docs-ai }}search-api/concepts/limits#search-api-quotas), as well as on [clouds]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) and [folders]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder).
+The `search-api.viewer` role enables viewing info on the [registered IP addresses]({{ link-docs-ai }}search-api/operations/workaround#registration) and Yandex Search API [quotas]({{ link-docs-ai }}search-api/concepts/limits#search-api-quotas), as well as on the relevant [clouds]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) and [folders]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder).
 
 This role includes the `search-api.auditor` permissions.

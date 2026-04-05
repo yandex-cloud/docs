@@ -1,7 +1,8 @@
 Роль `managed-postgresql.viewer` позволяет просматривать информацию о кластерах, хостах, базах данных и пользователях PostgreSQL, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах](../../managed-postgresql/concepts/index.md) PostgreSQL;
+* просматривать информацию о [кластерах](../../managed-postgresql/concepts/index.md) PostgreSQL и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../managed-postgresql/concepts/maintenance.md) кластеров PostgreSQL;
 * просматривать информацию о [хостах](../../managed-postgresql/concepts/instance-types.md) кластеров PostgreSQL;
 * просматривать информацию о базах данных PostgreSQL;
 * просматривать информацию о [пользователях](../../managed-postgresql/concepts/roles.md) PostgreSQL;
@@ -12,4 +13,4 @@
 * просматривать информацию о [квотах](../../managed-postgresql/concepts/limits.md#mpg-quotas) сервиса Managed Service for PostgreSQL;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for PostgreSQL.
 
-Включает разрешения, предоставляемые ролью `managed-postgresql.auditor`.
+Включает разрешения, предоставляемые ролями `managed-postgresql.auditor` и `managed-postgresql.maintenanceTask.viewer`.

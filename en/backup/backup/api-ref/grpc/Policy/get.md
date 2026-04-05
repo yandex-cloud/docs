@@ -74,16 +74,16 @@ The maximum string length in characters is 50. ||
     "retention": {
       "rules": [
         {
-          "backup_set": [
-            "RepeatePeriod"
-          ],
           // Includes only one of the fields `max_age`, `max_count`
           "max_age": {
             "type": "Type",
             "count": "int64"
           },
-          "max_count": "int64"
+          "max_count": "int64",
           // end of the list of possible fields
+          "backup_set": [
+            "RepeatePeriod"
+          ]
         }
       ],
       "before_backup": "bool"
@@ -404,6 +404,12 @@ If true, retention rules will be applied before backup is finished. ||
 
 #|
 ||Field | Description ||
+|| max_age | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+
+Includes only one of the fields `max_age`, `max_count`. ||
+|| max_count | **int64**
+
+Includes only one of the fields `max_age`, `max_count`. ||
 || backup_set[] | enum **RepeatePeriod**
 
 A list of backup sets where rules are effective.
@@ -412,12 +418,6 @@ A list of backup sets where rules are effective.
 - `DAILY`
 - `WEEKLY`
 - `MONTHLY` ||
-|| max_age | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
-
-Includes only one of the fields `max_age`, `max_count`. ||
-|| max_count | **int64**
-
-Includes only one of the fields `max_age`, `max_count`. ||
 |#
 
 ## Scheduling {#yandex.cloud.backup.v1.PolicySettings.Scheduling}

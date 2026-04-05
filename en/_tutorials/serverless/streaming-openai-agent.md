@@ -1,6 +1,6 @@
 
 
-In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}](../../functions/) and [{{ api-gw-full-name }}](../../api-gateway/). The function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to access [the {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt) models.
+In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}](../../functions/) and [{{ api-gw-full-name }}](../../api-gateway/). The function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to access [the {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex) models.
 
 Agents may take a long time to respond when handling complex requests, e.g., generation of large texts with reasoning, search operations, or indexing. In such cases, it is essential to monitor progress and receive incremental results in real time. Response streaming enables immediate output of tokens, phrases, intermediate messages, step statuses, and logs, followed by the final response, without waiting for the entire scenario to complete. This enhances the perceived speed, provides a more interactive UI/UX, and enables users to cancel, retry, and dynamically update the interface. Streaming is supported by most frameworks. The OpenAI Agents SDK also supports [streaming](https://openai.github.io/openai-agents-python/streaming/).
 
@@ -53,7 +53,7 @@ If you do not want to tie your AI agent to a specific vendor, deploy the functio
 The infrastructure support cost for this tutorial includes:
 
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
-* Text generation fee (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+* Text generation fee (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for collecting and storing logs (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
@@ -256,7 +256,7 @@ The function will use the service account to get access to the secret and {{ fou
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `agent-streamer-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles](../../iam/roles-reference.md):
@@ -361,7 +361,8 @@ The function will use the API key to get access to the {{ foundation-models-name
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `agent-streamer-sa` service account you created earlier.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select the `yc.ai.languageModels.execute` [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
@@ -421,7 +422,8 @@ The [{{ lockbox-name }}](../../lockbox/) secret will store the secret key.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `api-key-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
@@ -475,7 +477,8 @@ The function will be created based on the archive with its code and dependencies
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
 
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -494,8 +497,8 @@ The function will be created based on the archive with its code and dependencies
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `agent-streamer-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-             * `BASE_URL`: {{ foundation-models-full-name }} URL, `https://{{ api-host-llm }}/v1`.
-             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
+             * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
+             * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
                  For example, `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
 
@@ -553,8 +556,8 @@ The function will be created based on the archive with its code and dependencies
       * `--service-account-id`: `agent-streamer-sa` service account ID.
       * `--environment`: Environment variables:
 
-          * `BASE_URL`: {{ foundation-models-full-name }} URL, `https://{{ api-host-llm }}/v1`.
-          * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
+          * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
+          * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
               For example, `gpt://<folder_ID>/yandexgpt/latest`, where `<folder_ID>` is the [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
 
@@ -616,7 +619,8 @@ Create the API gateway for access to the function.
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+      1. Open the [management console]({{ link-console-main }}).
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter `agent-streamer-gateway` as the API gateway name.
       1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, paste the contents of the `gateway-spec.yaml` file.

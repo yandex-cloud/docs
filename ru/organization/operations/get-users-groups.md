@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Посмотреть группы пользователя
 
+{% include [organization-deny-user-listing](../../_includes/organization/organization-deny-user-listing.md) %}
+
 Чтобы посмотреть, в какие [группы](../../organization/concepts/groups.md) входит конкретный [пользователь](../../overview/roles-and-resources.md#users):
 
 {% list tabs group=instructions %}

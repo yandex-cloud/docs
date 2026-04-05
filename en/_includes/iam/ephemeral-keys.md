@@ -3,6 +3,8 @@
 
 Ephemeral access keys are temporary credentials for authenticating [Yandex accounts](../../iam/concepts/users/accounts.md#passport), [federated accounts](../../iam/concepts/users/accounts.md#saml-federation), [local users](../../iam/concepts/users/accounts.md#local), and [service accounts](../../iam/concepts/users/service-accounts.md).
 
+{% include [access-control-sa-ephemeralkey-notice](./access-control-sa-ephemeralkey-notice.md) %}
+
 Authentication with ephemeral access keys is only supported in [{{ objstorage-full-name }}](../../storage/).
 
 You can [create](../../iam/operations/authentication/manage-ephemeral-keys.md#create) an ephemeral key for the current user or for a service account you have access to.

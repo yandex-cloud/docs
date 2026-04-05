@@ -1,4 +1,9 @@
-# Getting information about available Helm charts
+---
+title: Getting information about existing Helm charts in a {{ container-registry-name }} repository
+description: Follow this guide to get a list of Helm charts in a {{ container-registry-name }} repository.
+---
+
+# Getting information about existing Helm charts
 
 You can get a list of [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
 

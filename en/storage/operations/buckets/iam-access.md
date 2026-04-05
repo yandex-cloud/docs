@@ -14,7 +14,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
   1. Click the name of the bucket you want to grant access to.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
@@ -69,7 +69,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
       Where:
 
       * `bucket`: Bucket name.
-      * `role`: [Role](../../security/index.md#roles-list).
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
 
         {% include [tf-iam-binding-warning](../../../_includes/storage/tf-iam-binding-warning.md) %}
 

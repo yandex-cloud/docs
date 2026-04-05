@@ -5,6 +5,12 @@ description: Various {{ schema-registry-name }} use cases in {{ yandex-cloud }}.
 
 # {{ metadata-hub-full-name }} tutorials
 
+
+## {{ connection-manager-name }} {#connection-manager}
+
+* [{#T}](conn-man-secret-access.md)
+
+
 ## {{ schema-registry-name }} {{ preview-stage }} {#schema-registry}
 
 * [{#T}](./schema-registry-cdc-debezium-kafka.md)

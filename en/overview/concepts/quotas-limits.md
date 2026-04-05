@@ -51,6 +51,11 @@ For each quota, the table provides an ID you can use to manage quotas via {{ quo
 {% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
 
 
+### {{ ai-studio-full-name }} {#ai-studio}
+
+{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
+
+
 ### {{ backup-full-name }} {#backup}
 
 {% include [backup-limits.md](../../_includes/backup-limits.md) %}
@@ -79,11 +84,6 @@ For each quota, the table provides an ID you can use to manage quotas via {{ quo
 ### {{ dns-full-name }} {#dns}
 
 {% include [limits](../../_includes/cloud-dns-limits.md) %}
-
-
-### {{ foundation-models-full-name }} {#foundation-models}
-
-{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
 
 
 ### {{ sf-full-name }} {#sf}
@@ -349,7 +349,7 @@ There are no limits for {{ metadata-hub-full-name }}.
 
 #### Quotas {#ca-quotas}
 
-{% include [ca-limits](../../_includes/ca-limits.md) %}
+Quotas for {{ ca-full-name }} are set depending on the tariff plan used. For details, see the [{{ ca-name }} Tariff Plans]({{ link-src-docs }}/sourcecraft/pricing#ca-plans) page.
 
 
 ### {{ speechkit-full-name }} {#speechkit}

@@ -25,3 +25,4 @@ Type of limit | Value
 User data storage period | 3 months
 Recalculation of modified and newly created [dictionary and semantic tags](../speechsense/concepts/tags.md) per month | Once per night
 Number of returned search results | 10,000
+Maximum number of [connections](../speechsense/concepts/resources-hierarchy.md#connection) per [space](../speechsense/concepts/resources-hierarchy.md#space) | 20

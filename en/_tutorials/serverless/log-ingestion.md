@@ -31,7 +31,7 @@ If you no longer need to store any logs, [delete the resources in use](#clear-ou
 The cost of application log storage support includes:
 
 * Fee for data stream maintenance (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
+* Fee for transferring data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 * Fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
 ## Set up your environment {#setup}
@@ -44,7 +44,7 @@ You will need the ID and secret key at the next steps.
 ## Create a bucket for storing logs {#create-bucket}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-1. From the list of services, select **{{ objstorage-name }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click **Create bucket**.
 1. Name the bucket.
 1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
@@ -53,10 +53,10 @@ You will need the ID and secret key at the next steps.
   
 ## Create a data stream {#create-stream}
 
-1. In the [management console]({{ link-console-main }}), select the folder to create a data stream in.
-1. Select **{{ yds-full-name }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a data stream.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Click **Create stream**.
-1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Refresh** after creating it to refresh the list of databases.
+1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Refresh** after creating it to refresh the list of databases.
 1. Enter a name for the stream.
 1. Click **Create**.
 
@@ -68,7 +68,7 @@ Wait for the stream to start. Once the stream is ready for use, its status will 
 1. Create a source endpoint:
     1. In the **Direction** field, select `Source`.
     1. Enter a name for the endpoint.
-    1. From the **Database type** list, select `{{ yds-full-name }}`.
+    1. In the **Database type** list, select `{{ yds-full-name }}`.
     1. Select a database for the source.
     1. Enter the name of the stream you created earlier.
     1. Select the service account you created earlier.
@@ -95,7 +95,7 @@ Wait until the transfer is activated. Once the transfer is ready for use, its st
 ## Install Fluentd {#install-fluentd}
 
 1. Download and install [Fluentd](https://www.fluentd.org/download).
-1. Install the Fluentd plugin to support the AWS Kinesis Data Streams protocol. This protocol will be responsible for streaming data.
+1. Install the Fluentd plugin to add AWS Kinesis Data Streams protocol support. This protocol will be responsible for streaming data.
 
   ```bash
   sudo td-agent-gem install fluent-plugin-kinesis

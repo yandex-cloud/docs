@@ -112,7 +112,6 @@ kind: ClusterAccessBinding
 metadata:
   name: user-admin-role
 spec:
-  organizationID: stackland
   roleID: admin
   subject:
     kind: User

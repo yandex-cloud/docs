@@ -84,9 +84,9 @@
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/index):
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index):
 
-  * [{{ gpt-lite }} и {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt).
+  * [{{ gpt-lite }} и {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
 
     Используйте нейросеть {{ yagpt-name }} для генерации текста в синхронном режиме без дополнения контекста
 

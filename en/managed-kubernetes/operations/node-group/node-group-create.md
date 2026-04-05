@@ -95,6 +95,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
+       {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * `--memory`: Amount of memory allocated for {{ managed-k8s-name }} nodes.
      * `--name`: {{ managed-k8s-name }} node group name.
      * `--network-acceleration-type`: Select the [network acceleration](../../../compute/concepts/software-accelerated-network.md) type:
@@ -193,6 +195,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          container_runtime {
            type = "containerd"
          }
+         network_interface {
+           nat = <assign_public_IP_addresses>
+         }
          labels {
            "<cloud_label_name>"="<cloud_label_value>"
          }
@@ -238,6 +243,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
+       * `network_interface.nat`: Assign random public [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} pool to the nodes, `true` or `false`.
+
+         {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
        * `labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
        * `node_labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
        * `scale_policy`: Scaling settings.
@@ -254,6 +263,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter, i.e., the [availability zone](../../../overview/concepts/geo-scope.md) where you want to place the group nodes. You can place nodes of a group with the fixed scaling type across multiple availability zones. To do this, specify each availability zone you need in a separate `location` section.
 
          {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
      * To create a node group with a fixed number of nodes, add the `fixed_scale` section:
 
@@ -364,6 +375,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
+    {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
   * [Deployment policy](../../concepts/node-group/deploy-policy.md) parameters:
 
@@ -372,6 +385,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * List of settings to update in the `updateMask` parameter.
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  * To assign random public [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} pool to the nodes, provide the `IPV4` value in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` parameter.
+
+    {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
 
   * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide `network-ssd-nonreplicated` for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
@@ -407,7 +424,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
 
-  * To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+  * To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 

@@ -216,10 +216,10 @@ items:
             items:
               - name: Overview
                 href: backup/api-ref/grpc/Backup/index.md
-              - name: List
-                href: backup/api-ref/grpc/Backup/list.md
               - name: ListArchives
                 href: backup/api-ref/grpc/Backup/listArchives.md
+              - name: List
+                href: backup/api-ref/grpc/Backup/list.md
               - name: ListFiles
                 href: backup/api-ref/grpc/Backup/listFiles.md
               - name: Get
@@ -304,10 +304,10 @@ items:
             items:
               - name: Overview
                 href: backup/api-ref/Backup/index.md
-              - name: List
-                href: backup/api-ref/Backup/list.md
               - name: ListArchives
                 href: backup/api-ref/Backup/listArchives.md
+              - name: List
+                href: backup/api-ref/Backup/list.md
               - name: ListFiles
                 href: backup/api-ref/Backup/listFiles.md
               - name: Get

@@ -1,9 +1,9 @@
 ---
-title: Adding the {{ foundation-models-full-name }} extension
-description: Follow this guide to add the {{ foundation-models-full-name }} extension using the specification constructor.
+title: Adding the {{ ai-studio-full-name }} extension
+description: Follow this guide to add the {{ ai-studio-full-name }} extension using the specification constructor.
 ---
 
-# Adding the x-yc-apigateway-integration:http extension for integration with the {{ foundation-models-full-name }} text generation API
+# Adding the x-yc-apigateway-integration:http extension for integration with the {{ ai-studio-full-name }} text generation API
 
 {% list tabs %}
 

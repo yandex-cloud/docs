@@ -1,6 +1,6 @@
 ---
 title: How to delete a user pool in {{ org-full-name }}
-description: Follow this guide to delete a user pool in {{ org-name }}.
+description: Follow this guide to delete a user pool in {{ org-full-name }}.
 ---
 
 # Deleting a user pool

@@ -4,7 +4,7 @@
 
 * [When to use {{ mmy-short-name }} and when database VMs?](#mdb-advantage)
 
-* [What is a database host and what is a database cluster?](#what-is-cluster)
+* [What is a database host and database cluster?](#what-is-cluster)
 
 * [How do I get started with {{ mmy-short-name }}?](#quickstart)
 
@@ -39,3 +39,5 @@
 * [Does the service comply with the Russian Federal Law 152-FZ on personal data?](#fz-152)
 
 * [How do I get the logs of my activity in the {{ yandex-cloud }} services?](#logs)
+
+* [Why do I get an error while deleting a database?](#delete-db)

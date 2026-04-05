@@ -81,7 +81,7 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](yq-federative-queries.md)
 * [Recognizing text in image archives in {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
 * [{#T}](vision-ocrrecognizer-storage.md)
-* [{#T}](video-converting-queue.md)
+* [{#T}](video-converting-queue/index.md)
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](billing.md)
 * [{#T}](jwt-authorizer-firebase.md)

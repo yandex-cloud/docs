@@ -68,6 +68,8 @@ items:
             href: operations/reserve-public-subnet.md
           - name: Creating a private connection to cloud networks
             href: operations/create-vpc-connection.md
+          - name: Creating a static route
+            href: operations/create-static-route.md
   - name: Concepts
     expanded: true
     items:
@@ -717,6 +719,10 @@ items:
           Connecting a {{ baremetal-name }} server as an external node to a {{
           managed-k8s-name }} cluster
         href: tutorials/k8s-connect-bms-as-node.md
+      - name: >-
+          Configuring DNS connectivity between {{ baremetal-full-name }} and {{
+          vpc-full-name }} to access {{ mpg-name }} via FQDN
+        href: tutorials/bm-vpc-dns-forwarder.md
   - name: Pricing policy
     href: pricing.md
   - name: FAQ

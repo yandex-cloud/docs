@@ -31,6 +31,12 @@ What you can do on the [_My account_](../concepts/my-account.md) portal depends 
 
 ## Updating attributes {#edit-profile}
 
+{% note info %}
+
+Updating attributes requires permission from the pool administrator.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
@@ -38,12 +44,18 @@ What you can do on the [_My account_](../concepts/my-account.md) portal depends 
   1. Go to the [My account]({{ link-my-account }}) portal.
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
   1. Click ![alt](../../_assets/console-icons/person-pencil.svg) **{{ ui-key.yacloud_org.my-account.ProfilePage.edit_action }}**.
-  1. Edit the first name, last name, and contact details.
+  1. Edit the first name, last name, contact details, and organization details.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
 ## Changing a password {#edit-password}
+
+{% note info %}
+
+Changing a password requires permission from the pool administrator.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

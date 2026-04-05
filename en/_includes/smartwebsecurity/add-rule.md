@@ -4,6 +4,8 @@
 
     {% include [preconfigured-rules-priority](./preconfigured-rules-priority.md) %}
 
+    Learn more about rule priorities in [{#T}](../../smartwebsecurity/concepts/rules.md#rules-order).
+
 1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** if you want only to log data about the traffic matching the specified conditions without applying any actions to it.
 1. Select the rule type:
     * [**{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}**](../../smartwebsecurity/concepts/rules.md#base-rules): Allows, denies, or forwards traffic to [{{ captcha-full-name }}](../../smartcaptcha/) under specified conditions.
