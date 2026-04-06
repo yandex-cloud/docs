@@ -174,7 +174,7 @@ resource "yandex_vpc_security_group" "db_sg" {
     description       = "Permit DB access to Web VM's"
     protocol          = "TCP"
     port              = 6432
-    security_group_id = [ yandex_vpc_security_group.web_sg.id ]
+    security_group_id = yandex_vpc_security_group.web_sg.id
   }
 }
 ```
