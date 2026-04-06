@@ -14,7 +14,7 @@
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
 
-    For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/system-tables/asynchronous_insert_log).
+    For more information, see [this {{ CH }} guide]({{ ch.docs }}/operations/system-tables/asynchronous_insert_log).
 
 * **Asynchronous insert log retention size**{#setting-asynchronous-insert-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -314,7 +314,7 @@
 
         For more information, see [this {{ CH }} guide]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-delay-insert).
 
-    * **Inactive parts to throw insert**: Number of inactive table data parts, exceeding which will trigger {{ CH }} to throw the `Too many inactive parts ...` exception.
+    * **Inactive parts to throw insert**: Number of inactive table data parts, exceeding which will trigger {{ CH }} to throw the `Too many inactive parts ...` exception.
 
         This setting is disabled by default (`0`). Changing this setting will restart {{ CH }} servers on the cluster hosts.
 
@@ -484,7 +484,7 @@
 
     Sets whether to log metric values from the `system.metrics` and `system.events` tables to the `system.metric_log` table.
 
-    Default value is `true`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
+    The default value is `true`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
 
 * **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
