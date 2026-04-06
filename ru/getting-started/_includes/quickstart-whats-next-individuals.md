@@ -48,7 +48,7 @@
 
   Создайте кластер {{ mch-name }} и подключитесь к базе данных в нем.
 
-* [{{ ydb-full-name}}](../../ydb/quickstart.md).
+* [{{ ydb-full-name }}](../../ydb/quickstart.md).
 
   Создайте базу данных {{ ydb-name }} и выполните запросы к ней.
 

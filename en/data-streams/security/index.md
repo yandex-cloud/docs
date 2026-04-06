@@ -6,15 +6,11 @@
 
 To allow access to {{ yds-full-name }} resources (data streams, {{ ydb-full-name }} databases for streams and their users), assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
-To assign a role for a resource, you should have the `yds.admin` role or one of the following roles for that resource:
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) for {{ resmgr-full-name }}.
+
+To assign a role for a resource, you need the `yds.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
-
-{% note info %}
-
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
-
-{% endnote %}
 
 ## Assigning roles {#grant-roles}
 
@@ -22,9 +18,9 @@ To assign a role to a user:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## What roles exist in this service {#roles-list}
+## Roles this service has {#roles-list}
 
-The list below shows all roles used for access control in {{ yds-name }}.
+The list below shows all the roles used for access control in {{ yds-name }}.
 
 {% include [data-streams](../../_mermaid/roles/data-streams.md) %}
 

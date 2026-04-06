@@ -161,7 +161,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
     1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
     1. Click the name of the {{ managed-k8s-name }} cluster.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Enter the key and value, and press **Enter**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -200,7 +200,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
     1. Click the name of the {{ managed-k8s-name }} cluster.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
-    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a key and/or value for the new label.
+    1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a key and/or value for the new label.
     1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

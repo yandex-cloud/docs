@@ -427,7 +427,7 @@
 
   Подробнее см. в описании настройки `enable_bitmapscan` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
 
-- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
+- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Разрешает планировщику использовать узел Gather Merge, чтобы выполнить слияние строк, полученных в результате работы параллельных процессов, и сохранить порядок, в котором эти строки были получены.
 
@@ -775,7 +775,7 @@
 
   Подробнее см. в описании настройки `log_connections` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
 
-- **Log disconnections**{#setting-log-disconnections} {{ tag-con }} {{ tag-api }} {{tag-cli }} {{ tag-tf }}
+- **Log disconnections**{#setting-log-disconnections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Включает логирование завершения сессий.
 
@@ -1515,7 +1515,7 @@
 
   Подробнее см. в описании настройки `vacuum_cost_page_miss` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
-- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
+- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Максимальный возраст «замороженной» (уже завершенной) транзакции, измеряемый в количестве транзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика транзакций.
 
@@ -1525,7 +1525,7 @@
 
   Подробнее см. в описании настройки `vacuum_failsafe_age` в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
-- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
+- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Максимальный возраст «замороженной» (уже завершенной) [мультитранзакции](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND), измеряемый в количестве мультитранзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика мультитранзакций.
 

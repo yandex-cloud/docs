@@ -8,3 +8,9 @@ description: This page provides reference information on the {{ mkf-name }} metr
 This section describes the {{ mkf-name }} metrics delivered to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-kafka](../_includes/monitoring/metrics-ref/managed-kafka.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](operations/monitoring.md)
+* [{#T}](operations/storage-space.md)
+* [{#T}](tutorials/retention-policy.md)

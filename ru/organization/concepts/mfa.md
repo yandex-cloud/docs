@@ -67,6 +67,7 @@ MFA дает возможность повысить степень защище
 * [{#T}](../operations/mfa/create-policy.md)
 * [{#T}](../operations/mfa/update-policy.md)
 * [{#T}](../operations/mfa/add-users.md)
+* [{#T}](../operations/mfa/excluded-audience.md)
 * [{#T}](../operations/mfa/deactivate-reactivate-policy.md)
 * [{#T}](../operations/mfa/delete-policy.md)
 * [{#T}](../operations/mfa/manage-verification.md)

@@ -419,7 +419,7 @@ items:
         href: tutorials/alice-skill.md
       - name: Deploying a web application
         href: tutorials/java-servlet-todo-list.md
-      - name: Creating a skill for Alice and a website with authorization
+      - name: Building a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: Writing device data to a database
         href: tutorials/data-recording.md
@@ -434,14 +434,20 @@ items:
       - name: Connecting to a YDB database from a function in Node.js
         href: tutorials/connect-to-ydb-nodejs.md
       - name: Converting a video to a GIF in Python
-        href: tutorials/video-converting-queue.md
+        items:
+          - name: Overview
+            href: tutorials/video-converting-queue/index.md
+          - name: Management console
+            href: tutorials/video-converting-queue/console.md
+          - name: '{{ TF }}'
+            href: tutorials/video-converting-queue/terraform.md
       - name: Creating a Node.js function using TypeScript
         href: tutorials/nodejs-typescript.md
       - name: Developing a custom integration
         href: tutorials/api-gw-integration.md
       - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
-      - name: Building an interactive serverless application using WebSocket
+      - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
@@ -484,7 +490,7 @@ items:
         href: tutorials/iot-emulation.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them with {{ datalens-full-name }}
+          analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md

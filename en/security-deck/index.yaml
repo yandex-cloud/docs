@@ -10,14 +10,13 @@ description:
   - >-
     <ul><li><a href="/docs/security-deck/concepts/access-transparency">{{
     atr-name }} to monitor {{ yandex-cloud }} team actions on user
-    resources</a>.</li> <li><a href="/docs/security-deck/concepts/dspm">Data
-    Security Posture Management</a> ({{ dspm-name }}).</li> <li><a
-    href="/docs/security-deck/concepts/cspm">Cloud Security Posture
-    Management</a> ({{ cspm-name }}).</li> <li><a
-    href="/docs/security-deck/concepts/kspm">{{ k8s }} Security Posture
-    Management</a> (KSPM).</li> <li><a
-    href="/docs/security-deck/concepts/ciem">Cloud Infrastructure Entitlement
-    Management</a> ({{ ciem-name }}).</li> <li><a
+    resources</a>.</li> <li><a href="/docs/security-deck/concepts/dspm">{{
+    dspm-full-name }}</a> ({{ dspm-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/cspm">{{ cspm-full-name }}</a> ({{
+    cspm-name }}).</li> <li><a href="/docs/security-deck/concepts/kspm">{{
+    kspm-full-name }}</a> ({{ kspm-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/ciem">{{ ciem-full-name }}</a> ({{
+    ciem-name }}).</li> <li><a
     href="/docs/security-deck/concepts/vulnerability-management">Vulnerability
     management</a>.</li> <li><a
     href="/docs/security-deck/concepts/alerts">Alerts</a>.</li> <li><a
@@ -38,11 +37,10 @@ meta:
   title: Yandex Security Deck
   description: >-
     Yandex Security Deck is a comprehensive CNAPP solution comprising such
-    modules as Data Security Posture Management ({{ dspm-name }}), Cloud
-    Security Posture Management ({{ cspm-name }}), {{ k8s }} Security Posture
-    Management (KSPM), Cloud Infrastructure Entitlement Management ({{ ciem-name
-    }}), {{ alerts-name }}, {{ atr-name }}, cloud security AI assistant, and
-    Compliance Portal.
+    modules as {{ dspm-full-name }} ({{ dspm-name }}), {{ cspm-full-name }} ({{
+    cspm-name }}), {{ kspm-full-name }} ({{ kspm-name }}), {{ ciem-full-name }}
+    ({{ ciem-name }}), {{ alerts-name }}, {{ atr-name }}, cloud security AI
+    assistant, and Compliance Portal.
   keywords:
     - keyword: '{{ sd-name }}'
     - keyword: '{{ sd-full-name }}'
@@ -66,9 +64,11 @@ meta:
     - keyword: SOC {{ yandex-cloud }}
     - keyword: '{{ cspm-name }} module'
     - keyword: '{{ cspm-name }}'
-    - keyword: Cloud Security Posture Management
+    - keyword: '{{ cspm-full-name }}'
+    - keyword: '{{ kspm-full-name }} module'
+    - keyword: '{{ k8s }} Security Posture Management'
     - keyword: '{{ k8s }} Security Posture Management module'
-    - keyword: KSPM {{ yandex-cloud }}
+    - keyword: '{{ kspm-name }} {{ yandex-cloud }}'
     - keyword: Kubernetes Security Posture Management
     - keyword: '{{ yandex-cloud }} container security'
     - keyword: '{{ alerts-name }}'

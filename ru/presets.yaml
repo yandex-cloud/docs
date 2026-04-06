@@ -99,6 +99,7 @@ default:
   cic-pbc-subnet-client: 178.210.118.46
   cic-pbc-subnet-cloud: 178.210.118.47
   cic-pbc-svc1-ip: 213.180.193.243/32
+  ciem-full-name: Cloud Infrastructure Entitlement Management
   ciem-name: CIEM
   CK: ClickHouse® Keeper
   cloud-apps-full-name: Yandex Cloud Apps
@@ -152,6 +153,7 @@ default:
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
+  cspm-full-name: Cloud Security Posture Management
   cspm-name: CSPM
   data-catalog-full-name: Yandex Data Catalog
   data-catalog-name: Data Catalog
@@ -185,6 +187,7 @@ default:
   ds-jobs: DataSphere Jobs
   ds-nb: DataSphere Notebook
   ds-node-endpoint: node-api.datasphere.yandexcloud.net
+  dspm-full-name: Data Security Posture Management
   dspm-name: DSPM
   dsvm-name: Data Science Virtual Machine
   dsvm-short-name: DSVM
@@ -273,6 +276,8 @@ default:
   kotlin-full-ver: Kotlin 2.0
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
+  kspm-full-name: Kubernetes® Security Posture Management
+  kspm-name: KSPM
   lang: ru
   lets-encrypt: Let's Encrypt®
   license-manager: License Manager
@@ -830,6 +835,8 @@ default:
   tag-preview: <code><b><small>Preview</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
+  td-full-name: Threat Detector
+  td-name: TD
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   TF: Terraform
   tf-cloud-id: b1gq90dgh25********
@@ -888,6 +895,7 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   vuln-man-name: Управление уязвимостями
+  vuln-man-short-name: VM
   websql-full-name: Yandex WebSQL
   websql-link: https://websql.yandex.cloud
   websql-name: WebSQL
@@ -2132,14 +2140,8 @@ default:
           ram|string: "1,566000072\_₸"
   sku|KZT|monitoring:
     point:
-      api:
-        read|pricingRate:
-          50|string: "23,490001084\_₸"
-        read|string: "39,150001806\_₸"
       prometheus:
         export|number: 39.150001806
-        export|pricingRate:
-          50|string: "23,490001084\_₸"
         export|string: "39,150001806\_₸"
   sku|KZT|network:
     public_fips:
@@ -2699,14 +2701,8 @@ default:
           ram|string: "0,30744\_₽"
   sku|RUB|monitoring:
     point:
-      api:
-        read|pricingRate:
-          50|string: "4,6116\_₽"
-        read|string: "7,686\_₽"
       prometheus:
         export|number: 7.686
-        export|pricingRate:
-          50|string: "4,6116\_₽"
         export|string: "7,686\_₽"
       write|number: 0.32
       write|string: "0,32\_₽"
@@ -3258,14 +3254,8 @@ default:
           ram|string: "0,00252\_$"
   sku|USD|monitoring:
     point:
-      api:
-        read|pricingRate:
-          50|string: "0,037799994\_$"
-        read|string: "0,06299999\_$"
       prometheus:
         export|number: 0.06299999
-        export|pricingRate:
-          50|string: "0,037799994\_$"
         export|string: "0,06299999\_$"
       write|number: 0.00262295
       write|string: "0,00262295\_$"

@@ -9,7 +9,7 @@ A Docker image is an executable package that contains everything you need to run
 The application must get the number of the port to receive requests at from the `PORT` environment variable. The variable value is set by the service automatically.
 
 To prepare a container's Docker image:
-1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in {{ container-registry-full-name}}.
+1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in {{ container-registry-full-name }}.
 1. [Create and build](../../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
 1. [Push](../../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
 

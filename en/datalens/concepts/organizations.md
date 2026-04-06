@@ -5,7 +5,7 @@ description: An organization is a {{ yandex-cloud }} service enabling employee l
 
 # Organizations in {{ datalens-full-name }}
 
-[{{ org-full-name }}](/services/organization) is a {{ yandex-cloud }} service enabling employee list management, single sign-on across {{ yandex-cloud }} services, and roles. If you want to learn more about {{ org-name }}, see [our relevant documentation](../../organization/).
+[{{ org-full-name }}](/services/organization) is a {{ yandex-cloud }} service enabling employee list management, single sign-on across {{ yandex-cloud }} services, and roles. If you want to learn more about {{ org-full-name }}, see [our relevant documentation](../../organization/).
 
 As a rule, each {{ yandex-cloud }} user has at least one organization. If you do not have a {{ yandex-cloud }} account yet and it is your first time opening {{ datalens-short-name }}, the system will automatically create an organization for you. By default, all users at the organization level have access to [{{ datalens-full-name }}]({{ link-datalens-main }}), [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}).
 

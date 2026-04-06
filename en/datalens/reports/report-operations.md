@@ -134,6 +134,18 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
    - Text {#text}
 
      * Enter the text of your link, clarifying caption, etc. The widget supports the [Markdown](../dashboard/markdown.md) markup language.
+       
+       You can create a link in the text:
+       
+       * `#title` type: To the title in the current report.
+       * `#page-1` type: To a specific page in the current report.
+       * Absolute link: To a page on the internet.
+
+       {% cut "Link to page" %}
+
+       ![report-text-link](../../_assets/datalens/report/report-text-link.png =532x264)
+
+       {% endcut %}
 
        {% note warning %}
 
@@ -347,6 +359,8 @@ To exit the preview mode, click **Close** at the top of the screen or press **Es
 ## Exporting a report {#report-export}
 
 To export a report, click **Export**. The report will be exported to a `.pdf` file.
+
+All links created in [text](#text) widgets on report pages will be active in the exported file.
 
 ## Banning the use of Neuroanalyst {#report-neuroanalyst-off}
 

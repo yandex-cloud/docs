@@ -34,7 +34,7 @@ links:
     description: Решения для {{ cloud-logging-name }}
     href: cloud-logging/
   - title: '{{ compute-name }}'
-    description: Решения для {{ compute-name}}
+    description: Решения для {{ compute-name }}
     href: compute/
   - title: '{{ container-registry-name }}'
     description: Решения для {{ container-registry-name }}
@@ -43,7 +43,7 @@ links:
     description: Решения для {{ console-name }}
     href: console/
   - title: '{{ datalens-name }}'
-    description: Решения для {{ datalens-name}}
+    description: Решения для {{ datalens-name }}
     href: datalens/
   - title: '{{ dataproc-name }}'
     description: Решения для {{ dataproc-name }}
@@ -106,5 +106,5 @@ links:
     description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
     href: terraform/
   - title: '{{ vpc-name }}'
-    description: Решения для {{ vpc-short-name}}
+    description: Решения для {{ vpc-short-name }}
     href: vpc/

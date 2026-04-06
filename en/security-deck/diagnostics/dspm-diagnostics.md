@@ -1,9 +1,9 @@
 ---
-title: Possible errors when using Data Security Posture Management (DSPM) in {{ sd-full-name }}
-description: In this tutorial, you will learn about possible errors related to Data Security Posture Management (DSPM).
+title: Possible errors when using {{ dspm-full-name }} ({{ dspm-name }}) in {{ sd-full-name }}
+description: In this tutorial, you will learn about possible errors related to {{ dspm-full-name }} ({{ dspm-name }}).
 ---
 
-# Troubleshooting Data Security Posture Management (DSPM)
+# Troubleshooting {{ dspm-full-name }} ({{ dspm-name }})
 
 ## Unable to list dataSource `Id` {#unable-to-list-datasource}
 Failed to get the contents of the data source. It may have been deleted during scanning.

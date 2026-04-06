@@ -98,7 +98,6 @@ editable: false
     ],
     "metadataSerialPortEnable": "string",
     "metadataOsloginEnable": "string",
-    "metadata": "object",
     "serviceAccountId": "string",
     "networkSettings": {
       "type": "string"
@@ -319,7 +318,6 @@ A list of messages that carry the error details. ||
 || metadataKeys[] | **string** ||
 || metadataSerialPortEnable | **string** ||
 || metadataOsloginEnable | **string** ||
-|| metadata | **object** (map<**string**, **string**>) ||
 || serviceAccountId | **string** ||
 || networkSettings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)** ||
 || placementPolicy | **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy)** ||

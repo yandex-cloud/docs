@@ -10,7 +10,7 @@
 Чтобы изменить владельца облака, нужно выполнить следующие действия:
 
 1. [Добавить нового пользователя в организацию](https://org.yandex.cloud/users).
-1. [Назначить новому пользователю роль `{{ roles-cloud-owner }}` на облако]({{link-console-main}}/cloud/?section=resource-acl). 
+1. [Назначить новому пользователю роль `{{ roles-cloud-owner }}` на облако]({{ link-console-main }}/cloud/?section=resource-acl). 
 1. Отозвать у старого пользователя роль `{{ roles-cloud-owner }}` и назначить ему другие роли, например, роль `{{ roles-admin }}`. 
 1. Для смены владельца организации [добавить нового пользователя в организацию](https://org.yandex.cloud/users) и назначить ему роль `{{ roles-organization-owner }}`.
 1. Отозвать новым владельцем облака роль `{{ roles-organization-owner }}` у старого пользователя.

@@ -1,9 +1,19 @@
 ---
 title: '{{ serverless-containers-full-name }} release notes'
-description: This section contains {{ serverless-containers-name }} release notes.
+description: This section contains the {{ serverless-containers-name }} release notes.
 ---
 
 # {{ serverless-containers-full-name }} release notes
+
+## February 2026 {#february-2026}
+
+### Updates {#updates}
+
+* Added support for {{ serverless-containers-name }} in the [price calculator](https://yandex.cloud/ru/prices).
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the {{ monitoring-name }} [metric](metrics.md) calculation.
 
 ## September 2025 {#september-2025}
 

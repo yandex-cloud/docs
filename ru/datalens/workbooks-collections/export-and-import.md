@@ -102,8 +102,6 @@ description: Следуя данной инструкции, вы сможете
 
 
 * [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
-* [{{ yq-full-name }}](../operations/connection/create-yandex-query.md)
-* [Yandex Monitoring](../operations/connection/create-monitoring.md)
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)
 * [Подкасты Аналитика](../operations/connection/create-podcasts.md)

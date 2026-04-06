@@ -48,7 +48,7 @@ Get started with {{ yandex-cloud }}:
 
   Create a {{ mch-name }} cluster and connect to its database.
 
-* [{{ ydb-full-name}}](../../ydb/quickstart.md).
+* [{{ ydb-full-name }}](../../ydb/quickstart.md).
 
   Create a {{ ydb-name }} database and run queries against it.
 

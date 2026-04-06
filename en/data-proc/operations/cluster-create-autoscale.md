@@ -1,9 +1,9 @@
 ---
-title: Creating a {{ dataproc-full-name }} cluster with autoscaling in another folder's network
-description: Follow this guide to create and set up a {{ dataproc-name }} cluster with autoscaling in another folder's network.
+title: Creating an autoscaling {{ dataproc-full-name }} cluster in another folder's network
+description: Follow this guide to create and set up an autoscaling {{ dataproc-name }} cluster in another folder's network.
 ---
 
-# Creating a {{ dataproc-name }} cluster with autoscaling in another folder's network
+# Creating an autoscaling {{ dataproc-name }} cluster in another folder's network
 
 ## Roles for creating a cluster {#roles}
 
@@ -11,7 +11,7 @@ To create a {{ dataproc-name }} cluster, your {{ yandex-cloud }} account needs t
 
 * [dataproc.editor](../security/index.md#dataproc-editor): To create a cluster.
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a [service account](../../iam/concepts/users/service-accounts.md) to the cluster and create resources under that service account.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To assign a [service account](../../iam/concepts/users/service-accounts.md) to the cluster and use it to create resources.
 
 Make sure to assign the following roles to the {{ dataproc-name }} cluster’s service account:
 
@@ -19,9 +19,9 @@ Make sure to assign the following roles to the {{ dataproc-name }} cluster’s s
 
 For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
 
-## Roles for auto-scaling in another folder's network {#autoscale-roles}
+## Roles required to enable autoscaling in another folder's network {#autoscale-roles}
 
-To set up auto-scaling in another folder's network:
+To set up autoscaling in another folder's network:
 
 1. In the [management console]({{ link-console-main }}), navigate to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. Grant [access to the folder](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa) and the following roles to the {{ dataproc-name }} cluster’s service account:
@@ -32,7 +32,7 @@ To set up auto-scaling in another folder's network:
 
 ## Configure your network {#setup-network}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder you need to create a network in.
+1. In the [management console]({{ link-console-main }}), navigate to the folder where you need to create a network.
 1. [Create](../../vpc/operations/network-create.md) a network with subnets.
 1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet to host the {{ dataproc-name }} cluster.
 
@@ -40,19 +40,19 @@ To set up auto-scaling in another folder's network:
 
 {% note warning %}
 
-Before creating a {{ dataproc-name }} cluster, you need to create and configure [security groups](../../vpc/concepts/security-groups.md). If the selected security groups do not have the required rules, {{ yandex-cloud }} will prevent creating the {{ dataproc-name }} cluster.
+Before creating a {{ dataproc-name }} cluster, you need to create and configure [security groups](../../vpc/concepts/security-groups.md). If the selected security groups lack the required rules, {{ yandex-cloud }} will prevent creating the {{ dataproc-name }} cluster.
 
 {% endnote %}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder you created the network in.
-1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for the {{ dataproc-name }} cluster’s control plane traffic.
-1. [Add rules](../../vpc/operations/security-group-add-rule.md):
-   * One rule for incoming and another one for outgoing service traffic:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
-   * A separate rule for outbound HTTPS traffic. This will allow you to use [{{ objstorage-full-name }}](../../storage/) [buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and [autoscaling](../concepts/autoscaling.md) of {{ dataproc-name }} clusters.
+1. In the [management console]({{ link-console-main }}), navigate to the folder where you created your network.
+1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for the {{ dataproc-name }} cluster service traffic.
+1. [Add these rules](../../vpc/operations/security-group-add-rule.md):
+   * One inbound and one outbound rule for service traffic:
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
+   * A separate rule for outbound HTTPS traffic. This will allow using [{{ objstorage-full-name }}](../../storage/) [buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and [autoscaling](../concepts/autoscaling.md) of {{ dataproc-name }} clusters.
 
      You can set up this rule using one of the two methods:
 
@@ -73,29 +73,29 @@ Before creating a {{ dataproc-name }} cluster, you need to create and configure 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
          * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs.
          * `158.160.167.170/32`: UI Proxy.
-         * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster state, autoscaling.
+         * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster health, autoscaling.
          * `213.180.193.243/32`: Access to {{ objstorage-name }}.
          * `84.201.181.184/32`: {{ cloud-logging-name }} address.
 
      {% endlist %}
 
-   * Rule that allows access to NTP servers for time syncing:
+   * Rule to allow NTP server access for time sync:
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-If you intend to use multiple security groups for your {{ dataproc-name }} cluster, allow all traffic across these groups.
+If you intend to use multiple security groups for your {{ dataproc-name }} cluster, allow all traffic between them.
 
 {% note info %}
 
-You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular security group rules, such as allowing traffic only in specific subnets.
 
-You must configure security groups correctly for all subnets in which the {{ dataproc-name }} cluster hosts will reside.
+Make sure to properly configure security groups for all subnets where the {{ dataproc-name }} cluster hosts will reside.
 
 {% endnote %}
 
-You can set up security groups after creating a {{ dataproc-name }} cluster to [connect to {{ metastore-name }}](../../metadata-hub/operations/metastore/data-processing-connect.md) or [{{ dataproc-name }} cluster hosts](connect.md) via the internet or an intermediate [VM](../../compute/concepts/vm.md).
+You can configure security groups after creating a {{ dataproc-name }} cluster to [connect to {{ metastore-name }}](../../metadata-hub/operations/metastore/data-processing-connect.md) or [{{ dataproc-name }} cluster hosts](connect.md) via the internet or an intermediate [VM](../../compute/concepts/vm.md).
 
 ## Create a {{ dataproc-name }} cluster {#create}
 
@@ -120,7 +120,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
   1. Select the [environment](../concepts/environment.md#environment) where you want to create your cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your applications.
      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
-  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
+  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to organize resources into logical groups.
   1. Specify the following cluster settings:
 
      * [Image version](../concepts/environment.md) and services you want to use in the {{ dataproc-name }} cluster.
@@ -129,7 +129,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
         {% note tip %}
 
-        To use the most recent image version, specify `2.0`.
+        To use the most recent image version, specify `2.1`.
 
         {% endnote %}
 
@@ -139,28 +139,28 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * Optionally, [cluster component properties](../concepts/settings-list.md).
      * Optionally, custom [initialization scripts](../concepts/init-action.md) for cluster hosts. For each script, specify the following information:
 
-        * URI link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` schema.
-        * Optionally, script timeout (in seconds). If your initialization script runs longer than the specified time period, it will be terminated.
-        * Optionally, arguments enclosed in square brackets and separated by commas. The initialization script will use these arguments. Sample arguments:
+        * URI to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
+        * Optionally, script timeout in seconds. If your initialization script runs longer than the specified time period, it will be terminated.
+        * Optionally, arguments enclosed in square brackets and separated by commas. The initialization script will use these arguments. Here is an example of arguments:
 
           ```text
           ["arg1","arg2",...,"argN"]
           ```
 
-     * Name selection format for the [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md), **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
+     * Format for specifying the [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) name, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
      * Bucket the cluster will use.
 
         Depending on the format you selected, either pick a name from the list or specify it manually. You can get it with the [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
         
         The {{ dataproc-name }} cluster’s [service account](../../iam/concepts/users/service-accounts.md) must have `READ and WRITE` permissions for this bucket.
         
-     * Format in which to specify a network for the {{ dataproc-name }} cluster.
+     * Format for specifying a network for the {{ dataproc-name }} cluster.
      * Network for the cluster.
      * Security groups with the required permissions.
         
         {% note warning %}
         
-        When you create a {{ dataproc-name }} cluster, security group settings undergo a verification. If the {{ dataproc-name }} cluster cannot operate properly with these settings, you will get a warning. You can find a sample functional configuration [above](#change-security-groups).
+        When you create a {{ dataproc-name }} cluster, security group settings are verified. If the {{ dataproc-name }} cluster cannot work properly with these settings, you will get a warning. You can find an example of working settings [above](#change-security-groups).
         
         {% endnote %}
         
@@ -169,39 +169,39 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
         
         To save logs in a log group, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `logging.writer` [role](../../logging/security/index.md#logging-writer) to the cluster service account.
 
-  1. Configure the {{ dataproc-name }} subclusters. The following types are available:
+  1. Configure {{ dataproc-name }} subclusters. The following types are available:
   
-     * Subcluster with a master host is specified as `{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}`. There can only be one such subcluster.
-     * Data storage subclusters are specified as `{{ ui-key.yacloud.mdb.forms.label_data-subcluster }}`. These are used to deploy storage components.
-     * Data processing subclusters are specified as `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}`. These are used to deploy computing components. The [storage](../concepts/storage.md) of such a subcluster can only be used to temporarily store processed files.
+     * Subcluster with a master host, designated as `{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}`. There can only be one such subcluster.
+     * Data storage subclusters, designated as `{{ ui-key.yacloud.mdb.forms.label_data-subcluster }}`. These are used to deploy storage components.
+     * Data processing subclusters, designated as `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}`. These are used to deploy computing components. [Storage](../concepts/storage.md) of such a subcluster is intended only for temporarily storing files being processed.
   
      For each {{ dataproc-name }} subcluster, specify:
   
      * Subcluster name.
-     * Number of hosts (there can only be one master host).
-     * [Host class](../concepts/instance-types.md), i.e., the platform and computing resources available to the host.
+     * Number of hosts (with only one master host allowed).
+     * [Host class](../concepts/instance-types.md), which defines the platform and computing resources available to the host.
      * Storage size and type.
      * Subnet.
   
-        In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [Configure a network](#setup-network).
+        In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [Configure your network](#setup-network).
   
-     * Access to {{ dataproc-name }} subcluster hosts from the internet. Select the **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** option to enable access. In this case, you can only connect to {{ dataproc-name }} subcluster hosts over SSL. For more information, see [{#T}](connect.md).
+     * Access to {{ dataproc-name }} subcluster hosts from the internet. To enable access, select **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. In this case, you can only connect to {{ dataproc-name }} subcluster hosts over SSL. For more information, see [{#T}](connect.md).
   
        {% note warning %}
   
-       After you create a {{ dataproc-name }} cluster, you cannot request or disable public access to a subcluster. However, you can delete the {{ dataproc-name }} subcluster for data processing and create it again with the public access settings you need.
+       After you create a {{ dataproc-name }} cluster, you cannot request or disable public access to a subcluster. However, you can delete the {{ dataproc-name }} subcluster for data processing and recreate it with the public access settings you need.
   
        {% endnote %}
 
-  1. Optionally, set up [automatic scaling](../concepts/autoscaling.md) for data processing subclusters.
+  1. Optionally, set up [autoscaling](../concepts/autoscaling.md) for data processing subclusters:
 
      1. In the `{{ ui-key.yacloud.mdb.forms.label_compute-subcluster }}` type subcluster settings, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}**.
      1. Configure the autoscaling settings.
-     1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU utilization, disable **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** and specify the target CPU utilization level.
+     1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable CPU-based scaling, disable **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** and specify the target CPU utilization.
      1. Click **{{ ui-key.yacloud.mdb.forms.button_add-subcluster }}**.
 
-  1. Optionally, add and set up additional subclusters for data storage or processing.
-  1. Optionally, use additional settings to enable protection against accidental cluster deletion.
+  1. Optionally, add and configure additional subclusters for data storage or processing.
+  1. Optionally, enable accidental cluster deletion protection in the additional settings.
 
      Even with cluster deletion protection enabled, you can still connect to the {{ dataproc-name }} cluster manually and delete the data.
 
@@ -216,7 +216,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
   To create a {{ dataproc-name }} cluster:
 
   
-  1. Check whether the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any subnets for the {{ dataproc-name }} cluster hosts:
+  1. Check whether your [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any subnets for the {{ dataproc-name }} cluster hosts:
   
      ```bash
      yc vpc subnet list
@@ -225,7 +225,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
   
   
-  1. View the description of the [CLI](../../cli/) command for creating a {{ dataproc-name }} cluster:
+  1. See the description of the [CLI](../../cli/) command for creating a {{ dataproc-name }} cluster:
   
      ```bash
      {{ yc-dp }} cluster create --help
@@ -266,45 +266,45 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% note info %}
 
-     The {{ dataproc-name }} cluster name must be unique within the folder. It may include Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
+     The {{ dataproc-name }} cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
 
      {% endnote %}
 
      Where:
      * `--environment`: Cluster [environment](../concepts/environment.md#environment), `prestable` or `production`.
-     * `--bucket`: Name of an {{ objstorage-name }} bucket where job dependencies and results will be stored. The {{ dataproc-name }} cluster’s [service account](../../iam/concepts/users/service-accounts.md) must have `READ and WRITE` permissions for this bucket.
+     * `--bucket`: Name of the {{ objstorage-name }} bucket to store job dependencies and results. The {{ dataproc-name }} cluster’s [service account](../../iam/concepts/users/service-accounts.md) must have `READ and WRITE` permissions for this bucket.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) where the {{ dataproc-name }} cluster hosts will reside.
-     * `--service-account-name`: Name of the {{ dataproc-name }} cluster’s service account.
-     * (Optional) `--autoscaling-service-account-name`: Name of the service account for managing autoscaling subclusters.
+     * `--service-account-name`: Name of the {{ dataproc-name }} cluster service account.
+     * `--autoscaling-service-account-name`: Name of the service account for managing autoscaling subclusters. This is an optional setting.
      * `--version`: [Image version](../concepts/environment.md).
 
        {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
        {% note tip %}
 
-       To use the most recent image version, specify `2.0` in the `--version` parameter.
+       To use the most recent image version, set `--version` to `2.1`.
 
        {% endnote %}
 
-     * `--services`: List of [components](../concepts/environment.md) that you want to use in the {{ dataproc-name }} cluster. If you do not specify this parameter, these default components will be used: `yarn`, `tez`, and `spark`.
+     * `--services`: List of [components](../concepts/environment.md) you want to use in your {{ dataproc-name }} cluster. If you skip this setting, the `yarn`, `tez`, and `spark` components will be used by default.
      * `--ssh-public-keys-file`: Full path to the file with the public part of the SSH key for access to the {{ dataproc-name }} cluster hosts. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
      * `--subcluster`: Properties of {{ dataproc-name }} subclusters:
        * `name`: {{ dataproc-name }} subcluster name.
        * `role`: {{ dataproc-name }} subcluster role, which can be `masternode`, `datanode`, or `computenode`.
        * `resource-preset`: [Host class](../concepts/instance-types.md).
        * `disk-type`: [Storage type](../concepts/storage.md), which can be `network-ssd`, `network-hdd`, or `network-ssd-nonreplicated`.
-       * `disk-size`: Storage size in GB.
+       * `disk-size`: Storage size, in GB.
        * `subnet-name`: Subnet name.
-       * `hosts-count`: Number of hosts in the {{ dataproc-name }} subclusters for data storage or processing. The minimum value is `1`, and the maximum value is `32`.
+       * `hosts-count`: Number of hosts in the {{ dataproc-name }} subclusters for data storage or processing. The valid values range from `1` to `32`.
        * `assign-public-ip`: Access to {{ dataproc-name }} subcluster hosts from the internet. It can either be `true` or `false`. If access is enabled, you can only connect to the {{ dataproc-name }} cluster over SSL. For more information, see [{#T}](connect.md).
 
          {% note warning %}
 
-         After you create a {{ dataproc-name }} cluster, you cannot request or disable public access to a subcluster. However, you can delete the {{ dataproc-name }} subcluster for data processing and create it again with the public access settings you need.
+         After you create a {{ dataproc-name }} cluster, you cannot request or disable public access to a subcluster. However, you can delete the {{ dataproc-name }} subcluster for data processing and recreate it with the public access settings you need.
 
          {% endnote %}
 
-     * `--deletion-protection`: Protection against accidental deletion of the {{ dataproc-name }} cluster.
+     * `--deletion-protection`: {{ dataproc-name }} cluster deletion protection.
 
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -312,7 +312,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * `--log-group-id`: [Log group ID](../concepts/logs.md).
      * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
 
-     To create a {{ dataproc-name }} cluster with multiple data storage or processing subclusters, provide the required number of `--subcluster` arguments in the cluster creation command:
+     To create a {{ dataproc-name }} cluster with multiple subclusters for data storage or processing, provide the required number of `--subcluster` arguments in the cluster creation command:
 
      ```bash
      {{ yc-dp }} cluster create <cluster_name> \
@@ -332,23 +332,23 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
                     `...`
                     `hosts-count=<minimum_number_of_hosts>`
                     `max-hosts-count=<maximum_number_of_hosts>,`
-                    `preemptible=<use_of_preemptible_VMs>,`
+                    `preemptible=<using_preemptible_VMs>,`
                     `warmup-duration=<VM_warmup_period>,`
                     `stabilization-duration=<stabilization_period>,`
                     `measurement-duration=<load_measurement_interval>,`
-                    `cpu-utilization-target=<target_CPU_utilization_level>,`
+                    `cpu-utilization-target=<target_CPU_utilization>,`
                     `autoscaling-decommission-timeout=<decommissioning_timeout>
      ```
 
      Where:
      * `hosts-count`: Minimum number of hosts (VMs) per {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `32`.
-     * `max-hosts-count`: Maximum number of hosts (VMs) per {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `100`.
-     * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
-     * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
-     * `stabilization-duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
-     * `measurement-duration`: Period, in seconds, for which average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
-     * `cpu-utilization-target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
-     * `autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0`, and the maximum value is `86400` (24 hours).
+     * `max-hosts-count`: Maximum number of hosts (VMs) per {{ dataproc-name }} subcluster. The valid values range from `1` to `100`.
+     * `preemptible`: Specifies if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
+     * `warmup-duration`: Time required to warm up a VM, in `<value>s` format. The minimum value is `0s` and the maximum, `600s` (ten minutes).
+     * `stabilization-duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` (one minute). The maximum value is `1800s` (30 minutes).
+     * `measurement-duration`: Period, in seconds, for which average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (one minute). The maximum value is `600s` (ten minutes).
+     * `cpu-utilization-target`: Target CPU utilization, in %. Use this setting to enable CPU-based [autoscaling](../concepts/autoscaling.md). Otherwise, `yarn.cluster.containersPending` will be used for autoscaling based on the number of pending resources. The minimum value is `10` and the maximum, `100`.
+     * `autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md), in seconds. The minimum value is `0` and the maximum, `86400` (24 hours).
 
   1. To create a {{ dataproc-name }} cluster based on [dedicated host groups](../../compute/concepts/dedicated-host.md), specify their IDs as a comma-separated list in the `--host-group-ids` parameter:
 
@@ -372,8 +372,8 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      Where:
      * `uri`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
-     * Optionally, `timeout`: Script timeout, in seconds. If your initialization script runs longer than this time period, it will be terminated.
-     * Optionally, `args`: Arguments for the initialization script, provided as a comma-separated list.
+     * `timeout` (optional): Script timeout, in seconds. If your initialization script runs longer than the specified time period, it will be terminated.
+     * `args` (optional): Arguments for the initialization script, provided as a comma-separated list.
 
 - {{ TF }} {#tf}
 
@@ -382,7 +382,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
 
   To create a {{ dataproc-name }} cluster:
-  1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files with the infrastructure plan. If there is no such directory, create one.
+  1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files describing your infrastructure. If there is no such directory, create one.
 
   
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -391,7 +391,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      The {{ dataproc-name }} cluster resides in a cloud network. If you already have a network in place, you do not need to describe it again.
 
-     The {{ dataproc-name }} cluster hosts reside in subnets of the selected cloud network. If you already have subnets in place, you do not need to describe them again.
+     The {{ dataproc-name }} cluster hosts reside in subnets of the selected cloud network. If you already have suitable subnets, you do not need to describe them again.
 
      Below is an example of a configuration file describing a single-subnet cloud network, security group, NAT gateway, and route table:
 
@@ -462,10 +462,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   1. Create a configuration file describing the following resources:
       * {{ dataproc-name }} cluster [service account](../../iam/concepts/users/service-accounts.md) that needs access to the {{ objstorage-name }} cluster.
-      * Service account for managing autoscaling subclusters (optional).
-      * Service account for creating the {{ objstorage-name }} bucket.
+      * Service account to manage autoscaling subclusters, if required.
+      * Service account to create the {{ objstorage-name }} bucket.
       * [Static key](../../iam/concepts/authorization/access-key.md).
-      * {{ objstorage-name }} bucket to store [job](../concepts/jobs.md) execution results in.
+      * {{ objstorage-name }} bucket to store [job](../concepts/jobs.md) execution results.
 
       ```hcl
       resource "yandex_iam_service_account" "data_proc_sa" {
@@ -524,9 +524,9 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   1. Create a configuration file describing the {{ dataproc-name }} cluster and its subclusters.
 
-     If required, here you can also specify the [properties of the {{ dataproc-name }} cluster components, jobs, and the environment](../concepts/settings-list.md).
+     Here, you can also specify the [properties of the {{ dataproc-name }} cluster components, jobs, and environment](../concepts/settings-list.md), if required.
 
-     Below is an example of a configuration file structure that describes a {{ dataproc-name }} cluster consisting of a subcluster with a master host, a data storage subcluster, and a data processing subcluster:
+     Below is an example of a configuration file structure that describes a {{ dataproc-name }} cluster consisting of a master host subcluster, data storage subcluster, and data processing subcluster:
 
      ```hcl
      resource "yandex_dataproc_cluster" "data_cluster" {
@@ -550,7 +550,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
          hadoop {
            services   = ["<list_of_components>"]
-           # Sample list: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"].
+           # List example: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"].
            properties = {
              "<component_property>" = <value>
              ...
@@ -599,7 +599,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      }
      ```
 
-     Where `deletion_protection` means deletion protection for the {{ dataproc-name }} cluster. It can either be `true` or `false`.
+     Where `deletion_protection` means {{ dataproc-name }} cluster deletion protection. It can either be `true` or `false`.
 
      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -607,7 +607,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% note tip %}
 
-     To use the most recent [image version](../concepts/environment.md), specify `2.0` in the `version_id` parameter.
+     To use the most recent [image version](../concepts/environment.md), set `version_id` to `2.1`.
 
      {% endnote %}
 
@@ -621,7 +621,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      }
      ```
 
-     To configure the [autoscaling](../concepts/autoscaling.md) settings in {{ dataproc-name }} subclusters for data processing, add the `autoscaling_config` section with the settings you need to the `subcluster_spec` description of the appropriate subcluster:
+     To configure [autoscaling](../concepts/autoscaling.md) in {{ dataproc-name }} subclusters for data processing, add the `autoscaling_config` section with the settings you need to `subcluster_spec` of the subcluster in question:
 
      ```hcl
      subcluster_spec {
@@ -634,7 +634,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
          warmup_duration        = <warmup_period>
          stabilization_duration = <stabilization_period>
          preemptible            = <use_of_preemptible_VMs>
-         cpu_utilization_target = <target_CPU_utilization_level>
+         cpu_utilization_target = <target_CPU_utilization>
          decommission_timeout   = <decommissioning_timeout>
        }
      }
@@ -643,15 +643,15 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      Where:
      * `max_hosts_count`: Maximum number of hosts (VMs) per {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `100`.
      * `measurement_duration`: Period, in seconds, for which average utilization is calculated for each VM, in `<value>s` format. The minimum value is `60s` (1 minute), and the maximum value is `600s` (10 minutes).
-     * `warmup_duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
+     * `warmup_duration`: Time required to warm up a VM, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
      * `stabilization_duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can be either `true` or `false`.
-     * `cpu_utilization_target`: Target CPU utilization level, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
-     * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0`, and the maximum value is `86400` (24 hours).
+     * `cpu_utilization_target`: Target CPU utilization, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
+     * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md), in seconds. The minimum value is `0` and the maximum, `86400` (24 hours).
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
 
-  1. Make sure the {{ TF }} configuration files are correct:
+  1. Validate your {{ TF }} configuration files:
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -663,10 +663,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
 - API {#api}
 
-  To create a {{ dataproc-name }} cluster, use the [create](../api-ref/Cluster/create) API method and include the following in the request:
+  To create a {{ dataproc-name }} cluster, call the [create](../api-ref/Cluster/create) API method and provide the following in the request:
   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ dataproc-name }} cluster, in the `folderId` parameter.
   * {{ dataproc-name }} cluster name in the `name` parameter.
-  * Cluster [environment](../concepts/environment.md#environment) in the `environment` parameter: `PRESTABLE` or `PRODUCTION`.
+  * Cluster [environment](../concepts/environment.md#environment), `PRESTABLE` or `PRODUCTION`, in the `environment` parameter.
   * {{ dataproc-name }} cluster configuration in the `configSpec` parameter, including:
     * [Image version](../concepts/environment.md) in the `configSpec.versionId` parameter.
 
@@ -674,7 +674,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
       {% note tip %}
 
-      To use the most recent image version, specify `2.0`.
+      To use the most recent image version, specify `2.1`.
 
       {% endnote %}
 
@@ -682,15 +682,15 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
     * Public part of the SSH key in the `configSpec.hadoop.sshPublicKeys` parameter.
     * Settings of the {{ dataproc-name }} subclusters in the `configSpec.subclustersSpec` parameter.
   * Availability zone of the {{ dataproc-name }} cluster in the `zoneId` parameter.
-  * ID of the {{ dataproc-name }} cluster’s [service account](../../iam/concepts/users/service-accounts.md) in the `serviceAccountId` parameter.
-  * Service account ID for managing autoscaling subclusters in the `autoscalingServiceAccountId` parameter (optional).
+  * ID of the {{ dataproc-name }} cluster [service account](../../iam/concepts/users/service-accounts.md) in the `serviceAccountId` parameter.
+  * ID of the service account for managing autoscaling subclusters in the `autoscalingServiceAccountId` parameter, if required.
   * Bucket name in the `bucket` parameter.
-  * IDs of the {{ dataproc-name }} cluster’s security groups in the `hostGroupIds` parameter.
+  * IDs of the {{ dataproc-name }} cluster security groups in the `hostGroupIds` parameter.
   * {{ dataproc-name }} cluster deletion protection settings in the `deletionProtection` parameter.
 
     {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-  To assign a public IP address to all hosts of a {{ dataproc-name }} subcluster, provide the `true` value in the `configSpec.subclustersSpec.assignPublicIp` parameter.
+  To assign a public IP address to all hosts of a {{ dataproc-name }} subcluster, provide `true` in `configSpec.subclustersSpec.assignPublicIp`.
 
   To create a {{ dataproc-name }} cluster based on [dedicated host groups](../../compute/concepts/dedicated-host.md), provide a list of their IDs in the `hostGroupIds` parameter.
 

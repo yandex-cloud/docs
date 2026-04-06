@@ -73,52 +73,22 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
-{% note warning %}
-
-Цены начинают действовать с 4 марта 2026 года.
-
-{% endnote %}
-
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Тарификация метрик {#metrics-prices}
-
-Минимальная единица тарификации для метрик — 1 значение метрики. Стоимость округляется до копейки, тиына или цента.
+Минимальная единица тарификации — 1 значение метрики. Для логов и трейсов тарифицируется объем данных, записанных в {{ monium-logs-name }} и {{ traces-name }}. Минимальная единица тарификации — 1 МБ. Цены указаны для 1 ГБ. Стоимость округляется до копейки, тиына или цента.
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|monium }}']}
+    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.metrics.stored }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/monium/rub-metrics.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/monium/kzt-metrics.md) %}
-
-{% endlist %}
-
-
-
-
-### Тарификация логов и трейсов {#logs-traces-prices}
-
-Для логов и трейсов тарифицируется объем данных, записанных в {{ monium-logs-name }} и {{ traces-name }}. Минимальная единица тарификации — 1 МБ. Цены указаны для 1 ГБ. Стоимость округляется до копейки, тиына или цента.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/monium/rub-logs-traces.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/monium/kzt-logs-traces.md) %}
-
-{% endlist %}
 
 
 

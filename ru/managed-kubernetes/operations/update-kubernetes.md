@@ -322,7 +322,7 @@
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster}}).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
@@ -723,7 +723,7 @@
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите `Получить последние улучшения и исправления для версии...`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save}}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -762,7 +762,7 @@
   1. Выберите нужную группу узлов {{ managed-k8s-name }} в списке.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите `Получить последние улучшения и исправления для версии...`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save}}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

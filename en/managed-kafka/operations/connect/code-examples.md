@@ -1,6 +1,6 @@
 ---
-title: Code examples for connecting to an {{ KF }} cluster in {{ mkf-full-name }}
-description: Use these examples to connect to a database in an {{ KF }} cluster from your application code.
+title: Code examples for connecting to a {{ KF }} cluster in {{ mkf-full-name }}
+description: These examples show you how to connect to a {{ KF }} cluster database from your application.
 ---
 
 # Code examples for connecting to an {{ KF }} cluster
@@ -181,7 +181,7 @@ Before connecting:
         }
         ```
 
-    1. Building and launching applications:
+    1. Building and running applications:
 
         ```bash
         cd ~/cs-project/consumer && dotnet build && \

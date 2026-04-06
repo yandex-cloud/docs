@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ dataproc-full-name }}
-description: Follow this guide to set up and configure an {{ dataproc-name }} cluster.
+description: In this guide, you will learn how to create and configure a {{ dataproc-name }} cluster.
 ---
 
 # Getting started with {{ dataproc-name }}
@@ -67,10 +67,7 @@ To connect to your cluster:
 
 1. Copy the SSL key you specified during {{ dataproc-name }} cluster creation to the VM.
 
-1. Connect to the cluster over SSH and check that Hadoop commands run properly. Depending on your image version, specify the username:
-
-    * For version 2.0, use `ubuntu` as the username.
-    * For version 1.4, use `root` as the username.
+1. Connect to the cluster over SSH and check that Hadoop commands run properly. Depending on your image version, specify the username. For versions 2.*: `ubuntu`.
 
 For a detailed description of the {{ dataproc-name }} cluster connection process, refer to the [Connecting to a cluster](operations/connect.md) section.
 
@@ -84,10 +81,7 @@ To connect to the {{ dataproc-name }} component interfaces using the web UI:
 To connect to the {{ dataproc-name }} component interfaces via SSH with port forwarding:
 
 1. Create a jumpbox VM with a public IP address in the cluster’s network, using a security group that allows incoming and outgoing traffic on all component ports.
-1. Connect to the new VM over SSH with port forwarding to the required {{ dataproc-name }} host ports. Depending on your image version, specify the username:
-
-    * For version 2.0, use `ubuntu` as the username.
-    * For version 1.4, use `root` as the username.
+1. Connect to the new VM over SSH with port forwarding to the required {{ dataproc-name }} host ports. Depending on your image version, specify the username. For versions 2.*: `ubuntu`.
 
 The detailed process for connecting to the {{ dataproc-name }} cluster’s component interfaces is described in [{#T}](operations/connect-interfaces.md).
 

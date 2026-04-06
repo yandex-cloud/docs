@@ -18,7 +18,7 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 
 1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the service account.
 1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-name }} bucket named `asr-batch-bucket` in the service account folder.
-1. Open `asr-batch-bucket`, click **{{ ui-key.yacloud.storage.bucket.button_create }}**, and specify `input` in the **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name}}** field.
+1. Open `asr-batch-bucket`, click **{{ ui-key.yacloud.storage.bucket.button_create }}**, and specify `input` in the **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name }}** field.
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `config.json` file with the specified [recognition language]({{ link-docs-ai }}speechkit/stt/models#languages) to the bucket's `input` folder. The file only contains one setting:
 
    ```json

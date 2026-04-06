@@ -172,7 +172,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -182,9 +182,83 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
  
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mtr-access }}).
 
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Create a file named `body.json` and paste the following code into it:
+
+      ```json
+      {
+        <cluster_parameters>
+        ...
+        "trino": {
+          "accessControl": {
+            "queries": [
+              {
+                "privileges": [
+                  "<list_of_privileges>"
+                ],
+                "queryOwners": [
+                  "<list_of_query_owners>"
+                ],
+                "users": [
+                  "<list_of_user_IDs>"
+                ],
+                "groups": [
+                  "<list_of_group_IDs>"
+                ],
+                "description": "<rule_description>"
+              },
+              {
+                <Rule_2_section>
+              },
+              ...
+              {
+                <Rule_N_section>
+              }
+            ]
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `accessControl`: Access rule configuration in the cluster.
+
+      * `queries`: List of rule sections for queries. All the rule parameters are optional: `privileges`, `queryOwners`, `groups`, `users`, and `description`.
+
+      * `privileges`: List of permitted actions with queries:
+        * `VIEW`: View query information.
+        * `KILL`: Cancel a query.
+        * `EXECUTE`: Run a query.
+
+        {% include notitle [queries-privileges-rest](../../_includes/managed-trino/access-control-src.md#queries-privileges-rest) %}
+
+      * `queryOwners`: List of query owner IDs. The rule will apply to queries whose owners are listed in `queryOwners`. If not specified, the rule will apply to queries from all users.
+
+      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
+
+      For available cluster parameters and their descriptions, see [this guide](cluster-create.md#create-cluster).
+
+  1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+          --data '@body.json'
+      ```
+
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -275,7 +349,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the name of your cluster.
+  1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-query }}**.
   1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
 
@@ -371,7 +445,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. If you have not set any access rules yet, add the `yandex_trino_access_control` resource containing the `queries` rule list.
 
@@ -427,7 +501,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
      * Update the existing ones.
      * Delete the rules you no longer need.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -437,9 +511,96 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
  
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mtr-access }}).
 
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. If you have not set any access rules yet, create a file named `body.json` and paste the following code into it:
+
+      ```json
+      {
+        "updateMask": "trino.accessControl.queries",
+        "trino": {
+          "accessControl": {
+            "queries": [
+              {
+                "privileges": [
+                  "<list_of_privileges>"
+                ],
+                "queryOwners": [
+                  "<list_of_query_owners>"
+                ],
+                "users": [
+                  "<list_of_user_IDs>"
+                ],
+                "groups": [
+                  "<list_of_group_IDs>"
+                ],
+                "description": "<rule_description>"
+              },
+              {
+                <Rule_2_section>
+              },
+              ...
+              {
+                <Rule_N_section>
+              }
+            ]
+          }
+        }
+      }
+      ```
+
+      Where:
+
+      * `updateMask`: Comma-separated list of parameters to update.
+
+          {% note warning %}
+
+          When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+
+          {% endnote %}
+
+      * `accessControl`: Access rule configuration in the cluster.
+
+      * `queries`: List of rule sections for queries. All the rule parameters are optional: `privileges`, `queryOwners`, `groups`, `users`, and `description`.
+
+      * `privileges`: List of permitted actions with queries:
+        * `VIEW`: View query information.
+        * `KILL`: Cancel a query.
+        * `EXECUTE`: Run a query.
+
+        {% include notitle [queries-privileges-rest](../../_includes/managed-trino/access-control-src.md#queries-privileges-rest) %}
+
+      * `queryOwners`: List of query owner IDs. The rule will apply to queries whose owners are listed in `queryOwners`. If not specified, the rule will apply to queries from all users.
+
+      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
+
+  1. If you have already set the access rules, open `body.json` with these rules and edit it as needed. You can:
+
+     * Add new rules.
+     * Update the existing ones.
+     * Delete the rules you no longer need.
+
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
+        --data '@body.json'
+      ```
+
+      You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -612,6 +773,49 @@ Let's configure query access rules as follows:
       }
     ]
     ...
+  }
+  ```
+
+- REST API {#api}
+
+  The `body.json` file for this rule set is as follows:
+
+  ```json
+  {
+    "updateMask": "trino.accessControl.queries",
+    "trino": {
+      "accessControl": {
+        "queries": [
+          {
+            "privileges": [
+              "VIEW",
+              "KILL",
+              "EXECUTE"              
+            ],
+            "groups": [
+              "admins_group_id"
+            ]
+          },
+          {
+            "privileges": [
+              "VIEW",
+              "KILL"
+            ],
+            "queryOwners": [
+              "suspicious_user_id"
+            ],
+            "groups": [
+              "security_group_id"
+            ]
+          },
+          {
+            "privileges": [
+              "EXECUTE"
+            ]
+          }
+        ]
+      }
+    }
   }
   ```
 

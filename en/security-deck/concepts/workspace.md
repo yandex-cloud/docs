@@ -32,7 +32,7 @@ In the {{ sd-name }} workspace settings, you should specify the industry securit
 
 {% include [workspace-sec-standard-list](../../_includes/security-deck/workspace-sec-standard-list.md) %}
 
-For a single workspace, you can select several security standards at the same time: Depending on what standards you select, the workspace will use the {{ sd-name }} modules called [Cloud Security Posture Management ({{ cspm-name }})](./cspm.md) and/or [{{ k8s }} Kubernetes Security Posture Management (KSPM)](./kspm.md).
+For a single workspace, you can select several security standards at the same time: Depending on what standards you select, the workspace will use the {{ sd-name }} modules called [{{ cspm-full-name }} ({{ cspm-name }})](./cspm.md) and/or [{{ kspm-full-name }} ({{ kspm-name }})](./kspm.md).
 
 ### Connectors {#connectors}
 

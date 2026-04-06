@@ -29,7 +29,7 @@ You can get details about each {{ dataproc-name }} cluster.
 
 {% endlist %}
 
-## Getting detailed information about a cluster {#detail}
+## Getting cluster details {#detail}
 
 {% list tabs group=instructions %}
 
@@ -37,7 +37,7 @@ You can get details about each {{ dataproc-name }} cluster.
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Click the name of your cluster.
+    1. Click the cluster name.
 
 - CLI {#cli}
 
@@ -45,7 +45,7 @@ You can get details about each {{ dataproc-name }} cluster.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get {{ dataproc-name }} cluster details, run the command:
+    To get {{ dataproc-name }} cluster details, run this command:
 
     ```bash
     {{ yc-dp }} cluster get <cluster_name_or_ID>
@@ -55,7 +55,7 @@ You can get details about each {{ dataproc-name }} cluster.
 
 - API {#api}
 
-    Use the [get](../api-ref/Cluster/get.md) API method and provide the cluster ID in the `clusterId` request parameter.
+    Call the [get](../api-ref/Cluster/get.md) API method, providing the cluster ID in the `clusterId` request parameter.
 
     You can get the cluster ID with the [list of clusters in the folder](#list).
 
@@ -71,16 +71,15 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
 - Management console {#console}
 
-  To view operations with all {{ dataproc-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** in the left-hand panel. The list that opens also includes operations with the clusters you deleted.
+  To view operations with all {{ dataproc-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted clusters.
 
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a {{ dataproc-name }} cluster.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-  1. Select your cluster.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** panel for the selected cluster.
+  1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** tab.
 
-     You will see a list of operations with the cluster.
+     You will see the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -88,7 +87,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ dataproc-name }} cluster operations, run this command:
+  To get a list of operations for a {{ dataproc-name }} cluster, run this command:
 
   ```bash
   yc dataproc cluster list-operations <cluster_name_or_ID>
@@ -106,7 +105,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list).
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
 
   ```bash
   yc dataproc cluster list-operations epdplu8jn7sr******** --format yaml
@@ -139,7 +138,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of cluster operations](#get-operations).
+1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
 1. Get operation details:
 

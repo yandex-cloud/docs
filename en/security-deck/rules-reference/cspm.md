@@ -1,10 +1,10 @@
 ---
-title: CSPM — Cloud Security Posture Management
+title: '{{ cspm-name }} — {{ cspm-full-name }}'
 description: Rules for checking cloud resource configuration
 editable: false
 ---
 
-## CSPM — Cloud Security Posture Management
+## {{ cspm-name }} — {{ cspm-full-name }}
 
 Rules for checking cloud resource configuration.
 

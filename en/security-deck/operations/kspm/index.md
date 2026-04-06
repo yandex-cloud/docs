@@ -1,11 +1,9 @@
 ---
-title: '{{ k8s }}® Security Posture Management (KSPM)'
-description: This section contains step-by-step guides on how to use the {{ k8s }}® Security Posture Management (KSPM) module in {{ sd-name }}.
+title: '{{ kspm-full-name }} ({{ kspm-name }})'
+description: This section contains step-by-step guides on how to use the {{ kspm-full-name }} ({{ kspm-name }}) module in {{ sd-name }}.
 ---
 
-# {{ k8s }}® Security Posture Management (KSPM)
-
-{% include [kpsm-requirements](../../../_includes/security-deck/kpsm-requirements.md) %}
+# {{ kspm-full-name }} ({{ kspm-name }})
 
 * [{#T}](enable-kspm.md).
 * [{#T}](use-kspm.md).

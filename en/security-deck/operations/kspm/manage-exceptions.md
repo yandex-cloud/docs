@@ -1,9 +1,9 @@
 ---
-title: Managing exceptions to {{ k8s }}® Security Posture Management (KSPM) rules in {{ sd-full-name }}
-description: How to manage exceptions to security control rules in the KSPM module.
+title: Managing exceptions to {{ kspm-full-name }} ({{ kspm-name }}) rules in {{ sd-full-name }}
+description: How to manage exceptions to security control rules in the {{ kspm-name }} module.
 ---
 
-# Managing exceptions to the KSPM module's security control rules
+# Managing exceptions to the {{ kspm-name }} module's security control rules
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 

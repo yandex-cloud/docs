@@ -1,11 +1,11 @@
 # Migrating data to {{ mch-name }} using {{ CH }}
 
-You can migrate data from your {{ CH }} cluster to a {{ mch-name}} cluster by using:
+You can migrate data from your {{ CH }} cluster to a {{ mch-name }} cluster by using:
 
 * [Built-in `remote` function](#transfer-remote). This method is suitable for migrating individual tables.
 * [Built-in `BACKUP`/`RESTORE` commands and a {{ objstorage-full-name }} bucket](#backup-objstorage). Use this method to migrate both individual tables and an entire database.
 
-You can also migrate a database from a {{ CH }} cluster to a {{ mch-name}} cluster using {{ data-transfer-name }}. For more information about this method, see [this tutorial](../../tutorials/dataplatform/ch-to-mch-migration.md).
+You can also migrate a database from a {{ CH }} cluster to a {{ mch-name }} cluster using {{ data-transfer-name }}. For more information about this method, see [this tutorial](../../tutorials/dataplatform/ch-to-mch-migration.md).
 
 ## Data migration using the remote function {#transfer-remote}
 

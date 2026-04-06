@@ -11,7 +11,7 @@ This rule set contains security baseline controls which are available for all us
 
 These controls help ensure a minimum baseline to lower security risks in the cloud infrastructure:
 
-Requirement ID | [Security standard](../../../security/standard/all.md) requirement | [CSPM](../cspm.md) rule check ID
+Requirement ID | [Security standard](../../../security/standard/all.md) requirement | [{{ cspm-name }}](../cspm.md) rule check ID
 --- | --- | ---
 `IAM22` | [No public access for resources in the organization](../../../security/standard/all.md#public-access) | `cspm.access.public-access`
 `NET3` | [Security groups do not contain overly broad access rules](../../../security/standard/all.md#access-rule) | `cspm.network.network-firewall-scope`

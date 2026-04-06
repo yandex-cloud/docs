@@ -42,6 +42,8 @@ As an example, we'll use the function described in [{#T}](../function/version-ma
 
 - HTTPS {#https}
 
+    {% include [call-limited-by-access-policies-notice](../../../_includes/functions/call-limited-by-access-policies-notice.md) %}
+
     You can find the function invocation link in:
     * **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. Do it by [navigating](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the [management console]({{ link-console-main }}) and clicking the row with the function.
     * `http_invoke_url` parameter. Do it by running this command:

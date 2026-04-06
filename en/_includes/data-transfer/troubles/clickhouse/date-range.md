@@ -18,4 +18,4 @@ Supported date ranges in {{ CH }}:
 
 * Convert all dates in the source DB to a range supported by {{ CH }}.
 * In the [source endpoint parameters](../../../../data-transfer/operations/endpoint/index.md#update), exclude the table with incorrect dates from the transfer.
-* In the [transfer parameters](../../../../data-transfer/operations/transfer.md#update), specify the [{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.convert_to_string.title}}](../../../../data-transfer/concepts/data-transformation.md#convert-to-string) transformer. This will change the field type during the transfer.
+* In the [transfer parameters](../../../../data-transfer/operations/transfer.md#update), specify the [{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.convert_to_string.title }}](../../../../data-transfer/concepts/data-transformation.md#convert-to-string) transformer. This will change the field type during the transfer.

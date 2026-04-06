@@ -71,7 +71,7 @@
 * [Отслеживания действий команды {{ yandex-cloud }} с ресурсами пользователя](../../../security-deck/concepts/access-transparency.md) ({{ atr-name }}).
 * [Контроля данных](../../../security-deck/concepts/dspm.md) ({{ dspm-name }}).
 * [Контроля конфигурации](../../../security-deck/concepts/cspm.md) ({{ cspm-name }}).
-* [Контроля {{ k8s }}](../../../security-deck/concepts/kspm.md) (KSPM).
+* [Контроля {{ k8s }}](../../../security-deck/concepts/kspm.md) ({{ kspm-name }}).
 * [Диагностики доступов](../../../security-deck/concepts/ciem.md) ({{ ciem-name }}).
 * [Просмотра алертов](../../../security-deck/concepts/alerts.md).
 * [Портал соответствия требованиям](../../../security-deck/concepts/compliance.md).
@@ -89,4 +89,4 @@
 
 ### Идентификаторы {#ids}
 
-У проверок есть идентификаторы следующего вида: `ID:IAM1`. Эти идентификаторы используются для создания ссылок на секции стандарта для использования в инструментах класса Cloud Security Posture Management (CSPM) и не несут никакой иной информации.
+У проверок есть идентификаторы следующего вида: `ID:IAM1`. Эти идентификаторы используются для создания ссылок на секции стандарта для использования в инструментах класса {{ cspm-full-name }} ({{ cspm-name }}) и не несут никакой иной информации.

@@ -114,7 +114,7 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
 
 ## Install Ghost CMS High Availability {#install-ghost}
 
-Install [Ghost CMS High Availability](marketplace/products/yc/ghost-cms-ha) using {{ cloud-apps-name }}.
+Install [Ghost CMS High Availability](/marketplace/products/yc/ghost-cms-ha) using {{ cloud-apps-name }}.
 
 {% list tabs group=instructions %}
 

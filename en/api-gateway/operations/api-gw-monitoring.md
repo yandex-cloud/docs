@@ -47,3 +47,6 @@ The chart update period is 15 seconds.
 
 {% endlist %}
 
+## Custom metrics {#metrics}
+
+{% include [users-metrics](../../_includes/api-gateway/users-metrics.md) %}

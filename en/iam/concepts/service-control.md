@@ -57,7 +57,7 @@ Service | ID
 {{ compute-full-name }}: [Disk encryption](../../compute/concepts/encryption.md) | `disk-encryption`
 [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | `datasphere`
 {{ metadata-hub-full-name }}: [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) | `connection-manager`
-{{ sd-full-name }}: [Data Security Posture Management ({{ dspm-name }})](../../security-deck/concepts/dspm.md) | `dspm`
+{{ sd-full-name }}: [{{ dspm-full-name }} ({{ dspm-name }})](../../security-deck/concepts/dspm.md) | `dspm`
 [{{ websql-full-name }}](../../websql/index.yaml) | `websql`
 [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | `cloud-registry`
 {{ si-full-name }}: [{{ er-name }}](../../serverless-integrations/concepts/index.md#eventrouter) | `serverless-eventrouter`

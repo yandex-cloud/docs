@@ -61,7 +61,7 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
     * **Network**: `spark-network`
     * **Security group**: `pg-sg`
 
-## Configure permissions for access to a {{ mpg-name }} user's secret {#set-up-roles}
+## Configure access permissions for the {{ mpg-name }} user secret {#set-up-roles}
 
 {% list tabs group=instructions %}
 

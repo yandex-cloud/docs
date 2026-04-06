@@ -5,11 +5,11 @@
 
 In addition to the cards, the dashboard includes widgets of {{ sd-name }} modules used in the workspace:
 
-* [Cloud Security Posture Management ({{ cspm-name }})](../../security-deck/concepts/cspm.md) widget you can use to configure the module and view the following information:
+* [{{ cspm-full-name }} ({{ cspm-name }})](../../security-deck/concepts/cspm.md) widget you can use to configure the module and view the following information:
 
     * Number of rules with violations.
     * Number of rules without violations.
-* [{{ k8s }} Security Posture Management (KSPM)](../../security-deck/concepts/kspm.md) widget you can use to configure the module and view the following information:
+* [{{ kspm-full-name }} ({{ kspm-name }})](../../security-deck/concepts/kspm.md) widget you can use to configure the module and view the following information:
 
     * Number of clusters with errors.
     * Number of clusters requiring attention.

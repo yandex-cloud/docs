@@ -2312,7 +2312,7 @@ description: В статье приведен полный справочник 
 
 Подробнее см. [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
-### Сервисные роли для модуля Контроль {{ k8s }}® (KSPM) {#kspm-roles}
+### Сервисные роли для модуля Контроль {{ k8s }}® ({{ kspm-name }}) {#kspm-roles}
 
 #### kspm.worker {#kspm-worker}
 
@@ -2334,7 +2334,7 @@ description: В статье приведен полный справочник 
 
 {% include [kspm.admin](../_roles/kspm/admin.md) %}
 
-Подробнее см. [Управление доступом в KSPM](../security-deck/security/kspm-roles.md).
+Подробнее см. [Управление доступом в {{ kspm-name }}](../security-deck/security/kspm-roles.md).
 
 ### Сервисные роли для модуля Контроль конфигурации ({{ cspm-name }}) {#cspm-roles}
 

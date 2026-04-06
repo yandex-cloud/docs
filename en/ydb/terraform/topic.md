@@ -1,6 +1,6 @@
 ---
-title: Managing {{ydb-short-name}} topic configurations
-description: This guide describes the properties of the `yandex_ydb_topic` resource for managing {{ydb-short-name}} topic configurations.
+title: Managing {{ ydb-short-name }} topic configurations
+description: This guide describes the properties of the `yandex_ydb_topic` resource for managing {{ ydb-short-name }} topic configurations.
 ---
 
 # Managing {{ ydb-short-name }} topic configurations

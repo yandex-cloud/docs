@@ -1,10 +1,10 @@
 ---
-title: Правила Cloud Security Posture Management (CSPM)
+title: Правила {{ cspm-full-name }} ({{ cspm-name }})
 description: Правила для проверки конфигурации облачных ресурсов
 editable: false
 ---
 
-## Cloud Security Posture Management (CSPM)
+## {{ cspm-full-name }} ({{ cspm-name }})
 
 Правила для проверки конфигурации облачных ресурсов.
 

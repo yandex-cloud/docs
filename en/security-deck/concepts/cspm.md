@@ -1,9 +1,9 @@
 ---
-title: Cloud Security Posture Management ({{ cspm-name }}) in {{ sd-full-name }}
-description: Cloud Security Posture Management ({{ cspm-name }}) ensures that the cloud infrastructure and applications deployed in {{ yandex-cloud }} comply with complex security requirements and best practices.
+title: '{{ cspm-full-name }} ({{ cspm-name }}) in {{ sd-full-name }}'
+description: '{{ cspm-full-name }} ({{ cspm-name }}) ensures that the cloud infrastructure and applications deployed in {{ yandex-cloud }} comply with complex security requirements and best practices.'
 ---
 
-# Cloud Security Posture Management ({{ cspm-name }})
+# {{ cspm-full-name }} ({{ cspm-name }})
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
@@ -13,7 +13,7 @@ The check resumes every 8 hours. Upon completion, the system updates the violati
 
 ## Standards {#standards}
 
-Currently, Cloud Security Posture Management ({{ cspm-name }}) supports infrastructure compliance checks for the following security standards:
+Currently, {{ cspm-full-name }} ({{ cspm-name }}) supports infrastructure compliance checks for the following security standards:
 
 {% include [cspm-sec-standard-list](../../_includes/security-deck/cspm-sec-standard-list.md) %}
 

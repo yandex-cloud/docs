@@ -38,11 +38,11 @@ items:
             href: operations/dspm/create-data-source.md
           - name: Создать сканирование
             href: operations/dspm/create-scan.md
-      - name: Контроль {{ k8s }}® (KSPM)
+      - name: Контроль {{ k8s }}® ({{ kspm-name }})
         items:
           - name: Обзор
             href: operations/kspm/index.md
-          - name: Активировать модуль KSPM
+          - name: Активировать модуль {{ kspm-name }}
             href: operations/kspm/enable-kspm.md
           - name: Работать с дашбордом
             href: operations/kspm/use-kspm.md
@@ -70,7 +70,7 @@ items:
             href: operations/cspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/cspm/manage-exceptions.md
-      - name: '{{ vuln-man-name }} (VM)'
+      - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
         items:
           - name: Обзор
             href: operations/vulnerability-management/index.md
@@ -98,13 +98,13 @@ items:
             href: concepts/standard-compliance/yc-cloud-security-standard.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
-      - name: Контроль {{ k8s }}® (KSPM)
+      - name: Контроль {{ k8s }}® ({{ kspm-name }})
         href: concepts/kspm.md
       - name: Диагностика доступов ({{ ciem-name }})
         href: concepts/ciem.md
       - name: Контроль конфигурации ({{ cspm-name }})
         href: concepts/cspm.md
-      - name: '{{ vuln-man-name }} (VM)'
+      - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
         href: concepts/vulnerability-management.md
       - name: '{{ atr-name }}'
         href: concepts/access-transparency.md
@@ -118,9 +118,9 @@ items:
     items:
       - name: Обзор
         href: diagnostics/index.md
-      - name: Ошибки в работе KSPM
+      - name: Ошибки в работе {{ kspm-name }}
         href: diagnostics/kspm-diagnostics.md
-      - name: Ошибки в работе DSPM
+      - name: Ошибки в работе {{ dspm-name }}
         href: diagnostics/dspm-diagnostics.md
   - name: Управление доступом
     items:
@@ -128,7 +128,7 @@ items:
         href: security/index.md
       - name: Роли {{ dspm-name }}
         href: security/dspm-roles.md
-      - name: Роли KSPM
+      - name: Роли {{ kspm-name }}
         href: security/kspm-roles.md
       - name: Роли {{ ciem-name }}
         href: security/ciem-roles.md
@@ -146,7 +146,7 @@ items:
         href: rules-reference/index.md
       - name: Все правила
         href: rules-reference/all.md
-      - name: CSPM
+      - name: '{{ cspm-name }}'
         href: rules-reference/cspm.md
   - name: Справочник API
     items:

@@ -213,7 +213,7 @@
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан сервисный аккаунт.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
+      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Выберите сервисный аккаунт, созданный ранее.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `{{ roles-lockbox-payloadviewer }}`.
       1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.

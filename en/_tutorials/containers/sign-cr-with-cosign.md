@@ -13,10 +13,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
 
@@ -29,9 +29,9 @@ The support cost includes:
 
 - Manually {#manual}
 
-  1. [Create service accounts](../../iam/operations/sa/create.md):
-     * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
-     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will pull the required Docker images from the registry on behalf of this account.
+  1. [Create these service accounts](../../iam/operations/sa/create.md):
+     * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. This service account will be used to create {{ managed-k8s-name }} cluster resources.
+     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will use this account to pull the required Docker images from the registry.
 
      You can use the same service account for both operations.
 
@@ -40,7 +40,7 @@ The support cost includes:
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the previously created service accounts for resources and nodes and the security group.
-  1. [Create a registry in {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
+  1. [Create a {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
 
 - {{ TF }} {#tf}
 
@@ -53,26 +53,26 @@ The support cost includes:
      This file describes:
      * [Network](../../vpc/concepts/network.md#network).
      * [Subnet](../../vpc/concepts/network.md#subnet).
-     * {{ container-registry-name }} registry.
+     * {{ container-registry-name }}.
      * {{ managed-k8s-name }} cluster.
-     * Service account required for the {{ managed-k8s-name }} cluster and node group to operate.
+     * Service account for the {{ managed-k8s-name }} cluster and node group.
      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. Specify the following in the `k8s-validate-cr-image.tf` file:
+  1. In `k8s-validate-cr-image.tf`, specify the following:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * {{ managed-k8s-name }} cluster CIDR.
      * Name of the cluster service account.
-     * Name of the {{ container-registry-name }} registry.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+     * Name of the {{ container-registry-name }}.
+  1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will display any configuration errors detected in your files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -84,7 +84,7 @@ The support cost includes:
 ### Get ready to use the {{ managed-k8s-name }} cluster
 
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
+1. [Install Helm](https://helm.sh/docs/intro/install).
 
 ### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}
 
@@ -323,7 +323,7 @@ The support cost includes:
       ```
 
 1. Create a policy:
-   1. Save the `ClusterPolicy` creation specification to a YAML file named `policy.yaml`:
+   1. Save the `ClusterPolicy` specification to a YAML file named `policy.yaml`:
 
       ```yaml
       apiVersion: kyverno.io/v1
@@ -440,7 +440,7 @@ The support cost includes:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
@@ -450,7 +450,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
   1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
   1. [Delete the service accounts](../../iam/operations/sa/delete.md).
   1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
-  1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
+  1. [Delete the {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
 
 - {{ TF }} {#tf}
 

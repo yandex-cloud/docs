@@ -14,6 +14,8 @@ You can invoke a function:
 
 Each method has its own data structure for function requests and responses. You can invoke a specific function [version](function.md#version) using a [tag](function.md#tag). Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
+{% include [call-limited-by-access-policies-notice](../../_includes/functions/call-limited-by-access-policies-notice.md) %}
+
 ## Invoking a function using HTTPS {#http}
 
 If a function is invoked for processing an HTTPS request, it gets the request data in JSON format in the first argument: the HTTP method name, headers, arguments, and other request parameters.
@@ -407,7 +409,7 @@ When invoking a function using a trigger, the JSON description of a trigger even
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/regular-launch-datasphere.md)
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md)
-* [{#T}](../tutorials/video-converting-queue.md)
+* [{#T}](../tutorials/video-converting-queue/index.md)
 
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 

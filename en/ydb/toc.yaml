@@ -17,7 +17,7 @@ items:
         href: operations/schema.md
       - name: Reading and writing data
         href: operations/crud.md
-      - name: Monitoring DB status
+      - name: Monitoring a database state
         href: operations/monitoring.md
       - name: >-
           Using {{ ydb-short-name }} via the ydb-mcp server with the Cursor IDE
@@ -30,16 +30,22 @@ items:
       - name: Deploying a web application
         href: tutorials/java-servlet-todo-list.md
       - name: >-
-          Connecting to {{ ydb-short-name }} from a {{ sf-full-name }} function
-          in Python
+          Connecting to {{ ydb-short-name }} from a {{ sf-full-name }} Python
+          function
         href: tutorials/connect-from-cf.md
       - name: >-
           Connecting to a {{ ydb-short-name }} database from a {{ sf-full-name
-          }} function in Node.js
+          }} Node.js function
         href: tutorials/connect-from-cf-nodejs.md
       - name: Converting a video to a GIF in Python
-        href: tutorials/video-converting-queue.md
-      - name: Creating a skill for Alice and a website with authorization
+        items:
+          - name: Overview
+            href: tutorials/video-converting-queue/index.md
+          - name: Management console
+            href: tutorials/video-converting-queue/console.md
+          - name: '{{ TF }}'
+            href: tutorials/video-converting-queue/terraform.md
+      - name: Building a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: >-
           Migrating a database from {{ mmy-full-name }} using {{
@@ -77,7 +83,7 @@ items:
         href: tutorials/mpg-ydb-replication.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them with {{ datalens-full-name }}
+          analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: >-
           Delivering data from {{ mkf-full-name }} to {{ yds-name }} using {{
@@ -101,19 +107,19 @@ items:
         href: tutorials/mmy-to-yds.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'
         href: tutorials/mpg-to-yds.md
-      - name: Interactive debugging of {{ sf-name }}
+      - name: Interactive debugging of functions in {{ sf-name }}
         href: tutorials/serverless-live-debug.md
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
       - name: Developing a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
-      - name: Developing CRUD APIs for movie services
+      - name: Developing CRUD APIs for a movie service
         href: tutorials/movies-database.md
       - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
-      - name: Uploading audit logs to MaxPatrol SIEM
+      - name: Exporting audit logs to MaxPatrol SIEM
         href: tutorials/maxpatrol.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'
         href: tutorials/postbox-webhook.md
@@ -145,11 +151,11 @@ items:
         items:
           - name: Serverless mode pricing policy
             href: pricing/serverless.md
-          - name: Request cost for YQL
+          - name: Query cost for YQL
             href: pricing/ru-yql.md
-          - name: Request cost for the Document API
+          - name: Query cost for the Document API
             href: pricing/ru-docapi.md
-          - name: Request cost for special APIs
+          - name: Query cost for special APIs
             href: pricing/ru-special.md
           - name: Cost of topic operations
             href: pricing/ru-topics.md
@@ -237,7 +243,7 @@ items:
         items:
           - name: Setting up AWS tools
             href: docapi/tools/aws-setup.md
-          - name: Working with data through the HTTP interface
+          - name: Data operations through the HTTP interface
             href: docapi/tools/aws-http.md
           - name: Working with the AWS CLI
             items:
@@ -251,7 +257,7 @@ items:
                 href: docapi/tools/aws-cli/get-item.md
               - name: Updating data
                 href: docapi/tools/aws-cli/update-item.md
-              - name: Data selections
+              - name: Data selection
                 href: docapi/tools/aws-cli/query.md
               - name: Deleting the resources you created
                 href: docapi/tools/aws-cli/cleanup.md
@@ -273,7 +279,7 @@ items:
                     href: docapi/tools/aws-sdk/update-item.md
                   - name: Deleting a record
                     href: docapi/tools/aws-sdk/delete-item.md
-              - name: Searching and extracting data
+              - name: Searching and retrieving data
                 href: docapi/tools/aws-sdk/query-and-scan.md
               - name: Deleting a table
                 href: docapi/tools/aws-sdk/delete-table.md
@@ -317,7 +323,7 @@ items:
                 href: docapi/api-ref/actions/updateTimeToLive.md
               - name: UpdateTable
                 href: docapi/api-ref/actions/updateTable.md
-      - name: Common errors when working with the Document API
+      - name: Common errors when using the Document API
         href: docapi/common-errors.md
   - name: '{{ yandex-cloud }} API reference for {{ ydb-name }}'
     items:
@@ -485,9 +491,9 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
-  - name: Working with YDB via {{ TF }}
+  - name: Using YDB via {{ TF }}
     items:
-      - name: Introduction to YDB via {{ TF }}
+      - name: Introduction to using YDB via {{ TF }}
         href: terraform/intro.md
       - name: Getting authentication credentials
         href: terraform/credentials.md
@@ -495,17 +501,17 @@ items:
         href: terraform/install.md
       - name: Creating configuration files and connecting to YDB
         href: terraform/configure.md
-      - name: Creating and editing parameters of a serverless database
+      - name: Creating and reconfiguring a serverless database
         href: terraform/serverless-database.md
-      - name: Creating and editing parameters of a dedicated database
+      - name: Creating and reconfiguring a dedicated database
         href: terraform/dedicated-database.md
       - name: Creating row-oriented and column-oriented tables in a database
         href: terraform/tables.md
       - name: Creating document tables in a database
         href: terraform/dynamodb-tables.md
-      - name: Creating a changefeed for a table
+      - name: Creating a change data feed for a table
         href: terraform/cdc.md
-      - name: Creating secondary indexes in row tables
+      - name: Creating secondary indexes in row-oriented tables
         href: terraform/row-tables-secondary-index.md
       - name: Managing {{ ydb-short-name }} topic configurations
         href: terraform/topic.md

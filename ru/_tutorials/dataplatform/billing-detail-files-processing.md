@@ -43,5 +43,5 @@
 
 ## См. также {#see-also}
 
-* [{{objstorage-full-name}}](../../storage/).
-* [{{datalens-full-name}}](../../datalens/).
+* [{{ objstorage-full-name }}](../../storage/).
+* [{{ datalens-full-name }}](../../datalens/).

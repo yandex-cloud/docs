@@ -7,7 +7,7 @@ items:
         href: quickstart.md
       - name: Supported tools
         href: instruments/index.md
-      - name: Code snippets
+      - name: Code examples
         items:
           - name: Python
             href: instruments/python.md
@@ -74,7 +74,13 @@ items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Converting a video to a GIF in Python
-        href: tutorials/video-converting-queue.md
+        items:
+          - name: Overview
+            href: tutorials/video-converting-queue/index.md
+          - name: Management console
+            href: tutorials/video-converting-queue/console.md
+          - name: '{{ TF }}'
+            href: tutorials/video-converting-queue/terraform.md
       - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: >-

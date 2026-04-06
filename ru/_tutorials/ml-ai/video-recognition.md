@@ -160,7 +160,7 @@
 1. Укажите параметры:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-project`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — подсеть зоны доступности `{{region-id}}-a` в каталоге `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — подсеть зоны доступности `{{ region-id }}-a` в каталоге `data-folder`.
 
    {% include [subnet-create](../../_includes/subnet-create.md) %}
 

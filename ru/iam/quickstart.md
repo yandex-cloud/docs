@@ -28,7 +28,7 @@
     1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В правом верхнем углу нажмите на значок ![icon-users](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
-    1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
+    1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{ login-example }}`).
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 

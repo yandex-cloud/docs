@@ -94,6 +94,7 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./mfa/create-policy.md)
 * [{#T}](./mfa/add-users.md)
+* [{#T}](./mfa/excluded-audience.md)
 * [{#T}](./mfa/update-policy.md)
 * [{#T}](./mfa/deactivate-reactivate-policy.md)
 * [{#T}](./mfa/delete-policy.md)

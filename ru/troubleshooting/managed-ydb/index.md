@@ -1,4 +1,4 @@
-# Решения для {{ ydb-name}}
+# Решения для {{ ydb-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

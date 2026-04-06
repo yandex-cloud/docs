@@ -17,6 +17,8 @@ A selector can be linked to a chart or another selector. For more information, s
 Each selector may apply to a single dashboard tab, selected dashboard tabs, or the entire dashboard. A selector’s values are synchronized between tabs.
 
 
+Selectors retain values when you switch between tabs: if you set a selector value, switch to another tab, and go back again, the selector's value will stay the same.
+
 {{ datalens-short-name }} supports multiple selector types:
 
 * **List**: Allows selecting one or multiple values from a list.

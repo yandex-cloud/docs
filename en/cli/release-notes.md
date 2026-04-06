@@ -767,7 +767,7 @@ Added the `yc baremetal image` command for working with images:
 
 #### Changes to the CLI {#cli}
 
-* Added support for {{ mspqr-full-name}}. Use the `yc managed-sharded-postgresql` commands.
+* Added support for {{ mspqr-full-name }}. Use the `yc managed-sharded-postgresql` commands.
 * Added the `userpool-id` parameter to `yc init`.
 
 ### Version 0.172.0 (27/10/25) {#version0.172.0}

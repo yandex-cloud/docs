@@ -61,10 +61,10 @@ If the required Docker image has been pushed to {{ container-registry-name }}, c
        --create-boot-disk size=30 \
        --public-ip \
        --container-name=my-app \
-       --container-image={{ registry }}/mirror/ubuntu:16.04 \
+       --container-image={{ registry }}/mirror/ubuntu:24.04 \
        --container-command=sleep \
        --container-arg="1000" \
-       --container-env=KEY1=VAL1,KEY2=VAL2 \
+       --container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"',KEY4=VALUE4,KEY5=VALUE5 \
        --container-privileged
      ```
 
@@ -83,6 +83,8 @@ If the required Docker image has been pushed to {{ container-registry-name }}, c
      * `--container-command`: Command to run when you start the Docker container.
      * `--container-arg`: Parameters for the command specified in `--container-command`.
      * `--container-env`: Environment variables available in the Docker container.
+
+        Use single and double quotes at the same time for `key:value` pairs, e.g., `--container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"'`.
      * `--container-privileged`: Run the Docker container in privileged mode.
 
      Result:

@@ -17,7 +17,7 @@ editable: false
 
 ## Тарифный план {{ datalens-name }} {#effective-rules}
 
-В сервисе {{ datalens-full-name }} действует единый тарифный план: бесплатно для индивидуального использования, а для командной работы оплата ведется по количеству [рабочих мест](#seats).
+{% include [datalens-pricing-effective-rules](../_includes/datalens/datalens-pricing-effective-rules.md) %}
 
 ### Рабочие места {#seats}
 

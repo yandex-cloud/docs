@@ -45,7 +45,7 @@
 
 ### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
-Для доступа к проекту {{ml-platform-name }} из функции {{ sf-name }} вам понадобится сервисный аккаунт с ролями `{{ roles-datasphere-project-editor }}` и `{{ roles-functions-invoker }}`.
+Для доступа к проекту {{ ml-platform-name }} из функции {{ sf-name }} вам понадобится сервисный аккаунт с ролями `{{ roles-datasphere-project-editor }}` и `{{ roles-functions-invoker }}`.
 
 {% list tabs group=instructions %}
 
@@ -76,7 +76,7 @@
 
 ### Настройте проект {#setup-project}
 
-Чтобы сократить расходы на использование сервиса {{ml-platform-name }}, настройте время, через которое освобождается закрепленная за проектом ВМ.
+Чтобы сократить расходы на использование сервиса {{ ml-platform-name }}, настройте время, через которое освобождается закрепленная за проектом ВМ.
 
 1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}**.

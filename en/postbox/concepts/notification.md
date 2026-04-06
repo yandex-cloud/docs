@@ -164,7 +164,7 @@ Notification example:
 
 ### Email open notification {#open}
 
-You get this type of notification when the recipient opens the email.
+Comes when the recipient opens the email.
 
 Notification example:
 
@@ -211,7 +211,7 @@ Notification example:
 
 ### Email click notification {#click}
 
-You get this type of notification when the recipient clicks the link in your email.
+Comes when the recipient clicks a link in the email.
 
 Notification example:
 
@@ -318,7 +318,7 @@ Notification example:
 
 ### Recipient unsubscribe notification {#subscription}
 
-You get this type of notification when the recipient uses `one-click unsubscribe` that {{ postbox-name }} adds to emails.
+Comes when the recipient uses the `one-click unsubscribe` mechanism added by {{ postbox-name }} into the email.
 
 Notification example:
 
@@ -362,6 +362,59 @@ Notification example:
 }
 ```
 
+### Email complaint notification {#complaint}
+
+Comes when the recipient complains about an incoming email, and the Internet Service Provider (ISP) forwards the complaint to {{ postbox-name }}.
+
+Notification example:
+
+```json
+{
+    "eventType": "Complaint",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "complaint": {
+        "complainedRecipients": [
+            {
+                "emailAddress": "recipient@example.com"
+            }
+        ],
+        "complaintFeedbackType": "abuse",
+        "arrivalDate": "2024-04-25T18:05:04.84108+03:00",
+        "timestamp": "2024-04-25T18:10:04.973666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
 ## Notification format {#format}
 
 The notification is written to the {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in JSON format. The list and sequence of fields may differ from those described below.
@@ -370,10 +423,11 @@ The notification is written to the {{ yds-full-name }} [data stream](../../data-
 
 Field | Type | Description
 --- | --- | ---
-`notificationType` | String | [Notification type](#types). The possible values are `Bounce`, `Delivery`, and `Send`.
+`notificationType` | String | [Notification type](#types). The possible values are `Bounce`, `Complaint`, `Delivery`, or `Send`.
 `mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
 `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`; otherwise, not present.
 `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`; otherwise, not present.
+`complaint` | [Complaint](#complaint-object) object | Object containing information about the recipient's complaint about an email. Required if the `notificationType` is `Complaint`; otherwise, not present.
 `subscription` | [Subscription](#subscription-object) object | Object containing information that the recipient has unsubscribed from the mailing list. Required if the `notificationType` is `Subscription`; otherwise, not present.
 `open` | [Open](#open-object) object | Object containing information that the email has been opened. Required if the `notificationType` is `Open`; otherwise, not present.
 `eventId` | String | Unique ID of the event.
@@ -416,9 +470,9 @@ Field | Type | Description
 Field | Type | Description
 --- | --- | ---
 `emailAddress` | String | Recipient's email address.
-`action` | String | Optional field. Result of sending. The possible value is `failed`.
+`action` | String | This is an optional field. Result of sending. The possible value is `failed`.
 `status` | String | Optional field. SMTP response code.
-`diagnosticCode` | String | Optional field. Extended error text. May contain error text from the recipient's email client.
+`diagnosticCode` | String | This is an optional field. Extended error text. May contain error text from the recipient's email client.
 
 ### Click object {#click-object}
 
@@ -429,6 +483,22 @@ Field | Type | Description
 `userAgent` | String | Identification string (`User-Agent`) of the device or email the client used to open the link.
 `url` | String | Original URL the recipient opened.
 `linkTags` | Object | Object containing tags added to the link.
+
+### Complaint object {#complaint-object}
+
+Field | Type | Description
+--- | --- | ---
+`complainedRecipients` | [ComplainedRecipient](#complained-recipient-object) object array | Array containing information about the recipients who might have filed the complaint.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the ISP sent the complaint to {{ postbox-name }}.
+`complaintFeedbackType` | String | This is an optional field. Complaint type from the ISP's report. The possible values are:<ul><li>`abuse`: Unsolicited mail or other misuse.</li><li>`auth-failure`: Email authentication error.</li><li>`fraud`: Phishing or fraud.</li><li>`not-spam`: Recipient does not think the email is spam (used to correct a false positive).</li><li>`other`: Complaint not falling under any other types.</li><li>`virus`: Virus detected in the email.</li></ul>
+`arrivalDate` | String | This is an optional field. Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the original email arrived at the recipient’s server.
+`userAgent` | String | This is an optional field. The `User-Agent` field value from the complaint report, i.e., the name and version of the system that generated the report.
+
+### ComplainedRecipient object {#complained-recipient-object}
+
+Field | Type | Description
+--- | --- | ---
+`emailAddress` | String | Email address of the recipient who might have filed the complaint.
 
 ### Delivery object {#delivery-object}
 
@@ -501,8 +571,9 @@ You sent an email to two recipients: `user1@example.com` and `user2@other.exampl
 The email client of `user1@example.com` accepted the email. The email client of the recipient `user2@other.example.com` returned an error after the first attempt to send the email and declined to accept the email after the second attempt, replying that the user was not found.
 
 In which case you will get these three notifications:
+
 * Notification that {{ postbox-name }} accepted the email for processing.
 * Notification that the email was delivered to `user1@example.com`.
 * Notification that the email was not delivered to `user2@other.example.com` with the error info. The notification will come after the second attempt to send the email.
 
-Since the mail client responded that the recipient `user2@other.example.com` was not found, the address will be temporarily put on the stop list. You should wait for some time before trying to reach the address again, otherwise you will get notified that your message was not delivered because the recipient was on the stop list. 
+Since the mail client responded that the recipient `user2@other.example.com` was not found, the address will be temporarily put on the stop list. You should wait for some time before trying to reach the address again, otherwise you will get notified that your message was not delivered because the recipient was on the stop list.

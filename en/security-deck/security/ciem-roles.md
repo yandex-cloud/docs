@@ -1,9 +1,9 @@
 ---
-title: Roles for Cloud Infrastructure Entitlement Management in {{ sd-full-name }}
-description: This page covers the roles required to manage access to the Cloud Infrastructure Entitlement Management ({{ ciem-name }}) module in {{ sd-name }}.
+title: Roles for {{ ciem-full-name }} in {{ sd-full-name }}
+description: This page covers the roles required to manage access to the {{ ciem-full-name }} ({{ ciem-name }}) module in {{ sd-name }}.
 ---
 
-# Roles for Cloud Infrastructure Entitlement Management ({{ ciem-name }})
+# Roles for {{ ciem-full-name }} ({{ ciem-name }})
 
 Only [organization members](../../organization/concepts/membership.md) who have the `organization-manager.viewer` [role](../../organization/security/index.md#organization-manager-viewer) or higher for the organization can [view](../operations/ciem/view-permissions.md) access permissions in the [{{ sd-name }} interface]({{ link-sd-main }}iam-diagnostics/).
 

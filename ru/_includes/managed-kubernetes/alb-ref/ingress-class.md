@@ -34,7 +34,7 @@ spec:
 
 Имя Ingress-контроллера, к которому относится ресурс `IngressClass`. Возможные значения:
 
-* `ingress.alb.yc.io/yc-alb-ingress-controller` — контроллер {{ alb-name}};
+* `ingress.alb.yc.io/yc-alb-ingress-controller` — контроллер {{ alb-name }};
 * `k8s.io/ingress-nginx` — контроллер NGINX. ||
 |#
 

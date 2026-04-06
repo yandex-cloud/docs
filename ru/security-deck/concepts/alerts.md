@@ -13,9 +13,9 @@ description: Модуль {{ alerts-name }} позволяет получить 
 
 * [Контроль конфигурации ({{ cspm-name }})](./cspm.md)
 * [Контроль данных ({{ dspm-name }})](./dspm.md)
-* [Контроль {{ k8s }} (KSPM)](./kspm.md)
-* Threat Detector (TD)
-* [Управление уязвимостями (VM)](./vulnerability-management.md)
+* [Контроль {{ k8s }} ({{ kspm-name }})](./kspm.md)
+* {{ td-full-name }} ({{ td-name }})
+* [{{ vuln-man-name }} ({{ vuln-man-short-name }})](./vulnerability-management.md)
 * [{{ ycdr-name }}](../../ycdr/)
 
 На странице алерта вы можете [запустить](../operations/alerts/work.md#ai-analysis) его ИИ-анализ. В процессе анализа [AI-ассистент](./ai-assistant.md) поможет исправить проблему, найденную в конфигурации, с учетом контекста алерта и его параметров. В дополнение к рекомендациям AI-ассистент подготовит суммаризацию и объяснение сути алерта.

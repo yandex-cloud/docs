@@ -22,6 +22,16 @@ You cannot specify the `EXECUTE` privilege if the rule already contains the `que
 
 {% endnote %}
 
+## Queries-privileges-REST {#queries-privileges-rest}
+
+If you do not specify the `privileges` parameter, the rule will prohibit any actions with the queries.
+
+{% note warning %}
+
+You cannot specify the `EXECUTE` privilege if the rule already contains the `queryOwners` parameter.
+
+{% endnote %}
+
 ## Tables-privileges {#table-ownership}
 
 If you do not specify the `privileges` parameter, the rule will prohibit any actions with the tables.

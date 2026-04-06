@@ -37,6 +37,6 @@ View of a message with plain text and without any additional parameters:
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/autoscale-monitoring.md)
-* [{#T}](../tutorials/video-converting-queue.md)
+* [{#T}](../tutorials/video-converting-queue/index.md)
 * [{#T}](../tutorials/websocket-app.md)
 * [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)

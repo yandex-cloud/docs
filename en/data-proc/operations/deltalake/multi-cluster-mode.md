@@ -61,7 +61,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
     * Set `spark.sql.catalog.spark_catalog` to `org.apache.spark.sql.delta.catalog.DeltaCatalog`.
     * Set `spark.delta.logStore.s3a.impl` to `ru.yandex.cloud.custom.delta.YcS3YdbLogStore`.
     * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` to the Document API endpoint value available on the **{{ ui-key.yacloud.common.overview }}** tab of your database in the [management console]({{ link-console-cloud }}).
-    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` to the {{ lockbox-short-name }} secret ID value available on the **{{ ui-key.yacloud.lockbox.label_section-overview}}** tab of your {{ lockbox-short-name }} in the [management console]({{ link-console-cloud }}).
+    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` to the {{ lockbox-short-name }} secret ID value available on the **{{ ui-key.yacloud.lockbox.label_section-overview }}** tab of your {{ lockbox-short-name }} in the [management console]({{ link-console-cloud }}).
 
 You can now use Delta Lake in multi-cluster mode.
 

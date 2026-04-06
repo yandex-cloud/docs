@@ -162,6 +162,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)
 * [{#T}](./add-users.md)
+* [{#T}](./excluded-audience.md)
 * [{#T}](./delete-policy.md)
 * [{#T}](./manage-verification.md)
 * [{#T}](../../concepts/mfa.md)

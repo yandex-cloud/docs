@@ -13,7 +13,7 @@ The {{ yandex-cloud }} Security Standard provides comprehensive security require
 
 These controls help ensure compliance with security policies and protect against common cloud security threats and vulnerabilities:
 
-Requirement ID | [Security standard](../../../security/standard/all.md) requirement | [CSPM](../cspm.md) rule check ID
+Requirement ID | [Security standard](../../../security/standard/all.md) requirement | [{{ cspm-name }}](../cspm.md) rule check ID
 --- | --- | ---
 `IAM6` | [Service roles are used instead of primitive ones: admin, editor, viewer, auditor](../../../security/standard/all.md#min-privileges) | `cspm.access.min-privileges`
 `IAM9` | [Service accounts are assigned minimum privileges](../../../security/standard/all.md#sa-privileges) | `cspm.access.sa-privileges`

@@ -8,7 +8,14 @@
 1. If the account can be deleted, the deletion notification will pop up. At this point, you can still abort the operation by clicking **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-go-pay_button_cancel }}**.
 1. If the account cannot be deleted, click **{{ ui-key.yacloud_billing.billing.account.dashboard.card_label_threshold-description }}** to see the reason.
    The list of reasons includes, but is not limited to, the following:
-     * The account has linked [resources](../../resource-manager/concepts/resources-hierarchy.md#rm-resources), [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), [organizations](../../organization/concepts/organization.md), {{ ml-platform-name }} [communities](../../datasphere/concepts/community.md), or {{ speechsense-name }} [spaces](../../speechsense/concepts/resources-hierarchy.md#space) left. 
+     * The following objects are still linked to the account:
+       * [Resources](../../resource-manager/concepts/resources-hierarchy.md#rm-resources)
+       * [Clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud)
+       * {{ org-full-name }} [organizations](../../organization/concepts/organization.md)
+       * {{ ml-platform-full-name }} [communities](../../datasphere/concepts/community.md) 
+       * {{ speechsense-full-name }} [spaces](../../speechsense/concepts/resources-hierarchy.md#space)
+       * [{{ datalens-full-name }}](../../datalens/) instances
+       * [{{ video-full-name }}](../../video/) spaces 
      * You still have resources purchased under the [CVoS](../../billing/concepts/cvos.md).
      * You have not disabled the paid [Technical support](../../support/overview.md) service plan.
      * Your billing account has a [partner](../../partner/terms.md#referral-partner) status or you are a [partner's customer](../../partner/terms.md#sub-account).

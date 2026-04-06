@@ -204,7 +204,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by `
 
    ![image](../../_assets/datalens/solution-01/17-final-dashboard.png)
 
-   The dataset analyzed shows the following dependencies:
+   In the analyzed dataset, the following dependencies can be traced:
 
    * There are more men with black eyes and more women with green eyes.
    * There are more good ones with blue eyes and evil ones with red eyes.

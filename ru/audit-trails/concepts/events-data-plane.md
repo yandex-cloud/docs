@@ -173,7 +173,7 @@ description: В данном разделе приведены описания 
 
 {% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
-### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
+### Модуль Контроль {{ k8s }}® ({{ kspm-name }}) {#sd-kspm}
 
 Имя модуля — `securitydeck.kspm`.
 

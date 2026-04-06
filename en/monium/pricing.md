@@ -53,32 +53,22 @@ Pricing features:
 
 ## Prices for the Russia region {#prices}
 
-{% note warning %}
-
-The prices are effective starting March 4, 2026.
-
-{% endnote %}
-
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Pricing for metrics {#metrics-prices}
-
-For metrics, the minimum billing unit is one metric value. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
+For metrics, the minimum billing unit is one metric value. Billing for logs and traces is based on the size of data written to Monium Logs and Monium Traces. The minimum billing unit is 1 MB. The prices are provided for 1 GB. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
 
 
 
 
-{% include [usd.md](../_pricing/monium/usd-metrics.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|monium }}']}
+    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.metrics.stored }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-
-### Pricing for logs and traces {#logs-traces-prices}
-
-Billing for logs and traces is based on the size of data written to {{ monium-logs-name }} and {{ traces-name }}. The minimum billing unit is 1 MB. The prices are provided for 1 GB. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
-
-
-
-
-{% include [usd.md](../_pricing/monium/usd-logs-traces.md) %}
 

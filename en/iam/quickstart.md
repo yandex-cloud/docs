@@ -28,7 +28,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
     1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. In the top-right corner, click ![icon-users](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
-    1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{login-example}}`).
+    1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 

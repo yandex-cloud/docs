@@ -102,10 +102,13 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+Если удалить пользователя или группу из политики MFA, то в случае повторного добавления им придется заново настраивать аутентификацию. Вместо этого вы можете добавить пользователя или группу в [исключения политики](./excluded-audience.md).
+
 {% include [mfa-policy-applications-acc-type-notice](../../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
 
 #### См. также {#see-also}
 
+* [{#T}](./excluded-audience.md)
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)
 * [{#T}](./deactivate-reactivate-policy.md)

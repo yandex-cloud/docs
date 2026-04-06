@@ -5,7 +5,7 @@ description: Various {{ message-queue-full-name }} use cases in {{ yandex-cloud 
 
 # {{ message-queue-name }} tutorials
 
-* [{#T}](./video-converting-queue.md)
+* [{#T}](./video-converting-queue/index.md)
 * [{#T}](./autoscale-monitoring.md)
 * [{#T}](./serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](./websocket-app.md)

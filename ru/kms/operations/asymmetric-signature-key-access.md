@@ -92,10 +92,11 @@ description: Следуя данной инструкции, вы сможете
    1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
        ```hcl
-       resource "yandex_kms_asymmetric_signature_key" "key-viewers" {
-         asymmetric_signaturen_key_id  = "<идентификатор_ключевой_пары>"
-         role                          = "<роль_1>"
-         members                       = ["<тип_субъекта>:<идентификатор_субъекта>"]
+       resource "yandex_kms_asymmetric_signature_key_iam_member" "key-viewers" {
+         asymmetric_signature_key_id  = "<идентификатор_ключевой_пары>"
+
+         role   = "<роль_1>"
+         member = "<тип_субъекта>:<идентификатор_субъекта>"
        }
        ```
 
@@ -103,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `asymmetric_signaturen_key_id ` — идентификатор ключевой пары электронной подписи.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -229,25 +230,27 @@ description: Следуя данной инструкции, вы сможете
 
        ```hcl
        # Роль 1
-       resource "yandex_kms_asymmetric_signature_key" "key-viewers" {
-         asymmetric_signaturen_key_id = "<идентификатор_ключевой_пары>"
-         role                         = "<роль_1>"
-         members                      = ["<тип_субъекта>:<идентификатор_субъекта>"]
+       resource "yandex_kms_asymmetric_signature_key_iam_member" "key-viewers" {
+         asymmetric_signature_key_id = "<идентификатор_ключевой_пары>"
+
+         role   = "<роль_1>"
+         member = "<тип_субъекта>:<идентификатор_субъекта>"
        }
 
        # Роль 2
-       resource "yandex_kms_asymmetric_signature_key" "key-editors" {
-         asymmetric_signaturen_key_id = "<идентификатор_ключевой_пары>"
-         role                         = "<роль_2>"
-         members                      = ["<тип_субъекта>:<идентификатор_субъекта>"]
+       resource "yandex_kms_asymmetric_signature_key_iam_member" "key-editors" {
+         asymmetric_signature_key_id = "<идентификатор_ключевой_пары>"
+         
+         role   = "<роль_2>"
+         member = "<тип_субъекта>:<идентификатор_субъекта>"
        }
        ```
 
        Где:
 
-       * `asymmetric_signaturen_key_id` — идентификатор ключевой пары электронной подписи.
+       * `asymmetric_signature_key_id` — идентификатор ключевой пары электронной подписи.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_signature_key` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 

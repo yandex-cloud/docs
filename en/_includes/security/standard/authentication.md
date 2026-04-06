@@ -2026,7 +2026,7 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 
 To ensure data and cloud infrastructure security, you need to regularly audit the access permissions of users and service accounts.
 
-[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool that provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md), granted to [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
+[{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool that provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md), granted to [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
 
 For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
 

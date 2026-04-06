@@ -24,7 +24,7 @@ items:
             href: operations/workspaces/manage-access.md
           - name: Deleting a workspace
             href: operations/workspaces/delete.md
-      - name: Data Security Posture Management ({{ dspm-name }})
+      - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         items:
           - name: Overview
             href: operations/dspm/index.md
@@ -32,11 +32,11 @@ items:
             href: operations/dspm/create-data-source.md
           - name: Creating a scan
             href: operations/dspm/create-scan.md
-      - name: '{{ k8s }}® Security Posture Management (KSPM)'
+      - name: '{{ kspm-full-name }} ({{ kspm-name }})'
         items:
           - name: Overview
             href: operations/kspm/index.md
-          - name: Activating KSPM
+          - name: Activating {{ kspm-name }}
             href: operations/kspm/enable-kspm.md
           - name: Working with a dashboard
             href: operations/kspm/use-kspm.md
@@ -46,7 +46,7 @@ items:
             href: operations/kspm/check-compliance.md
           - name: Managing exceptions to control rules
             href: operations/kspm/manage-exceptions.md
-      - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
+      - name: '{{ ciem-full-name }} ({{ ciem-name }})'
         items:
           - name: Overview
             href: operations/ciem/index.md
@@ -54,7 +54,7 @@ items:
             href: operations/ciem/view-permissions.md
           - name: Revoking an access permission
             href: operations/ciem/revoke-permissions.md
-      - name: Cloud Security Posture Management ({{ cspm-name }})
+      - name: '{{ cspm-full-name }} ({{ cspm-name }})'
         items:
           - name: Overview
             href: operations/cspm/index.md
@@ -90,13 +90,13 @@ items:
             href: concepts/standard-compliance/yc-security-baseline.md
           - name: Cloud infrastructure security standard {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
-      - name: Data Security Posture Management ({{ dspm-name }})
+      - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         href: concepts/dspm.md
-      - name: '{{ k8s }}® Security Posture Management (KSPM)'
+      - name: '{{ kspm-full-name }} ({{ kspm-name }})'
         href: concepts/kspm.md
-      - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
+      - name: '{{ ciem-full-name }} ({{ ciem-name }})'
         href: concepts/ciem.md
-      - name: Cloud Security Posture Management ({{ cspm-name }})
+      - name: '{{ cspm-full-name }} ({{ cspm-name }})'
         href: concepts/cspm.md
       - name: '{{ vuln-man-name }} (VM)'
         href: concepts/vulnerability-management.md
@@ -110,9 +110,9 @@ items:
     items:
       - name: Overview
         href: diagnostics/index.md
-      - name: KSPM errors
+      - name: '{{ kspm-name }} errors'
         href: diagnostics/kspm-diagnostics.md
-      - name: DSPM errors
+      - name: '{{ dspm-name }} errors'
         href: diagnostics/dspm-diagnostics.md
   - name: Access management
     items:
@@ -120,7 +120,7 @@ items:
         href: security/index.md
       - name: '{{ dspm-name }} roles'
         href: security/dspm-roles.md
-      - name: KSPM roles
+      - name: '{{ kspm-name }} roles'
         href: security/kspm-roles.md
       - name: '{{ ciem-name }} roles'
         href: security/ciem-roles.md
@@ -138,7 +138,7 @@ items:
         href: rules-reference/index.md
       - name: All rules
         href: rules-reference/all.md
-      - name: CSPM
+      - name: '{{ cspm-name }}'
         href: rules-reference/cspm.md
   - name: API reference
     items:

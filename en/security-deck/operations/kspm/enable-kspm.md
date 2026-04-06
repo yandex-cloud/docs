@@ -1,21 +1,34 @@
 ---
-title: Activating {{ k8s }}® Security Posture Management (KSPM) in {{ sd-full-name }}
-description: How to activate and configure {{ k8s }}® Security Posture Management (KSPM) in {{ sd-name }}.
+title: Activating {{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-full-name }}
+description: How to activate and configure {{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-name }}.
 ---
 
-# Activating KSPM
+# Activating {{ kspm-name }}
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-The KSPM module allows you to flexibly select and customize security rules to meet your organization's specific requirements, as well as create rule exceptions.
+The {{ kspm-name }} module allows you to flexibly select and customize security rules to meet your organization's specific requirements, as well as create rule exceptions.
 
-To get started with KSPM:
-1. [Create](../../../iam/operations/sa/create.md) a service account KSPM will use to view {{ managed-k8s-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) info, install the necessary components, and perform checks.
+## Getting started {#before-you-begin}
+
+Before onboarding clusters to {{ kspm-name }}, make sure they meet the following requirements:
+
+* {{ k8s }} 1.28 or higher.
+* There is no [Kyverno](https://yandex.cloud/en/marketplace/products/yc/kyverno)-based [admission control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) in the {{ k8s }} cluster. If Kyverno was previously deployed, remove it along with all [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) resources it has created.
+* Networking must be set up between the {{ k8s }} cluster nodes and [{{ container-registry-full-name }}](../../../managed-kubernetes/tutorials/container-registry.md).
+* Network access must be allowed on port `54321` from the pod running a runtime security monitoring sensor to the cluster pods.
+* TCP access from the cluster to the {{ kspm-name }} API (`kspm.api.cloud.yandex.net`) must be allowed on port `443`.
+* [Security groups](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) must allow access from the cluster’s master node to {{ kspm-name }} components running on the cluster nodes.
+
+## Activating the module {#kspm-activate}
+
+To get started with {{ kspm-name }}:
+1. [Create](../../../iam/operations/sa/create.md) a service account {{ kspm-name }} will use to view {{ managed-k8s-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) info, install the necessary components, and perform checks.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) to the service account the `security-deck.worker` [role](../../security/index.md#security-deck-worker) for the organization, cloud, or folder.
 
     {% note info %}
 
-    KSPM will only have access to the {{ managed-k8s-name }} clusters residing in the corresponding organization, cloud, or folder.
+    {{ kspm-name }} will only have access to the {{ managed-k8s-name }} clusters residing in the corresponding organization, cloud, or folder.
 
     {% endnote %}
 
@@ -29,7 +42,7 @@ To get started with KSPM:
 
         {% note tip %}
 
-        Later on you will be able to further narrow the scope of control in the KSPM settings.
+        Later on you will be able to further narrow the scope of control in the {{ kspm-name }} settings.
 
         {% endnote %}
 
@@ -38,9 +51,9 @@ To get started with KSPM:
       {% include [kspm-sec-standard-list](../../../_includes/security-deck/kspm-sec-standard-list.md) %}
 
       You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.modules_title_s8LDi }}** section will display the {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
-1. Complete the KSPM setup:
+1. Complete the {{ kspm-name }} setup:
     1. Click ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.edit_action }}** on the new workspace page.
-    1. Navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabKubernetes_rC2uU }}** tab.
+    1. Navigate to the **KSPM** tab.
     1. Under **{{ ui-key.yacloud_org.security.workspaces.WorkspaceKspmResourcesForm.section-title_iYCNY }}**, select the clouds, folders, or clusters within the workspace resources where compliance with the {{ k8s }} security rules will be enforced.
 
         {% note warning %}

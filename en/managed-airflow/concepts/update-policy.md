@@ -15,7 +15,7 @@ In {{ maf-name }},the lifecycle rules for major {{ AF }} versions (2.x and 3.x) 
 
 {% endnote %}
 
-{{ maf-name }} uses two {{ AF }} version support strategies:
+{{ maf-name }} uses two {{ AF }} versioning strategies:
 
 * **LTS** (Long-Term Support) versions.
 * **Versions with regular updates**.
@@ -64,7 +64,7 @@ We recommend updating clusters manually to the supported versions without waitin
 
 {% endnote %}
 
-## Version support schedule {#version-schedule}
+## Versioning schedule {#version-schedule}
 
 ### Versions 2.X {#v-2-x-schedule}
 
@@ -115,4 +115,5 @@ You need to upgrade to version 3.X manually. Proceed as follows:
 
 #### See also {#see-also}
 
-[Versioning in {{ maf-name }}](versions.md)
+* [Versioning in {{ maf-name }}](versions.md)
+* [{#T}](../operations/cluster-version-update.md)

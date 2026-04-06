@@ -25,7 +25,11 @@ In {{ datalens-short-name }}, you can export data from charts:
 * [Background data export](#background-export) with extended limits of up to 1 GB:
 
   * Available only for paginated [Tables](../../visualization-ref/table-chart.md) created in the [wizard](./dataset-based-charts.md). Exports data from all the table's pages.
-  * File format: `CSV`.
+  * The following formats are available:
+
+    * `XLSX`
+    * `CSV`.
+
   * First, the file is generated in the background, then a download link is created. File preparation takes up to 30 minutes.
 
 Any user with access permissions for a chart can export its data unless you [disable data export](#data-export-disable).
@@ -89,9 +93,9 @@ The following limitations apply to the background export:
 To initiate a background export, do the following:
 
 1. Open the data export window by doing one of the following:
-   
-   * Open the chart you want to export data from and click ![image](../../../_assets/console-icons/ellipsis.svg) → ![icon](../../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **CSV** in its top-right corner.
-   * On the dashboard, find the chart for data export and click ![image](../../../_assets/console-icons/ellipsis.svg) → ![icon](../../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **CSV** in its top-right corner.
+
+   * Open the chart you want to export data from and click ![image](../../../_assets/console-icons/ellipsis.svg) → ![icon](../../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **CSV** or **XLSX** in its top-right corner.
+   * On the dashboard, find the chart for data export and click ![image](../../../_assets/console-icons/ellipsis.svg) → ![icon](../../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **CSV** or **XLSX** in its top-right corner.
 
 1. In the export window, under **Pages**, select `All`. Optionally, edit the following export file settings: **Value delimiter**, **Decimal separator**, and **Encoding**. You can also navigate to the list of exported data by clicking **Export history**.
 1. Click **Save**. At the bottom of your screen, you will see a message saying that the export has started and a link to the [export page](#export-page), where you can monitor the export status and details. Once the export is complete, you will get the **Chart export complete** message with links to the export page and file for download.

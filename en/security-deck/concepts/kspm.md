@@ -1,21 +1,19 @@
 ---
-title: '{{ k8s }}® Security Posture Management (KSPM) in {{ sd-full-name }}'
-description: '{{ k8s }}® Security Posture Management (KSPM) ensures that containerized applications and images used in your {{ yandex-cloud }} infrastructure comply with comprehensive security requirements and best practices.'
+title: '{{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-full-name }}'
+description: '{{ kspm-full-name }} ({{ kspm-name }}) ensures that containerized applications and images used in your {{ yandex-cloud }} infrastructure comply with comprehensive security requirements and best practices.'
 ---
 
-# {{ k8s }}® Security Posture Management (KSPM)
+# {{ kspm-full-name }} ({{ kspm-name }})
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-{% include [kpsm-requirements](../../_includes/security-deck/kpsm-requirements.md) %}
-
 {% include [kspm-basic-intro](../../_includes/security-deck/kspm-basic-intro.md) %}
 
-The KSPM configuration is set when you [create](../operations/workspaces/create.md) a workspace and may include checking clusters for compliance with the following standards:
+The {{ kspm-name }} configuration is set when you [create](../operations/workspaces/create.md) a workspace and may include checking clusters for compliance with the following standards:
 
 {% include [kspm-sec-standard-list](../../_includes/security-deck/kspm-sec-standard-list.md) %}
 
-The KSPM module allows you to flexibly select and customize security rules to meet your organization's specific requirements, as well as create rule exceptions.
+The {{ kspm-name }} module allows you to flexibly select and customize security rules to meet your organization's specific requirements, as well as create rule exceptions.
 
 {% include [kspm-alerts](../../_includes/security-deck/kspm-alerts.md) %}
 
