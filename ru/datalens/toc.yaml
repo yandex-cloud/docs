@@ -106,6 +106,8 @@ items:
             href: tutorials/data-from-ch-to-sql-chart.md
           - name: Примеры создания чартов в Editor
             href: tutorials/create-chart-editor.md
+          - name: Пример использования вкладки Activities в Editor
+            href: tutorials/create-editor-activities.md
   - name: Подключения
     items:
       - name: Обзор
@@ -1118,8 +1120,10 @@ items:
     href: at-ref.md
   - name: История изменений
     items:
-      - name: Февраль 2026
+      - name: Март 2026
         href: release-notes/index.md
+      - name: Февраль 2026
+        href: release-notes/2602.md
       - name: Январь 2026
         href: release-notes/2601.md
       - name: Декабрь 2025
@@ -1128,10 +1132,10 @@ items:
         href: release-notes/2511.md
       - name: Октябрь 2025
         href: release-notes/2510.md
-      - name: Сентябрь 2025
-        href: release-notes/2509.md
       - name: Архив
         items:
+          - name: Сентябрь 2025
+            href: release-notes/2509.md
           - name: Август 2025
             href: release-notes/2508.md
           - name: Июль 2025
@@ -1281,6 +1285,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Inconsistent aggregation status among SELECT items
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API.md

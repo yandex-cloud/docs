@@ -126,7 +126,7 @@ keywords:
         ```
         .httpMethod == "GET" and (.headers.Host | test("^d5dm"))
         ```
-    1. В блоке **{{ ui-key.yacloud.serverless-event-router.label_targets}}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+    1. В блоке **{{ ui-key.yacloud.serverless-event-router.label_targets }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
     1. В поле **{{ ui-key.yacloud.serverless-event-router.label_target-type }}** выберите `{{ sw-full-name }}`.
     1. В поле **Рабочий процесс** укажите `sample-workflow`.
     1. В поле **Сервисный аккаунт** укажите `sa-for-eventrouter`.

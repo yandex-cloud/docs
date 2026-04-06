@@ -223,7 +223,7 @@
       1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
+      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. В списке выберите сервисный аккаунт `kuma-trail-sa`, при необходимости воспользуйтесь поиском.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и в появившемся окне выберите [роль](../../audit-trails/security/index.md#at-viewer) `audit-trails.viewer`.
 

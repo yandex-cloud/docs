@@ -44,4 +44,4 @@
 
 * [Сервис {{ data-transfer-name }}](../../managed-clickhouse/tutorials/ch-to-mch-migration.md). Он позволяет перенести в кластер {{ mch-name }} базу данных или отдельные таблицы.
 * [Встроенная функция {{ CH }} `remote`](../../managed-clickhouse/tutorials/data-migration.md#transfer-remote). С ее помощью можно перенести в кластер {{ mch-name }} отдельные таблицы.
-* [Команды {{ CH }} `BACKUP` и `RESTORE`](../../managed-clickhouse/tutorials/data-migration.md#backup-objstorage). С их помощью можно сохранить резервную копию базы данных или отдельной таблицы в бакет [{{ objstorage-full-name}}](../../storage), а затем восстановить данные из бакета в кластер {{ mch-name }}.
+* [Команды {{ CH }} `BACKUP` и `RESTORE`](../../managed-clickhouse/tutorials/data-migration.md#backup-objstorage). С их помощью можно сохранить резервную копию базы данных или отдельной таблицы в бакет [{{ objstorage-full-name }}](../../storage), а затем восстановить данные из бакета в кластер {{ mch-name }}.

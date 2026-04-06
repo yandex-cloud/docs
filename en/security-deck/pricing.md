@@ -14,11 +14,11 @@ editable: false
 
 The applicable {{ sd-name }} pricing depends on the module you are using:
 
-* [Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) is free of charge.
+* [{{ ciem-full-name }} ({{ ciem-name }})](concepts/ciem.md) is free of charge.
 * For [{{ dspm-name }}](concepts/dspm.md), see [below](#dspm-rules).
 * For [{{ atr-name }}](concepts/access-transparency.md), see [below](#atr-rules).
-* For [{{ k8s }}® Security Posture Management (KSPM)](concepts/kspm.md), see [below](#kspm-rules).
-* For [Cloud Security Posture Management ({{ cspm-name }})](concepts/cspm.md), see [below](#cspm-rules).
+* For [{{ kspm-full-name }} ({{ kspm-name }})](concepts/kspm.md), see [below](#kspm-rules).
+* For [{{ cspm-full-name }} ({{ cspm-name }})](concepts/cspm.md), see [below](#cspm-rules).
 * [AI assistant](concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
@@ -33,17 +33,17 @@ When {{ atr-name }} is used from the second day of the calendar month or later, 
 
 If you cancel your {{ atr-name }} subscription in the [management console]({{ link-console-main }}), charges will stop from the first day of the next calendar month.
 
-### Data Security Posture Management ({{ dspm-name }}) {#dspm-rules}
+### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-rules}
 
 When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sends requests to files in {{ objstorage-full-name }} buckets. Such requests are charged as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md). Using {{ dspm-name }} is charged separately.
 
-### {{ k8s }}® Security Posture Management (KSPM) {#kspm-rules}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-rules}
 
-The cost for using {{ k8s }}® Security Posture Management (KSPM) is monthly-based and depends on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters for scanning.
+The cost for using {{ kspm-full-name }} ({{ kspm-name }}) is monthly-based and depends on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters for scanning.
 
-### Cloud Security Posture Management ({{ cspm-name }}) {#cspm-rules}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm-rules}
 
-Your Cloud Security Posture Management ({{ cspm-name }}) charge is calculated monthly and depends on the infrastructure inspection standard selected for the environment and the number of resources covered by the inspection. All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).
+Your {{ cspm-full-name }} ({{ cspm-name }}) charge is calculated monthly and depends on the infrastructure inspection standard selected for the environment and the number of resources covered by the inspection. All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).
 
 Each environment is billed separately, even if their resources overlap.
 
@@ -64,7 +64,7 @@ The price does not depend on the number of days in the calendar month.
 
 The monthly price is based on 720 hours per month.
 
-### Data Security Posture Management ({{ dspm-name }}) {#dspm-pricing}
+### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-pricing}
 
 
 
@@ -90,7 +90,7 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
 
 
-### {{ k8s }}® Security Posture Management (KSPM) {#kspm-pricing}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-pricing}
 
 
 
@@ -99,7 +99,7 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 The monthly price is based on 720 hours per month.
 
-### Cloud Security Posture Management ({{ cspm-name }}) {#cspm-pricing}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm-pricing}
 
 
 

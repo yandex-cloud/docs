@@ -742,7 +742,7 @@
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** выберите основной бакет.
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object}}`.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object }}`.
 
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 

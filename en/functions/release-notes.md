@@ -1,9 +1,26 @@
 ---
 title: '{{ sf-full-name }} release notes'
-description: This section contains {{ sf-name }} release notes.
+description: This section contains the {{ sf-name }} release notes.
 ---
 
 # {{ sf-full-name }} release notes
+
+## February 2026 {#february-2026}
+
+### Updates {#updates}
+
+* Added support for {{ sf-name }} in the [price calculator](https://yandex.cloud/ru/prices).
+
+### Fixes and improvements {#fixes-improvements}
+
+* Fixed the asynchronous handler in Python 3.14.
+* Fixed the {{ monitoring-name }} [metric](metrics.md) calculation.
+
+## November 2025 {#november-2025}
+
+### Updates {#updates}
+
+* Enabled adding the function folder ID to the invocation context.
 
 ## October 2025 {#october-2025}
 

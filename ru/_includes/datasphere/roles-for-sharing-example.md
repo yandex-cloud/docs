@@ -2,7 +2,7 @@
 
 * в сообществе <q>Любители котиков</q> — `Admin` (роль `{{ roles-datasphere-communities-admin }}`);
 * в сообществе <q>Считаем заборы</q> — `Developer` (роль `{{ roles-datasphere-communities-developer }}`);
-* в сообществе <q>Совершенно секретно</q> — `Viewer` (роль `{{ roles-datasphere-communities-viewer}}`), но имеет права `Editor` в проекте <q>Project_111</q> этого сообщества (роль `{{ roles-datasphere-project-editor }}`).
+* в сообществе <q>Совершенно секретно</q> — `Viewer` (роль `{{ roles-datasphere-communities-viewer }}`), но имеет права `Editor` в проекте <q>Project_111</q> этого сообщества (роль `{{ roles-datasphere-project-editor }}`).
 
 Валя может:
 

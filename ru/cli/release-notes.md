@@ -7,6 +7,38 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.1.0 (06.04.26) {#v-1-1-0}
+
+#### {{ sf-name }} {#v-1-1-0-sf-name}
+
+* В команду `yc serverless trigger create` для запуска {{ sw-name }} по событию триггера добавлены параметры `--start-workflow-id`, `--start-workflow-name`, `--start-workflow-service-account-id` и `--start-workflow-service-account-name` :
+  * `yc serverless trigger create timer`;
+  * `yc serverless trigger create message-queue`;
+  * `yc serverless trigger create object-storage`;
+  * `yc serverless trigger create conteiner-registry`;
+  * `yc serverless trigger create logging`;
+  * `yc serverless trigger create billing-budget`;
+  * `yc serverless trigger create yds`;
+  * `yc serverless trigger create mail`.
+
+#### Сервисы управляемых баз данных {#v-1-1-0-managed-db}
+
+Добавлен параметр конфигурации `idle_session_timeout`.
+
+#### {{ managed-k8s-name }} {#v-1-1-0-managed-k8s-name}
+
+* В команды `yc managed-kubernetes marketplace helm-release install` и `yc managed-kubernetes marketplace helm-release update` добавлены параметры `--value` и `--value-from-file` для передачи значений Helm Release; параметр `--values` помечен устаревшим:
+  * `yc managed-kubernetes marketplace helm-release install --value --value-from-file`;
+  * `yc managed-kubernetes marketplace helm-release update --value --value-from-file`.
+
+* В команду `yc managed-kubernetes marketplace helm-release install` добавлены параметры `--name` и `--namespace`: `yc managed-kubernetes marketplace helm-release install --name --namespace`.
+
+* В команды `yc managed-kubernetes marketplace helm-release install` и `yc managed-kubernetes marketplace helm-release update` добавлены примеры передачи сложных значений (списков, объектов) через `--value` и `--value-from-file`:
+  * `yc managed-kubernetes marketplace helm-release install`;
+  * `yc managed-kubernetes marketplace helm-release update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.0.0 (02.04.26) {#version1.0.0}
 
 #### Изменения в системных командах CLI {#yc-1.0.0}
@@ -52,8 +84,6 @@ description: На странице представлены релизы CLI, а
 Добавлены параметры `--warehouse-bucket` и `--warehouse-path` для настройки бакета {{ objstorage-name }}, который будет использоваться в качестве хранилища данных Hive Metastore (`warehouse`):
 * `yc managed-metastore cluster create --warehouse-bucket --warehouse-path`;
 * `yc managed-metastore cluster update --warehouse-bucket --warehouse-path`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.204.0 (30.03.26) {#version0.204.0}
 
@@ -847,7 +877,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 #### Изменения в CLI {#cli}
 
-* Добавлена поддержка сервиса {{ mspqr-full-name}}. Используйте команды `yc managed-sharded-postgresql`.
+* Добавлена поддержка сервиса {{ mspqr-full-name }}. Используйте команды `yc managed-sharded-postgresql`.
 * В `yc init` добавлен параметр `userpool-id`.
 
 ### Версия 0.172.0 (27.10.25) {#version0.172.0}
@@ -2103,7 +2133,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
    * `yc managed-kubernetes marketplace helm-release get` — получение информации о Helm-чарте продукта {{ marketplace-name }}.
    * `yc managed-kubernetes marketplace helm-release list` — получение списка Helm-чартов {{ marketplace-name }}, установленных в кластере {{ managed-k8s-name }}.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }}
 
 * В команду `yc loadtesting agent create` добавлены параметры `log-group-id` и `log-group-name` для указания целевой лог-группы для отправки логов агента нагрузочного тестирования.
 

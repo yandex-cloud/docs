@@ -1,9 +1,28 @@
 ---
 title: '{{ api-gw-full-name }} release notes'
-description: This section contains {{ api-gw-name }} release notes.
+description: This section contains the {{ api-gw-name }} release notes.
 ---
 
 # {{ api-gw-full-name }} release notes
+
+## February 2026 {#february-2026}
+
+### Updates {#updates}
+
+* Added support for {{ api-gw-name }} in the [price calculator](https://yandex.cloud/ru/prices).
+
+## January 2026 {#january-2026}
+
+### Updates {#updates}
+
+* Added support for starting and stopping an API gateway.
+
+## November 2025 {#november-2025}
+
+### Updates {#updates}
+
+* Supported the function call format version `2.0` in the [x-yc-apigateway-integration:cloud_functions](concepts/extensions/cloud-functions.md) extension.
+* Adding support for the [x-yc-apigateway-integration:swagger](concepts/extensions/swagger.md) extension.
 
 ## September 2025 {#september-2025}
 

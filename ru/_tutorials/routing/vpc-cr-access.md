@@ -29,7 +29,7 @@
 `*` *При развертывании можно также указать существующую облачную сеть*
 
 Для облачной сети с размещаемыми ресурсами в сервисе [{{ dns-name }}](../../dns/concepts/) создаются внутренние DNS-зоны:
-* `{{registry}}.` и ресурсная запись типа A, сопоставляющая доменное имя `{{ registry }}` сервиса {{ container-registry-name }} с IP-адресом [внутреннего сетевого балансировщика](../../network-load-balancer/concepts/nlb-types.md) `cr-nlb`. 
+* `{{ registry }}.` и ресурсная запись типа A, сопоставляющая доменное имя `{{ registry }}` сервиса {{ container-registry-name }} с IP-адресом [внутреннего сетевого балансировщика](../../network-load-balancer/concepts/nlb-types.md) `cr-nlb`. 
 * `{{ s3-storage-host }}.` и ресурсная запись типа A, сопоставляющая доменное имя `{{ s3-storage-host }}` сервиса {{ objstorage-short-name }} с IP-адресом внутреннего сетевого балансировщика `s3-nlb`. 
 
 Благодаря этим записям трафик от облачных ресурсов к {{ container-registry-short-name }} и {{ objstorage-short-name }} будет направляться на внутренние балансировщики, которые будут распределять нагрузку по виртуальным машинам с NAT.
@@ -256,7 +256,7 @@
    | Название<br>параметра | Нужно<br>изменение | Описание | Тип | Пример |
    | --- | --- | --- | --- | --- |
    | `folder_id` | да | ID каталога для размещения компонентов решения. | `string` | `b1gentmqf1ve9uc54nfh` |
-   | `vpc_id` | - | ID облачной сети, для которой организуется доступ к {{container-registry-short-name}}. Если не указано, то сеть будет создана. | `string` | `enp48c1ndilt42veuw4x` |
+   | `vpc_id` | - | ID облачной сети, для которой организуется доступ к {{ container-registry-short-name }}. Если не указано, то сеть будет создана. | `string` | `enp48c1ndilt42veuw4x` |
    | `yc_availability_zones` | - | Список [зон доступности](../../overview/concepts/geo-scope.md) для развертывания ВМ с NAT.  | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
    | `subnet_prefix_list` | - | Список префиксов облачных подсетей для размещения ВМ с NAT (по одной подсети в каждой зоне доступности из списка `yc_availability_zones`, перечисленных в том же порядке). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | - | Количество разворачиваемых ВМ с NAT. Рекомендуется указывать четное число для равномерного распределения ВМ по зонам доступности. | `number` | `2` |
@@ -264,7 +264,7 @@
    | `trusted_cloud_nets` | да | Список агрегированных префиксов облачных подсетей, для которых разрешен доступ к {{ container-registry-short-name }}. Используется во входящем правиле групп безопасности для ВМ с NAT.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
    | `vm_username` | - | Имя пользователя для ВМ с NAT и тестовой ВМ. | `string` | `admin` |
    | `cr_ip` | - | Публичный IP-адрес сервиса {{ container-registry-short-name }}. | `string` | `84.201.171.239` |
-   | `cr_fqdn` | - | Доменное имя сервиса {{ container-registry-short-name }}. | `string` | `{{registry}}` | 
+   | `cr_fqdn` | - | Доменное имя сервиса {{ container-registry-short-name }}. | `string` | `{{ registry }}` | 
    | `s3_ip` | - | Публичный IP-адрес сервиса {{ objstorage-short-name }}. | `string` | `213.180.193.243` |
    | `s3_fqdn` | - | Доменное имя сервиса {{ objstorage-short-name }}. | `string` | `{{ s3-storage-host }}` |
 
@@ -328,14 +328,14 @@
 1. Выполните команду:
 
    ```bash
-   dig {{registry}} {{ s3-storage-host }}
+   dig {{ registry }} {{ s3-storage-host }}
    ```
 
 1. Убедитесь, что в ответе от DNS-сервера доменному имени сервиса {{ objstorage-name }} и {{ container-registry-name }} соответствуют IP-адреса внутренних балансировщиков. Результат вывода ресурсных записей типа `A`:
 
    ```text
    ;; ANSWER SECTION:
-   {{registry}}.               300    IN      A       10.10.1.100
+   {{ registry }}.               300    IN      A       10.10.1.100
 
    ;; ANSWER SECTION:
    {{ s3-storage-host }}. 300    IN      A       10.10.1.200
@@ -354,10 +354,10 @@
    hello-world   latest    9c7*********   9 months ago   13.3kB
    ```
 
-1. Присвойте Docker-образу URL вида `{{registry}}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Идентификатор реестра будет получен из переменной среды на тестовой ВМ:
+1. Присвойте Docker-образу URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Идентификатор реестра будет получен из переменной среды на тестовой ВМ:
 
    ```bash
-   docker tag hello-world {{registry}}/$REGISTRY_ID/hello-world:demo
+   docker tag hello-world {{ registry }}/$REGISTRY_ID/hello-world:demo
 
    docker image list
    ```
@@ -366,25 +366,25 @@
    ```text
    REPOSITORY                                   TAG       IMAGE ID       CREATED        SIZE
    golang                                       1.20.5    342*********   8 months ago   777MB
-   {{registry}}/crp1r4h00mj*********/hello-world   demo      9c7*********   9 months ago   13.3kB
+   {{ registry }}/crp1r4h00mj*********/hello-world   demo      9c7*********   9 months ago   13.3kB
    hello-world                                  latest    9c7*********   9 months ago   13.3kB
    ```
 
    {% note info %}
 
-   Загрузить в {{ container-registry-short-name }} можно только Docker-образы с URL вида `{{registry}}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
+   Загрузить в {{ container-registry-short-name }} можно только Docker-образы с URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`.
 
    {% endnote %}
 
 1. Загрузите необходимый Docker-образ в реестр:
 
    ```bash
-   docker push {{registry}}/$REGISTRY_ID/hello-world:demo
+   docker push {{ registry }}/$REGISTRY_ID/hello-world:demo
    ```
 
    Результат:
    ```text
-   The push refers to repository [{{registry}}/crp1r4h00mj*********/hello-world]
+   The push refers to repository [{{ registry }}/crp1r4h00mj*********/hello-world]
    01bb4*******: Pushed 
    demo: digest: sha256:7e9b6e7ba284****************** size: 525
    ```
@@ -407,7 +407,7 @@
 
    | Имя | Тип | Значение |
    | ----------- | ----------- | ----------- |
-   | `{{registry}}.` | `A` | `<IP-адрес внутреннего балансировщика для {{ container-registry-name }} из вывода команды terraform output cr_nlb_ip_address>` |
+   | `{{ registry }}.` | `A` | `<IP-адрес внутреннего балансировщика для {{ container-registry-name }} из вывода команды terraform output cr_nlb_ip_address>` |
    | `{{ s3-storage-host }}.` | `A` | `<IP-адрес внутреннего балансировщика для {{ objstorage-name }} из вывода команды terraform output s3_nlb_ip_address>` |
 
 * Сохраните приватный SSH-ключ `pt_key.pem`, используемый для подключения к ВМ с NAT, в надежное место либо пересоздайте его отдельно от {{ TF }};

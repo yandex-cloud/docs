@@ -8,7 +8,7 @@ editable: false
 
 This page provides a complete list of security rules used in {{ sd-name }}.
 
-## CSPM — Cloud Security Posture Management {#cspm}
+## {{ cspm-name }} — {{ cspm-full-name }} {#cspm}
 
 Rules for checking cloud resource configuration.
 

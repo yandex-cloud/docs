@@ -16,7 +16,7 @@ editable: false
 * [Модуль диагностики доступов ({{ ciem-name }})](concepts/ciem.md) — использование модуля не тарифицируется.
 * [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md) — см. [Модуль контроля данных ({{ dspm-name }})](#dspm-rules) в разделе ниже.
 * [{{ atr-name }}](concepts/access-transparency.md) — см. [{{ atr-name }}](#atr-rules) в разделе ниже.
-* [KSPM](concepts/kspm.md) — см. [Модуль контроля {{ k8s }}® (KSPM)](#kspm-rules) в разделе ниже.
+* [{{ kspm-name }}](concepts/kspm.md) — см. [Модуль контроля {{ k8s }}® ({{ kspm-name }})](#kspm-rules) в разделе ниже.
 * [{{ cspm-name }}](concepts/cspm.md) — см. [Модуль контроля конфигурации ({{ cspm-name }})](#cspm-rules) в разделе ниже.
 * [AI-ассистент](concepts/ai-assistant.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
 
@@ -36,9 +36,9 @@ editable: false
 
 При [сканировании данных](operations/dspm/create-scan.md) модуль контроля данных ({{ dspm-name }}) выполняет запросы к файлам в бакетах {{ objstorage-full-name }}. Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}. Использование модуля тарифицируется дополнительно.
 
-### Модуль контроля {{ k8s }}® (KSPM) {#kspm-rules}
+### Модуль контроля {{ k8s }}® ({{ kspm-name }}) {#kspm-rules}
 
-Стоимость использования модуля контроля {{ k8s }}® (KSPM) рассчитывается ежемесячно исходя из количества рабочих узлов в кластерах [{{ managed-k8s-full-name }}](../managed-kubernetes/), которые подключены к сканированию.
+Стоимость использования модуля контроля {{ k8s }}® ({{ kspm-name }}) рассчитывается ежемесячно исходя из количества рабочих узлов в кластерах [{{ managed-k8s-full-name }}](../managed-kubernetes/), которые подключены к сканированию.
 
 ### Модуль контроля конфигурации ({{ cspm-name }}) {#cspm-rules}
 
@@ -109,7 +109,7 @@ editable: false
 
 
 
-### Модуль контроля {{ k8s }}® (KSPM) {#kspm-pricing}
+### Модуль контроля {{ k8s }}® ({{ kspm-name }}) {#kspm-pricing}
 
 
 {% list tabs group=pricing %}

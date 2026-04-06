@@ -8,3 +8,7 @@ description: This page provides reference information on the {{ mtr-name }} metr
 This section describes the {{ mtr-name }} metrics delivered to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-trino](../_includes/monitoring/metrics-ref/managed-trino.md) %}
+
+#### See also {#see-also}
+
+* [{#T}](operations/monitoring.md)

@@ -2279,7 +2279,7 @@ Learn more in [Access management in {{ search-api-full-name }}]({{ link-docs-ai 
 
 For more information, see [Common {{ sd-full-name }} roles](../security-deck/security/index.md).
 
-### Data Security Posture Management ({{ dspm-name }}) service roles {#dspm-roles}
+### {{ dspm-full-name }} ({{ dspm-name }}) service roles {#dspm-roles}
 
 #### dspm.worker {#dspm-worker}
 
@@ -2307,7 +2307,7 @@ For more information, see [Common {{ sd-full-name }} roles](../security-deck/sec
 
 Learn more in [Access management in {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
-### {{ k8s }}® Security Posture Management (KSPM) service roles {#kspm-roles}
+### {{ kspm-full-name }} ({{ kspm-name }}) service roles {#kspm-roles}
 
 #### kspm.worker {#kspm-worker}
 
@@ -2329,9 +2329,9 @@ Learn more in [Access management in {{ dspm-name }}](../security-deck/security/d
 
 {% include [kspm.admin](../_roles/kspm/admin.md) %}
 
-Learn more in [Access management in KSPM](../security-deck/security/kspm-roles.md).
+Learn more in [Access management in {{ kspm-name }}](../security-deck/security/kspm-roles.md).
 
-### Cloud Security Posture Management ({{ cspm-name }}) service roles {#cspm-roles}
+### {{ cspm-full-name }} ({{ cspm-name }}) service roles {#cspm-roles}
 
 #### cspm.worker {#cspm-worker}
 

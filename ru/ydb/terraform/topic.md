@@ -1,9 +1,9 @@
 ---
-title: Управление конфигурацией топиков {{ydb-short-name}}
-description: В инструкции описаны свойства ресурса yandex_ydb_topic для управления конфигурацией топиков {{ydb-short-name}}.
+title: Управление конфигурацией топиков {{ ydb-short-name }}
+description: В инструкции описаны свойства ресурса yandex_ydb_topic для управления конфигурацией топиков {{ ydb-short-name }}.
 ---
 
-# Управление конфигурацией топиков {{ydb-short-name}}
+# Управление конфигурацией топиков {{ ydb-short-name }}
 
 Для работы с [топиками]({{ ydb.docs }}/concepts/topic) используется ресурс `yandex_ydb_topic`.
 

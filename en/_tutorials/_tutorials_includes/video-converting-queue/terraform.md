@@ -94,13 +94,13 @@ To create an infrastructure using {{ TF }}:
    * [Service account](../../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Role](../../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Secret]({{ tf-provider-resources-link }}/lockbox_secret): [yandex_lockbox_secret](../../../lockbox/concepts/secret.md).
-   * [Secret version](../../../lockbox/concepts/secret.md#version): [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/yandex_lockbox_secret_version).
+   * [Secret version](../../../lockbox/concepts/secret.md#version): [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
    * [Message queue](../../../message-queue/concepts/queue.md): [yandex_message_queue]({{ tf-provider-resources-link }}/message_queue).
    * [Database (YDB)](../../../message-queue/concepts/queue.md): [yandex_ydb_database_serverless]({{ tf-provider-resources-link }}/ydb_database_serverless).
-   * [Bucket](../../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/yandex_storage_bucket)
-   * [Bucket object](../../../storage/concepts/object.md): [yandex_storage_object]({{ tf-provider-resources-link }}/yandex_storage_object).
-   * [Function](../../../functions/concepts/function.md): [yandex_function]({{ tf-provider-resources-link }}/yandex_function).
-   * [Trigger](../../../functions/concepts/trigger/ymq-trigger.md): [yandex_function_trigger]({{ tf-provider-resources-link }}/yandex_function_trigger).
+   * [Bucket](../../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
+   * [Bucket object](../../../storage/concepts/object.md): [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object).
+   * [Function](../../../functions/concepts/function.md): [yandex_function]({{ tf-provider-resources-link }}/function).
+   * [Trigger](../../../functions/concepts/trigger/ymq-trigger.md): [yandex_function_trigger]({{ tf-provider-resources-link }}/function_trigger).
 
 1. In the `video-converting.tf` file, set the following user-defined properties:
    * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).

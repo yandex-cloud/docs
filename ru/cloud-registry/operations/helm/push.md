@@ -134,7 +134,7 @@ description: Из статьи вы узнаете о загрузке Helm-ча
   1. Загрузите Helm-чарт в {{ cloud-registry-name }}:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry}}/<идентификатор_реестра>
+     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry }}/<идентификатор_реестра>
      ```
 
      Результат:

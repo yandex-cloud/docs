@@ -1,6 +1,6 @@
 ### Ошибка обращения к бинарному логу {#binlog-bytes}
 
-В трансферах типа _{{ dt-type-copy-repl}}_ может возникнуть ошибка:
+В трансферах типа _{{ dt-type-copy-repl }}_ может возникнуть ошибка:
 
 ```text
 Warn(replication): failed to run (abstract1 source):

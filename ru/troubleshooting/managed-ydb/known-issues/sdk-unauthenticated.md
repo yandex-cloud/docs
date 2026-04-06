@@ -7,7 +7,7 @@
 
 ## Решение {#issue-resolution}
 
-Можно [авторизоваться с помощью {{iam-short-name }}-токена или токена сервисного аккаунта](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm). Примеры кода приведены [здесь](https://github.com/ydb-platform/ydb-python-sdk/tree/main/examples/service-account-credentials) и [здесь](https://github.com/ydb-platform/ydb-python-sdk/tree/main/examples/access-token-credentials).
+Можно [авторизоваться с помощью {{ iam-short-name }}-токена или токена сервисного аккаунта](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm). Примеры кода приведены [здесь](https://github.com/ydb-platform/ydb-python-sdk/tree/main/examples/service-account-credentials) и [здесь](https://github.com/ydb-platform/ydb-python-sdk/tree/main/examples/access-token-credentials).
 
 {% cut "Пример работы с `YDB Python SDK`" %}
 

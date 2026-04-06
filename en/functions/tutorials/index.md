@@ -14,7 +14,7 @@ description: This section contains tutorials for {{ sf-name }}.
 * [{#T}](telegram-bot-serverless.md)
 * [{#T}](connect-to-ydb.md)
 * [{#T}](connect-to-ydb-nodejs.md)
-* [{#T}](video-converting-queue.md)
+* [{#T}](video-converting-queue/index.md)
 * [{#T}](nodejs-typescript.md)
 * [{#T}](api-gw-integration.md)
 * [{#T}](serverless-trigger-budget-vm.md)

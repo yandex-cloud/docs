@@ -12,9 +12,11 @@ keywords:
 
 To work with most {{ yandex-cloud }} services, you need a billing account. The account stores information about the payer and payment details. {{ yandex-cloud }} debits your card and invoices you only if you are using the [paid version](../operations/activate-commercial.md).
 
-After creating a billing account, you receive the [_initial grant_](../concepts/bonus-account.md#start) you can use to pay for resources.
+After the billing account is created, the [_initial grant_](../concepts/bonus-account.md#start) is issued to individuals and businesses alike.
 
-New customers registered as a business are eligible for a [_trial period_](../concepts/trial-period.md). The trial period allows you to discover the features of the cloud infrastructure for free with some limitations. To prevent loss of access to your resources after your trial period ends, upgrade to the paid version.
+New customers registered as a business are eligible for a [_trial period_](../concepts/trial-period.md). New individual customers start using {{ yandex-cloud }} under the consumption-based model. There is no trial period available for them.
+
+The trial period allows you to discover the features of the cloud infrastructure for free with some limitations. To continue using the resources after your trial period ends, upgrade to the paid version.
 
 {% include [non-residents-limitations](../../_includes/billing/non-residents-limitations.md) %}
 

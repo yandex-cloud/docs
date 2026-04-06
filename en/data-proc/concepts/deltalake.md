@@ -34,15 +34,13 @@ Delta Lake and {{ dataproc-name }} versions are only compatible if the Delta Lak
 #|
 || **{{ dataproc-name }} version** | **{{ SPRK }} version** | **Delta Lake version**                                              | **JAR files**                                                                                                         ||
 || 2.0.x                          | 3.0.3                   | [0.8.0](https://github.com/delta-io/delta/releases/tag/v0.8.0)     | [delta-core_2.12-0.8.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/0.8.0/delta-core_2.12-0.8.0.jar)  ||
-|| 2.1.0 and 2.1.3                  | 3.2.1                   | [2.0.2](https://github.com/delta-io/delta/releases/tag/v2.0.2)     | [delta-core_2.12-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.0.2/delta-core_2.12-2.0.2.jar),
-[delta-storage-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.0.2/delta-storage-2.0.2.jar)        ||
-|| 2.1.4 and higher                   | 3.3.2                   | [2.3.0](https://github.com/delta-io/delta/releases/tag/v2.3.0)     | [delta-core_2.12-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.3.0/delta-core_2.12-2.3.0.jar),
-[delta-storage-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.3.0/delta-storage-2.3.0.jar)        ||
+|| 2.1.x                   | 3.3.2                   | [2.3.0](https://github.com/delta-io/delta/releases/tag/v2.3.0)     | [delta-core_2.12-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.3.0/delta-core_2.12-2.3.0.jar),
+                                                                                                                                   [delta-storage-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.3.0/delta-storage-2.3.0.jar)        ||
 |#
 
 {% note info %}
 
-{{ dataproc-name }} 2.1.x clusters are at the [Preview stage](../../overview/concepts/launch-stages.md) and provided upon request. Contact [support]({{ link-console-support }}) or your account manager.
+{{ dataproc-name }} 2.2.x clusters are at the [Preview stage](../../overview/concepts/launch-stages.md) and can be provided upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

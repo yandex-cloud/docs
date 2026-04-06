@@ -69,10 +69,10 @@ Prior to the checks, make sure that:
 
 You can automate the audit of compliance with all recommendations using [{{ sd-full-name }}](../../../security-deck/), a comprehensive CNAPP solution featuring the following modules:
 * [{{ atr-name }} to monitor {{ yandex-cloud }} team actions on user resources](../../../security-deck/concepts/access-transparency.md).
-* [Data Security Posture Management](../../../security-deck/concepts/dspm.md) ({{ dspm-name }}).
-* [Cloud Security Posture Management](../../../security-deck/concepts/cspm.md) ({{ cspm-name }}).
-* [{{ k8s }} Security Posture Management](../../../security-deck/concepts/kspm.md) (KSPM).
-* [Cloud Infrastructure Entitlement Management](../../../security-deck/concepts/ciem.md) ({{ ciem-name }}).
+* [{{ dspm-full-name }}](../../../security-deck/concepts/dspm.md) ({{ dspm-name }}).
+* [{{ cspm-full-name }}](../../../security-deck/concepts/cspm.md) ({{ cspm-name }}).
+* [{{ kspm-full-name }}](../../../security-deck/concepts/kspm.md) ({{ kspm-name }}).
+* [{{ ciem-full-name }}](../../../security-deck/concepts/ciem.md) ({{ ciem-name }}).
 * [Alerts](../../../security-deck/concepts/alerts.md).
 
 {{ sd-full-name }} also offers a {{ yagpt-name }}-powered [AI assistant](../../../security-deck/concepts/ai-assistant.md) to provide you with security recommendations.
@@ -88,4 +88,4 @@ This document uses the terms and definitions introduced in ISO/IEC 27000:2018 an
 
 ### IDs {#ids}
 
-Each check has an ID in the following format: `ID:IAM1`. These IDs are used to create links to standard sections for use in Cloud Security Posture Management (CSPM) tools and do not contain any other information.
+Each check has an ID in the following format: `ID:IAM1`. These IDs are used to create links to standard sections for use in {{ cspm-full-name }} ({{ cspm-name }}) tools and do not contain any other information.

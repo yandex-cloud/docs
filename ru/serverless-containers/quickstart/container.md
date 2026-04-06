@@ -9,7 +9,7 @@ Docker-образ — исполняемый пакет, который соде
 Приложение должно определять номер порта, на котором принимать запросы, из переменной окружения `PORT`. Значение переменной задается сервисом автоматически.
 
 Чтобы подготовить Docker-образ контейнера:
-1. [Создайте](../../container-registry/operations/registry/registry-create.md) реестр {{ container-registry-full-name}}.
+1. [Создайте](../../container-registry/operations/registry/registry-create.md) реестр {{ container-registry-full-name }}.
 1. [Создайте и соберите](../../container-registry/operations/docker-image/docker-image-create.md) Docker-образ на основе [Dockerfile](https://docs.docker.com/engine/reference/builder/).
 1. [Загрузите](../../container-registry/operations/docker-image/docker-image-push.md) Docker-образ в реестр.
 

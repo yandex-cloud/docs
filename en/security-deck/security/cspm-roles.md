@@ -1,9 +1,9 @@
 ---
 title: '{{ cspm-name }} service roles in {{ sd-full-name }}'
-description: This page lists the service roles required to control access to Cloud Security Posture Management ({{ cspm-name }}) in {{ sd-full-name }}.
+description: This page lists the service roles required to control access to {{ cspm-full-name }} ({{ cspm-name }}) in {{ sd-full-name }}.
 ---
 
-# Cloud Security Posture Management ({{ cspm-name }}) service roles
+# {{ cspm-full-name }} ({{ cspm-name }}) service roles
 
 With [{{ cspm-name }}](../concepts/cspm.md) service roles, you can manage user access to the {{ cspm-name }} resources and their settings, as well as to the results of configuration compliance checks with [security standards](../concepts/cspm.md#standards).
 

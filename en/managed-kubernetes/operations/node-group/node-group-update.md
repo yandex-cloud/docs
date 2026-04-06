@@ -549,7 +549,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. Select the node group you need.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
-    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
+    1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
     1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

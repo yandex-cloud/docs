@@ -9,11 +9,7 @@ description: Managing access permissions in {{ sd-full-name }} information secur
 
 To allow access to {{ sd-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
-{% note info %}
-
 For more information about role inheritance, see [Inheritance of access permissions](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
-
-{% endnote %}
 
 ## Available service roles {#roles-list}
 
@@ -45,9 +41,9 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {{ yandex-cloud }} also supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
-* [Roles for Data Security Posture Management](./dspm-roles.md).
-* [Roles for security management with KSPM](./kspm-roles.md).
-* [Roles for Cloud Infrastructure Entitlement Management](./ciem-roles.md).
+* [Roles for {{ dspm-full-name }}](./dspm-roles.md).
+* [Roles for security management with {{ kspm-name }}](./kspm-roles.md).
+* [Roles for {{ ciem-full-name }}](./ciem-roles.md).
 * [Roles for security management with {{ cspm-name }}](./cspm-roles.md).
 * [Roles for {{ atr-name }} data analysis](./access-transparency-roles.md).
 * [Roles for managing alerts and alert sinks](./alerts-roles.md).

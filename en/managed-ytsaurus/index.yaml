@@ -24,22 +24,100 @@ meta:
     - keyword: '{{ myt-name }}'
     - keyword: '{{ myt-full-name }}'
     - keyword: service {{ myt-name }}
-links:
-  - title: Getting started
-    description: Create your first {{ ytsaurus-name }} cluster
-    href: quickstart
-  - title: Step-by-step guides
-    description: How to perform routine operations
-    href: operations/
-  - title: Quotas and limits
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Configure access permissions to use this service
-    href: security/
-  - title: Pricing policy
-    description: Service pricing and cost calculation
-    href: pricing
-  - title: Release notes
-    description: Releases and updates
-    href: release-notes
+blocks:
+  - type: card-layout-block
+    title: Yandex Managed Service for YTsaurus
+    description: >-
+      Yandex Managed Service for YTsaurus helps you deploy and maintain YTsaurus
+      clusters in the Yandex Cloud infrastructure.
+      [YTsaurus](https://ytsaurus.tech) is an open source distributed big data
+      storage and processing platform.
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Create your first YTsaurus cluster
+        urlTitle: Getting started with Yandex Managed Service for YTsaurus
+        url: quickstart
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/rocket.svg
+          dark: assets/icons/rocket.svg
+      - type: basic-card
+        title: Step-by-step guides
+        text: How to perform routine operations
+        urlTitle: Step-by-step guides for Managed Service for YTsaurus
+        url: operations/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/list-ol.svg
+          dark: assets/icons/list-ol.svg
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations
+        urlTitle: Managed Service for YTsaurus quotas and limits
+        url: concepts/limits
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/sliders.svg
+          dark: assets/icons/sliders.svg
+      - type: basic-card
+        title: Access management
+        text: Configure access permissions to use this service
+        urlTitle: Access management in Managed Service for YTsaurus
+        url: security/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/persons-lock.svg
+          dark: assets/icons/persons-lock.svg
+      - type: basic-card
+        title: Pricing policy
+        text: Service pricing and cost calculation
+        urlTitle: Yandex Managed Service for YTsaurus pricing policy
+        url: pricing
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/calculator.svg
+          dark: assets/icons/calculator.svg
+      - type: basic-card
+        title: Release notes
+        text: Releases and updates
+        urlTitle: Yandex Managed Service for YTsaurus release notes
+        url: release-notes
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/timeline.svg
+          dark: assets/icons/timeline.svg
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        The Yandex Cloud infrastructure is
+        [protected](https://yandex.cloud/en/docs/security/conform) pursuant to
+        the Russian Federal Law No. 152-FZ on Personal Data.
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        This service is subject to a [service level
+        agreement](https://yandex.com/legal/cloud_sla/en/). The service level is
+        set out in the document titled [Yandex Managed Service for YTsaurus
+        Service Level](https://yandex.com/legal/cloud_sla_yt/en/).
+links: []

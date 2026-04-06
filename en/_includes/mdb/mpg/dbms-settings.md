@@ -400,7 +400,7 @@
 
   For more information, see the `enable_bitmapscan` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
 
-- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
+- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Allows the planner to use the Gather Merge node to merge rows produced by parallel processes while preserving the original output order.
 
@@ -1387,7 +1387,7 @@
 
   For more information, see the `vacuum_cost_page_miss` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
-- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
+- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Maximum age of a <q>frozen</q>, i.e., completed, transaction measured in the number of transactions that have been started after it. Once this threshold is reached, the system runs the `VACUUM` process to prevent transaction ID wraparound.
 
@@ -1397,7 +1397,7 @@
 
   For more information, see the `vacuum_failsafe_age` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
-- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
+- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Maximum age of a <q>frozen</q>, i.e., completed, [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured in the number of multi-transactions that have been started after it. Once this threshold is reached, the system runs the `VACUUM` process to prevent multixact ID wraparound.
 

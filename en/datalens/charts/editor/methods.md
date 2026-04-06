@@ -1676,39 +1676,56 @@ Where:
 
 #### Example {#update-params-example}
 
-Example for the table with source based on a dataset.
-
 {% list tabs %}
 
 - Params tab
 
-  [Params](./tabs.md#params) tab contents:
-
   ```js
   module.exports = {
-      "Year": "2024",
-      "City": ["Moscow", "Sochi"]
-  };
+      paramA: '1',
+      paramB: 'Value 1',
+  }
   ```
 
-- Prepare tab
-
-  [Prepare](./tabs.md#prepare) tab contents:
+- Controls tab
 
   ```js
-  Editor.updateParams({"City": ["Vladimir"]});
+  const {paramA} = Editor.getParams();
+  
+  const currentParamA = Number(paramA[0]);
+  
+  Editor.updateParams({paramB: [`${currentParamA} value`]})
+  
+  module.exports = [
+      {
+          type: 'button',
+          label: 'Change value',
+          theme: 'action',
+          onClick: {
+              action: 'setParams',
+              args: {
+                  paramA: [currentParamA > 2 ? 1 : currentParamA + 1] 
+              }
+          },
+          updateOnChange: true,
+      },
+      {
+          type: 'select',
+          param: 'paramB',
+          content: ['Value 1', 'Value 2', 'Value 3'],
+      }
+  ];
   ```
 
 - Result
 
-  Object with chart parameters after running the **Prepare** tab:
+  Each time you click the button, it cycles through these values: `Value 1`, `Value 2`, `Value 3`.
 
-  ```json
-  {
-    "Year": ["2024"],
-    "City": ["Vladimir"]
-  }
-  ```
+  The initial values ​​are: `paramA: '1'` and `paramB: 'Value 1'`.
+  
+  After you click the button on the **Controls** tab, `paramA` increases by `1`. If its value is greater than `2`, it gets set to `1`. The `paramB` value changes with the help of the `Editor.updateParams()` method to `${currentParamA} value`, where ${currentParamA}` is the current `paramA` value.
+  
+  After this, the selector will be redrawn based on the current `paramB` value.
 
 {% endlist %}
 

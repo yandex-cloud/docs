@@ -28,7 +28,7 @@ To visualize and explore data, [get your cloud ready](#before-you-begin) and fol
 
 {% note info %}
 
-To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will need a [service account](../../iam/concepts/users/service-accounts.md)with the `{{ roles-editor }}` [role](../../iam/operations/sa/assign-role-for-sa.md) for the folder where you will be creating the {{ objstorage-short-name }} [bucket](../../storage/concepts/bucket.md) [connection will be created](#create_connection).
+To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will need a [service account](../../iam/concepts/users/service-accounts.md)with the `{{ roles-editor }}` [role](../../iam/operations/sa/assign-role-for-sa.md) for the folder where you will be creating the {{ objstorage-short-name }} [bucket](../../storage/concepts/bucket.md) [connection](#create_connection).
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
@@ -53,15 +53,15 @@ To create a {{ yq-full-name }} connection:
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select a **{{ yq-full-name }}** connection.
-1. Specify the connection settings:
+1. Configure the connection as follows:
 
-   * **Cloud and folder**. Select the folder where you keep your service account.
+   * **Cloud and folder**. Select the folder with your service account.
    * **Service account**. Select an existing [service account](../../iam/concepts/users/service-accounts.md) or create a new one.
    * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value.
    * **Raw SQL level**. Select **Allow subqueries from datasets and queries from charts**.
 
 1. Click **Create connection**.
-1. Enter a connection name, e.g., `yq-connect`, and click **Create**.
+1. Enter `yq-connect` as your connection name and click **Create**.
 
 ## Configure the dataset fields {#create_dataset}
 

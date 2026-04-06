@@ -2026,7 +2026,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 В целях обеспечения безопасности данных и облачной инфраструктуры необходимо регулярно проводить аудит прав доступа, имеющихся у пользователей и сервисных аккаунтов.
 
-[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} (Cloud Infrastructure Entitlement Management) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../../organization/concepts/groups.md), [системных групп](../../../iam/concepts/access-control/system-group.md) и [публичных групп](../../../iam/concepts/access-control/public-group.md) к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
+[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} ({{ ciem-name }}) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../../organization/concepts/groups.md), [системных групп](../../../iam/concepts/access-control/system-group.md) и [публичных групп](../../../iam/concepts/access-control/public-group.md) к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
 
 Подробнее см. в разделе [{#T}](../../../security-deck/concepts/ciem.md).
 

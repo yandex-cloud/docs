@@ -222,9 +222,9 @@ keywords:
             * `task` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
             * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         * `--retry-policy-exchange-manager-service-s3` — использование S3-хранилища для записи данных при перезапросах.
-        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
+        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
     1. Чтобы добавить настройки выполнения запросов и выделения ресурсов для запросов, задайте параметр:
 
@@ -238,7 +238,7 @@ keywords:
 
         * `--query-properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `<ключ>=<значение>`.
 
-          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
     1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
 
@@ -426,7 +426,7 @@ keywords:
 
             * `resourceManagement.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
 
-              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 
@@ -591,7 +591,7 @@ keywords:
 
             * `resource_management.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
 
-              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 

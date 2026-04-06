@@ -1,6 +1,6 @@
 ### Error when accessing a binary log {#binlog-bytes}
 
-The following error may occur during _{{ dt-type-copy-repl}}_ transfers:
+The following error may occur during _{{ dt-type-copy-repl }}_ transfers:
 
 ```text
 Warn(replication): failed to run (abstract1 source):

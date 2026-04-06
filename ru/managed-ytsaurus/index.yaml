@@ -3,9 +3,8 @@ description:
   - >-
     Сервис {{ myt-full-name }} помогает разворачивать и поддерживать кластеры {{
     ytsaurus-name }} в инфраструктуре Yandex Cloud. <a
-    href="https://ytsaurus.tech/ru">YTsaurus</a>  — это платформа
-    распределённого хранения и обработки больших данных с открытым исходным
-    кодом.
+    href="https://ytsaurus.tech/ru">YTsaurus</a> — это платформа распределённого
+    хранения и обработки больших данных с открытым исходным кодом.
   - >-
     Инфраструктура {{ yandex-cloud }} <a
     href="/docs/security/conform">защищена</a> в соответствии с Федеральным
@@ -25,22 +24,101 @@ meta:
     - keyword: '{{ myt-name }}'
     - keyword: '{{ myt-full-name }}'
     - keyword: сервис {{ myt-name }}
-links:
-  - title: Начало работы
-    description: Создайте первый кластер {{ ytsaurus-name }}
-    href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Настройте права доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: История изменений
-    description: Перечень обновлений сервиса
-    href: release-notes
+blocks:
+  - type: card-layout-block
+    title: Yandex Managed Service for YTsaurus
+    description: >-
+      Сервис Yandex Managed Service for YTsaurus помогает разворачивать и
+      поддерживать кластеры YTsaurus в инфраструктуре Yandex Cloud.
+      [YTsaurus](https://ytsaurus.tech/ru) — это платформа распределенного
+      хранения и обработки больших данных с открытым исходным кодом.
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Создайте первый кластер YTsaurus
+        urlTitle: Как начать работать с Yandex Managed Service for YTsaurus
+        url: quickstart
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/rocket.svg
+          dark: assets/icons/rocket.svg
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        urlTitle: Пошаговые инструкции для Managed Service for YTsaurus
+        url: operations/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/list-ol.svg
+          dark: assets/icons/list-ol.svg
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        urlTitle: Квоты и лимиты
+        url: concepts/limits
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/sliders.svg
+          dark: assets/icons/sliders.svg
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для работы с сервисом
+        urlTitle: Управление доступом в Managed Service for YTsaurus
+        url: security/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/persons-lock.svg
+          dark: assets/icons/persons-lock.svg
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        urlTitle: Правила тарификации для Yandex Managed Service for YTsaurus
+        url: pricing
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/calculator.svg
+          dark: assets/icons/calculator.svg
+      - type: basic-card
+        title: История изменений
+        text: Перечень обновлений сервиса
+        urlTitle: История изменений в Yandex Managed Service for YTsaurus
+        url: release-notes
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/timeline.svg
+          dark: assets/icons/timeline.svg
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        Инфраструктура Yandex Cloud
+        [защищена](https://yandex.cloud/ru/docs/security/conform) в соответствии
+        с Федеральным законом Российской Федерации «О персональных данных»
+        № 152-ФЗ.
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        Для сервиса действует [соглашение об уровне
+        обслуживания](https://yandex.ru/legal/cloud_sla/ru/). Уровень
+        обслуживания сервиса определен в документе [Уровень обслуживания Yandex
+        Managed Service for YTsaurus](https://yandex.ru/legal/cloud_sla_yt/ru/).
+links: []

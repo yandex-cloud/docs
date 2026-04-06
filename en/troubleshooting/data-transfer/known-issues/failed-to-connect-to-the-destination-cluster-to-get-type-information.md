@@ -13,6 +13,6 @@ hostname resolving error (lookup host_name.mdb.yandexcloud.net on 127.0.0.1:53) 
 
 Most likely, the settings of the cloud subnet of the target cluster or source cluster in this transfer include addresses of third-party DNS servers. In this case, when running a transfer, you will get the `hostname resolving error` message.
 
-For more information, see [**Networking in {{ data-transfer-full-name}}**](../../../data-transfer/concepts/network.md).
+For more information, see [**Networking in {{ data-transfer-full-name }}**](../../../data-transfer/concepts/network.md).
 
 To fix this issue, you can either set up the third-party DNS servers to resolve the clusters host names or add the cluster endpoint by its IP address (as an external installation).

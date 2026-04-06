@@ -246,9 +246,9 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. Чарт {{datalens-name }}.
-1. Датасет {{datalens-name }}.
-1. Подключение {{datalens-name }}.
+1. Чарт {{ datalens-name }}.
+1. Датасет {{ datalens-name }}.
+1. Подключение {{ datalens-name }}.
 1. [Привязку {{ yq-name }}](../../query/operations/binding.md#delete).
 1. [Соединение {{ yq-name }}](../../query/operations/connection.md#delete).
 1. [Функцию {{ sf-name }}](../../functions/operations/function/function-delete.md).

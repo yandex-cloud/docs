@@ -418,3 +418,194 @@ description: Из статьи вы узнаете, за что отвечают
 
 Доступно для всех [типов визуализаций](./widgets/index.md). Подробный формат вкладки зависит от типа [контролов](./widgets/controls.md).
 
+
+## Activities {#activities}
+
+Вкладка позволяет конфигурировать [интерактивные действия](#run-activities) для элементов дашборда, например, отправлять HTTP-запрос по клику на строку таблицы.
+
+Доступно для типов визуализаций [Селектор](./widgets/controls.md), [Таблица](./widgets/table.md) и [График (Gravity UI Charts)](./widgets/chart.md).
+
+{% list tabs %}
+
+- Формат
+
+  ```js
+  module.exports = {
+      sources: ({params}) => { /* конфигурация источников */ },
+      handleResponse: ({data}) => { /* обработка ответа */ }
+  }
+  ```
+
+- Пример
+
+  ```js
+  module.exports = {
+    sources: ({params}) => {
+        const ticketId = params.cells[0].value;
+        return {
+            todoList: {
+                apiConnectionId: Editor.getId('todoListConnection'),
+                path: `?ticketId=${ticketId}`,
+                method: "GET",
+            },
+        }; 
+    },
+    handleResponse: ({data}) => {
+        const ticket = data.todoList.data.body;
+        return {
+            action: 'popup',
+            title: ticket.title,
+            content: ticket.description,
+        };
+    }
+  };
+  ```
+
+{% endlist %}
+
+### Доступные методы {#activities-methods}
+
+* Метод `sources()` — функция, возвращающая объект для подключения к источнику данных. Используется для отправки запросов. Формат идентичен формату вкладки [Sources](#sources).
+
+  ```js
+  sources: ({params}) => ({     
+      sourceKey: {         
+          apiConnectionId: Editor.getId("mySourceKeyName"),         
+          path: '/api/endpoint',         
+          method: 'POST',         
+          body: { /* данные запроса */ }     
+      } 
+  })
+  ```
+
+  Где:
+  
+  * `params` — объект с параметрами из элементов управления дашборда.
+  * `apiConnectionId` — ID подключения с типом [API Connector](../../operations/connection/create-api-connector.md), описанного на вкладке [Meta](#meta) и полученного с помощью метода [Editor.getId(arg)](./methods.md#get-id).
+  * `mySourceKeyName` — имя-алиас источника данных, описанного на вкладке Meta.
+  * `path` — путь к API после хоста.
+  * `method` — метод запроса.
+  * `body` — данные запроса.
+
+* Метод `handleResponse()` — функция, возвращающая объект в формате, зависящем от типа [действия](#activities-actions). Обрабатывает ответ от сервера и определяет действие в интерфейсе.
+
+  ```js
+      handleResponse: ({data}) => { /* обработка ответа */ }
+  ```
+
+  Где `data` — объект с ответами от источников данных.
+
+### Доступные действия {#activities-actions}
+
+* `toast` — всплывающее уведомление:
+
+  {% list tabs %}
+
+  - Формат
+
+    ```json
+    {
+        action: "toast",
+        title: "<string>",
+        content: "<string>",
+        type: "warning"|"success"|"normal"|"info"|"danger"|"utility",
+    }
+    ```
+
+    Где:
+
+    * `action` — тип действия, которое нужно вызывать после отправки запроса. Значение `toast` показывает компоненту всплывающего кратковременного уведомления в правом нижнем углу.
+    * `title` — заголовок уведомления.
+    * `content` — содержимое уведомления.
+
+  - Пример
+
+    ```js
+    {
+        action: 'toast',
+        title: 'Заголовок',
+        content: 'Текст уведомления' 
+    }
+    ```
+
+  {% endlist %}
+
+* `popup` — всплывающее окно:
+
+  {% list tabs %}
+
+  - Формат
+
+    ```json
+    {
+        action: "popup",
+        title: "<string>",
+        /** текст или разметка в формате markdown */
+        content: "<string>",
+    }
+    ```
+
+    Где:
+
+    * `action` — тип действия, которое нужно вызывать после отправки запроса. Значение `popup` показывает компоненту всплывающего окна по центру экрана.
+    * `title` — заголовок окна.
+    * `content` — содержимое окна.
+
+  - Пример
+
+    ```js
+    {
+        action: 'popup',
+        title: 'Заголовок',
+        content: 'Содержимое окна' 
+    }
+    ```
+
+  {% endlist %}
+
+* `setParams` — установка параметров:
+
+  {% list tabs %}
+
+  - Формат
+
+    ```json
+    {
+        action: "setParams",
+        params: object,
+    }
+    ```
+
+    Где:
+
+    * `action` — тип действия, которое нужно вызывать после отправки запроса. Значение `setParams` обновляет значения параметров из переданного поля `params`.
+    * `params` — объект со списком ключей и значений параметров для установки.
+
+  - Пример
+
+    ```js
+    {
+        action: "setParams",
+        params: {p: ["1"]}
+    }
+    ```
+
+  {% endlist %}
+
+### Выполнение действий {#run-activities}
+
+Чтобы выполнить действия вкладки **Activities**, обработайте события элементов интерфейса:
+
+* Для селекторов: на вкладке **Controls** для кнопки укажите действие `runActivity` по событию `onClick`.
+* Для чартов **График (Gravity UI Charts)** и **Таблица**: настройте действие `runActivity` на вкладке **Config**.
+
+### Ограничения {#activities-restrictions}
+
+* На вкладке **Activities** доступен ограниченный набор источников данных для отправки запросов: запросы к датасетам, стандартным подключениям и подключениям API Connector.
+* Функциональность на текущий момент доступна для следующих типов чартов: [Селектор](./widgets/controls.md), [Таблица](./widgets/table.md) и [График (Gravity UI Charts)](./widgets/chart.md).
+
+
+#### См. также {#see-also-activities}
+
+* [Пример использования вкладки Activities в Editor](../../tutorials/create-editor-activities.md)
+

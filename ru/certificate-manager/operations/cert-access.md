@@ -74,6 +74,42 @@ description: Следуя данной инструкции, вы сможете
           * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md).
           * `--role` — назначаемая роль.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы назначить роль на сертификат с помощью {{ TF }}:
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      resource "yandex_cm_certificate_iam_member" "mycert-roles" {
+        certificate_id = "<идентификатор_сертификата>"
+        role           = "<роль>"
+        member         = "<тип_субъекта>:<идентификатор_субъекта>"
+      }
+      ```
+
+      Где:
+
+      * `certificate_id` — идентификатор сертификата.
+      * `role` — назначаемая [роль](../security/index.md#roles-list).
+      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+
+       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/):
+
+      ```bash
+      yc certificate-manager certificate list-access-bindings <идентификатор_сертификата>
+      ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `ADD`, а в свойстве `subject` — тип и идентификатор пользователя.
@@ -118,7 +154,6 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--access-binding` — назначаемая роль:
-
           * `role` — идентификатор назначаемой роли.
           * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
@@ -131,12 +166,53 @@ description: Следуя данной инструкции, вы сможете
         --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы назначить несколько ролей на сертификат с помощью {{ TF }}:
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      resource "yandex_cm_certificate_iam_member" "mycert-roles1" {
+        certificate_id = "<идентификатор_сертификата>"
+        role           = "<роль_1>"
+        member         = "<тип_субъекта>:<идентификатор_субъекта>"
+      }
+
+      resource "yandex_cm_certificate_iam_member" "mycert-roles2" {
+        certificate_id = "<идентификатор_сертификата>"
+        role           = "<роль_2>"
+        member         = "<тип_субъекта>:<идентификатор_субъекта>"
+      }
+      ```
+
+      Где:
+
+      * `certificate_id` — идентификатор сертификата.
+      * `role` — назначаемая [роль](../security/index.md#roles-list).
+      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+
+       Подробнее о параметрах ресурса `yandex_cm_certificate_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно с помощью команды [CLI](../../cli/):
+
+      ```bash
+      yc certificate-manager certificate list-access-bindings <идентификатор_сертификата>
+      ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [setAccessBindings](../api-ref/Certificate/setAccessBindings.md) для ресурса [Certificate](../api-ref/Certificate/) или вызовом gRPC API [CertificateService/SetAccessBindings](../api-ref/grpc/Certificate/setAccessBindings.md).
 
 {% endlist %}
-
 
 ## Отозвать роль {#revoke-role}
 
@@ -180,6 +256,33 @@ description: Следуя данной инструкции, вы сможете
         --role viewer \
         --subject userAccount:ajel6l0jcb9s********
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы отозвать роль, назначенную на сертификат:
+
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием роли:
+
+      ```hcl
+      resource "yandex_cm_certificate_iam_member" "mycert-roles" {
+        certificate_id = "<идентификатор_сертификата>"
+        role           = "<роль>"
+        member         = "<тип_субъекта>:<идентификатор_субъекта>"
+      }
+      ```
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      Проверить изменения можно с помощью команды [CLI](../../cli/quickstart.md):
+      ```bash
+      yc certificate-manager certificate list-access-bindings <идентификатор_сертификата>
+      ``
 
 - API {#api}
 

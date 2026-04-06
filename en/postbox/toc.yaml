@@ -140,6 +140,8 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Request headers
             href: aws-compatible-api/api-ref/request-headers.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials

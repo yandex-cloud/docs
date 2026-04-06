@@ -161,13 +161,13 @@ Module name: `securitydeck.alerts`.
 
 {% include [sd-alerts-events-dp](../../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
 
-### Cloud Security Posture Management ({{ cspm-name }}) {#sd-cspm}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#sd-cspm}
 
 Module name: `securitydeck.cspm`.
 
 {% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
-### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#sd-kspm}
 
 Module name: `securitydeck.kspm`.
 

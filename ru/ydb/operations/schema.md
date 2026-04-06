@@ -115,12 +115,12 @@
 
         {% endnote %}
 
-     * **{{ ui-key.yacloud.ydb.table.form.column_not-null}}**. Укажите, может ли колонка содержать значение `NULL`.
-     <!-- * **{{ ui-key.yacloud.ydb.table.form.column_default}}**. Укажите значение колонки по умолчанию. -->
+     * **{{ ui-key.yacloud.ydb.table.form.column_not-null }}**. Укажите, может ли колонка содержать значение `NULL`.
+     <!-- * **{{ ui-key.yacloud.ydb.table.form.column_default }}**. Укажите значение колонки по умолчанию. -->
   1. Настройте параметры TTL таблицы:
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Выберите колонку, значение которой будет использоваться для вычисления времени жизни строк.
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Укажите время жизни строк таблицы.
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Выберите единицу измерения указанного времени жизни строк таблицы.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column }}**. Выберите колонку, значение которой будет использоваться для вычисления времени жизни строк.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime }}**. Укажите время жизни строк таблицы.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit }}**. Выберите единицу измерения указанного времени жизни строк таблицы.
   1. Настройте партицирование:
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-key }}** — Укажите колонку, по которой будет партицироваться таблица.
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-count }}** — Укажите количество партиций таблицы.
@@ -214,9 +214,9 @@
             * **{{ ui-key.yacloud.ydb.table.form.column_type }}** данных колонки. Независимо от типа данных, каждая колонка может содержать значение `NULL`.
         -  Удалите неключевые колонки из таблицы, нажмите на значок ![image](../../_assets/cross.svg) в нужной строке. Удалить колонки, которые образуют первичный ключ, невозможно.
         -  Настройте параметры TTL таблицы:
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Выберите колонку, значение которой будет использоваться для вычисления времени жизни строк.
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Укажите время жизни строк таблицы.
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Выберите единицу измерения указанного времени жизни строк таблицы.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column }}**. Выберите колонку, значение которой будет использоваться для вычисления времени жизни строк.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime }}**. Укажите время жизни строк таблицы.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit }}**. Выберите единицу измерения указанного времени жизни строк таблицы.
 
    1. Нажмите кнопку **{{ ui-key.yacloud.ydb.table.edit.button_update }}**.
 

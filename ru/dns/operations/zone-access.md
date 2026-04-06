@@ -146,9 +146,8 @@ description: Следуя данной инструкции, вы настрои
      Где:
 
      * `--access-binding` — параметры для установки прав доступа:
-
-       * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+         * `role` — назначаемая [роль](../security/index.md#roles-list).
+         * `subject` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
      Например, назначьте роли `dns.editor` нескольким пользователям и сервисному аккаунту:
 
@@ -266,7 +265,6 @@ description: Следуя данной инструкции, вы настрои
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием роли:
 
       ```hcl
-      ...
       resource "yandex_dns_zone_iam_binding" "sa-role" {
         dns_zone_id = "<идентификатор_зоны>"
         role        = "<роль>"

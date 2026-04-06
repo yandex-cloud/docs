@@ -18,6 +18,8 @@ You can invoke a container:
 
 ## HTTPS {#https}
 
+{% include [call-limited-by-access-policies-notice](../../_includes/serverless-containers/call-limited-by-access-policies-notice.md) %}
+
 When calling a container over HTTPS, an HTTP request is passed to the application deployed in the container.
 
 ### Filtering message headers {#filter}

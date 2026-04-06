@@ -10,7 +10,7 @@ editable: false
 
 ## Rules by category {#by-category}
 
-* [CSPM — Cloud Security Posture Management](cspm.md)
+* [{{ cspm-name }} — {{ cspm-full-name }}](cspm.md)
 
 ## All rules {#all-rules}
 

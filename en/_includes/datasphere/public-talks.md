@@ -21,7 +21,7 @@ description: Videos of conferences and webinars on {{ ml-platform-name }}.
 
 * {{ yagpt-name }} model tuning in {{ ml-platform-full-name }}. Click [here](https://www.youtube.com/watch?v=hGrH0Shovtk) to watch the video.
 
-* {{ ml-platform-full-name}} Jobs: Running local code in a cloud. Click [here](https://www.youtube.com/watch?v=As9b73RORTk) to watch the video.
+* {{ ml-platform-full-name }} Jobs: Running local code in a cloud. Click [here](https://www.youtube.com/watch?v=As9b73RORTk) to watch the video.
 
 * Running a local ML process in a cloud using {{ ds-jobs }}. Read [our article](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/788872/).
 

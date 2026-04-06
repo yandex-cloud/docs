@@ -42,8 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a DB for storing the {{ tracker-short-name }} data {#database-create}
 
 1. Navigate to the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-1. Select **Data platform** → **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Specify the cluster parameters:
     * {{ ui-key.yacloud.mdb.forms.section_base }}:
@@ -71,21 +70,35 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create an OAuth token for {{ tracker-short-name }} access {#oauth-token}
 
 1. Go to the [Create an app](https://oauth.yandex.ru/client/new) page.
-1. Fill out the fields as follows:
-    * **Service name**
-    * **Platforms**: `Web services`
-    * **Redirect URI**: Click **Enter URL for debugging** or type `https://oauth.yandex.ru/verification_code`.
-1. Under **Data access**, specify:
-    * `Read from tracker`
-    * `Write to tracker`
-1. Click **Create app**.
+1. In the **What app do you want to create?** window, leave `For user authorization` and click **Proceed to creation**. If you see a verification window for your Public Services Portal account, close it.
+1. In the **Create app** window:
+
+   * Enter your **Service name**.
+   * Add an icon for your service.
+   * Specify the email address for notifications about changes in external authorization.
+   
+   Click **Next**.
+
+1. In the **App platforms** window, select `Web services`. In the **Redirect URI** field, specify the URL where to redirect the user after they have allowed or denied access to the app, or enter `https://oauth.yandex.ru/verification_code` for debugging.
+
+   Click **Next**.
+
+1. In the **User data access permissions** window, under **Additional**, specify:
+
+   * `Read from tracker`
+   * `Write to tracker`
+
+   Click **Next**.
+
+1. Check the data and click **Everything is correct, create app**.
+1. Copy the app ID from the **ClientID** field.
 1. In the window that opens, enter the following URL in the browser search bar:
 
     ```
     https://oauth.yandex.ru/authorize?response_type=token&client_id=<app_ID>
     ```
 
-    Where `client_id` is the new app's ID in the **ClientID** field.
+    Where `client_id` is the created app ID copied from the **ClientID** field.
 
 1. Log in under the {{ tracker-short-name }} account to be used for data visualization.
 1. Save the received OAuth token.
@@ -93,8 +106,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a {{ sf-name }} function for importing the data {#function-import}
 
 1. Navigate to the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Specify a name for the function and click **{{ ui-key.yacloud.common.create }}**.
 1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select the `Python` runtime environment.
@@ -114,7 +126,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
           {% endnote %}
 
-        * `TRACKER_OAUTH_TOKEN`: [OAuth token](#oauth-token) of the {{ tracker-short-name }} account.
+        * `TRACKER_OAUTH_TOKEN`: {{ tracker-short-name }} account [OAuth token](#oauth-token).
         * `CH_HOST`: [Host](#database-create) name.
         * `CH_DB`: [Database](#database-create) name.
         * `CH_USER`: [Username](#database-create).
@@ -148,7 +160,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a connection in {{ datalens-short-name }} {#connection-create}
 
-1. Open the **{{ mch-name}}** [cluster](#database-create).
+1. Open the **{{ mch-name }}** [cluster](#database-create).
 1. On the left side of the window, select ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
 1. Click **Create connection**.
 1. Specify the connection settings:

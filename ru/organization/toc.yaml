@@ -179,6 +179,8 @@ items:
                 href: operations/mfa/create-policy.md
               - name: Применить политику MFA к пользователям
                 href: operations/mfa/add-users.md
+              - name: Управлять исключениями политики MFA
+                href: operations/mfa/excluded-audience.md
               - name: Изменить политику MFA
                 href: operations/mfa/update-policy.md
               - name: Активировать и деактивировать политику MFA

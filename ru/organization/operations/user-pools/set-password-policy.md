@@ -245,3 +245,5 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [update](../../idp/api-ref/Userpool/update.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Update](../../idp/api-ref/grpc/Userpool/update.md).
 
 {% endlist %}
+
+{% include [password-policy-note](../../../_includes/organization/password-policy-note.md) %}

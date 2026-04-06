@@ -49,4 +49,4 @@ Example of a secure Object Storage configuration: [Terraform](https://github.com
 Guides and solutions to use:
 
 * It is recommended to assign minimum roles for a bucket using IAM and supplementing or itemizing them using a bucket policy (for example, to restrict access to the bucket by IP, grant granular permissions for objects, and so on).
-* If public access is required, it is recommended to use DSPM to monitor the presence of sensitive data in buckets.
+* If public access is required, it is recommended to use {{ dspm-name }} to monitor the presence of sensitive data in buckets.

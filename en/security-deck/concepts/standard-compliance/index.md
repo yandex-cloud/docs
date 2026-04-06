@@ -5,7 +5,7 @@ description: With the compliance UI, you can view information about the complian
 
 # Compliance UI
 
-In {{ sd-full-name }}, the [{{ cspm-name }}](../cspm.md) and [KSPM](../kspm.md) modules check your controlled infrastructure for compliance with security-related industry standards and regulations. For each standard and regulation, there is an individual set of [requirements](#security-rule-sets).
+In {{ sd-full-name }}, the [{{ cspm-name }}](../cspm.md) and [{{ kspm-name }}](../kspm.md) modules check your controlled infrastructure for compliance with security-related industry standards and regulations. For each standard and regulation, there is an individual set of [requirements](#security-rule-sets).
 
 {% note info %}
 
@@ -37,5 +37,5 @@ Click the row with the rule for additional info, including violation details and
 
 #### See also {#see-also}
 
-* [Checking your infrastructure for compliance with security standards based on the KSPM rules](../../operations/kspm/check-compliance.md)
+* [Checking your infrastructure for compliance with security standards based on the {{ kspm-name }} rules](../../operations/kspm/check-compliance.md)
 * [Checking your infrastructure for compliance with security standards based on the {{ cspm-name }} rules](../../operations/cspm/check-compliance.md)

@@ -479,7 +479,7 @@ description: Следуя данной инструкции, вы сможете
     1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
     1. Выберите нужную группу узлов.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Введите ключ и значение и нажмите **Enter**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -549,7 +549,7 @@ description: Следуя данной инструкции, вы сможете
     1. Выберите нужную группу узлов.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
     1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
-    1. Нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}** и введите новые ключ и/или значение метки.
+    1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите новые ключ и/или значение метки.
     1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

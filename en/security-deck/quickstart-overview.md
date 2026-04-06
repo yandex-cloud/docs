@@ -45,17 +45,17 @@ To create your first {{ sd-name }} workspace:
 
 {{ sd-name }} includes the following modules:
 
-* [Data Security Posture Management (DSPM)](#dspm)
-* [{{ k8s }} Security Posture Management (KSPM)](#kspm)
-* [Cloud Infrastructure Entitlement Management (CIEM)](#ciem)
-* [Cloud Security Posture Management ({{ cspm-name }})](#cspm)
-* [Vulnerability Management](#vulnerability-management)
+* [{{ dspm-full-name }} ({{ dspm-name }})](#dspm)
+* [{{ kspm-full-name }} ({{ kspm-name }})](#kspm)
+* [{{ ciem-full-name }} ({{ ciem-name }})](#ciem)
+* [{{ cspm-full-name }} ({{ cspm-name }})](#cspm)
+* [{{ vuln-man-name }}](#vulnerability-management)
 * [{{ atr-name }}](#access-transparency)
 * [Compliance Portal](#compliance)
 
 To use any of the modules, navigate to the [{{ sd-name }} interface]({{ link-sd-main }}) and select the module you need in the left-hand panel. On the page that opens, you can learn more about the tool's features and terms of use. To use the module you select, complete the required setup.
 
-### Data Security Posture Management ({{ dspm-name }}) {#dspm}
+### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm}
 
 {% include [about-dspm](../_includes/security-deck/about-dspm.md) %}
 
@@ -63,25 +63,25 @@ To get started with the {{ dspm-name }} module, follow the guides on how to [cre
 
 For more information, see [{#T}](./concepts/dspm.md).
 
-### {{ k8s }} Security Posture Management (KSPM) {#kspm}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm}
 
 {% include [kspm-basic-intro](../_includes/security-deck/kspm-basic-intro.md) %}
 
-### Cloud Infrastructure Entitlement Management ({{ ciem-name }}) {#ciem}
+### {{ ciem-full-name }} ({{ ciem-name }}) {#ciem}
 
-{{ sd-name }} [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) provides a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
+{{ sd-name }} [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) provides a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 
-### Cloud Security Posture Management ({{ cspm-name }}) {#cspm}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm}
 
 {% include [cspm-basic-intro](../_includes/security-deck/cspm-basic-intro.md) %}
 
 ### Managing vulnerabilities {#vulnerability-management}
 
-[Vulnerability Management]({{ link-sd-main }}vulnerability-management/) enables you to centrally manage container image vulnerability scanning and view resource scan results within your workspace. The module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, as well as images run in {{ managed-k8s-name }} clusters.
+[{{ vuln-man-name }}]({{ link-sd-main }}vulnerability-management/) enables you to centrally manage container image vulnerability scanning and view resource scan results within your workspace. The module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, as well as images run in {{ managed-k8s-name }} clusters.
 
-Scanning can start automatically when the image is pushed to the registry, on a schedule, or when the image is used in a {{ k8s }} cluster. The module is integrated with KSPM to detect active images and inform you which vulnerable images are used in the monitored workspace.
+Scanning can start automatically when the image is pushed to the registry, on a schedule, or when the image is used in a {{ k8s }} cluster. The module is integrated with {{ kspm-name }} to detect active images and inform you which vulnerable images are used in the monitored workspace.
 
 For more information, see [{#T}](./concepts/vulnerability-management.md).
 

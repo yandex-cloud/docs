@@ -68,7 +68,7 @@ Where:
 
 ## Supported data types
 
-List of supported {{yq-iceberg-name}} data types and corresponding {{ yql-short-name }} types.
+List of supported {{ yq-iceberg-name }} data types and corresponding {{ yql-short-name }} types.
 
 | Data type {{ yq-iceberg-name }} | Data type {{ yq-full-name }} |
 | :---: | :---: | 

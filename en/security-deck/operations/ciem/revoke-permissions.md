@@ -5,7 +5,7 @@ description: In this section, you will learn how to revoke account or group acce
 
 # Revoking subject's access
 
-[Cloud Infrastructure Entitlement Management](../../concepts/ciem.md) provides a centralized view of the list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject) and groups and revoke them as needed.
+[{{ ciem-full-name }}](../../concepts/ciem.md) provides a centralized view of the list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject) and groups and revoke them as needed.
 
 Accesses can be revoked by a user with the `admin`, `resource-manager.admin`, `organization-manager.admin`, `resource-manager.clouds.owner`, or `organization-manager.organizations.owner` role, or with the admin role for the [service](../../../overview/concepts/services.md) to whose resource the subject’s access is being revoked.
 

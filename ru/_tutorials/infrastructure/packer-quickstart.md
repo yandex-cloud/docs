@@ -214,7 +214,7 @@ Packer создаст и запустит виртуальную машину с
           "folder_id": "<идентификатор_каталога>",
           "zone":      "<зона_доступности>",
 
-          "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",
+          "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name }}",
           "image_family":      "debian-web-server",
           "image_description": "my custom debian with nginx",
 

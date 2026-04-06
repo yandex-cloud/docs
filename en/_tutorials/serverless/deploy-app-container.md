@@ -397,7 +397,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 {% endlist %}
 
 
-## Create a {{ lockbox-name}} secret {#secret-create}
+## Create a {{ lockbox-name }} secret {#secret-create}
 
 The [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store encrypted authentication credentials.
 

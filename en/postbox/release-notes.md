@@ -1,9 +1,15 @@
 ---
 title: '{{ postbox-full-name }} release notes'
-description: This section contains {{ postbox-name }} release notes.
+description: This section contains the {{ postbox-name }} release notes.
 ---
 
 # {{ postbox-full-name }} release notes
+
+## February 2026 {#february-2026}
+
+### Updates {#updates}
+
+* Added support for the simple method of setting up a DKIM signature (Easy DKIM).
 
 ## October 2025 {#october-2025}
 

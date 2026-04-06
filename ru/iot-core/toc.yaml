@@ -17,7 +17,7 @@ items:
         href: operations/publish.md
       - name: Подписка устройства или реестра на получение сообщений
         href: operations/subscribe.md
-      - name: Экспорт сообщений в {{ yds-name}}
+      - name: Экспорт сообщений в {{ yds-name }}
         href: operations/yds-export.md
       - name: Просмотр журнала подключений
         href: operations/logs.md

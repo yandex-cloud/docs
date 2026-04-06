@@ -34,7 +34,7 @@ Resource specification. ||
 
 Ingress controller name specified by the `IngressClass` resource. The possible values are:
 
-* `ingress.alb.yc.io/yc-alb-ingress-controller`: {{ alb-name}} controller.
+* `ingress.alb.yc.io/yc-alb-ingress-controller`: {{ alb-name }} controller.
 * `k8s.io/ingress-nginx`: NGINX controller. ||
 |#
 

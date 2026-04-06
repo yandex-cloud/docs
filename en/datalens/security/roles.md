@@ -39,7 +39,7 @@ These roles are valid for users who adopted the new {{ datalens-short-name }} ob
 
 ### Roles for workbooks {#workbook-roles}
 
-You can [assign](../workbooks-collections/security.md#wb-coll-grant) roles for workbooks to a user.
+You can [assign](../workbooks-collections/workbooks-operations.md#wb-coll-grant) roles for workbooks to a user.
 
 #### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
 
@@ -65,7 +65,7 @@ The workbook author automatically gets the `datalens.workbooks.admin` (`Admin`) 
 
 ### Roles for collections {#collection-roles}
 
-You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user roles for collections.
+You can [assign](../workbooks-collections/collections-operations.md#wb-coll-grant) a user roles for collections.
 
 #### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
 

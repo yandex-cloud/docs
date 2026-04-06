@@ -11,8 +11,9 @@ description: You can learn what access rules are assigned for a {{ mtr-name }} c
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the name of your cluster.
-  1. Go to the **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** section.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
+
+     Access permissions are described under **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**.
 
 - CLI {#cli}
 
@@ -28,8 +29,12 @@ description: You can learn what access rules are assigned for a {{ mtr-name }} c
 
   You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- REST API {#api}
+
+  To learn what access rules are assigned for a {{ mtr-name }} cluster, [get detailed info](cluster-list.md#get-cluster) on this cluster. Access permissions are described under `accessControl`.
+
 - gRPC API {#grpc-api}
 
-  To learn what access rules are assigned for a {{ mtr-name }} cluster, [get detailed info](cluster-list.md#get-cluster) on this cluster.
+  To learn what access rules are assigned for a {{ mtr-name }} cluster, [get detailed info](cluster-list.md#get-cluster) on this cluster. Access permissions are described under `access_control`.
 
 {% endlist %}

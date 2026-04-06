@@ -1,10 +1,10 @@
 # Особенности OTLP в {{ monium-name }}
 
-{{ monium-name }} поддерживает прием метрик по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять телеметрию из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.
+{{ monium-name }} поддерживает прием телеметрии по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять данные из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.
 
 ## Эндпоинты {#endpoints}
 
-{{ monium-name }} предоставляет следующие эндпоинты для приема метрик в формате OTLP:
+{{ monium-name }} предоставляет следующие эндпоинты для приема телеметрии в формате OTLP:
 
 #|
 || **Протокол** | **Эндпоинт** | **Описание** ||

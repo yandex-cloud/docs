@@ -3,7 +3,7 @@ title: Migrating objects to workbooks
 description: Follow this guide to migrate objects to workbooks.
 ---
 
-# Migrating objects to workbooks
+# Migrating objects to workbooks from folders
 
 {% note info %}
 
@@ -13,9 +13,28 @@ description: Follow this guide to migrate objects to workbooks.
 
 {% endnote %}
 
-You can select any object ([connection](../concepts/connection/index.md), [dataset](../dataset/index.md), [chart](../concepts/chart/index.md), [dashboard](../concepts/dashboard.md)) for migration and perform it by [transferring](#migration-transfer) or [copying](#migration-copy).
+You can migrate any individual folder object (i.e., a [connection](../concepts/connection/index.md), [dataset](../dataset/index.md), [chart](../concepts/chart/index.md), or [dashboard](../concepts/dashboard.md)) by either [transferring](#migration-transfer) or [copying](#migration-copy) it.
 
-## Migration by transfer {#migration-transfer}
+{% note info %}
+
+If you want to keep only some of the workbook objects after migration, create a [workbook copy](./workbooks-operations.md#copy-workbook) and remove any redundant items.
+
+{% endnote %}
+
+## How to migrate to a workbook {#migration-operation}
+
+To copy or transfer an object to a workbook:
+
+1. Find the object you want to transfer or copy to a workbook on the [navigation page]({{ link-datalens-main }}/navigation).
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the object and select ![image](../../_assets/console-icons/arrow-chevron-right.svg) **Migrate to workbook**.
+1. Select the [migration method](#migration-methods) and click **Select**.
+1. In the window with the list of linked objects, click **Next**.
+1. In the window that opens, select the workbook to which you want to transfer or copy objects and click **Move**. To transfer or copy objects to a new workbook, click **Create a workbook**.
+1. In the **Manage access** window, configure [workbook permissions](./workbooks-operations.md#wb-coll-grant) and click **Close**.
+
+## Migration methods {#migration-methods}
+
+### Migration by transfer {#migration-transfer}
 
 When this migration type is selected, the object is transferred to the [workbook](./index.md) along with all related objects:
 
@@ -28,11 +47,11 @@ During migration, {{ datalens-short-name }} finds linked objects recursively acr
 {% note warning %}
 
 * Objects within a workbook cannot be migrated back to a folder.
-* Right after the migration, all access permissions for the transferred objects get canceled, and you become the sole workbook [administrator](../security/roles.md#datalens-workbooks-admin) and can assign [access permissions](./security.md) to other users and user groups.
+* Right after the migration, all access permissions for the transferred objects get canceled, and you become the sole workbook [administrator](../security/roles.md#datalens-workbooks-admin) and can assign [access permissions](./workbooks-operations.md#wb-coll-grant) to other users and user groups.
 
 {% endnote %}
 
-## Migration by copying {#migration-copy}
+### Migration by copying {#migration-copy}
 
 If the original object is to be saved in a folder, it can be copied to a workbook along with its linked objects:
 
@@ -54,47 +73,3 @@ You can start copying from any object. Unlike in a transfer, linked objects are 
 Copying the [Files](../operations/connection/create-file.md), [Google Sheets](../operations/connection/create-google-sheets.md), and [Yandex Documents](../operations/connection/create-yadocs.md) connections is not available.
 
 {% endnote %}
-
-## How to migrate to a workbook {#migration-operation}
-
-To copy or transfer an object to a workbook:
-
-1. Find the object you want to transfer or copy to a workbook on the [navigation page]({{ link-datalens-main }}/navigation).
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the object and select ![image](../../_assets/console-icons/arrow-chevron-right.svg) **Migrate to workbook**.
-1. Select a migration method and click **Select**.
-1. In the window with the list of linked objects, click **Next**.
-1. In the window that opens, select the workbook to which you want to transfer or copy objects and click **Move**. To transfer or copy objects to a new workbook, click **Create a workbook**.
-1. In the **Manage access** window, configure [workbook permissions](./security.md) and click **Close**.
-
-## Copying a workbook {#copy-workbook}
-
-If after migration you want your workbook to include only certain transferred objects, you can create a copy of the workbook and clear it of all unwanted objects.
-
-Let's create a workbook with a dataset. For source objects, we will use a [ready-made dataset]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) of a fictitious company from {{ datalens-short-name }} {{ marketplace-short-name }}.
-
-1. On the [navigation page]({{ link-datalens-main }}/navigation), find **Sample Superstore Dataset**.
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Migrate to workbook**.
-1. Select the `Transfer` migration method and click **Select**.
-1. In the window that opens, you will see a list of linked objects that will be transferred.
-
-   ![image](../../_assets/datalens/migration/store-migrate.png)
-
-1. Click **Next**.
-1. In the window that opens, click **Create workbook**. Enter a name, such as **Sample Superstore All**, then click **Create**. Select the new workbook in the **Collections and workbooks** list and click **Move**.
-1. In the **Manage access** window, configure [workbook permissions](./security.md) and click **Close**.
-
-   After the migration, the **Sample Superstore All** workbook with the transferred dataset and linked objects will open.
-
-   ![image](../../_assets/datalens/migration/store-workbook.png)
-
-1. Create a copy of your workbook:
-
-   1. At the top of the workbook page, click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/copy.svg) **Copy**.
-   1. In the window that opens, select the target collection and click **Copy**. To copy the workbook to a new collection, click **Create collection**.
-   1. Enter a name for the new workbook, such as **Sample Superstore Copy**, then click **Copy**.
-
-1. In the **Sample Superstore Copy** workbook, go to the **All objects** tab and delete everything except **Sample Superstore. Connection** and **Sample Superstore Dataset**. Do it by clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Delete** next to each object.
-
-Now your **Sample Superstore Copy** workbook only contains the connection called **Sample Superstore. Connection** and the dataset called **Sample Superstore Dataset**. You can create charts and a dashboard in the workbook.
-
-![image](../../_assets/datalens/migration/store-workbook-copy.png)

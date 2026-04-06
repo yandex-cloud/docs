@@ -15,17 +15,23 @@ The general format of the `event_type` field value is as follows:
 
 ## Control plane event reference {#control-plane-events}
 
-### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#sd-cspm}
+
+Module name: `cspm`.
+
+{% include [sd-cspm-events](../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### {{ kspm-full-name }} ({{ kspm-name }}) {#sd-kspm}
 
 Module name: `kspm`.
 
 {% include [sd-kspm-events](../_includes/audit-trails/events/sd-kspm-events.md) %}
 
-### Cloud Security Posture Management (CSPM) {#sd-cspm}
+### {{ alerts-name }} module {#sd-alerts}
 
-Module name: `cspm`.
+Module name: `alerts`.
 
-{% include [sd-cspm-events](../_includes/audit-trails/events/sd-cspm-events.md) %}
+{% include [sd-alerts-events](../_includes/audit-trails/events/sd-alerts-events.md) %}
 
 ### {{ sd-name }} workspaces {#sd-orchestrator}
 
@@ -35,20 +41,26 @@ Module name: `orchestrator`.
 
 ## Data plane event reference {#data-plane-events}
 
-### {{ atr-name }} module {#sd-access-transparency}
+### {{ atr-name }} module {#sd-access-transparency-dp}
 
 Module name: `accesstransparency`.
 
 {% include [sd-at-events-dp](../_includes/audit-trails/events/sd-at-events-dp.md) %}
 
-### {{ alerts-name }} module {#sd-alerts}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#sd-cspm-dp}
 
-Module name: `alerts`.
+Module name: `cspm`.
 
-{% include [sd-alerts-events-dp](../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
+{% include [sd-cspm-events](../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
-### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#sd-kspm-dp}
 
 Module name: `kspm`.
 
 {% include [sd-kspm-events-dp](../_includes/audit-trails/events/sd-kspm-events-dp.md) %}
+
+### {{ alerts-name }} module {#sd-alerts-dp}
+
+Module name: `alerts`.
+
+{% include [sd-alerts-events-dp](../_includes/audit-trails/events/sd-alerts-events-dp.md) %}

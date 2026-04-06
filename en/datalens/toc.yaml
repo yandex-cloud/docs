@@ -15,16 +15,16 @@ items:
     items:
       - name: Overview
         href: workbooks-collections/index.md
-      - name: Creating workbooks and collections
-        href: workbooks-collections/workbooks-collections-create.md
-      - name: Migrating objects to workbooks
+      - name: Operations with workbooks
+        href: workbooks-collections/workbooks-operations.md
+      - name: Operations with collections
+        href: workbooks-collections/collections-operations.md
+      - name: Migrating objects to workbooks from folders
         href: workbooks-collections/migrations.md
       - name: Exporting and importing workbooks
         href: workbooks-collections/export-and-import.md
       - name: Errors and warnings during export and import
         href: workbooks-collections/export-import-notifications.md
-      - name: Configuring access
-        href: workbooks-collections/security.md
   - name: DataLens neuroanalyst
     href: concepts/neuroanalyst.md
   - name: Tutorials
@@ -85,9 +85,8 @@ items:
               and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
           - name: >-
-              Delivering data from {{ forms-full-name }} to {{
-              datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name
-              }}
+              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+              using {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: tutorials/forms-and-datalens-integration/index.md
@@ -837,6 +836,8 @@ items:
         href: operations/chart/add-description.md
       - name: Opening a chart as a table
         href: operations/chart/open-as-table.md
+      - name: Saving a chart as an image
+        href: operations/chart/save-as-image.md
       - name: Versioning
         href: concepts/chart/versioning.md
       - name: Exporting data from charts
@@ -881,6 +882,8 @@ items:
             href: operations/dashboard/add-text.md
           - name: Adding a title to a dashboard
             href: operations/dashboard/add-title.md
+          - name: Copying widgets on a dashboard
+            href: operations/dashboard/copying-widgets.md
           - name: Adding dashboard info
             href: operations/dashboard/add-description.md
           - name: Adding a message displayed when contacting support
@@ -969,7 +972,7 @@ items:
         href: settings/restrictions.md
       - name: Navigation
         href: settings/navigation.md
-  - name: DataLens Gallery
+  - name: Gallery in DataLens
     href: concepts/gallery.md
   - name: Pricing policy
     items:
@@ -1115,8 +1118,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: January 2026
+      - name: February 2026
         href: release-notes/index.md
+      - name: January 2026
+        href: release-notes/2601.md
       - name: December 2025
         href: release-notes/2512.md
       - name: November 2025
@@ -1125,10 +1130,10 @@ items:
         href: release-notes/2510.md
       - name: September 2025
         href: release-notes/2509.md
-      - name: August 2025
-        href: release-notes/2508.md
       - name: Archive
         items:
+          - name: August 2025
+            href: release-notes/2508.md
           - name: July 2025
             href: release-notes/2507.md
           - name: June 2025

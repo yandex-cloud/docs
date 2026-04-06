@@ -7,10 +7,26 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Creating a registry
-        href: operations/registry/create.md
-      - name: Creating a lifecycle policy
-        href: operations/lifecycle-policy/create.md
+      - name: Managing a registry
+        items:
+          - name: Creating a registry
+            href: operations/registry/create.md
+          - name: Managing registry access permissions
+            items:
+              - name: Viewing roles assigned for a registry
+                href: operations/registry/list-role.md
+              - name: Assigning a role
+                href: operations/registry/add-role.md
+              - name: Revoking a role
+                href: operations/registry/remove-role.md
+          - name: IP address access policy
+            items:
+              - name: Getting information about an access policy
+                href: operations/registry/list-access-policy.md
+              - name: Setting up an access policy
+                href: operations/registry/create-access-policy.md
+              - name: Delete access policy
+                href: operations/registry/remove-access-policy.md
       - name: Managing artifacts
         items:
           - name: Docker image
@@ -57,6 +73,8 @@ items:
                 href: operations/binary/push.md
               - name: Pulling a binary artifact from a registry
                 href: operations/binary/pull.md
+      - name: Creating a lifecycle policy
+        href: operations/lifecycle-policy/create.md
   - name: Tutorials
     items:
       - name: Running a Docker image on a VM using {{ cloud-registry-name }}

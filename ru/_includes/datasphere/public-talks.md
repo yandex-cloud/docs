@@ -31,7 +31,7 @@ description: Видеозаписи конференций и вебинаров
 
 * Дообучение модели {{ yagpt-name }} в {{ ml-platform-full-name }}. [Видео](https://www.youtube.com/watch?v=hGrH0Shovtk).
 
-* {{ ml-platform-full-name}} Jobs: запуск локального кода в облаке. [Видео](https://www.youtube.com/watch?v=As9b73RORTk).
+* {{ ml-platform-full-name }} Jobs: запуск локального кода в облаке. [Видео](https://www.youtube.com/watch?v=As9b73RORTk).
 
 * Запуск локального ML-процесса в облаке с помощью {{ ds-jobs }}. [Статья](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/788872/).
 

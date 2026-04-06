@@ -89,8 +89,7 @@ editable: false
   },
   "details": {
     "instanceId": "string",
-    "instanceName": "string",
-    "metadata": "object"
+    "instanceName": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -263,5 +262,4 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || instanceId | **string** ||
 || instanceName | **string** ||
-|| metadata | **object** (map<**string**, **string**>) ||
 |#

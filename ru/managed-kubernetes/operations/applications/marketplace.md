@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Сбор статистики {#statics}
 
-Чтобы собирать статистику использования приложений, {{ marketplace-full-name }} просматривает пользовательские ресурсы во всех кластерах {{ k8s }}, в том числе [секреты](../../concepts/encryption.md#k8s-secrets-encryption) {{ k8s}}, которые имеют метку `owner: helm`. Для этого используются [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) `k8s-marketplace-analytics` и `k8s-marketplace-distributor`. Статистика собирается каждые 15 минут.
+Чтобы собирать статистику использования приложений, {{ marketplace-full-name }} просматривает пользовательские ресурсы во всех кластерах {{ k8s }}, в том числе [секреты](../../concepts/encryption.md#k8s-secrets-encryption) {{ k8s }}, которые имеют метку `owner: helm`. Для этого используются [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) `k8s-marketplace-analytics` и `k8s-marketplace-distributor`. Статистика собирается каждые 15 минут.
 
 Если вы хотите запретить сбор статистики для кластера {{ k8s }}:
 

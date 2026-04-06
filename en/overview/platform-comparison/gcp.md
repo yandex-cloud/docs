@@ -55,7 +55,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Google Distributed Cloud | [{{ stackland-full-name }}](../../stackland/) |
 | Identity and Access Management,<br/>Cloud Identity | [{{ iam-full-name }}](../../iam/) |
 | Instance groups | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
-| Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
+| Kubernetes Engine | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Looker Studio | [{{ datalens-full-name }}](../../datalens/) |
 | MongoDB Atlas | [{{ mmg-full-name }}](../../storedoc/) |
 | Operations suite | [{{ monitoring-full-name }}](../../monitoring/) |

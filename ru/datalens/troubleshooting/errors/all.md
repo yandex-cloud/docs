@@ -72,6 +72,7 @@ description: На странице приведены коды ошибок в {
 [ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) | Window function has unselected dimension |
 [ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md) | Window function has no aggregated expressions among its arguments |
 [ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION](ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md) | Invalid grouping configuration |
+[ERR.DS_API.INVALID_QUERY_STRUCTURE.INCONSISTENT_AGGREGATION](ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md) | Inconsistent aggregation status among SELECT items |
 [ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED](ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md) | Referenced connection <идентификатор_подключения> cannot be loaded: access denied |
 [ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND](ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md) | Обращение к несуществующему объекту |
 [ERR.DS_API.REQUEST_TIMEOUT](ERR-DS_API-REQUEST_TIMEOUT.md) | Backend app request timeout exceeded |

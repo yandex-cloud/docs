@@ -3,7 +3,7 @@ title: Creating configuration files and connecting to {{ ydb-short-name }}
 description: Follow this guide to create configuration files and connect to {{ ydb-short-name }}.
 ---
 
-# Creating configuration files and connecting to {{ ydb-short-name}}
+# Creating configuration files and connecting to {{ ydb-short-name }}
 
 {% note warning %}
 
