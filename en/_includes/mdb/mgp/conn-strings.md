@@ -45,7 +45,7 @@ Required packages:
           {
               using (ApplicationContext db = new ApplicationContext())
               {
-                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
+                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id, version() as versionString;").ToListAsync();
                   Console.WriteLine(versionStrings[0].versionString);
               }
           }
@@ -143,7 +143,6 @@ go mod init example && go get github.com/jackc/pgx/v4
       	"crypto/tls"
       	"crypto/x509"
       	"fmt"
-      	"io/ioutil"
       	"os"
 
       	"github.com/jackc/pgx/v4"
@@ -427,7 +426,7 @@ npm install pg
     });
     conn.query("SELECT version()", (err, q) => {
         if (err) throw err;
-        console.log(q.rows[0]);
+        console.log(q.rows[0].version);
         conn.end();
     });
     ```
@@ -459,7 +458,7 @@ npm install pg
     });
     conn.query("SELECT version()", (err, q) => {
         if (err) throw err;
-        console.log(q.rows[0]);
+        console.log(q.rows[0].version);
         conn.end();
     });
     ```
