@@ -136,7 +136,7 @@ description: Следуя данной инструкции, вы сможете
      resource "yandex_compute_instance" "vm-1" {
        name                      = "vm-with-gpu"
        allow_stopping_for_update = true
-       platform_id               = "standard-v3"
+       platform_id               = "gpu-standard-v3"
        zone                      = "<зона_доступности>"
 
        resources {
