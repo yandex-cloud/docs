@@ -4,13 +4,16 @@ editable: false
 
 # yc managed-kubernetes marketplace helm-release update
 
-Update a Helm Release from marketplace on the cluster.
+Update a Helm Release from Yandex Cloud Marketplace on the cluster.
+Use --value to pass scalar values in KEY=VALUE format.
+For complex types such as lists or objects, provide a YAML-encoded string as the value.
+Use --value-from-file to read the value from a file — especially convenient for multi-line YAML.
 
 #### Command Usage
 
 Syntax:
 
-`yc managed-kubernetes marketplace helm-release update <HELM_RELEASE-ID> --product-version-id <PRODUCT-VERSION-ID> --values <KEY>=<VALUE>[,<KEY>=<VALUE>...] [Global Flags...]`
+`yc managed-kubernetes marketplace helm-release update <HELM_RELEASE-ID> [--product-version-id <PRODUCT-VERSION-ID>] [--value <KEY>=<VALUE>]... [--value-from-file <KEY>=<FILE>]... [Global Flags...]`
 
 #### Flags
 
@@ -25,9 +28,12 @@ ID of the Helm Release. ||
 || `--product-version-id` | `string`
 
 ID of the Marketplace Product Version. ||
-|| `--values` | `key=value[,key=value...]`
+|| `--value` | `value[,value]`
 
-Values to pass to the Helm Release. ||
+Value to pass to the Helm Release in KEY=VALUE format. Can be specified multiple times. For complex types (lists, objects) provide a YAML-encoded string as the value. ||
+|| `--value-from-file` | `value[,value]`
+
+Value to pass to the Helm Release in KEY=FILE format, where FILE content is used as the value. Can be specified multiple times. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

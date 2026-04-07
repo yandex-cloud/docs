@@ -92,6 +92,18 @@ Service account to be used by the worker to broadcast to gateway websocket. ||
 || `--new-gateway-websocket-broadcast-service-account-name` | `string`
 
 Service account to be used by the worker to broadcast to gateway websocket. ||
+|| `--new-start-workflow-id` | `string`
+
+Workflow to be started on the Container Registry event. ||
+|| `--new-start-workflow-name` | `string`
+
+Workflow to be started on the Container Registry event. ||
+|| `--new-start-workflow-service-account-id` | `string`
+
+Service account to start the workflow. ||
+|| `--new-start-workflow-service-account-name` | `string`
+
+Service account to start the workflow. ||
 || `--new-function-retry-attempts` | `int`
 
 Retry attempts, Default: 0 ||
@@ -104,10 +116,19 @@ Retry attempts, Default: 0 ||
 || `--new-container-retry-interval` | `duration`
 
 Retry interval. Examples: '10s', '1m'. ||
+|| `--new-workflow-retry-attempts` | `int`
+
+Retry attempts, Default: 0 ||
+|| `--new-workflow-retry-interval` | `duration`
+
+Retry interval. Examples: '10s', '1m'. ||
 || `--new-function-dlq-queue-id` | `string`
 
 Dead letter queue identifier. ||
 || `--new-container-dlq-queue-id` | `string`
+
+Dead letter queue identifier. ||
+|| `--new-workflow-dlq-queue-id` | `string`
 
 Dead letter queue identifier. ||
 || `--new-function-dlq-service-account-id` | `string`
@@ -120,6 +141,12 @@ Service account to handle dead letter queue. ||
 
 Service account to handle dead letter queue. ||
 || `--new-container-dlq-service-account-name` | `string`
+
+Service account to handle dead letter queue. ||
+|| `--new-workflow-dlq-service-account-id` | `string`
+
+Service account to handle dead letter queue. ||
+|| `--new-workflow-dlq-service-account-name` | `string`
 
 Service account to handle dead letter queue. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
