@@ -76,6 +76,18 @@ Service account to be used by the worker to broadcast to gateway websocket. ||
 || `--gateway-websocket-broadcast-service-account-name` | `string`
 
 Service account to be used by the worker to broadcast to gateway websocket. ||
+|| `--start-workflow-id` | `string`
+
+Workflow to be started on the Billing event. ||
+|| `--start-workflow-name` | `string`
+
+Workflow to be started on the Billing event. ||
+|| `--start-workflow-service-account-id` | `string`
+
+Service account to start the workflow. ||
+|| `--start-workflow-service-account-name` | `string`
+
+Service account to start the workflow. ||
 || `--retry-attempts` | `int`
 
 Retry attempts, Default: 0 ||

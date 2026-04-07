@@ -67,6 +67,9 @@ Statement timeout in milliseconds. ||
 || `--idle-in-transaction-session-timeout` | `int`
 
 Idle in transaction session timeout in milliseconds. ||
+|| `--idle-session-timeout` | `int`
+
+Idle session timeout in milliseconds. ||
 || `--wal-sender-timeout` | `int`
 
 WAL sender timeout in milliseconds. ||

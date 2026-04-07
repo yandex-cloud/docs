@@ -394,6 +394,7 @@ default:
   metastore-name: Apache Hive™ Metastore
   metastore:
     integration-version: 3.1
+  metrics-name: Monium Metrics
   metrika: Яндекс Метрика
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.ru/

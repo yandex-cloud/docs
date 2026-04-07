@@ -80,6 +80,8 @@ Possible property names:
 
 - `idle-in-transaction-session-timeout`: Idle in transaction session timeout in milliseconds.
 
+- `idle-session-timeout`: Idle session timeout in milliseconds.
+
 - `wal-sender-timeout`: WAL sender timeout in milliseconds.
 
 - `pgaudit.log`: Enable audit events for user ||
