@@ -1,30 +1,34 @@
 title: '{{ stackland-full-name }}'
 description:
   - >-
-    A ready-made AI infrastructure with {{ yandex-cloud }} PaaS services for you
-    to manage AI workloads and microservice solutions within your corporate
-    perimeter.
+    Containerization platform with {{ yandex-cloud }} PaaS services on board.
+    All the components you need to manage microservice and AI apps in a
+    centralized way.
   - >-
     Stackland is based on Kubernetes®, which allows you to use familiar
     microservice app management tools and manage {{ yandex-cloud }} PaaS
     services via the Kubernetes API.
   - >-
-    {{ stackland-full-name }} integrates an S3 storage, {{ mpg-name }}, {{
-    mch-name }}, {{ mkf-name }}, and vector databases, as well as an
-    out-of-the-box toolkit for apps to leverage GPUs and high-performance
-    networks for distributed inference tasks.
+    Stackland integrates an object storage, {{ mpg-name }}, {{ mch-name }}, and
+    {{ mkf-name }}, as well as an out-of-the-box toolkit for apps to leverage
+    GPUs and high-performance networks for distributed inference tasks. Database
+    integration with vector search support for RAG scenarios is coming soon.
   - >-
     The platform will facilitate quick in-house deployment of {{
     foundation-models-name }} for AI app and agent development, {{
     speechsense-name }} for speech analytics, and {{ datalens-name }} as the BI
     system.
-  - >-
-    The service is at the <a
-    href="https://yandex.cloud/en/docs/overview/concepts/launch-stages">Preview</a>
-    stage and provided upon <a
-    href="https://yandex.cloud/en/services/stackland#stackland-form">request</a>.      
 links:
+  - title: Getting started
+    description: Configure and deploy a {{ stackland-name }} cluster
+    href: quickstart
+  - title: Step-by-step guides
+    description: Learn how to perform basic operations in {{ stackland-name }}
+    href: operations/
+  - title: Access management
+    description: Learn about managing {{ stackland-name }} cluster access
+    href: access-management
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Service pricing and cost calculations
     href: pricing
 meta: {}

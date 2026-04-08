@@ -1,6 +1,212 @@
+pdf:
+  startPages:
+    - start.md
 title: '{{ stackland-full-name }}'
 href: index.yaml
 items:
+  - name: What's new
+    href: release-notes.md
+  - name: Installation
+    href: quickstart.md
+  - name: Tutorials
+    expanded: true
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Installing Stackland on Yandex BareMetal
+        href: tutorials/install-on-yc-bms.md
+      - name: Setting up external access to a pod in a cluster
+        href: tutorials/expose-app-domain.md
+  - name: Step-by-step guides
+    expanded: true
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Users and groups
+        items:
+          - name: Creating a user
+            href: operations/iam/create-user.md
+          - name: Creating a user group
+            href: operations/iam/create-group.md
+          - name: Connecting a SAML federation
+            href: operations/iam/connect-saml-federation.md
+          - name: Assigning access permissions
+            href: operations/iam/assign-role.md
+      - name: Databases
+        items:
+          - name: '{{ mpg-short-name }}'
+            items:
+              - name: Creating a cluster {{ PG }}
+                href: operations/postgresql/create-cluster.md
+              - name: Updating cluster settings
+                href: operations/postgresql/edit-cluster.md
+              - name: Performance diagnostics
+                href: operations/postgresql/performance-diagnostics.md
+              - name: Creating backups
+                href: operations/postgresql/new-copy.md
+              - name: Recovering a cluster
+                href: operations/postgresql/recover-copy.md
+              - name: Deleting a cluster
+                href: operations/postgresql/delete-cluster.md
+          - name: '{{ mch-short-name }}'
+            items:
+              - name: Creating a cluster {{ CH }}
+                href: operations/clickhouse/create-cluster.md
+              - name: Updating cluster settings
+                href: operations/clickhouse/edit-cluster.md
+              - name: Creating backups
+                href: operations/clickhouse/new-copy.md
+              - name: Recovering a cluster
+                href: operations/clickhouse/recover-copy.md
+              - name: Deleting a cluster
+                href: operations/clickhouse/delete-cluster.md
+      - name: Buckets
+        items:
+          - name: Creating a bucket
+            href: operations/storage/create-bucket.md
+          - name: Creating an AccessKey
+            href: operations/storage/create-accesskey.md
+          - name: Deleting a bucket
+            href: operations/storage/delete-bucket.md
+          - name: Deleting AccessKey
+            href: operations/storage/delete-accesskey.md
+      - name: Message broker
+        items:
+          - name: Creating a cluster
+            href: operations/kafka/create-cluster.md
+          - name: Creating a topic
+            href: operations/kafka/create-topic.md
+          - name: Creating a user
+            href: operations/kafka/create-user.md
+          - name: Connecting to a cluster
+            href: operations/kafka/connect-to-kafka.md
+          - name: Deleting a cluster
+            href: operations/kafka/delete-cluster.md
+          - name: Deleting a topic
+            href: operations/kafka/delete-topic.md
+          - name: Deleting a user
+            href: operations/kafka/delete-user.md
+      - name: Logging
+        items:
+          - name: Viewing logs
+            href: operations/logging/logs-view.md
+      - name: Monitoring
+        items:
+          - name: Creating a dashboard
+            href: operations/monitoring/dashboard-create.md
+          - name: Updating a dashboard
+            href: operations/monitoring/dashboard-update.md
+          - name: Deleting a dashboard
+            href: operations/monitoring/dashboard-delete.md
+          - name: Managing dashboard access
+            href: operations/monitoring/dashboard-access.md
+          - name: Creating a notification channel
+            href: operations/monitoring/alerts-create-contact-point.md
+          - name: Creating an alert rule
+            href: operations/monitoring/alerts-create-rule.md
+      - name: DataLens
+        items:
+          - name: Pulling images
+            href: operations/datalens/install-images.md
+          - name: Enabling DataLens
+            href: operations/datalens/configure.md
+          - name: Disabling DataLens
+            href: operations/datalens/disable.md
+      - name: Policies
+        items:
+          - name: Activating a policy preset
+            href: operations/policy-manager/apply-preset.md
+          - name: Deactivating a policy
+            href: operations/policy-manager/apply-mute.md
+          - name: Deleting a policy preset
+            href: operations/policy-manager/delete-preset.md
+      - name: Projects
+        items:
+          - name: All guides
+            href: operations/projects/index.md
+          - name: Creating a project
+            href: operations/projects/create-project.md
+          - name: Managing namespaces
+            href: operations/projects/manage-namespaces.md
+          - name: Configuring project roles
+            href: operations/projects/project-roles.md
+          - name: Setting quotas in namespaces
+            href: operations/projects/namespace-quotas.md
+          - name: Creating a project quota
+            href: operations/projects/quotas.md
+      - name: SpeechSense
+        items:
+          - name: Pulling images
+            href: operations/speechsense/install-images.md
+          - name: Configuring and activating
+            href: operations/speechsense/configure.md
+          - name: Disable
+            href: operations/speechsense/disable.md
+      - name: Disk subsystem
+        items:
+          - name: Diagnosing a disk subsystem
+            href: operations/disk-storage/troubleshooting.md
+      - name: Managing a cluster
+        items:
+          - name: Upgrading a cluster
+            href: operations/cluster-upgrade.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Projects
+        href: concepts/projects.md
+      - name: Resource model
+        href: concepts/resource-model.md
+      - name: Components
+        items:
+          - name: Overview
+            href: concepts/components/overview.md
+          - name: Certificate Manager
+            href: concepts/components/certificate-manager.md
+          - name: DNS
+            href: concepts/components/dns.md
+          - name: '{{ iam-short-name }}'
+            href: concepts/components/iam.md
+          - name: Logging Stack
+            href: concepts/components/logging.md
+          - name: '{{ mkf-short-name }}'
+            href: concepts/components/kafka.md
+          - name: '{{ mpg-short-name }}'
+            href: concepts/components/postgresql.md
+          - name: '{{ mch-short-name }}'
+            href: concepts/components/clickhouse.md
+          - name: '{{ datalens-name }}'
+            href: concepts/components/datalens.md
+          - name: Monitoring
+            href: concepts/components/monitoring.md
+          - name: '{{ objstorage-name }}'
+            href: concepts/components/storage.md
+          - name: Disk subsystem
+            href: concepts/components/disk-storage.md
+          - name: NVIDIA® GPU support
+            href: concepts/components/gpu.md
+          - name: Policy Manager
+            href: concepts/components/policy-manager.md
+          - name: Secrets Store
+            href: concepts/components/secrets-store.md
+          - name: '{{ speechsense-name }}'
+            href: concepts/components/speechsense.md
+      - name: Cluster monitoring
+        items:
+          - name: ClickHouse monitoring
+            href: concepts/cluster-monitoring/clickhouse-monitoring.md
+          - name: NVIDIA® DCGM dashboard metrics
+            href: concepts/cluster-monitoring/nvidia-dcgm-monitoring.md
+          - name: NVIDIA® DCGM dashboard metrics with MIG
+            href: concepts/cluster-monitoring/nvidia-dcgm-mig-monitoring.md
+          - name: NVIDIA® DCGM dashboard metrics without MIG
+            href: concepts/cluster-monitoring/nvidia-dcgm-no-mig-monitoring.md
+          - name: Hardware monitoring
+            href: concepts/hardware-monitoring.md
+  - name: Access management
+    href: access-management.md
   - name: Pricing policy
     href: pricing.md
+  - name: Diagnostics and troubleshooting
+    href: operations/troubleshooting.md
 path: en/stackland/toc.yaml
