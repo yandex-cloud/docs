@@ -218,7 +218,7 @@
      1. В открывшемся окне введите имя функции `function-restart-vms`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Создайте [версию функции](../../functions/concepts/function.md#version):
-     1. Выберите среду выполнения `nodejs18`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Выберите среду выполнения `nodejs22`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите архив `function-js.zip`, который создали ранее.
      1. Укажите точку входа `index.handler`.
@@ -263,7 +263,7 @@
        --function-name function-restart-vms \
        --memory=128m \
        --execution-timeout=3s \
-       --runtime=nodejs18 \
+       --runtime=nodejs22 \
        --entrypoint=index.handler \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
        --environment FOLDER_ID=<идентификатор_каталога>,INSTANCE_ID=<идентификатор_ВМ> \
@@ -311,7 +311,7 @@
      resource "yandex_function" "function-restart-vms" {
        name               = "function-restart-vms"
        user_hash          = "first function"
-       runtime            = "nodejs18"
+       runtime            = "nodejs22"
        entrypoint         = "index.handler"
        memory             = "128"
        execution_timeout  = "3"
