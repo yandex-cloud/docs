@@ -26,6 +26,8 @@ items:
         href: concepts/mdb-responsibilities.md
       - name: Zones of control in {{ managed-k8s-name }}
         href: concepts/kubernetes-responsibilities.md
+      - name: Zones of control in {{ dataproc-name }}
+        href: concepts/data-processing-responsibilities.md
       - name: Deleting user data
         href: concepts/data-deletion.md
       - name: >-

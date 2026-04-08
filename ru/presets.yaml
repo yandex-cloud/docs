@@ -1504,6 +1504,8 @@ default:
         1_month: dn26cypvum4o7othokpj
         12_month: dn22akrrpikbs5y3vwgl
         6_month: dn2zrlohcdk7mq6w5ebw
+      bms_publicannounce_pi_prefix_any:
+        1_month: dn2waf73ew5izjrkgflw
       bms_ram3_128:
         1_month: dn2dspoxf6trcs7xcb3j
         12_month: dn2aljp6sqk57xc2qebu
@@ -4323,6 +4325,7 @@ default:
         add: Добавить
         delete: Удалить
         edit: Изменить
+        end: Завершить
         exclude: Исключить
         save-changes: Сохранить
       app:
@@ -4403,6 +4406,7 @@ default:
         MyAccountLayout:
           activity_kyqSv: Активность
           groups_pqQRu: Группы
+          logout_nXPin: Выйти из аккаунта
           profile_8kyBA: Профиль
           security_7zQ3g: Вход и безопасность
       cloud-components:
@@ -4627,8 +4631,15 @@ default:
         refresh-tokens:
           action_remove_all: Удалить все токены
         security:
+          action_logout_p3aMC: Выйти
           login-confirmation:
             header: Подтверждение входа
+          option_all_devices_n3iAA: Выйти на всех устройствах
+          option_keep_current_iaFpd: Не выходить на этом устройстве
+          SecurityDevicesPage:
+            action_logout_everywhere_xqkwM: Выйти везде
+          SecurityPageLayout:
+            devices_breadcrumb_feYd2: Ваши устройства
         SecurityPageLayout:
           refresh_breadcrumb: Refresh-токены
       myaccount:
@@ -4774,13 +4785,20 @@ default:
             symbol_classes_required_1BHUu: Обязательные
             unlimited_cSfYU: Без ограничений
         users:
+          action_end-all-sso-sessions_7DUdt: Завершить все сессии
           components:
             title_mfa_5CFwd: MFA
+          created_at_khi1N: Дата создания
+          expires_at_adUqM: Дата окончания
           Filters:
             placeholder_eu3h7: Все операции
+          ip_address_u9ysH: IP-адрес
+          last_used_at_899qR: Дата использования
+          user_agent_bHjZs: User-Agent
           UserPageLayout:
             title_audit-log_fGywF: Аудитный лог
             title_auth-audit-log_sajZE: Лог входа
+            title_sso-sessions_pDJYw: Активные сессии
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект

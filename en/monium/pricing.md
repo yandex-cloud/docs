@@ -72,3 +72,20 @@ For metrics, the minimum billing unit is one metric value. Billing for logs and 
 </MDX>
 
 
+
+### Pricing for phone calls and SMS {#sms-call-prices}
+
+{% note warning %}
+
+The prices are effective from April 24, 2026.
+
+{% endnote %}
+
+Phone calls and SMS sent as part of [alerts](concepts/alerting/alert.md) and [escalation policies](concepts/alerting/escalations.md) are billed. The prices are for one call and one SMS.
+
+
+
+{% include [usd.md](../_pricing/monium/usd-sms-call.md) %}
+
+
+

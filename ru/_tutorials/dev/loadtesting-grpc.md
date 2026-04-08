@@ -1,5 +1,8 @@
 # Нагрузочное тестирование gRPC-сервиса
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 {{ load-testing-name }} можно использовать для нагрузочного тестирования сервиса по протоколу [gRPC](https://grpc.io/docs/) с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora).
 

@@ -19,6 +19,8 @@ items:
         href: operations/cluster-stop.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Мониторинг состояния кластера
+        href: operations/monitoring.md
   - name: Практические руководства
     items:
       - name: Запуск PySpark-задания
@@ -121,6 +123,8 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+  - name: Метрики {{ monitoring-full-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

@@ -12,8 +12,10 @@ description: Следуя данной инструкции, вы сможете
 [Просмотр атрибутов](#view-profile) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Изменение атрибутов](#edit-profile) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) |
 [Изменение пароля](#edit-password) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) |
-[Удаление refresh-токенов](#delete-refresh-token) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Управление способами подтверждения входа](#manage-mfa) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
+[Просмотр сессий](#view-sessions) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
+[Завершение сессий](#end-sessions) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
+[Удаление refresh-токенов](#delete-refresh-token) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Просмотр групп](#view-groups) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
 [Просмотр логов](#view-logs) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
 
@@ -69,21 +71,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Удалить refresh-токены {#delete-refresh-token}
-
-{% list tabs group=instructions %}
-
-- Интерфейс {{ cloud-center }} {#cloud-center}
-
-  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
-  1. Отобразятся все приложения, для которых вы добавили [refresh-токены](../../iam/concepts/authorization/refresh-token.md).
-  1. Нажмите ![alt](../../_assets/console-icons/trash-bin.svg) в строке с приложением, для которого вы хотите удалить refresh-токен.
-  1. Чтобы удалить все refresh-токены, нажмите ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**. 
-
-{% endlist %}
-
 ## Управление способами подтверждения входа {#manage-mfa}
 
 Для управления способами подтверждения входа пользователь должен быть добавлен в [политику MFA](../concepts/mfa.md).
@@ -117,6 +104,71 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
   1. В блоке **{{ ui-key.yacloud_org.my-account.security.login-confirmation.header }}** отобразятся ваши способы подтверждения входа и дата последнего использования.
   1. Нажмите ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.myaccount.security.LoginConfirmationTable.delete-action }}** рядом с нужным способом подтверждения входа.
+
+{% endlist %}
+
+## Посмотреть сессии {#view-sessions}
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.security.SecurityPageLayout.devices_breadcrumb_feYd2 }}**.
+
+      В результате откроется список [сессий](../concepts/sessions.md), содержащих следующую информацию о приложениях и устройствах, с которых выполнен вход в аккаунт {{ org-full-name }}:
+
+      * идентификатор [User-Agent](https://ru.wikipedia.org/wiki/User_agent) устройства, на котором выполнен вход в аккаунт;
+      * время последнего входа в аккаунт;
+      * IP-адрес, с которого осуществлялся последний вход в аккаунт.
+
+{% endlist %}
+
+## Завершить сессии {#end-sessions}
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.security.SecurityPageLayout.devices_breadcrumb_feYd2 }}**.
+
+      В результате откроется список [сессий](../concepts/sessions.md), содержащих информацию о приложениях и устройствах, с которых выполнен вход в аккаунт {{ org-full-name }}.
+  1. Чтобы завершить сессию:
+
+      В строке с сессией, которую вы хотите завершить, нажмите кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}** и в открывшемся окне подтвердите действие.
+
+      В результате на выбранном устройстве доступ пользователя к сервисам, использующим {{ org-full-name }} в качестве поставщика удостоверений, прекратится. Чтобы возобновить доступ, пользователю придется повторно выполнить аутентификацию в {{ org-full-name }}.
+  1. Чтобы завершить все сессии:
+
+      1. В правом верхнем углу экрана нажмите кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.my-account.security.SecurityDevicesPage.action_logout_everywhere_xqkwM }}**.
+      1. В открывшемся окне:
+
+          * Выберите `{{ ui-key.yacloud_org.my-account.security.option_keep_current_iaFpd }}` и нажмите **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}**, чтобы завершить все сессии, кроме текущей.
+
+              В результате доступ пользователя к сервисам, использующим {{ org-full-name }} в качестве поставщика удостоверений, прекратится на всех устройствах, за исключением текущего.
+          * Выберите `{{ ui-key.yacloud_org.my-account.security.option_all_devices_n3iAA }}` и нажмите **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}**, чтобы завершить все сессии, включая текущую.
+
+              В результате доступ пользователя к сервисам, использующим {{ org-full-name }} в качестве поставщика удостоверений, прекратится на всех устройствах, включая текущее.
+
+      Чтобы возобновить доступ, пользователю придется повторно выполнить аутентификацию в {{ org-full-name }}.
+
+{% endlist %}
+
+## Удалить refresh-токены {#delete-refresh-token}
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
+  1. Отобразятся все приложения, для которых вы добавили [refresh-токены](../../iam/concepts/authorization/refresh-token.md).
+  1. Нажмите ![alt](../../_assets/console-icons/trash-bin.svg) в строке с приложением, для которого вы хотите удалить refresh-токен.
+  1. Чтобы удалить все refresh-токены, нажмите ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**. 
 
 {% endlist %}
 

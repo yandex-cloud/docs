@@ -1727,6 +1727,10 @@ items:
             href: ml-ai/yq-postgre.md
           - name: Federated data queries
             href: ml-ai/yq-federative-queries.md
+      - name: Development with {{ mgl-full-name }}
+        items:
+          - name: Managing the MLOps lifecycle with ML Registry
+            href: ml-ai/mlops-ml-registry.md
       - name: Image, text, and speech recognition
         items:
           - name: Recognizing text in image archives using {{ vision-name }}

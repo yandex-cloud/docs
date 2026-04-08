@@ -1,5 +1,8 @@
 # Сравнение результатов нагрузочных тестов
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 В данном сценарии вы настроите окружение для нагрузочного тестирования, проведете тесты и сравните результаты нагрузочных тестов.
 
 В сценарии используется [генератор нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora) и простейший веб-сервис в качестве цели тестирования.

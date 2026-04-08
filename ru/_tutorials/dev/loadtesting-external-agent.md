@@ -1,5 +1,8 @@
 # Запуск внешних агентов для нагрузочного тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 {{ load-testing-full-name }} можно использовать для нагрузочного тестирования сервисов с помощью внешних агентов. 
 

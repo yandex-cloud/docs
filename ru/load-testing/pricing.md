@@ -6,6 +6,9 @@ editable: false
 
 # Правила тарификации для {{ load-testing-full-name }}
 
+{% include [loadtesting-sunset-warning](../_includes/load-testing/sunset-warning.md) %}
+
+
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}

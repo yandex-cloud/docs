@@ -1,5 +1,8 @@
 # Нагрузочный тест с помощью JMeter
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 {{ load-testing-name }} можно использовать для тестирования сервиса с постоянной нагрузкой по протоколу HTTPS с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [JMeter](../../load-testing/concepts/load-generator.md#jmeter).
 

@@ -281,6 +281,8 @@ items:
         href: metrics-ref/managed-valkey-ref.md
       - name: '{{ ydb-name }}'
         href: metrics-ref/ydb-ref.md
+      - name: '{{ myt-name }}'
+        href: metrics-ref/managed-ytsaurus-ref.md
       - name: '{{ message-queue-name }}'
         href: metrics-ref/message-queue-ref.md
       - name: '{{ monitoring-name }}'

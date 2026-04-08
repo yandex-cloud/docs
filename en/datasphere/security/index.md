@@ -5,7 +5,7 @@ description: Access management in {{ ml-platform-full-name }}, a service providi
 
 # Access management in {{ ml-platform-name }}
 
-User access to {{ ml-platform-full-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
+Access to {{ ml-platform-full-name }} is controlled by assigning permissions within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
 The operations available to {{ ml-platform-short-name }} users are determined by their roles. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about access management in {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
@@ -20,7 +20,7 @@ You can assign a role to a user in the {{ ml-platform-name }} interface:
 * [{#T}](../operations/projects/add-user.md).
 * [Share resources with community members](../operations/index.md#share).
 
-You can also grant access permissions through the [{{ org-name }} interface in {{ cloud-center }}]({{ link-org-cloud-center }}) using [{{ TF }}]({{ tf-provider-link }}) and the [{{ yandex-cloud }} API](../api-ref/authentication.md).
+You can also grant access permissions through the [{{ org-full-name }} interface in {{ cloud-center }}]({{ link-org-cloud-center }}) using [{{ TF }}]({{ tf-provider-link }}) and the [{{ yandex-cloud }} API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 
@@ -70,7 +70,7 @@ You can also grant access permissions through the [{{ org-name }} interface in {
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `Editor` role instead of `Viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `Editor` instead of `Viewer`.
 
 #|
 || **Action** | **Required roles** ||
@@ -89,7 +89,7 @@ The table below lists the roles required for specific actions. You can always as
 || [Granting a role](#grant-role) in a project | `Admin` for a project ||
 || **Community management** ||
 || Editing community settings | `Editor` for a community ||
-|| [Linking a billing account](../operations/community/link-ba.md) | `Editor` for a community and `{{ roles-admin }}` for a billing account ||
+|| [Linking a billing account](../operations/community/link-ba.md) | `Editor` for a community and `billing.accounts.editor` for a billing account ||
 || [Deleting a community](../operations/community/delete.md) | `Editor` for a community ||
 || [Granting a role](#grant-role) in a community | `Admin` for a community ||
 |#

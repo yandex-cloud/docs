@@ -3,7 +3,6 @@
 * `При условии` — правило будет использоваться для анализа трафика, заданного в поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**:
     * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов или регион IP-адресов;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` — строка в заголовке HTTP;
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-body }}`— строка в теле HTTP;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` — путь запроса;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}` — домен, на который пришел запрос;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` — метод запроса;

@@ -55,6 +55,8 @@ items:
             href: operations/user-pools/deactivate-user.md
           - name: Посмотреть логи пользователя
             href: operations/user-pools/user-get-logs.md
+          - name: Управлять сессиями пользователя
+            href: operations/manage-sessions.md
           - name: Удалить аккаунт пользователя
             href: operations/edit-account.md
           - name: Покинуть организацию
@@ -325,6 +327,8 @@ items:
         href: concepts/my-account.md
       - name: Аудитные логи и логи входа
         href: concepts/logs.md
+      - name: Сессии
+        href: concepts/sessions.md
       - name: Синхронизация с {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Квоты и лимиты

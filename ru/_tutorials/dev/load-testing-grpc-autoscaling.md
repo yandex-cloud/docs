@@ -1,5 +1,7 @@
 # Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в {{ managed-k8s-full-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 По этому руководству вы развернете автомасштабируемый [gRPC](../../glossary/grpc.md)-сервис в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью [Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md) [{{ alb-full-name }}](../../application-load-balancer/) и проведете нагрузочное тестирование сервиса.
 

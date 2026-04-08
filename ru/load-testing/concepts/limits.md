@@ -6,6 +6,9 @@ editable: false
 
 # Квоты и лимиты в {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 В сервисе {{ load-testing-name }} нет действующих квот.
 
 Потребление вычислительных ресурсов [агентами](agent.md) учитывается в [квотах]({{ link-console-quotas }}) и ограничено лимитами сервиса [{{ compute-full-name }}](../../compute/concepts/limits.md).

@@ -90,6 +90,8 @@ items:
             href: tutorials/opensearch-to-greenplum.md
       - name: Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
         href: tutorials/filebeat-oss-monitoring.md
+      - name: Отправка оповещений по электронной почте
+        href: tutorials/opensearch-email-notifications.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

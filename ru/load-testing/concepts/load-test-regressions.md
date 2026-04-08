@@ -1,5 +1,8 @@
 # Регрессии нагрузочных тестов
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Для каждого теста в {{ load-testing-name }} могут быть определены интегральные метрики. Они позволяют быстро оценить качество работы теста или тестируемого сервиса.
 
 Используйте инструменты визуализации на странице ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**, чтобы создать для проведенных тестов графики зависимостей интегральных показателей от времени.

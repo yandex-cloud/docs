@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка групп безопасности агента тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {% note warning %}
 
 Группы безопасности необходимо создать и настроить перед созданием [агента](../concepts/agent.md). Так вы сможете ограничить доступы с агента.
