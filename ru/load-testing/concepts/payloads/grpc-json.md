@@ -1,5 +1,8 @@
 # GRPC_JSON
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Тип тестовых данных для генератора нагрузки Pandora. Поддерживает [gRPC](../../../glossary/grpc)-запросы.
 
 Тип тестовых данных указывается при [создании теста](../../operations/create-test-bucket.md#create-test).

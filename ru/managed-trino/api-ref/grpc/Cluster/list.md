@@ -453,7 +453,10 @@ The maximum string length in characters is 1000. ||
         ],
         "security_group_ids": [
           "string"
-        ]
+        ],
+        "private_access": {
+          "enabled": "bool"
+        }
       },
       "deletion_protection": "bool",
       "service_account_id": "string",
@@ -694,8 +697,12 @@ Acceptable values are 1 to 512, inclusive. ||
 ||Field | Description ||
 || min_count | **int64**
 
+Minimum number of worker instances.
+
 Acceptable values are 0 to 512, inclusive. ||
 || max_count | **int64**
+
+Maximum number of worker instances.
 
 Acceptable values are 1 to 512, inclusive. ||
 |#
@@ -708,8 +715,8 @@ Acceptable values are 1 to 512, inclusive. ||
 
 Retry policy level.
 
-- `QUERY`
-- `TASK` ||
+- `QUERY`: Retry policy for queries.
+- `TASK`: Retry policy for tasks. ||
 || exchange_manager | **[ExchangeManagerConfig](#yandex.cloud.trino.v1.ExchangeManagerConfig)**
 
 Configuration for exchange manager. ||
@@ -717,7 +724,7 @@ Configuration for exchange manager. ||
 
 Additional properties.
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
 |#
 
 ## ExchangeManagerConfig {#yandex.cloud.trino.v1.ExchangeManagerConfig}
@@ -728,8 +735,10 @@ No more than 256 per resource. The maximum string length in characters for each 
 
 Additional properties.
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ ]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
-|| storage | **[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage)** ||
+No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+|| storage | **[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage)**
+
+Storage for spooled data by exchange manager. ||
 |#
 
 ## ExchangeManagerStorage {#yandex.cloud.trino.v1.ExchangeManagerStorage}
@@ -1402,6 +1411,18 @@ IDs of VPC network subnets where instances of the cluster are attached. ||
 || security_group_ids[] | **string**
 
 User security groups. ||
+|| private_access | **[PrivateAccessConfig](#yandex.cloud.trino.v1.PrivateAccessConfig)**
+
+Private link configuration for secure connectivity to the cluster. ||
+|#
+
+## PrivateAccessConfig {#yandex.cloud.trino.v1.PrivateAccessConfig}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enables access to the cluster only via private endpoint. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.trino.v1.LoggingConfig}

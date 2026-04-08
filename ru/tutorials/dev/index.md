@@ -25,4 +25,5 @@ description: Различные сценарии использования по
 * [{#T}](install-gitlab-runner.md)
 * [{#T}](self-hosted-worker-sourcecraft.md)
 * [{#T}](../testing/loadtesting-results-compare.md)
+* [{#T}](../testing/loadtesting-migration-to-k6.md)
 * [{#T}](ai-powered-github-pr-review.md)

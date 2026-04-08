@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание теста с данными из бакета
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 В {{ load-testing-name }} тестовые данные можно загрузить из [бакета](../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../storage/). Этот способ позволяет:
 * работать с тестовыми данными больших размеров (больше 100 МБ);
 * хранить данные и легко их переиспользовать;

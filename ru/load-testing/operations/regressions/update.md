@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Редактировать данные на дашборде
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 После [создания](create.md) дашборда, вы можете изменять элементы на нем.
 
 {% list tabs group=instructions %}

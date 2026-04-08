@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Экспорт отчётов с результатами тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 В {{ load-testing-name }} результаты тестирования можно экспортировать в виде файлов статичных форматов (HTML, PDF и CSV) в бакет [{{ objstorage-full-name }}](../../storage/). Сформированный отчёт из бакета доступен по ссылке, а также может быть скачан напрямую. 
 
 ## Экспорт отчёта в {{ objstorage-full-name }} {#export-report}

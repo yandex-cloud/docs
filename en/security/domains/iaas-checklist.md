@@ -24,7 +24,7 @@ For more information on how to [set up a secure virtual environment](../standard
 
 &#x2713; **Software and OS updates**: Install updates manually and use automated update tools.
 
-&#x2713; **Automated vulnerability scanning**: Use free network scanners, such as nmap, OpenVAS, OWASP ZAP, or host-based agents, such as [Wazuh](/marketplace/products/opennix/wazuh).
+&#x2713; **Automated vulnerability scanning**: Use free network scanners, such as nmap, OpenVAS, OWASP ZAP, or host-based agents, such as Wazuh.
 
 &#x2713; **Regular backups**: [Configure](../../compute/operations/snapshot-control/create-schedule.md) scheduled disk snapshots using {{ compute-full-name }} or [automatic VM backups](../../backup/quickstart/existing-vm.md) using {{ backup-full-name }}.
 

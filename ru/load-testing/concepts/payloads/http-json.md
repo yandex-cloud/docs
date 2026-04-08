@@ -1,5 +1,8 @@
 # HTTP_JSON
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Тип тестовых данных для генератора нагрузки Pandora. Представляет собой HTTP-запросы, помещенные в структуры JSON.
 
 Тип тестовых данных указывается при [создании теста](../../operations/create-test-bucket.md#create-test).

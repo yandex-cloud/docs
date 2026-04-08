@@ -1,5 +1,8 @@
 # Как начать работать с {{ load-testing-full-name }}
 
+{% include [loadtesting-sunset-warning](../_includes/load-testing/sunset-warning.md) %}
+
+
 С помощью этой инструкции вы создадите в своем облаке агент тестирования, сконфигурируете простейший нагрузочный тест и посмотрите на его результаты.
 
 ## Перед началом работы {#before-you-begin}

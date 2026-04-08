@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать и настроить дашборд регрессий
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 В {{ load-testing-name }} можно создавать и настраивать дашборды [регрессий](../../concepts/load-test-regressions.md) с графиками метрик [нагрузочных тестов](../../concepts/index.md).
 Если у вас еще нет завершенных тестов, [создайте](../create-test-bucket.md) и запустите его несколько раз подряд. Примеры сценариев для тестов см. в разделе [Практические руководства](../../tutorials/index.md). 
 

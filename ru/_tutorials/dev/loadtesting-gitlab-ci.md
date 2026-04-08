@@ -1,3 +1,5 @@
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 Чтобы добавить вызов нагрузочного тестирования из {{ GL }} CI:
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте инфраструктуру](#infrastructure-prepare).

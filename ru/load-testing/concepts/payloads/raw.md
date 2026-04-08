@@ -1,5 +1,8 @@
 # RAW
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Тип тестовых данных для генератора нагрузки Pandora. Аналог типа данных [PHANTOM](phantom.md). Позволяет передавать HTTP-запросы с любыми методами и в любых сочетаниях.
 
 Тип тестовых данных указывается при [создании теста](../../operations/create-test-bucket.md#create-test).

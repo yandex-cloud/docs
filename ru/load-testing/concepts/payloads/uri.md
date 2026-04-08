@@ -1,5 +1,8 @@
 # URI
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Тип тестовых данных для описания HTTP-запросов `GET`. Позволяет задавать разные заголовки для разных запросов, указывать теги для запросов. Используется в генераторах нагрузки Pandora и Phantom.
 
 Тип тестовых данных указывается при [создании теста](../../operations/create-test-bucket.md#create-test).

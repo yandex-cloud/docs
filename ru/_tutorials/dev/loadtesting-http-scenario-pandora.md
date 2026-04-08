@@ -1,5 +1,8 @@
 # HTTP-тест с нагрузкой по сценарию с помощью Pandora
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {{ load-testing-name }} можно использовать для тестирования сервиса с нагрузкой по сценарию по протоколу HTTP с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora).
 
 Чтобы провести нагрузочное тестирование:

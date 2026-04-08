@@ -5,6 +5,9 @@ description: Из статьи вы узнаете, как создать аге
 
 # Создание агента тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 ## Подготовка инфраструктуры {#infrastructure-prepare}
 
 1. Создайте сервисный аккаунт для агента тестирования:

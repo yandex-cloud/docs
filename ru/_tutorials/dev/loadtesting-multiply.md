@@ -1,5 +1,8 @@
 # Нагрузочное тестирование с нескольких агентов
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 {{ load-testing-name }} можно использовать для тестирования сервиса с помощью нескольких [агентов тестирования](../../load-testing/concepts/agent.md).
 

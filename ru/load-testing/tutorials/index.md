@@ -5,6 +5,9 @@ description: Различные сценарии использования {{ l
 
 # Практические руководства {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 * [{#T}](loadtesting-grpc.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
 * [{#T}](loadtesting-https-phantom.md)
@@ -15,3 +18,4 @@ description: Различные сценарии использования {{ l
 * [{#T}](loadtesting-external-agent.md)
 * [{#T}](loadtesting-gitlab-ci.md)
 * [{#T}](loadtesting-results-compare.md)
+* [{#T}](loadtesting-migration-to-k6.md)

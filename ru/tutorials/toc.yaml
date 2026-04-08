@@ -433,6 +433,8 @@ items:
         href: dev/self-hosted-worker-sourcecraft.md
       - name: Сравнение результатов нагрузочных тестов
         href: testing/loadtesting-results-compare.md
+      - name: Миграция нагрузочного тестирования на k6
+        href: testing/loadtesting-migration-to-k6.md
       - name: >-
           ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-full-name }} и GitHub
           Actions
@@ -1223,6 +1225,8 @@ items:
         href: dataplatform/opensearch-saml-keycloak.md
       - name: Использование плагина yandex-lemmer в {{ mos-name }}
         href: dataplatform/opensearch-yandex-lemmer.md
+      - name: Отправка оповещений по электронной почте в {{ mos-name }}
+        href: dataplatform/opensearch-email-notifications.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Поиск проблем с производительностью кластера {{ mpg-name }}

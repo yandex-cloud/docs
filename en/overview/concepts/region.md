@@ -8,7 +8,7 @@ Regions available in {{ yandex-cloud }}:
 
 Region | Russia | Kazakhstan
 --- | --- | ---
-Availability zones | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-d` | `kz1-a`
+Availability zones | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-d`<br/>`ru-central1-e` | `kz1-a`
 Management console | [https://console.yandex.cloud](https://console.yandex.cloud) | [https://kz.console.yandex.cloud](https://kz.console.yandex.cloud)
 Paying for resources | [Plans for the Russia region](https://yandex.cloud/ru/prices) | [Plans for the Kazakhstan region](https://yandex.cloud/ru-kz/prices)
 Service {{ billing-name }} | [https://center.yandex.cloud/billing](https://center.yandex.cloud/billing) | [https://kz.center.yandex.cloud/billing](https://kz.center.yandex.cloud/billing)

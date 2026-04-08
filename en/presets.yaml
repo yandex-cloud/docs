@@ -1499,6 +1499,8 @@ default:
         1_month: dn26cypvum4o7othokpj
         12_month: dn22akrrpikbs5y3vwgl
         6_month: dn2zrlohcdk7mq6w5ebw
+      bms_publicannounce_pi_prefix_any:
+        1_month: dn2waf73ew5izjrkgflw
       bms_ram3_128:
         1_month: dn2dspoxf6trcs7xcb3j
         12_month: dn2aljp6sqk57xc2qebu
@@ -4318,6 +4320,7 @@ default:
         add: Add
         delete: Delete
         edit: Edit
+        end: End
         exclude: Remove
         save-changes: Save
       app:
@@ -4398,6 +4401,7 @@ default:
         MyAccountLayout:
           activity_kyqSv: Activity
           groups_pqQRu: Groups
+          logout_nXPin: Log out
           profile_8kyBA: Profile
           security_7zQ3g: Login and security
       cloud-components:
@@ -4622,8 +4626,15 @@ default:
         refresh-tokens:
           action_remove_all: Delete all tokens
         security:
+          action_logout_p3aMC: Log out
           login-confirmation:
             header: Login confirmation
+          option_all_devices_n3iAA: Log out on all devices
+          option_keep_current_iaFpd: Do not log out on this device
+          SecurityDevicesPage:
+            action_logout_everywhere_xqkwM: Log out everywhere
+          SecurityPageLayout:
+            devices_breadcrumb_feYd2: Your devices
         SecurityPageLayout:
           refresh_breadcrumb: Refresh tokens
       myaccount:
@@ -4769,13 +4780,20 @@ default:
             symbol_classes_required_1BHUu: Required
             unlimited_cSfYU: Unlimited
         users:
+          action_end-all-sso-sessions_7DUdt: End all sessions
           components:
             title_mfa_5CFwd: MFA
+          created_at_khi1N: Creation date
+          expires_at_adUqM: End date
           Filters:
             placeholder_eu3h7: All operations
+          ip_address_u9ysH: IP address
+          last_used_at_899qR: Date of use
+          user_agent_bHjZs: User-Agent
           UserPageLayout:
             title_audit-log_fGywF: Audit log
             title_auth-audit-log_sajZE: Login log
+            title_sso-sessions_pDJYw: Active sessions
       page:
         acl-diagnostics:
           action_select-subject: Select subject

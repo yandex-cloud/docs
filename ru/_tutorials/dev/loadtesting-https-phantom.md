@@ -1,5 +1,8 @@
 # HTTPS-тест с постоянной нагрузкой с помощью Phantom
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 {{ load-testing-name }} можно использовать для тестирования сервиса с постоянной нагрузкой по протоколу [HTTPS](../../glossary/ssl-certificate.md) с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Phantom](../../load-testing/concepts/load-generator.md#phantom).
 

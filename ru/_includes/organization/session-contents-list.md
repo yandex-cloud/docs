@@ -1,0 +1,6 @@
+* **{{ ui-key.yacloud_org.organization.users.user_agent_bHjZs }}** — [идентификатор](https://ru.wikipedia.org/wiki/User_agent) клиентского приложения. Неизменяемое значение.
+* **{{ ui-key.yacloud_org.organization.users.created_at_khi1N }}** — дата и время создания сессии. Неизменяемое значение.
+* **{{ ui-key.yacloud_org.organization.users.last_used_at_899qR }}** — дата и время последнего использования сессии для аутентификации в приложениях, использующих {{ org-full-name }} в качестве поставщика удостоверений. Значение может изменяться в процессе работы с сессией.
+* **{{ ui-key.yacloud_org.organization.users.expires_at_adUqM }}** — [срок жизни](../../organization/concepts/sessions.md#session-lifetime) сессии, по истечении которого пользователю придется пройти повторную аутентификацию в {{ org-full-name }}. Неизменяемое значение.
+* **{{ ui-key.yacloud_org.organization.users.ip_address_u9ysH }}** — последний IP-адрес пользователя, с которого в рамках данной сессии он обращался к сервисам, требующим аутентификации через {{ org-full-name }}. Значение может изменяться в процессе работы с сессией.
+* **{{ ui-key.yacloud.common.id }}** — уникальный идентификатор сессии. Неизменяемое значение.

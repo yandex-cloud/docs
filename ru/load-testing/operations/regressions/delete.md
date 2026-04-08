@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить дашборд
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Если дашборд вам больше не нужен, удалите его.
 
 {% list tabs group=instructions %}

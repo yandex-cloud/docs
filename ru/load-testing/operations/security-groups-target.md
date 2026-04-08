@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка групп безопасности цели тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {% include [security-groups-target](../../_includes/load-testing/security-groups-target.md) %}
 
 {% note info %}
