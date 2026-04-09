@@ -48,6 +48,8 @@ resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
   - `retained_top` (Number). The number of images to be retained even if the `expire_period` already expired.
   - `tag_regexp` (String). Tag to specify a filter as a regular expression. For example `.*` - all images with tags.
   - `untagged` (Bool). If enabled, rules apply to untagged Docker images.
+- `timeouts` [Block]. 
+  - `default` (String).
 
 ## Import
 

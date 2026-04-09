@@ -180,6 +180,11 @@ resource "yandex_kubernetes_node_group" "my_node_group" {
     - `min` (**Required**)(Number). Minimum number of instances in the node group.
   - `fixed_scale` [Block]. Scale policy for a fixed scale node group.
     - `size` (Number). The number of instances in the node group.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `workload_identity_federation` [Block]. Workload Identity Federation configuration.
   - `enabled` (**Required**)(Bool). Identifies whether Workload Identity Federation is enabled.
 

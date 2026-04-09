@@ -1,6 +1,6 @@
 ---
 title: Managing {{ CH }} hosts
-description: 'Follow this guide to manage {{ CH }} cluster hosts: get a list of hosts in the cluster, create a host, update {{ CH }} settings for a host, restart a host, and delete a host.'
+description: 'Follow this guide to manage {{ CH }} cluster hosts: get a list of hosts in the cluster, create a host, update {{ CH }} settings for a host, restart, and delete a host.'
 ---
 
 # Managing {{ CH }} hosts
@@ -46,7 +46,7 @@ You can create several hosts in a cluster in one go.
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
       * Shard name.
-      * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
+      * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside of {{ yandex-cloud }}.
 
 
   1. Optionally, click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-host-item }}** to add more hosts and specify their parameters.
@@ -119,14 +119,15 @@ You can create several hosts in a cluster in one go.
      {{ mch-name }} will start creating hosts.
 
      
-     If your availability zone contains multiple subnets, make sure to specify the subnet ID; otherwise, {{ mch-name }} will automatically select the single subnet available. You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You should specify the subnet ID if the availability zone contains more than one subnet; otherwise, {{ mch-name }} will automatically select the only subnet. You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
 
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Add one or multiple `host` sections to the {{ mch-name }} cluster description, one for each new host.
 
      A single `host` section is as follows:
@@ -145,11 +146,11 @@ You can create several hosts in a cluster in one go.
 
      Where `assign_public_ip` is internet access to the host via a public IP address, `true` or `false`.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -157,14 +158,16 @@ You can create several hosts in a cluster in one go.
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
+        
         ```bash
         curl \
             --request POST \
@@ -188,6 +191,7 @@ You can create several hosts in a cluster in one go.
                     }'
         ```
 
+
         Where:
 
         * `hostSpecs`: Array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
@@ -196,9 +200,9 @@ You can create several hosts in a cluster in one go.
             * `zoneId`: Availability zone.
             * `subnetId`: Subnet ID.
             * `shardName`: Shard name.
-            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+            * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
 
-        * `copySchema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
+        * `copySchema`: Sets whether to copy the data schema from a random replica to the new hosts, `true` or `false`.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -214,6 +218,7 @@ You can create several hosts in a cluster in one go.
 
     1. Call the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
+        
         ```bash
         grpcurl \
             -format json \
@@ -235,11 +240,12 @@ You can create several hosts in a cluster in one go.
                         { ... },
                         { <similar_settings_for_new_host_N> }
                     ],
-                    "copy_schema": <enabling_or_disabling_data_schema_copying>
+                    "copy_schema": <copy_data_schema_or_not>
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
         ```
+
 
         Where:
 
@@ -249,11 +255,11 @@ You can create several hosts in a cluster in one go.
             * `zone_id`: Availability zone.
             * `subnet_id`: Subnet ID.
             * `shard_name`: Shard name.
-            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+            * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
 
-        * `copy_schema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
+        * `copy_schema`: Sets whether to copy the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -306,11 +312,12 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
   You can get the host name with the [list of cluster hosts](#list-hosts), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add or edit the `assign_public_ip` parameter in the relevant `host` section.
 
@@ -327,15 +334,16 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
      Where `assign_public_ip` is internet access to the host via a public IP address, `true` or `false`.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
+
 
 - REST API {#api}
 
@@ -367,11 +375,11 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
         Where `updateHostSpecs[]` is the list of hosts and their parameters to update. Below is the structure of an individual element:
 
         * `hostName`: Host name which you can get with the [list of hosts in the cluster](#list-hosts).
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we only specified a single setting, `assignPublicIp`.
 
-        * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+        * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -420,7 +428,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
             Here, we only specified a single setting, `assign_public_ip`.
 
-        * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+        * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -431,7 +439,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
 {% note warning %}
 
-If you cannot [connect](connect/clients.md) to the host after the update, check that the cluster [security group](../concepts/network.md#security-groups) is properly configured for the subnet containing your host.
+If you cannot [connect](connect/clients.md) to the host after the update, check that the cluster [security group](../concepts/network.md#security-groups) is properly configured for the host subnet.
 
 {% endnote %}
 
@@ -494,9 +502,9 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mch-name }} cluster description, delete one or multiple `CLICKHOUSE` `host` sections.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

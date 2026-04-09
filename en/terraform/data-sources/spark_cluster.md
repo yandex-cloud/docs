@@ -66,5 +66,7 @@ data "yandex_spark_cluster" "spark_cluster_by_id" {
   - `subnet_ids` (**Required**)(Set Of String). Network subnets.
 - `service_account_id` (**Required**)(String). The service account used by the cluster to access cloud resources.
 - `status` (*Read-Only*) (String). Status of the cluster.
+- `timeouts` [Block]. 
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 
 

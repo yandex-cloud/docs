@@ -60,7 +60,8 @@ description: Следуя данной инструкции, вы сможете
        --node-taints <taint-политики> \
        --container-network-settings pod-mtu=<значение_MTU_для_подов_группы> \
        --max-expansion <предел_расширения_группы_узлов> \
-       --max-unavailable <предел_недоступных_узлов>
+       --max-unavailable <предел_недоступных_узлов> \
+       --reserved-instance-pool-id <идентификатор_пула_резервов>
      ```
 
      Где:
@@ -127,6 +128,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `--node-taints` — [taint-политики](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько политик.
      * `--container-network-settings` — значение [MTU](https://ru.wikipedia.org/wiki/Maximum_transmission_unit) для сетевых соединений с подами группы. Настройка не применима для кластеров с контроллерами сетевых политик Calico или Cilium.
+     * `--reserved-instance-pool-id` — [идентификатор](../../../compute/cli-ref/reserved-instance-pool/list.md) пула резервов ВМ. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
      * Параметры [политики развертывания](../../concepts/node-group/deploy-policy.md) (deploy policy):
 
         {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
@@ -254,7 +256,8 @@ description: Следуя данной инструкции, вы сможете
 
        * `labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
        * `node_labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
-       * `scale_policy` — настройки масштабирования. 
+       * `reserved_instance_pool_id` — [идентификатор](../../../compute/cli-ref/reserved-instance-pool/list.md) пула резервов ВМ. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
+       * `scale_policy` — настройки масштабирования.
 
          Тип масштабирования нельзя изменить после создания группы узлов.
 
@@ -382,6 +385,7 @@ description: Следуя данной инструкции, вы сможете
   * Среду запуска контейнеров [containerd](https://containerd.io/) в параметре `nodeTemplate.containerRuntimeSettings.type`.
   * [Облачные метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeTemplate.labels`.
   * [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeLabels`.
+  * Идентификатор [пула резервов виртуальных машин](../../../compute/concepts/reserved-pools.md) в параметре `nodeTemplate.reservedInstancePoolId`. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   
     Тип масштабирования нельзя изменить после создания группы узлов.
@@ -594,3 +598,8 @@ description: Следуя данной инструкции, вы сможете
       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
+
+### См. также {#see-also}
+
+* [{#T}](./node-group-create-in-instance-pool.md)
+* [{#T}](../../concepts/index.md#node-group)

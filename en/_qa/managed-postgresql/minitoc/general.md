@@ -47,7 +47,6 @@
 
 * [Which data center stores the {{ PG }} cluster backups?](#data-center)
 
-* [Does the service comply with the Russian Federal Law 152-FZ on personal data?](#fz-152)
 
 * [Can I get superuser privileges in {{ PG }}?](#superuser)
 

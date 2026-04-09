@@ -56,6 +56,12 @@ resource "yandex_ydb_database_serverless" "database_name" {
   - `name` (**Required**)(String). Reader's name.
   - `starting_message_timestamp_ms` (Number). Timestamp in UNIX timestamp format from which the reader will start reading data. Default value `0`.
   - `supported_codecs` (Set Of String). Supported data encodings. Can be one of `gzip`, `raw` or `zstd`.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `default` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

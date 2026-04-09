@@ -72,6 +72,10 @@ resource "yandex_compute_snapshot_schedule" "vm_snap_sch2" {
 - `snapshot_spec` [Block]. Additional attributes for snapshots created by this snapshot schedule.
   - `description` (String). Description to assign to snapshots created by this snapshot schedule.
   - `labels` (Map Of String). A set of key/value label pairs to assign to snapshots created by this snapshot schedule.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

@@ -234,6 +234,10 @@ Exactly one type of string matches `exact`, `prefix` or `regex` should be specif
             - `exact` (String). Match exactly.
             - `prefix` (String). Match prefix.
             - `regex` (String). Match regex.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

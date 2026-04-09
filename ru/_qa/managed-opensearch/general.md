@@ -114,3 +114,8 @@ Unable to confirm permission 'data-transfer.transfers.createExternal'
 #### Какой размер блока используется на дисках кластера? {#block-size}
 
 {% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
+#### Какие ограничения есть при создании или удалении групп хостов? {#host-group-limits}
+
+* Если вы добавите в кластер группу хостов с ролью `MANAGER`, где эта роль назначена хостам с ролью `DATA`, такую группу будет невозможно удалить. Вернуть прежнюю конфигурацию хостов можно только [восстановив кластер из резервной копии](../../managed-opensearch/operations/cluster-backups.md#restore).
+* При удалении группы хостов нельзя удалить единственную группу хостов с ролью `DATA`.

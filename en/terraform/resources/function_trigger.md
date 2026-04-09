@@ -101,9 +101,18 @@ resource "yandex_function_trigger" "my_trigger" {
   - `prefix` (String). Prefix for Object Storage for Yandex Cloud Functions Trigger.
   - `suffix` (String). Suffix for Object Storage for Yandex Cloud Functions Trigger.
   - `update` (Bool). Boolean flag for setting `update` event for Yandex Cloud Functions Trigger.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String). 
 - `timer` [Block]. [Timer](https://yandex.cloud/docs/functions/concepts/trigger/timer) settings definition for Yandex Cloud Functions Trigger, if present.
   - `cron_expression` (**Required**)(String). Cron expression for timer for Yandex Cloud Functions Trigger.
   - `payload` (String). Payload to be passed to function.
+- `workflow` [Block]. Workflows settings definition for Yandex Cloud Functions Trigger.
+  - `id` (**Required**)(String). Workflow ID.
+  - `retry_attempts` (String). Retry attempts for Workflows.
+  - `retry_interval` (String). Retry interval in seconds for Workflows.
+  - `service_account_id` (**Required**)(String). Service account ID for Workflows.
 
 ## Import
 

@@ -1,6 +1,6 @@
 ---
 title: Information about existing {{ OS }} clusters
-description: You can get detailed information about each {{ OS }} cluster you created.
+description: You can request detailed information for each {{ OS }} cluster you have created.
 keywords:
   - Information about OpenSearch hosts
   - OpenSearch hosts
@@ -43,7 +43,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -61,11 +61,11 @@ You can get detailed information about each {{ mos-name }} cluster you created.
       You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -90,7 +90,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
       You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -110,7 +110,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about an {{ OS }} cluster, run this command:
+  To get {{ OS }} cluster details, run the following command:
 
   ```bash
   {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
@@ -120,7 +120,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -135,11 +135,11 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -162,7 +162,7 @@ You can get detailed information about each {{ mos-name }} cluster you created.
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -178,13 +178,12 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
   To get a list of operations for a cluster:
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-  1. Select the cluster you need.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
+  1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
-      You will see the list of operations with this cluster.
+      You will see the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -210,7 +209,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
 
   ```bash
   yc managed-opensearch cluster list-operations c9qk2926qqu9******** --format yaml
@@ -235,7 +234,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -250,11 +249,11 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -277,7 +276,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.opensearch.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -418,7 +417,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -437,7 +436,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -460,7 +459,7 @@ All actions with {{ mos-name }} clusters are logged as a list of operations. Eac
 
         You can get the operation ID with the [list of operations](#get-operations) for the cluster.
 
-    1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

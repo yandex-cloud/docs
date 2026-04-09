@@ -95,6 +95,8 @@ output "network_id" {
   - `resource_preset_id` (**Required**)(String). ID of the resource preset that determines the number of CPU cores and memory size for the host.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `sharded` (Bool). Redis sharded mode. Can be either true or false.
+- `timeouts` [Block]. 
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 - `tls_enabled` (Bool). TLS port and functionality. Can be either true or false.
 
 

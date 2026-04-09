@@ -33,13 +33,15 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Connect to a database:
 
       ```bash
-      psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
+      psql "host=<list_of_cluster_hosts> \
             port=6432 \
             sslmode=disable \
             dbname=<DB_name> \
             user=<username> \
             target_session_attrs=read-write"
       ```
+
+      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}    
 
       After you run this command, enter the user password to complete connecting to the database.
 
@@ -54,6 +56,8 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Connect to a database:
 
       {% include [default-connstring](../../../_includes/mdb/mpg/default-connstring.md) %}
+  
+      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       After you run this command, enter the user password to complete connecting to the database.
 
@@ -83,11 +87,13 @@ Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/dow
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-           --host=c-<cluster_ID>.rw.{{ dns-zone }} `
+           --host=<list_of_hosts> `
            --port={{ port-mpg }} `
            --username=<username> `
            <DB_name>
      ```
+
+     {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
      After you run this command, enter the user password to complete connecting to the database.
 
@@ -109,11 +115,13 @@ Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/dow
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-        --host=c-<cluster_ID>.rw.{{ dns-zone }} `
+        --host=<list_of_hosts> `
         --port={{ port-mpg }} `
         --username<username> `
         <DB_name>
       ```
+
+      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       After you run this command, enter the user password to complete connecting to the database.
 
@@ -267,7 +275,9 @@ Your cluster will appear in the server list located in the navigation menu.
 
 ## Connecting from {{ google-looker }} {#connection-google-looker}
 
+
 Connections from [{{ google-looker }}](https://lookerstudio.google.com/overview) are only permitted to publicly accessible hosts.
+
 
 1. Save the `CA.pem` [server certificate]({{ crt-web-path }}) to a local directory.
 1. In the same directory, generate a client certificate with a private key:

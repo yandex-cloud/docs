@@ -54,5 +54,9 @@ resource "yandex_lockbox_secret_version_hashed" "my_version" {
 - `text_value_7` (String). Each of the entry values in the Yandex Cloud Lockbox secret version.
 - `text_value_8` (String). Each of the entry values in the Yandex Cloud Lockbox secret version.
 - `text_value_9` (String). Each of the entry values in the Yandex Cloud Lockbox secret version.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String).
 
 

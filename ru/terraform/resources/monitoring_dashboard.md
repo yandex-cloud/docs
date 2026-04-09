@@ -187,6 +187,11 @@ resource "yandex_monitoring_dashboard" "my-dashboard" {
       - `selectors` (String). Selectors to select metric label values.
     - `text` [Block]. Text parameter. Oneof: label_values, custom, text.
       - `default_value` (String). Default value.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `widgets` [Block]. Widgets.
   - `chart` [Block]. Chart widget settings.
     - `chart_id` (String). Chart ID.

@@ -99,7 +99,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Configure the storage the same way as for `{{ OS }}` hosts.
       1. Specify how hosts should be distributed across availability zones and subnets.
       1. Select the number of hosts to create.
-        
+
       
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect/index.md) to hosts over the internet.
 
@@ -138,6 +138,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
   1. Specify the cluster properties in this command (the example does not show all that are available):
 
+      
       ```bash
       {{ yc-mdb-os }} cluster create \
          --name <cluster_name> \
@@ -154,7 +155,6 @@ When creating a cluster, you need to specify individual parameters for each [hos
          --disk-encryption-key-id <KMS_key_ID> \
          --version <{{ OS }}_version> \
          --read-admin-password \
-         --data-transfer-access=<allow_access_from_Data_Transfer> \
          --serverless-access=<allow_access_from_Serverless_Containers> \
          --plugins <{{ OS }}_plugins> \
          --advanced-params <additional_parameters> \
@@ -177,6 +177,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                                 `assign-public-ip=<allow_public_access_to_hosts>
       ```
 
+
       Where:
 
       * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) in `<key>=<value>` format. You can use them to logically separate resources.
@@ -185,7 +186,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `production`: For stable versions of your applications.
           * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
+      
       * `--service-account-name`: Name of the service account for [accessing {{ objstorage-full-name }}](s3-access.md) as a repository of {{ OS }} snapshots. Learn more about service accounts in [this {{ iam-full-name }} guide](../../iam/concepts/users/service-accounts.md).
+
 
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
       
@@ -210,8 +213,10 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
-
+      
       * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
+
+
       * `--plugins`: [{{ OS }} plugins](../concepts/plugins.md) to install in the cluster.
       * `--advanced-params`: Additional cluster parameters. The possible values are:
 
@@ -220,6 +225,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
+
 
 - {{ TF }} {#tf}
 
@@ -309,12 +315,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
       Where:
 
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-
-      
       * `disk_encryption_key_id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
 
           To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
-
 
       * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
 
@@ -346,6 +349,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -484,11 +488,11 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       * `diskTypeId`: [Disk type](../concepts/storage.md).
 
                   * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
-                  * `hostsCount`: Number of hosts in the group. The minimum number of `DATA` hosts is one, while the minimum number of `MANAGER` hosts is three.
+                  * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zoneIds`: List of availability zones the cluster hosts are located in.
-                  * `subnetIds`: List of subnet IDs.
 
                   
+                  * `subnetIds`: List of subnet IDs.
                   * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
@@ -519,9 +523,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `dashboardsSpec`: `Dashboards` host group settings. These contain the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
 
           
-          * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+          * `access`: Settings for access to the cluster from the following {{ yandex-cloud }} services:
 
-              * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
               The possible setting values are `true` or `false`.
@@ -631,7 +634,6 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   ]
               },
               "access": {
-                  "data_transfer": <allow_access_from_Data_Transfer>,
                   "serverless": <allow_access_from_Serverless_Containers>
               }
           },
@@ -683,11 +685,11 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       * `disk_type_id`: [Disk type](../concepts/storage.md).
 
                   * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
-                  * `hosts_count`: Number of hosts in the group. The minimum number of `DATA` hosts is one, while the minimum number of `MANAGER` hosts is three.
+                  * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zone_ids`: List of availability zones the cluster hosts are located in.
-                  * `subnet_ids`: List of subnet IDs.
 
                   
+                  * `subnet_ids`: List of subnet IDs.
                   * `assign_public_ip`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
@@ -718,9 +720,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `dashboards_spec`: `Dashboards` host group settings. These contain the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
 
           
-          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+          * `access`: Settings for access to the cluster from the following {{ yandex-cloud }} services:
 
-              * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
               The possible values are `true` or `false`.
@@ -833,6 +834,7 @@ To create an {{ OS }} cluster copy:
 
     Create a {{ mos-name }} cluster with the following test specifications:
 
+    
     * Name: `my-os-clstr`.
     * Description: `My OS cluster`.
     * Label: `label-key` with `label-value`.
@@ -844,7 +846,6 @@ To create an {{ OS }} cluster copy:
     * Maintenance time: Every Monday from 13:00 till 14:00.
     * {{ OS }} version: `2.12`.
     * `admin` password: Specified after entering the cluster create command.
-    * Access to {{ data-transfer-name }}: Enabled.
     * Access to {{ serverless-containers-name }}: Enabled.
     * {{ OS }} added plugin: analysis-icu.
     * {{ OS }} additional parameter: `fielddata-cache-size=50%`.
@@ -871,8 +872,10 @@ To create an {{ OS }} cluster copy:
         * Subnet: `{{ network-name }}-{{ region-id }}-a`.
         * Public address: Assigned.
 
+
     Run this command:
 
+    
     ```bash
     {{ yc-mdb-os }} cluster create \
        --name my-os-clstr \
@@ -888,7 +891,6 @@ To create an {{ OS }} cluster copy:
                     `hour=14 \
        --version 2.12 \
        --read-admin-password \
-       --data-transfer-access=true \
        --serverless-access=true \
        --plugins analysis-icu \
        --advanced-params fielddata-cache-size=50% \
@@ -910,6 +912,8 @@ To create an {{ OS }} cluster copy:
                               `subnet-names={{ network-name }}-{{ region-id }}-a,`
                               `assign-public-ip=true
     ```
+
+
 
 - {{ TF }} {#tf}
 
@@ -1032,6 +1036,7 @@ To create an {{ OS }} cluster copy:
       }
     }
     ```
+
 
 {% endlist %}
 

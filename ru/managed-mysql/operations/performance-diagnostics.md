@@ -11,7 +11,10 @@
     При [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings):
 
     1. Включите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (по умолчанию отключена).
-    1. Настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Диапазон значений — от `1` до `86400` секунд.
+    1. Настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Допустимые значения:
+        
+        * для сессий — от `5` до `86400` секунд;
+        * для запросов — от `60` до `86400` секунд.
 
 * CLI {#cli}
 
@@ -30,7 +33,10 @@
         ...
     ```
 
-    Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
+    Допустимые значения параметров:
+
+    * `sessions-sampling-interval` — от `5` до `86400` секунд.
+    * `statements-sampling-interval` — от `60` до `86400` секунд.
 
 * {{ TF }} {#tf}
 
@@ -52,7 +58,11 @@
         }
         ```
 
-        Допустимые значения параметров `sessions_sampling_interval` и `statements_sampling_interval` — от `1` до `86400` секунд.
+        Где:
+        
+        * `enabled` — активация сбора статистики: `true` или `false`;
+        * `sessions_sampling_interval` — интервал сбора сессий: от `5` до `86400` секунд;
+        * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
     1. Проверьте корректность настроек.
 
@@ -85,7 +95,7 @@
                             "performanceDiagnostics": {
                               "enabled": <активировать_сбор_статистики>,
                               "sessionsSamplingInterval": "<интервал_сбора_сессий>",
-                              "statementsSamplingInterval": "<интервала_сбора_запросов>"
+                              "statementsSamplingInterval": "<интервал_сбора_запросов>"
                             },
                             ...
                           },
@@ -96,7 +106,7 @@
             Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
             * `enabled` — активация сбора статистики: `true` или `false`;
-            * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `sessionsSamplingInterval` — интервал сбора сессий: от `5` до `86400` секунд;
             * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
@@ -119,7 +129,7 @@
                             "performanceDiagnostics": {
                               "enabled": <активировать_сбор_статистики>,
                               "sessionsSamplingInterval": "<интервал_сбора_сессий>",
-                              "statementsSamplingInterval": "<интервала_сбора_запросов>"
+                              "statementsSamplingInterval": "<интервал_сбора_запросов>"
                             }
                           }
                         }'
@@ -128,7 +138,7 @@
             Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
             * `enabled` — активация сбора статистики: `true` или `false`;
-            * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `sessionsSamplingInterval` — интервал сбора сессий: от `5` до `86400` секунд;
             * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
@@ -156,7 +166,7 @@
                         "performance_diagnostics": {
                           "enabled": <активировать_сбор_статистики>,
                           "sessions_sampling_interval": "<интервал_сбора_сессий>",
-                          "statements_sampling_interval": "<интервала_сбора_запросов>"
+                          "statements_sampling_interval": "<интервал_сбора_запросов>"
                         },
                         ...
                       },
@@ -169,7 +179,7 @@
             Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
             * `enabled` — активация сбора статистики: `true` или `false`;
-            * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `sessions_sampling_interval` — интервал сбора сессий: от `5` до `86400` секунд;
             * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
@@ -198,7 +208,7 @@
                         "performance_diagnostics": {
                           "enabled": <активировать_сбор_статистики>,
                           "sessions_sampling_interval": "<интервал_сбора_сессий>",
-                          "statements_sampling_interval": "<интервала_сбора_запросов>"
+                          "statements_sampling_interval": "<интервал_сбора_запросов>"
                         }
                       }
                     }' \
@@ -209,7 +219,7 @@
             Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
             * `enabled` — активация сбора статистики: `true` или `false`;
-            * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
+            * `sessions_sampling_interval` — интервал сбора сессий: от `5` до `86400` секунд;
             * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).

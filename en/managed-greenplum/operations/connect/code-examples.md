@@ -9,7 +9,7 @@ description: These examples show you how to connect to a {{ GP }} cluster databa
 
 Creating a {{ GP }} cluster does not entail creating a user database. To test the connection, use the `postgres` service database.
 
-To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert). In these examples, the `root.crt` SSL certificate is located in the following directory:
+To connect to a publicly accessible cluster, [prepare an SSL certificate](index.md#get-ssl-cert). In these examples, the `root.crt` SSL certificate is located in the following directory:
 
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.

@@ -108,6 +108,10 @@ resource "yandex_vpc_network" "lab-net" {
   - `to_port` (Number). Maximum port number.
   - `v4_cidr_blocks` (List Of String). The blocks of IPv4 addresses for this rule.
   - `v6_cidr_blocks` (List Of String). The blocks of IPv6 addresses for this rule. `v6_cidr_blocks` argument is currently not supported. It will be available in the future.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

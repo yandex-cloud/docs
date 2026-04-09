@@ -8,3 +8,7 @@ description: This page provides reference information on the {{ mpg-name }} metr
 This section describes the {{ mpg-name }} metrics delivered to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-postgresql](../_includes/monitoring/metrics-ref/managed-postgresql.md) %}
+
+#### See also {#see-also}
+
+[{#T}](./operations/monitoring.md)

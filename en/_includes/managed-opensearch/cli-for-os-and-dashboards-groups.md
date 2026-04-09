@@ -9,6 +9,7 @@
       zone-ids=[ru-central1-a,ru-central1-b,ru-central1-d]
       ```
 
+   
    * `subnet-names`: Names of the subnets in the specified availability zones. Separate subnets with commas and enclose them in square brackets, e.g.:
 
       ```bash
@@ -20,6 +21,7 @@
       ```bash
       subnet-ids=[e9bp8qmchqh2********,e2l963gkhobo********,fl8klaabecc3********]
       ```
+
 
    * `roles`: [Host roles](../../managed-opensearch/concepts/host-roles.md). The possible values are:
 

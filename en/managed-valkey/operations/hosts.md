@@ -172,7 +172,7 @@ You can configure public access to hosts only for clusters created with TLS enab
          `replica-priority=<host_priority>,`
          `shard-name=<shard_name>
      ```
-     
+
 
      Where:
      * `--cluster-name`: {{ mrd-name }} cluster name. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -223,7 +223,7 @@ You can configure public access to hosts only for clusters created with TLS enab
 
      The host name must be unique within the cluster.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -336,7 +336,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
      * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
      * `shard_name`: Name of the shard the host resides in.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -488,7 +488,7 @@ You cannot delete a host if the number of hosts in the cluster or shard is equal
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mrd-name }} cluster description, delete the relevant host from the `hosts` section.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

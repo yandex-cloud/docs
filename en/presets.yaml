@@ -436,6 +436,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -578,7 +579,6 @@ default:
   roles-datalens-admin: datalens.admin
   roles-datalens-creator: datalens.creator
   roles-datalens-instances-admin: datalens.instances.admin
-  roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
   roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datasphere-admin: datasphere.admin
@@ -907,6 +907,7 @@ default:
   yandex-direct: Yandex Direct
   yandex-domain: yandex.com
   yandex-oauth: Yandex.OAuth
+  yandex-siem-full-name: Yandex SIEM
   yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
@@ -4622,6 +4623,7 @@ default:
         ProfileEditPageLayout:
           main_breadcrumb: Profile data
         ProfilePage:
+          contacts_subheader: Contacts
           edit_action: Edit
         refresh-tokens:
           action_remove_all: Delete all tokens
@@ -4901,6 +4903,8 @@ default:
           ControlsPageLayout:
             configuration_w7Kw7: Configuration
           ExceptionDrawer:
+            header_action_delete: Delete
+            header_action_edit: Edit
             resources_field_id: ID
           ExceptionOverview:
             header_caption_cspm_9dTJt: Configuration control
@@ -4957,15 +4961,32 @@ default:
             connectorsLabel_2NoP9: Connectors
             workspacesLabel_kZyU1: Workspaces
         siem:
+          action_create-exception_bLSu4: Create exception
           action_delete_wM5k5: Delete
           action_insert_into_query_kR3x1: Insert into query
+          action_mark-for-deployment_sUf3V: Mark for deployment
           action_new_folder_qmx81: New folder
           action_new_query_from_template_pL7m2: New query from template
+          action_not-deploy_sPzwj: Do not deploy
           action_rename_vN4w3: Rename
+          action_reset-changes_eXJka: Reset changes
+          action_switch-off_kYx8w: Disable
           cell-result-action-launch_v9v5f: Launch
           cell-result-action-share_i1khy: Share
           cell-result-canceled_fqtbJ: Canceled
           cell-result-running_4S3Mi: Running
+          condition_title_gAfRm: Conditions
+          CorrelationRulesPage:
+            create-correlation-rule: New rule
+          CorrelationRuleTable:
+            category: Category
+          deployment_status_changed: Changed
+          detect-deployment_created_2GEyZ: Will be deployed
+          detect-deployment_deployed_ejgvu: Deployed
+          detect-overview:
+            title-actions-on-trigger_j8dE3: Actions on trigger
+          ExceptionsPage:
+            create-exception: New exception
           InvestigationPageLayout:
             copy_wiAxw: Create copy
             fieldDescription_wiAxw: Description
@@ -4974,7 +4995,12 @@ default:
             newQuery_mzeBV: New query
           InvestigationsPage:
             create-investigation_iCPUP: New investigation
+          label_description_4xXeP: Description
+          label_name_udzhS: Name
           my_8uT22: Personal
+          SiemPageLayout:
+            correlationRules: Correlation rules
+            exceptions: Exceptions
           template_type_global_qSrVE: Global
           template_type_local_77J2t: Instance
           title_ap766: Save query as template
@@ -5057,6 +5083,9 @@ default:
           severity_info_biSRh: Remark
           severity_low_tqf9A: Low severity
           severity_medium_8LZ4w: Medium severity
+      siem:
+        SearchActionButtonBlock:
+          save: Save
       storage:
         value_private-bucket: Private
         value_public-bucket: Public
@@ -5824,6 +5853,9 @@ default:
             action_submit: Create hosts
             field_copy_schema: Copy data schema
             title_additional-settings: Additional settings
+        PerformanceDiagnostics:
+          ClusterDiagnosticsTabs:
+            label_query-groups_w3anM: Query groups
         switch_backups: Backups
         switch_list: Clusters
         switch_operations: Operations
@@ -8667,6 +8699,7 @@ default:
         ClusterView:
           RBACView:
             label_rbac-settings_o2F64: Access settings
+        label_private-access: Private access
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs
         label_rbac-catalog-access: Catalogs the rule applies to

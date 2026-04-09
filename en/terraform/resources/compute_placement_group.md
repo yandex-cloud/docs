@@ -29,6 +29,10 @@ resource "yandex_compute_placement_group" "group1" {
 - `name` (String). The resource name.
 - `placement_strategy_partitions` (Number). A number of partitions in the placement strategy with partitions policy of the Placement Group (conflicts with placement_strategy_spread).
 - `placement_strategy_spread` (Bool). A placement strategy with spread policy of the Placement Group. Should be true or unset (conflicts with placement_strategy_partitions).
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

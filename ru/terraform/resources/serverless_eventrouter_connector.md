@@ -25,6 +25,11 @@ subcategory: Serverless Event Router
 - `id` (String). 
 - `labels` (Map Of String). Connector labels
 - `name` (**Required**)(String). Name of the connector
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `timer` [Block]. Timer source of the connector
   - `cron_expression` (**Required**)(String). Cron expression. Cron expression with seconds. Example: 0 45 16 ? * *
   - `payload` (String). Payload to be passed to bus

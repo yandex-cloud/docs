@@ -161,8 +161,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 
      
-     If your availability zone contains more than one subnet, make sure to specify the subnet ID; otherwise, {{ mpg-short-name }} will automatically select a single subnet. You can get the cluster name from the [list of clusters in the folder](cluster-list.md#list-clusters).
-
+     You should specify the subnet ID if the availability zone contains more than one subnet; otherwise, {{ mpg-short-name }} will automatically select the only subnet. You can get the cluster name from the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      You can specify extra options in the `--host` argument to manage public access to the host and cluster replication:
      * Use the host’s `replication-source` option for [manual replication stream management](../concepts/replication.md#replication-manual).
@@ -170,7 +169,9 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
        * `true`: Public access enabled.
        * `false`: Public access disabled.
 
+
   {{ mpg-short-name }} will start the host addition process.
+
 
 - {{ TF }} {#tf}
 
@@ -203,15 +204,16 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
      * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
      * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -221,6 +223,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
   1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
+     
      ```bash
      curl \
        --request POST \
@@ -248,11 +251,16 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
                }'
      ```
 
+
      Where `hostSpecs` is the array of new hosts. Each array element contains the configuration for a single host and has the following structure:
 
      * `zoneId`: Availability zone.
+
+     
      * `subnetId`: Subnet ID.
-     * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+     * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the [FQDN of the host](connect/fqdn.md#special-fqdns) that will be used as the replication source.
      * `priority`: Host priority relative to all other hosts.
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Specify each setting on a separate line, separated by commas.
@@ -272,6 +280,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Call the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
+     
      ```bash
      grpcurl \
        -format json \
@@ -303,11 +312,16 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
        yandex.cloud.mdb.postgresql.v1.ClusterService.AddHosts
      ```
 
+
      Where `host_specs` is an array of new hosts. Each array element contains the configuration for a single host and has the following structure:
 
      * `zone_id`: Availability zone.
+
+     
      * `subnet_id`: Subnet ID.
-     * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+     * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the [FQDN of the host](connect/fqdn.md#special-fqdns) that will be used as the replication source.
      * `priority`: Host priority relative to all other hosts.
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
@@ -357,6 +371,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 
   To update the cluster host’s settings, run the following command:
 
+  
   ```bash
   {{ yc-mdb-pg }} host update <host_name> \
     --cluster-name <cluster_name> \
@@ -364,15 +379,20 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
     --assign-public-ip=<public_access_to_host>
   ```
 
+
   Where:
 
   * `cluster-name`: Cluster name.
   * `replication-source`: Source host name.
+
+  
   * `assign-public-ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
+
 
   You can get the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   For [manual replication stream management](../concepts/replication.md#replication-manual) within your cluster, change the value of the host's `--replication-source` argument.
+
 
 - {{ TF }} {#tf}
 
@@ -399,15 +419,16 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
   * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
   * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -419,6 +440,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
+     
      ```bash
      curl \
        --request POST \
@@ -446,11 +468,16 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
                }'
      ```
 
+
      Where `updateHostSpecs` is the array of hosts you are updating. Each array element contains the configuration for a single host and has the following structure:
 
      * `updateMask`: Comma-separated string of settings to update.
      * `hostName`: [FQDN of the host being updated](connect/fqdn.md).
-     * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+
+     
+     * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the FQDN of the host that will be used as the replication source.
      * `priority`: Host priority relative to all other hosts.
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
@@ -472,6 +499,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
+     
      ```bash
      grpcurl \
        -format json \
@@ -507,11 +535,16 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
        yandex.cloud.mdb.postgresql.v1.ClusterService.UpdateHosts
      ```
 
+
      Where `update_host_specs` is an array of hosts you want to update. Each array element contains the configuration for a single host and has the following structure:
 
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
      * `host_name`: [FQDN of the host being updated](connect/fqdn.md).
-     * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+
+     
+     * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the FQDN of the host that will be used as the replication source.
      * `priority`: Host priority relative to all other hosts.
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
@@ -534,7 +567,7 @@ If you cannot [connect](connect/index.md) to the host after the update, check th
 
 ## Deleting a host {#remove}
 
-You can delete a host from a {{ PG }} cluster as long as it is not the only host in the cluster. In order to replace a sole host, you must first create a new host and then delete the old one.
+You can delete a host from a {{ PG }} cluster as long as it is not the only host in the cluster. To replace the only host, first create a new host and then delete the old one.
 
 If you are deleting the master host, {{ mpg-short-name }} will automatically promote the highest priority replica to master.
 
@@ -571,7 +604,7 @@ If you are deleting the master host, {{ mpg-short-name }} will automatically pro
 
      For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
   1. Delete the `host` section referring to the host you want to delete from the {{ mpg-name }} cluster description.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

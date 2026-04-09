@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.2.0 (09.04.26) {#v-1-2-0}
+
+#### {{ mch-name }} {#v-1-2-0-mch}
+
+* В команде `yc managed-clickhouse cluster add-zookeeper` параметр `--convert-tables-to-replicated` включен по умолчанию. 
+
+
+#### {{ mmy-name }} {#v-1-2-0-mmy}
+
+* Добавлен новый режим работы прокси `--daemon` для `yc managed-mysql connect`.
+
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.1.0 (06.04.26) {#v-1-1-0}
 
 #### {{ sf-name }} {#v-1-1-0-sf-name}
@@ -36,8 +50,6 @@ description: На странице представлены релизы CLI, а
 * В команды `yc managed-kubernetes marketplace helm-release install` и `yc managed-kubernetes marketplace helm-release update` добавлены примеры передачи сложных значений (списков, объектов) через `--value` и `--value-from-file`:
   * `yc managed-kubernetes marketplace helm-release install`;
   * `yc managed-kubernetes marketplace helm-release update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.0.0 (02.04.26) {#version1.0.0}
 

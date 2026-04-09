@@ -12,6 +12,7 @@ keywords:
 
 ## Clusters
 
+* [Getting information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
 * [Managing cluster hosts](cluster-hosts.md)
@@ -21,3 +22,6 @@ keywords:
 * [Maintenance](cluster-maintenance.md)
 * [Viewing cluster logs](cluster-logs.md)
 * [Deleting a cluster](cluster-delete.md)
+* [Managing cluster access](cluster-access.md)
+* [Managing users](cluster-users.md)
+* [Managing databases](databases.md)

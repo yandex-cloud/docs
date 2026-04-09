@@ -1,0 +1,31 @@
+title: '{{ yandex-siem-full-name }}'
+description:
+  - >-
+    Сервис {{ yandex-siem-full-name }} — это собственная SIEM-система {{
+    yandex-cloud }} для мониторинга и анализа событий безопасности в облачной
+    инфраструктуре. {{ yandex-siem-full-name }} собирает данные с облачной
+    инфраструктуры для выявления аномалий. При обнаружении аномалий {{
+    yandex-siem-full-name }} создает <a
+    href="https://yandex.cloud/ru/docs/security-deck/concepts/alerts">алерты</a>,
+    указывающие на потенциальный инцидент.
+meta:
+  title: '{{ yandex-siem-full-name }}'
+  description: >-
+    {{ yandex-siem-full-name }} — собственная SIEM-система {{ yandex-cloud }}
+    для мониторинга и анализа событий безопасности в облачной инфраструктуре.
+links:
+  - title: Начало работы
+    description: Создайте первое расследование и выполните KQL-запрос
+    href: quickstart.md
+  - title: Концепции
+    description: Узнайте о концепциях и ресурсах сервиса
+    href: concepts/
+  - title: Пошаговые инструкции
+    description: Инструкции по созданию расследований и работе с запросами
+    href: operations/
+  - title: Справочник KQL
+    description: Описание синтаксиса языка запросов KQL
+    href: kql-reference.md
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/

@@ -933,6 +933,10 @@ description: В статье приведен полный справочник 
 
 {% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
 
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
+
 #### datalens.visitor {#datalens-visitor}
 
 {% include [datalens-visitor](../_roles/datalens/visitor.md) %}

@@ -63,6 +63,11 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
   - `allow_hosts` (Set Of String). Set of hosts, to which this permission grants access to. Only ip-addresses allowed as value of single host.
   - `role` (**Required**)(String). The role type to grant to the topic.
   - `topic_name` (**Required**)(String). The name of the topic that the permission grants access to.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

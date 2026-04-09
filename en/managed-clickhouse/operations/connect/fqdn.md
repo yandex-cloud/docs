@@ -15,7 +15,7 @@ Here is a host FQDN example:
 
 ## Getting a host FQDN {#get-fqdn}
 
-There are several ways to get a {{ CH }} host FQDN:
+There are several ways to get a {{ CH }} host's FQDN:
 
 * Look up the FQDN in the management console:
 
@@ -23,7 +23,7 @@ There are several ways to get a {{ CH }} host FQDN:
   1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the cluster connection command (it contains the host’s FQDN). To get this command, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
 * [Get the list of cluster hosts](../hosts.md#list-hosts) using the CLI or API.
 
@@ -43,11 +43,13 @@ Special FQDNs can be in one of the following formats:
 
 * `<shard_name>.c-<cluster_ID>.rw.{{ dns-zone }}`: To connect to an available [shard](../../concepts/sharding.md) host.
 
+
 {% note warning %}
 
 If, during [cluster maintenance](../../concepts/maintenance.md#maintenance-order), a special FQDN points to a host without public access, you will not be able to connect to the cluster from the internet. To avoid this, [enable public access](../hosts.md#update) for all cluster hosts.
 
 {% endnote %}
+
 
 A special FQDN may temporarily point to an unavailable host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
 

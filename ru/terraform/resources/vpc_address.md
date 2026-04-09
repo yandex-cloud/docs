@@ -114,6 +114,10 @@ Change any argument in `internal_ipv4_address` will cause an address recreate.
 
   - `address` (*Read-Only*) (String). Allocated IP address.
   - `subnet_id` (**Required**)(String). Subnet ID from which the address will be allocated.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

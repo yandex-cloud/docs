@@ -193,7 +193,9 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-From graphical IDEs, you can only connect to public cluster hosts using an [SSL certificate](index.md#get-ssl-cert).
+
+From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 

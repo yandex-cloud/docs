@@ -39,6 +39,11 @@ resource "yandex_organizationmanager_saml_federation" "saml_fed" {
 - `security_settings` [Block]. Federation security settings.
   - `encrypted_assertions` (Bool). Enable encrypted assertions.
   - `force_authn` (Bool). Force authentication on session expiration
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

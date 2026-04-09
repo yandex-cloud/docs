@@ -61,6 +61,10 @@ Only one of `next_hop_address` or `gateway_id` should be specified.
   - `destination_prefix` (String). Route prefix in CIDR notation.
   - `gateway_id` (String). ID of the gateway used ad next hop.
   - `next_hop_address` (String). Address of the next hop.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

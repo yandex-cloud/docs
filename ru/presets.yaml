@@ -440,6 +440,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -581,7 +582,6 @@ default:
   roles-datalens-admin: datalens.admin
   roles-datalens-creator: datalens.creator
   roles-datalens-instances-admin: datalens.instances.admin
-  roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
   roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datasphere-admin: datasphere.admin
@@ -912,6 +912,7 @@ default:
   yandex-direct: Яндекс Директ
   yandex-domain: yandex.ru
   yandex-oauth: Яндекс.OAuth
+  yandex-siem-full-name: Yandex SIEM
   yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
@@ -4627,6 +4628,7 @@ default:
         ProfileEditPageLayout:
           main_breadcrumb: Данные профиля
         ProfilePage:
+          contacts_subheader: Контакты
           edit_action: Редактировать
         refresh-tokens:
           action_remove_all: Удалить все токены
@@ -4906,6 +4908,8 @@ default:
           ControlsPageLayout:
             configuration_w7Kw7: Конфигурация
           ExceptionDrawer:
+            header_action_delete: Удалить
+            header_action_edit: Редактировать
             resources_field_id: Идентификатор
           ExceptionOverview:
             header_caption_cspm_9dTJt: Контроль конфигурации
@@ -4961,15 +4965,32 @@ default:
             connectorsLabel_2NoP9: Коннекторы
             workspacesLabel_kZyU1: Окружения
         siem:
+          action_create-exception_bLSu4: Создать исключение
           action_delete_wM5k5: Удалить
           action_insert_into_query_kR3x1: Вставить в запрос
+          action_mark-for-deployment_sUf3V: Отметить для развёртывания
           action_new_folder_qmx81: Новая папка
           action_new_query_from_template_pL7m2: Новый запрос по шаблону
+          action_not-deploy_sPzwj: Не разворачивать
           action_rename_vN4w3: Переименовать
+          action_reset-changes_eXJka: Сбросить изменения
+          action_switch-off_kYx8w: Выключить
           cell-result-action-launch_v9v5f: Запустить
           cell-result-action-share_i1khy: Поделиться
           cell-result-canceled_fqtbJ: Остановлен
           cell-result-running_4S3Mi: Выполняется
+          condition_title_gAfRm: Условия
+          CorrelationRulesPage:
+            create-correlation-rule: Новое правило
+          CorrelationRuleTable:
+            category: Класс
+          deployment_status_changed: Изменено
+          detect-deployment_created_2GEyZ: Будет развернуто
+          detect-deployment_deployed_ejgvu: Развернуто
+          detect-overview:
+            title-actions-on-trigger_j8dE3: Действия при срабатывании
+          ExceptionsPage:
+            create-exception: Новое исключение
           InvestigationPageLayout:
             copy_wiAxw: Создать копию
             fieldDescription_wiAxw: Описание
@@ -4978,7 +4999,12 @@ default:
             newQuery_mzeBV: Новый запрос
           InvestigationsPage:
             create-investigation_iCPUP: Новое расследование
+          label_description_4xXeP: Описание
+          label_name_udzhS: Имя
           my_8uT22: Мои
+          SiemPageLayout:
+            correlationRules: Правила корреляции
+            exceptions: Исключения
           template_type_global_qSrVE: Общие
           template_type_local_77J2t: Инстанс
           title_ap766: Сохранить запрос как шаблон
@@ -5061,6 +5087,9 @@ default:
           severity_info_biSRh: Замечание
           severity_low_tqf9A: Низкая критичность
           severity_medium_8LZ4w: Средняя критичность
+      siem:
+        SearchActionButtonBlock:
+          save: Сохранить
       storage:
         value_private-bucket: Ограниченный
         value_public-bucket: Публичный
@@ -5832,6 +5861,9 @@ default:
             action_submit: Создать хосты
             field_copy_schema: Копировать схему данных
             title_additional-settings: Дополнительные настройки
+        PerformanceDiagnostics:
+          ClusterDiagnosticsTabs:
+            label_query-groups_w3anM: Группы запросов
         switch_backups: Резервные копии
         switch_list: Кластеры
         switch_operations: Операции
@@ -8677,6 +8709,7 @@ default:
         ClusterView:
           RBACView:
             label_rbac-settings_o2F64: Настройки доступа
+        label_private-access: Приватный доступ
         label_rbac-add-rule: Добавить правило
         label_rbac-catalog: Каталоги
         label_rbac-catalog-access: Каталоги, к которым применяется правило

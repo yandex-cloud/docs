@@ -105,6 +105,11 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
     - `preset` (String). VM configuration preset name.
 - `status` (*Read-Only*) (String). Status of the cluster.
 - `subnet_id` (**Required**)(String). ID of the subnet where the cluster resides.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `updated_at` (*Read-Only*) (String). Time when the cluster was last updated.
 - `updated_by` (*Read-Only*) (String). User who last updated the cluster.
 - `zone_id` (**Required**)(String). ID of the availability zone where the cluster resides.

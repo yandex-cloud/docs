@@ -50,6 +50,11 @@ resource "yandex_lockbox_secret" "my_secret" {
   - `included_punctuation` (String). String of specific punctuation characters to use. Requires `include_punctuation = true`. Default is empty.
   - `length` (Number). Length of generated password. Default is `36`.
   - `password_key` (**Required**)(String). The key with which the generated password will be placed in the secret version.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

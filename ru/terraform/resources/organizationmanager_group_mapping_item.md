@@ -30,6 +30,10 @@ resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
 - `federation_id` (**Required**)(String). ID of the SAML Federation
 - `id` (String). 
 - `internal_group_id` (**Required**)(String). ID of the internal group
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String).
 
 ## Import
 

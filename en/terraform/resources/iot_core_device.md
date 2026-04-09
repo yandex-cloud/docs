@@ -42,5 +42,9 @@ resource "yandex_iot_core_device" "my_device" {
 - `name` (**Required**)(String). The resource name.
 - `passwords` (Set Of String). A set of passwords's id for the IoT Core Device.
 - `registry_id` (**Required**)(String). IoT Core Registry ID for the IoT Core Device.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 

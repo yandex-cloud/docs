@@ -170,6 +170,10 @@ resource "yandex_storage_bucket" "my-bucket" {
   - `mount_point_name` (**Required**)(String). Name of the mount point. The directory where the bucket is mounted will be accessible at the `/function/storage/<mount_point>` path.
   - `prefix` (String). Prefix within the bucket. If you leave this field empty, the entire bucket will be mounted.
   - `read_only` (Bool). Mount the bucket in read-only mode.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 
