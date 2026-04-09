@@ -41,7 +41,9 @@ resource "yandex_ydb_database_serverless" "my_ydb" {
   - `enable_throttling_rcu_limit` (Bool). 
   - `provisioned_rcu_limit` (Number). 
   - `storage_size_limit` (Number). 
-  - `throttling_rcu_limit` (Number).
+  - `throttling_rcu_limit` (Number). 
+- `timeouts` [Block]. 
+  - `default` (String).
 
 ## Import
 

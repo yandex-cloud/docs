@@ -1,0 +1,1 @@
+The database name may contain Latin letters, numbers, underscores, and hyphens. The name may be up to 63 characters long. The following names are reserved: `postgres`, `template0`, and `template1`. You cannot create databases with these names.

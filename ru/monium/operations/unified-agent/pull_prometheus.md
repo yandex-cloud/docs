@@ -117,11 +117,17 @@
               plugin: metrics_pull
               config:
                 url: http://<публичный_адрес_ВМ>:8000/metrics
-                metric_name_label:  my_name  # необязательный, позволяет переименовать метку name вашего приложения, поскольку это имя зарезервировано агентом.
+                metric_name_label: my_name  # необязательный, позволяет переименовать метку name вашего приложения, поскольку это имя зарезервировано агентом.
                 format:
                   prometheus: {}
                 namespace: app
             channel:
+              pipe:
+                - filter:
+                    plugin: transform_metric_label
+                    config:
+                      label: name
+                      rename_to: my_new_name
               channel_ref:
                 name: cloud_monitoring
 
@@ -150,7 +156,7 @@
          ```
 
        Чтобы избежать ошибки, укажите любое другое уникальное имя.
-
+       * `transform_metric_label` — [фильтр](../../concepts/data-collection/unified-agent/filters.md#transform_metric_label_filter), который позволяет переименовать или добавить префикс к метке для метрики.
    1. Установите {{ unified-agent-short-name }}, выполнив в домашнем каталоге следующую команду:
 
       ```bash

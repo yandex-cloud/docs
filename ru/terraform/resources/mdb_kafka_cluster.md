@@ -361,14 +361,14 @@ resource "yandex_vpc_subnet" "baz" {
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-kafka/api-ref/Cluster/).
 - `host` (*Read-Only*) (Set Of Object). A host of the Kafka cluster.
-  - `assign_public_ip` .
-  - `health` .
-  - `name` .
-  - `role` .
-  - `subnet_id` .
-  - `zone_id` .
+  - `assign_public_ip` . 
+  - `health` . 
+  - `name` . 
+  - `role` . 
+  - `subnet_id` . 
+  - `zone_id` . 
 - `host_group_ids` (Set Of String). A list of IDs of the host groups to place VMs of the cluster on.
-- `id` (String).
+- `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). The resource name.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
@@ -380,7 +380,7 @@ resource "yandex_vpc_subnet" "baz" {
   - `brokers_count` (Number). Count of brokers per availability zone. The default is `1`.
   - `patch_version` (*Read-Only*) (String). Patch version of the Kafka server software.
   - `schema_registry` (Bool). Enables managed schema registry on cluster. The default is `false`.
-  - `unmanaged_topics` (Bool).
+  - `unmanaged_topics` (Bool). 
   - `version` (**Required**)(String). Version of the Kafka server software.
   - `zones` (**Required**)(List Of String). List of availability zones.
   - `access` [Block]. Access policy to the Kafka cluster.
@@ -433,6 +433,11 @@ resource "yandex_vpc_subnet" "baz" {
   - `day` (String). Day of the week (in `DDD` format). Allowed values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
   - `hour` (Number). Hour of the day in UTC (in `HH` format). Allowed value is between 1 and 24.
   - `type` (**Required**)(String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `topic` [Block]. To manage topics, please switch to using a separate resource type `yandex_mdb_kafka_topic`.
   - `name` (**Required**)(String). The name of the topic.
   - `partitions` (**Required**)(Number). The number of the topic's partitions.
@@ -447,7 +452,7 @@ resource "yandex_vpc_subnet" "baz" {
     - `max_message_bytes` (String). The largest record batch size allowed by Kafka (after compression if compression is enabled).
     - `message_timestamp_type` (String). Define whether the timestamp in the message is message create time or log append time. Possible values: LOG_APPEND_TIME or CREATE_TIME.
     - `min_compaction_lag_ms` (String). The minimum time a message will remain uncompacted in the log. Only applicable for logs that are being compacted.
-    - `min_insync_replicas` (String). When a producer sets acks to "all" (or "-1"), this configuration specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful.
+    - `min_insync_replicas` (String). When a producer sets acks to "all" (or "-1"), this configuration specifies the minimum number of replicas that must acknowledge a write for the write to be considered successful. 
     - `preallocate` (Bool). True if we should preallocate the file on disk when creating a new log segment.
     - `retention_bytes` (String). This configuration controls the maximum size a partition (which consists of log segments) can grow to before we will discard old log segments to free up space if we are using the "delete" retention policy.
     - `retention_ms` (String). This configuration controls the maximum time we will retain a log before we will discard old log segments to free up space if we are using the "delete" retention policy.

@@ -152,3 +152,4 @@ _Пользовательская переменная_ — значение, к
 * [{#T}](specification.md)
 * [{#T}](instance-template.md)
 * [{#T}](../../operations/instance-groups/create-with-fixed-ip.md)
+* [{#T}](../../../managed-kubernetes/concepts/node-group/variables-in-the-template.md)

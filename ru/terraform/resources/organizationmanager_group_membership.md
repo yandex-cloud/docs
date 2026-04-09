@@ -32,5 +32,10 @@ resource "yandex_organizationmanager_group_membership" "group" {
 - `group_id` (**Required**)(String). The Group to add/remove members to/from.
 - `id` (String). 
 - `members` (**Required**)(Set Of String). A set of members of the Group. Each member is represented by an id.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 

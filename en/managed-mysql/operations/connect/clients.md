@@ -1,9 +1,9 @@
 ---
-title: Connecting to an {{ MY }} cluster in {{ mmy-full-name }}
+title: Connecting to a {{ MY }} cluster in {{ mmy-full-name }}
 description: Follow this guide to connect to a {{ MY }} cluster database with the help of command line tools, {{ websql-full-name }}, graphical IDEs, or a Docker container.
 ---
 
-# Connecting to an {{ MY }} cluster from applications
+# Connecting to a {{ MY }} cluster from applications
 
 This section provides settings for connection to {{ mmy-name }} cluster hosts with the help of [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), or a [Docker container](#connection-docker). To learn how to connect from your application code, see [Code examples](./code-examples.md).
 
@@ -104,15 +104,15 @@ Set up your {{ mmy-name }} cluster for connection:
 - Management console {#console}
 
   1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-  1. Click the name of your cluster.
+  1. Click the cluster name.
   1. Enable public access for the cluster hosts:
      1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
      1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the first host's row and select **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
      1. Repeat the same for the remaining hosts in the cluster.
-  1. Assign the following role to the service account of the user that will connect to the database:
+  1. Assign a role to the user account connecting to the database:
      1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-     1. Enter the user's email the service account is associated with.
+     1. Enter the user account’s email.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-mysql.clusters.connector` role.
      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
   1. Create a user named {{ MY }}:
@@ -137,7 +137,9 @@ To connect to the {{ mmy-name }} database, run this command:
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
+
 From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -177,7 +179,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
          1. Under **Advanced**:
             1. Enable **Require SSL**.
             1. Enable **Verify server certificate**.
-  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
   1. Click **Done** to save the database connection settings.
 
 {% endlist %}
@@ -186,6 +188,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
 ## Connecting from {{ websql-full-name }} {#websql}
 
 {% include [WebSQL](../../../_includes/mdb/mmy/websql.md) %}
+
 
 
 ## Before you connect from a Docker container {#connection-docker}

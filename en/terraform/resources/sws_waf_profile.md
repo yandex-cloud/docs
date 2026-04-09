@@ -191,6 +191,11 @@ resource "yandex_sws_waf_profile" "default" {
       - `name` (String). Name of the rule set.
       - `type` (String). Type of the rule set.
       - `version` (**Required**)(String). Version of the rule set.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

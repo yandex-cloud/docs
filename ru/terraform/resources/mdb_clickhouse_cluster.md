@@ -650,6 +650,10 @@ resource "yandex_vpc_subnet" "baz" {
   - `description` (String). Description of the shard group.
   - `name` (**Required**)(String). The name of the shard group, used as cluster name in Distributed tables.
   - `shard_names` (**Required**)(List Of String). List of shards names that belong to the shard group.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String). 
 - `user` [Block]. A user of the ClickHouse cluster.
   - `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
   - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.

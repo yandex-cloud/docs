@@ -16,6 +16,7 @@ To connect to cluster hosts, use the following ports:
 
 The system will automatically route write requests to the cluster’s primary replica.
 
+
 {% note info %}
 
 To enable internet connectivity to the cluster, configure public access on its primary replica.
@@ -63,7 +64,7 @@ Rule settings depend on the chosen connection method:
         * For inbound traffic:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}.`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
@@ -93,7 +94,7 @@ For more information, see [{#T}](../../concepts/network.md#security-groups).
 
 ## Obtaining an SSL certificate {#get-ssl-cert}
 
-To connect to public {{ SD }} hosts, obtain an SSL certificate:
+To connect to {{ SD }} hosts with public access, get an SSL certificate:
 
 {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
 

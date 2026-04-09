@@ -51,6 +51,10 @@ resource "yandex_vpc_network" "foo" {}
 - `private_networks` (Set Of String). For privately visible zones, the set of Virtual Private Cloud resources that the zone is visible from.
 - `public` (Bool). The zone's visibility: public zones are exposed to the Internet, while private zones are visible only to Virtual Private Cloud resources.
 - `zone` (**Required**)(String). The DNS name of this zone, e.g. `example.com.`. Must ends with dot.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

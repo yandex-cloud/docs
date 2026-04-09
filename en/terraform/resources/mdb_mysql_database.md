@@ -50,6 +50,11 @@ resource "yandex_vpc_subnet" "foo" {
 - `cluster_id` (**Required**)(String). The MySQL cluster ID.
 - `id` (String). 
 - `name` (**Required**)(String). The name of the database.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

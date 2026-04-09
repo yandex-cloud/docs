@@ -26,6 +26,7 @@
 * [{#T}](llm.md)
 * [{#T}](mcp.md)
 * [{#T}](nlp.md)
+* [{#T}](deep-learning.md)
 
 ## Облачные вычисления и сервера {#servers}
 

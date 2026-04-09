@@ -31,5 +31,7 @@ data "yandex_container_registry_ip_permission" "my_ip_permission_by_id" {
 - `push` (Set Of String). List of configured CIDRs, from which `push` is allowed.
 - `registry_id` (**Required**)(String). The ID of the registry that ip restrictions applied to.
 - `registry_name` (String). The Name of specific Container Registry.
+- `timeouts` [Block]. 
+  - `default` (String).
 
 

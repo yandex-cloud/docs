@@ -74,6 +74,11 @@ resource "yandex_vpc_subnet" "foo" {
 - `template_db` (String). Name of the template database.
 - `extension` [Block]. Set of database extensions.
   - `name` (**Required**)(String). Name of the database extension. For more information on available extensions see [the official documentation](https://yandex.cloud/docs/managed-postgresql/operations/cluster-extensions).
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

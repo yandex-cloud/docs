@@ -157,6 +157,11 @@ Only one type `private_key` or `private_key_lockbox_secret` should be specified.
   - `private_key_lockbox_secret` [Block]. Lockbox secret specification for getting private key.
     - `id` (**Required**)(String). Lockbox secret Id.
     - `key` (**Required**)(String). Key of the Lockbox secret, the value of which contains the private key of the certificate.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

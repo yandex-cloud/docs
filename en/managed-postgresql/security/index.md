@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mpg-full-name }}
-description: Access management in {{ PG }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in the {{ PG }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mpg-name }}
@@ -28,7 +28,7 @@ You can also assign a role for an individual cluster in the [management console]
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-postgresql](../../_mermaid/roles/managed-postgresql.md) %}
 
@@ -118,7 +118,7 @@ As a user, you need the [{{ roles.mpg.editor }} role or higher](../../iam/concep
 
 To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mpg.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mpg.admin }}` role instead of `{{ roles.mpg.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.mpg.admin }}` instead of `{{ roles.mpg.editor }}`.
 
 ## What's next {#whats-next}
 

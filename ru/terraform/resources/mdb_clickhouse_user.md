@@ -96,6 +96,10 @@ resource "yandex_mdb_clickhouse_user" "foo" {
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). Name of the ClickHouse user. Provided by the client when the user is created.
 - `password` (String). Password of the ClickHouse user. Provided by the client when the user is created.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `permission` [Block]. Block represents databases that are permitted to user.
   - `database_name` (**Required**)(String). Name of the database that the permission grants access to.
 - `quota` [Block]. ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval. For more information, see [the official documentation](https://clickhouse.com/docs/en/operations/quotas)

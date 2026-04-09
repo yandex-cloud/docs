@@ -73,6 +73,10 @@ Only one of `address_id` or `subnet_id` + `address` arguments can be specified.
   - `address_id` (String). ID of the address.
   - `subnet_id` (String). Subnet of the IP address.
 - `object_storage` [Block]. Private endpoint for Object Storage.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

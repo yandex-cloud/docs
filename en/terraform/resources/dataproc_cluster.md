@@ -197,6 +197,10 @@ resource "yandex_storage_bucket" "foo" {
       - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
       - `disk_type_id` (String). Type of the storage of a host. One of `network-hdd` (default) or `network-ssd`.
       - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host. All available presets are listed in the [documentation](https://yandex.cloud/docs/data-proc/concepts/instance-types).
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

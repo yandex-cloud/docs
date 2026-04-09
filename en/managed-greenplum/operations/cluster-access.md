@@ -5,7 +5,7 @@ description: Follow this guide to configure {{ mgp-name }} cluster access permis
 
 # Managing access to a {{ mgp-name }} cluster
 
-You can grant a [role](../security/index.md) for access to a specific [cluster](../concepts/index.md) to a user or service account.
+You can assign a user or service account a [role](../security/index.md) that grants access to a specific [cluster](../concepts/index.md).
 
 Thus, you can granularly assign different roles for particular clusters to different users and service accounts.
 
@@ -34,7 +34,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -52,7 +52,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -107,7 +107,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `--role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-greenplum.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
@@ -121,9 +121,55 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       {{ yc-mdb-gp }} cluster list-access-bindings <cluster_name_or_ID>
       ```
 
+- {{ TF }} {#tf}
+
+  1. Open the current configuration file with the {{ mgp-name }} cluster description.
+
+      For more on how to create this file, see [{#T}](cluster-create.md).
+
+  1. Add a resource description:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<local_resource_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+      Where:
+
+      * `cluster_id`: Cluster ID.
+      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-greenplum.editor`.
+      * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+
+        Here is an example:
+
+        * `serviceAccount:${yandex_iam_service_account.mgp_sa.id}`
+        * `userAccount:ajerq94vab34********`
+        * `system:allAuthenticatedUsers`
+
+        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_greenplum_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <cluster_name_or_ID>
+      ```
+
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -163,7 +209,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -206,6 +252,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
 
 {% endlist %}
 
@@ -250,13 +297,65 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-greenplum.editor`.
       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Add resource descriptions:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<resource_1_local_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role_1>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<resource_2_local_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role_2>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+      Where:
+
+      * `cluster_id`: Cluster ID.
+      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-greenplum.editor`.
+      * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+
+        Here is an example:
+
+        * `serviceAccount:${yandex_iam_service_account.mgp_sa.id}`
+        * `userAccount:ajerq94vab34********`
+        * `system:allAuthenticatedUsers`
+
+        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_greenplum_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <cluster_name_or_ID>
+      ```
 
 - REST API {#api}
 
@@ -266,7 +365,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   {% endnote %}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -324,7 +423,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   {% endnote %}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -380,6 +479,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   1. Check the [server response](../api-ref/grpc/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
+
 {% endlist %}
 
 ## Revoking a role {#remove-access-binding}
@@ -416,7 +516,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `--role`: [Role](../security/index.md#roles-list) being revoked, e.g., `managed-greenplum.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
@@ -424,9 +524,41 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
 
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Find the description of the resource with the role you want to revoke and delete this description:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "<local_resource_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_greenplum_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <cluster_name_or_ID>
+      ```
+
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -466,7 +598,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -543,9 +675,45 @@ For a service account to be able to view the info of all {{ mgp-name }} clusters
       {{ yc-mdb-gp }} cluster list-access-bindings <cluster_name_or_ID>
       ```
 
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Add resource descriptions:
+
+      ```hcl
+      resource "yandex_resourcemanager_folder_iam_member" "mgp-viewer-account-iam" {
+        folder_id   = "<folder_ID>"
+        role        = "managed-greenplum.viewer"
+        member      = "serviceAccount:<service_account_ID>"
+      }
+
+      resource "yandex_mdb_greenplum_cluster_iam_binding" "mgp-cluster-editor" {
+        cluster_id = "<cluster_ID>"
+        role       = "managed-greenplum.editor"
+        members    = ["serviceAccount:<service_account_ID>"]
+      }
+      ```
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster list-access-bindings <cluster_name_or_ID>
+      ```
+
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -623,7 +791,7 @@ For a service account to be able to view the info of all {{ mgp-name }} clusters
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

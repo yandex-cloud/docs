@@ -108,5 +108,9 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
 - `region_id` (String). The region ID where Load Balancer is located at.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `status` (*Read-Only*) (String). Status of the Load Balancer.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 

@@ -187,6 +187,11 @@ resource "yandex_backup_policy" "my_policy" {
     - `run_later` (Bool). If true and if the machine is off, launch missed tasks on boot up. Default `false`.
     - `type` (**Required**)(String). Type of the scheduling. Available values are: `HOURLY`, `DAILY`, `WEEKLY`, `MONTHLY`.
     - `weekdays` (List Of String). List of weekdays when the backup will be applied. Used in `WEEKLY` type.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `vm_snapshot_reattempts` [Block]. Amount of reattempts that should be performed while trying to make snapshot.
   - `enabled` (Bool). Enable flag. Default `true`.
   - `interval` (String). Retry interval. See `interval_type` for available values. Default: `5m`.

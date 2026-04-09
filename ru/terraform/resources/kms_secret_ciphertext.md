@@ -39,5 +39,9 @@ resource "yandex_kms_secret_ciphertext" "password" {
 - `id` (String). 
 - `key_id` (**Required**)(String). ID of the symmetric KMS key to use for encryption.
 - `plaintext` (**Required**)(String). Plaintext to be encrypted.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String).
 
 

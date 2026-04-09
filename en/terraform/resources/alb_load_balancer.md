@@ -130,6 +130,10 @@ resource "yandex_alb_load_balancer" "my_alb" {
     - `grpc_codes` (List Of String). list of grpc codes by name, e.g, [**NOT_FOUND**, **RESOURCE_EXHAUSTED**].
     - `http_code_intervals` (List Of String). List of http code intervals *1XX*-*5XX* or *ALL*
     - `http_codes` (List Of Number). List of http codes *100*-*599*.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

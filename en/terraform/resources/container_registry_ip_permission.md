@@ -34,6 +34,8 @@ resource "yandex_container_registry_ip_permission" "my_ip_permission" {
 - `pull` (Set Of String). List of configured CIDRs, from which `pull` is allowed.
 - `push` (Set Of String). List of configured CIDRs, from which `push` is allowed.
 - `registry_id` (**Required**)(String). The ID of the registry that ip restrictions applied to.
+- `timeouts` [Block]. 
+  - `default` (String).
 
 ## Import
 

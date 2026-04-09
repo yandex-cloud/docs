@@ -28,9 +28,9 @@ data "yandex_metastore_cluster" "metastore_cluster_by_id" {
 
 - `cluster_config` [Block]. Hive Metastore cluster configuration.
   - `resource_preset_id` (**Required**)(String). The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
-  - `warehouse_config` [Block]. Warehouse configuration for Hive Metastore.
+  - `warehouse_config` [Block]. Warehouse configuration for Hive Metastore. Required for HMS version 4.2+.
     - `s3` [Block]. S3-compatible storage configuration for warehouse.
-      - `bucket` (String). Name of the S3 bucket used as warehouse storage.
+      - `bucket` (**Required**)(String). Name of the S3 bucket used as warehouse storage.
       - `path` (String). Path prefix within the bucket for warehouse data.
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion. By default is set to `false`.
@@ -55,5 +55,7 @@ data "yandex_metastore_cluster" "metastore_cluster_by_id" {
 - `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`.
 - `subnet_ids` (**Required**)(Set Of String). The list of VPC subnets identifiers which resource is attached.
 - `version` (String). Metastore server version.
+- `timeouts` [Block]. 
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 
 

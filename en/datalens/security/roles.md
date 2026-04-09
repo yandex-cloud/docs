@@ -19,17 +19,31 @@ To grant a user access to {{ datalens-short-name }}, [assign](../../organization
 
 - After switching to workbooks and collections {#after-workbooks-collections}
 
-  {% include [roles-datalens-visitor](../../_includes/roles-datalens-visitor.md) %}
+  #### datalens.metaReader {#datalens-metaReader}
 
-  {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
+  {% include [datalens-metaReader](../../_roles/datalens/metaReader.md) %}
 
-  {% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+  #### datalens.visitor {#datalens-visitor}
+
+  {% include [datalens-visitor](../../_roles/datalens/visitor.md) %}
+
+  #### datalens.creator {#datalens-creator}
+
+  {% include [datalens-creator](../../_roles/datalens/creator.md) %}
+
+  #### datalens.admin {#datalens-admin}
+
+  {% include [datalens-creator](../../_roles/datalens/admin.md) %}
 
 - Before switching to workbooks and collections {#before-workbooks-collections}
 
-  {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
+  #### datalens.instances.user {#datalens-instances-user}
 
-  {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
+  {% include [datalens-instances-user](../../_roles/datalens/instances/user.md) %}
+
+  #### datalens.instances.admin {#datalens-instances-admin}
+
+  {% include [datalens-instances-admin](../../_roles/datalens/instances/admin.md) %}
 
 {% endlist %}
 

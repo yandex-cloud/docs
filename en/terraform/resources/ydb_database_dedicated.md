@@ -117,6 +117,8 @@ resource "yandex_ydb_database_dedicated" "database1" {
 - `storage_config` [Block]. A list of storage configuration options for the Yandex Database cluster.
   - `group_count` (**Required**)(Number). Amount of storage groups of selected type for the Yandex Database cluster.
   - `storage_type_id` (**Required**)(String). Storage type ID for the Yandex Database cluster. Available presets can be obtained via `yc ydb storage-type list` command.
+- `timeouts` [Block]. 
+  - `default` (String).
 
 ## Import
 

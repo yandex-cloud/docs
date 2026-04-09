@@ -52,7 +52,11 @@ keywords:
 
             {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
+
+        1. Выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
+        1. (Опционально) Включите параметр **{{ ui-key.yacloud.trino.label_private-access }}**, чтобы кластер был доступен только через [сервисное подключение](../concepts/network.md#private-endpoint).
+
     1. В блоке **Политика перезапросов** задайте параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
         1. Выберите **Тип объекта для перезапроса**:
            * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
@@ -141,6 +145,7 @@ keywords:
            --service-account-id <идентификатор_сервисного_аккаунта> \
            --subnet-ids <список_идентификаторов_подсетей> \
            --security-group-ids <список_идентификаторов_групп_безопасности> \
+           --private-access \
            --coordinator resource-preset-id=<класс_вычислительных_ресурсов> \
            --worker resource-preset-id=<класс_вычислительных_ресурсов>,count=<количество_воркеров> \
            --deletion-protection \
@@ -157,6 +162,7 @@ keywords:
         * `--service-account-id` — идентификатор сервисного аккаунта.
         * `--subnet-ids` — список идентификаторов подсетей.
         * `--security-group-ids` — список идентификаторов групп безопасности.
+        * `--private-access` — приватный доступ к кластеру. Используйте этот параметр, чтобы кластер был доступен только через [сервисное подключение](../concepts/network.md#private-endpoint).
         * `--coordinator` — конфигурация [координатора](../concepts/index.md#coordinator):
 
             * `resource-preset-id` — [класс вычислительных ресурсов](../concepts/instance-types.md) координатора.
@@ -368,7 +374,10 @@ keywords:
           },
           "network": {
             "subnetIds": [ <список_идентификаторов_подсетей> ],
-            "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ]
+            "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ],
+            "privateAccess": {
+              "enabled": "<включить_приватный_доступ_к_кластеру>"
+            }
           },
           "deletionProtection": "<защита_от_удаления>",
           "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
@@ -442,6 +451,7 @@ keywords:
 
             * `subnetIds` — список идентификаторов подсетей.
             * `securityGroupIds` — список идентификаторов групп безопасности.
+            * `privateAccess.enabled` — приватный доступ к кластеру: `true` или `false`. Включите этот параметр, чтобы кластер был доступен только через [сервисное подключение](../../managed-trino/concepts/network.md#private-endpoint).
 
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 
@@ -533,7 +543,10 @@ keywords:
           },
           "network": {
             "subnet_ids": [ <список_идентификаторов_подсетей> ],
-            "security_group_ids": [ <список_идентификаторов_групп_безопасности> ]
+            "security_group_ids": [ <список_идентификаторов_групп_безопасности> ],
+            "private_access": {
+              "enabled": "<включить_приватный_доступ_к_кластеру>"
+            }
           },
           "deletion_protection": "<защита_от_удаления>",
           "service_account_id": "<идентификатор_сервисного_аккаунта>",
@@ -607,6 +620,7 @@ keywords:
 
             * `subnet_ids` — список идентификаторов подсетей.
             * `security_group_ids` — список идентификаторов групп безопасности.
+            * `private_access.enabled` — приватный доступ к кластеру: `true` или `false`. Включите этот параметр, чтобы кластер был доступен только через [сервисное подключение](../../managed-trino/concepts/network.md#private-endpoint).
 
         * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 

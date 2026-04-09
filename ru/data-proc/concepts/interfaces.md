@@ -17,11 +17,7 @@ UI Proxy — это механизм, который позволяет прок
 
 UI Proxy по умолчанию отключен. Чтобы воспользоваться UI Proxy, включите его при [создании](../operations/cluster-create.md#create) или [настройке](../operations/connect-interfaces.md#ui-proxy-enable) кластера и [посмотрите](../operations/connect-interfaces.md#ui-proxy-list) список доступных веб-интерфейсов для подключения.
 
-{% note warning %}
-
-Для использования UI Proxy может потребоваться дополнительная [настройка групп безопасности](../operations/security-groups.md).
-
-{% endnote %}
+{% include [ui-proxy-sg-warning](../../_includes/data-processing/ui-proxy-sg-warning.md) %}
 
 ## Компоненты и порты {#port-numbers}
 

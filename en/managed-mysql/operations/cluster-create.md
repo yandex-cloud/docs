@@ -42,7 +42,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create your {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your applications.
-     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
   1. Select the DBMS version.
   1. Select the host class, which will determine the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) for deploying your database hosts. All available options are listed under [Host classes](../concepts/instance-types.md). Changing the host class of a {{ mmy-name }} cluster updates the specifications for all of its existing hosts.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -267,7 +267,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [disk-size-autoscaling-cli](../../_includes/mdb/mmy/disk-size-autoscaling-cli.md) %}
 
-     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for stopped clusters), where `type` is the maintenance type:
+     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -353,7 +353,10 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+     
      * `assign_public_ip`: Public access to the host, `true` or `false`.
+
+
      * `priority`: Host priority when selecting a new master host, between `0` and `100`.
      * `backup_priority`: Backup priority, between `0` and `100`.
      * `name` and `password`: {{ MY }} username and password, respectively.
@@ -453,7 +456,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -582,7 +585,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
-      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains the database `name`.
+      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
 
           {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
@@ -608,9 +611,12 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+          
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assignPublicIp`: Permission to [connect](./connect/index.md) to the host from the internet, `true` or `false`.
-      
+          * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
+
+
       {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
   1. Call the [Cluster.create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
@@ -628,7 +634,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -752,7 +758,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
 
-      * `database_specs`: Database settings as an array of elements, one per database. Each element contains the database `name`.
+      * `database_specs`: Database settings as an array of elements, one per database. Each element contains a database `name`.
       * `user_specs`: User settings as an array of elements, one per user. Each element has the following structure:
 
           * `name`: Username.
@@ -775,10 +781,13 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
-          * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assign_public_ip`: Permission to [connect](./connect/index.md) to the host from the internet, `true` or `false`.
 
-      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}    
+          
+          * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+          * `assign_public_ip`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
+
+
+      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}
 
   1. Call the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -848,9 +857,9 @@ To create a {{ MY }} cluster copy:
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
@@ -858,11 +867,11 @@ To create a {{ MY }} cluster copy:
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -936,6 +945,7 @@ To create a {{ MY }} cluster copy:
        --permissions ALL
      ```
 
+
 - {{ TF }} {#tf}
 
   Create a {{ mmy-name }} cluster and its network with the following test specifications:
@@ -947,11 +957,8 @@ To create a {{ MY }} cluster copy:
     * Folder ID: `{{ tf-folder-id }}`.
     * Network: `mynet` (new one).
     * Host class: `{{ host-class }}` (one host), subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. `mysubnet` CIDR range: `10.5.0.0/24`.
-
-    
+    * With public access to host.
     * Security group: `mysql-sg` (new one), allowing internet access to the {{ mmy-name }} cluster on port `{{ port-mmy }}`.
-
-
     * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
     * User: `user1`, password: `user1user1`.
     * Database: `db1`, where `user1` has full privileges (same as `GRANT ALL PRIVILEGES on db1.*`).
@@ -959,7 +966,6 @@ To create a {{ MY }} cluster copy:
 
   The configuration file for this {{ mmy-name }} cluster is as follows:
 
-  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name                = "my-mysql"
@@ -976,8 +982,9 @@ To create a {{ MY }} cluster copy:
     }
 
     host {
-      zone      = "{{ region-id }}-a"
-      subnet_id = yandex_vpc_subnet.mysubnet.id
+      zone             = "{{ region-id }}-a"
+      subnet_id        = yandex_vpc_subnet.mysubnet.id
+      assign_public_ip = true
     }
   }
 
@@ -1038,7 +1045,7 @@ To create a {{ MY }} cluster copy:
   * Name: `my-mysql-3`.
   * Version: `{{ versions.cli.latest }}`.
   * Environment: `prestable`.
-  * Network: `default`.
+  * Network: `{{ network-name }}`.
   * Security group ID: `{{ security-group }}`.
   * `{{ host-class }}` public hosts: 3.
 
@@ -1062,7 +1069,7 @@ To create a {{ MY }} cluster copy:
        --name="my-mysql-3" \
        --mysql-version {{ versions.cli.latest }} \
        --environment=prestable \
-       --network-name=default \
+       --network-name={{ network-name }} \
        --security-group-ids {{ security-group }} \
        --host zone-id={{ region-id }}-a,`
               `subnet-name=subnet-a,`
@@ -1091,6 +1098,7 @@ To create a {{ MY }} cluster copy:
        --permissions ALL
      ```
 
+
 - {{ TF }} {#tf}
 
   Create a {{ mmy-name }} cluster and its supporting network, using the following test specifications:
@@ -1112,17 +1120,13 @@ To create a {{ MY }} cluster copy:
 
       The host residing in `mysubnet-b` will have the backup priority. If this host is not acting as the master, backups will be created from its data.
 
-    
-    * New security group: `mysql-sg`, allowing connections to {{ mmy-name }} clusters from the internet through port `{{ port-mmy }}`.
-
-
+    * New security group: `mysql-sg`, allowing connections to {{ mmy-name }} clusters from the Internet through port `{{ port-mmy }}`.
     * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
     * User: `user1`, password: `user1user1`.
     * Database: `db1`, where `user1` has full privileges (same as `GRANT ALL PRIVILEGES on db1.*`).
 
   The configuration file for this {{ mmy-name }} cluster is as follows:
 
-  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
     name                = "my-mysql-3"

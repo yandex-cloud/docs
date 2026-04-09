@@ -54,6 +54,10 @@ resource "yandex_vpc_network" "foo" {}
 - `ttl` (**Required**)(Number). The time-to-live of this record set (seconds).
 - `type` (**Required**)(String). The DNS record set type.
 - `zone_id` (**Required**)(String). The id of the zone in which this record set will reside.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

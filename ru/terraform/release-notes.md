@@ -6,6 +6,15 @@ editable: false
 
 
 
+## 0.197.0 (April 9, 2026)
+##### FEATURES:
+* function_trigger: added `workflow` invocation target support for Workflows
+* mdb_clickhouse: added cluster extension management
+##### BUG FIXES:
+* serverless: fix bug with batch_cutoff in triggers
+* postgresql: fix generating update mask for config_spec.disk_size_autoscaling.* parameters
+* mdb_clickhouse: fixed a bug with adding zookeeper/keeper hosts
+
 ## 0.196.0 (April 2, 2026)
 ##### FEATURES:
 * mysql: add yandex_mdb_mysql_database_v2 resource and datasource

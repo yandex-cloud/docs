@@ -175,6 +175,10 @@ resource "yandex_vpc_subnet" "baz" {
   - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
   - `disk_type_id` (String). Type of the storage of Redis hosts - environment default is used if missing.
   - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-redis/concepts).
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

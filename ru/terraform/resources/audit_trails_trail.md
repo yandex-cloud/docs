@@ -238,6 +238,8 @@ filtering_policy {
 - `storage_destination` [Block]. Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination` and `data_stream_destination`.
   - `bucket_name` (**Required**)(String). Name of the [destination bucket](https://yandex.cloud/docs/storage/concepts/bucket).
   - `object_prefix` (String). Additional prefix of the uploaded objects. If not specified, objects will be uploaded with prefix equal to `trail_id`.
+- `timeouts` [Block]. 
+  - `default` (String).
 
 ## Import
 

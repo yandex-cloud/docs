@@ -106,6 +106,12 @@ resource "yandex_ydb_table" "test_table" {
   - `uniform_partitions` (Number). 
   - `partition_at_keys` [Block]. 
     - `keys` (**Required**)(List Of String). 
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `default` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `ttl` [Block]. The `TTL` block supports allow you to create a special column type, [TTL column](https://ydb.tech/en/docs/concepts/ttl), whose values determine the time-to-live for rows.
   - `column_name` (**Required**)(String). Column name for TTL.
   - `expire_interval` (**Required**)(String). Interval in the ISO 8601 format.

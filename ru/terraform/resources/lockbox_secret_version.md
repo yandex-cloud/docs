@@ -69,5 +69,9 @@ One either `text_value` or `command` is required.
     - `args` (List Of String). List of arguments to be passed to the script/command.
     - `env` (Map Of String). Map of environment variables to set before calling the script/command.
     - `path` (**Required**)(String). The path to the script or command to execute.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String).
 
 

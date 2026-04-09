@@ -47,6 +47,10 @@ resource "yandex_cdn_origin_group" "my_group" {
   - `enabled` (Bool). The origin is enabled and used as a source for the CDN. Default `enabled`.
   - `origin_group_id` (*Read-Only*) (String). The ID of a specific origin group.
   - `source` (**Required**)(String). IP address or Domain name of your origin and the port.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

@@ -828,6 +828,9 @@ items:
                   - name: lockbox_secret_version
                     href: data-sources/lockbox_secret_version.md
                     title: ''
+                  - name: lockbox_secret_version_entry
+                    href: data-sources/lockbox_secret_version_entry.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:

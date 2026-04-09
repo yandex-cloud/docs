@@ -1,15 +1,15 @@
 ---
-title: Connecting to an {{ GP }} cluster in {{ mgp-full-name }}
+title: Connecting to a {{ GP }} cluster in {{ mgp-full-name }}
 description: Follow this guide to connect to a {{ GP }} cluster database with the help of command line tools, graphical IDEs, {{ pgadmin }}, or a Docker container.
 ---
 
-# Connecting to an {{ GP }} cluster from applications
+# Connecting to a {{ GP }} cluster from applications
 
 This section provides settings for connecting to {{ mgp-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ pgadmin }}](#connection-pgadmin), or a [Docker container](#connection-docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
 Creating a {{ GP }} cluster does not entail creating a user database. To test the connection, use the `postgres` service database.
 
-To connect to a publicly accessible cluster, prepare an [SSL certificate](index.md#get-ssl-cert). In these examples, the `root.crt` SSL certificate is located in the following directory:
+To connect to a publicly accessible , [prepare an SSL certificate](index.md#get-ssl-cert). In these examples, the `root.crt` SSL certificate is located in the following directory:
 
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
@@ -50,7 +50,7 @@ Connect to a database:
 
 {% endlist %}
 
-After you run this command, enter the user password to complete the connection procedure.
+After you run this command, enter the user password to complete connecting to the database.
 
 To check the connection, run the following query:
 
@@ -90,7 +90,7 @@ Connect to a database:
 
 {% endlist %}
 
-After you run this command, enter the user password to complete the connection procedure.
+After you run this command, enter the user password to complete connecting to the database.
 
 To check the connection, run the following query:
 
@@ -164,7 +164,9 @@ To connect to the {{ GP }} database, run this command:
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
+
 You can only use graphical IDEs to connect to a public cluster using SSL certificates.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -207,7 +209,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
         1. On the **SSL** tab:
             1. Enable **Use SSL**.
             1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-    1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+    1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
     1. Click **Done** to save the database connection settings.
 
 {% endlist %}
@@ -216,7 +218,9 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
 
 The connection has been checked for [{{ pgadmin }}](https://www.pgadmin.org) ver. 7.1 on macOS Ventura 13.0 and Microsoft Windows 10 Pro 21H1.
 
+
 You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL certificate](#get-ssl-cert).
+
 
 Create a new server connection:
 

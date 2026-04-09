@@ -6,7 +6,7 @@ description: В {{ org-full-name }} вы можете аутентифициро
 # Приложения в {{ org-full-name }}
 
 
-Пользователи вашей [организации](./organization.md) могут аутентифицироваться во внешних приложениях с помощью [технологии единого входа](https://ru.wikipedia.org/wiki/Технология_единого_входа) (SSO). Для этого {{ org-full-name }} позволяет создавать _приложения_ — [ресурсы](../../overview/roles-and-resources.md#resources) {{ yandex-cloud }}, которые содержат настройки интеграции {{ org-full-name }} как _поставщика удостоверений_ (Identity Provider, IdP) с одной стороны и стороннего _поставщика услуг_ (Service Provider, SP) — с другой.
+Пользователи вашей [организации](./organization.md) могут аутентифицироваться во внешних приложениях с помощью [технологии единого входа](../../glossary/sso.md) (SSO). Для этого {{ org-full-name }} позволяет создавать _приложения_ — [ресурсы](../../overview/roles-and-resources.md#resources) {{ yandex-cloud }}, которые содержат настройки интеграции {{ org-full-name }} как _поставщика удостоверений_ (Identity Provider, IdP) с одной стороны и стороннего _поставщика услуг_ (Service Provider, SP) — с другой.
 
 {{ org-full-name }} поддерживает стандарты технологии единого входа [SAML](https://ru.wikipedia.org/wiki/SAML) и [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
 

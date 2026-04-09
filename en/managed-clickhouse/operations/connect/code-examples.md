@@ -1,9 +1,10 @@
 ---
 title: Code examples for connecting to a {{ CH }} cluster in {{ mch-full-name }}
-description: Use these examples to connect to a database in a {{ CH }} cluster from your application code.
+description: These examples show you how to connect to a {{ CH }} cluster database from your application.
 ---
 
 # Code examples for connecting to a {{ CH }} cluster
+
 
 You can only connect to public {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
 
@@ -13,6 +14,7 @@ You can only connect to public {{ CH }} cluster hosts using [SSL certificates](i
 Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted for database connections.
 
 Before connecting, [configure security groups](index.md#configure-security-groups) for the cluster, if required.
+
 
 If your cluster connection and test query are successful, you will see the {{ CH }} version.
 
@@ -63,7 +65,7 @@ sudo apt update && sudo apt install --yes golang git
 
         const DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
         const DB_NAME = "<DB_name>"
-        const DB_USER = "<DB_user_name>"
+        const DB_USER = "<DB_username>"
         const DB_PASS = "<DB_user_password>"
 
         conn := &http.Client{
@@ -112,7 +114,7 @@ sudo apt update && sudo apt install --yes golang git
 
         const DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
         const DB_NAME = "<DB_name>"
-        const DB_USER = "<DB_user_name>"
+        const DB_USER = "<DB_username>"
         const DB_PASS = "<DB_user_password>"
 
         const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}"
@@ -155,7 +157,7 @@ sudo apt update && sudo apt install --yes golang git
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -282,7 +284,7 @@ go run connect.go
       public static void main(String[] args) {
         String DB_HOST    = "<FQDN_of_any_{{ CH }}_host>";
         String DB_NAME    = "<DB_name>";
-        String DB_USER    = "<DB_user_name>";
+        String DB_USER    = "<DB_username>";
         String DB_PASS    = "<DB_user_password>";
 
         String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
@@ -315,7 +317,7 @@ go run connect.go
       public static void main(String[] args) {
         String DB_HOST    = "<FQDN_of_any_{{ CH }}_host>";
         String DB_NAME    = "<DB_name>";
-        String DB_USER    = "<DB_user_name>";
+        String DB_USER    = "<DB_username>";
         String DB_PASS    = "<DB_user_password>";
 
         String CACERT     = "{{ crt-local-dir }}{{ crt-local-file-root }}";
@@ -337,7 +339,7 @@ go run connect.go
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -348,7 +350,7 @@ java -jar target/app-0.1.0-jar-with-dependencies.jar
 
 ## Node.js {#nodejs}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies:**
 
 ```bash
 sudo apt update && sudo apt install --yes nodejs npm && \
@@ -370,7 +372,7 @@ npm install querystring
 
     const DB_HOST = "<FQDN_of_any_{{ CH }}_host>";
     const DB_NAME = "<DB_name>";
-    const DB_USER = "<DB_user_name>";
+    const DB_USER = "<DB_username>";
     const DB_PASS = "<DB_user_password>";
 
     const options = {
@@ -410,7 +412,7 @@ npm install querystring
 
     const DB_HOST = "<FQDN_of_any_{{ CH }}_host>";
     const DB_NAME = "<DB_name>";
-    const DB_USER = "<DB_user_name>";
+    const DB_USER = "<DB_username>";
     const DB_PASS = "<DB_user_password>";
 
     const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}";
@@ -442,7 +444,7 @@ npm install querystring
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -517,7 +519,7 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
     Driver = ClickHouse ODBC Driver (Unicode)
     Server = <FQDN_of_any_{{ CH }}_host>
     Database = <DB_name>
-    UID = <DB_user_name>
+    UID = <DB_username>
     PWD = <DB_user_password>
     Port = 8123
     Proto = http
@@ -533,7 +535,7 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
     Driver = ClickHouse ODBC Driver (Unicode)
     Server = <FQDN_of_any_{{ CH }}_host>
     Database = <DB_name>
-    UID = <DB_user_name>
+    UID = <DB_username>
     PWD = <DB_user_password>
     Port = 8443
     Proto = https
@@ -544,7 +546,7 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -683,7 +685,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -693,7 +695,7 @@ php connect.php
 
 ## Python (clickhouse-driver) {#python-clickhouse-driver}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip && \
@@ -739,7 +741,7 @@ pip3 install clickhouse-driver
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -749,7 +751,7 @@ python3 connect.py
 
 ## Python (requests) {#python-requests}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip && \
@@ -805,7 +807,7 @@ pip3 install requests
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 
@@ -815,7 +817,7 @@ python3 connect.py
 
 ## Ruby {#ruby}
 
-**Before connecting, install the required dependencies**:
+**Before connecting, install the dependencies**:
 
 ```bash
 sudo apt update && sudo apt install --yes ruby
@@ -834,7 +836,7 @@ sudo apt update && sudo apt install --yes ruby
 
     DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
     DB_NAME = "<DB_name>"
-    DB_USER = "<DB_user_name>"
+    DB_USER = "<DB_username>"
     DB_PASS = "<DB_user_password>"
 
     QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
@@ -865,7 +867,7 @@ sudo apt update && sudo apt install --yes ruby
 
     DB_HOST = "<FQDN_of_any_{{ CH }}_host>"
     DB_NAME = "<DB_name>"
-    DB_USER = "<DB_user_name>"
+    DB_USER = "<DB_username>"
     DB_PASS = "<DB_user_password>"
 
     QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
@@ -889,7 +891,7 @@ sudo apt update && sudo apt install --yes ruby
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 **Connecting**:
 

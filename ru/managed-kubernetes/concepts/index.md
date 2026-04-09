@@ -141,6 +141,8 @@ _Группа узлов_ — [группа виртуальных машин](.
 * [Облачные метки группы узлов](../../resource-manager/concepts/labels.md)
 * [Параметры масштабирования](./node-group/cluster-autoscaler.md)
 * [Политика развертывания](./node-group/deploy-policy.md)
+* [Пулы резервов виртуальных машин](./node-group/reserved-pools.md)
+* [Переменные в шаблоне узла](./node-group/variables-in-the-template.md)
 * [{#T}](#config)
 * [{#T}](#taints-tolerations)
 * [{#T}](#node-labels)

@@ -40,6 +40,12 @@ resource "yandex_ydb_table_changefeed" "ydb_changefeed" {
   - `name` (**Required**)(String). Consumer name. It is used in the SDK or CLI to [read data](https://ydb.tech/en/docs/best_practices/cdc#read) from the topic.
   - `starting_message_timestamp_ms` (Number). Timestamp in the UNIX timestamp format, from which the consumer will start reading data.
   - `supported_codecs` (List Of String). Supported data encodings.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `default` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

@@ -185,7 +185,12 @@ Exactly one characteristic specifier: `simple_characteristic` or `key_characteri
         - `ip_ranges_match` [Block]. 
           - `ip_ranges` (List Of String). 
         - `ip_ranges_not_match` [Block]. 
-          - `ip_ranges` (List Of String).
+          - `ip_ranges` (List Of String). 
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 
