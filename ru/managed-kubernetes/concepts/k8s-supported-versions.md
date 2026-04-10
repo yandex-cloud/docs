@@ -12,11 +12,13 @@ description: Из статьи вы узнаете какие версии {{ k8
 
 ([Даты релизов](https://kubernetes.io/releases/)) {.cell-align-center} | **Релизный канал** {.cell-align-center} | > | > | **Прекращение поддержки** {.cell-align-center} ||
 || ^ | `RAPID` {.cell-align-center} | `REGULAR` {.cell-align-center} | `STABLE` {.cell-align-center} | ^ ||
-
-{% for version in k8s-version %}
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-{% endfor %}
-
+|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
+|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
+|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
+|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
+|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
+|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
 |#
 
 {% note info %}
