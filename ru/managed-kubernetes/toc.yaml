@@ -160,6 +160,8 @@ items:
             href: operations/node-group/node-group-list.md
           - name: Создание группы узлов
             href: operations/node-group/node-group-create.md
+          - name: Создание группы с узлами из пула резервов ВМ
+            href: operations/node-group/node-group-create-in-instance-pool.md
           - name: Подключение к узлу по SSH
             href: operations/node-connect-ssh.md
           - name: Подключение к узлу через {{ oslogin }}
@@ -364,6 +366,10 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Группы узлов с GPU
             href: concepts/node-group/node-group-gpu.md
+          - name: Пулы резервов виртуальных машин для групп узлов
+            href: concepts/node-group/reserved-pools.md
+          - name: Переменные в шаблоне узла
+            href: concepts/node-group/variables-in-the-template.md
       - name: Сеть в {{ managed-k8s-name }}
         href: concepts/network.md
       - name: Сетевые настройки и политики кластера

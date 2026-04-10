@@ -927,6 +927,10 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 {% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
 
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
+
 #### datalens.visitor {#datalens-visitor}
 
 {% include [datalens-visitor](../_roles/datalens/visitor.md) %}

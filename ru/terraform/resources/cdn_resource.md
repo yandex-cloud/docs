@@ -91,6 +91,11 @@ Specify location id to enable shielding. See https://yandex.cloud/en/docs/cdn/op
   - `certificate_manager_id` (String). Certificate Manager ID.
   - `status` (*Read-Only*) (String). SSL certificate status.
   - `type` (**Required**)(String). SSL certificate type.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

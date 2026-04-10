@@ -9,12 +9,12 @@ keywords:
 
 # Pre-configuring a {{ OS }} cluster connection
 
+
 You can connect to {{ mos-name }} cluster hosts with the `DATA` [role](../../concepts/host-roles.md#data):
 
 * Over the internet, if you configured public access to the host group you need.
 
 * Over the internet using a [special FQDN](./fqdn.md#special-fqdns) if you configured public access to the host group with the `DASHBOARDS` [role](../../concepts/host-roles.md#dashboards).
-
 
 * From {{ yandex-cloud }} VMs residing in the same [virtual network](../../../vpc/concepts/network.md).
 

@@ -66,5 +66,7 @@ data "yandex_trino_cluster" "tirno_cluster_by_id" {
   - `fixed_scale` [Block]. A fixed scaling policy that specifies a fixed number of worker instances.
     - `count` (**Required**)(Number). Specifies the number of worker instances.
   - `resource_preset_id` (**Required**)(String). The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
+- `timeouts` [Block]. 
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 
 

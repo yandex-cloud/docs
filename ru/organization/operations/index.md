@@ -32,6 +32,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./user-pools/deactivate-user.md)
 * [{#T}](./user-pools/activate-user.md)
 * [{#T}](./user-pools/user-get-logs.md)
+* [{#T}](./manage-sessions.md)
 * [{#T}](./edit-account.md)
 * [{#T}](./leave-organization.md)
 

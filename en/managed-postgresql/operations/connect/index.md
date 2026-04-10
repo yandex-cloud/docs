@@ -9,12 +9,12 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../../_includes/mdb/mpg/cluster-connect-note.md) %}
 
+
 {% note warning %}
 
 If only some cluster hosts have public access, an [automatic master failover](../../concepts/replication.md#replication-auto) can make the master host unreachable from the internet.
 
 {% endnote %}
-
 
 ## Configuring security groups {#configuring-security-groups}
 

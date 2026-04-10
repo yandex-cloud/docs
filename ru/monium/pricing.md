@@ -92,3 +92,30 @@ editable: false
 
 
 
+
+### Тарификация телефонных звонков и СМС {#sms-call-prices}
+
+{% note warning %}
+
+Цены действуют с 24 апреля 2026 года.
+
+{% endnote %}
+
+Тарифицируются звонки и СМС, отправляемые в рамках [алертов](concepts/alerting/alert.md) и [политик эскалаций](concepts/alerting/escalations.md). Указаны цены за 1 звонок и 1 СМС.
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub.md](../_pricing/monium/rub-sms-call.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/monium/kzt-sms-call.md) %}
+
+{% endlist %}
+
+
+
+

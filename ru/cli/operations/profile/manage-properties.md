@@ -34,7 +34,7 @@ yc config set <имя_параметра> <значение_параметра>
    Результат:
 
    ```text
-   token: y0_AgAAA...Njwvs7N4
+   subject-id: ajea53egl28l********
    cloud-id: b1gj9ja2h4ct********
    folder-id: b1g5bhjofg7o********
    organization-id: bpfaidqca8vd********
@@ -67,7 +67,7 @@ yc config unset <имя_параметра>
     Результат:
 
     ```text
-    token: y0_AgAAA...Njwvs7N4
+    subject-id: ajea53egl28l********
     cloud-id: b1gj9ja2h4ct********
     folder-id: b1g5bhjofg7o********
     ```
@@ -85,7 +85,7 @@ yc config list --profile test
 Результат:
 
 ```text
-token: y0_AgAAA...Kjwgs7h3
+subject-id: ajea53egl28l********
 cloud-id: b15jlj22h4ct********
 folder-id: b1grb2jo7g7o********
 ```

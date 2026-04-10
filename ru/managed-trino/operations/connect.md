@@ -9,6 +9,8 @@ keywords:
 
 В этом разделе представлены настройки для подключения к кластеру {{ mtr-name }} с помощью [инструментов командной строки](#cli-tools), из [графических IDE](#connection-ide) и [WebSQL](#websql). О подключении из кода вашего приложения см. [Примеры строк подключения](#connection-strings).
 
+Подключаться к кластеру {{ mtr-name }}, у которого включен [приватный доступ](../concepts/network.md#private-endpoint), можно только из той сети, в которой расположен кластер.
+
 {% note info %}
 
 Если для подключения требуется указывать порт, используйте порт `{{ port-https }}`.
@@ -42,9 +44,12 @@ keywords:
      1. Выберите в меню **File** → **New** → **Data Source** → **{{ TR }}**.
      1. Введите имя источника данных.
      1. Укажите параметры подключения на вкладке **General**:
-        * **Host** — `c-<идентификатор_кластера>.trino.yandexcloud.net`;
-        * **Port** — `{{ port-https }}`;
-        * **User** — `iam`;
+        * **Host** — `c-<идентификатор_кластера>.trino.yandexcloud.net`.
+
+            {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
+
+        * **Port** — `{{ port-https }}`.
+        * **User** — `iam`.
         * **Password** — созданный ранее IAM-токен.
   1. Нажмите ссылку **Test Connection** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
   1. Нажмите кнопку **OK**, чтобы сохранить источник данных.
@@ -56,7 +61,10 @@ keywords:
      1. Выберите из списка **{{ TR }}**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
-        * **Хост** — `c-<идентификатор_кластера>.trino.yandexcloud.net`;  
+        * **Хост** — `c-<идентификатор_кластера>.trino.yandexcloud.net`.
+
+            {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
+
         * **Порт** — `{{ port-https }}`.
         * В блоке **Аутентификация** укажите:
             * Имя пользователя — `iam`;
@@ -130,6 +138,8 @@ keywords:
       ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+     {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
   1. Подключение:
 
@@ -276,6 +286,8 @@ keywords:
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+      {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
+
   1. Сборка и подключение:
 
       ```bash
@@ -325,6 +337,8 @@ keywords:
     ```
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
 {% endlist %}
 

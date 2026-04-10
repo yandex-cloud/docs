@@ -1,0 +1,106 @@
+default:
+  cluster-domain: <cluster domain>
+  version: 0.5.0
+  site: true
+  region: int
+  lang: en
+  audience: external
+  product: yandex-cloud
+  yandex-cloud: Yandex Cloud
+  iam-full-name: Yandex Identity and Access Management
+  objstorage-full-name: Yandex Object Storage
+  mpg-full-name: Yandex Managed Service for PostgreSQL
+  mch-full-name: Yandex Managed Service for ClickHouse®
+  mkf-full-name: Yandex Managed Service for Apache Kafka®
+  maf-full-name: Yandex Managed Service for Apache Airflow™
+  mtr-full-name: Yandex Managed Service for Trino
+  monitoring-full-name: Yandex Monitoring
+  prometheus-name: Prometheus
+  grafana-name: Grafana
+  speechsense-full-name: Yandex SpeechSense
+  network-load-balancer-full-name: Yandex Network Load Balancer
+  cloud-logging-full-name: Yandex Cloud Logging
+  container-registry-full-name: Yandex Container Registry
+  datalens-full-name: Yandex DataLens
+  certificate-manager-full-name: Yandex Certificate Manager
+  alb-full-name: Yandex Application Load Balancer
+  dns-full-name: Yandex Cloud DNS
+  at-full-name: Yandex Audit Trails
+  ya-360: Yandex 360 for Business
+  baremetal-full-name: Yandex BareMetal
+  ai-studio-full-name: Yandex AI Studio
+  stackland-full-name: Yandex Cloud Stackland
+  iam-name: Identity and Access Management
+  objstorage-name: Object Storage
+  mpg-name: Managed Service for PostgreSQL
+  mch-name: Managed Service for ClickHouse®
+  mkf-name: Managed Service for Apache Kafka®
+  maf-name: Managed Service for Apache Airflow™
+  mtr-name: Managed Service for Trino
+  monitoring-name: Monitoring
+  speechsense-name: SpeechSense
+  network-load-balancer-name: Network Load Balancer
+  cloud-logging-name: Cloud Logging
+  cloud-registry-name: Cloud Registry
+  container-registry-name: Container Registry
+  datalens-name: DataLens
+  certificate-manager-name: Certificate Manager
+  alb-name: Application Load Balancer
+  dns-name: Cloud DNS
+  at-name: Audit Trails
+  stackland-name: Stackland
+  iam-short-name: IAM
+  objstorage-short-name: Object Storage
+  mpg-short-name: Managed Service for PostgreSQL
+  mch-short-name: Managed Service for ClickHouse®
+  mkf-short-name: Managed Service for Apache Kafka®
+  maf-short-name: Managed Service for Apache Airflow™
+  mtr-short-name: Managed Service for Trino
+  monitoring-short-name: Monitoring
+  network-load-balancer-short-name: Network Load Balancer
+  cloud-logging-short-name: Cloud Logging
+  container-registry-short-name: Container Registry
+  datalens-short-name: DataLens
+  ml-platform-short-name: DataSphere
+  certificate-manager-short-name: Certificate Manager
+  at-short-name: Audit Trails
+  cdn-short-name: Cloud CDN
+  foundation-models-name: AI Studio
+  baremetal-name: BareMetal
+  ai-studio-name: AI Studio
+  speechkit-slug: speechkit
+  CH: ClickHouse®
+  KF: Apache Kafka®
+  AF: Apache Airflow™
+  MG: MongoDB
+  MS: SQL Server
+  MY: MySQL®
+  OS: OpenSearch
+  PG: PostgreSQL
+  RD: Redis
+  VLK: Valkey™
+  TR: Trino
+  RMQ: RabbitMQ
+  SPRK: Apache Spark™
+  IBRG: Apache Iceberg™
+  SPQR: Sharded PostgreSQL
+  TF: Terraform
+  TF-full: HashiCorp Terraform
+  CK: ClickHouse® Keeper
+  ZK: ZooKeeper
+  DS: YDS
+  YZ: Yezzey
+  ssms: SQL Server Management Studio
+  pgadmin: pgAdmin 4
+  google-looker: Looker Studio
+  kraft-name: Apache Kafka® Raft
+  kraft-short-name: KRaft
+  AB: Airbyte®
+  kafka-ui: Kafka UI
+  nvidia: NVIDIA®
+  roles-stackland-all: stackland:all
+  roles-stackland-viewer: stackland:viewer
+  roles-stackland-editor: stackland:editor
+  roles-stackland-admin: stackland:admin
+  roles-stackland-auditor: stackland:auditor
+  gpu-operator: NVIDIA® GPU support

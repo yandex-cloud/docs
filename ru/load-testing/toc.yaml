@@ -1,6 +1,8 @@
 title: Yandex Load Testing
 href: index.yaml
 items:
+  - name: Закрытие сервиса
+    href: sunset.md
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
@@ -61,6 +63,8 @@ items:
         href: tutorials/loadtesting-gitlab-ci.md
       - name: Сравнение результатов нагрузочных тестов
         href: tutorials/loadtesting-results-compare.md
+      - name: Миграция нагрузочного тестирования на k6
+        href: tutorials/loadtesting-migration-to-k6.md
   - name: Концепции
     items:
       - name: Обзор сервиса

@@ -241,6 +241,8 @@ items:
         href: concepts/indexes.md
       - name: SQL command limits
         href: concepts/sql-limits.md
+      - name: '{{ PG }} versioning policy'
+        href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

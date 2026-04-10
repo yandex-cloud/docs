@@ -132,7 +132,7 @@
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<имя_кластера>" {
-         name = <имя_кластера>
+         name = "<имя_кластера>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -153,7 +153,7 @@
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<имя_кластера>" {
-         name = <имя_кластера>
+         name = "<имя_кластера>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -306,9 +306,12 @@
 
      ```hcl
      resource "yandex_kubernetes_cluster" "<имя_кластера>" {
-       name = <имя_кластера>
+       name = "<имя_кластера>"
        ...
-       version = "<новая_версия>"
+       master {
+         version = "<новая_версия>"
+         ...
+       }
      }
      ```
 
@@ -445,7 +448,7 @@
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-         name = <имя_группы_узлов>
+         name = "<имя_группы_узлов>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -466,7 +469,7 @@
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-         name = <имя_группы_узлов>
+         name = "<имя_группы_узлов>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -495,7 +498,7 @@
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-         name = <имя_группы_узлов>
+         name = "<имя_группы_узлов>"
          ...
          deploy_policy {
            max_expansion   = <расширение_размера_группы_при_обновлении>
@@ -670,7 +673,7 @@
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-       name = <имя_группы_узлов>
+       name = "<имя_группы_узлов>"
        ...
        version = "<новая_версия>"
      }

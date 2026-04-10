@@ -8,10 +8,14 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Getting information on existing clusters
+        href: operations/cluster-list.md
       - name: Creating a cluster
         href: operations/cluster-create.md
       - name: Connecting to a database
         href: operations/connect.md
+      - name: Managing cluster access
+        href: operations/cluster-access.md
       - name: Updating a cluster
         href: operations/cluster-update.md
       - name: Managing cluster hosts
@@ -26,6 +30,10 @@ items:
         href: operations/cluster-logs.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
+      - name: Managing users
+        href: operations/cluster-users.md
+      - name: Managing databases
+        href: operations/databases.md
   - name: Concepts
     items:
       - name: Resource relationships

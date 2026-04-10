@@ -1,5 +1,5 @@
 ```bash
-psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
+psql "host=<list_of_cluster_hosts> \
       port={{ port-mpg }} \
       sslmode=verify-full \
       dbname=<DB_name> \
