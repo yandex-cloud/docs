@@ -50,7 +50,7 @@ description: Инструкция по активации и настройке 
       
       {% include [kspm-sec-standard-list](../../../_includes/security-deck/kspm-sec-standard-list.md) %}
 
-      Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.modules_title_s8LDi }}** будут отображаться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
+      Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** будут отображаться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
 1. Завершите настройку {{ kspm-name }}:
     1. На странице созданного окружения нажмите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.edit_action }}**.
     1. Перейдите на вкладку **Контроль {{ k8s }}®**.

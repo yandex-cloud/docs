@@ -106,4 +106,10 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 `Key` | Ключ созданного объекта.<br/><br/>Путь: `/CompleteMultipartUploadResult/Key`.
 `ETag` | Хэш объекта.<br/><br/>ETag может быть, а может и не быть MD5.<br/><br/>Путь: `/CompleteMultipartUploadResult/ETag`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Завершение составной загрузки с условием](../../../operations/objects/multipart-upload.md#conditional-writes)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -65,11 +65,11 @@ description: Из этой инструкции вы узнаете, как из
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**, чтобы сохранить внесенные изменения.
   1. (Опционально) Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabStandards_wSeaW }}**, чтобы изменить список стандартов, на соответствие которым будут проверяться контролируемые окружением ресурсы:
 
-      1. В блоке **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.standards_title_dBBXP }}** выберите нужные стандарты:
+      1. В блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-requirements_8r7hd }}** выберите нужные стандарты:
       
           {% include [workspace-sec-standard-list](../../../_includes/security-deck/workspace-sec-standard-list.md) %}
       
-          Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.modules_title_s8LDi }}** будут добавляться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам.
+          Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** будут добавляться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**, чтобы сохранить внесенные изменения.
   1. (Опционально) Перейдите на вкладку **Контроль Kubernetes®**, чтобы изменить настройки контроля безопасности использования кластеров {{ k8s }}.
 

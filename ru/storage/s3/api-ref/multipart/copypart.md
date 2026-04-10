@@ -91,4 +91,10 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 `ETag` | `ETag` результирующей части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/ETag`.
 `LastModified` | Дата последнего изменения части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/LastModified`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [{#T}](../../../operations/objects/copy.md#copy-single-object)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

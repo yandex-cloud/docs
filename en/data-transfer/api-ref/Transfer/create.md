@@ -395,11 +395,6 @@ apiPlayground:
       SharderTransformer:
         type: object
         properties:
-          tables:
-            description: |-
-              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
-              List of included and excluded tables
-            $ref: '#/definitions/TablesFilter'
           columns:
             description: |-
               **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
@@ -411,6 +406,11 @@ apiPlayground:
               **object**
               Includes only one of the fields `columns`, `random`.
             $ref: '#/definitions/SharderTransformerTypeRandom'
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables
+            $ref: '#/definitions/TablesFilter'
           shardsCount:
             description: |-
               **string** (int64)
@@ -712,14 +712,6 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
           }
         },
         "sharderTransformer": {
-          "tables": {
-            "includeTables": [
-              "string"
-            ],
-            "excludeTables": [
-              "string"
-            ]
-          },
           // Includes only one of the fields `columns`, `random`
           "columns": {
             "includeColumns": [
@@ -731,6 +723,14 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
           },
           "random": "object",
           // end of the list of possible fields
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
           "shardsCount": "string"
         },
         "tableSplitterTransformer": {
@@ -799,7 +799,6 @@ Description of the transfer. ||
 || folderId | **string**
 
 ID of the folder to create the transfer in.
-
 To get the folder ID, make a
 [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
@@ -814,7 +813,6 @@ The transfer name. Must be unique within the folder. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
-
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regularSnapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
@@ -1176,9 +1174,6 @@ values will be used for calculating a hash to determine a shard.
 
 #|
 ||Field | Description ||
-|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
-
-List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
 List of included and excluded columns
@@ -1187,6 +1182,9 @@ Includes only one of the fields `columns`, `random`. ||
 || random | **object**
 
 Includes only one of the fields `columns`, `random`. ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
 || shardsCount | **string** (int64)
 
 Number of shards ||

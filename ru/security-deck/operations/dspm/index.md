@@ -7,3 +7,4 @@ description: В этом разделе собраны пошаговые инс
 
 * [{#T}](create-data-source.md).
 * [{#T}](create-scan.md).
+* [{#T}](work-with-results.md).

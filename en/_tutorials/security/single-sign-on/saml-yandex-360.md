@@ -76,8 +76,8 @@ Set user attributes for integration with {{ yandex-360 }}:
 
         1. Replace the `emailaddress` attribute with `User.EmailAddress`. Proceed as follows:
             1. Click the row with the `emailaddress` attribute.
-            1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** field, enter `User.EmailAddress`.
-            1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** field, leave `SubjectClaims.email`.
+            1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `User.EmailAddress`.
+            1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, leave `SubjectClaims.email`.
             1. Click **{{ ui-key.yacloud.common.save }}**.
 
         1. Replace the `givenname` attribute with `User.Firstname`.

@@ -129,4 +129,10 @@ GET /{bucket}?uploads HTTP/2
 `CommonPrefixes` | Содержит элемент `Prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/CommonPrefixes`.
 `CommonPrefixes/Prefix` | Часть имени ключа, которая определяется при обработке параметров запроса `delimiter` и `prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/CommonPrefixes/Prefix`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [{#T}](../../../operations/objects/deleting-multipart.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

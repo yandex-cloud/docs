@@ -36,4 +36,8 @@ description: Из статьи вы узнаете, какие действия 
 `s3:PutObjectAcl` | Дает право на установку ACL для указанного объекта.
 `s3:PutObjectVersionAcl` | Дает право на установку ACL для указанной версии объекта.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

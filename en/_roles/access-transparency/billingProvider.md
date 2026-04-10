@@ -1,1 +1,1 @@
-The `access-transparency.billingProvider` role enables selecting a billing account in {{ atr-name }}.
+The `access-transparency.billingProvider` role enables selecting a billing account in Access Transparency.

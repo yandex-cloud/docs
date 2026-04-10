@@ -55,6 +55,8 @@ items:
             href: operations/buckets/manage-s3-inventory.md
           - name: Управление метками бакета
             href: operations/buckets/tagging.md
+          - name: Получение списка бакетов
+            href: operations/buckets/get-list.md
           - name: Получение информации и статистики о бакете
             href: operations/buckets/get-info.md
           - name: Просмотр метрик бакета

@@ -110,9 +110,9 @@
 
     1. Если вы планируете использовать маппинг групп, добавьте атрибут для передачи групп:
 
-        1. Нажмите **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}**.
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** введите `http://schemas.xmlsoap.org/claims/Group`.
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** укажите `SubjectClaims.groups`.
+        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `http://schemas.xmlsoap.org/claims/Group`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** укажите `SubjectClaims.groups`.
         1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

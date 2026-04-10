@@ -34,7 +34,7 @@ PUT /{bucket}?cors HTTP/2
 
 ### Схема данных {#request-scheme}
 
-Конфигурация CORS передается в виде XML-документа. Описание схемы смотрите в разделе [{#T}](xml-config.md)
+Конфигурация CORS передается в виде XML-документа. Описание схемы смотрите в разделе [{#T}](../../../concepts/cors.md)
 
 ## Ответ {#response}
 
@@ -46,6 +46,10 @@ PUT /{bucket}?cors HTTP/2
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
-{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/cors.md)
 
 * [{#T}](../../../operations/buckets/cors.md)
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

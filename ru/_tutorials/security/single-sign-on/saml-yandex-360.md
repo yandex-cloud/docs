@@ -76,8 +76,8 @@
 
         1. Атрибут `emailaddress` замените на `User.EmailAddress`. Для этого:
             1. Кликните на строку с атрибутом `emailaddress`.
-            1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** введите `User.EmailAddress`.
-            1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** оставьте текущее значение `SubjectClaims.email`.
+            1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `User.EmailAddress`.
+            1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** оставьте текущее значение `SubjectClaims.email`.
             1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
         1. Атрибут `givenname` замените на `User.Firstname`:

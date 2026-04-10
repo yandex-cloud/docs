@@ -1,7 +1,3 @@
-`k8s.tunnelClusters.agent` — специальная роль для создания кластера Kubernetes с туннельным режимом. Дает право на создание групп узлов, дисков, внутренних балансировщиков. Позволяет использовать заранее созданные ключи Yandex Key Management Service для шифрования и расшифровки секретов. Включает роли:
+`k8s.tunnelClusters.agent` — специальная роль для создания [кластера Kubernetes](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с туннельным режимом. Дает право на создание [групп узлов](../../../managed-kubernetes/concepts/index.md#node-group), дисков, внутренних балансировщиков. Позволяет использовать заранее созданные [ключи](../../../kms/concepts/key.md) Yandex Key Management Service для шифрования и расшифрования секретов.
 
-* `compute.admin`
-* `iam.serviceAccounts.user`
-* `k8s.viewer`
-* `kms.keys.encrypterDecrypter`
-* `load-balancer.privateAdmin`
+Включает разрешения, предоставляемые ролями `compute.admin`, `iam.serviceAccounts.user`, `k8s.viewer`, `kms.keys.encrypterDecrypter` и `load-balancer.privateAdmin`.

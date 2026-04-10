@@ -36,9 +36,9 @@
 
       1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию:
 
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`
+          * `{{ ui-key.yacloud.storage.value_standard }}`
+          * `{{ ui-key.yacloud.storage.value_cold }}`
+          * `{{ ui-key.yacloud.storage.value_ice }}`
 
           Более «холодные» классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем «холоднее» хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
 

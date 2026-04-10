@@ -110,4 +110,10 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/2
 `ETag` | `ETag` загруженной части.<br/><br/>Путь: `/ListPartsResult/Part/ETag`.
 `Size` | Размер загруженной части.<br/><br/>Путь: `/ListPartsResult/Part/Size`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Составная загрузка объекта](../../../operations/objects/multipart-upload.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -140,14 +140,6 @@ Updates the specified transfer.
           }
         },
         "sharder_transformer": {
-          "tables": {
-            "include_tables": [
-              "string"
-            ],
-            "exclude_tables": [
-              "string"
-            ]
-          },
           // Includes only one of the fields `columns`, `random`
           "columns": {
             "include_columns": [
@@ -159,6 +151,14 @@ Updates the specified transfer.
           },
           "random": "SharderTransformerTypeRandom",
           // end of the list of possible fields
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
           "shards_count": "int64"
         },
         "table_splitter_transformer": {
@@ -235,7 +235,6 @@ the new value replaces the old one instead of being appended to the old one. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
-
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regular_snapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
@@ -606,9 +605,6 @@ values will be used for calculating a hash to determine a shard.
 
 #|
 ||Field | Description ||
-|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
-
-List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
 List of included and excluded columns
@@ -617,6 +613,9 @@ Includes only one of the fields `columns`, `random`. ||
 || random | **[SharderTransformerTypeRandom](#yandex.cloud.datatransfer.v1.SharderTransformerTypeRandom)**
 
 Includes only one of the fields `columns`, `random`. ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
 || shards_count | **int64**
 
 Number of shards ||

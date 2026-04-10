@@ -36,9 +36,9 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
       1. Select the default [storage class](../../storage/concepts/storage-class.md):
 
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`
+          * `{{ ui-key.yacloud.storage.value_standard }}`
+          * `{{ ui-key.yacloud.storage.value_cold }}`
+          * `{{ ui-key.yacloud.storage.value_ice }}`
 
           Cold classes are for long-term storage of objects you intend to use less frequently. The colder the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
 

@@ -1,4 +1,3 @@
-`k8s.clusters.agent` is a special role for the Kubernetes cluster service account. It enables you to create node groups, disks, and internal load balancers. You can use previously created Yandex Key Management Service keys to encrypt and decrypt secrets and connect previously created security groups. When combined with the `load-balancer.admin` role, it enables you to create a network load balancer with a public IP address. It includes the following roles:
+`k8s.clusters.agent` is a special role for the [Kubernetes cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) service account. It enables you to create [node groups](../../../managed-kubernetes/concepts/index.md#node-group), disks, and internal load balancers. You can use previously created Yandex Key Management Service [keys](../../../kms/concepts/key.md) to encrypt and decrypt secrets and connect previously created [security groups](../../../vpc/concepts/security-groups.md). When combined with the `load-balancer.admin` [role](../../../network-load-balancer/security/index.md#load-balancer-admin), it enables you to create a [network load balancer](../../../network-load-balancer/concepts/index.md) with a public IP address.
 
-* `k8s.tunnelClusters.agent`
-* `vpc.privateAdmin`
+This role includes the `k8s.tunnelClusters.agent` and `vpc.privateAdmin` permissions.

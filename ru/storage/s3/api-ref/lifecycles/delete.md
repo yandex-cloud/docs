@@ -39,4 +39,10 @@ DELETE /{bucket}?lifecycle HTTP/2
 
 Если конфигурация жизненных циклов бакета не существует, то {{ objstorage-name }} ответит кодом 200.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
+* [{#T}](../../../operations/buckets/lifecycles.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -1325,7 +1325,8 @@ Creates a new MongoDB cluster using the specified backup.
             "mirror_reads": {
               "sampling_rate": "google.protobuf.DoubleValue",
               "max_time_ms": "google.protobuf.Int64Value"
-            }
+            },
+            "redact_client_log_data": "google.protobuf.BoolValue"
           },
           "oplog": {
             "max_size_percent": "google.protobuf.Int64Value",
@@ -1363,7 +1364,8 @@ Creates a new MongoDB cluster using the specified backup.
           },
           "set_parameter": {
             "enable_flow_control": "google.protobuf.BoolValue",
-            "audit_authorization_success": "google.protobuf.BoolValue"
+            "audit_authorization_success": "google.protobuf.BoolValue",
+            "redact_client_log_data": "google.protobuf.BoolValue"
           },
           "audit_log": {
             "filter": "string"
@@ -1408,7 +1410,8 @@ Creates a new MongoDB cluster using the specified backup.
             "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
             "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
             "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-            "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+            "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+            "redact_client_log_data": "google.protobuf.BoolValue"
           },
           "audit_log": {
             "filter": "string"
@@ -1449,7 +1452,8 @@ Creates a new MongoDB cluster using the specified backup.
             "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
             "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
             "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-            "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+            "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+            "redact_client_log_data": "google.protobuf.BoolValue"
           },
           "audit_log": {
             "filter": "string"
@@ -1474,7 +1478,8 @@ Creates a new MongoDB cluster using the specified backup.
           },
           "set_parameter": {
             "enable_flow_control": "google.protobuf.BoolValue",
-            "audit_authorization_success": "google.protobuf.BoolValue"
+            "audit_authorization_success": "google.protobuf.BoolValue",
+            "redact_client_log_data": "google.protobuf.BoolValue"
           },
           "audit_log": {
             "filter": "string"
@@ -5341,6 +5346,12 @@ The minimum value is 0. ||
 || mirror_reads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
 
 Specifies the settings for mirrored reads for the mongod instance ||
+|| redact_client_log_data | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
@@ -5485,6 +5496,12 @@ lag under a configurable maximum value. ||
 
 Enables the auditing of authorization successes
 https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| redact_client_log_data | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
@@ -5619,6 +5636,12 @@ Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number 
 || sharding_task_executor_pool_min_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| redact_client_log_data | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
@@ -8766,7 +8789,8 @@ The minimum number of elements is 0. ||
                 "mirror_reads": {
                   "sampling_rate": "google.protobuf.DoubleValue",
                   "max_time_ms": "google.protobuf.Int64Value"
-                }
+                },
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "oplog": {
                 "max_size_percent": "google.protobuf.Int64Value",
@@ -8834,7 +8858,8 @@ The minimum number of elements is 0. ||
                 "mirror_reads": {
                   "sampling_rate": "google.protobuf.DoubleValue",
                   "max_time_ms": "google.protobuf.Int64Value"
-                }
+                },
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "oplog": {
                 "max_size_percent": "google.protobuf.Int64Value",
@@ -8902,7 +8927,8 @@ The minimum number of elements is 0. ||
                 "mirror_reads": {
                   "sampling_rate": "google.protobuf.DoubleValue",
                   "max_time_ms": "google.protobuf.Int64Value"
-                }
+                },
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "oplog": {
                 "max_size_percent": "google.protobuf.Int64Value",
@@ -8942,7 +8968,8 @@ The minimum number of elements is 0. ||
               },
               "set_parameter": {
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -8971,7 +8998,8 @@ The minimum number of elements is 0. ||
               },
               "set_parameter": {
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9000,7 +9028,8 @@ The minimum number of elements is 0. ||
               },
               "set_parameter": {
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9047,7 +9076,8 @@ The minimum number of elements is 0. ||
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
                 "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9076,7 +9106,8 @@ The minimum number of elements is 0. ||
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
                 "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9105,7 +9136,8 @@ The minimum number of elements is 0. ||
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
                 "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9148,7 +9180,8 @@ The minimum number of elements is 0. ||
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
                 "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9177,7 +9210,8 @@ The minimum number of elements is 0. ||
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
                 "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9206,7 +9240,8 @@ The minimum number of elements is 0. ||
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
                 "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
                 "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
-                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9233,7 +9268,8 @@ The minimum number of elements is 0. ||
               },
               "set_parameter": {
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9262,7 +9298,8 @@ The minimum number of elements is 0. ||
               },
               "set_parameter": {
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -9291,7 +9328,8 @@ The minimum number of elements is 0. ||
               },
               "set_parameter": {
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "redact_client_log_data": "google.protobuf.BoolValue"
               },
               "audit_log": {
                 "filter": "string"
@@ -13688,6 +13726,12 @@ The minimum value is 0. ||
 || mirror_reads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2)**
 
 Specifies the settings for mirrored reads for the mongod instance ||
+|| redact_client_log_data | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2}
@@ -13848,6 +13892,12 @@ lag under a configurable maximum value. ||
 
 Enables the auditing of authorization successes
 https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| redact_client_log_data | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2}
@@ -13998,6 +14048,12 @@ Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number 
 || sharding_task_executor_pool_min_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| redact_client_log_data | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2}

@@ -10,9 +10,9 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится облачная сеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной сети и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной сети и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В открывшемся окне выберите каталог назначения.
-  1. Нажмите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.move }}**.
 
   {% note info %}
 

@@ -56,4 +56,12 @@ GET /{bucket}?object-lock HTTP/2
 `Days` | <p>Срок блокировки по умолчанию в днях от момента загрузки версии объекта. Должен быть положительным целым числом.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
 `Years` | <p>Срок блокировки по умолчанию в годах от момента загрузки версии объекта. Должен быть положительным целым числом.</p><p>Путь: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Блокировка версии объекта](../../../concepts/object-lock.md)
+
+* [Управление блокировками версий объектов в бакете](../../../operations/buckets/configure-object-lock.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

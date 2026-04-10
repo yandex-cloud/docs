@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 
           1. Включите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` — доступ для любых пользователей.
 
-          1. Выберите [класс хранилища](../../../concepts/storage-class.md) по умолчанию — `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+          1. Выберите [класс хранилища](../../../concepts/storage-class.md) по умолчанию — `{{ ui-key.yacloud.storage.value_standard }}`.
 
           1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
