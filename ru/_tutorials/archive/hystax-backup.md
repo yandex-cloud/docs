@@ -102,7 +102,7 @@
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) — `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+      1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) — `{{ ui-key.yacloud.storage.value_standard }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
   1. Сохраните имя бакета, оно потребуется в дальнейшем.
 

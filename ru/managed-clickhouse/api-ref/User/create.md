@@ -276,11 +276,11 @@ apiPlayground:
               Algorithm of replicas selection that is used for distributed query processing.
               Default value: **LOAD_BALANCING_RANDOM**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
-              - `LOAD_BALANCING_RANDOM`
-              - `LOAD_BALANCING_NEAREST_HOSTNAME`
-              - `LOAD_BALANCING_IN_ORDER`
-              - `LOAD_BALANCING_FIRST_OR_RANDOM`
-              - `LOAD_BALANCING_ROUND_ROBIN`
+              - `LOAD_BALANCING_RANDOM`: Select a replica at random for each query.
+              - `LOAD_BALANCING_NEAREST_HOSTNAME`: Prefer replicas whose hostname is lexicographically closest to the current server's hostname.
+              - `LOAD_BALANCING_IN_ORDER`: Select replicas in the order defined in the configuration, failing over to the next on error.
+              - `LOAD_BALANCING_FIRST_OR_RANDOM`: Always try the first replica; fall back to a random replica if it is unavailable or has errors.
+              - `LOAD_BALANCING_ROUND_ROBIN`: Cycle through replicas sequentially in a round-robin fashion.
             type: string
             enum:
               - LOAD_BALANCING_UNSPECIFIED
@@ -495,11 +495,11 @@ apiPlayground:
               The LOCAL_FILESYSTEM_READ_METHOD_IO_URING is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and
               other tables with append-able files in presence of concurrent reads and writes.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#local_filesystem_read_method).
-              - `LOCAL_FILESYSTEM_READ_METHOD_READ`
-              - `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
-              - `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
-              - `LOCAL_FILESYSTEM_READ_METHOD_NMAP`
-              - `LOCAL_FILESYSTEM_READ_METHOD_IO_URING`
+              - `LOCAL_FILESYSTEM_READ_METHOD_READ`: Use the read() system call.
+              - `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`: Use pread() system calls dispatched via a thread pool.
+              - `LOCAL_FILESYSTEM_READ_METHOD_PREAD`: Use the pread() system call.
+              - `LOCAL_FILESYSTEM_READ_METHOD_NMAP`: Use memory-mapped I/O (mmap).
+              - `LOCAL_FILESYSTEM_READ_METHOD_IO_URING`: Use Linux io_uring for asynchronous I/O.
             type: string
             enum:
               - LOCAL_FILESYSTEM_READ_METHOD_UNSPECIFIED
@@ -514,8 +514,8 @@ apiPlayground:
               Method of reading data from remote filesystem.
               Default value: **REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#remote_filesystem_read_method).
-              - `REMOTE_FILESYSTEM_READ_METHOD_READ`
-              - `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL`
+              - `REMOTE_FILESYSTEM_READ_METHOD_READ`: Read data synchronously.
+              - `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL`: Read data using a thread pool for parallelism.
             type: string
             enum:
               - REMOTE_FILESYSTEM_READ_METHOD_UNSPECIFIED
@@ -1090,9 +1090,9 @@ apiPlayground:
               Specifies which of date time parsers to use.
               Default value: **DATE_TIME_INPUT_FORMAT_BASIC**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_input_format).
-              - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`
-              - `DATE_TIME_INPUT_FORMAT_BASIC`
-              - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US`
+              - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`: Parse the basic YYYY-MM-DD HH:MM:SS format and all ISO 8601 date and time formats.
+              - `DATE_TIME_INPUT_FORMAT_BASIC`: Parse date/time in YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format only.
+              - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US`: Like best_effort but interprets ambiguous dates (e.g., MM/DD/YYYY) using US conventions (month-first).
             type: string
             enum:
               - DATE_TIME_INPUT_FORMAT_UNSPECIFIED
@@ -1105,9 +1105,9 @@ apiPlayground:
               Specifies which of date time output formats to use.
               Default value: **DATE_TIME_OUTPUT_FORMAT_SIMPLE**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_output_format).
-              - `DATE_TIME_OUTPUT_FORMAT_SIMPLE`
-              - `DATE_TIME_OUTPUT_FORMAT_ISO`
-              - `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP`
+              - `DATE_TIME_OUTPUT_FORMAT_SIMPLE`: Output date/time in a simple human-readable format (e.g. 2024-01-01 12:00:00).
+              - `DATE_TIME_OUTPUT_FORMAT_ISO`: Output date/time in ISO 8601 format (e.g. 2024-01-01T12:00:00Z).
+              - `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP`: Output date/time as a Unix timestamp (seconds since epoch).
             type: string
             enum:
               - DATE_TIME_OUTPUT_FORMAT_UNSPECIFIED
@@ -1148,12 +1148,12 @@ apiPlayground:
               Field escaping rule (for Regexp format).
               Default value: **FORMAT_REGEXP_ESCAPING_RULE_RAW**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_escaping_rule).
-              - `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
-              - `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
-              - `FORMAT_REGEXP_ESCAPING_RULE_CSV`
-              - `FORMAT_REGEXP_ESCAPING_RULE_JSON`
-              - `FORMAT_REGEXP_ESCAPING_RULE_XML`
-              - `FORMAT_REGEXP_ESCAPING_RULE_RAW`
+              - `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`: Apply backslash escaping (as in TSV format).
+              - `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`: Apply quoting escaping (as in Values format).
+              - `FORMAT_REGEXP_ESCAPING_RULE_CSV`: Apply CSV escaping rules.
+              - `FORMAT_REGEXP_ESCAPING_RULE_JSON`: Apply JSON escaping rules.
+              - `FORMAT_REGEXP_ESCAPING_RULE_XML`: Apply XML escaping rules.
+              - `FORMAT_REGEXP_ESCAPING_RULE_RAW`: No escaping; use raw field values (as in TSVRaw format).
             type: string
             enum:
               - FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED
@@ -1290,9 +1290,9 @@ apiPlayground:
               **enum** (QuotaMode)
               Quota accounting mode.
               Default value: **QUOTA_MODE_DEFAULT**.
-              - `QUOTA_MODE_DEFAULT`
-              - `QUOTA_MODE_KEYED`
-              - `QUOTA_MODE_KEYED_BY_IP`
+              - `QUOTA_MODE_DEFAULT`: Track resource usage as a single shared quota across all users without per-user separation.
+              - `QUOTA_MODE_KEYED`: Track quota separately per unique quota key value passed in the query parameter.
+              - `QUOTA_MODE_KEYED_BY_IP`: Track quota separately per client IP address.
             default: '**QUOTA_MODE_DEFAULT**'
             type: string
             enum:
@@ -1487,11 +1487,11 @@ apiPlayground:
               Specifies which of the uniq* functions should be used to perform the **COUNT(DISTINCT ...)** construction.
               Default value: **COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#count_distinct_implementation).
-              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
-              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
-              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
-              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
-              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT`
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`: Approximate count using an adaptive sampling algorithm. Fast with low memory usage; recommended for most scenarios.
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`: Adaptive approximate count combining multiple algorithms for better accuracy than uniq.
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`: Like uniqCombined but uses 64-bit hashing for better accuracy with large cardinalities.
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`: Approximate count using HyperLogLog with 2^12 cells.
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT`: Exact count using a hash set. Higher memory usage but fully accurate.
             type: string
             enum:
               - COUNT_DISTINCT_IMPLEMENTATION_UNSPECIFIED
@@ -1539,13 +1539,13 @@ apiPlayground:
               Specifies which JOIN algorithm to use.
               Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
-              - `JOIN_ALGORITHM_HASH`
-              - `JOIN_ALGORITHM_PARALLEL_HASH`
-              - `JOIN_ALGORITHM_PARTIAL_MERGE`
-              - `JOIN_ALGORITHM_DIRECT`
-              - `JOIN_ALGORITHM_AUTO`
-              - `JOIN_ALGORITHM_FULL_SORTING_MERGE`
-              - `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE`
+              - `JOIN_ALGORITHM_HASH`: Use a hash join algorithm.
+              - `JOIN_ALGORITHM_PARALLEL_HASH`: Build several hash tables concurrently to speed up the build phase, at the cost of higher memory usage.
+              - `JOIN_ALGORITHM_PARTIAL_MERGE`: Sort-based join that minimizes memory usage by processing sorted chunks of the right table; slower than hash join.
+              - `JOIN_ALGORITHM_DIRECT`: Directly look up join keys in a dictionary-backed table (Dictionary, Join, or EmbeddedRocksDB engine). Supports LEFT ANY join only.
+              - `JOIN_ALGORITHM_AUTO`: Automatically choose the best join algorithm at runtime based on available memory and data size.
+              - `JOIN_ALGORITHM_FULL_SORTING_MERGE`: Non-memory-bound sort-merge join; can skip the sort phase when both tables are pre-sorted on the join key.
+              - `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE`: Prefer partial_merge join when applicable, falling back to hash join otherwise.
             type: array
             items:
               type: string
@@ -2297,11 +2297,11 @@ Default value: **LOAD_BALANCING_RANDOM**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
 
-- `LOAD_BALANCING_RANDOM`
-- `LOAD_BALANCING_NEAREST_HOSTNAME`
-- `LOAD_BALANCING_IN_ORDER`
-- `LOAD_BALANCING_FIRST_OR_RANDOM`
-- `LOAD_BALANCING_ROUND_ROBIN` ||
+- `LOAD_BALANCING_RANDOM`: Select a replica at random for each query.
+- `LOAD_BALANCING_NEAREST_HOSTNAME`: Prefer replicas whose hostname is lexicographically closest to the current server's hostname.
+- `LOAD_BALANCING_IN_ORDER`: Select replicas in the order defined in the configuration, failing over to the next on error.
+- `LOAD_BALANCING_FIRST_OR_RANDOM`: Always try the first replica; fall back to a random replica if it is unavailable or has errors.
+- `LOAD_BALANCING_ROUND_ROBIN`: Cycle through replicas sequentially in a round-robin fashion. ||
 || preferLocalhostReplica | **boolean**
 
 Enable or disable preferable using the localhost replica when processing distributed queries.
@@ -2525,11 +2525,11 @@ other tables with append-able files in presence of concurrent reads and writes.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#local_filesystem_read_method).
 
-- `LOCAL_FILESYSTEM_READ_METHOD_READ`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
-- `LOCAL_FILESYSTEM_READ_METHOD_NMAP`
-- `LOCAL_FILESYSTEM_READ_METHOD_IO_URING` ||
+- `LOCAL_FILESYSTEM_READ_METHOD_READ`: Use the read() system call.
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`: Use pread() system calls dispatched via a thread pool.
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`: Use the pread() system call.
+- `LOCAL_FILESYSTEM_READ_METHOD_NMAP`: Use memory-mapped I/O (mmap).
+- `LOCAL_FILESYSTEM_READ_METHOD_IO_URING`: Use Linux io_uring for asynchronous I/O. ||
 || remoteFilesystemReadMethod | **enum** (RemoteFilesystemReadMethod)
 
 Method of reading data from remote filesystem.
@@ -2538,8 +2538,8 @@ Default value: **REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#remote_filesystem_read_method).
 
-- `REMOTE_FILESYSTEM_READ_METHOD_READ`
-- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
+- `REMOTE_FILESYSTEM_READ_METHOD_READ`: Read data synchronously.
+- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL`: Read data using a thread pool for parallelism. ||
 || priority | **string** (int64)
 
 Sets the priority of a query.
@@ -3098,9 +3098,9 @@ Default value: **DATE_TIME_INPUT_FORMAT_BASIC**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_input_format).
 
-- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`
-- `DATE_TIME_INPUT_FORMAT_BASIC`
-- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US` ||
+- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`: Parse the basic YYYY-MM-DD HH:MM:SS format and all ISO 8601 date and time formats.
+- `DATE_TIME_INPUT_FORMAT_BASIC`: Parse date/time in YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format only.
+- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US`: Like best_effort but interprets ambiguous dates (e.g., MM/DD/YYYY) using US conventions (month-first). ||
 || dateTimeOutputFormat | **enum** (DateTimeOutputFormat)
 
 Specifies which of date time output formats to use.
@@ -3109,9 +3109,9 @@ Default value: **DATE_TIME_OUTPUT_FORMAT_SIMPLE**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_output_format).
 
-- `DATE_TIME_OUTPUT_FORMAT_SIMPLE`
-- `DATE_TIME_OUTPUT_FORMAT_ISO`
-- `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP` ||
+- `DATE_TIME_OUTPUT_FORMAT_SIMPLE`: Output date/time in a simple human-readable format (e.g. 2024-01-01 12:00:00).
+- `DATE_TIME_OUTPUT_FORMAT_ISO`: Output date/time in ISO 8601 format (e.g. 2024-01-01T12:00:00Z).
+- `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP`: Output date/time as a Unix timestamp (seconds since epoch). ||
 || lowCardinalityAllowInNativeFormat | **boolean**
 
 Allows or restricts using the LowCardinality data type with the Native format.
@@ -3150,12 +3150,12 @@ Default value: **FORMAT_REGEXP_ESCAPING_RULE_RAW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_escaping_rule).
 
-- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
-- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
-- `FORMAT_REGEXP_ESCAPING_RULE_CSV`
-- `FORMAT_REGEXP_ESCAPING_RULE_JSON`
-- `FORMAT_REGEXP_ESCAPING_RULE_XML`
-- `FORMAT_REGEXP_ESCAPING_RULE_RAW` ||
+- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`: Apply backslash escaping (as in TSV format).
+- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`: Apply quoting escaping (as in Values format).
+- `FORMAT_REGEXP_ESCAPING_RULE_CSV`: Apply CSV escaping rules.
+- `FORMAT_REGEXP_ESCAPING_RULE_JSON`: Apply JSON escaping rules.
+- `FORMAT_REGEXP_ESCAPING_RULE_XML`: Apply XML escaping rules.
+- `FORMAT_REGEXP_ESCAPING_RULE_RAW`: No escaping; use raw field values (as in TSVRaw format). ||
 || formatRegexpSkipUnmatched | **boolean**
 
 Skip lines unmatched by regular expression (for Regexp format)
@@ -3279,9 +3279,9 @@ Quota accounting mode.
 
 Default value: **QUOTA_MODE_DEFAULT**.
 
-- `QUOTA_MODE_DEFAULT`
-- `QUOTA_MODE_KEYED`
-- `QUOTA_MODE_KEYED_BY_IP` ||
+- `QUOTA_MODE_DEFAULT`: Track resource usage as a single shared quota across all users without per-user separation.
+- `QUOTA_MODE_KEYED`: Track quota separately per unique quota key value passed in the query parameter.
+- `QUOTA_MODE_KEYED_BY_IP`: Track quota separately per client IP address. ||
 || asyncInsert | **boolean**
 
 If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
@@ -3455,11 +3455,11 @@ Default value: **COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#count_distinct_implementation).
 
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT` ||
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`: Approximate count using an adaptive sampling algorithm. Fast with low memory usage; recommended for most scenarios.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`: Adaptive approximate count combining multiple algorithms for better accuracy than uniq.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`: Like uniqCombined but uses 64-bit hashing for better accuracy with large cardinalities.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`: Approximate count using HyperLogLog with 2^12 cells.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT`: Exact count using a hash set. Higher memory usage but fully accurate. ||
 || joinedSubqueryRequiresAlias | **boolean**
 
 Force joined subqueries and table functions to have aliases for correct name qualification.
@@ -3503,13 +3503,13 @@ Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORIT
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
 
-- `JOIN_ALGORITHM_HASH`
-- `JOIN_ALGORITHM_PARALLEL_HASH`
-- `JOIN_ALGORITHM_PARTIAL_MERGE`
-- `JOIN_ALGORITHM_DIRECT`
-- `JOIN_ALGORITHM_AUTO`
-- `JOIN_ALGORITHM_FULL_SORTING_MERGE`
-- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE` ||
+- `JOIN_ALGORITHM_HASH`: Use a hash join algorithm.
+- `JOIN_ALGORITHM_PARALLEL_HASH`: Build several hash tables concurrently to speed up the build phase, at the cost of higher memory usage.
+- `JOIN_ALGORITHM_PARTIAL_MERGE`: Sort-based join that minimizes memory usage by processing sorted chunks of the right table; slower than hash join.
+- `JOIN_ALGORITHM_DIRECT`: Directly look up join keys in a dictionary-backed table (Dictionary, Join, or EmbeddedRocksDB engine). Supports LEFT ANY join only.
+- `JOIN_ALGORITHM_AUTO`: Automatically choose the best join algorithm at runtime based on available memory and data size.
+- `JOIN_ALGORITHM_FULL_SORTING_MERGE`: Non-memory-bound sort-merge join; can skip the sort phase when both tables are pre-sorted on the join key.
+- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE`: Prefer partial_merge join when applicable, falling back to hash join otherwise. ||
 || anyJoinDistinctRightTableKeys | **boolean**
 
 Enables legacy ClickHouse server behaviour in **ANY INNER\|LEFT JOIN** operations.
@@ -4271,11 +4271,11 @@ Default value: **LOAD_BALANCING_RANDOM**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
 
-- `LOAD_BALANCING_RANDOM`
-- `LOAD_BALANCING_NEAREST_HOSTNAME`
-- `LOAD_BALANCING_IN_ORDER`
-- `LOAD_BALANCING_FIRST_OR_RANDOM`
-- `LOAD_BALANCING_ROUND_ROBIN` ||
+- `LOAD_BALANCING_RANDOM`: Select a replica at random for each query.
+- `LOAD_BALANCING_NEAREST_HOSTNAME`: Prefer replicas whose hostname is lexicographically closest to the current server's hostname.
+- `LOAD_BALANCING_IN_ORDER`: Select replicas in the order defined in the configuration, failing over to the next on error.
+- `LOAD_BALANCING_FIRST_OR_RANDOM`: Always try the first replica; fall back to a random replica if it is unavailable or has errors.
+- `LOAD_BALANCING_ROUND_ROBIN`: Cycle through replicas sequentially in a round-robin fashion. ||
 || preferLocalhostReplica | **boolean**
 
 Enable or disable preferable using the localhost replica when processing distributed queries.
@@ -4499,11 +4499,11 @@ other tables with append-able files in presence of concurrent reads and writes.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#local_filesystem_read_method).
 
-- `LOCAL_FILESYSTEM_READ_METHOD_READ`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
-- `LOCAL_FILESYSTEM_READ_METHOD_NMAP`
-- `LOCAL_FILESYSTEM_READ_METHOD_IO_URING` ||
+- `LOCAL_FILESYSTEM_READ_METHOD_READ`: Use the read() system call.
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`: Use pread() system calls dispatched via a thread pool.
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`: Use the pread() system call.
+- `LOCAL_FILESYSTEM_READ_METHOD_NMAP`: Use memory-mapped I/O (mmap).
+- `LOCAL_FILESYSTEM_READ_METHOD_IO_URING`: Use Linux io_uring for asynchronous I/O. ||
 || remoteFilesystemReadMethod | **enum** (RemoteFilesystemReadMethod)
 
 Method of reading data from remote filesystem.
@@ -4512,8 +4512,8 @@ Default value: **REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#remote_filesystem_read_method).
 
-- `REMOTE_FILESYSTEM_READ_METHOD_READ`
-- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
+- `REMOTE_FILESYSTEM_READ_METHOD_READ`: Read data synchronously.
+- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL`: Read data using a thread pool for parallelism. ||
 || priority | **string** (int64)
 
 Sets the priority of a query.
@@ -5072,9 +5072,9 @@ Default value: **DATE_TIME_INPUT_FORMAT_BASIC**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_input_format).
 
-- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`
-- `DATE_TIME_INPUT_FORMAT_BASIC`
-- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US` ||
+- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`: Parse the basic YYYY-MM-DD HH:MM:SS format and all ISO 8601 date and time formats.
+- `DATE_TIME_INPUT_FORMAT_BASIC`: Parse date/time in YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format only.
+- `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US`: Like best_effort but interprets ambiguous dates (e.g., MM/DD/YYYY) using US conventions (month-first). ||
 || dateTimeOutputFormat | **enum** (DateTimeOutputFormat)
 
 Specifies which of date time output formats to use.
@@ -5083,9 +5083,9 @@ Default value: **DATE_TIME_OUTPUT_FORMAT_SIMPLE**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_output_format).
 
-- `DATE_TIME_OUTPUT_FORMAT_SIMPLE`
-- `DATE_TIME_OUTPUT_FORMAT_ISO`
-- `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP` ||
+- `DATE_TIME_OUTPUT_FORMAT_SIMPLE`: Output date/time in a simple human-readable format (e.g. 2024-01-01 12:00:00).
+- `DATE_TIME_OUTPUT_FORMAT_ISO`: Output date/time in ISO 8601 format (e.g. 2024-01-01T12:00:00Z).
+- `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP`: Output date/time as a Unix timestamp (seconds since epoch). ||
 || lowCardinalityAllowInNativeFormat | **boolean**
 
 Allows or restricts using the LowCardinality data type with the Native format.
@@ -5124,12 +5124,12 @@ Default value: **FORMAT_REGEXP_ESCAPING_RULE_RAW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_escaping_rule).
 
-- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
-- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
-- `FORMAT_REGEXP_ESCAPING_RULE_CSV`
-- `FORMAT_REGEXP_ESCAPING_RULE_JSON`
-- `FORMAT_REGEXP_ESCAPING_RULE_XML`
-- `FORMAT_REGEXP_ESCAPING_RULE_RAW` ||
+- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`: Apply backslash escaping (as in TSV format).
+- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`: Apply quoting escaping (as in Values format).
+- `FORMAT_REGEXP_ESCAPING_RULE_CSV`: Apply CSV escaping rules.
+- `FORMAT_REGEXP_ESCAPING_RULE_JSON`: Apply JSON escaping rules.
+- `FORMAT_REGEXP_ESCAPING_RULE_XML`: Apply XML escaping rules.
+- `FORMAT_REGEXP_ESCAPING_RULE_RAW`: No escaping; use raw field values (as in TSVRaw format). ||
 || formatRegexpSkipUnmatched | **boolean**
 
 Skip lines unmatched by regular expression (for Regexp format)
@@ -5253,9 +5253,9 @@ Quota accounting mode.
 
 Default value: **QUOTA_MODE_DEFAULT**.
 
-- `QUOTA_MODE_DEFAULT`
-- `QUOTA_MODE_KEYED`
-- `QUOTA_MODE_KEYED_BY_IP` ||
+- `QUOTA_MODE_DEFAULT`: Track resource usage as a single shared quota across all users without per-user separation.
+- `QUOTA_MODE_KEYED`: Track quota separately per unique quota key value passed in the query parameter.
+- `QUOTA_MODE_KEYED_BY_IP`: Track quota separately per client IP address. ||
 || asyncInsert | **boolean**
 
 If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
@@ -5429,11 +5429,11 @@ Default value: **COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#count_distinct_implementation).
 
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT` ||
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`: Approximate count using an adaptive sampling algorithm. Fast with low memory usage; recommended for most scenarios.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`: Adaptive approximate count combining multiple algorithms for better accuracy than uniq.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`: Like uniqCombined but uses 64-bit hashing for better accuracy with large cardinalities.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`: Approximate count using HyperLogLog with 2^12 cells.
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT`: Exact count using a hash set. Higher memory usage but fully accurate. ||
 || joinedSubqueryRequiresAlias | **boolean**
 
 Force joined subqueries and table functions to have aliases for correct name qualification.
@@ -5477,13 +5477,13 @@ Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORIT
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
 
-- `JOIN_ALGORITHM_HASH`
-- `JOIN_ALGORITHM_PARALLEL_HASH`
-- `JOIN_ALGORITHM_PARTIAL_MERGE`
-- `JOIN_ALGORITHM_DIRECT`
-- `JOIN_ALGORITHM_AUTO`
-- `JOIN_ALGORITHM_FULL_SORTING_MERGE`
-- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE` ||
+- `JOIN_ALGORITHM_HASH`: Use a hash join algorithm.
+- `JOIN_ALGORITHM_PARALLEL_HASH`: Build several hash tables concurrently to speed up the build phase, at the cost of higher memory usage.
+- `JOIN_ALGORITHM_PARTIAL_MERGE`: Sort-based join that minimizes memory usage by processing sorted chunks of the right table; slower than hash join.
+- `JOIN_ALGORITHM_DIRECT`: Directly look up join keys in a dictionary-backed table (Dictionary, Join, or EmbeddedRocksDB engine). Supports LEFT ANY join only.
+- `JOIN_ALGORITHM_AUTO`: Automatically choose the best join algorithm at runtime based on available memory and data size.
+- `JOIN_ALGORITHM_FULL_SORTING_MERGE`: Non-memory-bound sort-merge join; can skip the sort phase when both tables are pre-sorted on the join key.
+- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE`: Prefer partial_merge join when applicable, falling back to hash join otherwise. ||
 || anyJoinDistinctRightTableKeys | **boolean**
 
 Enables legacy ClickHouse server behaviour in **ANY INNER\|LEFT JOIN** operations.

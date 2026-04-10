@@ -178,9 +178,9 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `secured-entry-point`.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Выберите облачную сеть `alb-network`.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-service-1` и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-service-1` и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В выпадающем списке выберите каталог `service-1`.
-  1. Нажмите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.move }}**.
   1. Аналогично переместите подсеть `subnet-service-2` в каталог `service-2`.
 
 {% endlist %}

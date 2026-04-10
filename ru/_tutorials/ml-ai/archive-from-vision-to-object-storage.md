@@ -39,7 +39,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.value_cold }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}

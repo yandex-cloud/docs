@@ -3905,9 +3905,9 @@ default:
         disks: Disks
         networkLabel: Network
         poolFilter: Pool
-        PresetConfigurations: Preset configurations
         ramLabel: RAM
         size: Size
+        StockConfigurations: Stock configurations
         type: Type
         withReserve: Enable
       cloud-center:
@@ -4351,11 +4351,6 @@ default:
           saml_field_request_signing_enabled: Only accept signed requests
           secret_section_add_new_secret_action: Add secret
           secret_section_title: App secrets
-      attributes:
-        update_dialog:
-          field_attribute_name: Attribute name
-          field_attribute_value: Value
-          field_group_attribute_value: Transmitted groups
       billing:
         account:
           button_enable-edm-action: Enable EDM
@@ -4476,6 +4471,17 @@ default:
           label_include_in_scan: Include in scan
           public_buckets: Public buckets
           title_all_buckets: All buckets
+        scan:
+          action_button_apply: Download file
+          action_button_export: Validate and export
+          action_download-results: Download results
+          action_export-results: Export results
+          header_scan-result_sensitive-data: Display sensitive data
+          label_data-type: Data type
+          label_found-occurrence: Found occurrence
+          results_resource-name: Resource
+          scan-issue_data-source: Data source
+          scan-issue_object-path: Object path
         scans:
           label_new-scan: New scan
           section_access_title: Access to data in sources
@@ -4535,13 +4541,6 @@ default:
             status: Status
             username: Username
           column_last-auth: Last authentication
-      field-data:
-        attributes:
-          update_dialog:
-            field_group_all: 'All grous '
-            field_group_assigned: Assigned groups only
-            field_nameId_email: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
-            field_nameId_persistent: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
       form:
         federation:
           action:
@@ -4662,6 +4661,16 @@ default:
             assignments_kKzJS: Users and groups
             attributes_to71e: Attributes
             overview_b5LJQ: Overview
+          AttributeFormDialogNew:
+            field_attribute_value_dgUAv: Value
+          field_group_all_uY9US: All groups
+          field_group_assigned_amGdu: Assigned groups only
+          GroupAttributeFormDialog:
+            field_attribute_name_rPYTn: Attribute name
+            field_group_attribute_value_oxrpu: Transmitted groups
+          NameIdAttributeFormDialog:
+            field_nameId_email_mqNDG: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
+            field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
           OauthAppEditForm:
             field-description_fcXBi: Description
             field-labels_kc4MN: Labels
@@ -4851,8 +4860,11 @@ default:
           title_alert_overview: Overview
           title_alert_recommendations: Recommendations
         dspm:
+          scan_results-title: Results
+          scan-issues-title: Messages and errors
           title_data-sources: Data sources
           title_scan-jobs: Regular scans
+          title_scans: Scan history
         kspm:
           title_clusters: Clusters
           title_dashboard: Dashboard
@@ -4936,14 +4948,22 @@ default:
           dataSourceTypes:
             object_storage_meF3x: Object Storage
             yandex_360_1TUsr: Yandex 360
+          field_bucket-path_5qRqM: Path to bucket
+          field_file-name_kWRPK: File name
+          field_service-account_rTeXv: Service account
           infoTypes:
             value_financial-data_kTC5e: Financial data
             value_medical-data-images_7EQ2X: Medical data
             value_other_wUrAZ: Other
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
+          label_field-bucket_3mM6u: Bucket
+          ScanExportDialog:
+            action_button_export_without_validation_pFWLZ: Export without validation
           ScanForm:
             action_create-scan_dvakP: Create scan without validation
+            table_action_assign_roles_bw4am: Assign roles
+          tab_issues_title_hLQN2: Parameter validation
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
             action_configure-connection_v6Gjm: Configure connection
@@ -5019,6 +5039,8 @@ default:
           section-title_9BLTm: Objects (optional)
           ServiceAccountResourceSelectDialog:
             action_save: Save selection
+          title_security-modules_8MdQg: Control modules
+          title_security-requirements_8r7hd: Sets of requirements
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
             tabKubernetes_rC2uU: KSPM
@@ -5055,9 +5077,6 @@ default:
             title: Workspace resources
           WorkspacesPlaceholder:
             createWorkspace_8yAnK: Create workspace
-          WorkspaceStandardsForm:
-            modules_title_s8LDi: Control modules
-            standards_title_dBBXP: Rule sets
         ycdr:
           preset_last_1_hour_s5Gq5: Last hour
           preset_last_12_hours_s5Gq5: Last 12 hours
@@ -8514,7 +8533,6 @@ default:
         cluster:
           switch_databases: Databases
           switch_users: Users
-        console_password: Password from Sharded PostgreSQL console
         section_coordinator: Coordinator
         section_hosts: Hosts
         section_infra: Infrastructure
@@ -8595,9 +8613,6 @@ default:
             access_value_private: With authorization
             access_value_public: For all
             button_save: Save
-            class_value_cold: Cold
-            class_value_ice: Ice
-            class_value_standard: Standard
             field_access-config-read: Read settings
             field_access-list: Read object list
             field_access-read: Read objects
@@ -8679,6 +8694,9 @@ default:
           label_role-write: 'READ and WRITE '
         switch_buckets: Buckets
         title_object-lock: Object version lock
+        value_cold: Cold
+        value_ice: Ice
+        value_standard: Standard
       trino:
         catalogs:
           create_action: Create catalog
@@ -8791,7 +8809,6 @@ default:
           popup-create_field_deletion-protection: Deletion protection
           popup-create_field_internal-v4-address: Internal IPv4 address
           popup-create_field_zone: Availability zone
-        button_move-vpc-object: Move
         gateways:
           button_create-gateway: Create gateway
           field_name: Name

@@ -38,6 +38,8 @@ items:
             href: operations/dspm/create-data-source.md
           - name: Создать сканирование
             href: operations/dspm/create-scan.md
+          - name: Управлять результатами сканирования
+            href: operations/dspm/work-with-results.md
       - name: Контроль {{ k8s }}® ({{ kspm-name }})
         items:
           - name: Обзор

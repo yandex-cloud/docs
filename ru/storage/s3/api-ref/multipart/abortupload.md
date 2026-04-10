@@ -48,5 +48,10 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/2
 ----- | ----- | -----
 `NoSuchUpload` | Указанная загрузка не существует. Возможно указан неверный идентификатор загрузки или загрузка была завершена или удалена. | 404 Not Found
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [{#T}](../../../operations/objects/deleting-multipart.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

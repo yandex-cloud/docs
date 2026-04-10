@@ -161,6 +161,15 @@ apiPlayground:
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_mutation).
             type: string
             format: int64
+          numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition:
+            description: |-
+              **string** (int64)
+              When there is less than specified number of free entries in pool, do not execute optimizing entire partition in the background (this task generated when set min_age_to_force_merge_seconds and enable min_age_to_force_merge_on_partition_only).
+              This is to leave free threads for regular merges and avoid "Too many parts".
+              Default value: **25**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_optimize_entire_partition).
+            type: string
+            format: int64
           maxBytesToMergeAtMinSpaceInPool:
             description: |-
               **string** (int64)
@@ -263,10 +272,10 @@ apiPlayground:
               Determines the behavior of background merges for MergeTree tables with projections.
               Default value: **DEDUPLICATE_MERGE_PROJECTION_MODE_THROW**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode).
-              - `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
-              - `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
-              - `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
-              - `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD`
+              - `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`: Ignore projections during the merge without rebuilding them. Kept for compatibility only; may result in incorrect query answers.
+              - `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`: Throw an exception and refuse to merge if a projection exists.
+              - `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`: Drop projections before merging and do not rebuild them afterwards.
+              - `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD`: Rebuild projections during the merge.
             type: string
             enum:
               - DEDUPLICATE_MERGE_PROJECTION_MODE_UNSPECIFIED
@@ -280,9 +289,9 @@ apiPlayground:
               Determines the behavior of lightweight deletes for MergeTree tables with projections.
               Default value: **LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#lightweight_mutation_projection_mode).
-              - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
-              - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
-              - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD`
+              - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`: Throw an exception if a projection exists.
+              - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`: Drop projections and proceed with the lightweight mutation without rebuilding them.
+              - `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD`: Rebuild projections after applying the lightweight mutation.
             type: string
             enum:
               - LIGHTWEIGHT_MUTATION_PROJECTION_MODE_UNSPECIFIED
@@ -539,15 +548,46 @@ apiPlayground:
               **enum** (Type)
               Required field. Layout type.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
-              - `CLICKHOUSE`: ClickHouse host.
-              - `ZOOKEEPER`: ZooKeeper host.
-              - `KEEPER`: ClickHouse Keeper host.
+              - `FLAT`: The dictionary is completely stored in memory in the form of flat arrays.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              It's similar to HASHED layout type but uses less memory in favor of more CPU usage.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+              It's similar to COMPLEX_KEY_HASHED layout type but uses less memory in favor of more CPU usage.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `COMPLEX_KEY_RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+              Applicable only for dictionaries with numeric keys of the UInt64 type.
+              - `COMPLEX_KEY_DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+              Applicable for dictionaries with composite keys of arbitrary type.
+              - `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN.
             type: string
             enum:
               - TYPE_UNSPECIFIED
-              - CLICKHOUSE
-              - ZOOKEEPER
-              - KEEPER
+              - FLAT
+              - HASHED
+              - COMPLEX_KEY_HASHED
+              - RANGE_HASHED
+              - CACHE
+              - COMPLEX_KEY_CACHE
+              - SPARSE_HASHED
+              - COMPLEX_KEY_SPARSE_HASHED
+              - COMPLEX_KEY_RANGE_HASHED
+              - DIRECT
+              - COMPLEX_KEY_DIRECT
+              - IP_TRIE
           sizeInCells:
             description: |-
               **string** (int64)
@@ -1122,10 +1162,10 @@ apiPlayground:
               **enum** (SecurityProtocol)
               Protocol used to communicate with brokers.
               Default value: **SECURITY_PROTOCOL_PLAINTEXT**.
-              - `SECURITY_PROTOCOL_PLAINTEXT`
-              - `SECURITY_PROTOCOL_SSL`
-              - `SECURITY_PROTOCOL_SASL_PLAINTEXT`
-              - `SECURITY_PROTOCOL_SASL_SSL`
+              - `SECURITY_PROTOCOL_PLAINTEXT`: Unencrypted, unauthenticated connection.
+              - `SECURITY_PROTOCOL_SSL`: SSL/TLS encrypted connection.
+              - `SECURITY_PROTOCOL_SASL_PLAINTEXT`: SASL authenticated, unencrypted connection.
+              - `SECURITY_PROTOCOL_SASL_SSL`: SASL authenticated, SSL/TLS encrypted connection.
             default: '**SECURITY_PROTOCOL_PLAINTEXT**'
             type: string
             enum:
@@ -1139,10 +1179,10 @@ apiPlayground:
               **enum** (SaslMechanism)
               SASL mechanism to use for authentication.
               Default value: **SASL_MECHANISM_GSSAPI**.
-              - `SASL_MECHANISM_GSSAPI`
-              - `SASL_MECHANISM_PLAIN`
-              - `SASL_MECHANISM_SCRAM_SHA_256`
-              - `SASL_MECHANISM_SCRAM_SHA_512`
+              - `SASL_MECHANISM_GSSAPI`: Kerberos-based authentication (GSSAPI).
+              - `SASL_MECHANISM_PLAIN`: Simple username/password authentication.
+              - `SASL_MECHANISM_SCRAM_SHA_256`: SCRAM authentication using SHA-256 hashing.
+              - `SASL_MECHANISM_SCRAM_SHA_512`: SCRAM authentication using SHA-512 hashing.
             default: '**SASL_MECHANISM_GSSAPI**'
             type: string
             enum:
@@ -1194,27 +1234,27 @@ apiPlayground:
             description: |-
               **enum** (Debug)
               Debug context to enable.
-              - `DEBUG_GENERIC`
-              - `DEBUG_BROKER`
-              - `DEBUG_TOPIC`
-              - `DEBUG_METADATA`
-              - `DEBUG_FEATURE`
-              - `DEBUG_QUEUE`
-              - `DEBUG_MSG`
-              - `DEBUG_PROTOCOL`
-              - `DEBUG_CGRP`
-              - `DEBUG_SECURITY`
-              - `DEBUG_FETCH`
-              - `DEBUG_INTERCEPTOR`
-              - `DEBUG_PLUGIN`
-              - `DEBUG_CONSUMER`
-              - `DEBUG_ADMIN`
-              - `DEBUG_EOS`
-              - `DEBUG_MOCK`
-              - `DEBUG_ASSIGNOR`
-              - `DEBUG_CONF`
-              - `DEBUG_TELEMETRY`
-              - `DEBUG_ALL`
+              - `DEBUG_GENERIC`: Generic client debugging.
+              - `DEBUG_BROKER`: Broker connection debugging.
+              - `DEBUG_TOPIC`: Topic metadata debugging.
+              - `DEBUG_METADATA`: Metadata request and response debugging.
+              - `DEBUG_FEATURE`: Feature flag debugging.
+              - `DEBUG_QUEUE`: Message queue debugging.
+              - `DEBUG_MSG`: Message-level debugging.
+              - `DEBUG_PROTOCOL`: Protocol-level debugging.
+              - `DEBUG_CGRP`: Consumer group debugging.
+              - `DEBUG_SECURITY`: Security and authentication debugging.
+              - `DEBUG_FETCH`: Message fetch debugging.
+              - `DEBUG_INTERCEPTOR`: Interceptor plugin debugging.
+              - `DEBUG_PLUGIN`: Plugin debugging.
+              - `DEBUG_CONSUMER`: Consumer-level debugging.
+              - `DEBUG_ADMIN`: Admin API debugging.
+              - `DEBUG_EOS`: Exactly-once semantics (EOS) debugging.
+              - `DEBUG_MOCK`: Mock cluster debugging.
+              - `DEBUG_ASSIGNOR`: Partition assignor debugging.
+              - `DEBUG_CONF`: Configuration debugging.
+              - `DEBUG_TELEMETRY`: Telemetry debugging.
+              - `DEBUG_ALL`: Enable all debug contexts.
             type: string
             enum:
               - DEBUG_UNSPECIFIED
@@ -1244,13 +1284,13 @@ apiPlayground:
               **enum** (AutoOffsetReset)
               Action to take when there is no initial offset in offset store or the desired offset is out of range.
               Default value: **AUTO_OFFSET_RESET_LARGEST**.
-              - `AUTO_OFFSET_RESET_SMALLEST`
-              - `AUTO_OFFSET_RESET_EARLIEST`
-              - `AUTO_OFFSET_RESET_BEGINNING`
-              - `AUTO_OFFSET_RESET_LARGEST`
-              - `AUTO_OFFSET_RESET_LATEST`
-              - `AUTO_OFFSET_RESET_END`
-              - `AUTO_OFFSET_RESET_ERROR`
+              - `AUTO_OFFSET_RESET_SMALLEST`: Reset offset to the earliest available message (alias for earliest).
+              - `AUTO_OFFSET_RESET_EARLIEST`: Reset offset to the earliest available message.
+              - `AUTO_OFFSET_RESET_BEGINNING`: Reset offset to the beginning of the partition (alias for earliest).
+              - `AUTO_OFFSET_RESET_LARGEST`: Reset offset to the latest available message (alias for latest).
+              - `AUTO_OFFSET_RESET_LATEST`: Reset offset to the latest available message.
+              - `AUTO_OFFSET_RESET_END`: Reset offset to the end of the partition (alias for latest).
+              - `AUTO_OFFSET_RESET_ERROR`: Trigger an error if no initial offset exists or the offset is out of range.
             default: '**AUTO_OFFSET_RESET_LARGEST**'
             type: string
             enum:
@@ -1519,11 +1559,11 @@ apiPlayground:
             description: |-
               **enum** (LogLevel)
               Logging level.
-              - `TRACE`
-              - `DEBUG`
-              - `INFORMATION`
-              - `WARNING`
-              - `ERROR`
+              - `TRACE`: All messages including trace-level debug information.
+              - `DEBUG`: All messages including debug-level information.
+              - `INFORMATION`: Informational messages, warnings, and errors.
+              - `WARNING`: Warnings and errors only.
+              - `ERROR`: Errors only.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -1685,11 +1725,11 @@ apiPlayground:
               Logging level for text_log system table.
               Default value: **TRACE**.
               Change of the setting is applied with restart.
-              - `TRACE`
-              - `DEBUG`
-              - `INFORMATION`
-              - `WARNING`
-              - `ERROR`
+              - `TRACE`: All messages including trace-level debug information.
+              - `DEBUG`: All messages including debug-level information.
+              - `INFORMATION`: Informational messages, warnings, and errors.
+              - `WARNING`: Warnings and errors only.
+              - `ERROR`: Errors only.
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -2422,6 +2462,7 @@ The maximum string length in characters is 63. Value must match the regular expr
           "maxReplicatedMergesInQueue": "string",
           "numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge": "string",
           "numberOfFreeEntriesInPoolToExecuteMutation": "string",
+          "numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition": "string",
           "maxBytesToMergeAtMinSpaceInPool": "string",
           "maxBytesToMergeAtMaxSpaceInPool": "string",
           "minBytesForWidePart": "string",
@@ -2859,11 +2900,11 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Logging level.
 
-- `TRACE`
-- `DEBUG`
-- `INFORMATION`
-- `WARNING`
-- `ERROR` ||
+- `TRACE`: All messages including trace-level debug information.
+- `DEBUG`: All messages including debug-level information.
+- `INFORMATION`: Informational messages, warnings, and errors.
+- `WARNING`: Warnings and errors only.
+- `ERROR`: Errors only. ||
 || queryLogRetentionSize | **string** (int64)
 
 The maximum size that query_log can grow to before old data will be removed. If set to **0**,
@@ -2995,11 +3036,11 @@ Default value: **TRACE**.
 
 Change of the setting is applied with restart.
 
-- `TRACE`
-- `DEBUG`
-- `INFORMATION`
-- `WARNING`
-- `ERROR` ||
+- `TRACE`: All messages including trace-level debug information.
+- `DEBUG`: All messages including debug-level information.
+- `INFORMATION`: Informational messages, warnings, and errors.
+- `WARNING`: Warnings and errors only.
+- `ERROR`: Errors only. ||
 || opentelemetrySpanLogEnabled | **boolean**
 
 Enables or disables opentelemetry_span_log system table.
@@ -3583,6 +3624,14 @@ This is to leave free threads for regular merges and to avoid "Too many parts" e
 Default value: **20**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_mutation). ||
+|| numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition | **string** (int64)
+
+When there is less than specified number of free entries in pool, do not execute optimizing entire partition in the background (this task generated when set min_age_to_force_merge_seconds and enable min_age_to_force_merge_on_partition_only).
+This is to leave free threads for regular merges and avoid "Too many parts".
+
+Default value: **25**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_optimize_entire_partition). ||
 || maxBytesToMergeAtMinSpaceInPool | **string** (int64)
 
 The maximum total part size (in bytes) to be merged into one part, with the minimum available resources in the background pool.
@@ -3683,10 +3732,10 @@ Default value: **DEDUPLICATE_MERGE_PROJECTION_MODE_THROW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode).
 
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD` ||
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`: Ignore projections during the merge without rebuilding them. Kept for compatibility only; may result in incorrect query answers.
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`: Throw an exception and refuse to merge if a projection exists.
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`: Drop projections before merging and do not rebuild them afterwards.
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD`: Rebuild projections during the merge. ||
 || lightweightMutationProjectionMode | **enum** (LightweightMutationProjectionMode)
 
 Determines the behavior of lightweight deletes for MergeTree tables with projections.
@@ -3695,9 +3744,9 @@ Default value: **LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#lightweight_mutation_projection_mode).
 
-- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
-- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
-- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`: Throw an exception if a projection exists.
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`: Drop projections and proceed with the lightweight mutation without rebuilding them.
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD`: Rebuild projections after applying the lightweight mutation. ||
 || replicatedDeduplicationWindow | **string** (int64)
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
@@ -4375,20 +4424,20 @@ Protocol used to communicate with brokers.
 
 Default value: **SECURITY_PROTOCOL_PLAINTEXT**.
 
-- `SECURITY_PROTOCOL_PLAINTEXT`
-- `SECURITY_PROTOCOL_SSL`
-- `SECURITY_PROTOCOL_SASL_PLAINTEXT`
-- `SECURITY_PROTOCOL_SASL_SSL` ||
+- `SECURITY_PROTOCOL_PLAINTEXT`: Unencrypted, unauthenticated connection.
+- `SECURITY_PROTOCOL_SSL`: SSL/TLS encrypted connection.
+- `SECURITY_PROTOCOL_SASL_PLAINTEXT`: SASL authenticated, unencrypted connection.
+- `SECURITY_PROTOCOL_SASL_SSL`: SASL authenticated, SSL/TLS encrypted connection. ||
 || saslMechanism | **enum** (SaslMechanism)
 
 SASL mechanism to use for authentication.
 
 Default value: **SASL_MECHANISM_GSSAPI**.
 
-- `SASL_MECHANISM_GSSAPI`
-- `SASL_MECHANISM_PLAIN`
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_GSSAPI`: Kerberos-based authentication (GSSAPI).
+- `SASL_MECHANISM_PLAIN`: Simple username/password authentication.
+- `SASL_MECHANISM_SCRAM_SHA_256`: SCRAM authentication using SHA-256 hashing.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SCRAM authentication using SHA-512 hashing. ||
 || saslUsername | **string**
 
 SASL username for use with the PLAIN and SASL-SCRAM mechanisms. ||
@@ -4422,40 +4471,40 @@ The minimum value is 0. ||
 
 Debug context to enable.
 
-- `DEBUG_GENERIC`
-- `DEBUG_BROKER`
-- `DEBUG_TOPIC`
-- `DEBUG_METADATA`
-- `DEBUG_FEATURE`
-- `DEBUG_QUEUE`
-- `DEBUG_MSG`
-- `DEBUG_PROTOCOL`
-- `DEBUG_CGRP`
-- `DEBUG_SECURITY`
-- `DEBUG_FETCH`
-- `DEBUG_INTERCEPTOR`
-- `DEBUG_PLUGIN`
-- `DEBUG_CONSUMER`
-- `DEBUG_ADMIN`
-- `DEBUG_EOS`
-- `DEBUG_MOCK`
-- `DEBUG_ASSIGNOR`
-- `DEBUG_CONF`
-- `DEBUG_TELEMETRY`
-- `DEBUG_ALL` ||
+- `DEBUG_GENERIC`: Generic client debugging.
+- `DEBUG_BROKER`: Broker connection debugging.
+- `DEBUG_TOPIC`: Topic metadata debugging.
+- `DEBUG_METADATA`: Metadata request and response debugging.
+- `DEBUG_FEATURE`: Feature flag debugging.
+- `DEBUG_QUEUE`: Message queue debugging.
+- `DEBUG_MSG`: Message-level debugging.
+- `DEBUG_PROTOCOL`: Protocol-level debugging.
+- `DEBUG_CGRP`: Consumer group debugging.
+- `DEBUG_SECURITY`: Security and authentication debugging.
+- `DEBUG_FETCH`: Message fetch debugging.
+- `DEBUG_INTERCEPTOR`: Interceptor plugin debugging.
+- `DEBUG_PLUGIN`: Plugin debugging.
+- `DEBUG_CONSUMER`: Consumer-level debugging.
+- `DEBUG_ADMIN`: Admin API debugging.
+- `DEBUG_EOS`: Exactly-once semantics (EOS) debugging.
+- `DEBUG_MOCK`: Mock cluster debugging.
+- `DEBUG_ASSIGNOR`: Partition assignor debugging.
+- `DEBUG_CONF`: Configuration debugging.
+- `DEBUG_TELEMETRY`: Telemetry debugging.
+- `DEBUG_ALL`: Enable all debug contexts. ||
 || autoOffsetReset | **enum** (AutoOffsetReset)
 
 Action to take when there is no initial offset in offset store or the desired offset is out of range.
 
 Default value: **AUTO_OFFSET_RESET_LARGEST**.
 
-- `AUTO_OFFSET_RESET_SMALLEST`
-- `AUTO_OFFSET_RESET_EARLIEST`
-- `AUTO_OFFSET_RESET_BEGINNING`
-- `AUTO_OFFSET_RESET_LARGEST`
-- `AUTO_OFFSET_RESET_LATEST`
-- `AUTO_OFFSET_RESET_END`
-- `AUTO_OFFSET_RESET_ERROR` ||
+- `AUTO_OFFSET_RESET_SMALLEST`: Reset offset to the earliest available message (alias for earliest).
+- `AUTO_OFFSET_RESET_EARLIEST`: Reset offset to the earliest available message.
+- `AUTO_OFFSET_RESET_BEGINNING`: Reset offset to the beginning of the partition (alias for earliest).
+- `AUTO_OFFSET_RESET_LARGEST`: Reset offset to the latest available message (alias for latest).
+- `AUTO_OFFSET_RESET_LATEST`: Reset offset to the latest available message.
+- `AUTO_OFFSET_RESET_END`: Reset offset to the end of the partition (alias for latest).
+- `AUTO_OFFSET_RESET_ERROR`: Trigger an error if no initial offset exists or the offset is out of range. ||
 || messageMaxBytes | **string** (int64)
 
 Maximum Kafka protocol request message size.
@@ -4749,6 +4798,7 @@ Limit on how large the storage for database instances can automatically grow, in
               "maxReplicatedMergesInQueue": "string",
               "numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge": "string",
               "numberOfFreeEntriesInPoolToExecuteMutation": "string",
+              "numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition": "string",
               "maxBytesToMergeAtMinSpaceInPool": "string",
               "maxBytesToMergeAtMaxSpaceInPool": "string",
               "minBytesForWidePart": "string",
@@ -5087,6 +5137,7 @@ Limit on how large the storage for database instances can automatically grow, in
               "maxReplicatedMergesInQueue": "string",
               "numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge": "string",
               "numberOfFreeEntriesInPoolToExecuteMutation": "string",
+              "numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition": "string",
               "maxBytesToMergeAtMinSpaceInPool": "string",
               "maxBytesToMergeAtMaxSpaceInPool": "string",
               "minBytesForWidePart": "string",
@@ -5425,6 +5476,7 @@ Limit on how large the storage for database instances can automatically grow, in
               "maxReplicatedMergesInQueue": "string",
               "numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge": "string",
               "numberOfFreeEntriesInPoolToExecuteMutation": "string",
+              "numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition": "string",
               "maxBytesToMergeAtMinSpaceInPool": "string",
               "maxBytesToMergeAtMaxSpaceInPool": "string",
               "minBytesForWidePart": "string",
@@ -5970,11 +6022,11 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Logging level.
 
-- `TRACE`
-- `DEBUG`
-- `INFORMATION`
-- `WARNING`
-- `ERROR` ||
+- `TRACE`: All messages including trace-level debug information.
+- `DEBUG`: All messages including debug-level information.
+- `INFORMATION`: Informational messages, warnings, and errors.
+- `WARNING`: Warnings and errors only.
+- `ERROR`: Errors only. ||
 || queryLogRetentionSize | **string** (int64)
 
 The maximum size that query_log can grow to before old data will be removed. If set to **0**,
@@ -6106,11 +6158,11 @@ Default value: **TRACE**.
 
 Change of the setting is applied with restart.
 
-- `TRACE`
-- `DEBUG`
-- `INFORMATION`
-- `WARNING`
-- `ERROR` ||
+- `TRACE`: All messages including trace-level debug information.
+- `DEBUG`: All messages including debug-level information.
+- `INFORMATION`: Informational messages, warnings, and errors.
+- `WARNING`: Warnings and errors only.
+- `ERROR`: Errors only. ||
 || opentelemetrySpanLogEnabled | **boolean**
 
 Enables or disables opentelemetry_span_log system table.
@@ -6694,6 +6746,14 @@ This is to leave free threads for regular merges and to avoid "Too many parts" e
 Default value: **20**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_mutation). ||
+|| numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition | **string** (int64)
+
+When there is less than specified number of free entries in pool, do not execute optimizing entire partition in the background (this task generated when set min_age_to_force_merge_seconds and enable min_age_to_force_merge_on_partition_only).
+This is to leave free threads for regular merges and avoid "Too many parts".
+
+Default value: **25**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_optimize_entire_partition). ||
 || maxBytesToMergeAtMinSpaceInPool | **string** (int64)
 
 The maximum total part size (in bytes) to be merged into one part, with the minimum available resources in the background pool.
@@ -6794,10 +6854,10 @@ Default value: **DEDUPLICATE_MERGE_PROJECTION_MODE_THROW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#deduplicate_merge_projection_mode).
 
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`
-- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD` ||
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_IGNORE`: Ignore projections during the merge without rebuilding them. Kept for compatibility only; may result in incorrect query answers.
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_THROW`: Throw an exception and refuse to merge if a projection exists.
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_DROP`: Drop projections before merging and do not rebuild them afterwards.
+- `DEDUPLICATE_MERGE_PROJECTION_MODE_REBUILD`: Rebuild projections during the merge. ||
 || lightweightMutationProjectionMode | **enum** (LightweightMutationProjectionMode)
 
 Determines the behavior of lightweight deletes for MergeTree tables with projections.
@@ -6806,9 +6866,9 @@ Default value: **LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW**.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#lightweight_mutation_projection_mode).
 
-- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`
-- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`
-- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD` ||
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_THROW`: Throw an exception if a projection exists.
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_DROP`: Drop projections and proceed with the lightweight mutation without rebuilding them.
+- `LIGHTWEIGHT_MUTATION_PROJECTION_MODE_REBUILD`: Rebuild projections after applying the lightweight mutation. ||
 || replicatedDeduplicationWindow | **string** (int64)
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
@@ -7486,20 +7546,20 @@ Protocol used to communicate with brokers.
 
 Default value: **SECURITY_PROTOCOL_PLAINTEXT**.
 
-- `SECURITY_PROTOCOL_PLAINTEXT`
-- `SECURITY_PROTOCOL_SSL`
-- `SECURITY_PROTOCOL_SASL_PLAINTEXT`
-- `SECURITY_PROTOCOL_SASL_SSL` ||
+- `SECURITY_PROTOCOL_PLAINTEXT`: Unencrypted, unauthenticated connection.
+- `SECURITY_PROTOCOL_SSL`: SSL/TLS encrypted connection.
+- `SECURITY_PROTOCOL_SASL_PLAINTEXT`: SASL authenticated, unencrypted connection.
+- `SECURITY_PROTOCOL_SASL_SSL`: SASL authenticated, SSL/TLS encrypted connection. ||
 || saslMechanism | **enum** (SaslMechanism)
 
 SASL mechanism to use for authentication.
 
 Default value: **SASL_MECHANISM_GSSAPI**.
 
-- `SASL_MECHANISM_GSSAPI`
-- `SASL_MECHANISM_PLAIN`
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_GSSAPI`: Kerberos-based authentication (GSSAPI).
+- `SASL_MECHANISM_PLAIN`: Simple username/password authentication.
+- `SASL_MECHANISM_SCRAM_SHA_256`: SCRAM authentication using SHA-256 hashing.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SCRAM authentication using SHA-512 hashing. ||
 || saslUsername | **string**
 
 SASL username for use with the PLAIN and SASL-SCRAM mechanisms. ||
@@ -7533,40 +7593,40 @@ The minimum value is 0. ||
 
 Debug context to enable.
 
-- `DEBUG_GENERIC`
-- `DEBUG_BROKER`
-- `DEBUG_TOPIC`
-- `DEBUG_METADATA`
-- `DEBUG_FEATURE`
-- `DEBUG_QUEUE`
-- `DEBUG_MSG`
-- `DEBUG_PROTOCOL`
-- `DEBUG_CGRP`
-- `DEBUG_SECURITY`
-- `DEBUG_FETCH`
-- `DEBUG_INTERCEPTOR`
-- `DEBUG_PLUGIN`
-- `DEBUG_CONSUMER`
-- `DEBUG_ADMIN`
-- `DEBUG_EOS`
-- `DEBUG_MOCK`
-- `DEBUG_ASSIGNOR`
-- `DEBUG_CONF`
-- `DEBUG_TELEMETRY`
-- `DEBUG_ALL` ||
+- `DEBUG_GENERIC`: Generic client debugging.
+- `DEBUG_BROKER`: Broker connection debugging.
+- `DEBUG_TOPIC`: Topic metadata debugging.
+- `DEBUG_METADATA`: Metadata request and response debugging.
+- `DEBUG_FEATURE`: Feature flag debugging.
+- `DEBUG_QUEUE`: Message queue debugging.
+- `DEBUG_MSG`: Message-level debugging.
+- `DEBUG_PROTOCOL`: Protocol-level debugging.
+- `DEBUG_CGRP`: Consumer group debugging.
+- `DEBUG_SECURITY`: Security and authentication debugging.
+- `DEBUG_FETCH`: Message fetch debugging.
+- `DEBUG_INTERCEPTOR`: Interceptor plugin debugging.
+- `DEBUG_PLUGIN`: Plugin debugging.
+- `DEBUG_CONSUMER`: Consumer-level debugging.
+- `DEBUG_ADMIN`: Admin API debugging.
+- `DEBUG_EOS`: Exactly-once semantics (EOS) debugging.
+- `DEBUG_MOCK`: Mock cluster debugging.
+- `DEBUG_ASSIGNOR`: Partition assignor debugging.
+- `DEBUG_CONF`: Configuration debugging.
+- `DEBUG_TELEMETRY`: Telemetry debugging.
+- `DEBUG_ALL`: Enable all debug contexts. ||
 || autoOffsetReset | **enum** (AutoOffsetReset)
 
 Action to take when there is no initial offset in offset store or the desired offset is out of range.
 
 Default value: **AUTO_OFFSET_RESET_LARGEST**.
 
-- `AUTO_OFFSET_RESET_SMALLEST`
-- `AUTO_OFFSET_RESET_EARLIEST`
-- `AUTO_OFFSET_RESET_BEGINNING`
-- `AUTO_OFFSET_RESET_LARGEST`
-- `AUTO_OFFSET_RESET_LATEST`
-- `AUTO_OFFSET_RESET_END`
-- `AUTO_OFFSET_RESET_ERROR` ||
+- `AUTO_OFFSET_RESET_SMALLEST`: Reset offset to the earliest available message (alias for earliest).
+- `AUTO_OFFSET_RESET_EARLIEST`: Reset offset to the earliest available message.
+- `AUTO_OFFSET_RESET_BEGINNING`: Reset offset to the beginning of the partition (alias for earliest).
+- `AUTO_OFFSET_RESET_LARGEST`: Reset offset to the latest available message (alias for latest).
+- `AUTO_OFFSET_RESET_LATEST`: Reset offset to the latest available message.
+- `AUTO_OFFSET_RESET_END`: Reset offset to the end of the partition (alias for latest).
+- `AUTO_OFFSET_RESET_ERROR`: Trigger an error if no initial offset exists or the offset is out of range. ||
 || messageMaxBytes | **string** (int64)
 
 Maximum Kafka protocol request message size.

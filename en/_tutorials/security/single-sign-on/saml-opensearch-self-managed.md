@@ -223,8 +223,8 @@ To set up automatic user-to-role mapping upon {{ OS }} login, add the user group
 - {{ cloud-center }} UI {#cloud-center}
 
     1. In the top-right corner, click ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** and in the window that opens.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** field, leave `groups`.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** field, select `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, leave `groups`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** field, select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

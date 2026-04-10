@@ -25,6 +25,39 @@ description: Из статьи вы узнаете, что такое трейл
 
 В любой момент вы можете отключить сбор всех событий уровня конфигурации или сбор событий уровня сервисов для какого-либо одного или нескольких сервисов.
 
+## Предустановленные события {#default}
+
+При создании трейла в [консоли управления]({{ link-console-main }}) по умолчанию включен сбор некоторых событий [уровня сервисов](./events-data-plane.md). Это сделано для обеспечения безопасности и соответствует [стандарту](../../security/standard/audit-logs.md#audit-trails) по защите облачной инфраструктуры. Если сервис не используется, события можно отключить. Доставленные события тарифицируются в соответствии с [правилами тарификации](../pricing.md).
+
+Сервисы, для которых включена отправка событий по умолчанию:
+
+#|
+|| **Сервис** | **События** ||
+|| [{{ certificate-manager-full-name }}](../../certificate-manager/at-ref.md#data-plane-events) | Все события ||
+|| [{{ iam-full-name }}](../../iam/at-ref.md#data-plane-events) | Все события ||
+|| [{{ kms-full-name }}](../../kms/at-ref.md#data-plane-events) | Все события ||
+|| [{{ lockbox-full-name }}](../../lockbox/at-ref.md#data-plane-events) | Все события ||
+|| [{{ mmy-full-name }}](../../managed-mysql/at-ref.md#data-plane-events) |
+* `yandex.cloud.audit.mdb.mysql.CreateDatabase`
+* `yandex.cloud.audit.mdb.mysql.CreateUser`
+* `yandex.cloud.audit.mdb.mysql.DeleteDatabase`
+* `yandex.cloud.audit.mdb.mysql.DeleteUser`
+* `yandex.cloud.audit.mdb.mysql.GrantUserPermission`
+* `yandex.cloud.audit.mdb.mysql.RevokeUserPermission`
+* `yandex.cloud.audit.mdb.mysql.UpdateUser`
+||
+|| [{{ mpg-full-name }}](../../managed-postgresql/at-ref.md#data-plane-events) |
+* `yandex.cloud.audit.mdb.postgresql.CreateDatabase`
+* `yandex.cloud.audit.mdb.postgresql.CreateUser`
+* `yandex.cloud.audit.mdb.postgresql.DeleteDatabase`
+* `yandex.cloud.audit.mdb.postgresql.DeleteUser`
+* `yandex.cloud.audit.mdb.postgresql.GrantUserPermission`
+* `yandex.cloud.audit.mdb.postgresql.RevokeUserPermission`
+* `yandex.cloud.audit.mdb.postgresql.UpdateDatabase`
+* `yandex.cloud.audit.mdb.postgresql.UpdateUser`
+||
+|#
+
 ## Объект назначения {#target}
 
 Каждый трейл загружает аудитные логи только в один объект назначения: бакет, лог-группу, поток данных или шину.

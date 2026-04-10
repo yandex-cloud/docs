@@ -155,4 +155,10 @@ POST /{bucket}/{key}?select&select-type=2 HTTP/2
 `Records` | Результат запроса.<br/>Путь: `/Payload/Records`.
 `Stats` | Статистика по обработанным данным. Высылается один раз в конце запроса.<br/>Путь: `/Payload/Stats`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/s3-select-language.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

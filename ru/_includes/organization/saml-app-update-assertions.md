@@ -7,16 +7,16 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
   1. Чтобы добавить атрибут групп пользователей, в правом верхнем углу страницы нажмите кнопку ![circles-3-plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** задайте имя атрибута групп пользователей. Имя атрибута должно быть уникальным для вашего приложения.
-      1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** выберите одно из значений:
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** задайте имя атрибута групп пользователей. Имя атрибута должно быть уникальным для вашего приложения.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите одно из значений:
 
           {% include [saml-app-group-assertion](./saml-app-group-assertion.md) %}
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Чтобы добавить дополнительные атрибуты пользователей, в правом верхнем углу страницы нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** задайте имя атрибута, уникальное для вашего приложения.
-      1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** выберите одно из значений:
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** задайте имя атрибута, уникальное для вашего приложения.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите одно из значений:
 
           {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
 

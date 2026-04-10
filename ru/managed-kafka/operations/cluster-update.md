@@ -424,6 +424,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+
 ## Изменить класс хостов {{ ZK }} {#change-zookeeper}
 
 {% list tabs group=instructions %}
@@ -621,6 +622,8 @@ description: Следуя данной инструкции, вы сможете
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
+
 
 ## Изменить класс хостов {{ kraft-short-name }} {#change-kraft}
 
@@ -825,6 +828,7 @@ description: Следуя данной инструкции, вы сможете
         1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
 
 
 ## Изменить настройки групп безопасности и публичного доступа {#change-sg-set}

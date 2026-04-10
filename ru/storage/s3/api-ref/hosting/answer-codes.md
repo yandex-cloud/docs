@@ -12,4 +12,8 @@
 `500 Service Error` | Внутренняя ошибка {{ objstorage-name }}.
 `503 Service Unavailable` | Слишком высокая нагрузка на сервис. Необходимо снизить частоту запросов.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../operations/hosting/setup.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

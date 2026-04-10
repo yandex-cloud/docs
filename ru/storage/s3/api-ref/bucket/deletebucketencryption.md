@@ -30,4 +30,12 @@ DELETE /{bucket}?encryption HTTP/2
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Прекращение шифрования бакета](../../../operations/buckets/encrypt.md#del)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+
+

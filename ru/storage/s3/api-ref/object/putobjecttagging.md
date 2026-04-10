@@ -67,4 +67,10 @@ PUT /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 
 Успешный ответ не содержит дополнительных данных.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/tagging.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

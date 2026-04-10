@@ -45,4 +45,10 @@ GET /{bucket}?lifecycle HTTP/2
 
 Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md). Структура описана в разделе [{#T}](xml-config.md).
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
+* [{#T}](../../../operations/buckets/lifecycles.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

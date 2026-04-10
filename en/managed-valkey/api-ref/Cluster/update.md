@@ -213,12 +213,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
       RedisConfig6_0:
@@ -296,12 +296,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
       RedisConfig6_2:
@@ -379,12 +379,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:
@@ -469,12 +469,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:
@@ -624,12 +624,12 @@ apiPlayground:
             type: string
           clientOutputBufferLimitPubsub:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for pubsub operations.
             $ref: '#/definitions/ClientOutputBufferLimit'
           clientOutputBufferLimitNormal:
             description: |-
-              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+              **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
               Redis connection output buffers limits for clients.
             $ref: '#/definitions/ClientOutputBufferLimit'
           maxmemoryPercent:

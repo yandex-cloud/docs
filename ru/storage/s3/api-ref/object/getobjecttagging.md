@@ -68,4 +68,10 @@ GET /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 `Key` | Ключ метки.<br>Тип: string.
 `Value` | Значение метки.<br>Тип: string.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/tagging.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

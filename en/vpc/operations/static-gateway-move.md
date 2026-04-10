@@ -24,7 +24,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the NAT gateway to move and select **{{ ui-key.yacloud.common.move }}**.
   1. Select the destination folder from the drop-down list.
-  1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click **{{ ui-key.yacloud.common.move }}**.
 
 - CLI {#cli}
 

@@ -50,7 +50,7 @@ To get started with {{ kspm-name }}:
       
       {% include [kspm-sec-standard-list](../../../_includes/security-deck/kspm-sec-standard-list.md) %}
 
-      You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.modules_title_s8LDi }}** section will display the {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
+      You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** section will display the {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
 1. Complete the {{ kspm-name }} setup:
     1. Click ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.edit_action }}** on the new workspace page.
     1. Navigate to the **KSPM** tab.

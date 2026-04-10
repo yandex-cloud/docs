@@ -61,4 +61,10 @@ PUT /{bucket}?tagging HTTP/2
 
 Успешный ответ не содержит дополнительных данных.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Добавление или изменение меток бакета](../../../operations/buckets/tagging.md#add-edit-tag)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

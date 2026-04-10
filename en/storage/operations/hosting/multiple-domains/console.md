@@ -39,7 +39,7 @@ Create buckets and name them according to the domain names, e.g., `example.com` 
 
           1. Enable `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`: Access for any users.
 
-          1. Select the default [storage class](../../../concepts/storage-class.md): `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+          1. Select the default [storage class](../../../concepts/storage-class.md): `{{ ui-key.yacloud.storage.value_standard }}`.
 
           1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 

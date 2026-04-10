@@ -3910,9 +3910,9 @@ default:
         disks: Диски
         networkLabel: Сеть
         poolFilter: Пул
-        PresetConfigurations: Готовые конфигурации
         ramLabel: Оперативная память
         size: Размер
+        StockConfigurations: Готовые конфигурации
         type: Тип
         withReserve: Есть
       cloud-center:
@@ -4356,11 +4356,6 @@ default:
           saml_field_request_signing_enabled: Принимать только подписанные запросы
           secret_section_add_new_secret_action: Добавить секрет
           secret_section_title: Секреты приложения
-      attributes:
-        update_dialog:
-          field_attribute_name: Имя атрибута
-          field_attribute_value: Значение
-          field_group_attribute_value: Передаваемые группы
       billing:
         account:
           button_enable-edm-action: Подключить ЭДО
@@ -4481,6 +4476,17 @@ default:
           label_include_in_scan: Включать в сканирование
           public_buckets: Публичные бакеты
           title_all_buckets: Все бакеты
+        scan:
+          action_button_apply: Скачать файл
+          action_button_export: Проверить и экспортировать
+          action_download-results: Скачать результаты
+          action_export-results: Экспортировать результаты
+          header_scan-result_sensitive-data: Отображение чувствительных данных
+          label_data-type: Тип данных
+          label_found-occurrence: Найденное вхождение
+          results_resource-name: Ресурс
+          scan-issue_data-source: Источник данных
+          scan-issue_object-path: Расположение объекта
         scans:
           label_new-scan: Новое сканирование
           section_access_title: Доступ к данным в источниках
@@ -4540,13 +4546,6 @@ default:
             status: Статус
             username: Имя пользователя
           column_last-auth: Дата последней аутентификации
-      field-data:
-        attributes:
-          update_dialog:
-            field_group_all: Все группы
-            field_group_assigned: Только назначенные группы
-            field_nameId_email: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
-            field_nameId_persistent: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
       form:
         federation:
           action:
@@ -4667,6 +4666,16 @@ default:
             assignments_kKzJS: Пользователи и группы
             attributes_to71e: Атрибуты
             overview_b5LJQ: Обзор
+          AttributeFormDialogNew:
+            field_attribute_value_dgUAv: Значение
+          field_group_all_uY9US: Все группы
+          field_group_assigned_amGdu: Только назначенные группы
+          GroupAttributeFormDialog:
+            field_attribute_name_rPYTn: Имя атрибута
+            field_group_attribute_value_oxrpu: Передаваемые группы
+          NameIdAttributeFormDialog:
+            field_nameId_email_mqNDG: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+            field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
           OauthAppEditForm:
             field-description_fcXBi: Описание
             field-labels_kc4MN: Метки
@@ -4856,8 +4865,11 @@ default:
           title_alert_overview: Обзор
           title_alert_recommendations: Рекомендации
         dspm:
+          scan_results-title: Результаты
+          scan-issues-title: Сообщения и ошибки
           title_data-sources: Источники данных
           title_scan-jobs: Регулярные сканирования
+          title_scans: История сканирований
         kspm:
           title_clusters: Кластеры
           title_dashboard: Дашборд
@@ -4940,14 +4952,22 @@ default:
           dataSourceTypes:
             object_storage_meF3x: Object Storage
             yandex_360_1TUsr: Яндекс 360
+          field_bucket-path_5qRqM: Путь в бакете
+          field_file-name_kWRPK: Имя файла
+          field_service-account_rTeXv: Сервисный аккаунт
           infoTypes:
             value_financial-data_kTC5e: Финансовые данные
             value_medical-data-images_7EQ2X: Медицинские данные
             value_other_wUrAZ: Прочее
             value_personal-data_w5gVm: Персональные данные
             value_secrets_4CdGy: Секреты
+          label_field-bucket_3mM6u: Бакет
+          ScanExportDialog:
+            action_button_export_without_validation_pFWLZ: Экспортировать без проверки
           ScanForm:
             action_create-scan_dvakP: Создать сканирование без проверки
+            table_action_assign_roles_bw4am: Назначить роли
+          tab_issues_title_hLQN2: Проверка параметров
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Добавить ресурсы
             action_configure-connection_v6Gjm: Настроить подключение
@@ -5023,6 +5043,8 @@ default:
           section-title_9BLTm: Объекты (опционально)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
+          title_security-modules_8MdQg: Модули контроля
+          title_security-requirements_8r7hd: Наборы требований
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
             tabKubernetes_rC2uU: Контроль Kubernetes{trademark}
@@ -5059,9 +5081,6 @@ default:
             title: Ресурсы окружения
           WorkspacesPlaceholder:
             createWorkspace_8yAnK: Создать окружение
-          WorkspaceStandardsForm:
-            modules_title_s8LDi: Модули контроля
-            standards_title_dBBXP: Наборы требований
         ycdr:
           preset_last_1_hour_s5Gq5: Последний час
           preset_last_12_hours_s5Gq5: Последние 12 часов
@@ -8524,7 +8543,6 @@ default:
         cluster:
           switch_databases: Базы данных
           switch_users: Пользователи
-        console_password: Пароль для консоли Sharded PostgreSQL
         section_coordinator: Координатор
         section_hosts: Хосты
         section_infra: Инфраструктура
@@ -8605,9 +8623,6 @@ default:
             access_value_private: С авторизацией
             access_value_public: Для всех
             button_save: Сохранить
-            class_value_cold: Холодное
-            class_value_ice: Ледяное
-            class_value_standard: Стандартное
             field_access-config-read: Чтение настроек
             field_access-list: Чтение списка объектов
             field_access-read: Чтение объектов
@@ -8689,6 +8704,9 @@ default:
           label_role-write: 'READ и WRITE '
         switch_buckets: Бакеты
         title_object-lock: Блокировка версии объекта
+        value_cold: Холодное
+        value_ice: Ледяное
+        value_standard: Стандартное
       trino:
         catalogs:
           create_action: Создать каталог
@@ -8801,7 +8819,6 @@ default:
           popup-create_field_deletion-protection: Защита от удаления
           popup-create_field_internal-v4-address: Внутренний IPv4 адрес
           popup-create_field_zone: Зона доступности
-        button_move-vpc-object: Переместить
         gateways:
           button_create-gateway: Создать шлюз
           field_name: Имя
