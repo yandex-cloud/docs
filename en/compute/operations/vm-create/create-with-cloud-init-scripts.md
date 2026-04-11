@@ -48,7 +48,7 @@ To create a VM with a custom configuration script:
   ```bash
   yc compute instance create \
     --name my-sample-instance \
-    --zone {{ region-id}}-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,kms-key-id=<key_ID> \
     --metadata-from-file user-data="<path_to_configuration_file>"
@@ -383,7 +383,7 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
           --silent \
           --show-error \
           --location \
-          https://dl.k8s.io/release/v1.3.0/bin/linux/amd64/kubectl \
+          https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl \
           --output /usr/local/etc/kubectl
         sudo install -o root -g root -m 0755 /usr/local/etc/kubectl /usr/local/bin/kubectl
         sudo rm -rf /usr/local/etc/kubectl
