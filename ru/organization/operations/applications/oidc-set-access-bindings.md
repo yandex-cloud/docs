@@ -42,12 +42,20 @@ description: Из этой статьи вы узнаете, как настро
            --access-binding role=<роль>,user-account-id=<идентификатор_пользователя>
          ```
 
-      * Федеративному пользователю:
+      * Всем пользователям федерации:
 
          ```bash
          yc organization-manager idp application oauth application set-access-bindings \
            --id <идентификатор_приложения> \
-           --access-binding role=<роль>,subject=federatedUser:<идентификатор_пользователя>
+           --access-binding role=<роль>,federation-users=<идентификатор_федерации>
+         ```
+
+      * Всем пользователями организации:
+        
+         ```bash
+         yc organization-manager idp application oauth application set-access-bindings \
+           --id <идентификатор_приложения> \
+           --access-binding role=<роль>,organization-users=<идентификатор_организации>
          ```
 
       * Сервисному аккаунту:

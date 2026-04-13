@@ -6,8 +6,8 @@
 With {{ sws-name }} profiles, you can configure protection using various conditions. For example, you can set a [request limit](../../smartwebsecurity/concepts/arl.md) with parameter-based request grouping or configure user IP-based request blocking. To do this:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create an ARL profile and {{ sws-name }} profile](#create-arl-and-sws-profiles).
 1. [Create an API gateway](#create-api-gateway).
+1. [Create an ARL profile and {{ sws-name }} profile](#create-arl-and-sws-profiles).
 1. [Test the new resources](#check-rules).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -15,77 +15,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
-## Create an ARL profile and {{ sws-name }} profile {#create-arl-and-sws-profiles}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. [Create an ARL profile](../../smartwebsecurity/operations/arl-profile-create.md) named `arl-profile`.
-
-  1. [Add to it a rule](../../smartwebsecurity/operations/arl-rule-add.md) with a request limit and request grouping by `token`. Specify the following settings:
-
-      * **Name**: `query-limit-rule`
-      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999900`
-      * **Request grouping**: **By property**
-      * **Property**: `Query params`
-      * **Group by**: `token`
-      * **Request limit per group**: `1` per `1 minute`
-
-  1. [Create a security profile](../../smartwebsecurity/operations/profile-create.md) named `sws-profile` using a preset template. When creating it, select the previously created `arl-profile` in the **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** field.
-
-  1. To set up user IP-based blocking, [add the rule](../../smartwebsecurity/operations/rule-add.md) with the following settings to the {{ sws-name }} profile:
-
-      * **Name**: `ip-block-rule`.
-      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999700`.
-      * **Rule type**: **Basic**.
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: **Allow**.
-      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}**:
-
-          * **Traffic**: **On condition**.
-          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `IP`.
-          * **Conditions for IP**: `Matches or falls within the range`.
-          * **IP matches or falls within the range**: Specify your IP address.
-
-- {{ TF }} {#tf}
-
-  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-
-  1. Download the [api-gw-sws-integration.tf](https://github.com/yandex-cloud-examples/yc-serverless-gateway-protection-with-sws/blob/main/api-gw-sws-integration.tf) configuration file to the same working directory.
-
-      This file describes:
-
-      * ARL profile that sets a request limit and request grouping by `token`.
-      * {{ sws-name }} profile that uses the ARL profile as well as enables IP-based blocking.
-      * API gateway configured to work with the {{ sws-name }} profile.
-
-  1. In the local variables section of the `api-gw-sws-integration.tf` file, specify the following:
-
-      * `arl_name`: ARL profile name.
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host the new ARL profile.
-      * `sws_name`: {{ sws-name }} profile name.
-      * `allowed_ips`: List of IP addresses allowed to access the API gateway.
-      * `api-gw-name`: API gateway name.
-
-  1. Validate your {{ TF }} configuration files using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      {{ TF }} will display any configuration errors detected in your files.
-
-  1. Create the required infrastructure:
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
-
-{% endlist %}
 
 ## Create an API gateway {#create-api-gateway}
 
@@ -97,10 +26,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   ```yaml
   openapi: "3.0.0"
-
-  x-yc-apigateway:
-    smartWebSecurity:
-      securityProfileId: <SWS_profile_ID>
 
   info:
     version: 1.0.0
@@ -121,12 +46,87 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - {{ TF }} {#tf}
 
-  1. In the `api-gw-sws-integration.tf` file:
+  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+  
+  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
 
-      1. In the `securityProfileId` parameter of the API gateway specification, specify the ID of the {{ sws-name }} profile you created earlier.
+  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-      1. In the local variables section, specify `create-api-gw = 1`.
+  1. Download the [api-gw-sws-integration.tf](https://github.com/yandex-cloud-examples/yc-serverless-gateway-protection-with-sws/blob/main/api-gw-sws-integration.tf) configuration file to the same working directory.
 
+      This file describes:
+
+      * ARL profile that sets a request limit and request grouping by `token`.
+      * {{ sws-name }} profile that uses the ARL profile as well as enables IP-based blocking.
+      * API gateway configured to work with the {{ sws-name }} profile.
+  
+  1. In the local variables section of the `api-gw-sws-integration.tf` file, specify the following:
+  
+      * `api-gw-name`: API gateway name.
+      * `create-api-gw = 1`
+
+  1. Validate your {{ TF }} configuration files using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      {{ TF }} will display any configuration errors detected in your files.
+
+  1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+## Create an ARL profile and {{ sws-name }} profile {#create-arl-and-sws-profiles}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Create an ARL profile](../../smartwebsecurity/operations/arl-profile-create.md) named `arl-profile`.
+
+  1. [Add to it a rule](../../smartwebsecurity/operations/arl-rule-add.md) with a request limit and request grouping by `token`. Specify the following parameters:
+
+      * **Name**: `query-limit-rule`.
+      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999900`.
+      * **Request grouping**: **By property**.
+      * **Property**: `Query params`.
+      * **Group by**: `token`.
+      * **Request limit per group**: `1` per `1 minute`.
+
+  1. [Create a security profile](../../smartwebsecurity/operations/profile-create.md) named `sws-profile` using a preset template. When creating it, select the previously created `arl-profile` in the **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** field.
+
+  1. [Connect the API gateway named `my-gateway`](../../smartwebsecurity/operations/host-connect.md#gateway) to the security profile.
+
+  1. To set up user IP-based blocking, [add the rule](../../smartwebsecurity/operations/rule-add.md) with the following parameters to the {{ sws-name }} profile:
+
+      * **Name**: `ip-block-rule`.
+      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}**: `999700`.
+      * **Rule type**: **Basic**.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: **Allow**.
+      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}**:
+
+          * **Traffic**: **On condition**.
+          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `IP`.
+          * **Conditions for IP**: `Matches or falls within the range`.
+          * **IP matches or falls within the range**: Specify your IP address.
+
+- {{ TF }} {#tf}
+
+  1. In the local variables section of the `api-gw-sws-integration.tf` file, specify the following:
+
+      * `arl_name`: ARL profile name.
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host the new ARL profile.
+      * `sws_name`: {{ sws-name }} profile name.
+      * `allowed_ips`: List of IP addresses allowed to access the API gateway.
+
+  1. In the `securityProfileId` parameter of the API gateway specification, specify the security profile ID.
+  
   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash

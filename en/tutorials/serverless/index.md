@@ -1,42 +1,89 @@
 # Tutorials on the use of serverless technologies in {{ yandex-cloud }}
 
-* [URL shortener](serverless-url-shortener.md)
-* [Ingesting data into storage systems](data-ingestion.md)
-* [Storing application runtime logs](log-ingestion.md)
-* [Deploying a web application using the Java Servlet API](java-servlet-todo-list.md)
-* [Developing a Slack bot](slack-bot-serverless.md)
-* [Developing a Telegram bot](telegram-bot-serverless.md)
-* [Developing a Telegram bot with AI agent support](telegram-ai-bot-workflows.md)
-* [Developing a custom integration in {{ api-gw-full-name }}](api-gw-integration.md)
-* [Developing CRUD APIs for movie services](movies-database.md)
-* [Building a CI/CD pipeline in {{ GL }}](ci-cd-serverless.md)
-* [Starting {{ GLR }} in {{ serverless-containers-name }}](serverless-gitlab-runner.md)
+## Serverless backend {#backend}
+
+* [{#T}](java-servlet-todo-list.md)
+* [{#T}](video-converting-queue/index.md)
+* [{#T}](api-gw-integration.md)
+* [{#T}](serverless-url-shortener.md)
+* [{#T}](movies-database.md)
+* [{#T}](websocket-app.md)
+* [{#T}](api-gw-websocket.md)
+* [{#T}](nodejs-typescript.md)
+* [{#T}](deploy-app-container.md)
+* [{#T}](connect-from-cf.md)
+* [{#T}](connect-from-cf-nodejs.md)
+* [{#T}](container-pg-connect.md)
+* [{#T}](jwt-authorizer-firebase.md)
+* [{#T}](functions-framework-to-container.md)
+* [{#T}](canary-release.md)
+* [{#T}](serverless-live-debug.md)
+* [{#T}](domain-identity-creating.md)
+* [{#T}](postfix-integration.md)
+
+## Serverless bots {#bots}
+
+* [{#T}](slack-bot-serverless.md)
+* [{#T}](telegram-bot-serverless.md)
+* [{#T}](recognizer-bot.md)
+
+## Serverless ETL {#etl}
+
+* [{#T}](data-ingestion.md)
+* [{#T}](log-ingestion.md)
+* [{#T}](data-recording.md)
+* [{#T}](logging.md)
+* [{#T}](data-transfer-direct-to-mch.md)
+* [{#T}](events-from-postbox-to-yds.md)
+* [{#T}](data-from-tracker.md)
+* [{#T}](forms-and-datalens-integration/index.md)
+* [{#T}](postbox-webhook.md)
+
+## Serverless workflows and automation {#automation}
+
+* [{#T}](ci-cd-serverless.md)
+* [{#T}](serverless-gitlab-runner.md)
+* [{#T}](serverless-trigger-budget-vm.md)
+* [{#T}](bucket-to-bucket-copying.md)
+* [{#T}](regular-launch.md)
+* [{#T}](batch-recognition-stt.md)
+* [{#T}](nodejs-cron-restart-vm.md)
+* [{#T}](serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](vm-scale-scheduled/index.md)
+* [{#T}](batch-code-execution.md)
 * [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](ci-cd-github-functions.md)
 * [{#T}](ci-cd-sourcecraft-github-actions.md)
-* [{#T}](api-gw-websocket.md)
-* [Creating an interactive serverless application using WebSocket](websocket-app.md)
-* [Automatically copying objects from one {{ objstorage-full-name }} bucket to another](bucket-to-bucket-copying.md)
-* [Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-full-name }} plugin](grafana-logs-plugin.md)
-* [Canary release of a {{ sf-full-name }} function](canary-release.md)
-* [Interactive debugging of {{ sf-name }} functions](serverless-live-debug.md)
-* [{#T}](nodejs-typescript.md)
-* [{#T}](deploy-app-container.md)
-* [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](events-from-postbox-to-yds.md)
-* [{#T}](speechkit-integrarion-via-agi-gw.md)
-* [{#T}](connect-from-cf.md)
-* [{#T}](connect-from-cf-nodejs.md)
-* [{#T}](api-gw-sws-integration.md)
-* [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](auto-upload.md)
 * [{#T}](logging-functions.md)
+* [{#T}](vision-ocrrecognizer-storage.md)
 * [{#T}](tracker-yandexgpt-postbox-integrations.md)
-* [{#T}](functions-framework-to-container.md)
-* [{#T}](forms-and-datalens-integration/index.md)
-* [{#T}](domain-identity-creating.md)
+
+## Internet of things {#iot}
+
+* [{#T}](datalens.md)
+* [{#T}](monitoring.md)
+* [{#T}](iot-emulation.md)
+* [{#T}](android-java.md)
+* [{#T}](c-sharp.md)
+* [{#T}](java.md)
+* [{#T}](message-delivery-check.md)
+* [{#T}](mosquitto-publish.md)
+* [{#T}](mosquitto-subscribe.md)
+
+## Integration with Yandex and Yandex Cloud services {#integrations}
+
+* [{#T}](api-gw-sws-integration.md)
+* [{#T}](alice-skill.md)
+* [{#T}](alice-shareable-todolist.md)
+* [{#T}](speechkit-integrarion-via-agi-gw.md)
+
+## AI {#ai}
+
+* [{#T}](telegram-ai-bot-workflows.md)
 * [{#T}](create-ai-agent-function.md)
+* [{#T}](ai-powered-github-pr-review.md)
 * [{#T}](streaming-openai-agent.md)
-* [{#T}](postfix-integration.md)
 
 ## Sending emails in {{ postbox-full-name }} using the AWS SDK {#postbox-send-aws-sdk}
 

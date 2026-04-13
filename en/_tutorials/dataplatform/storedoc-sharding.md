@@ -1,48 +1,48 @@
 # Sharding {{ SD }} collections
 
 
-When sharding a {{ mmg-name }} cluster, the following service hosts are automatically created, [billed](../../storedoc/pricing.md) separately from the main DBMS hosts:
-- either `MONGOS` and `MONGOCFG`
+When sharding a {{ mmg-name }} cluster, the system automatically creates auxiliary hosts that are [billed](../../storedoc/pricing.md) separately from your main database hosts:
+- The hosts created are either `MONGOS` and `MONGOCFG`
 - or `MONGOINFRA`
 
 {% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
 
-It makes sense to shard collections when splitting data into shards significantly helps improve DBMS performance or data availability. To increase availability, each shard should consist of 3 or more database hosts.
+Consider sharding collections when distributing data across shards can significantly improve database performance or data availability. To increase availability, we recommend composing each shard of 3 or more database hosts.
 
-Ease of use and actual performance improvements significantly depend on the shard key you choose: make sure that the collection data is logically distributed across shards and is not linked to data in different shards.
+Both usability and performance improvements depend on your choice of the shard key. Make sure that data is logically distributed across shards and that data in different shards is not interrelated.
 
 You should use sharding for:
 
-* Data of significant size: if the collection takes up more than 200 GB.
-* Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
-* Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
+* Large datasets: Collections exceeding 200 GB.
+* Collections with mixed contents, e.g., frequently and infrequently accessed data.
+* Collections requiring high read/write throughput: Sharding spreads the load across hosts to work around technical limitations.
 
-For more information about sharding, see [{#T}](../../storedoc/concepts/sharding.md).
+To learn more about sharding, see [{#T}](../../storedoc/concepts/sharding.md).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes the fee for additional service hosts in the {{ mmg-name }} cluster (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+You pay for using a {{ mmg-name }} cluster: Computing resources allocated to hosts, including secondary service hosts, as well as storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 
 
 ## How to enable collection sharding {#enable}
 
 {% note warning %}
 
-Run all your sharding setup commands via the `mongosh` CLI as a user with the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the `admin` database.
+To configure sharding via the `mongosh` CLI, you must run all operations as a user with the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the `admin` database.
 
 {% endnote %}
 
 1. [Enable sharding](../../storedoc/operations/shards.md#enable) for the cluster.
-1. [Connect](../../storedoc/operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host via the `mongosh` CLI and enable sharding:
+1. [Connect](../../storedoc/operations/connect/index.md) to your `MONGOS` or `MONGOINFRA` host via the `mongosh` CLI and enable sharding:
 
    ```text
    sh.enableSharding("<DB_name>")
    ```
 
-   You can request the host type with the [list of hosts in the cluster](../../storedoc/operations/hosts.md#list-hosts).
+   You can get the host type from the [list of cluster hosts](../../storedoc/operations/hosts.md#list-hosts).
 
-1. Define an index for the sharded collection:
+1. Create an index for the sharded collection:
 
    ```text
    db.getSiblingDB("<DB_name>").<collection_name>.createIndex( { "<index>": <index_type> } )
@@ -55,27 +55,27 @@ Run all your sharding setup commands via the `mongosh` CLI as a user with the [m
    ```
 
 
-1. Modify the applications accessing your database to use **only** the `MONGOS` or `MONGOINFRA` hosts.
+1. Reconfigure applications accessing your database to use **only** `MONGOS` or `MONGOINFRA` hosts.
 
-### Sharding heterogeneous data {#brackets}
+### Heterogeneous sharding {#brackets}
 
-If a collection includes documents with heterogeneous data types, we recommend sharding based on the `_id` key values of the same type using `Type Bracketing`. This will make sharding and document searching faster than with `_id` values of different types.
+If a collection includes documents with heterogeneous data types, we recommend creating shards based on the `_id` key values of the same type, using the `Type Bracketing` mechanism. This makes sharding and document search faster than when using `_id` values of different types.
 
 
-## Example of sharding {#example}
+## Sharding example {#example}
 
-Let's say you already have a sharded {{ mmg-name }} cluster with a `billing` database. You need to enable sharding for the `payment` and `addresses` collections. In the example, the `payment` index hash and the `addresses` field value are used as the shard key.
+Suppose you have a sharded {{ mmg-name }} cluster with a `billing` database. You need to enable sharding for the `payment` and `addresses` collections. In our example, the shard key consists of the `payment` index hash and the `addresses` value.
 
-Sequence of operations:
+Procedure:
 
-1. [Connect](../../storedoc/operations/connect/index.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the `admin` database.
+1. [Connect](../../storedoc/operations/connect/index.md) to the `billing` database. Make sure that the account you use to connect to the database has the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the `admin` database.
 1. Enable sharding for the `billing` database:
 
    ```text
    sh.enableSharding("billing")
    ```
 
-1. Define the index for the sharded collection:
+1. Create an index for the sharded collection:
 
    ```text
    db.payments.ensureIndex( { "_id": "hashed" } )
@@ -87,4 +87,4 @@ Sequence of operations:
    sh.shardCollection( "billing.payments", { "_id": "hashed" } )
    ```
 
-Sharding is now enabled and configured. To check this, try listing the available shards using the `sh.status()` command.
+Once this operation is complete, sharding will be enabled and configured. To confirm this, try listing all available shards using the `sh.status()` command.

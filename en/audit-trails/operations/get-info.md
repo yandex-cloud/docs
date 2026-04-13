@@ -30,7 +30,7 @@ description: Follow this tutorial to get {{ at-full-name }} trail info.
   1. Get detailed information about your trail by specifying its name or ID:
 
      ```bash
-     yc audit-trails trail get <trail_ID>
+     yc audit-trails trail get <trail_name_or_ID>
      ```
 
      Result:

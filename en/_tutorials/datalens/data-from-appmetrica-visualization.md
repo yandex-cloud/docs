@@ -31,13 +31,13 @@ This step is available to users who have an app in AppMetrica. If you do not hav
 
 {% endnote %}
 
-1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Go to [{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select **AppMetrica** as the connection type.
 
    ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
 
-1. Enter a name for the connection: `My Metrica`, then click **Get token**.
+1. Enter `My AppMetrica` for the connection name and click **Get token**.
 
    ![image](../../_assets/datalens/solution-06/get-token.png)
 
@@ -47,7 +47,7 @@ This step is available to users who have an app in AppMetrica. If you do not hav
 
    ![image](../../_assets/datalens/solution-06/select-an-app.png)
 
-1. Specify the connection settings:
+1. Set up your connection:
 
    ![image](../../_assets/datalens/solution-06/specify-fields.png)
 

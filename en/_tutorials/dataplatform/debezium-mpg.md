@@ -7,12 +7,10 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mpg-name }} cluster fee: Covers the use of computing resources allocated to hosts and disk storage (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mkf-name }} cluster fee: Covers the use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* VM fee: Covers the use of computing resources, the OS, and the storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses for the VM and hosts of the two clusters (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

@@ -7,9 +7,10 @@ description: This page provides a list of step-by-step guides for {{ at-full-nam
 
 * [{#T}](./create-trail.md)
 * [{#T}](./manage-trail.md)
+* [{#T}](./prepare-spec.md)
 * [{#T}](./error.md)
 
-## Managing permissions to access a trail {#rule-access-rights}
+## Managing trail access permissions {#rule-access-rights}
 
 * [{#T}](role-list.md)
 * [{#T}](role-add.md)

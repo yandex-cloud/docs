@@ -30,7 +30,7 @@ The customization settings can be edited by the {{ datalens-short-name }} instan
 
 For UI customization:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Appearance** tab.
 1. In the **UI customization** section, click ![image](../../_assets/console-icons/palette.svg) **Configure**.

@@ -21,7 +21,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 To get started with {{ datalens-short-name }}:
 
 1. [Log in]({{ link-passport-login }}) to your Yandex account.
-1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. Click **Open Datalens**.
 1. Select one of these options:
 
@@ -54,7 +54,7 @@ To create a {{ monitoring-name }} connection:
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select a **{{ monitoring-name }}** connection.
-1. Specify the connection settings:
+1. Configure the connection as follows:
 
    * **Cloud and folder**: Select the folder with your service account.
    * **Service account**: Select an existing service account or create a new one.
@@ -105,11 +105,8 @@ You can add the chart to the dashboard. You can also add a selector to the dashb
 
 Create a [dashboard](../../datalens/concepts/dashboard.md) for the charts.
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-
+1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
 1. Click **Create dashboard**.
-
-    ![image](../../_assets/datalens/monitoring-visualization/create-dashboard.png)
 
 ## Add the QL chart to the dashboard {#add-sql-chart-to-dashboard}
 
@@ -153,7 +150,7 @@ Add a [selector](../../datalens/dashboard/selector.md) so that you can select th
 1. Click **Add**.
 1. Place the selector on the dashboard above the chart.
 1. Save the dashboard.
-1. Your dashboard is now ready for use and you can select the time range with the selector.
+1. Your dashboard is ready for use. You can now select the time interval using the selector.
    
    ![image](../../_assets/datalens/monitoring-visualization/selector-2-values.png)
 

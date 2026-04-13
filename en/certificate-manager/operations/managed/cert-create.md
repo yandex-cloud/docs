@@ -112,8 +112,8 @@ You can view the certificate issue status and possible issue errors in the [mana
 1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. Select the certificate from the list.
    
-   The certificate's current issue stage will be shown next to the **Validation** field.
-1. To view the stage description and outcome, click **Show logs**.
+   The certificate's current issue stage will be shown next to the **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** field.
+1. To view the stage description and outcome, click ![receipt](../../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
 
    For more information about certificate issue stages, see [Let's Encrypt certificate](../../concepts/managed-certificate.md#issue-statuses).
 

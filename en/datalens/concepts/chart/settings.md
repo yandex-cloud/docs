@@ -229,7 +229,11 @@ Some of these settings may not be available for some axes.
 
 ### Colors {#color-settings}
 
-Generally, you can set a specific color for any graph value.
+[Generally](#color-general-settings), you can set a specific color for any graph value.
+
+You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
+
+If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions corresponding to the field values in the **Colors** section.
 
 For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualization-ref/table-chart.md) (including a [pivot table](../../visualization-ref/pivot-table-chart.md)), and [map](../../visualization-ref/map-chart.md), the following settings are available:
 
@@ -247,14 +251,12 @@ For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualiza
 * **Hide**: Hides geopolygon borders. ||
 |#
 
-If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions corresponding to the field values in the **Colors** section.
-
-{% cut "Available color settings" %}
+#### General color settings {#color-general-settings}
 
 To set up colors:
 
 1. In the top-right corner of the **Colors** section, click ![image](../../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
-1. Set the **Fill type**:
+1. Specify the configuration:
 
    {% note info %}
 
@@ -266,7 +268,40 @@ To set up colors:
 
    - For a dimension {#measure}
 
-     1. Click the color scheme selection field and set a color for each dimension value.
+     1. Set a color in one of the following ways:
+
+        * Select a color palette from the preset options or one [created](../../operations/chart/create-palette.md) by the user. You can set a color for each dimension from the preset options of the current color palette. To revert to the default colors for the current palette, click **AUTO**.
+
+          {% cut "Selecting a color from the color palette" %}
+
+          ![chart-color](../../../_assets/datalens/chart/chart-color.png)
+
+          {% endcut %}
+
+        * Click ![icon](../../../_assets/console-icons/pencil-to-line.svg) and set the color in hex format. You can also specify background transparency as a percentage.
+
+          {% cut "Setting a color in hex format" %}
+
+          ![chart-color-16](../../../_assets/datalens/chart/chart-color-16.png)
+
+          {% endcut %}
+
+        * Click ![icon](../../../_assets/console-icons/pencil-to-line.svg) and then click the color icon preceding its hex value. In the window that opens, select a color from the color palette or specify a color in RGB, HSL, or hex format. To switch between formats, click ![icon](../../../_assets/console-icons/chevrons-expand-vertical.svg).
+
+          {% cut "Switching between color formats" %}
+
+          ![chart-color-rgb](../../../_assets/datalens/chart/chart-color-rgb.png)
+
+          {% endcut %}
+          
+          You can also use the eyedropper tool to select a color on the report page.
+
+          {% cut "Picking a color on the screen" %}
+
+          ![chart-color-eyedropper](../../../_assets/datalens/chart/chart-color-eyedropper.png)
+
+          {% endcut %}
+
      1. Click **Apply**.
 
    - For a measure {#indicator}
@@ -283,8 +318,6 @@ To set up colors:
      1. Click **Apply**.
 
    {% endlist %}
-
-{% endcut %}
 
 You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
 

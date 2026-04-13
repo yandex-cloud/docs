@@ -325,7 +325,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL  = "jdbc:postgresql://<primary_master_host_FQDN>:{{ port-mgp }},<standby_master_host_FQDN>:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER = "<username>";
           String DB_PASS = "<user_password>";
 
@@ -366,7 +366,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL  = "jdbc:postgresql://<primary_master_host_FQDN>:{{ port-mgp }},<standby_master_host_FQDN>:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER = "<username>";
           String DB_PASS = "<user_password>";
 

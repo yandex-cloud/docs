@@ -50,7 +50,7 @@ To create a {{ datalens-short-name }} connection to {{ yq-full-name }}, you will
 
 To create a {{ yq-full-name }} connection:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Select a **{{ yq-full-name }}** connection.
 1. Configure the connection as follows:

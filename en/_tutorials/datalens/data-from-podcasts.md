@@ -89,7 +89,7 @@ Set up {{ datalens-short-name }} depending on your experience:
     ![image](../../_assets/datalens/solution-10/05-music-dashboard-example.png)
     
    1. Each tab contains:
-    * Text widgets: Headers, comments, and hints.
+    * Text widgets: Headers, comments, and tooltips.
     * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
     * Charts: Graphs, tables, and other visualizations.
  
@@ -172,7 +172,7 @@ Refresh the dashboard page to apply the chart changes.
 ### 2.3. Create a new chart and add it to the dashboard {#creating-chart}
 
 Let's say we want to build a chart with the total number of times streams were listened to over the entire period.
-1. Open the [service home page]({{ link-datalens-main }}).
+1. Open the [service home page]({{ link-datalens-main-skip-promo }}).
 1. Click **Create chart**.
 1. Go to the **Podcasts** folder.
 1. Select **D01. Podcast listens**.
@@ -301,7 +301,7 @@ Choose which data you want to restrict access to:
     
     1. In the **Configuring access permissions for a field** window, set a filter as shown in this example:
        `* : my-login@yandex.com`
-       where:
+       Where:
         * `*`: Access to all podcasts.
         * `my-login@yandex.com`: Your username.
         
@@ -319,7 +319,7 @@ Choose which data you want to restrict access to:
     
     1. In the **Configuring access permissions for a field** window, set a filter as shown in this example:
        `* : my-login@yandex.com`
-       where:
+       Where:
         * `*`: Access to all episodes.
         * `my-login@yandex.com`: Your username.
         
@@ -437,7 +437,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 ## 5. Add a chart or dashboard to your website {#add-dashboard-chart}
 
-You can embed the published charts into a website or app using the `iframe` element. To do this:
+You can embed the published charts into a website or app using the `iframe` element. Proceed as follows:
 
 1. Follow the public link to the chart.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.
@@ -490,7 +490,7 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% cut "I deleted a dashboard accidentally. How do I restore it?" %}
    
-   Re-create a connection and the dashboard will expand again.
+   Recreate a connection and the dashboard will expand again.
    
 {% endcut %}
 

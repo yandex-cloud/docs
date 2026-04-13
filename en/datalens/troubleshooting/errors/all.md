@@ -13,6 +13,7 @@ Error code | Description |
 [ERR.CHARTS.RUNTIME_TIMEOUT](ERR-CHARTS-RUNTIME_TIMEOUT.md) | Response processing timeout |
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
+[ERR.CLIENT.POPUP_BLOCKED](ERR-CLIENT-POPUP_BLOCKED.md) | Pop-up blocking error |
 [ERR.DS_API](ERR-DS_API.md) | Internal server error |
 [ERR.DS_API.ACTION_NOT_ALLOWED](ERR-DS_API-ACTION_NOT_ALLOWED.md) | Internal Server Error |
 [ERR.DS_API.AVATAR.NOT_FOUND](ERR-DS_API-AVATAR-NOT_FOUND.md) | Source avatar not found |

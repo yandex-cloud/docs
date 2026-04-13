@@ -1,3 +1,4 @@
+# Creating an agent based on the OpenAI Agents SDK with response streaming via web sockets on {{ sf-full-name }} and {{ api-gw-name }}
 
 
 In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}](../../functions/) and [{{ api-gw-full-name }}](../../api-gateway/). The function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to access [the {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex) models.
@@ -700,4 +701,4 @@ Delete the resources you no longer need to avoid [paying](#paid-resources) for t
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete](../../functions/operations/function/function-delete.md) the function.
 1. [Delete](../../lockbox/operations/secret-delete.md) the secret.
-1. If you had left the function logging feature on, [delete](../../logging/operations/delete-group.md) the log group.
+1. If the function logging feature was left on, [delete](../../logging/operations/delete-group.md) the log group.

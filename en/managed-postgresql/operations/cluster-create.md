@@ -200,8 +200,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        --environment <environment> \
        --network-name <network_name> \
        --host zone-id=<availability_zone>,`
-                `subnet-id=<subnet_ID>,`
-                `assign-public-ip=<allow_public_access_to_host> \
+             `subnet-id=<subnet_ID>,`
+             `assign-public-ip=<allow_public_access_to_host> \
        --resource-preset <host_class> \
        --user name=<username>,password=<user_password> \
        --database name=<DB_name>,owner=<DB_owner_name> \
@@ -209,7 +209,10 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
        --security-group-ids <list_of_security_group_IDs> \
        --connection-pooling-mode=<connection_pooler_mode> \
-       --deletion-protection
+       --deletion-protection \
+       --performance-diagnostics enabled=<enable_statistics_collection>,`
+                                `sessions-sampling-interval=<session_sampling_interval>,`
+                                `statements-sampling-interval=<statement_sampling_interval>
      ```
 
 
@@ -226,9 +229,17 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
 
-       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with **Same as cluster** protection level.
+       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+     
+     * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
+
+       * `enabled`: The value of `true` enables statistics collection. The default value is `false`.
+       * `sessions-sampling-interval`: Session sampling interval in seconds. Allowed values range from `1` to `86400`.
+       * `statements-sampling-interval`: Statement sampling interval in seconds. Allowed values range from `60` to `86400`.
+
 
      
      You need to specify the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
@@ -613,7 +624,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

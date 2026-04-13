@@ -1,4 +1,7 @@
 ---
+title: Setting up a {{ mpg-full-name }} connection from a container in {{ serverless-containers-name }}
+description: 'Follow this guide to connect to a {{ mpg-full-name }} cluster from {{ serverless-containers-name }}:'
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/container-pg-connect'
 ---
 

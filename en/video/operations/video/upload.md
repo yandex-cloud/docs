@@ -39,11 +39,12 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
       * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link.
 
+  1. Optionally, to add advertising for the video, enable the **{{ ui-key.yacloud_video.videos.label_enable-ad }}** option.
   1. Optionally, to add a cover for a video, in the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
-  1. In the **{{ ui-key.yacloud_video.presets.label_style-preset }}** list, select a player [preset](../../concepts/presets.md) from those available in the channel or create a new one.
+  1. In the **{{ ui-key.yacloud_video.presets.label_style-preset }}** list, select a player [template](../../concepts/presets.md) from those available in the channel or create a new one.
 
      If no template is selected, the video will use the [default template](../style-presets/set-default.md) assigned to the channel.
 

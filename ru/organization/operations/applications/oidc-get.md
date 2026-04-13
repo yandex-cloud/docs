@@ -49,8 +49,6 @@ description: Следуя данной инструкции, вы получит
      updated_at: "2025-10-22T11:53:21.689383Z"
      ```
 
-- API {#api}
-
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}

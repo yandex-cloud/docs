@@ -125,7 +125,7 @@ ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
 
 You cannot [stop](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) a cluster if it does not have any backups. To stop such a cluster, first [create a backup](../../managed-postgresql/operations/cluster-backups.md#create-backup) for it.
 
-#### Why do I get a max_connections is less than sum of users connection limit error when modifying a cluster? {#max-connections-error}
+#### Why do I get a `max_connections is less than sum of users connection limit` error when modifying a cluster? {#max-connections-error}
 
 This error may occur when downgrading a host class in a cluster if the sum of connection limits for all users is less then the total cluster connection limit ([Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections)).
 
@@ -145,7 +145,7 @@ To fix these errors:
 1. In the target cluster, [add a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the migrated database and the same name as the user who created the logical dump in the source cluster.
 1. As this user, [restore the logical dump](../../managed-postgresql/tutorials/data-migration.md#restore) or [grant their privileges](../../managed-postgresql/operations/grant.md#grant-privilege) to another account you want to use to restore the logical dump.
 
-#### What should I do if I get a replication slot already exists error during logical replication? {#repl-slot-exists}
+#### What should I do if I get a `replication slot already exists` error during logical replication? {#repl-slot-exists}
 
 By default, the system creates a replication slot when you [create a subscription](../../tutorials/dataplatform/postgresql-data-migration.md#create-publication-subscription). The `replication slot already exists` error means that the replication slot already exists.
 
@@ -154,7 +154,7 @@ You can resolve this error in one of the following ways:
 1. Link your subscription to an existing replication slot. To do this, add `create_slot = false` to your command for creating a subscription.
 1. [Delete the existing replication slot](../../managed-postgresql/operations/replication-slots.md#delete) and try creating the subscription again.
 
-#### Why do I get an extension... is not available error when migrating my database to {{ mpg-short-name }}? {#extension-is-not-available}
+#### Why do I get an `extension... is not available` error when migrating my database to {{ mpg-short-name }}? {#extension-is-not-available}
 
 Error message:
 
@@ -169,7 +169,7 @@ To avoid this error:
 1. For scripts and dumps in text format, remove any {{ PG }} extension creation commands from them.
 1. [Install](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required extensions in the target database using the {{ yandex-cloud }} interfaces.
 
-#### Why do I get the must be owner of extension error when deploying a logical dump? {#owner-of-extension}
+#### Why do I get the `must be owner of extension` error when deploying a logical dump? {#owner-of-extension}
 
 [Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with this error: `ERROR: must be owner of extension`.
 
@@ -195,7 +195,7 @@ To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), you
 
 To learn more about replication, see [this section](../../managed-postgresql/concepts/replication.md).
 
-#### Why do I get a cannot execute <SQL_command> in a read-only transaction error? {#read-only-error}
+#### Why do I get a `cannot execute <SQL_command> in a read-only transaction` error? {#read-only-error}
 
 Error options:
 
@@ -227,7 +227,7 @@ You can prevent these errors in one of the following ways:
 
 For more details on connecting to the master host, see [Connecting to a database](../../managed-postgresql/operations/connect/fqdn.md#automatic-master-host-selection).
 
-#### What should I do if I see a too many connections for role "monitor" error in the logs? {#monitor-role-error}
+#### What should I do if I see a `too many connections for role "monitor"` error in the logs? {#monitor-role-error}
 
 The `monitor` user is reserved for monitoring purposes in the {{ mpg-name }} cluster. You can ignore `too many connections` warnings for this user.
 
@@ -256,3 +256,9 @@ Installing multiple extensions in the CLI may fail with one of these errors:
   This error may occur if the cluster does not contain the required shared library.
 
   Solution: Check the shared library requirements in the [list of supported extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md#postgresql). To add the required library, when [updating the {{ PG }} cluster settings](../../managed-postgresql/operations/update.md#change-postgresql-config), specify its name in the [Shared preload libraries parameter](../../managed-postgresql/concepts/settings-list.md#setting-shared-libraries).
+
+#### Why do I get the `could not open extension control file "<extension_path>/vector.control": No such file or directory` error when accessing the `vector` extension? {#vector-error}
+
+The error occurs because the `vector` extension name in {{ mpg-name }} is `pgvector`.
+
+Solution: when accessing the extension, use `pgvector` instead of `vector`.

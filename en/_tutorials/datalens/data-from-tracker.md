@@ -180,6 +180,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a dataset {#dataset-create}
 
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main-promo }}) home page.
+1. Click **Start in cloud**.
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Select a [connection](#connection-create).
 1. In the top-right corner, click **Create dataset**.
@@ -192,8 +194,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a chart {#chart-create}
 
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
-1. Click **Create chart**.
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }}) home page.
+1. In the left-hand panel, click ![image](../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart in Wizard**.
 1. In the top-left corner, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset**.
 1. In the **Datasets** drop-down list, select the [dataset](#dataset-create) you created in the previous step.
 
@@ -202,7 +205,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a dashboard and add charts to it {#dashboard-create}
 
-1. On the [{{ datalens-full-name }}]({{ link-datalens-main }}) home page, click **Create dashboard**.
+1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
+1. Click **Create dashboard**.
 1. At the top of the [dashboard](#dashboard-create) page, click **Add**→ **Chart**.
 1. Fill in the widget parameters. Pay close attention to the following fields:
     * **Name**: Sets the name of the widget. It is displayed at the top of the widget.

@@ -1,0 +1,1 @@
+Codes from the [HTTP Status Code Registry](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) are supported, except for those having `Unassigned` in the description.

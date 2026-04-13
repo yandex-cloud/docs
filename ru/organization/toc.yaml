@@ -147,6 +147,10 @@ items:
                 href: operations/applications/saml-create.md
               - name: Изменить приложение
                 href: operations/applications/saml-update.md
+              - name: Настроить доступ пользователям приложения
+                href: operations/applications/saml-set-access-bindings.md
+              - name: Получить информацию о приложении
+                href: operations/applications/saml-get.md
               - name: Деактивировать и удалить приложение
                 href: operations/applications/saml-deactivate-remove.md
           - name: OIDC-приложения

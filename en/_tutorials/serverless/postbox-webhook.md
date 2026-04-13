@@ -49,7 +49,7 @@ Create these two [service accounts](../../iam/concepts/users/service-accounts.md
 {% include [create-static-key](../_tutorials_includes/events-from-postbox-to-yds/create-static-key.md) %}
 
 
-## Create a database in {{ ydb-name }} {#ydb}
+## Create a {{ ydb-name }} database {#ydb}
 
 To create a data stream for {{ postbox-name }} events, you need a {{ ydb-name }} database. Create a [serverless {{ ydb-name }} database](../../ydb/concepts/resources.md#serverless):
 
@@ -58,7 +58,7 @@ To create a data stream for {{ postbox-name }} events, you need a {{ ydb-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. In the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** field, specify `postbox-events-ydb`.
   1. In the **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** field, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type_pB7Wx }}`.
   1. Do not edit the other database settings. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.

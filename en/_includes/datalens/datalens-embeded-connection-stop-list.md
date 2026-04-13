@@ -6,7 +6,7 @@ You cannot embed private objects based on the following connections: {#unsupport
 * [AppMetrica](../../datalens/operations/connection/create-appmetrica.md)
 * [{{ yandex-cloud }} Billing](../../datalens/operations/connection/create-cloud-billing.md)
 * [{{ datalens-short-name }} Usage Analytics](../../datalens/operations/connection/create-usage-tracking.md)
-* [{{ speechsense-name }}](../../datalens/operations/connection/create-speechsense.md)
+* [{{ speechsense-name }}](../../datalens/operations/connection/create-speechsense.md) (to embed objects, create a connection under a service account)
 
 {% note info %}
 

@@ -269,7 +269,7 @@ Reserved for future gRPC-specific settings.
 | panicThreshold | **int** <br> Threshold for [panic mode](https://yandex.cloud/en/docs/application-load-balancer/concepts/backend-group#panic-mode) (percentage). If healthy backends drop below this threshold, traffic routes to all backends. Set to `0` to disable panic mode. <br> Example: `50` |
 | localityAwareRouting | **int** <br> Percentage of traffic sent to backends in the same [availability zone](https://yandex.cloud/en/docs/overview/concepts/geo-scope). Remaining traffic is divided equally between other zones. For details about zone-aware routing, see [documentation](https://yandex.cloud/en/docs/application-load-balancer/concepts/backend-group#locality). <br> Example: `90` |
 | strictLocality | **bool** <br> Send traffic only to backends in the same [availability zone](https://yandex.cloud/en/docs/overview/concepts/geo-scope). If `true`, `localityAwareRouting` is ignored. For details about strict locality, see [documentation](https://yandex.cloud/en/docs/application-load-balancer/concepts/backend-group#locality). <br> Example: `false` |
-| mode | **string** <br> [Load balancing mode](https://yandex.cloud/en/docs/application-load-balancer/concepts/backend-group#balancing-mode). Options: `ROUND_ROBIN`, `LEAST_REQUEST`, `RANDOM`, `RING_HASH`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
+| mode | **string** <br> [Load balancing mode](https://yandex.cloud/en/docs/application-load-balancer/concepts/backend-group#balancing-mode). Options: `ROUND_ROBIN`, `LEAST_REQUEST`, `RANDOM`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
 
 ### SessionAffinity
 

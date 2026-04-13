@@ -1,6 +1,7 @@
 ---
 title: How to create an agent based on the OpenAI Agents SDK with response streaming via web sockets on {{ sf-name }} and {{ api-gw-full-name }}
 description: Follow this guide to create an agent based on the OpenAI Agents SDK with response streaming via web sockets on {{ sf-name }} and {{ api-gw-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/streaming-openai-agent'
 ---
 

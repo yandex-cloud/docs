@@ -1,6 +1,6 @@
 # WAF profiles
 
-A web application firewall (WAF) filters and blocks malicious traffic directed to your web apps and websites. It protects against common attacks such as SQL injections, XSS, web vulnerabilities, and prevents data breaches and service outages.
+web application firewall (WAF) filters and blocks malicious traffic directed to your web apps and websites. It protects against common attacks such as SQL injections, XSS, web vulnerabilities, and prevents data breaches and service outages.
 
 WAF analyzes a web app's incoming HTTP requests according to pre-configured rules. Based on the analysis results, certain [actions](rules.md#rule-action) are applied to HTTP requests: the request can be allowed, blocked, or forwarded to {{ captcha-name }}.
 
@@ -15,6 +15,8 @@ The following settings are available in the WAF profile:
 ## Rule sets {#rules-set}
 
 A WAF profile supports the following rule sets: ML WAF (Yandex Malicious Score), Yandex Ruleset, [OWASP Core Rule Set](https://coreruleset.org/).
+
+You can view the full list of rules in each set in the {{ sws-name }} interface when [configuring a rule set](../operations/configure-set-rules.md).
 
 ### ML WAF (Yandex Malicious Score) {#yandex-ml-ruleset}
 
@@ -39,9 +41,31 @@ The Yandex Ruleset is divided into individual rule groups that you can manage se
   * **Attack Tool**. Detects activity from automated tools: vulnerability scanners, exploit frameworks, brute-force utilities, and other software used for [penetration testing](https://en.wikipedia.org/wiki/Penetration_test) and attacks (based on User-Agent signatures and request patterns).
   * **Attack RCE**. Protects against remote code execution (RCE) and prevents running server OS commands via vulnerable parameters (e.g., system call injections).
 
+#### Available versions {#yandex-ruleset-versions} 
+
+##### Version 0.1.1 {#version-0-1-1}
+
+This rule set contains 129 rules created in collaboration with SolidSoft, developers of the [SolidWall WAF](https://www.solidwall.ru/features.html) intelligent firewall. This version offers superior attack prevention and threat detection compared to the previous release.
+
+Key changes:
+
+* Added 40 new rules, including 34 rules for detecting critical CVEs in popular technologies and products, such as Bitrix, Log4j, React, and {{ PG }}.
+* Extended coverage of LFI, RCE, and SQLi attacks.
+* Revised some of the version 0.1.0 rules to reduce the false positive rate.
+
+##### Version 0.1.0 {#version-0-1-0}
+
+The first Yandex Ruleset version contains 90 rules for detecting basic types of attacks.
+
 ### OWASP Core Rule Set {#owasp-core-rule-set}
 
 The set was developed by the Open Worldwide Application Security Project (OWASP) to ensure protection against vulnerabilities listed in the [OWASP TOP‑10](https://owasp.org/www-project-top-ten/). The OWASP Core Rule Set consists of rules aimed to detect malicious actions, including malicious file uploads, potential SQL injection attacks, DoS attempts, code injection attempts, and many more. For more information, see the [OWASP Core Rule Set repository on GitHub](https://github.com/coreruleset/coreruleset).
+
+#### Available versions {#owasp-versions}
+
+OWASP Core Rule Set versions 4.0.0 and 4.8.0 are available in {{ sws-name }}.
+
+## Rule settings {#rules-settings}
 
 You can add one or multiple rule sets to a WAF profile. When adding multiple rule sets, remember to configure the following:
 
@@ -55,8 +79,6 @@ When configuring rule sets, you can select specific rules for request checking a
 To protect resources with different security requirements, create multiple WAF profiles. Each profile can have its own unique rule set and triggering parameters.
 
 {% endnote %}
-
-## Rule settings {#rules-settings}
 
 ### Anomaly {#anomaly}
 

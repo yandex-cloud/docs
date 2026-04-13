@@ -1488,6 +1488,10 @@ items:
         href: datalens/index.md
       - name: Analytics
         items:
+          - name: >-
+              Visualizing logs in {{ grafana-name }} using the {{
+              cloud-logging-name }} plugin
+            href: serverless/grafana-logs-plugin.md
           - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
             href: analysis/search-events-query.md
           - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
@@ -1559,108 +1563,213 @@ items:
     items:
       - name: All tutorials
         href: serverless/index.md
-      - name: URL shortener
-        href: serverless/serverless-url-shortener.md
-      - name: Ingesting data into storage systems
-        href: serverless/data-ingestion.md
-      - name: Storing application runtime logs
-        href: serverless/log-ingestion.md
-      - name: Deploying a web application using the Java Servlet API
-        href: serverless/java-servlet-todo-list.md
-      - name: Developing a Slack bot
-        href: serverless/slack-bot-serverless.md
-      - name: Developing a Telegram bot
-        href: serverless/telegram-bot-serverless.md
-      - name: Developing a Telegram bot with AI agent support
-        href: serverless/telegram-ai-bot-workflows.md
-      - name: Developing a custom integration in {{ api-gw-name }}
-        href: serverless/api-gw-integration.md
-      - name: Developing CRUD APIs for a movie service
-        href: serverless/movies-database.md
-      - name: Building a CI/CD pipeline in {{ GL }}
-        href: serverless/ci-cd-serverless.md
-      - name: '{{ GLR }} execution in {{ serverless-containers-name }}'
-        href: serverless/serverless-gitlab-runner.md
-      - name: Configuring CI/CD between {{ sf-name }} and {{ src-name }}
-        href: serverless/ci-cd-sourcecraft-functions.md
-      - name: Configuring CI/CD between {{ sf-name }} and GitHub
-        href: serverless/ci-cd-github-functions.md
-      - name: >-
-          Setting up CI/CD in {{ src-name }} to deploy an application in {{
-          serverless-containers-name }} using GitHub Actions
-        href: serverless/ci-cd-sourcecraft-github-actions.md
-      - name: Working with an API gateway via WebSocket
-        href: serverless/api-gw-websocket.md
-      - name: Building an interactive serverless application using WebSocket
-        href: serverless/websocket-app.md
-      - name: >-
-          Automatically copying objects from one {{ objstorage-name }} bucket to
-          another
-        href: serverless/bucket-to-bucket-copying.md
-      - name: >-
-          Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-name
-          }} plugin
-        href: serverless/grafana-logs-plugin.md
-      - name: Canary release of {{ sf-name }}
-        href: serverless/canary-release.md
-      - name: Interactive debugging of functions in {{ sf-name }}
-        href: serverless/serverless-live-debug.md
-      - name: Creating a Node.js function using TypeScript
-        href: serverless/nodejs-typescript.md
-      - name: Running a containerized app in {{ serverless-containers-name }}
-        href: serverless/deploy-app-container.md
-      - name: >-
-          Streaming {{ postbox-name }} events to {{ yds-name }} and analyzing
-          them using {{ datalens-name }}
-        href: serverless/events-from-postbox-to-yds.md
-      - name: >-
-          Using {{ api-gw-name }} to set up speech synthesis in {{
-          speechkit-name }}
-        href: serverless/speechkit-integrarion-via-agi-gw.md
-      - name: >-
-          Connecting to {{ ydb-short-name }} from a {{ sf-name }} Python
-          function
-        href: serverless/connect-from-cf.md
-      - name: >-
-          Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
-          Node.js function
-        href: serverless/connect-from-cf-nodejs.md
-      - name: '{{ api-gw-name }} protection with {{ sws-name }}'
-        href: serverless/api-gw-sws-integration.md
-      - name: >-
-          Deploying a web app with JWT authorization in {{ api-gw-name }} and
-          authentication in Firebase
-        href: serverless/jwt-authorizer-firebase.md
-      - name: >-
-          Automatic data upload to {{ speechsense-full-name }} using {{
-          sw-full-name }}
-        href: serverless/auto-upload.md
-      - name: >-
-          Configuring responses in {{ cloud-logging-name }} and {{ sf-full-name
-          }}
-        href: serverless/logging-functions.md
-      - name: >-
-          Setting up {{ sw-name }} integration with {{ tracker-name }}, {{
-          yagpt-name }}, and {{ postbox-name }}
-        href: serverless/tracker-yandexgpt-postbox-integrations.md
-      - name: >-
-          Developing functions in Functions Framework and deploying them to {{
-          serverless-containers-full-name }}
-        href: serverless/functions-framework-to-container.md
-      - name: >-
-          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
-          using {{ sf-full-name }} and {{ yq-full-name }}
+      - name: Serverless-based backend
         items:
-          - name: Overview
-            href: serverless/forms-and-datalens-integration/index.md
-          - name: Management console
-            href: serverless/forms-and-datalens-integration/console.md
-          - name: Terraform
-            href: serverless/forms-and-datalens-integration/terraform.md
-      - name: >-
-          Creating a {{ postbox-full-name }} address and domain ownership
-          verification with {{ TF }}
-        href: serverless/domain-identity-creating.md
+          - name: Deploying a web application using the Java Servlet API
+            href: serverless/java-servlet-todo-list.md
+          - name: Converting a video to a GIF in Python
+            items:
+              - name: Overview
+                href: serverless/video-converting-queue/index.md
+              - name: Management console
+                href: serverless/video-converting-queue/console.md
+              - name: Terraform
+                href: serverless/video-converting-queue/terraform.md
+          - name: Developing a custom integration in {{ api-gw-name }}
+            href: serverless/api-gw-integration.md
+          - name: URL shortener
+            href: serverless/serverless-url-shortener.md
+          - name: Developing CRUD APIs for a movie service
+            href: serverless/movies-database.md
+          - name: Creating an interactive serverless application using WebSocket
+            href: serverless/websocket-app.md
+          - name: Working with an API gateway via WebSocket
+            href: serverless/api-gw-websocket.md
+          - name: Creating a Node.js function using TypeScript
+            href: serverless/nodejs-typescript.md
+          - name: Running a containerized app in {{ serverless-containers-name }}
+            href: serverless/deploy-app-container.md
+          - name: >-
+              Connecting to {{ ydb-short-name }} from a {{ sf-name }} Python
+              function
+            href: serverless/connect-from-cf.md
+          - name: >-
+              Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
+              Node.js function
+            href: serverless/connect-from-cf-nodejs.md
+          - name: >-
+              Setting up a {{ mpg-full-name }} connection from a container in {{
+              serverless-containers-name }}
+            href: serverless/container-pg-connect.md
+          - name: >-
+              Deploying a web app with JWT authorization in {{ api-gw-name }}
+              and authentication in Firebase
+            href: serverless/jwt-authorizer-firebase.md
+          - name: >-
+              Developing functions in Functions Framework and deploying them to
+              {{ serverless-containers-full-name }}
+            href: serverless/functions-framework-to-container.md
+          - name: Canary release of a function in {{ sf-name }}
+            href: serverless/canary-release.md
+          - name: Interactive debugging of functions in {{ sf-name }}
+            href: serverless/serverless-live-debug.md
+          - name: >-
+              Creating a {{ postbox-full-name }} address and a domain ownership
+              check with {{ TF }}
+            href: serverless/domain-identity-creating.md
+          - name: Configuring Postfix to send emails via {{ postbox-full-name }}
+            href: serverless/postfix-integration.md
+      - name: Serverless-based bots
+        items:
+          - name: Developing a Slack bot
+            href: serverless/slack-bot-serverless.md
+          - name: Developing a Telegram bot
+            href: serverless/telegram-bot-serverless.md
+          - name: >-
+              Developing a Telegram bot for text recognition in images, audio
+              synthesis and recognition
+            href: serverless/recognizer-bot.md
+      - name: Serverless-based ETL
+        items:
+          - name: Ingesting data into storage systems
+            href: serverless/data-ingestion.md
+          - name: Storing application runtime logs
+            href: serverless/log-ingestion.md
+          - name: Writing device data to a database
+            href: serverless/data-recording.md
+          - name: Writing load balancer logs to {{ PG }}
+            href: serverless/logging.md
+          - name: >-
+              Loading data from {{ yandex-direct }} to a {{ mch-full-name }}
+              data mart using {{ sf-full-name }}, {{ objstorage-full-name }},
+              and {{ data-transfer-full-name }}
+            href: serverless/data-transfer-direct-to-mch.md
+          - name: >-
+              Streaming {{ postbox-name }} events to {{ yds-name }} and
+              analyzing them using {{ datalens-name }}
+            href: serverless/events-from-postbox-to-yds.md
+          - name: '{{ tracker-name }}: data export and visualization'
+            href: serverless/data-from-tracker.md
+          - name: >-
+              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+              using {{ sf-full-name }} and {{ yq-full-name }}
+            items:
+              - name: Overview
+                href: serverless/forms-and-datalens-integration/index.md
+              - name: Management console
+                href: serverless/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: serverless/forms-and-datalens-integration/terraform.md
+          - name: >-
+              {{ postbox-full-name }} integration with external systems via
+              webhooks
+            href: serverless/postbox-webhook.md
+      - name: Serverless-based workflows and automation
+        items:
+          - name: Building a CI/CD pipeline in {{ GL }}
+            href: serverless/ci-cd-serverless.md
+          - name: '{{ GLR }} execution in {{ serverless-containers-name }}'
+            href: serverless/serverless-gitlab-runner.md
+          - name: >-
+              Creating a budget trigger that invokes a {{ sf-name }} function to
+              stop VM instances
+            href: serverless/serverless-trigger-budget-vm.md
+          - name: >-
+              Automatically copying objects from one {{ objstorage-name }}
+              bucket to another
+            href: serverless/bucket-to-bucket-copying.md
+          - name: Running computations on a schedule in {{ ml-platform-name }}
+            href: serverless/regular-launch.md
+          - name: >-
+              Recognizing audio files from {{ objstorage-name }} on a regular
+              basis
+            href: serverless/batch-recognition-stt.md
+          - name: Deploying a fault-tolerant architecture with preemptible VMs
+            href: serverless/nodejs-cron-restart-vm.md
+          - name: >-
+              Creating triggers that invoke {{ sf-name }} functions to stop a VM
+              and send Telegram notifications
+            href: serverless/serverless-trigger-budget-queue-vm-tg.md
+          - name: Scheduled instance group scaling
+            items:
+              - name: Overview
+                href: serverless/vm-scale-scheduled/index.md
+              - name: Management console, CLI, and API
+                href: serverless/vm-scale-scheduled/console.md
+              - name: '{{ TF }}'
+                href: serverless/vm-scale-scheduled/terraform.md
+          - name: Running computations in {{ ml-platform-name }} using the API
+            href: serverless/batch-code-execution.md
+          - name: Configuring CI/CD between {{ sf-name }} and {{ src-name }}
+            href: serverless/ci-cd-sourcecraft-functions.md
+          - name: Configuring CI/CD between {{ sf-name }} and GitHub
+            href: serverless/ci-cd-github-functions.md
+          - name: >-
+              Setting up CI/CD in {{ src-name }} to deploy an application in {{
+              serverless-containers-name }} using GitHub Actions
+            href: serverless/ci-cd-sourcecraft-github-actions.md
+          - name: >-
+              Automatic data upload to {{ speechsense-full-name }} using {{
+              sw-full-name }}
+            href: serverless/auto-upload.md
+          - name: >-
+              Configuring responses in {{ cloud-logging-name }} and {{
+              sf-full-name }}
+            href: serverless/logging-functions.md
+          - name: >-
+              Regular recognition of images and PDF documents from an {{
+              objstorage-short-name }} bucket
+            href: serverless/vision-ocrrecognizer-storage.md
+          - name: >-
+              Setting up {{ sw-name }} integration with {{ tracker-name }}, {{
+              yagpt-name }}, and {{ postbox-name }}
+            href: serverless/tracker-yandexgpt-postbox-integrations.md
+      - name: Internet of Things (IoT)
+        items:
+          - name: Monitoring the status of geographically distributed devices
+            href: serverless/datalens.md
+          - name: Sensor reading monitoring and event notifications
+            href: serverless/monitoring.md
+          - name: Emulating multiple IoT devices
+            href: serverless/iot-emulation.md
+          - name: Working with {{ iot-name }} from an Android device in Java
+            href: serverless/android-java.md
+          - name: Working with {{ iot-name }} in C#
+            href: serverless/c-sharp.md
+          - name: Working with {{ iot-name }} in Java
+            href: serverless/java.md
+          - name: Testing message delivery
+            href: serverless/message-delivery-check.md
+          - name: Sending a message using Mosquitto
+            href: serverless/mosquitto-publish.md
+          - name: >-
+              Subscribing a device or registry to receive messages using
+              Mosquitto
+            href: serverless/mosquitto-subscribe.md
+      - name: Integration with Yandex and Yandex Cloud services
+        items:
+          - name: '{{ api-gw-name }} protection with {{ sws-name }}'
+            href: serverless/api-gw-sws-integration.md
+          - name: Creating a skill for Alice
+            href: serverless/alice-skill.md
+          - name: Building a skill for Alice and a website with authorization
+            href: serverless/alice-shareable-todolist.md
+          - name: >-
+              Using {{ api-gw-name }} to set up speech synthesis in {{
+              speechkit-name }}
+            href: serverless/speechkit-integrarion-via-agi-gw.md
+      - name: AI
+        items:
+          - name: Developing a Telegram bot with AI agent support
+            href: serverless/telegram-ai-bot-workflows.md
+          - name: Creating an AI agent with {{ sf-full-name }}
+            href: serverless/create-ai-agent-function.md
+          - name: >-
+              AI-powered review of GitHub pull requests with {{ sw-name }} and
+              GitHub Actions
+            href: serverless/ai-powered-github-pr-review.md
+          - name: Creating an AI agent with response streaming via web sockets
+            href: serverless/streaming-openai-agent.md
       - name: Sending emails in {{ postbox-full-name }} using the AWS SDK
         items:
           - name: .NET Core
@@ -1671,14 +1780,6 @@ items:
             href: serverless/send-emails-aws-sdk-js.md
           - name: Python
             href: serverless/send-emails-aws-sdk-python.md
-      - name: Creating an AI agent with {{ sf-full-name }}
-        href: serverless/create-ai-agent-function.md
-      - name: Creating an AI agent with response streaming via web sockets
-        href: serverless/streaming-openai-agent.md
-      - name: Configuring Postfix to send emails via {{ postbox-full-name }}
-        href: serverless/postfix-integration.md
-      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
-        href: serverless/postbox-webhook.md
   - name: Machine learning and artificial intelligence
     items:
       - name: All tutorials
@@ -1738,8 +1839,8 @@ items:
           - name: Developing a Telegram bot for text and audio recognition
             href: ml-ai/recognizer-bot.md
           - name: >-
-              Regular asynchronous recognition of audio files from {{
-              objstorage-name }}
+              Asynchronous recognition of audio files from {{ objstorage-name }}
+              on a regular basis
             href: ml-ai/batch-recognition-stt.md
           - name: >-
               Regular recognition of images and PDF documents from an {{

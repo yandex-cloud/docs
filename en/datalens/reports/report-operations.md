@@ -41,7 +41,7 @@ There is a number of ways to create a report:
 
 - Navigation bar
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display-pulse.svg) **Reports** and click **Create report**.
   1. [Add pages](#report-pages) to your report.
   1. [Add](#add-widget) the required [widgets](../dashboard/widget.md) to the pages.
@@ -139,13 +139,15 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
        
        * `#title` type: To the title in the current report.
        * `#page-1` type: To a specific page in the current report.
-       * Absolute link: To a page on the internet.
+       * Absolute link: To go to a page on the internet.
 
-       {% cut "Link to page" %}
+       {% cut "Link to the page" %}
 
        ![report-text-link](../../_assets/datalens/report/report-text-link.png =532x264)
 
        {% endcut %}
+
+       You can use created links in reports in [preview](#report-preview) mode or in [exported](#report-export) PDF files.
 
        {% note warning %}
 
@@ -265,7 +267,17 @@ Report settings are valid for all its pages:
    * **Theme**: Select a page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
-   * **Format**: `A4` or `A3`.
+   
+   
+   * **Format**: Select a format (`A4`, `A3`, `16:9 (Full HD)`, `16:9 (2K)`, or `16:9 (4K)`).
+
+     {% cut "Displaying the report in specific formats" %}
+
+     ![report-16-9](../../_assets/datalens/report/report-16-9.png)
+
+     {% endcut %}
+
+
    * **Orientation**: `Album` or `Portrait`.
    * Optionally, enable the **Display grid** option for easy alignment of widgets in your report.
      
@@ -304,6 +316,17 @@ Page settings have a higher priority than the same report settings. If page sett
    * **Theme**: Page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
+
+   
+   * **Format**: Select a format (`A4`, `A3`, `16:9 (Full HD)`, `16:9 (2K)`, or `16:9 (4K)`).
+
+     {% cut "Displaying the report in specific formats" %}
+
+     ![report-16-9](../../_assets/datalens/report/report-16-9.png)
+
+     {% endcut %}
+
+
    * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
 

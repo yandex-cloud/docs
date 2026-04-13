@@ -25,7 +25,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 
 
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.

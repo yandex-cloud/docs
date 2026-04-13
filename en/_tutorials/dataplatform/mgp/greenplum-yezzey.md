@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ GP }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ GP }} cluster fee, which covers the use of computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -51,7 +51,14 @@ The support cost for this solution includes:
 
 1. Connect to the cluster:
 
-   {% include [default-connstring](../../../_includes/mdb/mgp/default-connstring.md) %}
+   ```bash
+   psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
+   port={{ port-mgp }} \
+   sslmode=verify-full \
+   dbname=postgres \
+   user=<username> \
+   target_session_attrs=read-write"
+   ```
 
 1. Create a database named `db_with_yezzey`:
 

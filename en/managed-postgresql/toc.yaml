@@ -241,7 +241,9 @@ items:
         href: concepts/indexes.md
       - name: SQL command limits
         href: concepts/sql-limits.md
-      - name: '{{ PG }} versioning policy'
+      - name: Upgrading the {{ PG }} major version
+        href: concepts/upgrade.md
+      - name: Versioning policy {{ PG }}
         href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
@@ -653,6 +655,8 @@ items:
         href: qa/configuration.md
       - name: Moving and restoring a cluster
         href: qa/backup.md
+      - name: Upgrading the {{ PG }} major version
+        href: qa/version-update.md
       - name: Users and roles
         href: qa/users.md
       - name: High availability and load balancing

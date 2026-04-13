@@ -14,7 +14,7 @@ To connect to a publicly accessible , [prepare an SSL certificate](index.md#get-
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](fqdn.md#fqdn-master). To learn how to get a host's FQDN, see [this guide](fqdn.md).
+You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](fqdn.md#fqdn-master). When connecting via _psql_ or using a JDBC connector, you can specify two master hosts at the same time. To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 
 ## Command line tools {#command-line-tools}
@@ -36,7 +36,7 @@ Connect to a database:
 - Connecting without SSL {#without-ssl}
 
   ```bash
-  psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
+  psql "host=<primary_master_host_FQDN>,<standby_master_host_FQDN> \
         port={{ port-mgp }} \
         sslmode=disable \
         dbname=postgres \
@@ -50,7 +50,7 @@ Connect to a database:
 
 {% endlist %}
 
-After you run this command, enter the user password to complete connecting to the database.
+After runing this command, enter the user password to complete your connection.
 
 To check the connection, run the following query:
 
@@ -70,7 +70,7 @@ Connect to a database:
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-      host=c-<cluster_ID>.rw.{{ dns-zone }} `
+      host=<primary_master_host_FQDN>,<standby_master_host_FQDN> `
       port={{ port-mgp }} `
       sslmode=disable `
       dbname=postgres `
@@ -81,7 +81,7 @@ Connect to a database:
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-      host=c-<cluster_ID>.rw.{{ dns-zone }} `
+      host=<primary_master_host_FQDN>,<standby_master_host_FQDN> `
       port={{ port-mgp }} `
       sslmode=verify-full `
       dbname=postgres `
@@ -90,7 +90,7 @@ Connect to a database:
 
 {% endlist %}
 
-After you run this command, enter the user password to complete connecting to the database.
+After runing this command, enter the user password to complete your connection.
 
 To check the connection, run the following query:
 
@@ -182,10 +182,10 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
             1. Configure the connection as follows:
 
                 * **User**, **Password**: DB user name and password.
-                * **URL**: Connection string. Use the [special primary master FQDN](./fqdn.md#fqdn-master):
+                * **URL**: Connection string:
 
                     ```http
-                    jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/<DB_name>
+                    jdbc:postgresql://<primary_master_host_FQDN>:{{ port-mgp }},<standby_master_host_FQDN>:{{ port-mgp }}/<DB_name>
                     ```
 
             1. Click **Download** to download the connection driver.

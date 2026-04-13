@@ -11,7 +11,6 @@ editable: false
 
 
 
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -39,6 +38,7 @@ editable: false
     currency="RUB"
   />
 </MDX>
+
 
 
 

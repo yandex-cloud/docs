@@ -1,8 +1,8 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without the need to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
 Follow this tutorial to connect to a {{ mpg-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-name }}.
 
-1. [Set up the infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Create a {{ mpg-name }} cluster](#create-cluster).
 1. [Connect to the {{ mpg-name }} data](#mch-connect).
@@ -14,13 +14,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The cost of infrastructure support for working with {{ mpg-name }} data includes:
+* {{ ml-platform-name }} project: Use of computing resources and storage (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ yq-name }}: Amount of data read when running queries (see [{{ yq-name }} pricing](../../query/pricing.md)).
 
-* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for a running [{{ mpg-name }} cluster](../../managed-postgresql/pricing.md).
-* Fee for the amount of read data when running [{{ yq-name }} queries](../../query/pricing.md).
 
 ## Set up your infrastructure {#infra}
 

@@ -37,6 +37,7 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
                 {% endnote %}
 
             * For `Npm`, you can only use the `Npm` repository.
+
             * For `Docker`, you can only use the `Docker Hub` repository. You have to specify authentication data for `Docker Hub`.
 
                 * Grant access to the contents of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to the {{ cloud-registry-name }} [service agent](../../../iam/concepts/service-control.md#service-agent) by assigning it the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer) for this secret.
@@ -51,6 +52,9 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
                       --cloud-id <cloud_ID>
                     ```
                 * Get authenticated in `Docker Hub` using an [access token](https://docs.docker.com/security/for-developers/access-tokens/). For do this, select the `Basic` authentication option, specify the username, and, in the **Secret ID in Lockbox** field, select the {{ lockbox-full-name }} secret whose `value` key stores the token.
+
+            * For any registry format other than `Binary`, you can specify your own [source](../../concepts/registry.md#custom-registry). To do this, select `Custom` in the **Source type** field and enter the URL of your source in the **Address** field.
+
         1. If you selected the `Virtual` registry type, use the ![plus](../../../_assets/console-icons/plus.svg) **Add registry** button in the **Registries** field to add local and/or remote registries to the virtual registry by specifying their IDs.
 
             You can look up the registry ID in the management console on the registry info page.
@@ -77,7 +81,7 @@ description: Follow this guide to create a {{ cloud-registry-name }} registry.
     * `--registry-type`: Registry [type](../../concepts/registry.md#registry-types). The available values are `local`, `remote`, and `virtual`.
     * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. Available properties:
         * For `local` registries:
-            * `versionPolicy`: Version policy for a registry in `maven` format. Possible values: `mixed`, `release`, and `snapshot`. The default value is `mixed`.
+            * `versionPolicy`: Version policy for a registry in `maven` format. The possible values are `mixed`, `release`, and `snapshot`. The default value is `mixed`.
         * For `remote` registries:
             * `source`: Source registry. The possible values depend on the registry format, e.g., `@maven-central` for `maven` or `@npmjs` for `npm`.
             * `authorizationType`: Authorization type. Possible values: `none` and `basic`. The default value is `none`. Available only for a registry in `docker` format.

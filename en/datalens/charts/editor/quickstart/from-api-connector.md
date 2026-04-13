@@ -17,7 +17,7 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 
 ## Create a workbook {#create-workbook}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
 1. Enter a name for the [workbook](../../../workbooks-collections/index.md): `Tutorials`.

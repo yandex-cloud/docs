@@ -66,7 +66,7 @@ The cost of the infrastructure deployment includes:
 ### 1.1. Enable {{ CH }} {#ch-connection}
 
 1. In the [management console]({{ link-console-main }}), select a folder to create a {{ CH }} cluster in.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Configure your {{ CH }} cluster:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify a name for the cluster.
@@ -282,7 +282,9 @@ In {{ CH }}, the `metrica_data.funnels_by_bro` table will be created with funnel
 
 Create a new dataset based on the new table and the connection to {{ CH }}:
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) home page (or click ![datalens-console](../../_assets/datalens-console.svg) **DataLens** in the left-hand panel) and click **Create dataset**.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
+1. Click **Create dataset**.
 1. Go to **Connections** and click ![image](../../_assets/console-icons/plus.svg) **Add**.
 1. From the list of connections, select the connection name that you created in Step [3.2](#creation-datalens-connection-to-ch).
 1. Drag the new `metrica_data.funnels_by_bro` table to the editing area.
@@ -340,8 +342,10 @@ In {{ CH }}, the `metrica_data.retention_users` table will be created with all t
 
 Create a new dataset based on the new table and the connection to {{ CH }}: 
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) homepage and click **Create dataset**.
-1. In the **Connections** section, click **Create dataset** and then click ![image](../../_assets/console-icons/plus.svg) **Add**.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
+1. Click **Create dataset**.
+1. In the **Connections** section, click ![image](../../_assets/console-icons/plus.svg) **Add**.
 1. From the list, select the [connection](#creation-datalens-connection-to-ch) you created.
 1. Drag the new `metrica_data.retention_users` table into the workspace to connect to it.
 1. Open the **Fields** tab and create a new calculated field named `week_num` equal to `([date]-[min_date])/7`.

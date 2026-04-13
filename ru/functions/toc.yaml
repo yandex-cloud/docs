@@ -25,6 +25,8 @@ items:
             href: quickstart/create-function/java-function-quickstart.md
           - name: Kotlin
             href: quickstart/create-function/kotlin-function-quickstart.md
+          - name: .NET Core
+            href: quickstart/create-function/dotnet-function-quickstart.md
       - name: Создание триггера
         items:
           - name: Обзор

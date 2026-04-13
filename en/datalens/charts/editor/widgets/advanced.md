@@ -15,6 +15,8 @@ module.exports = {
 };
 ```
 
+{% include [datalens-chart-editor-wrap-limits](../../../../_includes/datalens/datalens-chart-editor-wrap-limits.md) %}
+
 Learn more about the [Editor.wrapFn](../methods.md#wrap) method.
 
 {% note info %}

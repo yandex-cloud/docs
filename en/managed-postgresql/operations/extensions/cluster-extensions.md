@@ -59,7 +59,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -80,7 +80,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -102,7 +102,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Get
      ```
 
-     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](../databases.md#list-db).
+     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database) to make sure your request was successful.
 
@@ -161,13 +161,13 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -196,7 +196,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
      Where:
 
-     * `updateMask`: Comma-separated list of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
 
@@ -206,13 +206,13 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
        Use names from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](../databases.md#list-db).
+     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/Database/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -261,7 +261,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
        Use names from the [list of supported {{ PG }}](#postgresql) extensions and utilities.
 
-     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](../databases.md#list-db).
+     You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters), and the database name, from the [list of databases in your cluster](../databases.md#list-db).
 
   1. Check the [server response](../../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -328,7 +328,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Provides geospatial routing functions for the [PostGIS](https://www.postgis.net/) database.</p> | 3.3.0 | 3.4.1 | 3.5.0 | 3.6.2 | 3.8.0 ||
 || <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p>Contains the `pgrowlocks()` function returning row locking details for a specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 | - ||
 || <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p>Provides functions for retrieving tuple-level statistics.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) or [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.5 | 1.5 | 1.5 | 1.5 | - ||
-|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Provides vector similarity search functionality.</p> | 0.2.5 | 0.3.2 | 0.8.0 | 0.8.0 | 0.8.0 ||
+|| <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Provides vector similarity search functionality.</p><p>The [vector extension is available](../../qa/errors.md#vector-error) under the name `pgvector`.</p> | 0.2.5 | 0.3.2 | 0.8.0 | 0.8.0 | 0.8.0 ||
 || <p>[plpgsql](https://www.timescale.com/learn/postgresql-extensions-plpgsql)</p><p>Adds support for the PL/pgSQL procedural language.</p> | - | - | - | 1.0 | - ||
 || <p>[plv8](https://plv8.github.io/)</p><p>Adds support for the plv8 JavaScript-based procedural language powered by the V8 engine.</p> | 3.0.0 | - | 3.2.3 | 3.2.3 | 3.2.4 ||
 || <p>[postgis](https://postgis.net/docs/)</p><p>Enables storing and processing GIS (geographic information system) objects in {{ PG }} databases.</p> | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 | 3.6.0 ||

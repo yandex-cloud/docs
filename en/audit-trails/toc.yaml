@@ -11,6 +11,8 @@ items:
         href: operations/create-trail.md
       - name: Managing a trail
         href: operations/manage-trail.md
+      - name: Drafting a trail specification
+        href: operations/prepare-spec.md
       - name: Managing trail access permissions
         items:
           - name: Viewing roles assigned to a trail
@@ -25,7 +27,7 @@ items:
         items:
           - name: Getting a list of trails
             href: operations/get-list.md
-          - name: Getting trail info
+          - name: Getting information about a trail
             href: operations/get-info.md
       - name: Viewing operations with service resources
         href: operations/operation-logs.md
@@ -58,8 +60,14 @@ items:
           - name: Uploading audit logs to {{ mos-full-name }}
             hidden: true
             href: tutorials/trails-logs-opensearch.md
-          - name: Uploading audit logs to MaxPatrol SIEM
-            href: tutorials/maxpatrol.md
+          - name: Exporting audit logs to MaxPatrol SIEM
+            items:
+              - name: Overview
+                href: tutorials/maxpatrol/index.md
+              - name: Management console
+                href: tutorials/maxpatrol/console.md
+              - name: '{{ TF }}'
+                href: tutorials/maxpatrol/terraform.md
           - name: Uploading audit logs to Splunk SIEM
             href: tutorials/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM

@@ -19,7 +19,7 @@
        
        {% endcut %}
 
-       Learn more about [using metrics](../../monium/operations/metric/metric-explorer.md).
+       More on [metrics](../../monium/operations/metric/metric-explorer.md).
 
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
      
@@ -31,7 +31,7 @@
        
        {% endcut %}
 
-       Learn more on [how to use logs](../../monium/logs/quickstart.md).
+       More on [logs](../../monium/logs/quickstart.md).
      
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
 

@@ -12,8 +12,10 @@ The following issues usually cause reduced performance of a {{ mmy-name }} clust
 
 1. Select the databases to analyze.
 1. [Enable statistics collection](../../managed-mysql/operations/performance-diagnostics.md).
-1. Create a [{{ MY }} user](../../managed-mysql/operations/cluster-users.md#adduser) with the [PROCESS](../../managed-mysql/operations/grant.md#db-privileges) privilege for these databases. Use this {{ MY }} user to run all diagnostic queries.
-
+1. [Create a {{ MY }} user](../../managed-mysql/operations/cluster-users.md#adduser) and assign them the `PROCESS` [admin privilege](../../managed-mysql/operations/grant.md#grant-privilege) in the **Global permissions** settings. This privilege applies at the cluster level and is configured in the [{{ MY }} settings at the user level](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges). Make sure to run any diagnostic queries on behalf of the user you created.
+    
+    Learn more about user privileges [here](../../managed-mysql/concepts/user-rights.md).
+    
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
 A resource shortage is a likely cause of reduced cluster performance. [Cluster monitoring](../../managed-mysql/operations/monitoring.md) charts (CPU, disk I/O, and network connections) clearly show any resource shortages. If a steadily growing resource usage chart flattens, the resource has hit its [limit](../../managed-mysql/concepts/limits.md) or run beyond the guaranteed service level. 

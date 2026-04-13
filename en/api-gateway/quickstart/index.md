@@ -198,7 +198,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
      * `content`: Function source code.
      * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
 
-     For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
@@ -207,7 +207,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -215,7 +215,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/) commands:
 
@@ -235,8 +235,8 @@ Add function information to the API gateway specification.
 
   To update an API gateway specification:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update an API gateway.
-  1. In the window that opens, select the API gateway and click ![image](../../_assets/console-icons/ellipsis.svg).
-  1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add an extended version of the specification.
 
      It now includes the `/numbers` method which uses the `x-yc-apigateway-integration` extension of the `cloud_functions` type to invoke a function by ID.
@@ -369,7 +369,7 @@ Add function information to the API gateway specification.
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -377,7 +377,7 @@ Add function information to the API gateway specification.
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
 
@@ -403,7 +403,7 @@ curl <service_domain>/numbers
 
 Where `<service_domain>` is the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field you saved [earlier](#api-gw-test).
 
-Here is an example:
+For example:
 
 ```bash
 curl https://{{ api-host-apigw }}/numbers

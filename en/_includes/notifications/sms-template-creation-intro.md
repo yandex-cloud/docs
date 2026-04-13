@@ -1,0 +1,1 @@
+[SMS templates](../../notifications/concepts/sms.md#templates) allow you to divide SMS notifications into different types, each with its own sending [cost](../../notifications/pricing.md), thus enabling more efficient expense management.

@@ -91,6 +91,8 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Installing NodeLocal DNS
             href: operations/applications/node-local-dns.md
+          - name: Installing node-sitter
+            href: operations/applications/node-sitter.md
           - name: Installing Prometheus Operator
             href: operations/applications/prometheus-operator.md
           - name: Installing Thumbor
@@ -700,10 +702,10 @@ items:
             href: alb-ref/nginx-gwin-migration.md
           - name: Resource configuration
             items:
-              - name: GatewayPolicy
-                href: gwin-ref/gatewaypolicy.md
               - name: Gateway
                 href: gwin-ref/gateway.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
               - name: HTTPRoute
@@ -716,16 +718,16 @@ items:
                 href: gwin-ref/ingresspolicy.md
               - name: RoutePolicy
                 href: gwin-ref/routepolicy.md
-              - name: YCCertificate
-                href: gwin-ref/yccertificate.md
-              - name: YCStorageBucket
-                href: gwin-ref/ycstoragebucket.md
               - name: Service
                 href: gwin-ref/service.md
               - name: ServicePolicy
                 href: gwin-ref/servicepolicy.md
               - name: TLSRoute
                 href: gwin-ref/tlsroute.md
+              - name: YCCertificate
+                href: gwin-ref/yccertificate.md
+              - name: YCStorageBucket
+                href: gwin-ref/ycstoragebucket.md
       - name: Ingress controller
         items:
           - name: Ingress

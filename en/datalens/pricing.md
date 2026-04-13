@@ -67,7 +67,18 @@ There is no limit for regular queries made by users in the {{ datalens-name }} i
 
 ### Trial period {#trial}
 
-New {{ datalens-name }} users can take advantage of a 30-day trial period during which teamwork is free. At the end of the trial period, you will need to link a billing account to start paying for seats or reduce the consumption per instance to one seat.
+New {{ datalens-name }} users can take advantage of a 30-day trial period during which teamwork is free. At the end of the trial period, you will need to link a billing account to start paying for seats or reduce your per-instance consumption to one seat.
+
+* If you do not link a billing account, all the seats in your instance will go inactive except for one. In which case the reduction will be automatically scheduled for the trial period expiry date, and you will not be able to change it until you link a billing account.
+* Once you link a billing account, after the trial period expires, automatic paid consumption will start based on the [number of seats](./settings/seats.md#number-of-seats), which you can find displayed in the settings. At the same time, the automatic reduction of per-instance consumption to one seat will be cancelled.
+
+The countdown of days until the end of the trial period is shown on the side panel indicator.
+
+{% cut "Trial period countdown in days" %}
+
+![image](../_assets/datalens/settings/trial-countdown.png)
+
+{% endcut %}
 
 You can only use the trial period once per {{ datalens-name }} instance: it activates automatically when you activate the instance. When exiting the trial, your first month's cost is prorated based on remaining days in the month.
 

@@ -48,6 +48,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](applications/loki.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
+* [{#T}](applications/node-sitter.md)
 * [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)
 * [{#T}](applications/velero-yc-csi.md)

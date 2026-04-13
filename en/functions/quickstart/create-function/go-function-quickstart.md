@@ -83,7 +83,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select the `go-function` function.
+    1. Select `go-function`.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `{{ go-full-ver }}` runtime environment.
     1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.

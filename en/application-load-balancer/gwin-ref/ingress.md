@@ -245,6 +245,16 @@ metadata:
     gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute: "6000"  # host-level rate limit for all requests
     gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond: "10"  # host-level rate limit per IP
     gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute: "600"  # host-level rate limit per IP
+
+    # ALB resource naming
+    # Custom names for ALB resources created by the controller.
+    gwin.yandex.cloud/albBalancerName: "my-balancer"  # custom balancer name
+    # albVirtualHostName requires Ingress associated with exactly one host
+    gwin.yandex.cloud/hosts.albVirtualHostName: "my-virtual-host"  # custom virtual host name
+    # albRouteName, albBackendGroupName, albBackendName require Ingress with exactly one rule
+    gwin.yandex.cloud/rules.albRouteName: "my-route"  # custom route name
+    gwin.yandex.cloud/rules.albBackendGroupName: "my-backend-group"  # custom backend group name
+    gwin.yandex.cloud/rules.backends.albBackendName: "my-backend"  # custom backend name
     
     # RBAC configuration
     gwin.yandex.cloud/rules.rbac.action: "ALLOW"  # default RBAC action
@@ -314,7 +324,7 @@ For `discardRule` annotations you can set up any name. It does not affect ALB co
 | Annotation and description |
 |------------|
 | `gwin.yandex.cloud/rules.backends.http.useHTTP2` <br> _(boolean)_ <br> Use HTTP/2 for connections between load balancer and backends. <br> Example: `true` |
-| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`. <br> Example: `ROUND_ROBIN` |
+| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
 | `gwin.yandex.cloud/rules.backends.balancing.localityAwareRouting` <br> _(number)_ <br> Percentage of traffic sent to backends in the same [availability zone](https://yandex.cloud/en/docs/overview/concepts/geo-scope). <br> Example: `80` |
 | `gwin.yandex.cloud/rules.backends.balancing.strictLocality` <br> _(boolean)_ <br> Route traffic only to backends in the same [availability zone](https://yandex.cloud/en/docs/overview/concepts/geo-scope). <br> Example: `false` |
 | `gwin.yandex.cloud/rules.backends.balancing.panicThreshold` <br> _(number)_ <br> [Panic mode](https://yandex.cloud/en/docs/application-load-balancer/concepts/backend-group#panic-mode) threshold percentage for load balancing. <br> Example: `50` |
@@ -510,6 +520,20 @@ Direct response actions can be referenced by Ingress path backends using `kind: 
 | `gwin.yandex.cloud/hosts.rateLimit.allRequests.perMinute` <br> _(number)_ <br> Rate limit for all requests per minute. <br> Example: `6000` |
 | `gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perSecond` <br> _(number)_ <br> Rate limit per IP address per second. <br> Example: `10` |
 | `gwin.yandex.cloud/hosts.rateLimit.requestsPerIP.perMinute` <br> _(number)_ <br> Rate limit per IP address per minute. <br> Example: `600` |
+
+#### ALB resource naming
+
+Custom names for ALB resources created by the controller. By default, the controller generates names automatically.
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/albBalancerName` <br> _(string)_ <br> Custom name for the ALB load balancer. Applied on the Ingress resource. <br> Example: `my-balancer` |
+| `gwin.yandex.cloud/hosts.albVirtualHostName` <br> _(string)_ <br> Custom name for the ALB virtual host. Requires the Ingress to be associated with exactly one host. <br> Example: `my-virtual-host` |
+| `gwin.yandex.cloud/rules.albRouteName` <br> _(string)_ <br> Custom name for the ALB route. Requires the Ingress to have exactly one rule. <br> Example: `my-route` |
+| `gwin.yandex.cloud/rules.albBackendGroupName` <br> _(string)_ <br> Custom name for the ALB backend group. Requires the Ingress to have exactly one rule. <br> Example: `my-backend-group` |
+| `gwin.yandex.cloud/rules.backends.albBackendName` <br> _(string)_ <br> Custom name for the ALB backend. Requires the Ingress to have exactly one rule. <br> Example: `my-backend` |
+
+For the target group name, see [`gwin.yandex.cloud/albTargetGroupName`](./service.md) on the Service resource.
 
 #### RBAC configuration
 

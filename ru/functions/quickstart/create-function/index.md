@@ -9,3 +9,4 @@
 * [{#T}](bash-function-quickstart.md)
 * [{#T}](java-function-quickstart.md)
 * [{#T}](kotlin-function-quickstart.md)
+* [{#T}](dotnet-function-quickstart.md)

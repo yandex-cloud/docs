@@ -28,10 +28,11 @@ You can create a new dataset using one of the following methods:
 
 - Home page
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 
   
-  1. Click **Create dataset**.
+  1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
+  1. In the top-right corner, click **Create dataset**.
 
 
 

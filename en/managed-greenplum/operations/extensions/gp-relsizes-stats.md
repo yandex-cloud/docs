@@ -76,6 +76,10 @@ To update these settings, contact [support]({{ link-console-support }}).
      gp_relsizes_stats
     ```
 
+1. To apply the extension, contact [support]({{ link-console-support }}).
+
+1. [Restart](../cluster-stop.md) the cluster.
+
 ## Use cases {#examples}
 
 As an example, let’s collect statistics for a call center’s database. To do this, prepare the source data:

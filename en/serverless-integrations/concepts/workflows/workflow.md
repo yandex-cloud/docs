@@ -22,11 +22,10 @@ The steps are described:
 * In the [YaWL specification](yawl/index.md). The description of each step, except for the last one, must name the next step.
 * Using the [specification constructor](../../operations/workflows/constructor/index.md).
 
-In the workflow settings, you can specify the following:
-* User network to run the workflow in. The workflow will have access to resources in this network.
-* Service account to use for accessing private resources, such as {{ yds-full-name }} data streams.
-
-You can start a workflow using the management console, CLI, API, or {{ er-name }}. For more information, see [{#T}](execution.md).
+In the workflow settings, you can:
+* Specify a user network to run the workflow in. The workflow will have access to resources in this network.
+* Specify a service account to use to access private resources, such as {{ yds-full-name }} data streams.
+* Enable **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**. This will allow any user to run the workflow. For more information, see [{#T}](execution.md).
 
 ## Workflow state {#state}
 

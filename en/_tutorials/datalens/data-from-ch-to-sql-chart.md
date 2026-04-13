@@ -35,7 +35,7 @@ SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and ot
 
 ## Create a workbook {#create-workbook}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
 1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
@@ -130,7 +130,7 @@ Create a QL chart based on the `Sample ClickHouse` connection:
    1. In the top-right corner, click **Save**.
    1. In the window that opens, enter `New clients` for chart name and click **Save**.
 
-You can place the chart created on the dashboard. You can also add selectors to the dashboard to manage the values of the `status` and `interval` QL chart parameters.
+You can add the chart to the dashboard. You can also add selectors to the dashboard to manage the values of the `status` and `interval` QL chart parameters.
 
 ## Create a dashboard {#create-dashboard}
 
@@ -195,7 +195,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter charts by date a
 
    1. In the **Source** list, select `Manual input`.
    1. In **Field or parameter**, enter `interval`. The start and end values of the interval from the selector will be provided to the `not_var{{interval_from}}` and `not_var{{interval_to}}` variables of the SQL query.
-   1. Choose `Calendar` as your selector type.
+   1. Select `Calendar` as the selector type.
    1. Enable **Range**.
    1. In the **Header** field, enter `Order interval`.
    1. Click **Save**.
@@ -208,11 +208,11 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter charts by date a
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter `Change in number of clients by year` as the dashboard name and click **Create**.
 
-Your dashboard is ready.
+Your dashboard is ready for use.
 
    ![image](../../_assets/datalens/sql-chart/add-selector-on-dashboard.png)
 
-1. Your dashboard is ready. Now you can filter the chart by status using a selector.
+1. Your dashboard is ready for use. Now you can filter the chart by status using a selector.
    
    ![image](../../_assets/datalens/sql-chart/selector-2-values.png)
 

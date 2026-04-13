@@ -207,32 +207,38 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Developing CRUD APIs for movie services
-        href: tutorials/movies-database.md
-      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
-        href: tutorials/ci-cd-serverless.md
-      - name: >-
-          Setting up CI/CD in {{ src-name }} to deploy {{
-          serverless-containers-name }} using GitHub Actions
-        href: tutorials/ci-cd-sourcecraft-github-actions.md
-      - name: Starting {{ GLR }} in {{ serverless-containers-name }}
-        href: tutorials/serverless-gitlab-runner.md
-      - name: >-
-          Setting up a {{ mpg-full-name }} connection from a container in {{
-          serverless-containers-name }}
-        href: tutorials/pg-connect.md
-      - name: Running a containerized app in {{ serverless-containers-full-name }}
-        href: tutorials/deploy-app-container.md
-      - name: Developing a custom integration in {{ api-gw-name }}
-        href: tutorials/api-gw-integration.md
-      - name: >-
-          Developing functions in Functions Framework and deploying them to {{
-          serverless-containers-full-name }}
-        href: tutorials/functions-framework-to-container.md
-      - name: >-
-          Regular recognition of images and PDF documents from an {{
-          objstorage-short-name }} bucket
-        href: tutorials/vision-ocrrecognizer-storage.md
+      - name: Serverless-based backend
+        items:
+          - name: Developing CRUD APIs for a movie service
+            href: tutorials/movies-database.md
+          - name: >-
+              Running a containerized app in {{ serverless-containers-full-name
+              }}
+            href: tutorials/deploy-app-container.md
+          - name: >-
+              Setting up a {{ mpg-full-name }} connection from a container in {{
+              serverless-containers-name }}
+            href: tutorials/pg-connect.md
+          - name: Developing a custom integration in {{ api-gw-name }}
+            href: tutorials/api-gw-integration.md
+          - name: >-
+              Developing functions in Functions Framework and deploying them to
+              {{ serverless-containers-full-name }}
+            href: tutorials/functions-framework-to-container.md
+      - name: Serverless-based workflows and automation
+        items:
+          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+            href: tutorials/ci-cd-serverless.md
+          - name: Starting {{ GLR }} in {{ serverless-containers-name }}
+            href: tutorials/serverless-gitlab-runner.md
+          - name: >-
+              Setting up CI/CD in {{ src-name }} to deploy {{
+              serverless-containers-name }} using GitHub Actions
+            href: tutorials/ci-cd-sourcecraft-github-actions.md
+          - name: >-
+              Regular recognition of images and PDF documents from an {{
+              objstorage-short-name }} bucket
+            href: tutorials/vision-ocrrecognizer-storage.md
   - name: Access management
     href: security/index.md
   - name: Tools

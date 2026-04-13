@@ -4,7 +4,7 @@ If you are an administrator or user of multiple [organizations](../../concepts/o
 
 To switch to a different {{ datalens-short-name }} instance:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. Click your account photo in the bottom-left corner.
 
    ![image](../../../_assets/datalens/organization/select-organization.png)

@@ -1,4 +1,4 @@
-# Canary release of {{ sf-name }}
+# Canary release of a function in {{ sf-name }}
 
 
 Create a canary release of a function in {{ sf-name }} using {{ api-gw-short-name }}.
@@ -32,8 +32,8 @@ The web application support cost includes:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Name the service account: `canary-sa`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
+  1. Enter a name for the service account: `canary-sa`.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -104,7 +104,7 @@ The web application support cost includes:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
          ```bash
@@ -397,14 +397,14 @@ Tag the first function version as `stable` and the second one as `canary`.
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory you created the configuration file in.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
 
   1. Deploy the cloud resources.
 

@@ -7,6 +7,32 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.203.0 (26/03/26) {#version0.203.0}
+
+#### Changes to the CLI {#cli-0.203.0}
+
+* Fixed the CLI initialization error related to the limit on the number of clouds and folders.
+
+#### Changes to {{ yandex-cloud }} services {#services-0.203.0}
+
+##### {{ baremetal-name }} {#baremetal-0.203.0}
+
+Added parameters for selecting a CIDR block allocation method when creating a public subnet:
+* `yc baremetal public-subnet create --cidr-auto-allocation`
+* `yc baremetal public-subnet create --cidr-manual-allocation`
+
+## Previous releases {#previous-release}
+
+### Version 0.202.0 (23/03/26) {#version0.202.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.202.0}
+
+##### {{ mch-name }} {#mch-0.202.0}
+
+Added the `--allow-host-recreation` parameter for host recreation to the following commands:
+* `yc managed-clickhouse cluster update`
+* `yc managed-clickhouse shard update`
+
 ### Version 0.201.0 (19/03/26) {#version0.201.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -14,8 +40,6 @@ description: This page presents a list of CLI releases and the updates of each.
 ##### {{ baremetal-name }}
 
 Added the `yc baremetal vrf update` command to manage VRF static routes.
-
-## Previous releases {#previous-release}
 
 ### Version 0.200.0 (18/03/26) {#version0.200.0}
 
