@@ -1,33 +1,18 @@
-# {{ PG }} version upgrade
+# {{ PG }} version update
 
-You can upgrade a {{ mpg-name }} cluster to version 18 or lower.
+You can upgrade the {{ PG }} version in your {{ mpg-name }} cluster to `18` or lower. Note that you can only upgrade a major version step by step, one version at a time.
 
 {% note info %}
 
-Upgrade from a standard cluster version to an _1C:Enterprise_ version (e.g., 14 to 14-1c) is not supported.
+Upgrade from a standard version to a _1С:Enterprise_ version (e.g., `14` to `14-1c`) is not supported.
 
 {% endnote %}
 
-{% note warning %}
+How long an upgrade takes depends on the number of affected databases and the number of objects in each of them. The more databases and objects there are, the longer your upgrade will take.
 
-To upgrade the version, the cluster storage must have at least 10% free space, with a minimum of 10 GB.
+For more information about version upgrades, see [Updating the {{ PG }} major version in {{ mpg-name }}](../concepts/upgrade.md).
 
-{% endnote %}
-
-You can only upgrade to the next sequential version, e.g., from 14 to 15. Upgrading to subsequent versions must be done incrementally. For example, to upgrade {{ PG }} from version 14 to 16, follow this sequence: 14 → 15 → 16.
-
-In single-host clusters, only the master host is taken offline for upgrades. Such clusters are unavailable for reading and writing during upgrades.
-
-In multi-host clusters, upgrades follow the procedure below:
-
-1. The master host is taken offline for an upgrade. During this time, replicas operate in read-only mode. No [failover](../concepts/replication.md#replication-auto) occurs. After the upgrade, the master host stays offline, even for reads, until all replicas are upgraded.
-1. Replicas are taken offline for an upgrade, one by one. The replicas are queued randomly. Once upgraded, replicas resume operation in read-only mode.
-
-    A two-host cluster will be unavailable during the upgrade of its replica. In a cluster of three or more hosts, at least one replica will be always available for reading.
-
-1. The master host resumes its operation.
-
-To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## Before a version upgrade {#before-update}
 
@@ -35,14 +20,16 @@ Make sure the upgrade will not disrupt your applications:
 
 1. Check the {{ PG }} [release notes](https://www.postgresql.org/docs/release/) to learn how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
 1. Try upgrading a test cluster. You can [deploy](cluster-backups.md#restore) it from a backup of the main cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster immediately before upgrading.
+1. [Back up](cluster-backups.md#create-backup) your main cluster before upgrading.
 
-## Upgrading a cluster {#start-update}
+## Updating the {{ PG }} version {#start-update}
 
-{% note alert %}
+{% note warning %}
 
-* After the DBMS upgrade, you cannot revert a cluster to the previous version.
-* Whether a {{ PG }} version upgrade succeeds depends on multiple factors, including your cluster’s configuration and the nature of the stored data. We recommend you first [upgrade a test cluster](#before-update) with the same data and configuration.
+To upgrade a major version, the following must be free:
+
+* For disks with a capacity of 100 GB or less: At least 10% of the storage volume.
+* For disks with a capacity of more than 100 GB: At least 10 GB.
 
 {% endnote %}
 
@@ -105,7 +92,7 @@ Make sure the upgrade will not disrupt your applications:
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -137,13 +124,13 @@ Make sure the upgrade will not disrupt your applications:
 
      Where:
 
-     * `updateMask`: Comma-separated list of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        Here, we provide only one setting.
 
      * `configSpec.version`: New {{ PG }} version.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -182,7 +169,7 @@ Make sure the upgrade will not disrupt your applications:
 
      Where:
 
-     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
        Here, we provide only one setting.
 

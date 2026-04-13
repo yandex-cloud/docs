@@ -248,7 +248,9 @@ To set up the connection and export data from your app, see [Export data to {{ y
 
 ## 5. Create and configure a dashboard in {{ datalens-short-name }} {#creating-configuring-dashboard}
 
-1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}) and click **Create dashboard**.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
+1. Click **Create dashboard**.
 1. Add a chart to your dashboard.
 
     1. In the top-right corner, click **Add** → **Chart**.
@@ -282,7 +284,7 @@ Try to change **event name** in the selector to another value to see how the das
 
 Use QL charts to delve into event sequences and experiment in {{ datalens-short-name }}.
 
-1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}) and select **Connections** in the menu on the left.
 1. Select the `AppMetrica_workshop` connection you created in step [4.2](#creation-datalens-connection-to-ch).
 1. At the top right, click **Create QL chart**.
 1. Enter the query:

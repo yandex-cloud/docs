@@ -16,8 +16,9 @@ To create a chart:
 
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. Click **Create chart**.
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
+1. Click **Create chart** → **Chart in Wizard**.
 
 
 

@@ -150,6 +150,8 @@ items:
         href: rules-reference/all.md
       - name: '{{ cspm-name }}'
         href: rules-reference/cspm.md
+      - name: '{{ kspm-name }}'
+        href: rules-reference/kspm.md
   - name: Справочник API
     items:
       - name: Аутентификация

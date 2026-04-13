@@ -218,7 +218,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      1. In the window that opens, enter `function-restart-vms` as the function name.
      1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a [function version](../../functions/concepts/function.md#version):
-     1. Select the `nodejs18` runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Select `nodejs18` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `function-js.zip` archive you created earlier.
      1. Specify the entry point: `index.handler`.

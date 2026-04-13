@@ -16,7 +16,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
   1. Optionally, provide a description.
   1. Optionally, add [labels](../../resource-manager/concepts/labels.md) to your profile.
   1. Enable one or multiple [rule sets](../concepts/waf.md#rules-set). [OWASP Core Rule Set](https://coreruleset.org/), Yandex Ruleset, Yandex ML Ruleset. Click the row with the rule set to view its rules.
-  1. For OWASP Core Rule Set, select a rule set version.
+  1. Select a rule set version.
   1. If multiple rule sets are enabled:
      * Select the profile trigger conditions:
        * **Verdict returned in at least one selected rule set**: At least one rule set has recognized the request as a threat.
@@ -94,7 +94,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
             * `is_enabled`: Flag to enable or disable a rule.
             * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
 
-      For more information about `yandex_sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about the `yandex_sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Create the resources:
 

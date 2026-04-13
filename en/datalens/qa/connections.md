@@ -18,6 +18,8 @@ description: This page covers FAQ about connections.
 
 {% include [csv-network-error](../../_qa/datalens/csv-network-error.md) %}
 
+{% include [google-sheets-display-v2](../../_qa/datalens/google-sheets-v2.md) %}
+
 
 {% include [google-sheets-error](../../_qa/datalens/google-sheets-error.md) %}
 

@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to remove a domain from an API
   1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click the API gateway name.
-  1. Go to ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}** tab.
   1. Click ![image](../../_assets/options.svg) in the domain row and select **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_acton-delete }}**.
   1. Confirm your action.
   1. Delete the resource record created when adding the domain to the API gateway:
@@ -21,7 +21,7 @@ description: In this tutorial, you will learn how to remove a domain from an API
 
         1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
         1. Select the zone hosting the domain.
-        1. Click ![image](../../_assets/options.svg) in the record row with the ![image](../../_assets/api-gateway/service-icon.svg) icon and select **{{ ui-key.yacloud.common.delete }}**.
+        1. Click ![image](../../_assets/options.svg) in the record row with the ![image](../../_assets/api-gateway/service-icon.svg) icon and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
 
       * If a third-party DNS provider manages your domain, delete the record on the domain management page of your provider.

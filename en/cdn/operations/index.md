@@ -18,6 +18,7 @@ description: This page provides a list of step-by-step guides for {{ cdn-name }}
 * [{#T}](resources/configure-headers.md)
 * [{#T}](resources/configure-cors.md)
 * [{#T}](resources/configure-http.md)
+* [{#T}](resources/configure-response.md)
 * [{#T}](resources/enable-compression.md)
 * [{#T}](resources/enable-segmentation.md)
 * [{#T}](resources/enable-shielding.md)

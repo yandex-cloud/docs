@@ -6,15 +6,12 @@
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mpg-name }} cluster fee, which covers the use of computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
-* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
-* VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* Fee for a VM public IP address (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

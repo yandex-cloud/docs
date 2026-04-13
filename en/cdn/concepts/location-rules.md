@@ -17,6 +17,7 @@ You can use location rules to override the following CDN resource settings:
 * [Cross-domain CORS requests](cors.md)
 * [Content compression](compression.md)
 * [Content segmentation](slicing.md)
+* [Non-standard HTTP responses](../operations/resources/configure-response.md)
 
 {% include [location-rules-additional](../../_includes/cdn/location-rules-additional.md) %}
 

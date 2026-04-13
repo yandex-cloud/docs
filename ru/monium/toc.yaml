@@ -25,6 +25,8 @@ items:
             href: collector/otel-clinic-example.md
           - name: Пример мониторинга ансамбля микросервисов в {{ k8s }}
             href: collector/otel-k8s-example.md
+          - name: Пример мониторинга Nginx в {{ k8s }}
+            href: collector/otel-k8s-nginx.md
           - name: Устранение неполадок при поставке данных
             href: collector/troubleshooting.md
       - name: Fluent Bit

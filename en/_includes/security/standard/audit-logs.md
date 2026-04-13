@@ -67,13 +67,13 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 * Splunk: [Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
 
-* MaxPatrol SIEM: [Collecting, monitoring, and analyzing audit logs in MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol.md)
+* MaxPatrol SIEM: [Collecting, monitoring, and analyzing audit logs in MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol/index.md)
 
 * Wazuh: [Collecting, monitoring, and analyzing audit logs in Wazuh](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-wazuh/blob/main/README-en.md)
 
 * KUMA: [Collecting, monitoring, and analyzing audit logs in KUMA](../../../tutorials/security/audit-trails-events-to-kuma/index.md)
 
-For more information about MaxPatrol, see this [section](../../../audit-trails/tutorials/maxpatrol.md).
+For more information about MaxPatrol, see this [section](../../../audit-trails/tutorials/maxpatrol/index.md).
 
 You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
 

@@ -11,6 +11,7 @@ editable: false
 ## Правила по категориям {#by-category}
 
 * [{{ cspm-name }} — {{ cspm-full-name }}](cspm.md)
+* [{{ kspm-name }} — {{ kspm-full-name }}](kspm.md)
 
 ## Все правила {#all-rules}
 

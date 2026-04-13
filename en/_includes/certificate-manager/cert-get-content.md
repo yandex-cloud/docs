@@ -8,7 +8,7 @@ To get the contents of a certificate:
 
     1. In the [management console]({{ link-console-main }}), select the folder where the certificate is located.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-    1. Next to the certificate, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
+    1. In the row with the certificate, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        You can only export certificates with the `Issued` status.
     1. Select one of the export options. The `certificate.pem` file will contain the following data in Base64 encoded text format:

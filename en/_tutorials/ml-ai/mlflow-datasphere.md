@@ -20,15 +20,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The cost of training a model based on {{ objstorage-name }} data includes:
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ ml-platform-name }} project: Use of computing resources and storage (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
 
-* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for using [{{ compute-name }} computing resources](../../compute/pricing.md).
-* Fee for a running [{{ mpg-name }}](../../managed-postgresql/pricing.md) cluster.
-* Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
 
 ## Set up your infrastructure {#infra}
 

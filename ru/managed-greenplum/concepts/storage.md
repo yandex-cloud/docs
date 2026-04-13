@@ -49,7 +49,7 @@ description: Из статьи вы узнаете, какие типы диск
 
             Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
 
-        * метка `disk.free_bytes`.
+        * метка `disk.free`.
 
     1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для процента заполнения свободного дискового пространства, при котором сработает алерт:
 

@@ -415,119 +415,135 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Creating a skill for Alice
-        href: tutorials/alice-skill.md
-      - name: Deploying a web application
-        href: tutorials/java-servlet-todo-list.md
-      - name: Building a skill for Alice and a website with authorization
-        href: tutorials/alice-shareable-todolist.md
-      - name: Writing device data to a database
-        href: tutorials/data-recording.md
-      - name: Writing load balancer logs to {{ PG }}
-        href: tutorials/logging.md
-      - name: Developing a Slack bot
-        href: tutorials/slack-bot-serverless.md
-      - name: Developing a Telegram bot
-        href: tutorials/telegram-bot-serverless.md
-      - name: Connecting to a YDB database from a Python function
-        href: tutorials/connect-to-ydb.md
-      - name: Connecting to a YDB database from a function in Node.js
-        href: tutorials/connect-to-ydb-nodejs.md
-      - name: Converting a video to a GIF in Python
+      - name: Serverless-based backend
         items:
-          - name: Overview
-            href: tutorials/video-converting-queue/index.md
-          - name: Management console
-            href: tutorials/video-converting-queue/console.md
-          - name: '{{ TF }}'
-            href: tutorials/video-converting-queue/terraform.md
-      - name: Creating a Node.js function using TypeScript
-        href: tutorials/nodejs-typescript.md
-      - name: Developing a custom integration
-        href: tutorials/api-gw-integration.md
-      - name: Creating a budget trigger that invokes a function to stop a VM
-        href: tutorials/serverless-trigger-budget-vm.md
-      - name: Creating an interactive serverless application using WebSocket
-        href: tutorials/websocket-app.md
-      - name: >-
-          Automatically copying objects from one {{ objstorage-name }} bucket to
-          another
-        href: tutorials/bucket-to-bucket.md
-      - name: Running computations on a schedule in {{ ml-platform-name }}
-        href: tutorials/regular-launch-datasphere.md
-      - name: Interactive debugging of functions
-        href: tutorials/serverless-live-debug.md
-      - name: >-
-          Regular asynchronous recognition of audio files from {{
-          objstorage-name }}
-        href: tutorials/batch-recognition-stt.md
-      - name: Canary release of {{ sf-name }}
-        href: tutorials/canary-release.md
-      - name: Deploying a fault-tolerant architecture with preemptible VMs
-        href: tutorials/nodejs-cron-restart-vm.md
-      - name: >-
-          Creating triggers that invoke a function to stop a VM and send a
-          Telegram notification
-        href: tutorials/serverless-trigger-budget-queue-vm-tg.md
-      - name: >-
-          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
-          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
-          data-transfer-full-name }}
-        href: tutorials/data-transfer-direct-to-mch.md
-      - name: Scheduled instance group scaling
+          - name: Deploying a web application
+            href: tutorials/java-servlet-todo-list.md
+          - name: Converting a video to a GIF in Python
+            items:
+              - name: Overview
+                href: tutorials/video-converting-queue/index.md
+              - name: Management console
+                href: tutorials/video-converting-queue/console.md
+              - name: '{{ TF }}'
+                href: tutorials/video-converting-queue/terraform.md
+          - name: Developing a custom integration
+            href: tutorials/api-gw-integration.md
+          - name: URL shortener
+            href: tutorials/serverless-url-shortener.md
+          - name: Building an interactive serverless application using WebSocket
+            href: tutorials/websocket-app.md
+          - name: Creating a Node.js function using TypeScript
+            href: tutorials/nodejs-typescript.md
+          - name: Connecting to a YDB database from a Python function
+            href: tutorials/connect-to-ydb.md
+          - name: Connecting to a YDB database from a function in Node.js
+            href: tutorials/connect-to-ydb-nodejs.md
+          - name: Canary release of a function in {{ sf-name }}
+            href: tutorials/canary-release.md
+          - name: Interactive debugging of functions
+            href: tutorials/serverless-live-debug.md
+      - name: Serverless-based bots
         items:
-          - name: Overview
-            href: tutorials/vm-scale-scheduled/index.md
-          - name: Management console, CLI, and API
-            href: tutorials/vm-scale-scheduled/console.md
-          - name: '{{ TF }}'
-            href: tutorials/vm-scale-scheduled/terraform.md
-      - name: Monitoring the status of geographically distributed devices
-        href: tutorials/datalens.md
-      - name: Sensor reading monitoring and event notifications
-        href: tutorials/monitoring.md
-      - name: Emulating multiple IoT devices
-        href: tutorials/iot-emulation.md
-      - name: >-
-          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
-        href: tutorials/events-from-postbox-to-yds.md
-      - name: URL shortener
-        href: tutorials/serverless-url-shortener.md
-      - name: '{{ tracker-full-name }}: data export and visualization'
-        href: tutorials/data-from-tracker.md
-      - name: Running computations in {{ ml-platform-name }} using the API
-        href: tutorials/batch-code-execution.md
-      - name: Developing a Telegram bot for text and audio recognition
-        href: tutorials/recognizer-bot.md
-      - name: >-
-          Configuring responses in {{ cloud-logging-full-name }} and {{ sf-name
-          }}
-        href: tutorials/logging-functions.md
-      - name: >-
-          Developing functions in Functions Framework and deploying them to {{
-          serverless-containers-full-name }}
-        href: tutorials/functions-framework-to-container.md
-      - name: >-
-          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
-          using {{ sf-full-name }} and {{ yq-full-name }}
+          - name: Developing a Slack bot
+            href: tutorials/slack-bot-serverless.md
+          - name: Developing a Telegram bot
+            href: tutorials/telegram-bot-serverless.md
+          - name: Developing a Telegram bot for text and audio recognition
+            href: tutorials/recognizer-bot.md
+      - name: Serverless-based ETL
         items:
-          - name: Overview
-            href: tutorials/forms-and-datalens-integration/index.md
-          - name: Management console
-            href: tutorials/forms-and-datalens-integration/console.md
-          - name: '{{ TF }}'
-            href: tutorials/forms-and-datalens-integration/terraform.md
-      - name: Configuring CI/CD with {{ src-name }}
-        href: tutorials/ci-cd-sourcecraft-functions.md
-      - name: Configuring CI/CD with GitHub
-        href: tutorials/ci-cd-github-functions.md
-      - name: Creating an AI agent with {{ sf-name }}
-        href: tutorials/create-ai-agent-function.md
-      - name: Creating an AI agent with response streaming via web sockets
-        href: tutorials/streaming-openai-agent.md
-      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
-        href: tutorials/postbox-webhook.md
+          - name: Writing device data to a database
+            href: tutorials/data-recording.md
+          - name: Writing load balancer logs to {{ PG }}
+            href: tutorials/logging.md
+          - name: >-
+              Loading data from {{ yandex-direct }} to a {{ mch-full-name }}
+              data mart using {{ sf-full-name }}, {{ objstorage-full-name }},
+              and {{ data-transfer-full-name }}
+            href: tutorials/data-transfer-direct-to-mch.md
+          - name: >-
+              Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
+              and analyzing them using {{ datalens-full-name }}
+            href: tutorials/events-from-postbox-to-yds.md
+          - name: '{{ tracker-full-name }}: data export and visualization'
+            href: tutorials/data-from-tracker.md
+          - name: >-
+              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+              using {{ sf-full-name }} and {{ yq-full-name }}
+            items:
+              - name: Overview
+                href: tutorials/forms-and-datalens-integration/index.md
+              - name: Management console
+                href: tutorials/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: tutorials/forms-and-datalens-integration/terraform.md
+          - name: >-
+              {{ postbox-full-name }} integration with external systems via
+              webhooks
+            href: tutorials/postbox-webhook.md
+      - name: Serverless-based workflows and automation
+        items:
+          - name: Creating a budget trigger that invokes a function to stop a VM
+            href: tutorials/serverless-trigger-budget-vm.md
+          - name: >-
+              Automatically copying objects from one {{ objstorage-name }}
+              bucket to another
+            href: tutorials/bucket-to-bucket.md
+          - name: Running computations on a schedule in {{ ml-platform-name }}
+            href: tutorials/regular-launch-datasphere.md
+          - name: >-
+              Asynchronous recognition of audio files from {{ objstorage-name }}
+              on a regular basis
+            href: tutorials/batch-recognition-stt.md
+          - name: Deploying a fault-tolerant architecture with preemptible VMs
+            href: tutorials/nodejs-cron-restart-vm.md
+          - name: >-
+              Creating triggers that invoke a function to stop a VM and send a
+              Telegram notification
+            href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+          - name: Scheduled instance group scaling
+            items:
+              - name: Overview
+                href: tutorials/vm-scale-scheduled/index.md
+              - name: Management console, CLI, and API
+                href: tutorials/vm-scale-scheduled/console.md
+              - name: '{{ TF }}'
+                href: tutorials/vm-scale-scheduled/terraform.md
+          - name: Running computations in {{ ml-platform-name }} using the API
+            href: tutorials/batch-code-execution.md
+          - name: Configuring CI/CD with {{ src-name }}
+            href: tutorials/ci-cd-sourcecraft-functions.md
+          - name: Configuring CI/CD with GitHub
+            href: tutorials/ci-cd-github-functions.md
+          - name: >-
+              Configuring responses in {{ cloud-logging-full-name }} and {{
+              sf-name }}
+            href: tutorials/logging-functions.md
+          - name: >-
+              Developing functions in Functions Framework and deploying them to
+              {{ serverless-containers-full-name }}
+            href: tutorials/functions-framework-to-container.md
+      - name: Internet of things
+        items:
+          - name: Monitoring the status of geographically distributed devices
+            href: tutorials/datalens.md
+          - name: Sensor reading monitoring and event notifications
+            href: tutorials/monitoring.md
+          - name: Emulating multiple IoT devices
+            href: tutorials/iot-emulation.md
+      - name: Integration with Yandex and Yandex Cloud services
+        items:
+          - name: Building a skill for Alice and a website with authorization
+            href: tutorials/alice-shareable-todolist.md
+          - name: Creating a skill for Alice
+            href: tutorials/alice-skill.md
+      - name: AI
+        items:
+          - name: Creating an AI agent with {{ sf-name }}
+            href: tutorials/create-ai-agent-function.md
+          - name: Creating an AI agent with response streaming via web sockets
+            href: tutorials/streaming-openai-agent.md
   - name: Tools
     href: tools.md
   - name: Pricing policy

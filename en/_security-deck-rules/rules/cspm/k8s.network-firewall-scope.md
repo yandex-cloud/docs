@@ -1,4 +1,4 @@
-### Access to Kubernetes components is limited by IP address, port, and protocol {#network-firewall-scope}
+### Access to Kubernetes components is limited by IP address, port, and protocol {#k8s-network-firewall-scope}
 
 #|
 || **kind** | **severity** | **ID** ||

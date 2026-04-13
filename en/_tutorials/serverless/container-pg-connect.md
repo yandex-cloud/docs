@@ -11,12 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mpg-name }} cluster fee: Covers the use of computing resources allocated to hosts and disk storage (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ container-registry-name }} fee: Using the storage (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md#rules-storage)).
-* Fee for the {{ serverless-containers-name }} container: Number of container invocations and computing resources (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ container-registry-name }} registry: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ serverless-containers-name }} container: Number of container calls, idle time of provisioned instances, and computing resources allocated to run the container (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
 
 
 ## Getting started {#before-begin}

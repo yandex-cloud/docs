@@ -16,12 +16,12 @@ editable: false
 
 When using {{ video-name }}, you are charged for the following:
 
-* Outgoing traffic: Fee for transmitting video content from the {{ yandex-cloud }} CDN servers to the internet. Such traffic means transmitting and showing video content to your audience.
-* Transcoding: Fee for converting [video content](concepts/videos.md) when uploading it to {{ video-name }}.
-* Broadcasts transcoding: Fee for converting the [stream video content](concepts/streams.md).
+* Outgoing traffic: Fee for transmitting video content from the {{ yandex-cloud }} CDN servers to the internet. Such traffic means transmitting and showing video content to your audience. The fee does not depend on the type of video and is the same for uploaded videos and broadcasts.
+* Transcoding: Fee for converting [video content](concepts/videos.md) when uploading it to the service.
+* Broadcast video transcoding: Fee for conversion of the [broadcast](concepts/streams.md) video stream.
 * Video streaming storage: Fee for storing video streaming content after transcoding. When transcoding, you get multiple versions of video content with different bitrate and resolution. This is why the overall size of the video streaming content may be larger than that of the original content.
 * Original files storage: Fee for storing the original video files uploaded to {{ video-name }}.
-* Broadcasts storage: Fee for storing stream recordings.
+* Broadcast video storage: Fee for storage of broadcast videos.
 
 The video content is stored in {{ objstorage-name }}. The data amount is measured in GBs per month. The size of video content per month is calculated as the average value based on granular per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 

@@ -3,7 +3,7 @@
 
 In this tutorial, you will create a URL shortener using {{ yandex-cloud }} serverless technology.
 
-This tool accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The user receives an HTML page with a URL input field from a [hosting](../../storage/concepts/hosting.md) service. The [function](../../functions/concepts/function.md) sends the entered URL for storage to a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user follows the shortened URL, the function retrieves the full URL from the database and and performs a redirect.
+This tool accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The user receives an HTML page with a URL input field from a [hosting](../../storage/concepts/hosting.md) service. The [function](../../functions/concepts/function.md) sends the entered URL for storage to a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user follows the shortened URL, the function retrieves the full URL from the database and performs a redirect.
 
 To configure and test the tool:
 1. [Get your cloud ready](#before-begin).
@@ -126,7 +126,7 @@ To create a service account to enable interaction between the shortener componen
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `serverless-shortener`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Click the name of the service account you created.
 

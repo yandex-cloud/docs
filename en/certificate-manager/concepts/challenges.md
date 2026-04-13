@@ -33,15 +33,15 @@ You cannot use the `HTTP` check type for [Wildcard certificates](https://en.wiki
 To check the rights for the `example.com` domain:
 
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the name of the certificate you need.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click the certificate name.
 1. Prepare a file that will allow the Let's Encrypt certificate authority (CA) to verify your ownership of the domain specified in the certificate:
 
-    1. Use your hosting control panel to create a file on the server with the name and path matching the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field under **HTTP record**. For example:
+    1. Use your hosting control panel to create a file on the server with the name and path matching the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field value under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. For example:
 
         * `/.well-known/acme-challenge/`: Path to the file.
         * `di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1B********`: File name.
 
-    1. Insert into the file you created the value of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field from **HTTP record**. Here is an example:
+    1. Add the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field value from the **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** section into the file you created. For example:
 
         > di2o3VRsbS6H_eUntKnW3Xcefw_1DOSpZ1BLW0QUDbE._TYLpfPMbwHQZ1aEmsdpidY5bPUnVyDvqSO********
 
@@ -70,7 +70,7 @@ Using a CNAME record enables you to undergo a check only once. To do this, you n
 
 To automatically check the rights for the `example.com` domain:
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, select the certificate to check.
 1. Further steps to follow will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider.
 
@@ -83,7 +83,7 @@ To automatically check the rights for the `example.com` domain:
 
 To check rights for the `example.com` domain, follow these steps:
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, select the certificate to check.
 1. Further steps to follow will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider.
 

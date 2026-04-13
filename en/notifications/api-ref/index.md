@@ -2,7 +2,7 @@
 
 The {{ cns-name }} HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
-You can use the [AWS CLI](../tools/aws-cli.md) and [AWS SDK for Python (boto3)](../tools/sdk-python.md) for more convenient work with the service.
+For a more user-friendly experience, you can use the [AWS CLI](../tools/aws-cli.md), [AWS SDK for Python (boto3)](../tools/sdk-python.md), and other [AWS-compatible SDKs](../tools/).
 
 For authentication in the API, CLI and SDK, use a [static access key](../../iam/concepts/authorization/access-key.md). A static access key is issued for the [service account](../../iam/concepts/users/service-accounts.md), and all actions are performed on behalf of that service account.
 
@@ -36,10 +36,30 @@ For a list of common error codes for all actions, see [{#T}](common-errors.md).
 | [GetAttributes](get-endpoint-attributes.md) | Getting endpoint parameters |
 | [SetAttributes](set-endpoint-attributes.md) | Setting endpoint parameters |
 | [List](list-endpoints.md) | Getting a list of endpoints |
-| [Delete](delete-endpoint.md) | Deleting an endpoint (unsubscribing the user from push notifications) |
+| [Delete](delete-endpoint.md) | Deleting an endpoint (unsubscribing the user from push notifications)  |
+
+### SMS {#sms}
+
+| Action | Description |
+| --- | --- |
+| [Create](create-sms-channel.md) | Creating an [SMS notification channel](../concepts/sms.md). |
+| [GetAttributes](get-sms-channel-attributes.md) | Getting SMS notification channel properties. |
+| [GetSmsAttributes](get-sms-attributes.md) | Getting properties to send SMS notifications in cloud. |
+| [SetAttributes](set-sms-channel-attributes.md) | Setting SMS notification channel properties. |
+| [List](list-sms-channels.md) | Getting a list of SMS notification channels. |
+| [Delete](delete-sms-channel.md) | Deleting an SMS notification channel. |
+
+### Sandbox {#sandbox}
+
+| Action | Description |
+| --- | --- |
+| [Create](create-sms-sandbox-phone-number.md) | Adding a [test phone number](../concepts/sms.md#sandbox) to an SMS notification channel and sending a one-time password to a phone number. |
+| [Verify](verify-sms-sandbox-phone-number.md) | Verifying a phone number with a one-time password. |
+| [List](list-sms-sandbox-phone-numbers.md) | Getting a list of verified phone numbers. |
+| [Delete](delete-sms-sandbox-phone-number.md) | Deleting a verified phone number. |
 
 ### Publish {#publish}
 
 | Action | Description |
 | --- | --- |
-| [Publish](publish.md) | Sending a push notification |
+| [Publish](publish.md) | Sending a push notification or SMS. |

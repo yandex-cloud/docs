@@ -1,6 +1,7 @@
 ---
 title: Configuring responses in {{ cloud-logging-name }} and {{ sf-name }}
 description: Follow this guide to customize responses in {{ cloud-logging-name }} and {{ sf-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/logging-functions'
 ---
 

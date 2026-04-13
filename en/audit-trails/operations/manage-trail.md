@@ -40,48 +40,9 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
   Create a YAML specification containing the updated trail parameters and specify this file in the command for creating the trail.
   
-  This method simplifies working with trail parameters and reduces the probability of error. In addition, you can customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) only using the YAML specification.
+  This method simplifies working with trail parameters and reduces the probability of error. In addition, you can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
 
-  1. Create a YAML file with the updated trail configuration:
-
-      {% include [trail-create-cli-yaml-config](../../_includes/audit-trails/trail-create-cli-yaml-config.md) %}
-
-      Where:
-
-      * `name`: Trail name. It must be unique within the folder.
-      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder the trail will reside in.
-      * `destination`: Settings of the selected destination the audit logs will be uploaded to.
-
-          {% note warning %}
-
-          Destination settings are mutually exclusive. Using some settings makes it impossible to use others.
-
-          {% endnote %}
-
-          * `object_storage`: Uploading logs to a {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md#naming):
-
-              * `bucket_id`: [Bucket](../../storage/concepts/bucket.md#naming) name.
-
-                  You can request the name of the bucket with the list of buckets in the folder (the default folder is used):
-
-                  ```bash
-                  yc storage bucket list
-                  ```
-              * `object_prefix`: [Prefix](../../storage/concepts/object.md#folder) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
-
-                  {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
-
-          * `cloud_logging`: Uploading logs to a {{ cloud-logging-full-name }} [group](../../logging/concepts/log-group.md).
-
-              Specify the log group ID in the `log_group_id` parameter. You can request the ID with the [list of log groups in the folder](../../logging/operations/list.md).
-          * `data_stream`: Uploading logs to a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-full-name }}:
-
-              * `stream_name`: Stream name. You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
-              * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
-      * `service_account_id`: Service account [ID](../../iam/operations/sa/get-id.md).
-
-      {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
-
+  1. [Create a YAML specification](prepare-spec.md#spec-for-update) with an updated trail configuration.
   1. To update a trail, run this command:
 
       ```bash
@@ -150,13 +111,13 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
+      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings either in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc audit-trails trail get <trail_name>
@@ -165,6 +126,8 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
 - API {#api}
 
   To update a trail, use the [update](../api-ref/Trail/update.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Update](../api-ref/grpc/Trail/update.md) gRPC API call.
+
+  To make it easier to create a trail specification, you can get trail parameters using the [get](../api-ref/Trail/get.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Get](../api-ref/grpc/Trail/get.md) gRPC API call.
 
 {% endlist %}
 
@@ -219,7 +182,7 @@ You can update the [destination object](../concepts/trail.md#target), event [typ
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
      ```bash

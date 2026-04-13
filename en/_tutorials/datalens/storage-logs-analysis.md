@@ -84,7 +84,7 @@ The cost includes:
 
      For more information about the `yandex_storage_bucket` resource, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/storage_bucket).
      
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -482,7 +482,7 @@ To visualize the distribution of outbound traffic by day, create a bar chart:
 
 ## Create a dashboard in {{ datalens-short-name }} and add charts to it {#create-dashboard}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
 1. Click **Create dashboard**.
 1. Enter the `S3 Logs Analysis` name for the dashboard and click **Create**.
 1. In the top-right corner, click **Add** and select `Chart`.

@@ -20,6 +20,13 @@ To migrate a database from the {{ mpg-name }} *source cluster* to the {{ PG }} *
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 1. Check that all source cluster hosts are accessible via public IP addresses to make sure the target cluster can connect to the source cluster. For more information, see [Creating a cluster](../../managed-postgresql/operations/cluster-create.md).
@@ -31,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Make sure the target cluster hosts can connect to the source cluster hosts.
 1. Make sure you can [connect to the source cluster](../../managed-postgresql/operations/connect/index.md) and the target cluster via SSL.
-1. Check that an empty database is created on the target cluster to migrate your data to.
+1. Check that an empty database is created on the target cluster to migrate your data to. 
 1. Check if there is a user with full access rights to this database in the target cluster.
 
 ## Migrate the database schema {#migrate-schema}
@@ -42,9 +49,9 @@ For logical replication to work properly, both the source and the target must ha
    ```bash
    pg_dump "host=<source_cluster_host_FQDN> port=6432 sslmode=verify-full dbname=<DB_name> user=<DB_owner_username>" --schema-only --no-privileges --no-subscriptions --no-publications -Fd -f <dump_directory>
    ```
-
+   
    You can get the host FQDN with the [list of hosts in the cluster](../../managed-postgresql/operations/hosts.md#list).
-
+   
 1. If necessary, create users with the appropriate access rights to the target cluster's database objects.
 
 1. Restore the database schema from the dump on the target cluster using the [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) utility:
@@ -71,21 +78,21 @@ After [creating a subscription](#create-subscription), a connection to the sourc
    ```sql
    CREATE PUBLICATION <publication_name>;
    ```
+   
+1.  Include all database tables in the created publication:
 
-1. Include all database tables in the created publication:
-
-   ```
-   ALTER PUBLICATION <publication_name> ADD TABLE <table_1_name>;
-   ...
-   ALTER PUBLICATION <publication_name> ADD TABLE <table_N_name>;
-   ```
-
-   {% note info %}
-
-   {{ mpg-name }} clusters do not support creating a publication for all tables at once (`CREATE PUBLICATION ... FOR ALL TABLES;`), since this requires superuser privileges.
-
-   {% endnote %}
-
+    ```
+    ALTER PUBLICATION <publication_name> ADD TABLE <table_1_name>;
+    ...
+    ALTER PUBLICATION <publication_name> ADD TABLE <table_N_name>;
+    ``` 
+    
+    {% note info %}
+    
+    {{ mpg-name }} clusters do not allow creating a publication for all tables at once (`CREATE PUBLICATION ... FOR ALL TABLES;`), as this operation requires superuser privileges.
+    
+    {% endnote %}
+    
 ## Create a subscription on the target cluster {#create-subscription}
 
 1. Connect to the **master host** and the target database as a **superuser** (e.g., `postgres`).
@@ -94,7 +101,7 @@ After [creating a subscription](#create-subscription), a connection to the sourc
    ```sql
    CREATE SUBSCRIPTION <subscription_name> CONNECTION 'host=<source_cluster_host_FQDN> port=6432 sslmode=verify-full dbname=<source_database_name> user=<user_for_replication_management> password=<user_password>' PUBLICATION <publication_name>;
    ```
-
+   
 This initiates data migration from the source cluster database to the target cluster database.
 
 ## Monitoring the migration process {#monitor-migration}
@@ -123,23 +130,23 @@ After the replication is complete:
    ```bash
    pg_dump "host=<source_cluster_master_host_FQDN> port=6432 sslmode=verify-full dbname=<DB_name> user=<DB_owner_username>" --data-only -t '*.*_seq' > <sequences_file_name>
    ```
-
+   
    ```bash
    psql -h <master_host_FQDN_of_target_cluster> -U <DB_owner_username> -p 5432 -d <DB_name> < <sequences_file_name>
-   ```
+   ``` 
 
 1. Delete the subscription on the target cluster:
 
    ```sql
    DROP SUBSCRIPTION <subscription_name>;
    ```
-
+   
 1. Delete the publication on the source cluster:
 
    ```sql
    DROP PUBLICATION <publication_name>;
    ```
-
+   
 1. [Remove the user](../../managed-postgresql/operations/cluster-users.md#removeuser) managing replication on the source cluster.
 
 ## Delete the resources you created {#clear-out}

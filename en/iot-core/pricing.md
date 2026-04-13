@@ -7,9 +7,6 @@ editable: false
 # {{ iot-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -28,7 +25,7 @@ In {{ iot-name }}, you are charged for the number of messages. The message count
 Message Count = Command Size / 1 KB
 ```
 
-Here is an example:
+For example:
 * If the command size is 800 B, it is a single message.
 * If the command size is 2,800 B (2.73 KB), it is three messages.
 
@@ -43,6 +40,8 @@ The [broker](concepts/index.md#broker) is at the [Preview](../overview/concepts/
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Cost calculation example {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 
@@ -71,5 +70,6 @@ Here are the commands that are charged under {{ iot-name }}:
     currency="USD"
   />
 </MDX>
+
 
 

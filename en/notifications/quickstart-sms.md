@@ -20,6 +20,7 @@ To get started with SMS:
 1. [Add a test phone number](#add-test-number).
 1. [Send a test SMS](#send-test-sms).
 1. [Create a notification channel with an individual sender](#create-individual-channel).
+1. [Create an SMS template](#create-template).
 1. [Exit the sandbox](#quit-from-sandbox).
 
 ## Get your cloud ready {#before-you-begin}
@@ -37,7 +38,7 @@ To create a channel with a common sender:
 {% include [sms-channel-common-create](../_includes/notifications/sms-channel-common-create.md) %}
 
 
-## Add a test phone number {#add-test-number}
+## Add a test phone number {#add-test-number}.
 
 {% include [sandbox-test-numbers](../_includes/notifications/sandbox-test-numbers.md) %}
 
@@ -81,6 +82,12 @@ To create a channel with an individual sender:
 
 {% include [sms-channel-individual-create](../_includes/notifications/sms-channel-individual-create.md) %}
 
+
+## Create an SMS template {#create-template}
+
+{% include [sms-template-creation-intro](../_includes/notifications/sms-template-creation-intro.md) %}
+
+{% include [sms-template-create](../_includes/notifications/sms-template-create.md) %}
 
 ## Exit the sandbox {#quit-from-sandbox}
 

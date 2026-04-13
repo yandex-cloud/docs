@@ -181,6 +181,16 @@ metadata:
     gwin.yandex.cloud/rule.service-rule.backends.balancing.mode: "LEAST_REQUEST"  # per-rule balancing
     gwin.yandex.cloud/rule.service-rule.timeout: "30s"  # per-rule timeout
     gwin.yandex.cloud/rule.service-rule.idleTimeout: "120s"  # per-rule idle timeout
+    gwin.yandex.cloud/rule.service-rule.attach.backendGroup.id: "backend-group-id-1"  # per-rule attach
+
+    # Per-backend configuration by index
+    gwin.yandex.cloud/rule.service-rule.backend.0.tls.sni: "backend-0.example.com"  # TLS SNI for first backend
+    gwin.yandex.cloud/rule.service-rule.backend.0.albBackendName: "my-backend-0"  # custom name for first backend
+
+    # ALB resource naming
+    gwin.yandex.cloud/hosts.albVirtualHostName: "my-virtual-host"  # custom virtual host name
+    gwin.yandex.cloud/rule.service-rule.albRouteName: "my-route"  # custom route name
+    gwin.yandex.cloud/rule.service-rule.albBackendGroupName: "my-backend-group"  # custom backend group name
 ```
 
 ### Annotations reference
@@ -189,7 +199,7 @@ metadata:
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`. <br> Example: `ROUND_ROBIN` |
+| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
 | `gwin.yandex.cloud/rules.backends.balancing.localityAwareRouting` <br> _(number)_ <br> Percentage of traffic sent to backends in the same availability zone. <br> Example: `80` |
 | `gwin.yandex.cloud/rules.backends.balancing.strictLocality` <br> _(boolean)_ <br> Route traffic only to backends in the same availability zone. <br> Example: `false` |
 | `gwin.yandex.cloud/rules.backends.balancing.panicThreshold` <br> _(number)_ <br> Panic mode threshold percentage for load balancing. <br> Example: `50` |
@@ -325,6 +335,35 @@ For example: `gwin.yandex.cloud/rule.service-rule.backends.balancing.mode: "LEAS
 | `gwin.yandex.cloud/rule.{rule-name}.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for specific rule. <br> Example: `LEAST_REQUEST` |
 | `gwin.yandex.cloud/rule.{rule-name}.timeout` <br> _(duration)_ <br> Timeout for specific rule. <br> Example: `30s` |
 | `gwin.yandex.cloud/rule.{rule-name}.idleTimeout` <br> _(duration)_ <br> Idle timeout for specific rule. <br> Example: `120s` |
+| `gwin.yandex.cloud/rule.{rule-name}.attach.backendGroup.id` <br> _(string)_ <br> Cloud backend group ID for specific rule attachment. <br> Example: `backend-group-id-1` |
+
+#### Per-backend configuration by index
+
+{% note info %}
+
+Any `rules.backends` option can be applied to a specific backend within a rule by using `rule.{rule-name}.backend.{index}`, where `{index}` is the zero-based position of the backend in the rule's `backendRefs` list.
+
+For example: `gwin.yandex.cloud/rule.service-rule.backend.0.tls.sni: "backend-0.example.com"`.
+
+{% endnote %}
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/rule.{rule-name}.backend.{index}.tls.sni` <br> _(string)_ <br> SNI for TLS connections to the specific backend. <br> Example: `backend-0.example.com` |
+| `gwin.yandex.cloud/rule.{rule-name}.backend.{index}.hc.grpc.serviceName` <br> _(string)_ <br> gRPC health check service name for the specific backend. <br> Example: `health.HealthService` |
+
+#### ALB resource naming
+
+Custom names for ALB resources created by the controller. By default, the controller generates names automatically.
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/hosts.albVirtualHostName` <br> _(string)_ <br> Custom name for the ALB virtual host. <br> Example: `my-virtual-host` |
+| `gwin.yandex.cloud/rule.{rule-name}.albRouteName` <br> _(string)_ <br> Custom name for the ALB route for the specified rule. <br> Example: `my-route` |
+| `gwin.yandex.cloud/rule.{rule-name}.albBackendGroupName` <br> _(string)_ <br> Custom name for the ALB backend group for the specified rule. <br> Example: `my-backend-group` |
+| `gwin.yandex.cloud/rule.{rule-name}.backend.{index}.albBackendName` <br> _(string)_ <br> Custom name for the ALB backend at the specified zero-based index within the rule's `backendRefs`. <br> Example: `my-backend` |
+
+For the target group name, see [`gwin.yandex.cloud/albTargetGroupName`](./service.md) on the Service resource.
 
 ## GRPCRouteSpec
 

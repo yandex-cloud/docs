@@ -16,16 +16,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ PG }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ PG }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Prepare the source cluster {#prepare-source}
 
 1. Prepare the source database for migration as per [this guide](../../../data-transfer/operations/prepare.md#source-pg).
 
-1. Estimate your database workload. If it exceeds 10,000 writes per second, plan several transfers.
+1. Evaluate your database workload. If it exceeds 10,000 writes per second, schedule multiple transfers.
 
     1. Identify the high-workload tables.
     1. Distribute the tables between several transfers.
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             export POSTGRESQL_CLUSTER_ID=<cluster_ID>
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](../../../managed-postgresql/operations/cluster-list.md#list-clusters).
+            You can get the cluster ID from the [list of clusters in your folder](../../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
         1. Import the {{ PG }} version 13 cluster settings into the {{ TF }} configuration:
 
@@ -79,9 +79,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
             terraform show
             ```
 
-        1. Copy it from the terminal and paste it into the `.tf` file.
-        1. Place the file in the new `imported-cluster` directory.
-        1. Edit the copied configuration so that you can create a new cluster from it:
+        1. Copy it from your terminal and paste it into the `.tf` file.
+        1. Create a new directory `imported-cluster` and move your configuration file there.
+        1. Modify the configuration so that you can use it to create a new cluster:
 
             * Specify the new cluster name in the `resource` string and in the `name` argument.
             * Under `config`, set `version` to `17`.
@@ -89,7 +89,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * In the `host` sections, delete the `fqdn`, `role`, and `priority` arguments.
             * If the `disk_size_autoscaling` section has `disk_size_limit = 0`, delete this section.
             * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` argument.
-            * Optionally, make further changes if you need to customize the configuration.
+            * Optionally, you can customize the configuration further as needed.
 
         1. Add to the file a resource to create a user named `user1`:
 
@@ -101,7 +101,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             }
             ```
 
-            Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_postgresql_cluster` resource.
+            Where `<cluster_name>` is the name of your new cluster as specified in the `yandex_mdb_postgresql_cluster` resource.
 
         1. Add to the file a resource to create the database:
 
@@ -114,13 +114,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
             }
             ```
 
-            Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_postgresql_cluster` resource.
+            Where `<cluster_name>` is the name of your new cluster as specified in the `yandex_mdb_postgresql_cluster` resource.
 
-        1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
+        1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-        1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). [Download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) the provider configuration file rather than creating it manually.
+        1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-        1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+        1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added the authentication credentials to environment variables, specify them in the configuration file.
 
         1. Validate your {{ TF }} configuration:
 
@@ -141,7 +141,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     {% endlist %}
 
 
-1. If using security groups, make sure they are [configured correctly](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
+1. If you are using security groups in a cluster, make sure they are [configured correctly](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allow connections to it.
 
 
 1. Prepare the target database for migration as per [this guide](../../../data-transfer/operations/prepare.md#target-pg).
@@ -152,7 +152,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for each scheduled transfer and specify the endpoint parameters:
+    1. [Create source endpoints](../../../data-transfer/operations/endpoint/index.md#create) for each scheduled transfer and specify their settings:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
         * **Connection type**: `Manual setup`.
@@ -165,7 +165,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         Under **Schema transfer**, make sure you have `After data migration` set for foreign keys and indexes. In which case your foreign keys and indexes will be transferred at the transfer deactivation stage.
 
-    1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) for each planned transfer and specify endpoint parameters:
+    1. [Create target endpoints](../../../data-transfer/operations/endpoint/index.md#create) for each scheduled transfer and specify their settings:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
         * **Connection type**: `Manual setup`.
@@ -277,15 +277,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Remove the writing load from the source cluster.
-1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to reach zero for each transfer. This indicates that the target cluster now contains all changes made in the source cluster after the data copy completed.
-1. Switch the workload to the target cluster.
+1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to drop to zero for each transfer. This indicates that the target cluster now contains all changes made in the source cluster after the data copy completed.
+1. Transfer the workload over to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfers and wait for their status to change to {{ dt-status-stopped }}.
 
     During deactivation, foreign keys and indexes are being created. This may take a while. The larger your database, the longer the deactivation time.
 
 ## Check the data transfer {#verify}
 
-1. [Connect](../../../managed-postgresql/operations/connect/index.md) to the `db1` database in the {{ mpg-name }} target cluster.
+1. [Connect](../../../managed-postgresql/operations/connect/index.md) to the database `db1` in the {{ mpg-name }} target cluster.
 
 1. Run this query to make sure the tables have appeared in the `db1` database:
 

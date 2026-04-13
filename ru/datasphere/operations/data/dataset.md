@@ -1,5 +1,7 @@
 # Работа с датасетами
 
+{% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}
+
 Для работы с большими объемами данных в {{ ml-platform-name }} используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью служебных команд `#pragma dataset`.
 
 ## Создать и инициализировать датасет {#create}

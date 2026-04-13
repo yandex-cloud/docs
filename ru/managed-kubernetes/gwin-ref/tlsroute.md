@@ -129,7 +129,7 @@ metadata:
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`. <br> Example: `ROUND_ROBIN` |
+| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
 | `gwin.yandex.cloud/rules.backends.balancing.localityAwareRouting` <br> _(number)_ <br> Percentage of traffic sent to backends in the same availability zone. <br> Example: `80` |
 | `gwin.yandex.cloud/rules.backends.balancing.strictLocality` <br> _(boolean)_ <br> Route traffic only to backends in the same availability zone. <br> Example: `false` |
 | `gwin.yandex.cloud/rules.backends.balancing.panicThreshold` <br> _(number)_ <br> Panic mode threshold percentage for load balancing. <br> Example: `50` |

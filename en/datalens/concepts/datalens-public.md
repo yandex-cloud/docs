@@ -17,7 +17,7 @@ Before publishing data, make sure that:
   * [AppMetrica](../operations/connection/create-appmetrica.md)
   * [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
-  * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
+  * [{{ speechsense-name }}](../operations/connection/create-speechsense.md) (to publish objects, create a connection under a service account)
 
     {% note info %}
 
@@ -48,7 +48,7 @@ To secure your published data:
 
 The {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-admin) may view a list of all objects published within that instance:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Security** tab.
 1. Under **Publication**, click **View published**.
@@ -72,7 +72,7 @@ Only the instance [admin](../security/roles.md#datalens-admin) (the `{{ roles-da
 
 To disable object publication:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Security** tab.
 1. Under **Publication**:

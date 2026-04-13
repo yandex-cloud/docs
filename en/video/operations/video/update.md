@@ -22,7 +22,8 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
       
         {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
-      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Video will be available indefinitely to anyone with a link to it.
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it.
+  1. Enable or disable ads.
   1. To change the thumbnail:
 
       1. If the video has a thumbnail, hover over the thumbnail preview and click ![image](../../../_assets/console-icons/circle-xmark.svg).

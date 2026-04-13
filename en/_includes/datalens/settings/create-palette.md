@@ -8,7 +8,7 @@ To create a palette, the user needs the [admin](../../../datalens/security/roles
 
 To create a color palette:
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/sliders.svg) **Service settings**.
 1. Select the **Appearance** tab.
 1. Under **Palettes**, add a new palette:

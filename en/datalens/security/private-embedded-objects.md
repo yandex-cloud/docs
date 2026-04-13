@@ -41,7 +41,7 @@ Add this parameter to the object's address after the `?` character before the ha
 
    {% endnote %}
 
-   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
    1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
    1. Open the workbook with the object you want to embed.
    1. At the top of the screen, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![key](../../_assets/console-icons/key.svg) **Keys for embedding**.
@@ -439,7 +439,7 @@ In the embedding link, any unsigned parameters are ignored if:
 
 - For a dashboard {#dashboard}
 
-  The parameter names are in the list of disabled parameters.
+  The parameter names are blacklisted.
 
 {% endlist %}
 

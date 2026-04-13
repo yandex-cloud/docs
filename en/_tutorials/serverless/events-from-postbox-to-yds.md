@@ -62,7 +62,7 @@ You can use any DBMS suitable for analytical tasks as an event storage. In this 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** and click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. In the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** field, specify `postbox-events-ydb`.
   1. In the **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** field, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type_pB7Wx }}`.
   1. Do not edit the other database settings. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
@@ -290,7 +290,7 @@ To monitor the emails you send, set up a [connection](../../datalens/concepts/co
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![thunderbolt](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
   1. Select the **{{ ydb-short-name }}** connector.
   1. Configure the connection as follows:
@@ -314,7 +314,8 @@ To monitor the emails you send, set up a [connection](../../datalens/concepts/co
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-promo }}).
+  1. Click **Start in cloud**.
   1. In the left-hand panel, select ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Datasets** and click **Create dataset**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. Under **Connections**, click ![plus](../../_assets/console-icons/plus.svg) **Add** and select the `postbox-events-connection` connection you created earlier.
@@ -336,7 +337,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![chart-column](../../_assets/console-icons/chart-column.svg) **Charts**. Click **Create chart** and select **Chart in Wizard**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. In the left-hand section, click ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `postbox-events-dataset`.
@@ -359,7 +360,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![chart-column](../../_assets/console-icons/chart-column.svg) **Charts**. Click **Create chart** and select **Chart in Wizard**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. In the left-hand section, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select `postbox-events-dataset`.
@@ -388,7 +389,7 @@ In this tutorial, we will create the [Events by day](#events-by-days) and [Event
 
 - {{ datalens-short-name }} UI {#console}
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and click **Create dashboard**.
   1. In the window that opens, select the workbook with your new connection and click **Create**.
   1. Add `Events by day`, `Event list`, and other charts you created earlier to your dashboard:

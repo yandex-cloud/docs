@@ -39,6 +39,7 @@ An indicator reflects the value of a single key measure. To build a more [comple
 Wizard<br/> section| Description
 ----- | ----
 Measure | Measure. One measure that determines the indicator value.
+Colors | The field from the **Measure** section is used. The setting in this section allows [changing the color](#color-setting) of the indicator.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating an indicator {#create-diagram}
@@ -58,13 +59,6 @@ To create an indicator:
 
 ## Additional settings {#additional-settings}
 
-### Changing indicator size and color {#size-color-setting}
-
-To change indicator size and color:
-
-1. In the **Measure** section, click ![](../../_assets/console-icons/gear.svg). This setting is not available for a field of the `Markup` type. In this case, use [markup functions](../function-ref/markup-functions.md) for formatting as when [creating a complex indicator](#markup-indicator).
-1. In the **Indicator settings** window, select the size, color palette, color and click **Apply**.
-
 ### Customizing header display {#indicator-title}
 
 To customize header display:
@@ -80,9 +74,27 @@ To customize header display:
 
 {% cut "Chart settings window" %}
 
-![indicator-chart-settings](../../_assets/datalens/release-notes/preview-disable.png)
+![indicator-chart-settings](../../_assets/datalens/visualization-ref/indicator-chart/indicator-settings.png)
 
 {% endcut %}
+
+### Changing indicator size {#size-setting}
+
+This setting is not available for a field of the `Markup` type. In this case, use [markup functions](../function-ref/markup-functions.md) for formatting as when [creating a complex indicator](#markup-indicator).
+
+To change the indicator size:
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Select one of the size presets and click **Apply**.
+
+### Changing indicator color {#color-setting}
+
+This setting is not available for a field of the `Markup` type. In this case, use [markup functions](../function-ref/markup-functions.md) for formatting as when [creating a complex indicator](#markup-indicator).
+
+To change the indicator color:
+
+1. Under **Colors**, click ![](../../_assets/console-icons/gear.svg).
+1. Select a color pallete and color, then click **Apply**.
 
 ### Creating a complex indicator {#markup-indicator}
 

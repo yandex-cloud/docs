@@ -161,10 +161,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 Create a [dashboard](../../datalens/concepts/dashboard.md) for the charts.
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
 1. Click **Create dashboard**.
-
-   ![image](../../_assets/datalens/solution-parameters/create-dashboard.png)
 
 ## Add charts to the dashboard {#add-charts-on-dashboard}
 

@@ -5,6 +5,12 @@ description: In this tutorial, you will learn about multi-dataset charts and the
 
 # Multi-dataset charts
 
+{% note info %}
+
+Use multi-dataset charts with caution. Going forward, they will become unavailable, and {{ datalens-name }} will introduce an alternative solution.
+
+{% endnote %}
+
 Multi-dataset charts are charts that visualize data from different datasets.
 
 Queries for each dataset are processed independently of each other. You cannot create calculable fields from fields in multiple datasets.

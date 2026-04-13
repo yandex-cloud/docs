@@ -1,18 +1,18 @@
 # Object lock
 
-_Object locks_ in [versioned](versioning.md) buckets allow you to prevent object version deletion or overwrites. Object locks use a WORM (write once, read many) model to store versions, and you can still upload new object versions.
+An _object lock_ in [versioned](versioning.md) buckets protects data from accidental or intentional deletion and modification. You cannot modify or delete a locked object version manually or as part of a [lifecycle](lifecycles.md), but you can read it as many times as you need or [restore](../operations/objects/restore-object-version.md) it.
 
-To lock object versions in your bucket, enable the respective option in the bucket settings (see [this guide](../operations/buckets/configure-object-lock.md#enable) for details).
+Locks apply only to a specific object version and do not restrict actions on the object itself. You can delete it or upload it again with the same key, in which case a new object version will be created. You can also delete unlocked versions as usual if you no longer need them.
 
 {% include [versioning-block-relations](../../_includes/storage/versioning-block-relations.md) %}
 
 Enabling locks does not mean locking previously uploaded object versions; if required, you can lock them manually. Similarly, if you disable the object lock feature, this will not disable the existing locks. They will still be there, and you will not be able to remove or change them.
 
-There are different [types](#types) of object locks depending on their retention period and restriction level.
-
-You can enable object locks for specific object versions (when or after uploading them) or set [default](#default) object locks for all new versions uploaded to a bucket.
+To lock object versions in your bucket, enable the respective option in the bucket settings (see [this guide](../operations/buckets/configure-object-lock.md#enable) for details).
 
 ## Object lock types {#types}
+
+There are different types of object locks depending on their retention period and restriction level.
 
 There are two types of object locks that are set for a certain period, i.e., until the expiration date and time you provide:
 
@@ -38,20 +38,20 @@ Retention periods and legal holds are independent. This means you can place a re
 
 ### Table of roles and actions {#types-overview}
 
-| Object lock type | ⏳ Governance mode<br>(governance) | ⏳ Compliance mode<br>(compliance) | ♾ Legal hold<br>(legal hold) |
-| --- | --- | --- | --- |
-| **Who can**:
-| Set a lock | `storage.uploader` | `storage.uploader` | `storage.uploader` |
-| Delete or overwrite an object version | `storage.admin` | No one | No one |
-| Shorten the retention period | `storage.admin` | No one | — |
-| Extend the retention period | `storage.admin` | `storage.admin` | — |
-| Replace a retention period-based lock with a new one | `storage.admin` | No one | — |
-| Remove a lock | `storage.admin` | No one | `storage.uploader` |
+The table below lists the minimum roles required for specific actions based on the lock type. An empty cell indicates the action is unavailable; no role grants the permissions to perform it.
 
+| Action | Governance-mode <br>retention | Compliance-mode <br>retention | Legal hold<br> |
+| --- | --- | --- | --- |
+| Set a lock | `storage.uploader` | `storage.uploader` | `storage.uploader` |
+| Delete or overwrite a locked object version | `storage.admin` | — | — |
+| Shorten the retention period | `storage.admin` | — | — |
+| Extend the retention period | `storage.admin` | `storage.admin` | — |
+| Replace a retention period-based lock with a new one | `storage.admin` | — | — |
+| Remove a lock | `storage.admin` | — | `storage.uploader` |
 
 ## Default object locks {#default}
 
-You can set _default object locks_ for a bucket, which will apply to all new object versions uploaded to it. 
+You can enable object locks for specific object versions or set default locks for all new object versions uploaded to a bucket.
 
 For such locks, you need to specify the following:
 
@@ -67,12 +67,15 @@ Default lock setting changes do not affect the object versions that were previou
 
 ## How to configure object locks {#instructions}
 
-For details, see these guides:
+1. [Enable bucket versioning](../operations/buckets/versioning.md).
+1. [Enable object locks](../operations/buckets/configure-object-lock.md#enable) in the bucket.
+1. [Lock an existing object version](../operations/objects/edit-object-lock) or [upload an object version with a lock](../operations/objects/upload.md#w-object-lock).
 
-* [Configuring bucket object locks](../operations/buckets/configure-object-lock.md): Enabling object locks and setting up default ones
-* [Uploading an object version with an object lock](../operations/objects/upload.md#w-object-lock)
-* [Configuring object locks](../operations/objects/edit-object-lock.md): Setting, updating, and removing a lock
-* [Deleting an object version with an object lock](../operations/objects/delete.md#w-object-lock)
+See also:
+* [Setting up default object locks](../operations/buckets/configure-object-lock.md).
+* [Setting, updating, and removing locks](../operations/objects/edit-object-lock.md).
+* [Deleting a locked object version](../operations/objects/delete.md#w-object-lock).
+* [Restoring an object version in a versioned bucket](../operations/objects/restore-object-version.md).
 
 
 ## Use cases {#examples}

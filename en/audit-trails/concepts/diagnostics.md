@@ -16,3 +16,9 @@ A running trail may enter the `Error` status as a result of the administrator’
 If the trail is recovered within three days after the `Error` status occurred, all audit records generated while the trail was down will be uploaded to the appropriate destination object.
 
 If the trail is recovered more than three days after the `Error` status occurred, audit events uploaded to the destination object will include events generated over the 72 hours preceeding its recovery.
+
+{% note info %}
+
+Event spikes in audit logs may be due to a pause in logging. For example, exhausted [quotas](limits.md) or limited throughput capacity may cause accumulating events in the {{ at-name }} buffer. Once the causes are resolved, the events that constituted a buildup are delivered to their destinations, which may appear as a sudden burst of activity.
+
+{% endnote %}

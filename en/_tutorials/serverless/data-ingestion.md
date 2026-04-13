@@ -47,19 +47,15 @@ If you no longer need to ingest data, [delete the associated resources](#clear-o
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **Create cluster**.
 1. Configure your {{ CH }} cluster:
-    1. Under **Basic parameters**:
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, specify the database name and a user name along with their password.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
       * Enter a name for the cluster.
       * Select the service account you created earlier.
-    1. Under **Database**, specify the DB name, username, and password.
-    1. Under **Hosts**, click ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../../_assets/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
-
-    1. Under **Additional settings**, enable the following options:
-      * Access from {{ data-transfer-short-name }}.
-      * Access from the management console.
     1. Specify the remaining cluster settings by following [this guide](../../managed-clickhouse/operations/cluster-create.md).
-1. Click **Create cluster**.
+1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 Wait for the cluster to start. When the cluster is ready for use, its status will change to `Alive`.
 
@@ -67,21 +63,21 @@ Wait for the cluster to start. When the cluster is ready for use, its status wil
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a data stream.
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-1. Click **Create stream**.
-1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Refresh** after creating it to refresh the list of databases.
-1. Enter a name for the stream.
+1. Click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
+1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) after creating it to refresh the list of databases.
+1. Name the data stream.
 1. Click **Create**.
 
 Wait for the stream to start. When the stream is ready for use, its status will change from `CREATING` to `ACTIVE`.
 
 ## Create an API gateway {#create-api-gw}
 
-1. On the page of the created stream, click **Actions** and select **API Gateway**.
+1. On the page of the stream you created, click **{{ ui-key.yacloud.data-streams.button_stream-actions }}** and select **{{ ui-key.yacloud.data-streams.label_create-api-gateway }}**.
 1. Name your API gateway.
-1. Under **Specification**, replace the `service_account_id` key value with the ID of the service account you created earlier.
+1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, replace the `service_account_id` key value with the ID of the service account you created earlier.
 
-    Save the values of the **Name** and **Service domain** fields, as you will need them later.
-1. Click **Create**.
+    Save the **{{ ui-key.yacloud.common.name }}** and ***{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** values, as you will need them in the next steps.
+1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 Wait for the API gateway to start. When the API gateway is ready for use, its status will change from `CREATING` to `ACTIVE`.
 
@@ -89,25 +85,23 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a transfer.
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
-1. Click **Create data transfer**.
+1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
 1. Name the transfer.
-1. Create a source endpoint:
-    1. Next to **Source**, click **Create new**.
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) a source endpoint:
     1. Name the endpoint.
-    1. In the **Database type** list, select `{{ yds-full-name }}`.
+    1. From the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `{{ yds-full-name }}`.
     1. Select a database for the source.
     1. Enter the name of the stream you created earlier.
     1. Select the service account you created earlier.
     1. Click **Create**.
-1. Create a target endpoint:
-    1. Next to **Target**, click **Create new**.
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) a target endpoint:
     1. Name the endpoint.
-    1. In the **Database type** list, select `ClickHouse`.
+    1. From the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `ClickHouse`.
     1. Select the MDB cluster you created earlier.
     1. Enter the DB name, username, and password of the cluster you created earlier.
     1. Click **Create**.
 1. Click **Create**.
-1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
+1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
 
 Wait until the transfer gets activated. Once the transfer is ready for use, its status will change from {{ dt-status-creation }} to {{ dt-status-repl }}.
 
@@ -126,7 +120,7 @@ Wait until the transfer gets activated. Once the transfer is ready for use, its 
 1. In the [management console]({{ link-console-main }}), select the {{ mch-name }} cluster you created earlier.
 1. On the left-hand panel, select **SQL**.
 1. Enter the username and password and click **Connect**.
-1. In the list, select select the previously created database.
+1. In the list, select the previously created database.
 1. Select a DB table.
 
 If everything is set up properly, the table will show a new entry containing system data and the sent message.

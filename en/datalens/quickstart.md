@@ -26,7 +26,8 @@ This section outlines how you can connect to a data source, create your first [d
 To create a connection:
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../_assets/console-icons/thunderbolt.svg) **Connections**.
 1. Click **Create connection**.
 1. Under **Databases**, select the **{{ CH }}** connection.
 

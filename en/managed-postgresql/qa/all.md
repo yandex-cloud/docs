@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ mpg-full-name }}
-description: This page covers FAQ about {{ mpg-short-name }}.
+description: This page covers questions and answers about {{ mpg-short-name }}.
 ---
 
 # FAQ about {{ mpg-short-name }}
@@ -18,13 +18,17 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 
 {% include [cluster-update-minitoc](../../_qa/managed-postgresql/minitoc/update.md) %}
 
-### Cluster parameter settings {#toc-configuration}
+### Cluster settings {#toc-configuration}
 
 {% include [cluster-settings-minitoc](../../_qa/managed-postgresql/minitoc/configuration.md) %}
 
 ### Moving and restoring a cluster {#toc-backup}
 
 {% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/backup.md) %}
+
+### Upgrading the {{ PG }} major version {#toc-version-update}
+
+{% include [version-update-minitoc](../../_qa/managed-postgresql/minitoc/version-update.md) %}
 
 ### Users and roles {#toc-users}
 
@@ -54,13 +58,17 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 
 {% include [update](../../_qa/managed-postgresql/update.md) %}
 
-## Cluster parameter settings {#configuration}
+## Cluster settings {#configuration}
 
 {% include [configuration](../../_qa/managed-postgresql/configuration.md) %}
 
 ## Moving and restoring a cluster {#backup}
 
 {% include [backup](../../_qa/managed-postgresql/backup.md) %}
+
+### Upgrading the {{ PG }} major version {#version-update}
+
+{% include [version-update](../../_qa/managed-postgresql/version-update.md) %}
 
 ## Users and roles {#users}
 

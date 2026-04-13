@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% note info %}
 
-        {% include [notifications-requirements](../../../_includes/monitoring/notifications-requirements.md) %}
+        {% include [notifications-requirements](../../../_includes/monium/notifications-requirements.md) %}
 
         {% endnote %}
 
@@ -32,5 +32,17 @@ description: Следуя данной инструкции, вы сможете
         1. Вставьте код авторизации и нажмите **{{ ui-key.yacloud_components.settings.button_submit }}**.
 
             При отправке уведомления через Telegram статусы алерта дополнительно [обозначаются цветом](../../concepts/alerting/alert.md#alert-statuses).
+
+        Чтобы указать [{{ messenger-full-name }}](https://360.yandex.ru/business/messenger/):
+
+        1. В [настройках]({{ link-console-main }}/settings) консоли управления, напротив **{{ ui-key.yacloud_monitoring.monitoring-alerts-channels.method.ya-chats }}** нажмите **Настроить**.
+        1. Нажмите **{{ ui-key.yacloud_components.settings.label_yandexMessenger-link }}**.
+        1. Добавьте бота **Yandex Cloud Notify**:
+
+            * в контакты, чтобы отправлять уведомления в личные сообщения;
+            * в чат, чтобы отправлять уведомления в чаты.
+
+        1. Выполните команду `/start` и скопируйте код авторизации, сгенерированный ботом в ответ.
+        1. В настройках консоли управления вставьте код авторизации и нажмите **{{ ui-key.yacloud_components.settings.button_submit }}**.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Канал появится в списке.

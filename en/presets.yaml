@@ -218,6 +218,7 @@ default:
   forms-full-name: Yandex Forms
   forms-name: Forms
   forms-short-name: Forms
+  foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
   gl:
@@ -313,6 +314,8 @@ default:
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
   link-datalens-main: https://datalens.ru
+  link-datalens-main-promo: https://datalens.ru/promo
+  link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
   link-datalens-settings: https://datalens.ru/settings
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
@@ -3968,6 +3971,7 @@ default:
         label_title_appearance: Appearance
         label_title_communications: Notifications
         label_title_region: Language and region
+        label_yandexMessenger-link: Go to Yandex Messenger bot
         section_email: Email settings
         section_phone: Phone number settings
         section_settings: Notification settings
@@ -4082,6 +4086,8 @@ default:
         title_method-email: Email
         title_method-push: Push notifications
         title_method-sms: SMS
+        type_cloud-function: Cloud Function
+        type_telegram: Telegram
       component:
         add-to-dashboard-form:
           action:
@@ -4156,6 +4162,9 @@ default:
         button_dashboards-action: Create dashboard
         title_service-dashboards: Service dashboards
         title_service-features: Features
+      monitoring-alerts-channels:
+        method:
+          ya-chats: Yandex Messenger
       monitoring-alerts:
         button:
           create-custom-title: Custom
@@ -4577,6 +4586,7 @@ default:
         userpool:
           caption:
             domain: Default domain
+            session-lifetime: Lifetime session
             settings-data: Data available for editing
           create:
             action:
@@ -5794,7 +5804,6 @@ default:
           field_certificate: Certificate
           field_chain: Intermediate certificate chain
           field_privateKey: Private key
-        label_certificates: Certificates
         metadata:
           field_name: Name
         overview:
@@ -11102,15 +11111,15 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1771418848696431394901031348572912380488071835858
-            tag: 1.28.2-v1
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
+            tag: 1.28.3-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1771418848696431394901031348572912380488071835858
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.5+003
+        tag: 1.0.6
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
@@ -11148,7 +11157,7 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-4
+        tag: 4.2.3-1
     yc_gatekeeper:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper

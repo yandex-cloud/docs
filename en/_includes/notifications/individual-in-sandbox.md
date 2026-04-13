@@ -1,1 +1,1 @@
-The SMS notification channel with an individual sender is originally created in the sandbox.
+The SMS notification channel with an individual sender is originally created in the [sandbox](../../notifications/concepts/sms.md#sandbox).

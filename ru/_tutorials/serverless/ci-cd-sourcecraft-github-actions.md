@@ -202,21 +202,15 @@
       * Каталог, в котором ранее вы развернули облачную инфраструктуру и назначили роль сервисному аккаунту.
       * Сервисный аккаунт `github-action`.
 
-        {% note tip %}
-
-        Чтобы повторно запросить список облаков, каталогов и сервисных аккаунтов из {{ yandex-cloud }}, нажмите  ![image](../../_assets/console-icons/arrow-rotate-right.svg) **Синхронизировать**. Это может быть полезно, если параллельно с созданием сервисного подключения вы создали каталог или сервисный аккаунт.
-
-        {% endnote %}
+        {% include [service-connection-synchronization](../../_includes/sourcecraft/service-connection-synchronization.md) %}
 
   1. Нажмите **{{ ui-key.sourcecraft.serviceConnections.button_create-connection_uyK29 }}**.
 
-      Дождитесь окончания операции. На открывшейся странице будут представлены детали сервисного подключения.
-
-      В {{ yandex-cloud }} будет автоматически создана [федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) {{ iam-full-name }}.
-
-      Чтобы посмотреть параметры созданного OIDC-провайдера, в блоке ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.serviceConnections.title_oidc-federation_eC6Jw }}** нажмите на имя федерации.
-
 {% endlist %}
+
+{% include [service-connection-details](../../_includes/sourcecraft/service-connection-details.md) %}
+
+{% include [service-connection-repository-level](../../_includes/sourcecraft/service-connection-repository-level.md) %}
 
 ## Настройте CI/CD {#config-ci-cd}
 

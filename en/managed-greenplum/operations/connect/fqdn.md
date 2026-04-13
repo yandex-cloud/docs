@@ -5,7 +5,7 @@ description: Follow this guide to get host FQDNs for connecting to a database in
 
 # FQDNs of {{ GP }} hosts
 
-To connect to a master host, you need its [FQDN](../../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host.
+To connect to a master host, you need its [FQDN](../../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host. When connecting via _psql_ or using a JDBC connector, you can specify two master hosts at the same time.
 
 Host FQDN example:
 

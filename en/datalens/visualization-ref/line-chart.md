@@ -38,6 +38,10 @@ Multiple measures can be drawn using different lines on the same chart. For exam
 
 {% endlist %}
 
+
+In the settings of the line chart added to the dashboard, you can apply modeling, i.e., add [smoothing or a trend line](../dashboard/trends-and-smoothing.md). These lines are shown only temporarily and not added to the original chart.
+
+
 ### Extra options
 
 * **Additional axes**

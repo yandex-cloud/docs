@@ -1,6 +1,7 @@
 ---
 title: Starting {{ GLR }} in {{ serverless-containers-full-name }}
 description: In this tutorial, you will learn to start {{ GLR }} in {{ yandex-cloud }} using {{ serverless-containers-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/serverless-gitlab-runner'
 ---
 

@@ -1,4 +1,4 @@
-# Retail chain's dashboard based on a {{ CH }} DB
+# Retail chain's dashboard based on a {{ CH }} database
 
 
 {% include [datalens-folder-navigation-note](../../_includes/datalens/datalens-folder-navigation-note.md) %}
@@ -31,7 +31,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a workbook {#create-workbook}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
 1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md): `Tutorials`.
@@ -284,7 +284,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter your charts by d
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter `Moscow Shops dashboard` for the dashboard name and click **Create**.
 
-Your dashboard is ready.
+Your dashboard is ready for use.
 
 ![image](../../_assets/datalens/solution-02/44-dashboard3.png)
 

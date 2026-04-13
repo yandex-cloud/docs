@@ -7,17 +7,32 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
-### Версия 1.2.0 (09.04.26) {#v-1-2-0}
+### Версия 1.2.0 (13.04.26) {#v-1-2-0}
+
+#### {{ mkf-name }} {#v-1-2-0-mkf-name}
+
+* Добавлены команды для управления коннектором Iceberg Sink:
+  * `yc managed-kafka connector-iceberg-sink create`;
+  * `yc managed-kafka connector-iceberg-sink update`.
+
+#### {{ org-full-name }} {#v-1-2-0-org-name}
+
+* Добавлены команды для управления метками групп организации:
+  * `yc organization-manager group add-labels`;
+  * `yc organization-manager group remove-labels`.
+* В команды `yc organization-manager group create` и `yc organization-manager group update` добавлен параметр `--labels` для управления метками групп организации.
+
+#### {{ vpc-name }} {#v-1-2-0-vpc-name}
+
+* В команде `yc vpc security-group` удалена проверка длины CIDR-блоков.
 
 #### {{ mch-name }} {#v-1-2-0-mch}
 
 * В команде `yc managed-clickhouse cluster add-zookeeper` параметр `--convert-tables-to-replicated` включен по умолчанию. 
 
-
 #### {{ mmy-name }} {#v-1-2-0-mmy}
 
 * Добавлен новый режим работы прокси `--daemon` для `yc managed-mysql connect`.
-
 
 ## Предыдущие релизы {#previous-release}
 

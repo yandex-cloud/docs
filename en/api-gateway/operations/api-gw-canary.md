@@ -13,7 +13,7 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
 
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [API gateway](../concepts/index.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the API gateway row, click ![image](../../_assets/options.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, enable [canary release](../concepts/extensions/canary.md).
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** field, specify the percentage of requests for the canary release to process.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, list the variables and their values to use in the canary release.
@@ -70,7 +70,7 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
      * `weight`: Percentage of requests for the canary release to process.
      * `variables`: Variables for the canary release, listed as `key=value`.
 
-     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
   1. Check the configuration using this command:
 
      ```bash
@@ -89,7 +89,7 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
      ```bash
@@ -113,4 +113,4 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
 ## See also
 
 * [What is a canary release?](../concepts/extensions/canary.md)
-* [Canary release of a {{ sf-name }} function](../tutorials/canary-release.md)
+* [Canary release of a function in {{ sf-name }}](../tutorials/canary-release.md)

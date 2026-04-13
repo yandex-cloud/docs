@@ -1,3 +1,4 @@
+# Deploying a web application using the Java Servlet API
 
 
 Learn how to use the serverless technology and Java Servlet API to create a simple web application for managing a to-do list.
@@ -49,7 +50,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-     1. Enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+     1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
      1. Limit the maximum bucket size, if required.
      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
      1. Select the default [storage class](../../storage/concepts/storage-class.md).

@@ -18,12 +18,12 @@
 
 * **{{ ui-key.yacloud_monitoring.channel.field_method }}**. Метод, с помощью которого пользователи получат уведомление. Поддерживаются следующие методы уведомлений:
 
-  {% include [channels](../../../_includes/monitoring/channels.md) %}
+  {% include [channels](../../../_includes/monium/channels.md) %}
 
 После создания канала доступны дополнительные параметры:
 
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Выберите статусы алерта, при которых будет отправляться уведомление.
-* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Выберите время, через которое {{ monitoring-short-name }} будет отправлять повторные уведомления о статусе алерта. Не действует для статуса `OK`.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Выберите время, через которое {{ monium-name }} будет отправлять повторные уведомления о статусе алерта. Не действует для статуса `OK`.
 
 ## Статусы отправки {#dispatch-statuses}
 

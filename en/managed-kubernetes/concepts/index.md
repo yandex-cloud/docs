@@ -151,7 +151,13 @@ For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is availab
 
 
 When creating a node group, you can configure the following VM parameters:
-* VM type.
+
+* VM type. To pay less for your cluster, consider [preemptible VMs](../../compute/concepts/preemptible-vm.md).
+
+   
+   {% include [preemtible-vm](../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+   
+
 * Type and number of cores (vCPUs).
 * Amount of memory (RAM) and disk space.
 * [Placement group](../../compute/concepts/placement-groups.md).

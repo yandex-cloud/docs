@@ -39,6 +39,8 @@ output "my_userpool.organization_id" {
 - `labels` (Map Of String). Resource labels as key:value pairs.
 - `name` (**Required**)(String). Name of the userpool.
 - `organization_id` (**Required**)(String). ID of the organization this userpool belongs to.
+- `password_blacklist_policy` [Block]. Password blacklist policy for this userpool.
+  - `check_common` (Bool). Whether check in common password database is enabled. Default value is true.
 - `password_lifetime_policy` [Block]. Password lifetime policy for this userpool.
   - `max_days_count` (Number). Maximum number of days a password remains valid.
  Zero means passwords never expire.

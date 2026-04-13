@@ -206,7 +206,7 @@ Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/p
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
-### Renting {{ baremetal-name }} servers {#rent-servers}
+### Rent {{ baremetal-name }} servers {#rent-servers}
 
 {% list tabs group=instructions %}
 
@@ -636,7 +636,9 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, click ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select the `sws-demo-profile` you created earlier.
-  1. In the top panel, click ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** and in the window that opens:
+  1. In the top panel, click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** and select **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_virtual-host_tYim5 }}**.
+  1. Set field values in the following order:
 
       1. Select `demo-alb-bms`.
       1. Select `http-80` as the HTTP router.
@@ -657,7 +659,7 @@ To stop paying for the resources you created:
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the L7 load balancer; then delete the [HTTP router](../../application-load-balancer/operations/http-router-delete.md), [backend group](../../application-load-balancer/operations/backend-group-delete.md), and the load balancer's [target group](../../application-load-balancer/operations/target-group-delete.md) one by one.
 1. [Delete](../../smartwebsecurity/operations/profile-delete.md) the {{ sws-name }} profile; then delete the [WAF profile](../../smartwebsecurity/operations/waf-profile-delete.md) and [ARL profile](../../smartwebsecurity/operations/arl-profile-delete.md).
 1. You cannot delete {{ baremetal-name }} servers. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the renewal of their lease.
-1. If you had left the L7 load balancer logging feature on, [delete](../../logging/operations/delete-group.md) the log group.
+1. If the L7 load balancer logging feature was left on, [delete](../../logging/operations/delete-group.md) the log group.
 1. Optionally, delete the [security groups](../../vpc/operations/security-group-delete.md), [subnets](../../vpc/operations/subnet-delete.md), and [cloud network](../../vpc/operations/network-delete.md) one by one.
 1. Delete the private connection if you no longer need it:
 

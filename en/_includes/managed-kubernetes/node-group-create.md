@@ -34,6 +34,11 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * Select a [platform](../../compute/concepts/vm-platforms.md).
    * Enter the required number of [GPUs](../../compute/concepts/gpus.md) and vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
    * Optionally, make the VM instance [preemptible](../../compute/concepts/preemptible-vm.md) by checking the relevant box.
+
+      
+      {% include [preemtible-vm](note-preemtible-vm.md) %}
+      
+
    * Optionally, enable a [software accelerated network](../../compute/concepts/software-accelerated-network.md).
 
      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}

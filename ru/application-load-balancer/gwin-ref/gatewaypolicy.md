@@ -116,6 +116,12 @@ spec:
       stream-listener:
         stream:
           idleTimeout: "300s"  # per-listener timeout
+
+        # ALB resource naming
+        albListenerName: "my-http-listener"  # custom name for specific listener
+        albHTTPRouterName: "my-http-router"  # custom HTTP router name for specific listener
+
+    albBalancerName: "my-balancer"  # custom balancer name
 status:
   conditions:
     - type: "Ready"
@@ -193,6 +199,7 @@ Gateway policy configuration that applies to load balancer and listener settings
 | allowZonalShift | **bool** <br> Specifies whether application load balancer is available to zonal shift. <br> Example: `true` |
 | listener | **map[string][GatewayListener](#gatewaylistener)** <br> Specific listener configuration by listener name. |
 | listeners | **[GatewayListener](#gatewaylistener)** <br> Common listener configuration for all listeners. |
+| albBalancerName | **string** <br> Custom name for the ALB load balancer. By default, the controller generates the name automatically. <br> Example: `my-balancer` |
 
 ### AutoScalePolicy
 
@@ -251,6 +258,8 @@ Gateway listener configuration that combines listener and HTTP router settings.
 | http | **[ListenerHTTP](#listenerhttp)** <br> HTTP specific listener settings. |
 | stream | **[ListenerStream](#listenerstream)** <br> Stream specific listener settings. |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
+| albHTTPRouterName | **string** <br> Custom name for the ALB HTTP router. By default, the controller generates the name automatically. <br> Example: `my-http-router` |
+| albListenerName | **string** <br> Custom name for the ALB listener. By default, the controller generates the name automatically. <br> Example: `my-http-listener` |
 
 ### Listener
 

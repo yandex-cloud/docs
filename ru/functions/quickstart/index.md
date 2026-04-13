@@ -16,6 +16,7 @@ description: Следуя данной инструкции, вы сможете
   * [{#T}](create-function/bash-function-quickstart.md)
   * [{#T}](create-function/java-function-quickstart.md)
   * [{#T}](create-function/kotlin-function-quickstart.md)
+  * [{#T}](create-function/dotnet-function-quickstart.md)
 
 * [Создание и запуск триггера](create-trigger/index.md)
 

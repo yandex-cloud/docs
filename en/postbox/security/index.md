@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ postbox-full-name }}
-description: Access management in {{ postbox-full-name }}, the transactional email service. To allow a user access to {{ postbox-full-name }} resources, assign them the roles from the list below.
+description: Access management in the {{ postbox-full-name }} email service. To allow a user access to {{ postbox-full-name }} resources, assign them the roles from the list below.
 ---
 
 # Access management in {{ postbox-full-name }}
@@ -11,7 +11,7 @@ To allow access to {{ postbox-name }} resources, assign the relevant roles from 
 
 For more information about role inheritance, see [Inheritance of access permissions](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
 
-## Roles this service has {#roles-list}
+## Roles existing in this service {#roles-list}
 
 In {{ postbox-name }}, you can manage access using both service and primitive roles.
 

@@ -50,7 +50,7 @@ Learn more about other cluster updates:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
@@ -79,12 +79,6 @@ Learn more about other cluster updates:
      ```
 
 - {{ TF }} {#tf}
-
-    {% note alert %}
-
-    Do not change the cluster name using {{ TF }}. This will delete the existing cluster and create a new one.
-
-    {% endnote %}
 
     To update the cluster description:
 
@@ -194,7 +188,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
     To enable or disable using FQDNs instead of IP addresses:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable or disable **{{ ui-key.yacloud.redis.field_announce-hostnames }}** as needed.
@@ -244,7 +238,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         Where `announce_hostnames` is the setting that defines whether to use FQDNs instead of IP addresses: `true` or `false`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -286,7 +280,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         * `announceHostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -345,7 +339,7 @@ For more information about data persistence and its settings, see [Persistence](
     To change the persistence mode:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the persistence mode.
@@ -510,7 +504,7 @@ We recommend changing the host class only when your cluster has no active worklo
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
@@ -635,7 +629,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `configSpec.resources.resourcePresetId`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -681,7 +675,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -700,7 +694,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
   To change the disk type and increase the storage size for a cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
@@ -863,7 +857,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
             * `disk_size`: New storage size in bytes.
 
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -879,7 +873,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
 
@@ -938,7 +932,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
       {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1047,7 +1041,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
   To change the [DBMS settings](../concepts/settings-list.md) for a cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
@@ -1083,7 +1077,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1132,7 +1126,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
             See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1186,7 +1180,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
             See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1199,7 +1193,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
@@ -1371,7 +1365,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: From `0` to `999999999` nanoseconds.
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of these two parameters:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of the two values:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -1448,9 +1442,9 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of these two parameters:
+        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of the two values:
 
-            * `anytime`: Maintenance can occur at any time.
+            * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
@@ -1481,7 +1475,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
@@ -1534,7 +1528,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1561,7 +1555,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:enable_sharding'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1591,7 +1585,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             yandex.cloud.mdb.redis.v1.ClusterService.EnableSharding
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1605,7 +1599,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Select the destination folder for your cluster.
@@ -1727,7 +1721,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the security groups for cluster network traffic.
@@ -1740,7 +1734,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To change the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -1815,7 +1809,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1862,7 +1856,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

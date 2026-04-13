@@ -58,30 +58,6 @@ You can add, rename, and delete files in the connection.
 
 
 
-{% cut "What do I do if a Google Sheets spreadsheet works incorrectly?" %}
-
-If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several rows.
-
-To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values: `unavailable`, `none`, or `unknown`.
-
-To quickly populate empty cells in a Google Sheets spreadsheet:
-1\. Highlight the entire Google Sheets sheet.
-2\. In the spreadsheet menu, select **Data** → **Create a filter**.
-3\. In the right-hand corner of the first column's top cell, click the filter icon.
-4\. Select **Clear** and then select **(Blanks)**.
-5\. In the column's top cell, enter the appropriate value, e.g., `0`, `unavailable`, `none`, or any other value.
-6\. Drag the cell down to fill all the empty cells in the column with the entered value.
-7\. Click the filter icon again and click **Select all**.
-8\. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.
-
-{% endcut %}
-
-{% cut 'Steps to follow in case of the "Document is not supported" error' %}
-
-{% include [err-file-unsupported_document](../../../_includes/datalens/err-file-unsupported_document.md) %}
-
-{% endcut %}
-
 ## Additional settings {#additional-settings}
 
 {% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
@@ -101,3 +77,33 @@ When creating a connection to Google Sheets, keep in mind the following limitati
 
 * Maximum number of columns per sheet: 300.
 * Minimum number of rows per table: 2. In a table with one row, you cannot specify column types because you cannot tell a header from a data row.
+
+## FAQ {#qa}
+
+
+See [how to replace a legacy Google Sheets connection with a new one](../../qa/connections.md#google-sheets-v2).
+
+
+{% cut "What do I do if a Google Sheets spreadsheet works incorrectly?" %}
+
+If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several rows.
+
+To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values, e.g., `unavailable`, `none`, `unknown`.
+
+To quickly populate empty cells in a Google Sheets spreadsheet:
+1\. Highlight the entire Google Sheets sheet.
+2\. In the spreadsheet menu, select **Data** → **Create a filter**.
+3\. In the right-hand corner of the first column's top cell, click the filter icon.
+4\. Select **Clear** and then select **(Blanks)**.
+5\. In the column's top cell, enter the appropriate value, e.g., `0`, `unavailable`, `none`, or any other.
+6\. Drag the cell down to fill all the empty cells in the column with the entered value.
+7\. Click the filter icon again and click **Select all**.
+8\. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.
+
+{% endcut %}
+
+{% cut 'What to do if you get the "Document not supported" error?' %}
+
+{% include [err-file-unsupported_document](../../../_includes/datalens/err-file-unsupported_document.md) %}
+
+{% endcut %}

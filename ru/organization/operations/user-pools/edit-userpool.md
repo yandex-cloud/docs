@@ -13,15 +13,16 @@ description: Следуя данной инструкции, вы сможете
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
   1. На панели слева выберите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}**.  
   1. В строке с нужным [пулом пользователей](../../../organization/concepts/user-pools.md) нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Изменить**.
-  1. Задайте новое название или описание пула пользователей.
+  1. Задайте новое имя или описание пула пользователей.
 
-      Название должно быть уникальным в организации и соответствовать требованиям:
+      Имя должно быть уникальным в организации и соответствовать требованиям:
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
   1. Задайте новый [домен](../../concepts/domains.md), который будет использоваться, если к пулу не привязаны другие домены.
   1. Добавьте или удалите метки.
   1. Измените данные, доступные для редактирования пользователями на портале [Мой аккаунт](../../concepts/my-account.md).
+  1. В поле **{{ ui-key.yacloud_org.form.userpool.caption.session-lifetime }}** измените период времени, в течение которого будут действительны [сессии](../../concepts/sessions.md) пользователя и не будет требоваться повторная аутентификация в {{ org-full-name }}.
   1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
 - CLI {#cli}
