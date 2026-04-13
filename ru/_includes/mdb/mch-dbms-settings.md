@@ -1,3 +1,9 @@
+{% note warning %}
+
+Изменить значение `port` в таблице `system.clusters` на `9000` невозможно: параметр управляется сервисом и не переопределяется пользовательскими настройками.
+
+{% endnote %}
+
 * **Access control improvements**{#setting-access-control-improvements} {{ tag-con }}
 
     Настройки системы контроля доступа:
