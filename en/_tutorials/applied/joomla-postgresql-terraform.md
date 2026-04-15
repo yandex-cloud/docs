@@ -10,17 +10,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 {% include [before-you-begin](../_tutorials_includes/joomla-postgresql/joomla-postgresql-paid-resources.md) %}
 
-## Create an infrastructure {#deploy}
+
+## Create your infrastructure {#deploy}
 
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure using {{ TF }}:
 1. [Install](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare the infrastructure description file:
+1. Set up your infrastructure description file:
 
    {% list tabs group=infrastructure_description %}
 
@@ -32,7 +34,7 @@ To create an infrastructure using {{ TF }}:
          git clone https://github.com/yandex-cloud-examples/yc-joomla-postgresql
          ```
 
-     1. Navigate to the repository directory. Make sure it contains the following files:
+     1. Navigate to the repository directory. It should now contain the following files:
 
          * `joomla-postgresql-terraform.tf`: New infrastructure configuration.
          * `joomla-postgresql-terraform.auto.tfvars`: User data file.
@@ -40,7 +42,7 @@ To create an infrastructure using {{ TF }}:
    - Manually {#manual}
 
      1. Create a folder for the infrastructure description file.
-     1. In this folder, create the `joomla-postgresql-terraform.tf` configuration file:
+     1. Create a configuration file named `joomla-postgresql-terraform.tf` in the folder:
 
          {% cut "joomla-postgresql-terraform.tf" %}
 
@@ -48,7 +50,7 @@ To create an infrastructure using {{ TF }}:
 
          {% endcut %}
 
-     1. Create the `joomla-postgresql-terraform.auto.tfvars` user data file:
+     1. In the folder, create a user data file named `joomla-postgresql-terraform.auto.tfvars`:
 
          {% cut "joomla-postgresql-terraform.auto.tfvars" %}
 
@@ -58,7 +60,7 @@ To create an infrastructure using {{ TF }}:
 
    {% endlist %}
 
-   For more information about the properties of {{ TF }} resources, see the relevant {{ TF }} guides:
+   For more information about {{ TF }} resource properties, see the relevant provider guides:
 
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -79,7 +81,7 @@ To create an infrastructure using {{ TF }}:
    * `db_password`: DB password (8 to 128 characters).
    * `domain_name`: Domain name. Specify your registered domain name delegated to {{ dns-full-name }}, e.g., `example.com`.
 
-       To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your domain name registrar's website.
+       To use domain names in the public DNS zone, you need to delegate it to authoritative name servers. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your domain name registrar's website.
 1. Create the resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

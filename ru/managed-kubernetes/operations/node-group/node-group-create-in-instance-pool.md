@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создать группу узлов в трех зонах доступности с узлами из пулов резервов ВМ в каждой зоне {#multi-zone}
 
-1. [Создайте](../../../compute/operations/reserved-pools/create-reserved-pool.md) пул резервов ВМ с конфигурацией, которую вы хотите использовать для узлов кластера {{ managed-k8s-name }}.
+1. [Создайте](../../../compute/operations/reserved-pools/create-reserved-pool.md) пулы резервов ВМ в трех зонах доступности с конфигурацией, которую вы хотите использовать для узлов кластера {{ managed-k8s-name }}.
 
     {% include [reserved-pools-mk8s-resources-warning](../../../_includes/managed-kubernetes/reserved-pools-mk8s-resources-warning.md) %}
 

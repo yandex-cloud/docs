@@ -319,39 +319,27 @@ Learn more about rule priorities in [{#T}](../../smartwebsecurity/concepts/rules
 
 - L7 load balancer {#balancer}
 
-  To connect a virtual host in {{ alb-name }}:
-  1. If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+  If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
 
-      {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+  {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
-  1. If the load balancer is managed by you, select the created profile under ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. At the top right, click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-  1. In the window that opens, select the following in the given order:
+  To connect a virtual host:
 
-     * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
-     * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
-     * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../../application-load-balancer/concepts/http-router.md#virtual-host). You can associate the security profile with multiple virtual hosts at once.
-
-      To associate the profile with another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
-
-  1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
-
-    You will see the connected virtual host under ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
+  {% include [host-connect](../../_includes/smartwebsecurity/security-profile-host-connect.md) %}
 
   {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
 
 - API gateway {#api-gateway}
   
   To connect an API gateway:
-  1. Under ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**, copy the ID of the profile you need.
-  1. Specify the [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md) extension when creating an API gateway or in the existing API gateway specification.
-  1. Specify the copied ID in the extension.
+
+  {% include [api-gateway-connect](../../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
 
 - Domain {#domain}
 
   To connect a domain:
-  1. Under ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** → ![globe](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}**, select the required domain.
-  1. In the top menu, click ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.DomainsTable.connectSecurityProfile_g5MA4 }}** and select the `site-protection` security profile.
+
+  {% include [domain-connect](../../_includes/smartwebsecurity/security-profile-domain-connect.md) %}
 
 {% endlist %}
 
@@ -481,7 +469,7 @@ To set a request limitation, estimate your standard service load first. If you u
 
 ### Test the ARL rules {#test-arl-rules}
 
-You normally need to test your ARL rules only once; then the security system can enter its regular operation mode. However, in certain cases, rules might require more testing and adjustment.
+You usually need to test ARL rules only once, and then you can switch the real mode protection. However, in certain cases, rules might require more testing and adjustment.
 
 You can use [{{ load-testing-name }}](../../load-testing/) to perform a load test. For more information on configuring HTTP load, see [{#T}](../../load-testing/tutorials/loadtesting-https-phantom.md).
 
@@ -630,7 +618,7 @@ You can also view extended logs in the {{ sws-name }} interface.
 
 Since WAF is configured for each web service individually, test WAF in logging mode for no less than a week. For ML WAF and Yandex Ruleset, the setup may take less time. During this stage, you may get false positives, so you should track them in logs and adjust the rule parameters. For example, if the rule with `id920280` gets triggered incorrectly when using HTTP/2, you can disable it immediately. This rule will work correctly with HTTP/1.1.
 
-Once WAF is configured and in regular operation mode, use logs and monitoring charts to check the rules on a regular basis. This will allow you to track anomalies and adjust the protection specifically for your web app.
+Once WAF is configured and switched to the real mode, use logs and monitoring charts to regularly check the performance of its rules. This will allow you to track anomalies and adjust the protection specifically for your web app.
 
 ## Further configuration of security policies {#further-configuration}
 

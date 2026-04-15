@@ -1,6 +1,6 @@
 # Создать кластер {{ KF }}
 
-Если у вас есть ../projects/create-project.md, вы можете создать в нем кластер [{{ KF }}](../../concepts/components/kafka.md).
+Если у вас есть [проект](../projects/create-project.md), вы можете создать в нем кластер [{{ KF }}](../../concepts/components/kafka.md).
 
 {% list tabs group=instructions %}
 

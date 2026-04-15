@@ -11,7 +11,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
-  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Go](../../../console/operations/select-service#select-service.md) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
@@ -41,12 +41,12 @@
          * **Classification**: Select one or more classifications and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with tags of the selected classifications.
          * **Tag**: Select one or more tags and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with the selected tags.
          * **Term**: Select one or more terms and click **{{ ui-key.yacloud.common.save }}**. The search will return metadata marked up with the selected terms.
-         * **AI suggestions**: The search will return metadata marked up with AI, along with domains, glossaries, terms, classifications, and tags suggested by the AI assistant.
+         * **AI suggestions**: Search will return metadata marked up with AI. It will also show domains, glossaries, terms, classifications, and tags suggested by the AI assistant.
 
          You can specify multiple search criteria by clicking **{{ ui-key.yacloud.data-catalog.label_search-button-add-filter }}** again.
 
          To remove all filters, click **{{ ui-key.yacloud.common.clear }}**.
 
-         You can share your filter with other users by clicking **{{ ui-key.yacloud.data-catalog.label_search-action-share }}**.
+         You can share the filtered selection with other users by clicking **{{ ui-key.yacloud.data-catalog.label_search-action-share }}**.
 
 {% endlist %}

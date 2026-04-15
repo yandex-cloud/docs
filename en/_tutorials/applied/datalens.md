@@ -19,13 +19,14 @@ If you no longer need the resources you created, [delete them](#cleanup).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-* Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for the number of [messages](../../message-queue/concepts/message.md) (see [{{ iot-full-name }} pricing](../../iot-core/pricing.md)).
-* Fee for the number of [function](../../functions/concepts/function.md) invocations in {{ sf-name }} (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for the {{ mpg-name }} [cluster](../../managed-postgresql/concepts/index.md) computing resources and storage (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ iot-name }} registry: Number of sent messages (see [{{ iot-name }} pricing](../../iot-core/pricing.md)).
+* {{ sf-full-name }} functions: Number of function calls, idle time of provisioned instances, and computing resources allocated to run the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+
 
 ## Get your cloud ready {#configure-cloud}
 
@@ -140,7 +141,7 @@ Create three devices: `my-device-1`, `my-device-2`, and `my-device-3`.
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
       1. Fill out the fields: enter an alias, e.g., `events`, and the [topic](../../iot-core/concepts/topic/index.md) type after `$devices/{id}`, e.g., `events`.
 
-          As the result, you will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
+          As a result, you will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
 
       1. Repeat these steps for each alias you add.
 

@@ -1,6 +1,6 @@
 # Изменить настройки кластера СlickHouse
 
-Если у вас есть кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md)), вы можете изменить его настройки.
+Если у вас есть кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете изменить его настройки.
 
 {% list tabs group=instructions %}
 

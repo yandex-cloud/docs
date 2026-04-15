@@ -6,7 +6,7 @@ description: In this article, you will learn what a storage is in {{ mkf-name }}
 # Storage in {{ mkf-name }}
 
 
-{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
+{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
@@ -28,7 +28,7 @@ The number of broker hosts you can create together with an {{ KF }} cluster depe
     * Network SSDs (`network-ssd`)
     * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
-For more information about limits on the number of broker hosts per cluster, see [Quotas and limits](./limits.md).
+Learn more about limits on the number of broker hosts per cluster [here](./limits.md).
 
 
 

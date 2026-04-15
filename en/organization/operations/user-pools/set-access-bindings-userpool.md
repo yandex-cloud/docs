@@ -10,6 +10,16 @@ To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../
 
 {% list tabs group=instructions %}
 
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+  1. In the left-hand panel, click ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** and select a user pool.
+  1. Navigate to the **{{ ui-key.yacloud_org.organization.userpools.UserpoolPageLayout.title_userpool_acl_5rdMM }}** tab.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. In the window that opens, select the group, user, or service account you need to grant access to the user pool.
+  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select a role. Add other roles as needed.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -78,9 +88,9 @@ To grant access to a [pool](../../concepts/user-pools.md), assign [roles](../../
       ```bash
       yc organization-manager idp userpool set-access-bindings \
         --id <pool_ID> \
-        --access-binding role=<role1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role3>,service-account-id=<service_account_ID>
+        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_3>,service-account-id=<service_account_ID>
       ```
 
 - API {#api}

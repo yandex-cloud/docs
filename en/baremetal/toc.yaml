@@ -125,6 +125,8 @@ items:
                 href: events-ref/CreatePrivateCloudConnection.md
               - name: CreatePrivateSubnet
                 href: events-ref/CreatePrivateSubnet.md
+              - name: CreatePublicPrefixPool
+                href: events-ref/CreatePublicPrefixPool.md
               - name: CreatePublicSubnet
                 href: events-ref/CreatePublicSubnet.md
               - name: CreateServer
@@ -137,12 +139,16 @@ items:
                 href: events-ref/DeletePrivateCloudConnection.md
               - name: DeletePrivateSubnet
                 href: events-ref/DeletePrivateSubnet.md
+              - name: DeletePublicPrefixPool
+                href: events-ref/DeletePublicPrefixPool.md
               - name: DeletePublicSubnet
                 href: events-ref/DeletePublicSubnet.md
               - name: DeleteServer
                 href: events-ref/DeleteServer.md
               - name: DeleteVRF
                 href: events-ref/DeleteVRF.md
+              - name: ExternalFlow
+                href: events-ref/ExternalFlow.md
               - name: PowerOffServer
                 href: events-ref/PowerOffServer.md
               - name: PowerOnServer
@@ -163,6 +169,8 @@ items:
                 href: events-ref/UpdatePrivateCloudConnection.md
               - name: UpdatePrivateSubnet
                 href: events-ref/UpdatePrivateSubnet.md
+              - name: UpdatePublicPrefixPool
+                href: events-ref/UpdatePublicPrefixPool.md
               - name: UpdatePublicSubnet
                 href: events-ref/UpdatePublicSubnet.md
               - name: UpdateServer

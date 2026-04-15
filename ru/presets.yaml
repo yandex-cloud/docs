@@ -837,7 +837,7 @@ default:
   tag-preview: <code><b><small>Preview</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
-  td-full-name: Threat Detector
+  td-full-name: Обнаружение угроз
   td-name: TD
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   TF: Terraform
@@ -3053,6 +3053,8 @@ default:
       ram:
         v3|number: 0.002819659
         v3|string: "0,002819659\_$"
+    snapshot|number: 0.000039
+    snapshot|string: "0,000039\_$"
     vm:
       cpu:
         c100:
@@ -4594,6 +4596,12 @@ default:
           create:
             action:
               create: Создать пул пользователей
+        users:
+          federated:
+            add:
+              field:
+                federation: Федерация
+                users: Пользователи
       forms:
         action:
           create: Создать
@@ -4919,7 +4927,6 @@ default:
             scope_filter_header_7CrSm: Контроль конфигурации
           ControlsExceptionTable:
             field_author: Автор
-            field_name: Исключение
             field_rules: Правила
             field_status: Статус
           ControlsPage:
@@ -4930,6 +4937,7 @@ default:
           ExceptionDrawer:
             header_action_delete: Удалить
             header_action_edit: Редактировать
+            header_caption: Исключение
             resources_field_id: Идентификатор
           ExceptionOverview:
             header_caption_cspm_9dTJt: Контроль конфигурации
@@ -5047,7 +5055,7 @@ default:
             labelServiceAccountField: Сервисный аккаунт
           label_rule-kind_3PswX: Тип правила
           module-cspm_gozhj: Контроль конфигурации (CSPM)
-          namespace-checkbox_85krx: Пространство имен
+          namespace-checkbox_85krx: Пространства имен
           section-title_9BLTm: Объекты (опционально)
           ServiceAccountResourceSelectDialog:
             action_save: Сохранить выбор
@@ -6662,7 +6670,7 @@ default:
         label_search-button-add-filter: Добавить фильтр
         label_search-placeholder: Поиск данных
         label_source-data-tab: Выгруженные данные
-        label_source-database-type: Тип базы данных
+        label_source-database-type: Тип источника данных
         label_sources: Источники данных
         label_subterms: Дочерние термины
         label_tag-mutual-exclusion: Взаимоисключение
@@ -7181,9 +7189,6 @@ default:
           action_disable-access: Отключить  доступ
           action_enable-access: Включить доступ
           label_filter-by-service-placeholder: Фильтр по сервису
-        users:
-          popup-add-users-from-federation_field_federation: Федерация
-          popup-add-users-from-federation_field_users: Пользователи
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
@@ -7235,7 +7240,7 @@ default:
             field_address-type: Публичный адрес
             field_cluster-cidr: CIDR кластера
             field_kms-key: Ключ шифрования
-            field_maintenance-daily: Время (UTC) и продолжительность
+            field_maintenance-daily: Начало окна обновления в UTC
             field_master-type: Тип мастера
             field_master-version: Версия Kubernetes
             field_network: Облачная сеть
@@ -7986,7 +7991,7 @@ default:
         switch_list: Кластеры
         switch_operations: Операции
       monitoring:
-        button_open-in-monitoring: Открыть в Monitoring
+        button_open-in-monitoring: Открыть в Monium
       mysql:
         cluster:
           label_iam_dgBhy: IAM
@@ -8429,8 +8434,6 @@ default:
             protocol_q33c8: Протокол
             sni_mHMUX: SNI
             targetResources_hqBQm: Целевые ресурсы
-        DomainsTable:
-          connectSecurityProfile_g5MA4: Подключить профиль безопасности
         DomainTargetStateStatus:
           statusHealthy_5F2ks: Доступен
         form:

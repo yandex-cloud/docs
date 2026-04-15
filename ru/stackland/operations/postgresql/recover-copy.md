@@ -1,6 +1,6 @@
 # Восстановить кластер
 
-Если вы утратили кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md)), вы можете восстановить его из резервной копии.
+Если вы утратили кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md), вы можете восстановить его из резервной копии.
 
 ## Параметр restoreClusterSpec
 

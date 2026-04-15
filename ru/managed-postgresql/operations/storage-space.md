@@ -84,13 +84,7 @@ description: При заполнении хранилища более чем н
 
 {% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
-
-{% note warning %}
-
-Размер хранилища нельзя уменьшить.
-
-{% endnote %}
-
+{% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
 {% list tabs group=instructions %}
 

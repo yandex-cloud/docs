@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the trail to be deleted.
+            The maximum string length in characters is 50.
           type: string
       required:
         - trailId
@@ -35,7 +36,9 @@ DELETE https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
 ||Field | Description ||
 || trailId | **string**
 
-Required field. ID of the trail to be deleted. ||
+Required field. ID of the trail to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

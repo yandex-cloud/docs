@@ -214,17 +214,23 @@ For OnPremise, all fields are filled in manually.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
 
-        The schema name must match this regular expression:
+            The schema name must match this regular expression:
 
-        ```text
-        ^[-_a-zA-Z0-9]*$
-        ```
+            ```text
+            ^[-_a-zA-Z0-9]*$
+            ```
 
-        Double quotes are not supported in schema names.
+            Double quotes are not supported in schema names.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}**: Select to merge the contents of tables. For more information, see [Specifics of working with endpoints](../../../concepts/work-with-endpoints.md#postgresql).
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If required, specify detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}**: If required, specify detailed settings for [parallel copying of tables](../../../../data-transfer/concepts/sharded.md) (if parallel copying parameters are set in the transfer):
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.SnapshotTableShardingSettings.min_table_size.title }}**: Minimum size of a table for parallel copying. Smaller tables are copied in a single thread.
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.SnapshotTableShardingSettings.degree_of_parallelism.title }}**: Maximum number of parts to split the table in for parallel copying.
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.SnapshotTableShardingSettings.table_sharding_key_fields.title }}**: The table fields by which the partitioning will be performed. If no fields are specified, partitioning will be performed by the primary key.
 
 - CLI {#cli}
 

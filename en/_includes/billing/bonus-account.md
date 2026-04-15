@@ -1,0 +1,1 @@
+The grant is available for 60 days and can be used to pay for any services except [GPU clusters](../../compute/pricing.md#prices-gpu-clusters), [{{ postbox-name }} services](../../postbox/pricing.md), [paid support plans](../../support/pricing.md), and paid [{{ marketplace-full-name }}](../../marketplace/operations/users/buy-subscription.md) products.

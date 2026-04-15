@@ -7,6 +7,64 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 1.0.0 (02/04/26) {#version1.0.0}
+
+#### Changes to the CLI system commands {#yc-1.0.0}
+
+Disabled gRPC Service Discovery to speed up CLI performance for users with a large number of search domains in {{ dns-name }}.
+
+#### Changes to {{ yandex-cloud }} services {#services-1.0.0}
+
+##### {{ compute-name }} {#compute-1.0.0}
+
+Added the `--metadata-options` parameter to the `yc compute instance create` and `yc compute instance update` commands for obtaining the IMDSv2 instance metadata, e.g., `--metadata-options aws-v2-http-endpoint=enabled,aws-v2-http-token=enabled`.
+
+##### {{ mch-name }} {#mch-1.0.0}
+
+The `--copy-schema` option is forced on and declared `deprecated` in the `yc managed-clickhouse host add` command.
+
+##### {{ mos-name }} {#mos-1.0.0}
+
+Added updating `disk-type-id` in the `yc managed-opensearch node-group update` command.
+
+##### {{ captcha-name }} {#captcha-1.0.0}
+
+Migrated the `yc smartcaptcha` commands to the new syntax. To use the old syntax, use the `--syntax=1` parameter when running the following commands:
+* `yc smartcaptcha captcha create`
+* `yc smartcaptcha captcha delete`
+* `yc smartcaptcha captcha get`
+* `yc smartcaptcha captcha get-secret-key`
+* `yc smartcaptcha captcha list`
+* `yc smartcaptcha captcha update`
+
+##### {{ sws-name }} {#sws-1.0.0}
+
+* Migrated the `yc smartwebsecurity` commands to the new syntax. To use the old syntax, use the `--syntax=1` parameter when running the following commands:
+  * `yc smartwebsecurity security-profile create`
+  * `yc smartwebsecurity security-profile delete`
+  * `yc smartwebsecurity security-profile get`
+  * `yc smartwebsecurity security-profile list`
+  * `yc smartwebsecurity security-profile update`
+* Modified the `yc smartwebsecurity get` command output.
+
+##### {{ metadata-hub-name }} {#metadata-hub-1.0.0}
+
+Added the `--warehouse-bucket` and `--warehouse-path` parameters for configuring the {{ objstorage-name }} bucket intended as a Hive Metastore data storage (`warehouse`):
+* `yc managed-metastore cluster create --warehouse-bucket --warehouse-path`
+* `yc managed-metastore cluster update --warehouse-bucket --warehouse-path`
+
+## Previous releases {#previous-release}
+
+### Version 0.204.0 (30/03/26) {#version0.204.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.204.0}
+
+##### {{ org-full-name }} {#organizations-0.204.0}
+
+Added the following commands for viewing and updating the list of users and groups not subject to an MFA policy:
+* `yc organization-manager mfa-enforcement list-excluded-audience`
+* `yc organization-manager mfa-enforcement update-excluded-audience`
+
 ### Version 0.203.0 (26/03/26) {#version0.203.0}
 
 #### Changes to the CLI {#cli-0.203.0}
@@ -20,8 +78,6 @@ description: This page presents a list of CLI releases and the updates of each.
 Added parameters for selecting a CIDR block allocation method when creating a public subnet:
 * `yc baremetal public-subnet create --cidr-auto-allocation`
 * `yc baremetal public-subnet create --cidr-manual-allocation`
-
-## Previous releases {#previous-release}
 
 ### Version 0.202.0 (23/03/26) {#version0.202.0}
 

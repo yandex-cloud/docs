@@ -1,6 +1,6 @@
 # Изменить настройки кластера PostgreSQL
 
-Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md)), вы можете изменить его настройки.
+Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md), вы можете изменить его настройки.
 
 {% list tabs group=instructions %}
 

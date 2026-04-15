@@ -79,7 +79,7 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](./mlflow-datasphere.md)
 * [{#T}](./yq-storage.md)
 * [{#T}](yq-federative-queries.md)
-* [Recognizing text in image archives in {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
+* [Recognizing text in image archives using {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
 * [{#T}](vision-ocrrecognizer-storage.md)
 * [{#T}](video-converting-queue/index.md)
 * [{#T}](airflow-auto-tasks.md)

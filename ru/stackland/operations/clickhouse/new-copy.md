@@ -1,6 +1,6 @@
 # Создать резервную копию
 
-Если у вас есть кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md)), вы можете создать для него резервную копию.
+Если у вас есть кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете создать для него резервную копию.
 
 {% list tabs group=instructions %}
 

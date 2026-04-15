@@ -78,12 +78,13 @@ resource "yandex_dns_zone" "zone1" {
 # Создание записи DNS
 
 resource "yandex_dns_recordset" "rs1" {
-  zone_id    = yandex_dns_zone.zone1.id
-  name       = "cdn"
-  type       = "CNAME"
-  ttl        = 600
-  data       = ["${data.yandex_cdn_resource.my_resource.provider_cname}"]
-  depends_on = [yandex_cdn_resource.my_resource]
+  zone_id     = yandex_dns_zone.zone1.id
+  name        = "cdn"
+  type        = "CNAME"
+  ttl         = 600
+  data        = ["${data.yandex_cdn_resource.my_resource.provider_cname}"]
+  description = "CDN CNAME record"
+  depends_on  = [yandex_cdn_resource.my_resource]
 }
 
 # Получение информации о ресурсе CDN

@@ -317,6 +317,8 @@ items:
             href: operations/instance-groups/create-with-coi.md
           - name: Создать группу ВМ по YAML-спецификации
             href: operations/instance-groups/create-from-yaml.md
+          - name: Создать группу ВМ с привязкой к пулу резервов ВМ
+            href: operations/instance-groups/create-group-with-pool.md
           - name: Создать группу ВМ в группе размещения
             href: operations/placement-groups/create-ig-in-pg.md
           - name: Создать группу ВМ с фиксированными IP-адресами

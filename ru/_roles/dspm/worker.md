@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Роль не может гарантировать доступа к бакету, если к бакету применена [политика доступа](../../storage/security/policy.md) Yandex Object Storage.
+Роль не может гарантировать доступа к бакету, если к бакету применена [политика доступа](../../storage/security/policy.md) {{ objstorage-full-name }}.
 
 {% endnote %}
 

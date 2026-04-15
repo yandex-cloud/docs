@@ -94,10 +94,10 @@ Make sure to configure the security groups correctly for all subnets where the c
 
 {% endnote %}
 
-For more information about security groups, see [{#T}](../../concepts/network.md#security-groups).
+For more information about security groups, see [here](../../concepts/network.md#security-groups).
 
 
-## Getting an SSL certificate {#get-ssl-cert}
+## Obtaining an SSL certificate {#get-ssl-cert}
 
 To use an encrypted connection, get an SSL certificate:
 

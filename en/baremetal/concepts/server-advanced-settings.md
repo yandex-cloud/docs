@@ -9,6 +9,8 @@ description: Follow this guide to customize your {{ baremetal-full-name }} serve
 
 To implement some use cases for your server, you may need to modify its default basic settings. For example, to [install](../operations/servers/reinstall-os-from-own-image.md) the [Windows Server](https://en.wikipedia.org/wiki/Windows_Server) OS onto a partition created in a fault-tolerant [RAID](https://en.wikipedia.org/wiki/RAID), you can [create](#creating-rst-raids) the RAID on the integrated controller of your server’s motherboard (if your server’s motherboard has an integrated RAID controller).
 
+{% include [bmc-settings-change-warning](../../_includes/baremetal/bmc-settings-change-warning.md) %}
+
 ## Server disk space management {#storage-management}
 
 When you lease a server with an OS [installed](../operations/servers/reinstall-os-from-marketplace.md) from a {{ marketplace-short-name }} image, one or more [software-based RAIDs](https://en.wikipedia.org/wiki/RAID#Software-based) of the [RAID 1](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1) and/or [RAID 10](https://en.wikipedia.org/wiki/Nested_RAID_levels#RAID_10) levels are created on the server’s disks depending on its default configuration. The number of arrays created by default depends on how many different disk types your server uses.
@@ -88,7 +90,7 @@ When using integrated RAID controllers to create RAIDs, the following limitation
 
 The process for creating RAIDs with integrated RAID controllers depends on your server's boot [mode](#boot-mode). To create a RAID:
 
-1. Enable RAID mode on disk controllers:
+1. Enable RAID mode on the disk controllers:
 
     1. In the [KVM console](../operations/servers/server-kvm.md), access the BIOS/UEFI system settings menu by pressing **F11** or **Del** during server startup when the [POST](https://en.wikipedia.org/wiki/Power-on_self-test) screen appears. You will see the following message: `Entering Setup...`.
     1. Wait for the system settings menu to open, then use the **←** and **→** keys to navigate to the **Advanced** section.
@@ -171,7 +173,7 @@ You can [install](../operations/servers/reinstall-os-from-own-image.md) an OS in
 1. If you changed any settings in the previous steps, save them: select **Save Changes**, press **Enter**, and confirm the action in the window that opens.
 1. In the **Boot Override** section, select `UEFI: AMI Virtual CDROM0 1.00` and press **Enter**.
 
-    If there is no such option in the **Boot Override** section, go to **Boot** settings and add it under **UEFI Boot Drive BBS Priorities**.
+    If your **Boot Override** lacks that item, go to the **Boot** settings section and add it under **UEFI Boot Drive BBS Priorities**.
 
 The server will restart and boot from the virtual CD drive in `UEFI` mode. In this mode, the OS installed from the image mounted on the CD drive will also be set up using `UEFI`.
 

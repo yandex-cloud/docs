@@ -6,7 +6,6 @@
 | --- | --- |
 service | Идентификатор сервиса: `smartcaptcha`
 captcha | Идентификатор [капчи](../../../smartcaptcha/concepts/validation.md) |
-host | Имя [домена](../../../smartcaptcha/concepts/domain-validation.md) |
 
 Метрики сервиса:
 

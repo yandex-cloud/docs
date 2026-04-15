@@ -295,7 +295,7 @@ You can connect to nodes in a group in the following ways:
 
 A _pod_ is a request to run one or multiple containers on a group node. In a {{ k8s }} cluster, each pod has its unique IP address so that applications do not conflict when using ports.
 
-Containers are described in pods via JSON or YAML objects.
+Containers are described in pods via JSON or YAML objects. You can connect to running container terminals using [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) or directly from the [management console](../operations/kubernetes-console/pod-terminal.md).
 
 ### Masquerading IP addresses for pods {#pod-ip-masquerade}
 

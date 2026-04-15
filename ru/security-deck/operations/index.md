@@ -33,7 +33,13 @@ description: Из статьи вы узнаете, как работать с {
 ## Модуль Контроль конфигурации ({{ cspm-name }}) {#cspm}
 
 * [{#T}](./cspm/view-rules.md).
+* [{#T}](./cspm/check-compliance.md).
 * [{#T}](./cspm/manage-exceptions.md).
+
+## Модуль {{ td-full-name }} ({{ td-name }}) {#td}
+
+* [{#T}](./td/view-rules.md).
+* [{#T}](./td/manage-exceptions.md).
 
 ## Модуль диагностики доступов ({{ ciem-name }}) {#ciem}
 

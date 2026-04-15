@@ -6,6 +6,8 @@ Servers come either in one of the [stock configurations](./server-configurations
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
+{% include [bmc-settings-change-warning](../../_includes/baremetal/bmc-settings-change-warning.md) %}
+
 ## Renting servers {#server-lease}
 
 You can lease a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
@@ -67,7 +69,7 @@ A server can have one of the following statuses:
 * `QUARANTINING`: Server is being [quarantined](#quarantine).
 * `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
 * `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
-* `ERROR`: Error has occurred, the KVM console is unavailable. Please contact [support]({{ link-console-support }}).
+* `ERROR`: Error has occurred, the KVM console is unavailable. Contact [support]({{ link-console-support }}).
 
 ## Quarantine {#quarantine}
 

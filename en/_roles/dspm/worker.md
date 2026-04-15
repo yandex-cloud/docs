@@ -6,7 +6,7 @@ The role does not enable viewing data in [encrypted buckets](../../storage/conce
 
 {% note info %}
 
-The role cannot guarantee access to a bucket if it has a Yandex Object Storage [access policy](../../storage/security/policy.md) applied to it.
+The role cannot guarantee access to a bucket if it has a {{ objstorage-full-name }} [access policy](../../storage/security/policy.md) applied to it.
 
 {% endnote %}
 

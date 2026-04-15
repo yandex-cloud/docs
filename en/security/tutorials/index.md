@@ -86,7 +86,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](audit-logs/logging-functions.md)
 * [{#T}](audit-logs/audit-trails.md)
 * Exporting audit logs to SIEM systems
-    * [{#T}](audit-logs/maxpatrol.md)
+    * [{#T}](audit-logs/maxpatrol/index.md)
     * [{#T}](audit-logs/export-logs-to-splunk.md)
     * [{#T}](audit-logs/export-logs-to-arcsight.md)
     * [{#T}](audit-logs/audit-trails-events-to-kuma/index.md)

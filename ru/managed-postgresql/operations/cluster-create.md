@@ -61,6 +61,8 @@ description: Следуя данной инструкции, вы сможете
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
+       {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
+
      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
 
      
@@ -225,6 +227,8 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение: `prestable` или `production`.
      * `disk-type` — тип диска.
+
+        {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
      
      * `assign-public-ip` — доступ к хосту из интернета: `true` или `false`.

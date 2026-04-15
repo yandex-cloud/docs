@@ -147,5 +147,6 @@ resource "yandex_dns_recordset" "rsА1" {
   type    = "A"
   ttl     = 600
   data    = ["${yandex_compute_instance.mywebserver.network_interface.0.nat_ip_address}"]
+  # description - необязательный параметр, описание ресурсной записи
 }
 ```
