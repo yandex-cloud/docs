@@ -5,7 +5,7 @@ description: Access management in {{ managed-k8s-name }}, a containerized applic
 
 # Access management in {{ managed-k8s-name }}
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
 * [Roles required for managing {{ managed-k8s-name }}](#required-roles).
@@ -14,7 +14,7 @@ In this section, you will learn about:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `k8s.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `k8s.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -24,7 +24,7 @@ To assign a role for a resource, a user should have the `k8s.admin` role or one 
 
 Also, you can assign [roles required to access the {{ k8s }} API](#k8s-api) to a separate cluster via the [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding), or [API](../api-ref/authentication.md). For more information, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
 
-## Roles this service has {#roles-list}
+## Roles existing in this service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -166,7 +166,7 @@ When creating a cluster in {{ managed-k8s-name }}, specify two [service accounts
 * **Cluster service account**: On behalf of this service account, {{ managed-k8s-name }} manages cluster nodes, [subnets](../../vpc/concepts/network.md#subnet) for [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service), [disks](../../compute/concepts/disk.md), [load balancers](../../network-load-balancer/concepts/index.md), encrypts and decrypts [secrets](../../lockbox/concepts/secret.md). The minimum recommended role for such an account is `k8s.clusters.agent`.
 * **Node group service account**: Under this service account, {{ managed-k8s-name }} cluster nodes get authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md) or [{{ cloud-registry-full-name }}](../../cloud-registry/concepts/index.md). For other container registries, you do not need to assign roles to the service account.
   
-  For nodes to be able to pull Docker images from a registry:
+  To enable nodes to pull Docker images from a registry:
 
   * For {{ container-registry-full-name }}, assign the [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) role to the service account.
   * For {{ cloud-registry-full-name }}, assign the [cloud-registry.artifacts.puller](../../container-registry/security/index.md#container-registry-images-puller) role to the service account.

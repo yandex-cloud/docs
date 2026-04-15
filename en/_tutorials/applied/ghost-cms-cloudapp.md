@@ -1,5 +1,6 @@
 # Installing Ghost CMS High Availability using {{ cloud-apps-name }}
 
+
 Follow this guide to install and configure [Ghost CMS High Availability](https://ghost.org/), a content publishing and blogging platform. You will deploy [{{ cloud-apps-full-name }}](../../cloud-apps/) on a virtual machine with all required resources autoconfigured, including a database, a web server, and email service integration.
 
 To install Ghost CMS High Availability:
@@ -30,7 +31,7 @@ The cost of support for the new infrastructure includes:
 * Fee for computing resources allocated to {{ MY }} [hosts](../../managed-mysql/concepts/index.md), storage and backup size (see [{{ mmy-full-name }} pricing](../../managed-mysql/pricing.md)).
 * Fee for using a [bucket](../../storage/concepts/bucket.md) to store media files (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for storage of and operations with [secrets](../../lockbox/concepts/secret.md) (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* Fee for outgoing emails (see [{{ postbox-full-name }}](../../postbox/pricing.md) pricing).
+* Fee for outgoing emails (see [{{ postbox-full-name }} pricing](../../postbox/pricing.md)).
 
 
 ## Create a {{ vpc-short-name }} network and subnets {#create-network}
@@ -174,7 +175,7 @@ Once the app is successfully installed, configure Ghost CMS High Availability:
     * `<admin_panel_subdomain>`: Admin panel subdomain you specified when creating the application. The default value is `admin`.
     * `<your_domain>`: Domain you specified when creating the DNS zone.
 
-    For example: `https://admin.example.com/ghost`.
+    Here is an example: `https://admin.example.com/ghost`.
 
 1. Fill out the admin registration form:
 
@@ -229,4 +230,4 @@ To shut down the resources you created and stop paying for them:
 1. [Delete](../../dns/operations/zone-delete.md) the public DNS zone.
 1. [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
 1. Delete the {{ vpc-short-name }} [network](../../vpc/operations/network-delete.md) and [subnets](../../vpc/operations/subnet-delete.md).
-1. Delete the {{ postbox-name }} address and the associated DNS record because they will not be deleted after you delete the application.
+1. Delete the {{ postbox-name }} address and the associated [DNS record](../../dns/operations/resource-record-delete.md) because they will not be deleted after you delete the application.

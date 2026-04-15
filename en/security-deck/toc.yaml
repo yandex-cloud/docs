@@ -90,6 +90,8 @@ items:
             href: concepts/standard-compliance/yc-security-baseline.md
           - name: Cloud infrastructure security standard {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
+          - name: CIS Benchmark™ requirements for {{ k8s }}
+            href: concepts/standard-compliance/cis-kubernetes-benchmark.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         href: concepts/dspm.md
       - name: '{{ kspm-full-name }} ({{ kspm-name }})'

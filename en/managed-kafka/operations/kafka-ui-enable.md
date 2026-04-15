@@ -1,11 +1,11 @@
 ---
-title: '{{ kafka-ui }} web interface for {{ KF }}'
+title: '{{ kafka-ui }} web UI for {{ KF }}'
 description: In this tutorial, you will learn about the capabilities of the {{ kafka-ui }} web interface for {{ KF }}.
 ---
 
 # {{ kafka-ui }} web interface for {{ KF }}
 
-To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help you track data streams, troubleshoot issues, manage [brokers](../concepts/brokers.md), your cluster, [producers and consumers](../concepts/producers-consumers.md). To learn more about its features, see [{#T}](../concepts/kafka-ui.md).
+To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help you track data streams, troubleshoot issues, manage [brokers](../concepts/brokers.md), your cluster, [producers and consumers](../concepts/producers-consumers.md). Learn more about its features [here](../concepts/kafka-ui.md).
 
 {% include [roles-for-kafka-ui](../../_includes/mdb/mkf/roles-for-kafka-ui.md) %}
 
@@ -16,7 +16,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Enable **{{ ui-key.yacloud.kafka.field_kafka-ui }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -45,7 +45,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
   
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   
   1. To enable the {{ KF }} web UI, add the `config.kafka_ui` section to the cluster description. In this section, provide `enabled` set to `true`:
 
@@ -64,7 +64,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -103,7 +103,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
         * `updateMask`: Comma-separated string of settings to update. Specify `configSpec.kafkaUiConfig.enabled` to update the setting for enabling {{ kafka-ui }}.
         * `configSpec.kafkaUiConfig.enabled`: Set to `true` to enable {{ kafka-ui }}.
 
-       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
@@ -148,7 +148,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
         * `update_mask`: List of settings to update as an array of strings (`paths[]`). Specify `config_spec.kafka_ui_config.enabled` to update the setting for enabling {{ kafka-ui }}.
         * `config_spec.kafka_ui_config.enabled`: Set to `true` to enable {{ kafka-ui }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

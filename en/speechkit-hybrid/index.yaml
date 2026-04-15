@@ -20,10 +20,10 @@ meta:
 links:
   - title: Getting started
     description: Learn how to deploy the service on your hardware
-    href: quickstart
+    href: quickstart.md
   - title: System requirements
     description: System requirements for the SpeechKit Hybrid.
-    href: system-requirements
+    href: system-requirements.md
   - title: Speech synthesis
     description: Deploying text-to-speech conversion
     href: tts/
@@ -32,7 +32,7 @@ links:
     href: stt/
   - title: Monitoring
     description: Collecting and storing metrics
-    href: monitoring
+    href: monitoring.md
   - title: Using the API
     description: Learn about API authentication and review the API references
-    href: auth
+    href: auth.md

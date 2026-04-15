@@ -1,6 +1,6 @@
 # Connectors
 
-Connectors are {{ KFC }} components [built into {{ mkf-name }}](#supported) for streaming data between {{ KF }} and other data systems. You can use a connector for continuous data migration to and from {{ mkf-name }} clusters. Data in connectors is handled through separate {{ KFC }} *worker threads*. For more on {{ KFC }}, see [this {{ KF }} guide](https://kafka.apache.org/42/kafka-connect/overview/).
+Connectors are {{ KFC }} components [built into {{ mkf-name }}](#supported) for streaming data between {{ KF }} and other data systems. You can use a connector for continuous data migration to and from {{ mkf-name }} clusters. Data in connectors is handled through separate {{ KFC }} *worker threads*. Learn more about {{ KFC }} in [this {{ KF }} guide](https://kafka.apache.org/42/kafka-connect/overview/).
 
 Connectors perform the following functions:
 
@@ -13,7 +13,7 @@ For any type of connector, you can specify:
 * Task limit that determines the number of workers running concurrently.
 * Additional properties.
 
-For step-by-step guides on using connectors, see [{#T}](../operations/cluster-connector.md).
+For a step-by-step guide on using connectors, see [{#T}](../operations/cluster-connector.md).
 
 ## Supported connectors {#supported-connectors}
 
@@ -39,7 +39,7 @@ The **S3 Sink** connector is only used as a target for data export from {{ KF }}
 
 The connector requests data from {{ KF }} on a regular basis and uploads it to S3 storage. The data is split into chunks, which are S3 file objects. The size of each data chunk depends on the specified maximum number of records it contains.
 
-For more information about how S3 transfers data, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka).
+For more on how S3 Sink transfers data, see the [connector's guide](https://github.com/aiven/s3-connector-for-apache-kafka).
 
 
 ## Use cases {#examples}

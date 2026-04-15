@@ -1,0 +1,1 @@
+[Правила](../../security-deck/concepts/threat-detector.md#rules) контроля безопасности модуля {{ td-full-name }} используются в [окружениях](../../security-deck/concepts/workspace.md) {{ sd-name }}. Если у вас еще нет окружения, [создайте](../../security-deck/operations/workspaces/create.md) его.

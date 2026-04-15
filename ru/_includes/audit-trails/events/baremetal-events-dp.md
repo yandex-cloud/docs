@@ -1,3 +1,3 @@
 Имя события | Описание
 --- | ---
-`flowlogs.ExternalFlow` | Информация о сетевом трафике
+`flowlogs.ExternalFlow` | Поток трафика серверов {{ baremetal-name }} во внешние сети

@@ -16,11 +16,13 @@ description: Следуя данной инструкции, вы сможете
 1. В верхней части экрана нажмите значок ![image](../../../_assets/console-icons/circle-info.svg).
 1. Введите информацию и нажмите **Сохранить**.
 
+   
    {% cut "Добавить информацию о дашборде" %}
 
    ![add-description](../../../_assets/datalens/dashboard/add-description.png)
    
    {% endcut %}
+
 
 1. В правом верхнем углу экрана нажмите **Сохранить**.
 

@@ -27,6 +27,7 @@ description: This page provides a list of step-by-step guides for {{ cdn-name }}
 * [{#T}](resources/hiding-headers.md)
 * [{#T}](resources/enable-secure-token.md)
 * [{#T}](resources/location-rules.md)
+* [{#T}](resources/configure-server-name.md)
 * [{#T}](resources/disable-resource.md)
 * [{#T}](resources/labeling.md)
 * [{#T}](resources/dedicated-ip-addressing.md)

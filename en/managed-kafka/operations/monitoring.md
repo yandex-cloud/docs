@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of an {{ KF }} cluster and its hosts
-description: In this guide, you will learn how to monitor the state of of {{ KF }} clusters and their hosts.
+title: '{{ KF }} cluster and host state monitoring'
+description: In this guide, you will learn how to monitor the state of an {{ KF }} cluster and hosts.
 ---
 
-# Monitoring the state of an {{ KF }} cluster and its hosts
+# {{ KF }} cluster and host state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,16 +13,16 @@ description: In this guide, you will learn how to monitor the state of of {{ KF 
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster health state monitoring {#monitoring-cluster}
 
-To view detailed information on the state of a {{ mkf-name }} cluster:
+To view detailed information on the health state of a {{ mkf-name }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
   
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
@@ -32,7 +32,7 @@ To view detailed information on the state of a {{ mkf-name }} cluster:
   * **Alive brokers**: Number of functional brokers for each host with the `KAFKA` role.
   * **Offline partitions**: Displays the values of the settings below:
       * `OfflineReplicaCount`: Number of partitions with no leader broker. These partitions do not support message writes or reads.
-      * `Underreplicated partitions`: Number of partitions with in-sync replica (ISR) count below the replication factor.
+      * `Underreplicated partitions`: Number of partitions with ISR count below the replication factor.
       * `Under min ISR partitions`: Number of partitions with ISR count below the minimum value specified in the [settings](../concepts/settings-list.md).
   * **Errors**: Number of failed requests by error type.
   * **Free space**: Free disk space for each host with the `KAFKA` role, in bytes.
@@ -56,18 +56,18 @@ To view detailed information on the state of individual {{ mkf-name }} hosts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
   1. Select the host from the drop-down list.
 
   This page displays the charts showing workloads of individual cluster hosts:
 
   * **CPU usage**: Processor core workload. As the workload goes up, the `Idle` value goes down.
-  * **Memory usage**: Amount of RAM used, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
+  * **Memory usage**: Use of RAM, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
   * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
   * **Disk IOPS**: Number of disk operations per second.
-  * **Network bytes**: Speed of network data exchange, in bytes per second.
-  * **Network packets**: Number of network packets exchanged per second.
+  * **Network Bytes**: Network data transfer rate, in bytes per second.
+  * **Network Packets**: Network packet exchange rate, in packets per second.
   * **Free space**: Free disk space, in bytes.
 
 {% endlist %}
@@ -81,11 +81,11 @@ To configure state indicator alerts for a [cluster](#monitoring-cluster) and [ho
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
-  1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster where you want to set up alerts.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ mkf-name }} — Cluster Overview**.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
+  1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.label_warning }}` threshold values to trigger the alert.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -107,20 +107,20 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.label_
 * `{{ ui-key.yacloud_monitoring.alert.label_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.label_warning }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-kafka-ref.md).
+You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-kafka-ref.md).
 
 
-## Cluster state and status {#cluster-health-and-status}
+## Cluster health and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To check the cluster state and status:
+To view the health state and status of a cluster:
 
 1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
-### Cluster states {#cluster-health}
+### Cluster health states {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 

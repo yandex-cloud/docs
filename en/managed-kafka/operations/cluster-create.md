@@ -40,7 +40,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
   To create a {{ mkf-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
@@ -73,12 +73,12 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
         {% note info %}
 
-        For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. You need these subnets to deploy three [{{ ZK }} hosts](../concepts/index.md), one per availability zone. For more information, see [Resource relationships](../concepts/index.md).
+        For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. You need these subnets to deploy three [{{ ZK }} hosts](../concepts/index.md), one per availability zone. For more information, see [{#T}](../concepts/index.md).
 
         {% endnote %}
 
      1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster’s network traffic.
-     1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [Connecting to topics in a cluster](connect/clients.md).
+     1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [{#T}](connect/clients.md).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -258,7 +258,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
      
-     * `disk_encryption_key_id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disk. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+     * `disk_encryption_key_id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disk. Learn more about disk encryption in [{#T}](../concepts/storage.md#disk-encryption).
      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
 
 
@@ -308,7 +308,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -467,7 +467,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `diskEncryptionKeyId`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+            * `diskEncryptionKeyId`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. Learn more about disk encryption in [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -663,7 +663,7 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `disk_encryption_key_id`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+            * `disk_encryption_key_id`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. Learn more about disk encryption in [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -706,7 +706,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
   To create a {{ mkf-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
@@ -740,12 +740,12 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
         {% note info %}
 
-        For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. You need these subnets to deploy three [{{ kraft-short-name }} hosts](../concepts/index.md), one per availability zone. For more information, see [Resource relationships](../concepts/index.md).
+        For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. You need these subnets to deploy three [{{ kraft-short-name }} hosts](../concepts/index.md), one per availability zone. For more information, see [{#T}](../concepts/index.md).
 
         {% endnote %}
 
      1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster’s network traffic.
-     1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [Connecting to topics in a cluster](connect/clients.md).
+     1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [{#T}](connect/clients.md).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -995,7 +995,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1162,7 +1162,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `diskEncryptionKeyId`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+            * `diskEncryptionKeyId`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. Learn more about disk encryption in [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -1365,7 +1365,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `disk_encryption_key_id`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+            * `disk_encryption_key_id`: ID of the [custom KMS key](../../kms/concepts/key.md). Provide the KMS key ID to encrypt the disks. Learn more about disk encryption in [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -1745,7 +1745,7 @@ In our example, we use the [configuration](../concepts/kraft.md#cluster-topology
   ```
 
 
-{% endlist %}
+{% endlist %}  
 
 ### Creating a cluster with {{ kraft-short-name }} on separate hosts (multi-host cluster) {#kafka-kraft-mh}
 

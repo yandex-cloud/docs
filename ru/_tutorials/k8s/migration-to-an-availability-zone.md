@@ -41,7 +41,7 @@ yc components update
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером {{ managed-k8s-name }}.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
       1. Перейдите на страницу кластера, затем — в раздел **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
       1. На вкладке **{{ ui-key.yacloud.k8s.workloads.label_pods }}** откройте страницу пода.
       1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}**.
@@ -287,7 +287,7 @@ yc components update
        - Консоль управления {#console}
 
           1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером {{ managed-k8s-name }}.
-          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+          1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
           1. Перейдите на страницу кластера, затем — в раздел **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
           1. На вкладке **{{ ui-key.yacloud.k8s.storage.label_pv }}** найдите объект `new-pv-test-<номер>` и посмотрите значение поля **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}**. В нем должна отображаться зона доступности. Прочерк означает, что нет привязки к зоне доступности.
 

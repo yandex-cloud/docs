@@ -72,6 +72,14 @@ items:
             href: operations/cspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/cspm/manage-exceptions.md
+      - name: '{{ td-full-name }} ({{ td-name }})'
+        items:
+          - name: Обзор
+            href: operations/td/index.md
+          - name: Посмотреть правила контроля
+            href: operations/td/view-rules.md
+          - name: Управлять исключениями из правил контроля
+            href: operations/td/manage-exceptions.md
       - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
         items:
           - name: Обзор
@@ -98,6 +106,14 @@ items:
             href: concepts/standard-compliance/yc-security-baseline.md
           - name: Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
+          - name: Требования стандарта CIS Benchmark™ для {{ k8s }}
+            href: concepts/standard-compliance/cis-kubernetes-benchmark.md
+          - name: >-
+              Стандарт по защите персональных данных пользователей {{
+              yandex-cloud }}
+            href: concepts/standard-compliance/yc-personal-data-protection.md
+          - name: Стандарт PCI DSS в {{ yandex-cloud }}
+            href: concepts/standard-compliance/yc-pci-dss.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
       - name: Контроль {{ k8s }}® ({{ kspm-name }})
@@ -106,6 +122,8 @@ items:
         href: concepts/ciem.md
       - name: Контроль конфигурации ({{ cspm-name }})
         href: concepts/cspm.md
+      - name: '{{ td-full-name }} ({{ td-name }})'
+        href: concepts/threat-detector.md
       - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
         href: concepts/vulnerability-management.md
       - name: '{{ atr-name }}'

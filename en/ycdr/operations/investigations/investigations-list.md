@@ -3,7 +3,7 @@ title: Working with the investigation list in {{ ycdr-full-name }}
 description: Follow this guide to learn how to filter, search, and sort investigations in {{ ycdr-name }}.
 ---
 
-# Working with the investigations list
+# Working with the investigation list
 
 {% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
@@ -95,7 +95,7 @@ To sort investigations:
 
 The investigations list displays the following details for each investigation:
 
-* **Name**: Brief description of the investigation's objective.
+* **Name**: Brief description of the investigation's purpose.
 * **Creation date**: Timestamp when the investigation was created.
 * **Last modified date**: Timestamp of the most recent modification.
 * **Tags**: Keywords to group and search for investigations.

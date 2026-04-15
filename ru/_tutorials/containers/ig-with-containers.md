@@ -21,7 +21,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя `group-coi`.
      1. Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
@@ -65,7 +65,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Задайте имя сети `yc-auto-network`.
      1. Выберите дополнительную опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -213,7 +213,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. Перейдите в раздел **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Нажмите на имя группы ВМ `group-coi-containers`.
 

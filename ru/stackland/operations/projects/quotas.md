@@ -1,6 +1,6 @@
 # Создать квоту
 
-После создания [проекта](../projects/create-project.md)) администратор может ограничить ресурсы с помощью [объекта](https://kubernetes.io/docs/concepts/policy/resource-quotas/) `ResourceQuota`.
+После создания [проекта](../projects/create-project.md) администратор может ограничить ресурсы с помощью [объекта](https://kubernetes.io/docs/concepts/policy/resource-quotas/) `ResourceQuota`.
 
 ## Через CLI
 

@@ -19,13 +19,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ iot-name }} registry: Number of sent messages (see [{{ iot-name }} pricing](../../iot-core/pricing.md)).
+* {{ sf-full-name }} functions: Number of function calls, idle time of provisioned instances, and computing resources allocated to run the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
-* Fee for a {{ PG }} DB cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for messaging between {{ iot-name }} resources (see [{{ iot-full-name }} pricing](../../iot-core/pricing.md)).
-* Fee for function calls and computing resources allocated to execute the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Create a service account {#create-sa}
 
@@ -62,7 +62,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `my-registry`.
     1. Enter a password.
 
-        * The minimum password length is 14 characters.
+        * The password must be at least 14 characters long.
         * The password must contain uppercase and lowercase letters and numbers.
 
         {% note warning %}
@@ -88,7 +88,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `my-device`.
     1. Enter a password.
 
-        * The minimum password length is 14 characters.
+        * The password must be at least 14 characters long.
         * The password must contain uppercase and lowercase letters and numbers.
 
         {% note warning %}
@@ -186,7 +186,7 @@ As a sample data source, the scenario uses an air sensor that measures the follo
 * Pressure
 * Temperature
 
-The sensor outputs the result in JSON format. Here is an example:
+The sensor outputs the result in JSON format. For example:
 
 ```json
 {

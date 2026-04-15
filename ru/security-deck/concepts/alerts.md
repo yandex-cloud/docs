@@ -14,7 +14,7 @@ description: Модуль {{ alerts-name }} позволяет получить 
 * [Контроль конфигурации ({{ cspm-name }})](./cspm.md)
 * [Контроль данных ({{ dspm-name }})](./dspm.md)
 * [Контроль {{ k8s }} ({{ kspm-name }})](./kspm.md)
-* {{ td-full-name }} ({{ td-name }})
+* [{{ td-full-name }} ({{ td-name }})](./threat-detector.md)
 * [{{ vuln-man-name }} ({{ vuln-man-short-name }})](./vulnerability-management.md)
 * [{{ ycdr-name }}](../../ycdr/)
 

@@ -21,7 +21,9 @@ To create a billing account:
 
       * Link your credit or debit card. If the user account already has credit/debit cards linked to it, you can select one of them without adding a new one.
 
-        After successfully adding your card, you will receive an [initial grant](../../billing/concepts/bonus-account.md) provided you are a first-time user of {{ yandex-cloud }}. The grant is valid for 60 days, but it does not cover GPU clusters, paid support plans, or {{ marketplace-short-name }} products.
+        After successfully adding your card, you will receive an [initial grant](../../billing/concepts/bonus-account.md) provided you are a first-time user of {{ yandex-cloud }}.
+
+        {% include [bonus-account](bonus-account.md) %}
 
         {% include [no-card](create-ba-without-card.md) %}
 

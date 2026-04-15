@@ -1,9 +1,9 @@
 title: Yandex MetaData Hub
 description:
   - >-
-    Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
-    database connections, store data exchange schemas and dataset descriptions,
-    as well as manage metadata.
+    Yandex MetaData Hub is a Yandex Cloud service that allows customers to
+    manage database connections, store data exchange schemas, and describe
+    datasets, while also providing a metadata management system.
   - >-
     <em>Apache® and <a href="https://hive.apache.org/">Apache Hive™</a> are
     either registered trademarks or trademarks of the Apache Software Foundation
@@ -11,8 +11,9 @@ description:
 meta:
   title: Yandex MetaData Hub
   description: >-
-    Yandex MetaData Hub is a Yandex Cloud service that enables managing database
-    connections, storing data exchange workflows, and describing datasets.
+    Yandex MetaData Hub is a Yandex Cloud service that allows customers to
+    manage database connections, store data exchange schemas, and describe
+    datasets.
   keywords:
     - keyword: '{{ metadata-hub-name }}'
     - keyword: '{{ metadata-hub-name }}'
@@ -27,9 +28,9 @@ blocks:
     textContent:
       title: Yandex MetaData Hub
       text: >-
-        Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
-        database connections, store data exchange schemas and dataset
-        descriptions, as well as manage metadata.
+        Yandex Cloud service for database connection management, storage of data
+        exchange schemas and dataset descriptions, plus a metadata management
+        system.
     size: l
   - type: card-layout-block
     colSizes:
@@ -49,7 +50,7 @@ blocks:
         size: s
       - type: basic-card
         title: Access management
-        text: Configuring access permissions for the service
+        text: How to configure access permissions to use the service
         icon: _assets/icons/lock.svg
         urlTitle: Access management in Yandex MetaData Hub
         url: security/index
@@ -57,15 +58,15 @@ blocks:
         size: s
       - type: basic-card
         title: Pricing policy
-        text: Service pricing and cost calculation
+        text: Pricing and cost calculations
         icon: _assets/icons/tag-ruble.svg
-        urlTitle: Yandex MetaData Hub pricing policy
+        urlTitle: Pricing policy for Yandex MetaData Hub
         url: pricing
         centered: true
         size: s
       - type: basic-card
         title: Release notes
-        text: Releases and updates
+        text: Updates and changes
         icon: _assets/icons/timeline.svg
         urlTitle: Yandex MetaData Hub release notes
         url: release-notes/index
@@ -115,7 +116,7 @@ blocks:
     textContent:
       title: ''
       text: >-
-        Apache® и Apache Hive™ are either registered trademarks or trademarks of
-        the Apache Software Foundation in the United States and/or other
+        Apache® and Apache Hive™ are either registered trademarks or trademarks
+        of the Apache Software Foundation in the United States and/or other
         countries.
 links: []

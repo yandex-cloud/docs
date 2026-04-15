@@ -530,7 +530,7 @@ requestRedirect:
 {% cut "Манифест для HTTPRoute — перенаправление запроса с изменением схемы" %}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: sample-scheme-redirect
@@ -564,7 +564,7 @@ spec:
 {% cut "Манифест для HTTPRoute — перенаправление запроса с изменением доменного имени" %}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: sample-hostname-redirect

@@ -49,7 +49,8 @@ description: В данном разделе описано, как начать 
 * [Контроль {{ k8s }} ({{ kspm-name }})](#kspm)
 * [Диагностика доступов ({{ ciem-name }})](#ciem)
 * [Контроль конфигурации ({{ cspm-name }})](#cspm)
-* [Управление уязвимостями](#vulnerability-management)
+* [{{ td-full-name }} ({{ td-name }})](#td)
+* [{{ vuln-man-name }}](#vulnerability-management)
 * [{{ atr-name }}](#access-transparency)
 * [Портал соответствия требованиям](#compliance)
 
@@ -77,7 +78,11 @@ description: В данном разделе описано, как начать 
 
 {% include [cspm-basic-intro](../_includes/security-deck/cspm-basic-intro.md) %}
 
-### Управление уязвимостями {#vulnerability-management}
+### {{ td-full-name }} ({{ td-name }}) {#td}
+
+{% include [td-basic-intro](../_includes/security-deck/td-basic-intro.md) %}
+
+### {{ vuln-man-name }} {#vulnerability-management}
 
 [Модуль управления уязвимостями]({{ link-sd-main }}vulnerability-management/) позволяет централизованно управлять сканированием контейнерных образов на уязвимости и просматривать результаты сканирований ресурсов в окружении. Модуль поддерживает сканирование образов из реестров {{ container-registry-name }} и {{ cloud-registry-name }}, а также образов, запущенных в кластерах {{ managed-k8s-name }}.
 

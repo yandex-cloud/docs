@@ -186,6 +186,10 @@ items:
             href: operations/external-nodes-connect-ipsec.md
           - name: Connecting a {{ baremetal-name }} server as an external node
             href: operations/bms-server-connect.md
+      - name: Working with {{ k8s }} objects from the management console
+        items:
+          - name: Connecting to the terminal of a running container
+            href: operations/kubernetes-console/pod-terminal.md
   - name: Tutorials
     items:
       - name: All tutorials

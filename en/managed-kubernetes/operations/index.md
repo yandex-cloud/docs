@@ -102,3 +102,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](external-nodes-connect-wireguard.md)
 * [{#T}](external-nodes-connect-ipsec.md)
 * [{#T}](bms-server-connect.md)
+
+## Working with {{ k8s }} objects from the management console {#kubernetes-console}
+
+* [{#T}](kubernetes-console/pod-terminal.md)

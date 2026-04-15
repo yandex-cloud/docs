@@ -1,0 +1,424 @@
+---
+editable: false
+---
+
+# Smart Web Security Audit Trails Events: CreateLoadBalancer
+
+## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.CreateLoadBalancer2-schema}
+
+```json
+{
+  "eventId": "string",
+  "eventSource": "string",
+  "eventType": "string",
+  "eventTime": "string",
+  "authentication": {
+    "authenticated": "boolean",
+    // Includes only one of the fields `subjectType`
+    "subjectType": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectId`
+    "subjectId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectName`
+    "subjectName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationId`
+    "federationId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationName`
+    "federationName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationType`
+    "federationType": "string",
+    // end of the list of possible fields
+    "tokenInfo": {
+      "maskedIamToken": "string",
+      // Includes only one of the fields `iamTokenId`
+      "iamTokenId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorId`
+      "impersonatorId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorType`
+      "impersonatorType": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorName`
+      "impersonatorName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationId`
+      "impersonatorFederationId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationName`
+      "impersonatorFederationName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationType`
+      "impersonatorFederationType": "string"
+      // end of the list of possible fields
+    }
+  },
+  "authorization": {
+    "authorized": "boolean"
+  },
+  "resourceMetadata": {
+    "path": [
+      {
+        "resourceType": "string",
+        "resourceId": "string",
+        // Includes only one of the fields `resourceName`
+        "resourceName": "string"
+        // end of the list of possible fields
+      }
+    ]
+  },
+  "requestMetadata": {
+    "remoteAddress": "string",
+    "userAgent": "string",
+    "requestId": "string",
+    // Includes only one of the fields `remotePort`
+    "remotePort": "string"
+    // end of the list of possible fields
+  },
+  "eventStatus": "string",
+  "error": {
+    "code": "integer",
+    "message": "string",
+    "details": [
+      "object"
+    ]
+  },
+  "details": {
+    "loadBalancerId": "string",
+    "folderId": "string",
+    "cloudId": "string",
+    "labels": "object",
+    "loadBalancerName": "string",
+    "description": "string",
+    "domains": [
+      {
+        "name": "string",
+        "loadBalancerId": "string",
+        "serverName": "string",
+        "description": "string",
+        "securityProfileId": "string",
+        "httpBackend": {
+          "targets": [
+            {
+              "ipAddress": "string",
+              "description": "string",
+              "port": "string"
+            }
+          ],
+          "useHttp2": "boolean",
+          "useTls": "boolean",
+          "sni": "string",
+          "trustedCaBytes": "string",
+          "timeout": "string",
+          "idleTimeout": "string"
+        },
+        "tlsListener": {
+          "enabled": "boolean",
+          "certificateId": "string",
+          "port": "string",
+          "enableHttp1": "boolean"
+        },
+        "httpListener": {
+          "enabled": "boolean",
+          "redirectToHttps": "boolean",
+          "port": "string"
+        },
+        "solidWafSettings": {
+          "solidWafProfileId": "string"
+        }
+      }
+    ],
+    "serviceAccountId": "string",
+    "logOptions": {
+      "logGroupId": "string",
+      "disable": "boolean",
+      "discardRules": [
+        {
+          "httpCodes": [
+            "string"
+          ],
+          "httpCodeIntervals": [
+            "string"
+          ],
+          "discardPercent": "string"
+        }
+      ]
+    },
+    "regionId": "string",
+    "deletionProtection": "boolean",
+    "ddosProtectionProvider": "string"
+  },
+  "requestParameters": "object",
+  "response": "object"
+}
+```
+
+## Field description {#yandex.cloud.audit.smartwebsecurity.CreateLoadBalancer2}
+
+#|
+||Field | Description ||
+|| eventId | **string** ||
+|| eventSource | **string** ||
+|| eventType | **string** ||
+|| eventTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| authentication | **[IamAuthentication](#yandex.cloud.audit.IamAuthentication)** ||
+|| authorization | **[Authorization](#yandex.cloud.audit.Authorization)** ||
+|| resourceMetadata | **[ResourceMetadata](#yandex.cloud.audit.ResourceMetadata)** ||
+|| requestMetadata | **[RequestMetadata](#yandex.cloud.audit.RequestMetadata)** ||
+|| eventStatus | **enum** (EventStatus)
+
+- `STARTED`
+- `ERROR`
+- `DONE`
+- `CANCELLED`
+- `RUNNING` ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation. ||
+|| details | **[LoadBalancerDetails](#yandex.cloud.audit.smartwebsecurity.LoadBalancerDetails)** ||
+|| requestParameters | **object** ||
+|| response | **object** ||
+|#
+
+## IamAuthentication {#yandex.cloud.audit.IamAuthentication}
+
+#|
+||Field | Description ||
+|| authenticated | **boolean** ||
+|| subjectType | **enum** (IamSubjectType)
+
+Includes only one of the fields `subjectType`.
+
+- `YANDEX_PASSPORT_USER_ACCOUNT`
+- `SERVICE_ACCOUNT`
+- `FEDERATED_USER_ACCOUNT`
+- `SSH_USER`
+- `KUBERNETES_USER` ||
+|| subjectId | **string**
+
+Includes only one of the fields `subjectId`. ||
+|| subjectName | **string**
+
+Includes only one of the fields `subjectName`. ||
+|| federationId | **string**
+
+Includes only one of the fields `federationId`. ||
+|| federationName | **string**
+
+Includes only one of the fields `federationName`. ||
+|| federationType | **enum** (FederationType)
+
+Includes only one of the fields `federationType`.
+
+- `GLOBAL_FEDERATION`
+- `PRIVATE_FEDERATION` ||
+|| tokenInfo | **[IamTokenInfo](#yandex.cloud.audit.IamAuthentication.IamTokenInfo)** ||
+|#
+
+## IamTokenInfo {#yandex.cloud.audit.IamAuthentication.IamTokenInfo}
+
+#|
+||Field | Description ||
+|| maskedIamToken | **string** ||
+|| iamTokenId | **string**
+
+Includes only one of the fields `iamTokenId`. ||
+|| impersonatorId | **string**
+
+Includes only one of the fields `impersonatorId`. ||
+|| impersonatorType | **enum** (IamSubjectType)
+
+Includes only one of the fields `impersonatorType`.
+
+- `YANDEX_PASSPORT_USER_ACCOUNT`
+- `SERVICE_ACCOUNT`
+- `FEDERATED_USER_ACCOUNT`
+- `SSH_USER`
+- `KUBERNETES_USER` ||
+|| impersonatorName | **string**
+
+Includes only one of the fields `impersonatorName`. ||
+|| impersonatorFederationId | **string**
+
+Includes only one of the fields `impersonatorFederationId`. ||
+|| impersonatorFederationName | **string**
+
+Includes only one of the fields `impersonatorFederationName`. ||
+|| impersonatorFederationType | **enum** (FederationType)
+
+Includes only one of the fields `impersonatorFederationType`.
+
+- `GLOBAL_FEDERATION`
+- `PRIVATE_FEDERATION` ||
+|#
+
+## Authorization {#yandex.cloud.audit.Authorization}
+
+#|
+||Field | Description ||
+|| authorized | **boolean** ||
+|#
+
+## ResourceMetadata {#yandex.cloud.audit.ResourceMetadata}
+
+#|
+||Field | Description ||
+|| path[] | **[Resource](#yandex.cloud.audit.Resource)** ||
+|#
+
+## Resource {#yandex.cloud.audit.Resource}
+
+#|
+||Field | Description ||
+|| resourceType | **string** ||
+|| resourceId | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
+|#
+
+## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
+
+#|
+||Field | Description ||
+|| remoteAddress | **string** ||
+|| userAgent | **string** ||
+|| requestId | **string** ||
+|| remotePort | **string** (int64)
+
+Includes only one of the fields `remotePort`. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## LoadBalancerDetails {#yandex.cloud.audit.smartwebsecurity.LoadBalancerDetails}
+
+#|
+||Field | Description ||
+|| loadBalancerId | **string** ||
+|| folderId | **string** ||
+|| cloudId | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
+|| loadBalancerName | **string** ||
+|| description | **string** ||
+|| domains[] | **[Domain](#yandex.cloud.audit.smartwebsecurity.Domain)** ||
+|| serviceAccountId | **string** ||
+|| logOptions | **[LogOptions](#yandex.cloud.audit.smartwebsecurity.LogOptions)** ||
+|| regionId | **string** ||
+|| deletionProtection | **boolean** ||
+|| ddosProtectionProvider | **string** ||
+|#
+
+## Domain {#yandex.cloud.audit.smartwebsecurity.Domain}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| loadBalancerId | **string** ||
+|| serverName | **string** ||
+|| description | **string** ||
+|| securityProfileId | **string** ||
+|| httpBackend | **[HttpBackend](#yandex.cloud.audit.smartwebsecurity.HttpBackend)** ||
+|| tlsListener | **[TlsListener](#yandex.cloud.audit.smartwebsecurity.TlsListener)** ||
+|| httpListener | **[HttpListener](#yandex.cloud.audit.smartwebsecurity.HttpListener)** ||
+|| solidWafSettings | **[SolidWafSettings](#yandex.cloud.audit.smartwebsecurity.SolidWafSettings)** ||
+|#
+
+## HttpBackend {#yandex.cloud.audit.smartwebsecurity.HttpBackend}
+
+#|
+||Field | Description ||
+|| targets[] | **[Target](#yandex.cloud.audit.smartwebsecurity.Target)** ||
+|| useHttp2 | **boolean** ||
+|| useTls | **boolean** ||
+|| sni | **string** ||
+|| trustedCaBytes | **string** ||
+|| timeout | **string** (duration) ||
+|| idleTimeout | **string** (duration) ||
+|#
+
+## Target {#yandex.cloud.audit.smartwebsecurity.Target}
+
+#|
+||Field | Description ||
+|| ipAddress | **string** ||
+|| description | **string** ||
+|| port | **string** (int64) ||
+|#
+
+## TlsListener {#yandex.cloud.audit.smartwebsecurity.TlsListener}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| certificateId | **string** ||
+|| port | **string** (int64) ||
+|| enableHttp1 | **boolean** ||
+|#
+
+## HttpListener {#yandex.cloud.audit.smartwebsecurity.HttpListener}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| redirectToHttps | **boolean** ||
+|| port | **string** (int64) ||
+|#
+
+## SolidWafSettings {#yandex.cloud.audit.smartwebsecurity.SolidWafSettings}
+
+#|
+||Field | Description ||
+|| solidWafProfileId | **string** ||
+|#
+
+## LogOptions {#yandex.cloud.audit.smartwebsecurity.LogOptions}
+
+#|
+||Field | Description ||
+|| logGroupId | **string** ||
+|| disable | **boolean** ||
+|| discardRules[] | **[LogDiscardRule](#yandex.cloud.audit.smartwebsecurity.LogDiscardRule)** ||
+|#
+
+## LogDiscardRule {#yandex.cloud.audit.smartwebsecurity.LogDiscardRule}
+
+#|
+||Field | Description ||
+|| httpCodes[] | **string** (int64) ||
+|| httpCodeIntervals[] | **enum** (HttpCodeInterval)
+
+- `HTTP_1XX`
+- `HTTP_2XX`
+- `HTTP_3XX`
+- `HTTP_4XX`
+- `HTTP_5XX`
+- `HTTP_ALL` ||
+|| discardPercent | **string** (int64) ||
+|#

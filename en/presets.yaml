@@ -836,6 +836,8 @@ default:
   tag-preview: <code><b><small>Preview</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
+  td-full-name: Threat Detector
+  td-name: TD
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   TF: Terraform
   tf-cloud-id: b1gq90dgh25bebiu75o
@@ -3050,6 +3052,8 @@ default:
       ram:
         v3|number: 0.002819659
         v3|string: $0.002819659
+    snapshot|number: 0.000039
+    snapshot|string: $0.000039
     vm:
       cpu:
         c100:
@@ -4591,6 +4595,12 @@ default:
           create:
             action:
               create: Create userpool
+        users:
+          federated:
+            add:
+              field:
+                federation: Federation
+                users: Users
       forms:
         action:
           create: Create
@@ -4916,7 +4926,6 @@ default:
             scope_filter_header_7CrSm: Configuration controls
           ControlsExceptionTable:
             field_author: Author
-            field_name: Exception
             field_rules: Rules
             field_status: Status
           ControlsPage:
@@ -4927,6 +4936,7 @@ default:
           ExceptionDrawer:
             header_action_delete: Delete
             header_action_edit: Edit
+            header_caption: Exception
             resources_field_id: ID
           ExceptionOverview:
             header_caption_cspm_9dTJt: Configuration control
@@ -5045,16 +5055,16 @@ default:
             labelServiceAccountField: Service account
           label_rule-kind_3PswX: Rule type
           module-cspm_gozhj: Configuration Monitoring (CSPM)
-          namespace-checkbox_85krx: Namespace
+          namespace-checkbox_85krx: Namespaces
           section-title_9BLTm: Objects (optional)
           ServiceAccountResourceSelectDialog:
             action_save: Save selection
           title_security-modules_8MdQg: Control modules
           title_security-requirements_8r7hd: Sets of requirements
           WorkspaceEditPageLayout:
-            tabGeneralParams_xc2v2: Основные параметры
+            tabGeneralParams_xc2v2: Main parameters
             tabKubernetes_rC2uU: KSPM
-            tabResources_vJuSN: Ресурсы
+            tabResources_vJuSN: Resources
             tabStandards_wSeaW: Security compliance
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Alert sink
@@ -6654,7 +6664,7 @@ default:
         label_search-button-add-filter: Add filter
         label_search-placeholder: Data search
         label_source-data-tab: Uploaded data
-        label_source-database-type: Database type
+        label_source-database-type: Data source type
         label_sources: Data sources
         label_subterms: Child terms
         label_tag-mutual-exclusion: Mutually exclusive
@@ -7173,9 +7183,6 @@ default:
           action_disable-access: Disable access
           action_enable-access: Enable access
           label_filter-by-service-placeholder: Filter by service
-        users:
-          popup-add-users-from-federation_field_federation: Federation
-          popup-add-users-from-federation_field_users: Users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -7227,7 +7234,7 @@ default:
             field_address-type: Public address
             field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
-            field_maintenance-daily: Time (UTC) and duration
+            field_maintenance-daily: Maintenance window start time in UTC
             field_master-type: Type of master
             field_master-version: Kubernetes version
             field_network: Cloud network
@@ -7978,7 +7985,7 @@ default:
         switch_list: Clusters
         switch_operations: Operations
       monitoring:
-        button_open-in-monitoring: Open in Monitoring
+        button_open-in-monitoring: Open in Monium
       mysql:
         cluster:
           label_iam_dgBhy: IAM
@@ -8421,8 +8428,6 @@ default:
             protocol_q33c8: Protocol
             sni_mHMUX: SNI
             targetResources_hqBQm: Target resources
-        DomainsTable:
-          connectSecurityProfile_g5MA4: Connect security profile
         DomainTargetStateStatus:
           statusHealthy_5F2ks: Healthy
         form:

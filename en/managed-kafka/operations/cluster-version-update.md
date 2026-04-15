@@ -13,7 +13,7 @@ Starting March 1, 2025, support for {{ KF }} 2.8, 3.0, 3.1, 3.2, and 3.3 is disc
 
 You can find the list of supported versions in the [{{ KF }} versioning policy](../concepts/update-policy.md) section. We recommend upgrading {{ KF }} step by step, without skipping any versions. For example, upgrade from version 3.1 to 3.5 in the following sequence: 3.1 → 3.2 → 3.3 → 3.4 → 3.5.
 
-To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about updates within the same version and host maintenance, see [this section](../concepts/maintenance.md).
 
 ## Before a version upgrade {#before-update}
 
@@ -34,7 +34,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -68,7 +68,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. In the `config` section of the {{ mkf-name }} cluster, add the `version` field (the {{ KF }} version) or update its value if it already exists:
 
@@ -85,7 +85,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -119,7 +119,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
           Here, we only specified a single setting, `configSpec.version`.
 
@@ -171,7 +171,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
         * `config_spec.version`: Target {{ KF }} version, {{ versions.cli.str-without-latest }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

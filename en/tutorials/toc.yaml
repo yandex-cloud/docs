@@ -159,7 +159,13 @@ items:
       - name: Configuring alerts and dashboards in {{ monitoring-name }}
         href: security/alerts-monitoring.md
       - name: Exporting audit logs to MaxPatrol SIEM
-        href: security/maxpatrol.md
+        items:
+          - name: Overview
+            href: security/maxpatrol/index.md
+          - name: Management console
+            href: security/maxpatrol/console.md
+          - name: '{{ TF }}'
+            href: security/maxpatrol/terraform.md
       - name: Uploading audit logs to Splunk SIEM
         href: security/export-logs-to-splunk.md
       - name: Uploading audit logs to ArcSight SIEM

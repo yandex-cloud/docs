@@ -35,7 +35,7 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working resource catalog.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Go](../../console/operations/select-service#select-service.md) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Select the metadata catalog you need.
   1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab to view the metadata available in the catalog.
@@ -54,7 +54,7 @@ To get started:
   1. To view the object schema, navigate to the **Schema** tab and select the schema version from the drop-down list.
   1. To view links with other objects go to the **Lineage** tab.
 
-     You can select the lineage depth and turn **Display weak lineage** on or off.
+     You can set the lineage depth and turn **{{ ui-key.yacloud.data-catalog.label_asset-lineage-weak }}** on or off.
 
      {{ data-catalog-name }} displays links not just between objects but also between individual columns within objects. To view links between columns, expand the list of columns in the object of interest.
 

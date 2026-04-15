@@ -274,7 +274,13 @@ items:
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true
           - name: Exporting audit logs to MaxPatrol SIEM
-            href: tutorials/audit-logs/maxpatrol.md
+            items:
+              - name: Overview
+                href: tutorials/audit-logs/maxpatrol/index.md
+              - name: Management console
+                href: tutorials/audit-logs/maxpatrol/console.md
+              - name: '{{ TF }}'
+                href: tutorials/audit-logs/maxpatrol/terraform.md
           - name: Uploading audit logs to Splunk SIEM
             href: tutorials/audit-logs/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM

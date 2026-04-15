@@ -1,0 +1,403 @@
+---
+editable: false
+---
+
+# Security Deck Audit Trails Events: CreateException
+
+## Event JSON schema {#yandex.cloud.audit.securitydeck.kspm.CreateException2-schema}
+
+```json
+{
+  "eventId": "string",
+  "eventSource": "string",
+  "eventType": "string",
+  "eventTime": "string",
+  "authentication": {
+    "authenticated": "boolean",
+    // Includes only one of the fields `subjectType`
+    "subjectType": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectId`
+    "subjectId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectName`
+    "subjectName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationId`
+    "federationId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationName`
+    "federationName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationType`
+    "federationType": "string",
+    // end of the list of possible fields
+    "tokenInfo": {
+      "maskedIamToken": "string",
+      // Includes only one of the fields `iamTokenId`
+      "iamTokenId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorId`
+      "impersonatorId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorType`
+      "impersonatorType": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorName`
+      "impersonatorName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationId`
+      "impersonatorFederationId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationName`
+      "impersonatorFederationName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationType`
+      "impersonatorFederationType": "string"
+      // end of the list of possible fields
+    }
+  },
+  "authorization": {
+    "authorized": "boolean"
+  },
+  "resourceMetadata": {
+    "path": [
+      {
+        "resourceType": "string",
+        "resourceId": "string",
+        // Includes only one of the fields `resourceName`
+        "resourceName": "string"
+        // end of the list of possible fields
+      }
+    ]
+  },
+  "requestMetadata": {
+    "remoteAddress": "string",
+    "userAgent": "string",
+    "requestId": "string",
+    // Includes only one of the fields `remotePort`
+    "remotePort": "string"
+    // end of the list of possible fields
+  },
+  "eventStatus": "string",
+  "error": {
+    "code": "integer",
+    "message": "string",
+    "details": [
+      "object"
+    ]
+  },
+  "details": {
+    "id": "string",
+    "projectId": "string",
+    "description": "string",
+    "active": "boolean",
+    "author": "string",
+    "scope": {
+      "locations": [
+        {
+          // Includes only one of the fields `organization`, `cloud`, `folder`, `cluster`
+          "organization": {
+            "organizationId": "string"
+          },
+          "cloud": {
+            "cloudId": "string"
+          },
+          "folder": {
+            "folderId": "string"
+          },
+          "cluster": {
+            "clusterId": "string"
+          }
+          // end of the list of possible fields
+        }
+      ],
+      "clusterOptions": {
+        "namespaces": [
+          {
+            "name": "string"
+          }
+        ]
+      }
+    },
+    "createdAt": "string",
+    "modifiedAt": "string",
+    "controls": [
+      {
+        "id": "string"
+      }
+    ],
+    "resourcesCount": "string",
+    "projectName": "string"
+  },
+  "requestParameters": "object",
+  "response": "object"
+}
+```
+
+## Field description {#yandex.cloud.audit.securitydeck.kspm.CreateException2}
+
+#|
+||Field | Description ||
+|| eventId | **string** ||
+|| eventSource | **string** ||
+|| eventType | **string** ||
+|| eventTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| authentication | **[IamAuthentication](#yandex.cloud.audit.IamAuthentication)** ||
+|| authorization | **[Authorization](#yandex.cloud.audit.Authorization)** ||
+|| resourceMetadata | **[ResourceMetadata](#yandex.cloud.audit.ResourceMetadata)** ||
+|| requestMetadata | **[RequestMetadata](#yandex.cloud.audit.RequestMetadata)** ||
+|| eventStatus | **enum** (SynchronousEventStatus)
+
+- `ERROR`
+- `DONE` ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation. ||
+|| details | **[ExceptionEventDetails](#yandex.cloud.audit.securitydeck.kspm.ExceptionEventDetails)** ||
+|| requestParameters | **object** ||
+|| response | **object** ||
+|#
+
+## IamAuthentication {#yandex.cloud.audit.IamAuthentication}
+
+#|
+||Field | Description ||
+|| authenticated | **boolean** ||
+|| subjectType | **enum** (IamSubjectType)
+
+Includes only one of the fields `subjectType`.
+
+- `YANDEX_PASSPORT_USER_ACCOUNT`
+- `SERVICE_ACCOUNT`
+- `FEDERATED_USER_ACCOUNT`
+- `SSH_USER`
+- `KUBERNETES_USER` ||
+|| subjectId | **string**
+
+Includes only one of the fields `subjectId`. ||
+|| subjectName | **string**
+
+Includes only one of the fields `subjectName`. ||
+|| federationId | **string**
+
+Includes only one of the fields `federationId`. ||
+|| federationName | **string**
+
+Includes only one of the fields `federationName`. ||
+|| federationType | **enum** (FederationType)
+
+Includes only one of the fields `federationType`.
+
+- `GLOBAL_FEDERATION`
+- `PRIVATE_FEDERATION` ||
+|| tokenInfo | **[IamTokenInfo](#yandex.cloud.audit.IamAuthentication.IamTokenInfo)** ||
+|#
+
+## IamTokenInfo {#yandex.cloud.audit.IamAuthentication.IamTokenInfo}
+
+#|
+||Field | Description ||
+|| maskedIamToken | **string** ||
+|| iamTokenId | **string**
+
+Includes only one of the fields `iamTokenId`. ||
+|| impersonatorId | **string**
+
+Includes only one of the fields `impersonatorId`. ||
+|| impersonatorType | **enum** (IamSubjectType)
+
+Includes only one of the fields `impersonatorType`.
+
+- `YANDEX_PASSPORT_USER_ACCOUNT`
+- `SERVICE_ACCOUNT`
+- `FEDERATED_USER_ACCOUNT`
+- `SSH_USER`
+- `KUBERNETES_USER` ||
+|| impersonatorName | **string**
+
+Includes only one of the fields `impersonatorName`. ||
+|| impersonatorFederationId | **string**
+
+Includes only one of the fields `impersonatorFederationId`. ||
+|| impersonatorFederationName | **string**
+
+Includes only one of the fields `impersonatorFederationName`. ||
+|| impersonatorFederationType | **enum** (FederationType)
+
+Includes only one of the fields `impersonatorFederationType`.
+
+- `GLOBAL_FEDERATION`
+- `PRIVATE_FEDERATION` ||
+|#
+
+## Authorization {#yandex.cloud.audit.Authorization}
+
+#|
+||Field | Description ||
+|| authorized | **boolean** ||
+|#
+
+## ResourceMetadata {#yandex.cloud.audit.ResourceMetadata}
+
+#|
+||Field | Description ||
+|| path[] | **[Resource](#yandex.cloud.audit.Resource)** ||
+|#
+
+## Resource {#yandex.cloud.audit.Resource}
+
+#|
+||Field | Description ||
+|| resourceType | **string** ||
+|| resourceId | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
+|#
+
+## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
+
+#|
+||Field | Description ||
+|| remoteAddress | **string** ||
+|| userAgent | **string** ||
+|| requestId | **string** ||
+|| remotePort | **string** (int64)
+
+Includes only one of the fields `remotePort`. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## ExceptionEventDetails {#yandex.cloud.audit.securitydeck.kspm.ExceptionEventDetails}
+
+#|
+||Field | Description ||
+|| id | **string** ||
+|| projectId | **string** ||
+|| description | **string** ||
+|| active | **boolean** ||
+|| author | **string** ||
+|| scope | **[ExceptionScope](#yandex.cloud.audit.securitydeck.kspm.ExceptionScope)** ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| modifiedAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| controls[] | **[Control](#yandex.cloud.audit.securitydeck.kspm.Control)** ||
+|| resourcesCount | **string** (int64) ||
+|| projectName | **string** ||
+|#
+
+## ExceptionScope {#yandex.cloud.audit.securitydeck.kspm.ExceptionScope}
+
+#|
+||Field | Description ||
+|| locations[] | **[Location](#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location)** ||
+|| clusterOptions | **[ClusterOptions](#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.ClusterOptions)** ||
+|#
+
+## Location {#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location}
+
+#|
+||Field | Description ||
+|| organization | **[Organization](#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Organization)**
+
+Includes only one of the fields `organization`, `cloud`, `folder`, `cluster`. ||
+|| cloud | **[Cloud](#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Cloud)**
+
+Includes only one of the fields `organization`, `cloud`, `folder`, `cluster`. ||
+|| folder | **[Folder](#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Folder)**
+
+Includes only one of the fields `organization`, `cloud`, `folder`, `cluster`. ||
+|| cluster | **[Cluster](#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Cluster)**
+
+Includes only one of the fields `organization`, `cloud`, `folder`, `cluster`. ||
+|#
+
+## Organization {#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Organization}
+
+#|
+||Field | Description ||
+|| organizationId | **string** ||
+|#
+
+## Cloud {#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Cloud}
+
+#|
+||Field | Description ||
+|| cloudId | **string** ||
+|#
+
+## Folder {#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Folder}
+
+#|
+||Field | Description ||
+|| folderId | **string** ||
+|#
+
+## Cluster {#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.Location.Cluster}
+
+#|
+||Field | Description ||
+|| clusterId | **string** ||
+|#
+
+## ClusterOptions {#yandex.cloud.audit.securitydeck.kspm.ExceptionScope.ClusterOptions}
+
+#|
+||Field | Description ||
+|| namespaces[] | **[Namespace](#yandex.cloud.audit.securitydeck.kspm.Namespace)**
+
+The number of elements must be in the range 0-255. ||
+|#
+
+## Namespace {#yandex.cloud.audit.securitydeck.kspm.Namespace}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The maximum string length in characters is 63. ||
+|#
+
+## Control {#yandex.cloud.audit.securitydeck.kspm.Control}
+
+#|
+||Field | Description ||
+|| id | **string** ||
+|#

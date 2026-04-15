@@ -14,21 +14,47 @@ editable: false
   "eventTime": "string",
   "authentication": {
     "authenticated": "boolean",
+    // Includes only one of the fields `subjectType`
     "subjectType": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectId`
     "subjectId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectName`
     "subjectName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationId`
     "federationId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationName`
     "federationName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationType`
     "federationType": "string",
+    // end of the list of possible fields
     "tokenInfo": {
       "maskedIamToken": "string",
+      // Includes only one of the fields `iamTokenId`
       "iamTokenId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorId`
       "impersonatorId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorType`
       "impersonatorType": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorName`
       "impersonatorName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationId`
       "impersonatorFederationId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationName`
       "impersonatorFederationName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationType`
       "impersonatorFederationType": "string"
+      // end of the list of possible fields
     }
   },
   "authorization": {
@@ -39,7 +65,9 @@ editable: false
       {
         "resourceType": "string",
         "resourceId": "string",
+        // Includes only one of the fields `resourceName`
         "resourceName": "string"
+        // end of the list of possible fields
       }
     ]
   },
@@ -47,7 +75,9 @@ editable: false
     "remoteAddress": "string",
     "userAgent": "string",
     "requestId": "string",
+    // Includes only one of the fields `remotePort`
     "remotePort": "string"
+    // end of the list of possible fields
   },
   "eventStatus": "string",
   "error": {
@@ -64,7 +94,9 @@ editable: false
       // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
       "objectStorage": {
         "bucketId": "string",
+        // Includes only one of the fields `objectPrefix`
         "objectPrefix": "string"
+        // end of the list of possible fields
       },
       "cloudLogging": {
         // Includes only one of the fields `logGroupId`, `folderId`
@@ -75,15 +107,21 @@ editable: false
       "dataStream": {
         "databaseId": "string",
         "streamName": "string",
+        // Includes only one of the fields `codec`
         "codec": "string"
+        // end of the list of possible fields
       },
       "eventrouter": {
         "eventrouterConnectorId": "string"
       }
       // end of the list of possible fields
     },
+    // Includes only one of the fields `serviceAccountId`
     "serviceAccountId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `status`
     "status": "string",
+    // end of the list of possible fields
     "pathFilter": {
       "root": {
         // Includes only one of the fields `anyFilter`, `someFilter`
@@ -145,7 +183,9 @@ editable: false
         }
       ]
     },
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -194,16 +234,28 @@ The error result of the operation in case of failure or cancellation. ||
 || authenticated | **boolean** ||
 || subjectType | **enum** (IamSubjectType)
 
+Includes only one of the fields `subjectType`.
+
 - `YANDEX_PASSPORT_USER_ACCOUNT`
 - `SERVICE_ACCOUNT`
 - `FEDERATED_USER_ACCOUNT`
 - `SSH_USER`
 - `KUBERNETES_USER` ||
-|| subjectId | **string** ||
-|| subjectName | **string** ||
-|| federationId | **string** ||
-|| federationName | **string** ||
+|| subjectId | **string**
+
+Includes only one of the fields `subjectId`. ||
+|| subjectName | **string**
+
+Includes only one of the fields `subjectName`. ||
+|| federationId | **string**
+
+Includes only one of the fields `federationId`. ||
+|| federationName | **string**
+
+Includes only one of the fields `federationName`. ||
 || federationType | **enum** (FederationType)
+
+Includes only one of the fields `federationType`.
 
 - `GLOBAL_FEDERATION`
 - `PRIVATE_FEDERATION` ||
@@ -215,19 +267,33 @@ The error result of the operation in case of failure or cancellation. ||
 #|
 ||Field | Description ||
 || maskedIamToken | **string** ||
-|| iamTokenId | **string** ||
-|| impersonatorId | **string** ||
+|| iamTokenId | **string**
+
+Includes only one of the fields `iamTokenId`. ||
+|| impersonatorId | **string**
+
+Includes only one of the fields `impersonatorId`. ||
 || impersonatorType | **enum** (IamSubjectType)
+
+Includes only one of the fields `impersonatorType`.
 
 - `YANDEX_PASSPORT_USER_ACCOUNT`
 - `SERVICE_ACCOUNT`
 - `FEDERATED_USER_ACCOUNT`
 - `SSH_USER`
 - `KUBERNETES_USER` ||
-|| impersonatorName | **string** ||
-|| impersonatorFederationId | **string** ||
-|| impersonatorFederationName | **string** ||
+|| impersonatorName | **string**
+
+Includes only one of the fields `impersonatorName`. ||
+|| impersonatorFederationId | **string**
+
+Includes only one of the fields `impersonatorFederationId`. ||
+|| impersonatorFederationName | **string**
+
+Includes only one of the fields `impersonatorFederationName`. ||
 || impersonatorFederationType | **enum** (FederationType)
+
+Includes only one of the fields `impersonatorFederationType`.
 
 - `GLOBAL_FEDERATION`
 - `PRIVATE_FEDERATION` ||
@@ -253,7 +319,9 @@ The error result of the operation in case of failure or cancellation. ||
 ||Field | Description ||
 || resourceType | **string** ||
 || resourceId | **string** ||
-|| resourceName | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
 |#
 
 ## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
@@ -263,7 +331,9 @@ The error result of the operation in case of failure or cancellation. ||
 || remoteAddress | **string** ||
 || userAgent | **string** ||
 || requestId | **string** ||
-|| remotePort | **string** (int64) ||
+|| remotePort | **string** (int64)
+
+Includes only one of the fields `remotePort`. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -290,8 +360,12 @@ A list of messages that carry the error details. ||
 || trailId | **string** ||
 || trailName | **string** ||
 || destination | **[Destination](#yandex.cloud.audit.audittrails.Destination)** ||
-|| serviceAccountId | **string** ||
+|| serviceAccountId | **string**
+
+Includes only one of the fields `serviceAccountId`. ||
 || status | **enum** (TrailStatus)
+
+Includes only one of the fields `status`.
 
 - `ACTIVE`
 - `ERROR`
@@ -301,7 +375,9 @@ A list of messages that carry the error details. ||
 || filteringPolicy | **[FilteringPolicy](#yandex.cloud.audit.audittrails.FilteringPolicy)** ||
 || description | **string**
 
-The maximum string length in characters is 1024. ||
+The maximum string length in characters is 1024.
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>)
 
 No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
@@ -330,7 +406,9 @@ Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `
 #|
 ||Field | Description ||
 || bucketId | **string** ||
-|| objectPrefix | **string** ||
+|| objectPrefix | **string**
+
+Includes only one of the fields `objectPrefix`. ||
 |#
 
 ## CloudLogging {#yandex.cloud.audit.audittrails.CloudLogging}
@@ -352,6 +430,8 @@ Includes only one of the fields `logGroupId`, `folderId`. ||
 || databaseId | **string** ||
 || streamName | **string** ||
 || codec | **enum** (Codec)
+
+Includes only one of the fields `codec`.
 
 - `RAW`
 - `GZIP`

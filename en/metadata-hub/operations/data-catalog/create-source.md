@@ -18,18 +18,18 @@ description: Follow this guide to create a metadata source in {{ data-catalog-fu
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [resource folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you created the metadata catalog in.
-    1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Go](../../../console/operations/select-service#select-service.md) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog you want to create a source in.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
     1. Click **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
     1. Enter a unique name for the source. Once you create the source, you cannot rename it.
     1. Optionally, describe the source.
-    1. Select the backend type to provide metadata from. Once the source is created, you cannot change the database type. Available backends:
+    1. Select the backend type to supply metadata from. After the source is created, its type cannot be changed. Available backends:
        
        {% include notitle [sources](../../../_includes/metadata-hub/data-catalog-sources.md) %}
 
-    1. Specify the source parameters for the selected database type:
+    1. Specify the source parameters for the selected backend type:
 
         {% include [source-parameters](../../../_includes/metadata-hub/data-catalog-source-parameters.md) %}
 

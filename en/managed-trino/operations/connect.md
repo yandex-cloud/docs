@@ -21,6 +21,7 @@ If the connection requires a port, use port `{{ port-https }}`.
 
 {% include [trino-cli-connect](../../_includes/managed-trino/trino-cli-connect.md) %}
 
+
 ## Connecting from graphical IDEs {#connection-ide}
 
 Before connecting:
@@ -45,7 +46,7 @@ Before connecting:
         * **Port**: `{{ port-https }}`.
         * **User**: `iam`.
         * **Password**: Previously created IAM token.
-  1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+  1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
@@ -67,7 +68,7 @@ Before connecting:
 
 ## WebSQL {#websql}
 
-1. Go to the [folder page]({{ link-console-main }}).
+1. Open the [folder dashboard]({{ link-console-main }}).
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. Open your {{ mtr-name }} cluster.
 1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.

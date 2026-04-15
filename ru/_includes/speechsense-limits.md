@@ -3,7 +3,6 @@
 Вид ограничения | Значение
 ----- | -----
 **Общие квоты** |
-Максимальное количество [проектов](../speechsense/concepts/resources-hierarchy.md#project) в [пространстве](../speechsense/concepts/resources-hierarchy.md#space) | 100
 Максимальное количество [тегов](../speechsense/concepts/tags.md) в проекте | 1 000
 Максимальное количество [метаданных](../speechsense/concepts/resources-hierarchy.md#connection) в подключении | 200
 Максимальное количество [словарей](../speechsense/concepts/dictionaries) в пространстве | 100
@@ -25,4 +24,5 @@
 Срок хранения пользовательских данных | 3 месяца
 Пересчет измененных и вновь созданных [словарных и смысловых тегов](../speechsense/concepts/tags.md) за месяц | Раз в сутки ночью
 Количество возвращаемых результатов поиска | 10 000
+Максимальное количество [проектов](../speechsense/concepts/resources-hierarchy.md#project) в [пространстве](../speechsense/concepts/resources-hierarchy.md#space) | 100
 Максимальное количество [подключений](../speechsense/concepts/resources-hierarchy.md#connection) в [пространстве](../speechsense/concepts/resources-hierarchy.md#space) | 20

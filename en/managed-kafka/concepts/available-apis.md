@@ -15,7 +15,7 @@ You do not need to take any preliminary steps to access these APIs as they are a
 
 The scope of available operations depends on the [roles of the account](../security/index.md) used to send API requests.
 
-For descriptions of the [REST API methods](../api-ref/index.md) and [gRPC API calls](../api-ref/grpc/index.md), see the API reference. You can find examples of requests in [these step-by-step guides](../operations/index.md).
+For descriptions of the [REST API methods](../api-ref/index.md) and [gRPC API calls](../api-ref/grpc/index.md), see the API reference. For examples of queries, se these [step-by-step guides](../operations/index.md).
 
 ### Limitations {#cloud-api-limits}
 
@@ -65,7 +65,7 @@ The scope of available operations depends on the roles assigned to the [{{ KF }}
     * `ACCESS_ROLE_ADMIN` role: User can perform any operations with subjects associated with any topic (this role applies to all topics).
     * `ACCESS_ROLE_TOPIC_ADMIN` role: User can perform any operations with subjects associated with the topic the role was assigned for.
 
-    Also, a user’s role determines which subjects this user can manage. For more information about the {{ mkf-msr }} role model, see [{#T}](./managed-schema-registry.md).
+    Also, a user’s role determines which subjects this user can manage. Learn more about the {{ mkf-msr }} role model [here](./managed-schema-registry.md).
 
 * REST API for {{ KF }}:
 

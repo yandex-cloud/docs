@@ -259,6 +259,6 @@ With [{{ atr-name }}](../../../security-deck/concepts/access-transparency.md), y
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Click **Connect** to activate the `{{ atr-name }}` module.
