@@ -231,33 +231,12 @@ items:
             items:
               - name: Data Sources
                 items:
-                  - name: api_gateway
-                    href: data-sources/api_gateway.md
-                    title: ''
-                  - name: function
-                    href: data-sources/function.md
-                    title: ''
-                  - name: function_trigger
-                    href: data-sources/function_trigger.md
-                    title: ''
                   - name: logging_group
                     href: data-sources/logging_group.md
                     title: ''
                 title: ''
               - name: Resources
                 items:
-                  - name: api_gateway
-                    href: resources/api_gateway.md
-                    title: ''
-                  - name: function
-                    href: resources/function.md
-                    title: ''
-                  - name: function_iam_binding
-                    href: resources/function_iam_binding.md
-                    title: ''
-                  - name: function_trigger
-                    href: resources/function_trigger.md
-                    title: ''
                   - name: logging_group
                     href: resources/logging_group.md
                     title: ''
@@ -1407,14 +1386,35 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: api_gateway
+                    href: data-sources/api_gateway.md
+                    title: ''
+                  - name: function
+                    href: data-sources/function.md
+                    title: ''
                   - name: function_scaling_policy
                     href: data-sources/function_scaling_policy.md
+                    title: ''
+                  - name: function_trigger
+                    href: data-sources/function_trigger.md
                     title: ''
                 title: ''
               - name: Resources
                 items:
+                  - name: api_gateway
+                    href: resources/api_gateway.md
+                    title: ''
+                  - name: function
+                    href: resources/function.md
+                    title: ''
+                  - name: function_iam_binding
+                    href: resources/function_iam_binding.md
+                    title: ''
                   - name: function_scaling_policy
                     href: resources/function_scaling_policy.md
+                    title: ''
+                  - name: function_trigger
+                    href: resources/function_trigger.md
                     title: ''
                 title: ''
             title: ''
