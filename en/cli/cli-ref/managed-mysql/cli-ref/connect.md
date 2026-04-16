@@ -25,6 +25,13 @@ MySQL cluster name. ||
 || `--db` | `string`
 
 The name of the database to connect to. ||
+|| `--daemon` | Run in daemon mode (proxy only, no mysql client) ||
+|| `--port` | `int`
+
+Port to listen on for MySQL proxy connections. ||
+|| `--target` | `string`
+
+Target to connect to (master or replica) ||
 |#
 
 #### Global Flags

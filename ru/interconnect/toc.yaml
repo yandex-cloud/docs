@@ -176,8 +176,6 @@ items:
             href: cli-ref/trunk-connection/index.md
           - name: add-labels
             href: cli-ref/trunk-connection/add-labels.md
-          - name: create
-            href: cli-ref/trunk-connection/create.md
           - name: delete
             href: cli-ref/trunk-connection/delete.md
           - name: get

@@ -74,7 +74,7 @@ Possible property names:
 || `--yandexquery-access` | Allow access for YandexQuery ||
 || `--mysql-version` | `string`
 
-Version of MYSQL used in the cluster. Values: 8.0, 5.7 ||
+Version of MYSQL used in the cluster. Values: 8.4, 8.0, 5.7 ||
 || `--resource-preset` | `string`
 
 ID of the preset for computational resources available to a host (CPU, memory etc.). ||

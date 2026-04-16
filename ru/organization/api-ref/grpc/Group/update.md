@@ -17,7 +17,8 @@ Updates the specified group.
   "group_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "labels": "map<string, string>"
 }
 ```
 
@@ -43,6 +44,11 @@ Value must match the regular expression ``` |[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA
 Description of the group.
 
 The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -67,7 +73,8 @@ The maximum string length in characters is 256. ||
     "name": "string",
     "description": "string",
     "subject_container_id": "string",
-    "external_id": "string"
+    "external_id": "string",
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -165,4 +172,7 @@ Id of the subject container that external group belongs to. It is set if group i
 || external_id | **string**
 
 Id of the group from external system. It is set if group is external. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#

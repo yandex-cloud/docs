@@ -105,6 +105,9 @@
 
 {% note info %}
 
-Если действие выполнил один из инфраструктурных сервисов {{ yandex-cloud }} или сотрудник поддержки, то в поле `remote address` будет значение `cloud.yandex`, а в поле `user agent` — `Yandex Cloud`.
+Если действие выполнил один из инфраструктурных сервисов {{ yandex-cloud }} или сотрудник поддержки, то в следующих полях будут указаны специальные значения:
+
+* `remote_address` — `cloud.yandex`
+* `user_agent` — `Yandex Cloud`
 
 {% endnote %}

@@ -62,8 +62,6 @@ Syntax:
 
   - [yc cic trunk-connection add-labels](trunk-connection/add-labels.md) — Add labels to a trunk connection.
 
-  - [yc cic trunk-connection create](trunk-connection/create.md) — Create a trunk connection.
-
   - [yc cic trunk-connection delete](trunk-connection/delete.md) — Delete a trunk connection.
 
   - [yc cic trunk-connection get](trunk-connection/get.md) — Get information about a trunk connection.

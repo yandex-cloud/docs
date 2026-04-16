@@ -1,42 +1,44 @@
 ---
-title: Как создать пространство имен в кластере {{ k8s }} в {{ managed-k8s-full-name }}
-description: Следуя данной инструкции, вы сможете создать пространство имен в кластере {{ managed-k8s-name }}.
+title: Управление пространствами имен в {{ managed-k8s-full-name }}
+description: Из статьи вы узнаете, как в {{ yandex-cloud }} управлять пространствами имен в {{ k8s }} с помощью консоли управления без использования kubectl.
 ---
 
-# Создание пространства имен в кластере {{ k8s }}
+# Управление пространствами имен
 
-Чтобы создать пространство имен в кластере {{ managed-k8s-name }}:
+Пространства имен в {{ k8s }} позволяют разделять ресурсы кластера между несколькими командами или проектами. Консоль управления позволяет создавать и удалять пространства имен в {{ managed-k8s-name }} без использования kubectl.
+
+## Создание пространства имен
+
+В консоли управления можно создавать пространства имен так же, как с помощью команды `kubectl create namespace <имя_пространства_имен>`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в каталоге, где требуется изменить кластер {{ k8s }}.
-  1. Выберите нужный кластер из списка.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.k8s.namespaces.button_create }}**.
-  1. Укажите **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** пространства имен. Оно должно соответствовать стандарту [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
-
-     {% include [namespace-name](../../../_includes/managed-kubernetes/namespace-name.md) %}
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В открывшемся окне введите **{{ ui-key.yacloud.k8s.namespaces.popup-add_field_name }}** пространства имен.
 
      {% include [note-namespace-kube](../../../_includes/managed-kubernetes/note-namespace-kube.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-- kubectl CLI {#kubectl}
+{% endlist %}
 
-  {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+## Удаление пространства имен
 
-  Выполните следующую команду:
+Удаление пространства имен соответствует выполнению команды `kubectl delete namespace <имя_пространства_имен>`. При удалении пространства имен все созданные в нем ресурсы будут удалены.
 
-  ```bash
-  kubectl create namespace <имя_пространства_имен>
-  ```
+Чтобы удалить пространство имен:
 
-  Имя пространства имен должно соответствовать стандарту [RFC 1123](https://datatracker.ietf.org/doc/html/rfc1123):
+{% list tabs group=instructions %}
 
-  {% include [namespace-name](../../../_includes/managed-kubernetes/namespace-name.md) %}
+- Консоль управления {#console}
 
-  {% include [note-namespace-kube](../../../_includes/managed-kubernetes/note-namespace-kube.md) %}
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.k8s.cluster.switch_namespaces }}**.
+  1. В строке пространства имен нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. Подтвердите действие.
 
 {% endlist %}

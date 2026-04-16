@@ -191,14 +191,22 @@
 
     Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/integrations/jdbc/jdbc-with-clickhouse).
 
-* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Глобальные настройки аутентификации для [интеграции с {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
 
     * **Auto offset reset** — начальная позиция, откуда начинается чтение сообщений [потребителем](../../managed-kafka/concepts/producers-consumers.md). С этой позиции потребитель добавляет сдвиги для новых сообщений по мере того, как движется и читает поступаемые сообщения. По умолчанию значение не выбрано (эквивалентно `latest`). Подробнее см. в [документации Confluent](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
+    * **Batch size** — максимальный суммарный размер всех сообщений в пакете (MessageSet), включая накладные данные протокола.
+    
+      Возможные значения от `1` до `2147483647` байт. Значение по умолчанию — `1000000`.
+
     * **Debug** — контекст для отладки. По умолчанию значение не выбрано. В настройке можно указать только одно значение. Список доступных значений см. в документации библиотеки `librdkafka` на [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
     * **Enable ssl certificate verification** — определяет, будет ли проводиться проверка SSL-сертификата. По умолчанию выбрано значение `false`.
     * **Max poll interval ms** — максимальный интервал (в миллисекундах) между вызовами для получения сообщений высокоуровневых потребителей. При превышении интервала пользователь удаляется из группы и запускается перебалансировка. По умолчанию значение не задано (эквивалентно `300000` — 5 минут).
+    * **Message max bytes** — максимальный размер сообщения в запросе по протоколу {{ KF }}.
+      
+      Возможные значения от `1000` до `1000000000` байт. Значение по умолчанию — `1000000`.
+    
     * **Sasl mechanism** — механизм аутентификации SASL:
       * `GSSAPI` (по умолчанию) — аутентификация с [использованием Kerberos](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslkerberos).
       * `PLAIN` — аутентификация с [использованием пары логин-пароль в виде открытого текста](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslplain).

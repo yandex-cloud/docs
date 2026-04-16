@@ -225,6 +225,14 @@ items:
             href: cli-ref/connector/pause.md
           - name: resume
             href: cli-ref/connector/resume.md
+      - name: connector-iceberg-sink
+        items:
+          - name: Overview
+            href: cli-ref/connector-iceberg-sink/index.md
+          - name: create
+            href: cli-ref/connector-iceberg-sink/create.md
+          - name: update
+            href: cli-ref/connector-iceberg-sink/update.md
       - name: connector-mirrormaker
         items:
           - name: Overview

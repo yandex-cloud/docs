@@ -286,7 +286,7 @@ This provides a stable, opaque identifier for the user.
 This uses the user's email address as the identifier. ||
 || value | **string**
 
-Required field. Value of the NameID. ||
+Value of the NameID. ||
 |#
 
 ## Attribute {#yandex.cloud.organizationmanager.v1.idp.application.saml.Attribute}

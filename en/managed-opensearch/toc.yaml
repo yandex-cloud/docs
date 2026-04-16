@@ -206,6 +206,14 @@ items:
             href: cli-ref/node-group/delete.md
           - name: update
             href: cli-ref/node-group/update.md
+      - name: plugin
+        items:
+          - name: Overview
+            href: cli-ref/plugin/index.md
+          - name: add
+            href: cli-ref/plugin/add.md
+          - name: delete
+            href: cli-ref/plugin/delete.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

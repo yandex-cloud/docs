@@ -109,6 +109,36 @@ items:
             href: cli-ref/bind-file/index.md
           - name: migrate-to-terraform
             href: cli-ref/bind-file/migrate-to-terraform.md
+      - name: firewall
+        items:
+          - name: Overview
+            href: cli-ref/firewall/index.md
+          - name: add-access-binding
+            href: cli-ref/firewall/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/firewall/add-labels.md
+          - name: create
+            href: cli-ref/firewall/create.md
+          - name: delete
+            href: cli-ref/firewall/delete.md
+          - name: get
+            href: cli-ref/firewall/get.md
+          - name: list
+            href: cli-ref/firewall/list.md
+          - name: list-access-bindings
+            href: cli-ref/firewall/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/firewall/list-operations.md
+          - name: move
+            href: cli-ref/firewall/move.md
+          - name: remove-access-binding
+            href: cli-ref/firewall/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/firewall/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/firewall/set-access-bindings.md
+          - name: update
+            href: cli-ref/firewall/update.md
       - name: zone
         items:
           - name: Overview
