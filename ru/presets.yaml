@@ -6042,6 +6042,7 @@ default:
         metadata-add-field: Добавить поле
         metric: Метрика
         monitoring: Мониторинг
+        more: Подробнее
         move: Переместить
         name: Имя
         not-selected: Не выбрано
@@ -7206,11 +7207,13 @@ default:
         label_yds-exports: Экспорт в Data Streams
       k8s:
         access:
+          button_create-sa: Сервисный аккаунт
           label_title: Управление доступом
-        Cluster:
-          CommonInfo:
-            access-section-title_fW4Au: Доступ
+          popup-add-sa_field_name: Имя
+          popup-add-sa_field_namespace: Пространство имен
         cluster:
+          button_create-resource: Создать
+          field_namespace: Пространство имен
           marketplace:
             button_install: Установить
             button_release-uninstall: Удалить
@@ -7225,6 +7228,8 @@ default:
             label_status: Статус
             label_title: Обзор
             section_master: Конфигурация мастера
+          switch_access: Управление доступом
+          switch_configuration: Конфигурация
           switch_custom-resources: Пользовательские ресурсы
           switch_events: События
           switch_marketplace: Marketplace
@@ -7233,6 +7238,9 @@ default:
           switch_nodes-manager: Управление узлами
           switch_storage: Хранилища
           switch_workloads: Рабочая нагрузка
+        Cluster:
+          CommonInfo:
+            access-section-title_fW4Au: Доступ
         clusters:
           button_create: Создать кластер
           create:
@@ -7340,15 +7348,21 @@ default:
             label_labels: Метки
             label_monitoring: Мониторинг
         nodes:
+          button_action-cordon: Cordon
+          button_action-uncordon: Uncordon
           label_node-groups: Группы узлов
           label_nodes: Узлы
         pv:
           overview:
             label_zone: Зона доступности
         storage:
+          button_action-add-default: Использовать по умолчанию
+          button_action-remove-default: Не использовать по умолчанию
           label_pv: Persistent Volumes
+          label_storage-classes: Классы хранилищ
         switch_operations: Операции
         workloads:
+          label_cron-jobs: Cron-задачи
           label_pods: Поды
           label_tab-logs: Логи
           label_tab-yaml: YAML

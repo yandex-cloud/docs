@@ -712,7 +712,11 @@
 
 * **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Настройка аналогична [предыдущей](#setting-max-bytes-before-external-group-by), но применяется для операции сортировки (`ORDER BY`).
+  Объем оперативной памяти, который может быть использован для `ORDER BY`. При превышении этого значения используется внешняя сортировка.
+
+  Минимальное значение — `0` (нет ограничения), по умолчанию — `0`.
+
+  Подробнее читайте в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#max_bytes_before_external_sort).
 
 * **Max bytes in distinct**{#setting-max-bytes-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -731,6 +735,34 @@
   Максимальный объем несжатых данных (в байтах), занимаемый множеством в секции `IN`, которое создается из подзапроса.
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+* **Max bytes ratio before external group by**{#setting-max-bytes-ratio-before-external-group-by} {{ tag-con }} {{ tag-sql }}
+
+  Доля доступной памяти запроса, которая может быть использована для `GROUP BY`. При превышении этого значения используется внешняя память.
+
+  Возможные значения от `0` (нет ограничения) до `1`.
+
+  Значение по умолчанию зависит от версии {{ CH }}:
+
+  * для версий ниже `25.1` — `0`;
+  * для версий `25.1` и выше — `0,5`.
+
+  Подробнее читайте в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#max_bytes_ratio_before_external_group_by).
+
+* **Max bytes ratio before external sort**{#setting-max-bytes-ratio-before-external-sort} {{ tag-con }} {{ tag-sql }}
+  
+  Доля доступной памяти запроса, которая может быть использована для `ORDER BY`.
+
+  Эта настройка, а также лимит доступной памяти в байтах [Max bytes before external sort](#setting-max-bytes-before-external-sort), ограничивают использование сортировки в памяти. Если превышена доля доступной памяти запроса и размер блока сортировки больше **Max bytes before external sort**, используется внешняя сортировка.
+
+  Возможные значения от `0` (нет ограничения) до `1`.
+
+  Значение по умолчанию зависит от версии {{ CH }}:
+
+  * для версий ниже `25.1` — `0`;
+  * для версий `25.1` и выше — `0,5`.
+
+  Подробнее читайте в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#max_bytes_ratio_before_external_sort).
 
 * **Max bytes to read**{#setting-max-bytes-to-read} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -1321,6 +1353,17 @@
 
   По умолчанию значение не выбрано (эквивалентно `throw`).
 
+* **Show Data Lake catalogs in system tables**{#setting-show-data-lake-catalogs-in-system_tables} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+  
+  Включает отображение каталогов [Data Lake](../../glossary/datalake.md) в системных таблицах.
+
+  Значение по умолчанию зависит от версии {{ CH }}:
+
+  * для версий ниже `25.10` — `true`;
+  * для версий `25.10` и выше — `false`.
+
+  Подробнее читайте в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
+
 * **Skip unavailable shards**{#setting-skip-unavailable-shards} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Разрешает тихий пропуск недоступных шардов. Шард считается недоступным, если все его реплики недоступны.
@@ -1378,6 +1421,17 @@
   По умолчанию настройка включена.
 
   Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests).
+
+* **Use hive partitioning**{#setting-use-hive-partitioning} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  Если настройка включена, {{ CH }} распознает партиционирование в стиле Hive в пути вида `/name=value/` для табличных движков `File/S3/URL/HDFS/AzureBlobStorage`. Это позволяет использовать столбцы партиций в качестве виртуальных столбцов в запросе. Виртуальные столбцы называются так же, как и столбцы партиций, но с префиксом `_`.
+
+  Значение по умолчанию зависит от версии {{ CH }}:
+
+  * для версий ниже `25.1` — `false`;
+  * для версий `25.1` и выше — `true`.
+
+  Подробнее читайте в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#use_hive_partitioning).
 
 * **Use query cache**{#setting-use-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 

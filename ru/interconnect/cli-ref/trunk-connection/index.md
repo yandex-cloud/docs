@@ -24,8 +24,6 @@ Aliases:
 
 - [yc cic trunk-connection add-labels](add-labels.md) — Add labels to a trunk connection.
 
-- [yc cic trunk-connection create](create.md) — Create a trunk connection.
-
 - [yc cic trunk-connection delete](delete.md) — Delete a trunk connection.
 
 - [yc cic trunk-connection get](get.md) — Get information about a trunk connection.

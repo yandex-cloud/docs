@@ -19,7 +19,8 @@ Creates an external group.
   "description": "string",
   "subject_container_id": "string",
   "external_id": "string",
-  "make_editor": "bool"
+  "make_editor": "bool",
+  "labels": "map<string, string>"
 }
 ```
 
@@ -57,6 +58,11 @@ Combination of subject_container_id and external_id must be unique ||
 || make_editor | **bool**
 
 If true, then creator of group will be assigned to role that allows modification of group as external group. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -86,7 +92,8 @@ If true, then creator of group will be assigned to role that allows modification
     "name": "string",
     "description": "string",
     "subject_container_id": "string",
-    "external_id": "string"
+    "external_id": "string",
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -199,4 +206,7 @@ Id of the subject container that external group belongs to. It is set if group i
 || external_id | **string**
 
 Id of the group from external system. It is set if group is external. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#

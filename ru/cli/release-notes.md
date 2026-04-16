@@ -7,6 +7,68 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.3.0 (16.04.26) {#v-1-3-0}
+
+#### {{ mos-name }} {#v-1-3-0-mos-name}
+
+* Добавлены команды для управления плагинами:
+  * `yc managed-opensearch plugins add`;
+  * `yc managed-opensearch plugins delete`.
+
+#### {{ alb-name }} {#v-1-3-0-alb-name}
+
+* Добавлен параметр `--preserve-http1-header-casing` для сохранения регистра HTTP/1-заголовков для определенного обработчика в команды:
+  * `yc application-load-balancer add-listener`;
+  * `yc application-load-balancer add-http-listener`;
+  * `yc application-load-balancer update-listener`;
+  * `yc application-load-balancer update-http-listener`;
+  * `yc application-load-balancer add-sni`;
+  * `yc application-load-balancer add-http-sni`;
+  * `yc application-load-balancer update-sni`;
+  * `yc application-load-balancer update-http-sni`.
+
+#### {{ quota-manager-name }} {#v-1-3-0-quota-manager-name}
+
+* В команде `yc quota-manager quota-request list` изменен способ вывода на постраничную загрузку.
+
+#### {{ org-full-name }} {#v-1-3-0-org-name}
+
+* В командах `yc organization-manager idp user list`, `yc organization-manager idp userpool list` и `yc organization-manager idp userpool domain list` изменен способ вывода на постраничную загрузку.
+* Добавлен параметр `--password-blacklist-check-common` для установки ограничений на использование пользователями утекших паролей в команды:
+  * `yc organization-manager idp userpool create`;
+  * `yc organization-manager idp userpool update`.
+
+#### {{ mmy-name }} {#v-1-3-0-mmy-name}
+
+* В команду `yc managed-mysql cluster create` добавлена поддержка версии MySQL 8.4.
+
+#### {{ dns-name }} {#v-1-3-0-Cloud DNS}
+
+* Добавлены команды для работы с DNS Firewall:
+  * `yc dns firewall get`;
+  * `yc dns firewall list`;
+  * `yc dns firewall create`;
+  * `yc dns firewall move`;
+  * `yc dns firewall update`;
+  * `yc dns firewall delete`;
+  * `yc dns firewall add-labels`;
+  * `yc dns firewall remove-labels`;
+  * `yc dns firewall list-access-bindings`;
+  * `yc dns firewall set-access-bindings`;
+  * `yc dns firewall add-access-binding`;
+  * `yc dns firewall remove-access-binding`;
+  * `yc dns firewall list-operations`.
+
+#### {{ interconnect-name }} {#v-1-3-0-cic-name}
+
+* Удалена команда `yc cic trunk-connection create`.
+
+#### {{ mch-name }} {#v-1-3-0-mch-name}
+
+* В команду `yc managed-clickhouse cluster restore` добавлены параметры `--include-patterns` и `--exclude-patterns` для частичного восстановления кластера.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.2.0 (13.04.26) {#v-1-2-0}
 
 #### {{ mkf-name }} {#v-1-2-0-mkf-name}
@@ -33,8 +95,6 @@ description: На странице представлены релизы CLI, а
 #### {{ mmy-name }} {#v-1-2-0-mmy}
 
 * Добавлен новый режим работы прокси `--daemon` для `yc managed-mysql connect`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.1.0 (06.04.26) {#v-1-1-0}
 

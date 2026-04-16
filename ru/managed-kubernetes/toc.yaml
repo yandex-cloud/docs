@@ -135,9 +135,6 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Изменение кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Создание пространства имен в кластере {{ k8s }}
-            href: >-
-              operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Управление доступом к кластеру {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
           - name: >-
@@ -190,6 +187,21 @@ items:
         items:
           - name: Подключение к терминалу запущенного контейнера
             href: operations/kubernetes-console/pod-terminal.md
+          - name: Управление размещением подов на узлах
+            href: operations/kubernetes-console/nodes.md
+          - name: Управление рабочими нагрузками
+            href: operations/kubernetes-console/workloads.md
+          - name: Управление хранилищами
+            href: operations/kubernetes-console/storage.md
+          - name: Управление ресурсами Service и Ingress
+            href: operations/kubernetes-console/network.md
+          - name: Управление ресурсами ConfigMap и Secret
+            href: operations/kubernetes-console/configuration.md
+          - name: Управление сервисными аккаунтами {{ k8s }}
+            href: operations/kubernetes-console/access.md
+          - name: Управление пространствами имен
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
   - name: Практические руководства
     items:
       - name: Все руководства

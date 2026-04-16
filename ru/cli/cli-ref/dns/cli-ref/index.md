@@ -18,6 +18,34 @@ Syntax:
 
   - [yc dns bind-file migrate-to-terraform](bind-file/migrate-to-terraform.md) — Writes terraform specification to stdout
 
+- [yc dns firewall](firewall/index.md) — Manage dns firewalls
+
+  - [yc dns firewall add-access-binding](firewall/add-access-binding.md) — Add access binding to the specified dns firewall
+
+  - [yc dns firewall add-labels](firewall/add-labels.md) — Assign labels to the specified dns firewall.
+
+  - [yc dns firewall create](firewall/create.md) — Create a dns firewall in the specified folder.
+
+  - [yc dns firewall delete](firewall/delete.md) — Delete a dns firewall.
+
+  - [yc dns firewall get](firewall/get.md) — Get information about a dns firewall.
+
+  - [yc dns firewall list](firewall/list.md) — List dns firewalls in folder.
+
+  - [yc dns firewall list-access-bindings](firewall/list-access-bindings.md) — List access bindings of the specified dns firewall.
+
+  - [yc dns firewall list-operations](firewall/list-operations.md) — List operations of the specified dns firewall.
+
+  - [yc dns firewall move](firewall/move.md) — Move a dns firewall to the specified folder.
+
+  - [yc dns firewall remove-access-binding](firewall/remove-access-binding.md) — Remove access binding from the specified dns firewall
+
+  - [yc dns firewall remove-labels](firewall/remove-labels.md) — Remove labels from the specified dns firewall
+
+  - [yc dns firewall set-access-bindings](firewall/set-access-bindings.md) — Set access bindings to the specified dns firewall and delete all existing access bindings if there are any.
+
+  - [yc dns firewall update](firewall/update.md) — Modify configuration or attributes of a dns firewall.
+
 - [yc dns zone](zone/index.md) — Manage dns zones
 
   - [yc dns zone add-access-binding](zone/add-access-binding.md) — Add access binding to the specified dns zone

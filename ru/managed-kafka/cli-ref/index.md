@@ -64,6 +64,12 @@ Aliases:
 
   - [yc managed-kafka connector resume](connector/resume.md) — Resume a Kafka connector.
 
+- [yc managed-kafka connector-iceberg-sink](connector-iceberg-sink/index.md) — Manage Kafka Iceberg-Sink connector.
+
+  - [yc managed-kafka connector-iceberg-sink create](connector-iceberg-sink/create.md) — Create a Kafka Iceberg-Sink connector.
+
+  - [yc managed-kafka connector-iceberg-sink update](connector-iceberg-sink/update.md) — Modify attributes of a Kafka Iceberg-Sink connector.
+
 - [yc managed-kafka connector-mirrormaker](connector-mirrormaker/index.md) — Manage Kafka Mirrormaker connector.
 
   - [yc managed-kafka connector-mirrormaker create](connector-mirrormaker/create.md) — Create a Kafka Mirrormaker connector.

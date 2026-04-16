@@ -116,6 +116,9 @@ The maximum string length in characters is 1000. ||
         "window": "google.protobuf.Duration",
         "block": "google.protobuf.Duration",
         "attempts": "int64"
+      },
+      "password_blacklist_policy": {
+        "check_common": "google.protobuf.BoolValue"
       }
     }
   ],
@@ -187,6 +190,9 @@ Password lifetime policy for this userpool. ||
 || bruteforce_protection_policy | **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
 
 Bruteforce protection policy for this userpool. ||
+|| password_blacklist_policy | **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy)**
+
+Password blacklist policy for this userpool. ||
 |#
 
 ## UserSettings {#yandex.cloud.organizationmanager.v1.idp.UserSettings}
@@ -381,4 +387,15 @@ Duration of the block after too many failed attempts. ||
 Number of failed attempts allowed within the window before blocking.
 
 Acceptable values are 1 to 100, inclusive. ||
+|#
+
+## PasswordBlacklistPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy}
+
+Policy that defines password blacklist requirements.
+
+#|
+||Field | Description ||
+|| check_common | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether check in common password database is enabled. Default value is true. ||
 |#

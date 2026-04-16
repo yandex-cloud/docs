@@ -114,7 +114,8 @@ The maximum string length in characters is 1000. ||
       "name": "string",
       "description": "string",
       "subjectContainerId": "string",
-      "externalId": "string"
+      "externalId": "string",
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -171,4 +172,7 @@ Id of the subject container that external group belongs to. It is set if group i
 || externalId | **string**
 
 Id of the group from external system. It is set if group is external. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#

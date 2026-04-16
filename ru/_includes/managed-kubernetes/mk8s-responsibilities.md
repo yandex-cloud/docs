@@ -74,6 +74,7 @@
 * **csi-driver** — ресурс `DaemonSet`, который устанавливается на все узлы кластера и обеспечивает работу [csi-driver](https://kubernetes-csi.github.io/docs/csi-driver-object.html).
 * **[kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)** — поддерживает сетевые правила на узлах. Эти правила разрешают сетевое взаимодействие с подами из сетевых сессий внутри и снаружи кластера.
 * **[coreDNS](https://coredns.io/)** — основной DNS-сервер, отвечающий за разрешение имен внутри кластера {{ k8s }}.
+* **[calico](https://github.com/projectcalico/calico)** — управляет [сетевыми политиками](../../managed-kubernetes/concepts/network-policy.md) и обеспечивает сетевое взаимодействие между подами.
 * **[cilium](https://cilium.io/)** — управляет [сетевыми политиками](../../managed-kubernetes/concepts/network-policy.md). Включает в себя компоненты cilium-cni, cilium-agent, cilium-operator, hubble. При использовании замещает плагин kube-proxy.
 * **[cluster-autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)** — управляет [автоматическим масштабированием](../../managed-kubernetes/concepts/autoscale.md#ca) групп узлов.
 * **[metrics-server](https://github.com/kubernetes-sigs/metrics-server)** — собирает метрики использования ресурсов (CPU, RAM) с узлов, подов и ограниченно мастеров.

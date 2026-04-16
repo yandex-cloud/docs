@@ -45,7 +45,7 @@
 
         # Формат получаемых сообщений. В настоящий момент поддерживается только значение prometheus.
         format:  # обязательный
-          # Входящие сообщения имеют формат prometheus (https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md).
+          # Входящие сообщения имеют формат prometheus (https://github.com/prometheus/docs/blob/main/docs/instrumenting/exposition_formats.md).
           prometheus: {}
         
         metric_name_label:  my_name  # необязательный, позволяет переименовать метку name вашего приложения, поскольку это имя зарезервировано агентом.

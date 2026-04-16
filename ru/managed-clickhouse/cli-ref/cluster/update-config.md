@@ -579,6 +579,13 @@ This is to leave free threads for regular merges and to avoid "Too many parts" e
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_mutation).
 
+- `merge_tree.number_of_free_entries_in_pool_to_execute_optimize_entire_partition`: When there is less than specified number of free entries in pool, do not execute optimizing entire partition in the background (this task generated when set min_age_to_force_merge_seconds and enable min_age_to_force_merge_on_partition_only).
+This is to leave free threads for regular merges and avoid "Too many parts".
+
+  Default value: **25**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#number_of_free_entries_in_pool_to_execute_optimize_entire_partition).
+
 - `merge_tree.max_bytes_to_merge_at_min_space_in_pool`: The maximum total part size (in bytes) to be merged into one part, with the minimum available resources in the background pool.
 
   Default value: **1048576** (1 MiB).

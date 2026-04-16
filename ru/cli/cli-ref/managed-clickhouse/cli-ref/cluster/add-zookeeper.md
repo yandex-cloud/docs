@@ -45,7 +45,7 @@ Possible property names:
 - `subnet-id`: ID of the subnet that the host should be created in.
 
 - `subnet-name`: Name of the subnet that the host should be created in. ||
-|| `--convert-tables-to-replicated` | Convert tables to replicated. ||
+|| `--convert-tables-to-replicated` | Convert tables to replicated. The option is enabled by default. ||
 |#
 
 #### Global Flags

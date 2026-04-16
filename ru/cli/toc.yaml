@@ -717,8 +717,6 @@ items:
                 href: cli-ref/cic/cli-ref/trunk-connection/index.md
               - name: add-labels
                 href: cli-ref/cic/cli-ref/trunk-connection/add-labels.md
-              - name: create
-                href: cli-ref/cic/cli-ref/trunk-connection/create.md
               - name: delete
                 href: cli-ref/cic/cli-ref/trunk-connection/delete.md
               - name: get
@@ -1842,6 +1840,36 @@ items:
                 href: cli-ref/dns/cli-ref/bind-file/index.md
               - name: migrate-to-terraform
                 href: cli-ref/dns/cli-ref/bind-file/migrate-to-terraform.md
+          - name: firewall
+            items:
+              - name: Overview
+                href: cli-ref/dns/cli-ref/firewall/index.md
+              - name: add-access-binding
+                href: cli-ref/dns/cli-ref/firewall/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/dns/cli-ref/firewall/add-labels.md
+              - name: create
+                href: cli-ref/dns/cli-ref/firewall/create.md
+              - name: delete
+                href: cli-ref/dns/cli-ref/firewall/delete.md
+              - name: get
+                href: cli-ref/dns/cli-ref/firewall/get.md
+              - name: list
+                href: cli-ref/dns/cli-ref/firewall/list.md
+              - name: list-access-bindings
+                href: cli-ref/dns/cli-ref/firewall/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/dns/cli-ref/firewall/list-operations.md
+              - name: move
+                href: cli-ref/dns/cli-ref/firewall/move.md
+              - name: remove-access-binding
+                href: cli-ref/dns/cli-ref/firewall/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/dns/cli-ref/firewall/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/dns/cli-ref/firewall/set-access-bindings.md
+              - name: update
+                href: cli-ref/dns/cli-ref/firewall/update.md
           - name: zone
             items:
               - name: Overview
@@ -3134,6 +3162,14 @@ items:
                 href: cli-ref/managed-kafka/cli-ref/connector/pause.md
               - name: resume
                 href: cli-ref/managed-kafka/cli-ref/connector/resume.md
+          - name: connector-iceberg-sink
+            items:
+              - name: Overview
+                href: cli-ref/managed-kafka/cli-ref/connector-iceberg-sink/index.md
+              - name: create
+                href: cli-ref/managed-kafka/cli-ref/connector-iceberg-sink/create.md
+              - name: update
+                href: cli-ref/managed-kafka/cli-ref/connector-iceberg-sink/update.md
           - name: connector-mirrormaker
             items:
               - name: Overview
@@ -3674,6 +3710,14 @@ items:
                 href: cli-ref/managed-opensearch/cli-ref/node-group/delete.md
               - name: update
                 href: cli-ref/managed-opensearch/cli-ref/node-group/update.md
+          - name: plugin
+            items:
+              - name: Overview
+                href: cli-ref/managed-opensearch/cli-ref/plugin/index.md
+              - name: add
+                href: cli-ref/managed-opensearch/cli-ref/plugin/add.md
+              - name: delete
+                href: cli-ref/managed-opensearch/cli-ref/plugin/delete.md
       - name: managed-postgresql
         items:
           - name: Overview
@@ -4436,6 +4480,8 @@ items:
               - name: add-access-binding
                 href: >-
                   cli-ref/organization-manager/cli-ref/group/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/organization-manager/cli-ref/group/add-labels.md
               - name: add-members
                 href: cli-ref/organization-manager/cli-ref/group/add-members.md
               - name: create
@@ -4458,6 +4504,8 @@ items:
               - name: remove-access-binding
                 href: >-
                   cli-ref/organization-manager/cli-ref/group/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/organization-manager/cli-ref/group/remove-labels.md
               - name: remove-members
                 href: cli-ref/organization-manager/cli-ref/group/remove-members.md
               - name: set-access-bindings

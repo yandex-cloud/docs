@@ -19,9 +19,6 @@ Syntax:
 || `--limit` | `int`
 
 The maximum number of items to list. Default is 1000 items ||
-|| `--page-token` | `string`
-
-Page token pagination simplifies navigating large datasets by using a token to represent the current page. ||
 || `--resource-id` | `string`
 
 Resource id ||

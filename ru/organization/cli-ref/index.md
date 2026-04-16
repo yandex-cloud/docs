@@ -22,6 +22,8 @@ Syntax:
 
   - [yc organization-manager group add-access-binding](group/add-access-binding.md) — Add access binding for the specified group
 
+  - [yc organization-manager group add-labels](group/add-labels.md) — Add labels to specified group
+
   - [yc organization-manager group add-members](group/add-members.md) — Add members to the specified group
 
   - [yc organization-manager group create](group/create.md) — Create a group
@@ -41,6 +43,8 @@ Syntax:
   - [yc organization-manager group list-operations](group/list-operations.md) — List operations for the specified group
 
   - [yc organization-manager group remove-access-binding](group/remove-access-binding.md) — Remove access binding for the specified group
+
+  - [yc organization-manager group remove-labels](group/remove-labels.md) — Remove labels from specified group
 
   - [yc organization-manager group remove-members](group/remove-members.md) — Remove members from the specified group
 

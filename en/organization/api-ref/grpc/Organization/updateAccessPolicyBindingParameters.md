@@ -26,12 +26,12 @@ Updates the access policy binding parameters for the organization.
 ||Field | Description ||
 || resource_id | **string**
 
-Required field.
+Required field. ID of the resource for which access policy bindings are being updated.
 
 The maximum string length in characters is 50. ||
 || access_policy_binding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding)**
 
-Required field. ||
+Required field. Identity for which access policy binding is being updated. ||
 |#
 
 ## AccessPolicyBinding {#yandex.cloud.access.AccessPolicyBinding}
@@ -43,7 +43,11 @@ Required field. ||
 Required field. ID of the access policy template being applied.
 
 The maximum string length in characters is 50. ||
-|| parameters | **object** (map<**string**, **string**>) ||
+|| parameters | **object** (map<**string**, **string**>)
+
+A list of access policy binding parameter KEY=VALUE pairs.
+
+The maximum string length in characters for each value is 1024. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -129,8 +133,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| resource_id | **string** ||
-|| access_policy_binding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding2)** ||
+|| resource_id | **string**
+
+ID of the resource for which access policy bindings are being updated. ||
+|| access_policy_binding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding2)**
+
+Identity for which access policy binding is being updated. ||
 |#
 
 ## AccessPolicyBinding {#yandex.cloud.access.AccessPolicyBinding2}
@@ -142,7 +150,11 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 Required field. ID of the access policy template being applied.
 
 The maximum string length in characters is 50. ||
-|| parameters | **object** (map<**string**, **string**>) ||
+|| parameters | **object** (map<**string**, **string**>)
+
+A list of access policy binding parameter KEY=VALUE pairs.
+
+The maximum string length in characters for each value is 1024. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## UpdateAccessPolicyBindingParametersResponse {#yandex.cloud.access.UpdateAccessPolicyBindingParametersResponse}

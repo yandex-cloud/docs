@@ -6038,6 +6038,7 @@ default:
         metadata-add-field: Add field
         metric: Metric
         monitoring: Monitoring
+        more: More information
         move: Move
         name: Name
         not-selected: Not selected
@@ -7200,11 +7201,13 @@ default:
         label_yds-exports: Export to Data Streams
       k8s:
         access:
+          button_create-sa: Service accounts
           label_title: Access management
-        Cluster:
-          CommonInfo:
-            access-section-title_fW4Au: Access
+          popup-add-sa_field_name: Name
+          popup-add-sa_field_namespace: Namespace
         cluster:
+          button_create-resource: Create
+          field_namespace: Namespace
           marketplace:
             button_install: Install
             button_release-uninstall: Uninstall
@@ -7219,6 +7222,8 @@ default:
             label_status: Status
             label_title: Overview
             section_master: Master configuration
+          switch_access: Access management
+          switch_configuration: Configuration
           switch_custom-resources: Custom resources
           switch_events: Events
           switch_marketplace: Marketplace
@@ -7227,6 +7232,9 @@ default:
           switch_nodes-manager: Node manager
           switch_storage: Storage
           switch_workloads: Workload
+        Cluster:
+          CommonInfo:
+            access-section-title_fW4Au: Access
         clusters:
           button_create: Create cluster
           create:
@@ -7334,15 +7342,21 @@ default:
             label_labels: Labels
             label_monitoring: Monitoring
         nodes:
+          button_action-cordon: Cordon
+          button_action-uncordon: Uncordon
           label_node-groups: Node group
           label_nodes: Nodes
         pv:
           overview:
             label_zone: Availability zone
         storage:
+          button_action-add-default: Use as default
+          button_action-remove-default: Don't use as default
           label_pv: Persistent Volumes
+          label_storage-classes: Storage classes
         switch_operations: Operations
         workloads:
+          label_cron-jobs: Cron jobs
           label_pods: Pods
           label_tab-logs: Logs
           label_tab-yaml: YAML

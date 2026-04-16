@@ -49,6 +49,22 @@ apiPlayground:
             **boolean**
             If true, then creator of group will be assigned to role that allows modification of group as external group.
           type: boolean
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
       required:
         - organizationId
         - name
@@ -77,7 +93,8 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/externa
   "description": "string",
   "subjectContainerId": "string",
   "externalId": "string",
-  "makeEditor": "boolean"
+  "makeEditor": "boolean",
+  "labels": "object"
 }
 ```
 
@@ -115,6 +132,11 @@ Combination of subject_container_id and external_id must be unique ||
 || makeEditor | **boolean**
 
 If true, then creator of group will be assigned to role that allows modification of group as external group. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -152,7 +174,8 @@ If true, then creator of group will be assigned to role that allows modification
     "name": "string",
     "description": "string",
     "subjectContainerId": "string",
-    "externalId": "string"
+    "externalId": "string",
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -303,4 +326,7 @@ Id of the subject container that external group belongs to. It is set if group i
 || externalId | **string**
 
 Id of the group from external system. It is set if group is external. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#
