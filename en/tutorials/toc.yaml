@@ -264,6 +264,10 @@ items:
                 href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
               - name: OpenID Connect
                 href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
+          - name: VK Cloud
+            items:
+              - name: SAML
+                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
@@ -1723,8 +1727,8 @@ items:
               sf-full-name }}
             href: serverless/logging-functions.md
           - name: >-
-              Regular recognition of images and PDF documents from an {{
-              objstorage-short-name }} bucket
+              Scheduled image and PDF recognition in an {{ objstorage-short-name
+              }} bucket
             href: serverless/vision-ocrrecognizer-storage.md
           - name: >-
               Setting up {{ sw-name }} integration with {{ tracker-name }}, {{

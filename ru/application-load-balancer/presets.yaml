@@ -1,3 +1,18 @@
 default:
   service-full-name: Yandex Application Load Balancer
   service-name: Application Load Balancer
+  alb-local-link: ../../../application-load-balancer/tools/k8s-ingress-controller
+  alb-local-link2: ../../application-load-balancer/tools/k8s-ingress-controller
+  ingress-local-link: ../../../application-load-balancer/tools/k8s-ingress-controller
+  ingress-local-link2: ../../application-load-balancer/tools/k8s-ingress-controller
+  gateway-local-link: ../../../application-load-balancer/tools/k8s-gateway-api
+  gateway-local-link2: ../../application-load-balancer/tools/k8s-gateway-api
+  configuration-local-link: ../../../application-load-balancer/k8s-ref
+  configuration-local-link2: ../../application-load-balancer/k8s-ref
+  tutorial-local-link: ../../../application-load-balancer/tutorials
+  tutorial-local-link2: ../../application-load-balancer/tutorials
+  gateway-install-local-link: ../../../application-load-balancer/operations/k8s-gateway-api-install.md
+  ingress-install-local-link: ../../../application-load-balancer/operations/k8s-ingress-controller-install.md
+  ingress-upgrade-local-link: ../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md
+  ingress-upgrade-local-link2: ../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md
+  gwin-tip-local-link: ../../application-load-balancer/tools/gwin/index.md

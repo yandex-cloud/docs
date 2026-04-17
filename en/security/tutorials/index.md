@@ -34,6 +34,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](single-sign-on/saml-sonarqube.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
 * [{#T}](single-sign-on/saml-cloud-ru.md)
+* [{#T}](single-sign-on/saml-vk-cloud.md)
 
 
 ## Network security {#network-security}

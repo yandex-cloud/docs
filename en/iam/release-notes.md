@@ -8,6 +8,142 @@ description: This section contains the {{ iam-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## March 2026 {#march-2026}
+
+* Added the following [roles](roles-reference.md):
+
+   {% cut "{{ foundation-models-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `ai.guardrails.admin` | Enables viewing info on guardrails for model responses, as well as creating, applying, modifying, and deleting such guardrails.
+     `ai.guardrails.auditor` | Enables viewing metadata on guardrails for model responses.
+     `ai.guardrails.editor` | Enables viewing info on guardrails for model responses, as well as creating, applying, modifying, and deleting such guardrails.
+     `ai.guardrails.user` | Enables applying guardrails for model responses and viewing metadata on such guardrails.
+     `ai.guardrails.viewer` | Enables viewing info on guardrails for model responses.
+
+   {% endcut %}
+
+   {% cut "{{ mgp-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-greenplum.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ GP }} clusters and modifying such tasks, as well as viewing info on {{ GP }} clusters and access permissions granted for them, on hosts and cluster backups, and on quotas and resource operations.
+     `managed-greenplum.maintenanceTask.viewer` | Enables viewing info on {{ GP }} clusters, their maintenance tasks, and access permissions granted for them, on hosts and cluster backups, and on quotas and resource operations.
+     `managed-greenplum.user` | Enables using {{ GP }} clusters.
+
+   {% endcut %}
+
+   {% cut "{{ maf-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-airflow.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ AF }} clusters and modifying such tasks, as well as viewing info on {{ AF }} clusters, access permissions granted for them, and on the service quotas.
+     `managed-airflow.maintenanceTask.viewer` | Enables viewing info on {{ AF }} clusters, access permissions granted for them, and their maintenance tasks, as well as on the service quotas.
+
+   {% endcut %}
+
+   {% cut "{{ mkf-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-kafka.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ KF }} clusters and modifying such tasks, as well as viewing info on {{ KF }} clusters, access permissions granted for them, and on the service quotas and resource operations.
+     `managed-kafka.maintenanceTask.viewer` | Enables viewing info on {{ KF }} clusters, access permissions granted for them, their maintenance tasks, and on the service quotas and resource operations.
+     `managed-kafka.user` | Enables using {{ KF }} clusters.
+
+   {% endcut %}
+
+   {% cut "{{ msp-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-spark.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ SPRK }} clusters and modifying such tasks, as well as viewing info on {{ SPRK }} clusters, access permissions granted for them, and on service quotas.
+     `managed-spark.maintenanceTask.viewer` | Enables viewing info on {{ SPRK }} clusters, access permissions granted for them, their maintenance tasks, and on service quotas.
+
+   {% endcut %}
+
+   {% cut "{{ mch-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-clickhouse.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ CH }} clusters and modifying such tasks, as well as viewing info on {{ CH }} clusters, access permissions granted for them, and on the service quotas and resource operations.
+     `managed-clickhouse.maintenanceTask.viewer` | Enables viewing info on {{ CH }} clusters, their maintenance tasks, access permissions granted for them, and on the service quotas and resource operations.
+     `managed-clickhouse.user` | Enables using {{ CH }} clusters.
+
+   {% endcut %}
+
+   {% cut "{{ mmy-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-mysql.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ MY }} clusters and modifying such tasks, as well as viewing info on {{ MY }} clusters and access permissions granted for them, on hosts and cluster backups, and on the service quotas and resource operations.
+     `managed-mysql.maintenanceTask.viewer` | Enables viewing info on {{ MY }} clusters, their maintenance tasks, and access permissions granted for them, on hosts and cluster backups, and on quotas and resource operations.
+     `managed-mysql.switcher` | Enables re-assigning the master host in {{ MY }} clusters, viewing info on {{ MY }} clusters, hosts, databases, and users, as well as viewing cluster logs, quotas, and resource operations.
+     `managed-mysql.user` | Enables using {{ MY }} clusters.
+
+   {% endcut %}
+
+   {% cut "{{ mos-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-opensearch.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ OS }} clusters and modifying such tasks, as well as viewing info on {{ OS }} clusters, access permissions granted for them, and on the service quotas and resource operations.
+     `managed-opensearch.maintenanceTask.viewer` | Enables viewing info on {{ OS }} clusters, access permissions granted for them, their maintenance tasks, and on the service quotas and resource operations.
+     `managed-opensearch.user` | Enables using {{ OS }} clusters.
+
+   {% endcut %}
+
+   {% cut "{{ mpg-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-postgresql.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ PG }} clusters and modifying such tasks, as well as viewing info on {{ PG }} clusters and access permissions granted for them, on hosts and cluster backups, and on the service quotas and resource operations.
+     `managed-postgresql.maintenanceTask.viewer` | Enables viewing info on {{ PG }} clusters, their maintenance tasks, and access permissions granted for them, on hosts and cluster backups, and on the service quotas and resource operations.
+     `managed-postgresql.switcher` | Enables re-assigning the master host in {{ PG }} clusters, viewing info on {{ PG }} clusters, hosts, databases, and users, as well as viewing cluster logs, quotas, and resource operations.
+     `managed-postgresql.user` | Enables using {{ PG }} clusters.
+
+   {% endcut %}
+
+   {% cut "{{ mspqr-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-spqr.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ SPQR }} clusters and modifying such tasks, as well as viewing info on {{ SPQR }} clusters, access permissions granted for them, cluster hosts, the service quotas, and resource operations.
+     `managed-spqr.maintenanceTask.viewer` | Enables viewing info on {{ SPQR }} clusters, their maintenance tasks, access permissions granted for them, hosts, and on the service quotas and resource operations.
+
+   {% endcut %}
+
+   {% cut "{{ mtr-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-trino.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ TR }} clusters and modifying such tasks, as well as viewing info on {{ TR }} clusters, access permissions granted for them, and on the service quotas.
+     `managed-trino.maintenanceTask.viewer` | Enables viewing info on {{ TR }} clusters, access permissions granted for them, their maintenance tasks, and on the service quotas.
+
+   {% endcut %}
+
+   {% cut "{{ mrd-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-redis.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ VLK }} clusters and modifying such tasks, as well as viewing info on {{ VLK }} clusters and access permissions granted for them, on hosts and cluster backups, and on the service quotas and resource operations.
+     `managed-redis.maintenanceTask.viewer` | Enables viewing info on {{ VLK }} clusters, their maintenance tasks, and access permissions granted for them, on hosts and cluster backups, and on quotas and resource operations.
+     `managed-redis.switcher` | Enables re-assigning the master host in {{ VLK }} clusters and viewing info on {{ VLK }} hosts and clusters, their logs, as well as info on quotas and resource operations.
+     `managed-redis.user` | Enables using {{ VLK }} clusters.
+
+   {% endcut %}
+
+   {% cut "{{ mmg-full-name }}" %}
+
+     User role | Description
+     --- | ---
+     `managed-mongodb.maintenanceTask.editor` | Enables viewing info on maintenance tasks for {{ SD }} clusters and modifying such tasks, as well as viewing info on {{ SD }} clusters and access permissions granted for them, on hosts and cluster backups, and on quotas and resource operations.
+     `managed-mongodb.maintenanceTask.viewer` | Enables viewing info on {{ SD }} clusters, their maintenance tasks, and access permissions granted for them, on hosts and cluster backups, and on quotas and resource operations.
+     `managed-mongodb.switcher` | Enables re-assigning the master host in {{ SD }} clusters and viewing info on {{ SD }} clusters, hosts, shards, databases, users, cluster logs, quotas, and resource operations.
+     `managed-mongodb.user` | Enables using {{ SD }} clusters.
+
+   {% endcut %}
+
 ## February 2026 {#february-2026}
 
 * Added support for managing [access policies](concepts/access-control/access-policies.md). {{ tag-con }}

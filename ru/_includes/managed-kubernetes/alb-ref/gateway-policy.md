@@ -2,6 +2,8 @@
 
 Ресурс `GatewayPolicy` предназначен для задания облачных политик, которые применяются к ресурсам `Gateway` в рамках одного пространства имен {{ k8s }}. Политика может быть применена к определенным ресурсам с помощью ссылок (`targetRefs`) или селектора (`selector`). Если ни одно из этих полей не указано, политика применяется ко всем ресурсам в пространстве имен.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 `GatewayPolicy` — это расширение Gateway API, реализуемое в {{ alb-name }}. Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}.
 
 {% note info %}
@@ -155,7 +157,7 @@ zone:
 
   Список [групп безопасности](../../../vpc/concepts/security-groups.md) {{ vpc-name }} для балансировщика. Идентификаторы групп перечисляются через запятую.
 
-  Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+  Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [{#T}]({{ alb-local-link }}/security-groups.md).
 
 * `logs` (`LogOptions`)
 

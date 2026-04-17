@@ -1,6 +1,6 @@
 # Установка Gateway API
 
-{% include [ingress-to-gwin-tip](../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
 
@@ -34,19 +34,25 @@
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gateway API](/marketplace/products/yc/gateway-api) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
-1. Задайте настройки приложения:
-   * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `gateway-api-space`). Если вы оставите пространство имен по умолчанию, Gateway API может работать некорректно.
-   * **Название приложения** — укажите название приложения.
-   * **Идентификатор каталога** — выберите каталог, в котором нужно создавать балансировщики.
-   * **Идентификатор сети** — выберите [облачную сеть](../../vpc/concepts/network.md#network), в которой нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
-   * **Идентификатор подсети 1**, **Идентификатор подсети 2**, **Идентификатор подсети 3** — выберите [подсети](../../vpc/concepts/network.md#subnet), в которых нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
-   * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json` или создайте новый [ключ](../../iam/concepts/authorization/key.md) [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
-1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gateway API](/marketplace/products/yc/gateway-api) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+  1. Задайте настройки приложения:
+     * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `gateway-api-space`). Если вы оставите пространство имен по умолчанию, Gateway API может работать некорректно.
+     * **Название приложения** — укажите название приложения.
+     * **Идентификатор каталога** — выберите каталог, в котором нужно создавать балансировщики.
+     * **Идентификатор сети** — выберите [облачную сеть](../../vpc/concepts/network.md#network), в которой нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
+     * **Идентификатор подсети 1**, **Идентификатор подсети 2**, **Идентификатор подсети 3** — выберите [подсети](../../vpc/concepts/network.md#subnet), в которых нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
+     * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json` или создайте новый [ключ](../../iam/concepts/authorization/key.md) [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+  1. Дождитесь перехода приложения в статус `Deployed`.
+
+{% endlist %}
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

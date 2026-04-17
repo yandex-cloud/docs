@@ -279,6 +279,10 @@ items:
                 href: tutorials/single-sign-on/cloud-ru/saml-cloud-ru.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/cloud-ru/oidc-cloud-ru.md
+          - name: VK Cloud
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
           - name: Using OAuth2 Proxy for applications not supporting SSO

@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
                 # выводим в лог результат вызова
                 if result["status"] == "OK":
-                    print(f"Succesffully invoked {result['url']}. Response: {result['response']}")
+                    print(f"Successfully invoked {result['url']}. Response: {result['response']}")
                 elif result["status"] == "ERROR":
                     print(f"ERROR invoking {result['url']}. Code {result['code']}, error message: {result['error']}")
                 else:

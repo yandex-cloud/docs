@@ -17,5 +17,10 @@ Event name | Description
 `guardrails.UpdateDictionary` | Updating a dictionary of phrases and regular expressions in a guardrail
 `guardrails.UpdateDictionaryItems` | Updating items in a dictionary of phrases and regular expressions in a guardrail
 `guardrails.UpdateGuardrail` | Updating a guardrail
+`mcp_hub.CreateMcpGateway` | Creating an MCP server
+`mcp_hub.DeleteMcpGateway` | Deleting an MCP server
+`mcp_hub.SetMcpGatewayAccessBindings` | Assigning access permissions for an MCP server
+`mcp_hub.UpdateMcpGateway` | Updating an MCP server
+`mcp_hub.UpdateMcpGatewayAccessBindings` | Updating access permissions for an MCP server
 `tuning.CancelTuning` | Stop model [tuning]
 `tuning.StartTuning` | Start model tuning

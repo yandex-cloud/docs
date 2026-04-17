@@ -1,8 +1,8 @@
 # Установка Ingress-контроллера {{ alb-name }}
 
-{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-Для балансировки нагрузки и распределения трафика между приложениями {{ k8s }} используйте [Ingress-контроллер {{ alb-full-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md). Он запускает L7-балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере {{ managed-k8s-name }}.
+Для балансировки нагрузки и распределения трафика между приложениями {{ k8s }} используйте [Ingress-контроллер {{ alb-full-name }}]({{ ingress-local-link2 }}/index.md). Он запускает L7-балансировщик и необходимые вспомогательные ресурсы, когда пользователь создает ресурс `Ingress` в кластере {{ managed-k8s-name }}.
 
 {% include [note-nlb](../../_includes/managed-kubernetes/note-alb.md) %}
 
@@ -14,7 +14,7 @@
 
 1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
 
-    Также [убедитесь](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md), что настроены группы безопасности, необходимые для работы {{ alb-name }}.
+    Также [убедитесь]({{ alb-local-link2 }}/security-groups.md), что настроены группы безопасности, необходимые для работы {{ alb-name }}.
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
@@ -34,25 +34,31 @@
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
-1. Задайте настройки приложения:
+{% list tabs group=instructions %}
 
-   * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `alb-ingress-controller-space`). Если вы оставите пространство имен по умолчанию, ALB Ingress Controller может работать некорректно.
-   * **Название приложения** — укажите название приложения.
-   * **Идентификатор каталога** — укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-   * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
-   * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json`.
-   * **Включить проверки работоспособности по умолчанию** — выберите опцию, чтобы в сети группы узлов установить ресурс [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) для проверок состояния приложений.
+- Консоль управления {#console}
 
-      Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
+  1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+  1. Задайте настройки приложения:
 
-      Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+     * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `alb-ingress-controller-space`). Если вы оставите пространство имен по умолчанию, ALB Ingress Controller может работать некорректно.
+     * **Название приложения** — укажите название приложения.
+     * **Идентификатор каталога** — укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+     * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
+     * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json`.
+     * **Включить проверки работоспособности по умолчанию** — выберите опцию, чтобы в сети группы узлов установить ресурс [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) для проверок состояния приложений.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+        Ресурс добавляет поды с агентами мониторинга трафика на каждый узел. В результате изоляция узлов и пространств имен не влияет на мониторинг, поэтому информация о мониторинге трафика точная. DaemonSet добавляет или убирает агенты мониторинга в зависимости от того, увеличивается или уменьшается число узлов в кластере.
+
+        Если вам не нужны проверки работоспособности кластера или вы используете свои, опцию можно не включать. Подробнее о настройке проверок вручную см. в разделе [{#T}]({{ tutorial-local-link2 }}/custom-health-checks.md).
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+  1. Дождитесь перехода приложения в статус `Deployed`.
+
+{% endlist %}
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 
@@ -100,7 +106,5 @@
 
 ## См. также {#see-also}
 
-* Описание Ingress-контроллеров в документации:
-   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
-   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
-* [Ограничения при обновлении ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md).
+* [Описание Ingress-контроллеров в документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+* [Ограничения при обновлении ALB Ingress Controller]({{ ingress-upgrade-local-link2 }}).

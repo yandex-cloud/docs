@@ -758,36 +758,58 @@ items:
                 href: gwin-ref/ycstoragebucket.md
       - name: Ingress-контроллер
         items:
-          - name: Ingress
-            href: alb-ref/ingress.md
-          - name: HttpBackendGroup
-            href: alb-ref/http-backend-group.md
-          - name: GrpcBackendGroup
-            href: alb-ref/grpc-backend-group.md
-          - name: IngressClass
-            href: alb-ref/ingress-class.md
-          - name: Service для Ingress
-            href: alb-ref/service-for-ingress.md
+          - name: Обзор
+            href: alb-ref/ingress-controller/index.md
+          - name: Принципы работы
+            href: alb-ref/ingress-controller/principles.md
+          - name: Установить Ingress-контроллер
+            href: operations/applications/alb-ingress-controller.md
+          - name: Обновить Ingress-контроллер
+            href: operations/applications/upgrade-alb-ingress-controller.md
+          - name: Конфигурация ресурсов
+            items:
+              - name: Ingress
+                href: alb-ref/ingress.md
+              - name: HttpBackendGroup
+                href: alb-ref/http-backend-group.md
+              - name: GrpcBackendGroup
+                href: alb-ref/grpc-backend-group.md
+              - name: IngressClass
+                href: alb-ref/ingress-class.md
+              - name: Service для Ingress
+                href: alb-ref/service-for-ingress.md
       - name: Gateway API
         items:
-          - name: Gateway
-            href: alb-ref/gateway.md
-          - name: GatewayPolicy
-            href: alb-ref/gateway-policy.md
-          - name: YCCertificate
-            href: alb-ref/yc-certificate.md
-          - name: HTTPRoute
-            href: alb-ref/http-route.md
-          - name: GRPCRoute
-            href: alb-ref/grpc-route.md
-          - name: RoutePolicy
-            href: alb-ref/route-policy.md
-          - name: YCStorageBucket
-            href: alb-ref/yc-storage-bucket.md
-          - name: TLSRoute
-            href: alb-ref/tls-route.md
-          - name: Service для Gateway API
-            href: alb-ref/service-for-gateway.md
+          - name: Обзор
+            href: alb-ref/gateway-api/index.md
+          - name: Установить Gateway API
+            href: operations/applications/gateway-api.md
+          - name: Конфигурация ресурсов
+            items:
+              - name: Gateway
+                href: alb-ref/gateway.md
+              - name: GatewayPolicy
+                href: alb-ref/gateway-policy.md
+              - name: HTTPRoute
+                href: alb-ref/http-route.md
+              - name: GRPCRoute
+                href: alb-ref/grpc-route.md
+              - name: RoutePolicy
+                href: alb-ref/route-policy.md
+              - name: TLSRoute
+                href: alb-ref/tls-route.md
+              - name: Service для Gateway API
+                href: alb-ref/service-for-gateway.md
+              - name: YCCertificate
+                href: alb-ref/yc-certificate.md
+              - name: YCStorageBucket
+                href: alb-ref/yc-storage-bucket.md
+      - name: Настройка групп безопасности
+        href: alb-ref/security-groups.md
+      - name: Работа с сервисными аккаунтами
+        href: alb-ref/service-account.md
+      - name: Создание и изменение ресурсов по конфигурации
+        href: alb-ref/k8s-ingress-controller-apply.md
   - name: Инструменты {{ network-load-balancer-name }}
     items:
       - name: Обзор

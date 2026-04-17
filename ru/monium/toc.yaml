@@ -229,24 +229,24 @@ items:
         href: concepts/ttl.md
   - name: Логи
     items:
-      - name: Начало работы
+      - name: Начало работы с логами приложений
         href: logs/quickstart.md
-      - name: Обзор
-        href: logs/index.md
-      - name: Сбор данных
+      - name: Начало работы с логами ресурсов {{ yandex-cloud }}
+        href: logs/quickstart-resources.md
+      - name: Поставка данных
         items:
           - name: Преобразование данных
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: Просмотр логов
+      - name: Поиск и анализ логов
         href: logs/logs-explorer.md
-      - name: Язык запросов
-        href: logs/query.md
       - name: Концепции
         items:
-          - name: Основные понятия
+          - name: Обзор и основные понятия
             href: logs/concepts/glossary.md
+          - name: Язык запросов
+            href: logs/query.md
           - name: Рекомендации по разметке логов
             href: logs/concepts/attributes-guide.md
           - name: Время хранения данных (TTL)

@@ -6,6 +6,8 @@ description: Follow this guide to update user data in a {{ org-full-name }} pool
 # Updating user data
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 You can only update user data for [local](../../../iam/concepts/users/accounts.md#local) users.
 
 To update local user data:
@@ -23,6 +25,7 @@ To update local user data:
       1. Update the username, [domain](../../concepts/domains.md), and full name.
       1. Add or update the email address.
       1. Expand the **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** section and update the user's first name, last name, and phone number.
+      1. Expand the **Organizational information** section, and specify the company name, department, job title, and employee ID of the user.
       1. Click **{{ ui-key.yacloud_org.organization.userpools.action_update-user }}**.
 
 - CLI {#cli}

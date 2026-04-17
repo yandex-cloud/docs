@@ -5,7 +5,11 @@ description: Follow this guide to leave an organization.
 
 # Leaving an organization
 
-If you are a [Yandex account](../../iam/concepts/users/accounts.md#passport) user, you can leave an organization on your own. To do this:
+If you are a [Yandex account](../../iam/concepts/users/accounts.md#passport) user, you can leave an organization on your own.
+
+{% include [organization-deny-user-listing](../../_includes/organization/organization-deny-user-listing.md) %}
+
+To leave an organization:
 
 {% list tabs group=instructions %}
 
@@ -18,6 +22,24 @@ If you are a [Yandex account](../../iam/concepts/users/accounts.md#passport) use
       Optionally, use the search bar or filter at the top of the page.
   1. In the row with the user, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm that you would like to leave the organization.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command for leaving an organization:
+
+     ```bash
+     yc organization-manager organization leave --help
+     ```
+
+  1. To leave an organization, run this command by specifying the organization [ID](./organization-get-id.md):
+
+     ```bash
+     yc organization-manager organization leave <organization_ID>
+     ```
 
 {% endlist %}
 

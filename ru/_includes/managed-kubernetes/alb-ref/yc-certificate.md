@@ -2,6 +2,8 @@
 
 Ресурс `YCCertificate` содержит параметры сертификата {{ certificate-manager-name }} для настройки TLS-соединений в ресурсе `Gateway`.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 ## YCCertificate {#yc-certificate}
 
 ```yaml

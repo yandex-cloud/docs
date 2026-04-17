@@ -4,9 +4,11 @@
 
 Эта инструкция поможет передать телеметрию из вашего или демонстрационного приложения через [OTel Collector](https://opentelemetry.io/docs/) и просмотреть ее в {{ monium-name }}. 
 
-Начать работу с метриками {{ yandex-cloud }} можно с помощью раздела [{#T}](metrics/quickstart.md).
+Чтобы начать работу с телеметрией ресурсов {{ yandex-cloud }}, перейдите в разделы:
+* [Метрики ресурсов {{ yandex-cloud }}](metrics/quickstart.md).
+* [Логи ресурсов {{ yandex-cloud }}](logs/quickstart-resources.md).
 
-Чтобы начать работу с телеметрией приложения в {{ monium-name }}:
+Чтобы начать работу с телеметрией приложения:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте сервисный аккаунт и API-ключ](#create-ca-key).
@@ -116,7 +118,7 @@
 
 {% endlist %}
 
-## Параметры подключения к {{ monium-name }} и распределение данных {#monium-connect}
+## Укажите параметры подключения к {{ monium-name }}, если телеметрия уже настроена {#monium-connect}
 
 Если в вашем приложении уже была настроена отправка телеметрии, укажите параметры:
 
@@ -125,7 +127,11 @@
 * В заголовке: параметр `x-monium-project=folder__<идентификатор_каталога>`.
 * В атрибутах ресурса `OTEL_RESOURCE_ATTRIBUTES`: `cluster` или `deployment.name` и `service` или `service.name`.
 
+{% cut "Приоритет атрибутов при записи данных" %}
+
 {% include [shard-distribution](../_includes/monium/shard-distribution.md) %}
+
+{% endcut %}
 
 ## Просмотрите данные в {{ monium-name }} {#view-telemetry}
 

@@ -1,9 +1,11 @@
 {% note warning %}
 
-Object metadata export (S3 Inventory) is currently in [Preview](../../overview/concepts/launch-stages.md) and is provided free of charge. Going forward, this will be a paid feature.
+Starting April 20, 2026, you are charged for using S3 Inventory that allows you to export object metadata.
 
-No fees will apply to `LIST` and `HEAD` operations performed when using S3 Inventory.
+`LIST` and `HEAD` operations run when using S3 Inventory are not charged separately.
 
-`PUT` operations and data storage in the target bucket are billable. For more information, see the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+You are also charged for `PUT` operations and data storage in the bucket to which metadata is exported.
+
+For more information, see the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 {% endnote %}
