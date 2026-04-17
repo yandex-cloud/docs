@@ -456,9 +456,9 @@ The final cost of a custom configuration depends on the server components you se
 
 #### Server configurations at reduced prices {#promo}
 
-##### Reduced prices from 09/03/2026 to 17/04/2026 {#09-03-17-04-2026}
+##### Reduced prices from 09/03/2026 to 30/04/2026 {#09-03-17-04-2026}
 
-You can rent servers with these configuration options until April 17, 2026, or as long as they are available. The price is valid once you complete the purchase and for the entire period of use. You can use the servers you rented at a discounted price until you cancel your rent on your own. Once you cancel, you will not be able to get a server at a discounted price again.
+You can rent servers with these configuration options until April 30, 2026, or as long as they are available. The price is valid once you complete the purchase and for the entire period of use. You can use the servers you rented at a discounted price until you cancel your rent on your own. Once you cancel, you will not be able to get a server at a discounted price again.
 
 
 
@@ -613,6 +613,22 @@ To request a bandwidth package of 100 TB, contact [support]({{ link-console-supp
     serviceIds={['{{ pcs|baremetal }}']}
     skuIds={[
       '{{ pc|baremetal.data.data-100tb.1sec }}'
+    ]}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
+
+### PI prefix announcement (BYOIP) {#byoip}
+
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|baremetal }}']}
+    skuIds={[
+      '{{ pc|baremetal.server.bms_publicannounce_pi_prefix_any.1_month }}'
     ]}
     installationCode="ru"
     currency="USD"

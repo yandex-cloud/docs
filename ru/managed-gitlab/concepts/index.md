@@ -80,6 +80,20 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 * [{#T}](../operations/runner.md)
 * [{#T}](../tutorials/install-gitlab-runner.md)
 
+### Сетевое взаимодействие между {{ GL }} и управляемыми раннерами {#networking-gl-mr}
+
+Подсеть инстанса, к которому подключен управляемый раннер, должна иметь доступ в интернет (через [NAT-шлюз](../../vpc/concepts/gateways.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md)).
+
+Настройка сетевого взаимодействия между {{ GL }} и управляемыми раннерами включает обязательные, рекомендуемые и опциональные настройки групп безопасности.
+
+#### Правила для входящего трафика {#ingress-rules-runner}
+
+{% include [mr-ingress-rules](../../_includes/managed-gitlab/mr-ingress-rules.md) %}
+
+#### Правила для исходящего трафика {#egress-rules-runner}
+
+{% include [mr-egress-rules](../../_includes/managed-gitlab/mr-egress-rules.md) %}
+
 ## {{ GL }} Pages {#pages}
 
 {{ GL }} Pages — инструмент для публикации статических сайтов на основе файлов, расположенных в репозитории {{ GL }}. Сайты разворачиваются по заданиям {{ GL }} CI/CD. {{ GL }} Pages работает с генераторами статических сайтов и обычными файлами HTML, CSS и JavaScript.
