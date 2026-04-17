@@ -121,6 +121,8 @@ items:
             href: tutorials/single-sign-on/saml-ovpn.md
           - name: Setting up SAML SSO in Cloud.ru
             href: tutorials/single-sign-on/saml-cloud-ru.md
+          - name: Setting up SAML SSO in VK Cloud
+            href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Setting up SAML SSO in Sentry
             href: tutorials/single-sign-on/saml-sentry.md
       - name: Network security

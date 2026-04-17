@@ -9,7 +9,7 @@ apiPlayground:
         resourceId:
           description: |-
             **string**
-            Required field.
+            Required field. ID of the resource for which access policy bindings are being updated.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -22,7 +22,7 @@ apiPlayground:
         accessPolicyBinding:
           description: |-
             **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding)**
-            Required field.
+            Required field. Identity for which access policy binding is being updated.
           $ref: '#/definitions/AccessPolicyBinding'
       required:
         - accessPolicyBinding
@@ -38,10 +38,20 @@ apiPlayground:
               The maximum string length in characters is 50.
             type: string
           parameters:
-            description: '**object** (map<**string**, **string**>)'
+            description: |-
+              **object** (map<**string**, **string**>)
+              A list of access policy binding parameter KEY=VALUE pairs.
+              The maximum string length in characters for each value is 1024. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource.
             type: object
             additionalProperties:
               type: string
+              maxLength: 1024
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
         required:
           - accessPolicyTemplateId
 ---
@@ -62,7 +72,7 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/organi
 ||Field | Description ||
 || resourceId | **string**
 
-Required field.
+Required field. ID of the resource for which access policy bindings are being updated.
 
 The maximum string length in characters is 50. ||
 |#
@@ -82,7 +92,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || accessPolicyBinding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding)**
 
-Required field. ||
+Required field. Identity for which access policy binding is being updated. ||
 |#
 
 ## AccessPolicyBinding {#yandex.cloud.access.AccessPolicyBinding}
@@ -94,7 +104,11 @@ Required field. ||
 Required field. ID of the access policy template being applied.
 
 The maximum string length in characters is 50. ||
-|| parameters | **object** (map<**string**, **string**>) ||
+|| parameters | **object** (map<**string**, **string**>)
+
+A list of access policy binding parameter KEY=VALUE pairs.
+
+The maximum string length in characters for each value is 1024. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -202,8 +216,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| resourceId | **string** ||
-|| accessPolicyBinding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding2)** ||
+|| resourceId | **string**
+
+ID of the resource for which access policy bindings are being updated. ||
+|| accessPolicyBinding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding2)**
+
+Identity for which access policy binding is being updated. ||
 |#
 
 ## AccessPolicyBinding {#yandex.cloud.access.AccessPolicyBinding2}
@@ -215,7 +233,11 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 Required field. ID of the access policy template being applied.
 
 The maximum string length in characters is 50. ||
-|| parameters | **object** (map<**string**, **string**>) ||
+|| parameters | **object** (map<**string**, **string**>)
+
+A list of access policy binding parameter KEY=VALUE pairs.
+
+The maximum string length in characters for each value is 1024. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## Status {#google.rpc.Status}

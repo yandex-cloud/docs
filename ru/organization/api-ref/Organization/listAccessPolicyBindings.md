@@ -62,7 +62,6 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/organiza
 || resourceId | **string**
 
 Required field. ID of the resource to list access policy bindings for.
-
 To get the resource ID, use a corresponding List request.
 For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request to get the Cloud resource ID.
 
@@ -132,5 +131,9 @@ query parameter in the next list request. Each subsequent list request will have
 Required field. ID of the access policy template being applied.
 
 The maximum string length in characters is 50. ||
-|| parameters | **object** (map<**string**, **string**>) ||
+|| parameters | **object** (map<**string**, **string**>)
+
+A list of access policy binding parameter KEY=VALUE pairs.
+
+The maximum string length in characters for each value is 1024. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
 |#

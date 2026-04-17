@@ -70,6 +70,11 @@ apiPlayground:
             **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
             Bruteforce protection policy for the userpool.
           $ref: '#/definitions/BruteforceProtectionPolicy'
+        passwordBlacklistPolicy:
+          description: |-
+            **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy)**
+            Password blacklist policy for the userpool.
+          $ref: '#/definitions/PasswordBlacklistPolicy'
       required:
         - organizationId
         - name
@@ -304,6 +309,14 @@ apiPlayground:
               Acceptable values are 1 to 100, inclusive.
             type: string
             format: int64
+      PasswordBlacklistPolicy:
+        type: object
+        properties:
+          checkCommon:
+            description: |-
+              **boolean**
+              Whether check in common password database is enabled. Default value is true.
+            type: boolean
 ---
 
 # Identity Provider API, REST: Userpool.Create
@@ -371,6 +384,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/use
     "window": "string",
     "block": "string",
     "attempts": "string"
+  },
+  "passwordBlacklistPolicy": {
+    "checkCommon": "boolean"
   }
 }
 ```
@@ -417,6 +433,9 @@ Password lifetime policy for the userpool. ||
 || bruteforceProtectionPolicy | **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
 
 Bruteforce protection policy for the userpool. ||
+|| passwordBlacklistPolicy | **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy)**
+
+Password blacklist policy for the userpool. ||
 |#
 
 ## UserSettings {#yandex.cloud.organizationmanager.v1.idp.UserSettings}
@@ -613,6 +632,17 @@ Number of failed attempts allowed within the window before blocking.
 Acceptable values are 1 to 100, inclusive. ||
 |#
 
+## PasswordBlacklistPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy}
+
+Policy that defines password blacklist requirements.
+
+#|
+||Field | Description ||
+|| checkCommon | **boolean**
+
+Whether check in common password database is enabled. Default value is true. ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -694,6 +724,9 @@ Acceptable values are 1 to 100, inclusive. ||
       "window": "string",
       "block": "string",
       "attempts": "string"
+    },
+    "passwordBlacklistPolicy": {
+      "checkCommon": "boolean"
     }
   }
   // end of the list of possible fields
@@ -860,6 +893,9 @@ Password lifetime policy for this userpool. ||
 || bruteforceProtectionPolicy | **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy2)**
 
 Bruteforce protection policy for this userpool. ||
+|| passwordBlacklistPolicy | **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy2)**
+
+Password blacklist policy for this userpool. ||
 |#
 
 ## UserSettings {#yandex.cloud.organizationmanager.v1.idp.UserSettings2}
@@ -1054,4 +1090,15 @@ Duration of the block after too many failed attempts. ||
 Number of failed attempts allowed within the window before blocking.
 
 Acceptable values are 1 to 100, inclusive. ||
+|#
+
+## PasswordBlacklistPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy2}
+
+Policy that defines password blacklist requirements.
+
+#|
+||Field | Description ||
+|| checkCommon | **boolean**
+
+Whether check in common password database is enabled. Default value is true. ||
 |#

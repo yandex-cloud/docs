@@ -4,7 +4,7 @@ editable: false
 
 # Identity Hub Audit Trails Events: DeleteApplication
 
-## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.oauth.DeleteApplication2-schema}
+## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.DeleteApplication2-schema}
 
 ```json
 {
@@ -90,25 +90,52 @@ editable: false
   "details": {
     "applicationId": "string",
     "applicationName": "string",
-    "description": "string",
     "status": "string",
-    "groupClaimsSettings": {
-      "groupDistributionType": "string"
-    },
-    "clientGrant": {
-      "clientId": "string",
-      "authorizedScopes": [
-        "string"
+    "serviceProvider": {
+      "entityId": "string",
+      "acsUrls": [
+        {
+          "url": "string",
+          "index": "string"
+        }
       ]
     },
-    "labels": "object"
+    "securitySettings": {
+      "signatureMode": "string",
+      "signatureCertificateId": "string",
+      "requestSigning": {
+        "requireRequestSigning": "boolean"
+      },
+      "responseEncryption": {
+        "requireResponseEncryption": "boolean",
+        "encryptionCertificateId": "string",
+        "dataEncryptionAlgorithm": "string",
+        "keyEncryptionAlgorithm": "string"
+      }
+    },
+    "groupClaimsSettings": {
+      "groupDistributionType": "string",
+      "groupAttributeName": "string"
+    },
+    "attributeMapping": {
+      "nameId": {
+        "format": "string",
+        "value": "string"
+      },
+      "attributes": [
+        {
+          "name": "string",
+          "value": "string"
+        }
+      ]
+    }
   },
   "requestParameters": "object",
   "response": "object"
 }
 ```
 
-## Field description {#yandex.cloud.audit.organizationmanager.application.oauth.DeleteApplication2}
+## Field description {#yandex.cloud.audit.organizationmanager.application.saml.DeleteApplication2}
 
 #|
 ||Field | Description ||
@@ -137,7 +164,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[ApplicationDetails](#yandex.cloud.audit.organizationmanager.application.oauth.ApplicationDetails)** ||
+|| details | **[ApplicationDetails](#yandex.cloud.audit.organizationmanager.application.saml.ApplicationDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -268,46 +295,21 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## ApplicationDetails {#yandex.cloud.audit.organizationmanager.application.oauth.ApplicationDetails}
+## ApplicationDetails {#yandex.cloud.audit.organizationmanager.application.saml.ApplicationDetails}
 
 #|
 ||Field | Description ||
 || applicationId | **string** ||
 || applicationName | **string** ||
-|| description | **string** ||
 || status | **enum** (Status)
 
 - `CREATING`
 - `ACTIVE`
 - `SUSPENDED`
 - `DELETING` ||
-|| groupClaimsSettings | **[GroupClaimsSettingsDetails](#yandex.cloud.audit.organizationmanager.application.oauth.GroupClaimsSettingsDetails)** ||
-|| clientGrant | **[ClientGrantDetails](#yandex.cloud.audit.organizationmanager.application.oauth.ClientGrantDetails)** ||
-|| labels | **object** (map<**string**, **string**>) ||
-|#
-
-## GroupClaimsSettingsDetails {#yandex.cloud.audit.organizationmanager.application.oauth.GroupClaimsSettingsDetails}
-
-#|
-||Field | Description ||
-|| groupDistributionType | **enum** (GroupDistributionType)
-
-- `NONE`
-- `ASSIGNED_GROUPS`
-- `ALL_GROUPS` ||
-|#
-
-## ClientGrantDetails {#yandex.cloud.audit.organizationmanager.application.oauth.ClientGrantDetails}
-
-#|
-||Field | Description ||
-|| clientId | **string**
-
-The maximum string length in characters is 50. ||
-|| authorizedScopes[] | **string**
-
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
-|#ils](#yandex.cloud.audit.organizationmanager.application.saml.GroupClaimsSettingsDetails)** ||
+|| serviceProvider | **[ServiceProviderDetails](#yandex.cloud.audit.organizationmanager.application.saml.ServiceProviderDetails)** ||
+|| securitySettings | **[SecuritySettingsDetails](#yandex.cloud.audit.organizationmanager.application.saml.SecuritySettingsDetails)** ||
+|| groupClaimsSettings | **[GroupClaimsSettingsDetails](#yandex.cloud.audit.organizationmanager.application.saml.GroupClaimsSettingsDetails)** ||
 || attributeMapping | **[AttributeMappingDetails](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails)** ||
 |#
 

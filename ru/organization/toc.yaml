@@ -439,6 +439,8 @@ items:
             href: cli-ref/group/index.md
           - name: add-access-binding
             href: cli-ref/group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/group/add-labels.md
           - name: add-members
             href: cli-ref/group/add-members.md
           - name: create
@@ -459,6 +461,8 @@ items:
             href: cli-ref/group/list-operations.md
           - name: remove-access-binding
             href: cli-ref/group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/group/remove-labels.md
           - name: remove-members
             href: cli-ref/group/remove-members.md
           - name: set-access-bindings

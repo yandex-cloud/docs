@@ -1,10 +1,10 @@
 # Поля и аннотации ресурса IngressClass
 
-Ресурс `IngressClass` — это класс ресурсов [Ingress](../../../application-load-balancer/k8s-ref/ingress.md), который позволяет использовать одновременно несколько Ingress-контроллеров, например {{ alb-name }} и NGINX. Каждый ресурс `IngressClass` относится к отдельному Ingress-контроллеру. В результате можно маршрутизировать трафик через ресурсы `Ingress` разных контроллеров в рамках одного приложения в одном кластере {{ managed-k8s-name }}.
+Ресурс `IngressClass` — это класс ресурсов [Ingress]({{ configuration-local-link }}/ingress.md), который позволяет использовать одновременно несколько Ingress-контроллеров, например {{ alb-name }} и NGINX. Каждый ресурс `IngressClass` относится к отдельному Ingress-контроллеру. В результате можно маршрутизировать трафик через ресурсы `Ingress` разных контроллеров в рамках одного приложения в одном кластере {{ managed-k8s-name }}.
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-Если вы используете несколько Ingress-контроллеров, в каждом ресурсе `Ingress` укажите, к какому контроллеру ресурс относится. Для этого задайте название `IngressClass` соответствующего контроллера в поле [spec.ingressClassName](../../../application-load-balancer/k8s-ref/ingress.md#spec).
+Если вы используете несколько Ingress-контроллеров, в каждом ресурсе `Ingress` укажите, к какому контроллеру ресурс относится. Для этого задайте название `IngressClass` соответствующего контроллера в поле [spec.ingressClassName]({{ configuration-local-link }}/ingress.md#spec).
 
 `IngressClass` — стандартный ресурс {{ k8s }}. Ниже описаны поля и аннотации ресурса. Подробнее о применении и конфигурации ресурса `IngressClass` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class). На GitHub есть [пример](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class), как настроить ресурсы `Ingress` и маршрутизировать трафик с помощью нескольких Ingress-контроллеров.
 
@@ -71,7 +71,7 @@ annotations:
 
 Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-Имя также указывается в поле [spec.ingressClassName](../../../application-load-balancer/k8s-ref/ingress.md#spec) в ресурсе `Ingress`. ||
+Имя также указывается в поле [spec.ingressClassName]({{ configuration-local-link }}/ingress.md#spec) в ресурсе `Ingress`. ||
 || `labels`      | `map[string]string`  | {{ k8s }}-метки для управления объектами {{ k8s }} и мониторинга этих объектов.
 
 [Рекомендуемое значение](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/): `app.kubernetes.io/component: controller`. ||

@@ -120,7 +120,7 @@ The infrastructure support cost includes:
       * `issuer` and `audiences`: Issuer URL value you got earlier, e.g., `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
       * `jwks_url`: JWKS URL value you got earlier, e.g., `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -188,7 +188,7 @@ The infrastructure support cost includes:
           * `name`: Service account name, e.g., `sa-lockbox`.
           * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     
-      1. Make sure the configuration files are correct.
+      1. Validate your configuration files.
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -245,7 +245,7 @@ The infrastructure support cost includes:
           * `role`: Role being assigned, e.g., `{{ roles-lockbox-payloadviewer }}`.
           * `member`: [ID of the service account](../../iam/operations/sa/get-id.md) you are assigning the role to. Use this format: `serviceAccount:<service_account_ID>`.
 
-      1. Make sure the configuration files are correct.
+      1. Validate your configuration files.
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -360,7 +360,7 @@ The infrastructure support cost includes:
         * `namespace`: {{ k8s }} service account's `Namespace` field value, e.g., `default`.
         * `external_subject_id_service_account_name`: {{ k8s }} service account's `Name` field value, e.g., `wlif`.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -584,9 +584,9 @@ Below is a scenario that uses the `yc-metadata-server` DaemonSet controller on n
           projected:
             sources:
               - serviceAccountToken:
-                path: sa-token
-                expirationSeconds: 7200
-                audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
+                  path: sa-token
+                  expirationSeconds: 7200
+                  audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
     ```
 
     Where:
@@ -668,7 +668,7 @@ Below is a scenario that uses the `yc-metadata-server` DaemonSet controller on n
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 * [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
 * [Delete](../../managed-kubernetes/operations/node-group/node-group-delete.md) the {{ managed-k8s-name }} node group.
 * [Delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.

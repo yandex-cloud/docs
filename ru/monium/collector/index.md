@@ -1,4 +1,4 @@
-# Сбор телеметрии
+# Поставка телеметрии
 
 В {{ monium-name }} автоматически поступают данные телеметрии от ресурсов {{ yandex-cloud }}. Также вы можете передавать в {{ monium-name }} данные телеметрии в формате [OpenTelemetry](https://opentelemetry.io/) из любых источников: других облаков, собственной инфраструктуры или приложений.
 
@@ -57,6 +57,6 @@
 
 Подробнее о настройке:
 
-* [{{ unified-agent-short-name }}](../concepts/data-collection/unified-agent/index.md) — агент от Яндекса.
+* [{{ unified-agent-short-name }}](../concepts/data-collection/unified-agent/index.md) — агент от Яндекса (пока работает только с метриками).
 * [OTel Collector](../collector/opentelemetry.md) — агент экосистемы OpenTelemetry.
-* [Fluent Bit](fluentbit.md) — легковесный агент для обработки логов и форвардированию других видов телеметрии.
+* [Fluent Bit](fluentbit.md) — легковесный агент для обработки логов и отправки других видов телеметрии.

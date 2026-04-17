@@ -3,9 +3,19 @@
 # This is a template - please update with your actual values
 
 userpool_id: "<user_pool_ID>"
-cloud_credentials_file_path: "<path_to_file_with_authorized_key>"
 replication_tokens_path: "<path_to_directory_with_process_tokens>"
 working_directory: "<path_to_agent_working_directory>"
+
+# {{ yandex-cloud }} authentication settings
+
+# Use the cloud_credentials_file_path parameter for authentication via an authorized key.
+# If you want the agent to authenticate via IAM tokens, remove the cloud_credentials_file_path line.
+cloud_credentials_file_path: "<path_to_file_with_authorized_key>"
+
+# Enable the use_metadata_service parameter for authentication via IAM tokens
+# (only available when the agent is installed on a {{ compute-name }} VM).
+# If `true`, the cloud_credentials_file_path parameter will be ignored.
+use_metadata_service: true|false
 
 # Active Directory replication API client settings
 drsr:

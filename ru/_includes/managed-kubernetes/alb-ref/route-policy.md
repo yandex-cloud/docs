@@ -8,6 +8,8 @@
 
 {% endnote %}
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 Пример определения ресурса `RoutePolicy` (предназначен только для демонстрации всех параметров):
 
 ```yaml

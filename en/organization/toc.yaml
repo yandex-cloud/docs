@@ -279,6 +279,10 @@ items:
                 href: tutorials/single-sign-on/cloud-ru/saml-cloud-ru.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/cloud-ru/oidc-cloud-ru.md
+          - name: VK Cloud
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
@@ -419,6 +423,8 @@ items:
             href: cli-ref/group/index.md
           - name: add-access-binding
             href: cli-ref/group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/group/add-labels.md
           - name: add-members
             href: cli-ref/group/add-members.md
           - name: create
@@ -439,6 +445,8 @@ items:
             href: cli-ref/group/list-operations.md
           - name: remove-access-binding
             href: cli-ref/group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/group/remove-labels.md
           - name: remove-members
             href: cli-ref/group/remove-members.md
           - name: set-access-bindings
