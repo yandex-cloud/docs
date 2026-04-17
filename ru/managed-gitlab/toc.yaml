@@ -11,7 +11,7 @@ items:
         href: operations/instance/instance-list.md
       - name: Создание и активация инстанса
         href: operations/instance/instance-create.md
-      - name: Настройка групп безопасности и ограничение доступа к инстансу
+      - name: Настройка групп безопасности
         href: operations/configure-security-group.md
       - name: Остановка и запуск инстанса
         href: operations/instance/instance-stop.md

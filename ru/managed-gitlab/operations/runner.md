@@ -6,6 +6,8 @@
 
 {% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
 
+{% include [mr-network-access](../../_includes/managed-gitlab/mr-network-access.md) %}
+
 ## Получить токен GitLab Runner {#gitlab-token}
 
 Токен можно получить при создании {{ GLR }} в {{ GL }}. Этот токен указывается при [создании раннера](#create) в инстансе {{ mgl-name }} и используется для аутентификации раннера в {{ GL }}.
