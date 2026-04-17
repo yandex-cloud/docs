@@ -6,7 +6,10 @@ description: This section contains the {{ org-full-name }} release notes.
 
 # {{ org-full-name }} release notes
 
-{% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
+## March 2026 {#march-2026}
+
+* Added the `yc organization-manager organization leave` command for leaving an organization. {{ tag-cli }}
+
 
 
 ## January 2026 {#january-2026}

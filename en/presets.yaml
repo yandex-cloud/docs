@@ -4244,6 +4244,8 @@ default:
           add-query: Add query
           create-alert-from-all-queries: Create alert from all queries
           execute-query: Execute query
+        button:
+          apply-and-parse: Execute
         hint:
           search-hotkey: 'Search hotkey: Cmd/Ctrl + Enter'
       quicklinks:

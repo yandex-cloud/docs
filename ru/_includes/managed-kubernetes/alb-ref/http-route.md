@@ -1,6 +1,8 @@
 # Поля ресурса HTTPRoute
 
-В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов Gateway](../../../application-load-balancer/k8s-ref/gateway.md), требованиям которых он соответствует.
+В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service]({{ configuration-local-link }}/service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов Gateway]({{ configuration-local-link }}/gateway.md), требованиям которых он соответствует.
+
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `HTTPRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
@@ -78,7 +80,7 @@ spec: <HTTPRouteSpec>
 
     {% note info %}
 
-    Вы можете определить ресурс [RoutePolicy](../../../application-load-balancer/k8s-ref/route-policy.md) вместо аннотаций. Набор параметров ресурса `RoutePolicy` и аннотации `HTTPRoute` равнозначны.
+    Вы можете определить ресурс [RoutePolicy]({{ configuration-local-link }}/route-policy.md) вместо аннотаций. Набор параметров ресурса `RoutePolicy` и аннотации `HTTPRoute` равнозначны.
 
     {% endnote %}
 
@@ -283,9 +285,9 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](../../../application-load-balancer/k8s-ref/gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `HTTPRoute`.
 
-  Также маршрут должен удовлетворять правилам, описанным в [конфигурации](../../../application-load-balancer/k8s-ref/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
+  Также маршрут должен удовлетворять правилам, описанным в [конфигурации]({{ configuration-local-link }}/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
   * `namespace` (`string`)
     
@@ -359,7 +361,7 @@ rules:
 
     Список [сервисов {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service), которые должны обрабатывать запрос в качестве бэкенда.
 
-    Можно указать ресурс [YCStorageBucket](../../../application-load-balancer/k8s-ref/yc-storage-bucket.md) (бакет {{ objstorage-name }}) либо ресурс [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+    Можно указать ресурс [YCStorageBucket]({{ configuration-local-link }}/yc-storage-bucket.md) (бакет {{ objstorage-name }}) либо ресурс [Service]({{ configuration-local-link }}/service-for-gateway.md).
   
      * `name` (`string`)
 
@@ -383,7 +385,7 @@ rules:
 
        Номер порта сервиса. Только для ресурса `Service`.
 
-       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса]({{ configuration-local-link }}/service-for-gateway.md).
 
        Поле предназначено для работы Gateway API и не соответствует ни одному из полей ресурсов {{ alb-name }}.
        

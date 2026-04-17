@@ -1547,6 +1547,539 @@ items:
             href: audit/logging/events-ref/UpdateSink.md
           - name: UpdateSinkAccessBindings
             href: audit/logging/events-ref/UpdateSinkAccessBindings.md
+      - name: mbd.clickhouse
+        items:
+          - name: AddClusterHosts
+            href: audit/mdb/clickhouse/events-ref/AddClusterHosts.md
+          - name: AddClusterShard
+            href: audit/mdb/clickhouse/events-ref/AddClusterShard.md
+          - name: AddClusterShards
+            href: audit/mdb/clickhouse/events-ref/AddClusterShards.md
+          - name: AddClusterZookeeper
+            href: audit/mdb/clickhouse/events-ref/AddClusterZookeeper.md
+          - name: BackupCluster
+            href: audit/mdb/clickhouse/events-ref/BackupCluster.md
+          - name: CreateCluster
+            href: audit/mdb/clickhouse/events-ref/CreateCluster.md
+          - name: CreateClusterExtension
+            href: audit/mdb/clickhouse/events-ref/CreateClusterExtension.md
+          - name: CreateClusterExternalDictionary
+            href: audit/mdb/clickhouse/events-ref/CreateClusterExternalDictionary.md
+          - name: CreateDatabase
+            href: audit/mdb/clickhouse/events-ref/CreateDatabase.md
+          - name: CreateFormatSchema
+            href: audit/mdb/clickhouse/events-ref/CreateFormatSchema.md
+          - name: CreateMlModel
+            href: audit/mdb/clickhouse/events-ref/CreateMlModel.md
+          - name: CreateShardGroup
+            href: audit/mdb/clickhouse/events-ref/CreateShardGroup.md
+          - name: CreateUser
+            href: audit/mdb/clickhouse/events-ref/CreateUser.md
+          - name: DatabaseUserLogin
+            href: audit/mdb/clickhouse/events-ref/DatabaseUserLogin.md
+          - name: DatabaseUserLogout
+            href: audit/mdb/clickhouse/events-ref/DatabaseUserLogout.md
+          - name: DatabaseUserSQLRequest
+            href: audit/mdb/clickhouse/events-ref/DatabaseUserSQLRequest.md
+          - name: DeleteBackup
+            href: audit/mdb/clickhouse/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/clickhouse/events-ref/DeleteCluster.md
+          - name: DeleteClusterExtension
+            href: audit/mdb/clickhouse/events-ref/DeleteClusterExtension.md
+          - name: DeleteClusterExternalDictionary
+            href: audit/mdb/clickhouse/events-ref/DeleteClusterExternalDictionary.md
+          - name: DeleteClusterHosts
+            href: audit/mdb/clickhouse/events-ref/DeleteClusterHosts.md
+          - name: DeleteClusterShard
+            href: audit/mdb/clickhouse/events-ref/DeleteClusterShard.md
+          - name: DeleteClusterShards
+            href: audit/mdb/clickhouse/events-ref/DeleteClusterShards.md
+          - name: DeleteDatabase
+            href: audit/mdb/clickhouse/events-ref/DeleteDatabase.md
+          - name: DeleteFormatSchema
+            href: audit/mdb/clickhouse/events-ref/DeleteFormatSchema.md
+          - name: DeleteMlModel
+            href: audit/mdb/clickhouse/events-ref/DeleteMlModel.md
+          - name: DeleteShardGroup
+            href: audit/mdb/clickhouse/events-ref/DeleteShardGroup.md
+          - name: DeleteUser
+            href: audit/mdb/clickhouse/events-ref/DeleteUser.md
+          - name: GetDatabase
+            href: audit/mdb/clickhouse/events-ref/GetDatabase.md
+          - name: GetUser
+            href: audit/mdb/clickhouse/events-ref/GetUser.md
+          - name: GrantUserPermission
+            href: audit/mdb/clickhouse/events-ref/GrantUserPermission.md
+          - name: ListDatabases
+            href: audit/mdb/clickhouse/events-ref/ListDatabases.md
+          - name: ListUsers
+            href: audit/mdb/clickhouse/events-ref/ListUsers.md
+          - name: MoveCluster
+            href: audit/mdb/clickhouse/events-ref/MoveCluster.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/clickhouse/events-ref/RescheduleMaintenance.md
+          - name: RestartClusterHosts
+            href: audit/mdb/clickhouse/events-ref/RestartClusterHosts.md
+          - name: RestoreCluster
+            href: audit/mdb/clickhouse/events-ref/RestoreCluster.md
+          - name: RevokeUserPermission
+            href: audit/mdb/clickhouse/events-ref/RevokeUserPermission.md
+          - name: SetClusterExtensions
+            href: audit/mdb/clickhouse/events-ref/SetClusterExtensions.md
+          - name: StartCluster
+            href: audit/mdb/clickhouse/events-ref/StartCluster.md
+          - name: StopCluster
+            href: audit/mdb/clickhouse/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/clickhouse/events-ref/UpdateCluster.md
+          - name: UpdateClusterExtension
+            href: audit/mdb/clickhouse/events-ref/UpdateClusterExtension.md
+          - name: UpdateClusterExternalDictionary
+            href: audit/mdb/clickhouse/events-ref/UpdateClusterExternalDictionary.md
+          - name: UpdateClusterHosts
+            href: audit/mdb/clickhouse/events-ref/UpdateClusterHosts.md
+          - name: UpdateClusterShard
+            href: audit/mdb/clickhouse/events-ref/UpdateClusterShard.md
+          - name: UpdateFormatSchema
+            href: audit/mdb/clickhouse/events-ref/UpdateFormatSchema.md
+          - name: UpdateMlModel
+            href: audit/mdb/clickhouse/events-ref/UpdateMlModel.md
+          - name: UpdateShardGroup
+            href: audit/mdb/clickhouse/events-ref/UpdateShardGroup.md
+          - name: UpdateUser
+            href: audit/mdb/clickhouse/events-ref/UpdateUser.md
+      - name: mbd.greenplum
+        items:
+          - name: BatchUpdateHBARule
+            href: audit/mdb/greenplum/events-ref/BatchUpdateHBARule.md
+          - name: CreateCluster
+            href: audit/mdb/greenplum/events-ref/CreateCluster.md
+          - name: CreateHBARule
+            href: audit/mdb/greenplum/events-ref/CreateHBARule.md
+          - name: CreatePXFDatasource
+            href: audit/mdb/greenplum/events-ref/CreatePXFDatasource.md
+          - name: CreateResourceGroup
+            href: audit/mdb/greenplum/events-ref/CreateResourceGroup.md
+          - name: CreateUser
+            href: audit/mdb/greenplum/events-ref/CreateUser.md
+          - name: DeleteBackup
+            href: audit/mdb/greenplum/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/greenplum/events-ref/DeleteCluster.md
+          - name: DeleteHBARule
+            href: audit/mdb/greenplum/events-ref/DeleteHBARule.md
+          - name: DeletePXFDatasource
+            href: audit/mdb/greenplum/events-ref/DeletePXFDatasource.md
+          - name: DeleteResourceGroup
+            href: audit/mdb/greenplum/events-ref/DeleteResourceGroup.md
+          - name: DeleteUser
+            href: audit/mdb/greenplum/events-ref/DeleteUser.md
+          - name: ExpandCluster
+            href: audit/mdb/greenplum/events-ref/ExpandCluster.md
+          - name: ListPXFDatasources
+            href: audit/mdb/greenplum/events-ref/ListPXFDatasources.md
+          - name: ListUsers
+            href: audit/mdb/greenplum/events-ref/ListUsers.md
+          - name: MoveCluster
+            href: audit/mdb/greenplum/events-ref/MoveCluster.md
+          - name: RestoreCluster
+            href: audit/mdb/greenplum/events-ref/RestoreCluster.md
+          - name: StartCluster
+            href: audit/mdb/greenplum/events-ref/StartCluster.md
+          - name: StopCluster
+            href: audit/mdb/greenplum/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/greenplum/events-ref/UpdateCluster.md
+          - name: UpdateHBARule
+            href: audit/mdb/greenplum/events-ref/UpdateHBARule.md
+          - name: UpdatePXFDatasource
+            href: audit/mdb/greenplum/events-ref/UpdatePXFDatasource.md
+          - name: UpdateResourceGroup
+            href: audit/mdb/greenplum/events-ref/UpdateResourceGroup.md
+          - name: UpdateUser
+            href: audit/mdb/greenplum/events-ref/UpdateUser.md
+      - name: mbd.kafka
+        items:
+          - name: AlterConfigAdminApi
+            href: audit/mdb/kafka/events-ref/AlterConfigAdminApi.md
+          - name: CreateCluster
+            href: audit/mdb/kafka/events-ref/CreateCluster.md
+          - name: CreateConnector
+            href: audit/mdb/kafka/events-ref/CreateConnector.md
+          - name: CreateTopic
+            href: audit/mdb/kafka/events-ref/CreateTopic.md
+          - name: CreateTopicAdminApi
+            href: audit/mdb/kafka/events-ref/CreateTopicAdminApi.md
+          - name: CreateUser
+            href: audit/mdb/kafka/events-ref/CreateUser.md
+          - name: DeleteCluster
+            href: audit/mdb/kafka/events-ref/DeleteCluster.md
+          - name: DeleteConnector
+            href: audit/mdb/kafka/events-ref/DeleteConnector.md
+          - name: DeleteTopic
+            href: audit/mdb/kafka/events-ref/DeleteTopic.md
+          - name: DeleteTopicAdminApi
+            href: audit/mdb/kafka/events-ref/DeleteTopicAdminApi.md
+          - name: DeleteUser
+            href: audit/mdb/kafka/events-ref/DeleteUser.md
+          - name: GrantUserPermission
+            href: audit/mdb/kafka/events-ref/GrantUserPermission.md
+          - name: MoveCluster
+            href: audit/mdb/kafka/events-ref/MoveCluster.md
+          - name: PauseConnector
+            href: audit/mdb/kafka/events-ref/PauseConnector.md
+          - name: ResumeConnector
+            href: audit/mdb/kafka/events-ref/ResumeConnector.md
+          - name: RevokeUserPermission
+            href: audit/mdb/kafka/events-ref/RevokeUserPermission.md
+          - name: StartCluster
+            href: audit/mdb/kafka/events-ref/StartCluster.md
+          - name: StopCluster
+            href: audit/mdb/kafka/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/kafka/events-ref/UpdateCluster.md
+          - name: UpdateConnector
+            href: audit/mdb/kafka/events-ref/UpdateConnector.md
+          - name: UpdateTopic
+            href: audit/mdb/kafka/events-ref/UpdateTopic.md
+          - name: UpdateUser
+            href: audit/mdb/kafka/events-ref/UpdateUser.md
+      - name: mbd.mongodb
+        items:
+          - name: AddClusterHosts
+            href: audit/mdb/mongodb/events-ref/AddClusterHosts.md
+          - name: AddClusterShard
+            href: audit/mdb/mongodb/events-ref/AddClusterShard.md
+          - name: AuthCheck
+            href: audit/mdb/mongodb/events-ref/AuthCheck.md
+          - name: BackupCluster
+            href: audit/mdb/mongodb/events-ref/BackupCluster.md
+          - name: CreateCluster
+            href: audit/mdb/mongodb/events-ref/CreateCluster.md
+          - name: CreateDatabase
+            href: audit/mdb/mongodb/events-ref/CreateDatabase.md
+          - name: CreateUser
+            href: audit/mdb/mongodb/events-ref/CreateUser.md
+          - name: DeleteBackup
+            href: audit/mdb/mongodb/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/mongodb/events-ref/DeleteCluster.md
+          - name: DeleteClusterHosts
+            href: audit/mdb/mongodb/events-ref/DeleteClusterHosts.md
+          - name: DeleteClusterShard
+            href: audit/mdb/mongodb/events-ref/DeleteClusterShard.md
+          - name: DeleteDatabase
+            href: audit/mdb/mongodb/events-ref/DeleteDatabase.md
+          - name: DeleteUser
+            href: audit/mdb/mongodb/events-ref/DeleteUser.md
+          - name: EnableClusterSharding
+            href: audit/mdb/mongodb/events-ref/EnableClusterSharding.md
+          - name: GenericAuditEvent
+            href: audit/mdb/mongodb/events-ref/GenericAuditEvent.md
+          - name: GetDatabase
+            href: audit/mdb/mongodb/events-ref/GetDatabase.md
+          - name: GetUser
+            href: audit/mdb/mongodb/events-ref/GetUser.md
+          - name: GrantUserPermission
+            href: audit/mdb/mongodb/events-ref/GrantUserPermission.md
+          - name: ListDatabases
+            href: audit/mdb/mongodb/events-ref/ListDatabases.md
+          - name: ListUsers
+            href: audit/mdb/mongodb/events-ref/ListUsers.md
+          - name: MoveCluster
+            href: audit/mdb/mongodb/events-ref/MoveCluster.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/mongodb/events-ref/RescheduleMaintenance.md
+          - name: ResetupHosts
+            href: audit/mdb/mongodb/events-ref/ResetupHosts.md
+          - name: RestartHosts
+            href: audit/mdb/mongodb/events-ref/RestartHosts.md
+          - name: RestoreCluster
+            href: audit/mdb/mongodb/events-ref/RestoreCluster.md
+          - name: RevokeUserPermission
+            href: audit/mdb/mongodb/events-ref/RevokeUserPermission.md
+          - name: StartCluster
+            href: audit/mdb/mongodb/events-ref/StartCluster.md
+          - name: StepdownHosts
+            href: audit/mdb/mongodb/events-ref/StepdownHosts.md
+          - name: StopCluster
+            href: audit/mdb/mongodb/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/mongodb/events-ref/UpdateCluster.md
+          - name: UpdateClusterHosts
+            href: audit/mdb/mongodb/events-ref/UpdateClusterHosts.md
+          - name: UpdateUser
+            href: audit/mdb/mongodb/events-ref/UpdateUser.md
+          - name: UserAuthentication
+            href: audit/mdb/mongodb/events-ref/UserAuthentication.md
+          - name: UserLogout
+            href: audit/mdb/mongodb/events-ref/UserLogout.md
+      - name: mbd.mysql
+        items:
+          - name: AddClusterHosts
+            href: audit/mdb/mysql/events-ref/AddClusterHosts.md
+          - name: BackupCluster
+            href: audit/mdb/mysql/events-ref/BackupCluster.md
+          - name: CreateCluster
+            href: audit/mdb/mysql/events-ref/CreateCluster.md
+          - name: CreateDatabase
+            href: audit/mdb/mysql/events-ref/CreateDatabase.md
+          - name: CreateUser
+            href: audit/mdb/mysql/events-ref/CreateUser.md
+          - name: DatabaseUserLogin
+            href: audit/mdb/mysql/events-ref/DatabaseUserLogin.md
+          - name: DatabaseUserLogout
+            href: audit/mdb/mysql/events-ref/DatabaseUserLogout.md
+          - name: DatabaseUserSQLRequest
+            href: audit/mdb/mysql/events-ref/DatabaseUserSQLRequest.md
+          - name: DeleteBackup
+            href: audit/mdb/mysql/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/mysql/events-ref/DeleteCluster.md
+          - name: DeleteClusterHosts
+            href: audit/mdb/mysql/events-ref/DeleteClusterHosts.md
+          - name: DeleteDatabase
+            href: audit/mdb/mysql/events-ref/DeleteDatabase.md
+          - name: DeleteUser
+            href: audit/mdb/mysql/events-ref/DeleteUser.md
+          - name: GetDatabase
+            href: audit/mdb/mysql/events-ref/GetDatabase.md
+          - name: GetUser
+            href: audit/mdb/mysql/events-ref/GetUser.md
+          - name: GrantUserPermission
+            href: audit/mdb/mysql/events-ref/GrantUserPermission.md
+          - name: ListDatabases
+            href: audit/mdb/mysql/events-ref/ListDatabases.md
+          - name: ListUsers
+            href: audit/mdb/mysql/events-ref/ListUsers.md
+          - name: MoveCluster
+            href: audit/mdb/mysql/events-ref/MoveCluster.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/mysql/events-ref/RescheduleMaintenance.md
+          - name: RestoreCluster
+            href: audit/mdb/mysql/events-ref/RestoreCluster.md
+          - name: RevokeUserPermission
+            href: audit/mdb/mysql/events-ref/RevokeUserPermission.md
+          - name: StartCluster
+            href: audit/mdb/mysql/events-ref/StartCluster.md
+          - name: StartClusterFailover
+            href: audit/mdb/mysql/events-ref/StartClusterFailover.md
+          - name: StopCluster
+            href: audit/mdb/mysql/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/mysql/events-ref/UpdateCluster.md
+          - name: UpdateClusterHosts
+            href: audit/mdb/mysql/events-ref/UpdateClusterHosts.md
+          - name: UpdateDatabase
+            href: audit/mdb/mysql/events-ref/UpdateDatabase.md
+          - name: UpdateUser
+            href: audit/mdb/mysql/events-ref/UpdateUser.md
+      - name: mbd.opensearch
+        items:
+          - name: AddDashboardsNodeGroup
+            href: audit/mdb/opensearch/events-ref/AddDashboardsNodeGroup.md
+          - name: AddOpenSearchNodeGroup
+            href: audit/mdb/opensearch/events-ref/AddOpenSearchNodeGroup.md
+          - name: BackupCluster
+            href: audit/mdb/opensearch/events-ref/BackupCluster.md
+          - name: ComplianceReadEvent
+            href: audit/mdb/opensearch/events-ref/ComplianceReadEvent.md
+          - name: ComplianceWriteEvent
+            href: audit/mdb/opensearch/events-ref/ComplianceWriteEvent.md
+          - name: CreateCluster
+            href: audit/mdb/opensearch/events-ref/CreateCluster.md
+          - name: DeleteBackup
+            href: audit/mdb/opensearch/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/opensearch/events-ref/DeleteCluster.md
+          - name: DeleteDashboardsNodeGroup
+            href: audit/mdb/opensearch/events-ref/DeleteDashboardsNodeGroup.md
+          - name: DeleteOpenSearchNodeGroup
+            href: audit/mdb/opensearch/events-ref/DeleteOpenSearchNodeGroup.md
+          - name: FailedLoginRestEvent
+            href: audit/mdb/opensearch/events-ref/FailedLoginRestEvent.md
+          - name: GrantedPrivilegesRestEvent
+            href: audit/mdb/opensearch/events-ref/GrantedPrivilegesRestEvent.md
+          - name: GrantedPrivilegesTransportEvent
+            href: audit/mdb/opensearch/events-ref/GrantedPrivilegesTransportEvent.md
+          - name: MissingPrivilegesRestEvent
+            href: audit/mdb/opensearch/events-ref/MissingPrivilegesRestEvent.md
+          - name: MissingPrivilegesTransportEvent
+            href: audit/mdb/opensearch/events-ref/MissingPrivilegesTransportEvent.md
+          - name: MoveCluster
+            href: audit/mdb/opensearch/events-ref/MoveCluster.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/opensearch/events-ref/RescheduleMaintenance.md
+          - name: RestartOpenSearch
+            href: audit/mdb/opensearch/events-ref/RestartOpenSearch.md
+          - name: RestoreCluster
+            href: audit/mdb/opensearch/events-ref/RestoreCluster.md
+          - name: SecurityIndexAttemptTransportEvent
+            href: >-
+              audit/mdb/opensearch/events-ref/SecurityIndexAttemptTransportEvent.md
+          - name: StartCluster
+            href: audit/mdb/opensearch/events-ref/StartCluster.md
+          - name: StopCluster
+            href: audit/mdb/opensearch/events-ref/StopCluster.md
+          - name: SwitchMaster
+            href: audit/mdb/opensearch/events-ref/SwitchMaster.md
+          - name: UpdateCluster
+            href: audit/mdb/opensearch/events-ref/UpdateCluster.md
+          - name: UpdateDashboardsNodeGroup
+            href: audit/mdb/opensearch/events-ref/UpdateDashboardsNodeGroup.md
+          - name: UpdateOpenSearchNodeGroup
+            href: audit/mdb/opensearch/events-ref/UpdateOpenSearchNodeGroup.md
+      - name: mbd.postgresql
+        items:
+          - name: AddClusterHosts
+            href: audit/mdb/postgresql/events-ref/AddClusterHosts.md
+          - name: BackupCluster
+            href: audit/mdb/postgresql/events-ref/BackupCluster.md
+          - name: CreateCluster
+            href: audit/mdb/postgresql/events-ref/CreateCluster.md
+          - name: CreateDatabase
+            href: audit/mdb/postgresql/events-ref/CreateDatabase.md
+          - name: CreateUser
+            href: audit/mdb/postgresql/events-ref/CreateUser.md
+          - name: DatabaseUserLogin
+            href: audit/mdb/postgresql/events-ref/DatabaseUserLogin.md
+          - name: DatabaseUserLogout
+            href: audit/mdb/postgresql/events-ref/DatabaseUserLogout.md
+          - name: DatabaseUserSQLRequest
+            href: audit/mdb/postgresql/events-ref/DatabaseUserSQLRequest.md
+          - name: DeleteBackup
+            href: audit/mdb/postgresql/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/postgresql/events-ref/DeleteCluster.md
+          - name: DeleteClusterHosts
+            href: audit/mdb/postgresql/events-ref/DeleteClusterHosts.md
+          - name: DeleteDatabase
+            href: audit/mdb/postgresql/events-ref/DeleteDatabase.md
+          - name: DeleteUser
+            href: audit/mdb/postgresql/events-ref/DeleteUser.md
+          - name: GetDatabase
+            href: audit/mdb/postgresql/events-ref/GetDatabase.md
+          - name: GetUser
+            href: audit/mdb/postgresql/events-ref/GetUser.md
+          - name: GrantUserPermission
+            href: audit/mdb/postgresql/events-ref/GrantUserPermission.md
+          - name: ListDatabases
+            href: audit/mdb/postgresql/events-ref/ListDatabases.md
+          - name: ListUsers
+            href: audit/mdb/postgresql/events-ref/ListUsers.md
+          - name: MoveCluster
+            href: audit/mdb/postgresql/events-ref/MoveCluster.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/postgresql/events-ref/RescheduleMaintenance.md
+          - name: RestoreCluster
+            href: audit/mdb/postgresql/events-ref/RestoreCluster.md
+          - name: RevokeUserPermission
+            href: audit/mdb/postgresql/events-ref/RevokeUserPermission.md
+          - name: StartCluster
+            href: audit/mdb/postgresql/events-ref/StartCluster.md
+          - name: StartClusterFailover
+            href: audit/mdb/postgresql/events-ref/StartClusterFailover.md
+          - name: StopCluster
+            href: audit/mdb/postgresql/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/postgresql/events-ref/UpdateCluster.md
+          - name: UpdateClusterHosts
+            href: audit/mdb/postgresql/events-ref/UpdateClusterHosts.md
+          - name: UpdateDatabase
+            href: audit/mdb/postgresql/events-ref/UpdateDatabase.md
+          - name: UpdateUser
+            href: audit/mdb/postgresql/events-ref/UpdateUser.md
+      - name: mbd.redis
+        items:
+          - name: AddClusterHosts
+            href: audit/mdb/redis/events-ref/AddClusterHosts.md
+          - name: AddClusterShard
+            href: audit/mdb/redis/events-ref/AddClusterShard.md
+          - name: BackupCluster
+            href: audit/mdb/redis/events-ref/BackupCluster.md
+          - name: CreateCluster
+            href: audit/mdb/redis/events-ref/CreateCluster.md
+          - name: CreateUser
+            href: audit/mdb/redis/events-ref/CreateUser.md
+          - name: DatabaseConnectionClose
+            href: audit/mdb/redis/events-ref/DatabaseConnectionClose.md
+          - name: DatabaseConnectionOpen
+            href: audit/mdb/redis/events-ref/DatabaseConnectionOpen.md
+          - name: DatabaseUserLogin
+            href: audit/mdb/redis/events-ref/DatabaseUserLogin.md
+          - name: DeleteBackup
+            href: audit/mdb/redis/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/redis/events-ref/DeleteCluster.md
+          - name: DeleteClusterHosts
+            href: audit/mdb/redis/events-ref/DeleteClusterHosts.md
+          - name: DeleteClusterShard
+            href: audit/mdb/redis/events-ref/DeleteClusterShard.md
+          - name: DeleteUser
+            href: audit/mdb/redis/events-ref/DeleteUser.md
+          - name: EnableClusterSharding
+            href: audit/mdb/redis/events-ref/EnableClusterSharding.md
+          - name: MoveCluster
+            href: audit/mdb/redis/events-ref/MoveCluster.md
+          - name: RebalanceCluster
+            href: audit/mdb/redis/events-ref/RebalanceCluster.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/redis/events-ref/RescheduleMaintenance.md
+          - name: RestoreCluster
+            href: audit/mdb/redis/events-ref/RestoreCluster.md
+          - name: StartCluster
+            href: audit/mdb/redis/events-ref/StartCluster.md
+          - name: StartClusterFailover
+            href: audit/mdb/redis/events-ref/StartClusterFailover.md
+          - name: StopCluster
+            href: audit/mdb/redis/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/redis/events-ref/UpdateCluster.md
+          - name: UpdateClusterHosts
+            href: audit/mdb/redis/events-ref/UpdateClusterHosts.md
+          - name: UpdateUser
+            href: audit/mdb/redis/events-ref/UpdateUser.md
+      - name: mbd.spqr
+        items:
+          - name: AddClusterHosts
+            href: audit/mdb/spqr/events-ref/AddClusterHosts.md
+          - name: AddClusterShards
+            href: audit/mdb/spqr/events-ref/AddClusterShards.md
+          - name: BackupCluster
+            href: audit/mdb/spqr/events-ref/BackupCluster.md
+          - name: CreateCluster
+            href: audit/mdb/spqr/events-ref/CreateCluster.md
+          - name: CreateDatabase
+            href: audit/mdb/spqr/events-ref/CreateDatabase.md
+          - name: CreateUser
+            href: audit/mdb/spqr/events-ref/CreateUser.md
+          - name: DeleteBackup
+            href: audit/mdb/spqr/events-ref/DeleteBackup.md
+          - name: DeleteCluster
+            href: audit/mdb/spqr/events-ref/DeleteCluster.md
+          - name: DeleteClusterHosts
+            href: audit/mdb/spqr/events-ref/DeleteClusterHosts.md
+          - name: DeleteClusterShards
+            href: audit/mdb/spqr/events-ref/DeleteClusterShards.md
+          - name: DeleteDatabase
+            href: audit/mdb/spqr/events-ref/DeleteDatabase.md
+          - name: DeleteUser
+            href: audit/mdb/spqr/events-ref/DeleteUser.md
+          - name: RescheduleMaintenance
+            href: audit/mdb/spqr/events-ref/RescheduleMaintenance.md
+          - name: RestoreCluster
+            href: audit/mdb/spqr/events-ref/RestoreCluster.md
+          - name: StartCluster
+            href: audit/mdb/spqr/events-ref/StartCluster.md
+          - name: StopCluster
+            href: audit/mdb/spqr/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/mdb/spqr/events-ref/UpdateCluster.md
+          - name: UpdateClusterHosts
+            href: audit/mdb/spqr/events-ref/UpdateClusterHosts.md
+          - name: UpdateUser
+            href: audit/mdb/spqr/events-ref/UpdateUser.md
       - name: metastore
         items:
           - name: CreateCluster

@@ -27,6 +27,7 @@ You can build charts based on {{ prometheus-name }} metrics:
   1. Select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** on the left.
   1. In the **Data source** list at the top, select **{{ prometheus-name }}**.
   1. Select a workspace. If there is only one workspace, it will be selected by default.
+  1. Select or set your own time interval for the chart data. If the system cannot plot data for the selected period, it will automatically adjust the range and notify you.
   1. In the query string, enter the metrics display parameters in [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
   1. For the chart to display several lines, click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** and enter a new query.
   1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** or press **Cmd/Ctrl + Enter**.
@@ -72,6 +73,7 @@ Adding a chart under **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.d
   1. At the top right, click ![image](../../../../_assets/console-icons/plus.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
   1. In the **Data source** list at the top, select **{{ prometheus-name }}**.
   1. Select a workspace. If there is only one workspace, it will be selected by default.
+  1. Select a time interval for the chart data. If the system cannot plot data for the selected period, it will automatically adjust the range and notify you.
   1. In the query string, enter the metrics display parameters in [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
   1. Click ![image](../../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}** at the top right. This will add the chart to your dashboard.
 

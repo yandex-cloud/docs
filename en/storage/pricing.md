@@ -7,8 +7,11 @@ editable: false
 
 # {{ objstorage-name }} pricing policy
 
+{% note warning %}
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+Starting April 20, 2026, you are charged for using [S3 Inventory](concepts/s3-inventory.md) that allows you to export object metadata.
+
+{% endnote %}
 
 
 {% note tip %}
@@ -86,7 +89,7 @@ You pay for data operations according to the following policy:
 
 The daily cost of data storage is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
 
-Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
+Here is a calculation example. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
 
 ```text
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30

@@ -13,3 +13,5 @@
 * [Как переключить мастер (manual failover)?](#manual-failover)
 
 * [Как перезагрузить хост?](#host-reboot)
+
+* [Почему возникает ошибка при остановке кластера?](#stop-cluster-error)

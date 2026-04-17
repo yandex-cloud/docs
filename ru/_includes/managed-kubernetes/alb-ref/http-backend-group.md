@@ -1,10 +1,10 @@
 # Поля ресурса HttpBackendGroup
 
-Ресурс `HttpBackendGroup` позволяет объединять бэкенды — сервисы {{ k8s }}, между которыми распределяется трафик, — в группу. По таким ресурсам [Ingress-контроллер {{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) создает [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md).
+Ресурс `HttpBackendGroup` позволяет объединять бэкенды — сервисы {{ k8s }}, между которыми распределяется трафик, — в группу. По таким ресурсам [Ingress-контроллер {{ alb-name }}]({{ ingress-local-link }}/index.md) создает [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md).
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-Указание на `HttpBackendGroup` нужно добавить в [ресурс `Ingress`](../../../application-load-balancer/k8s-ref/ingress.md).
+Указание на `HttpBackendGroup` нужно добавить в [ресурс `Ingress`]({{ configuration-local-link }}/ingress.md).
 
 {% include [k8s-ingress-controller-backend-group-features](../../application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
 
@@ -59,7 +59,7 @@ spec:
 
     Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию](../../../application-load-balancer/k8s-ref/ingress.md)).
+    Это имя нужно указать в поле `spec.rules.http.paths.backend.resource.name` ресурса `Ingress` (см. [конфигурацию]({{ configuration-local-link }}/ingress.md)).
 
     Не является именем группы бэкендов в {{ alb-name }}.
 
@@ -93,7 +93,7 @@ spec:
 
       Указание на [сервис {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service), который должен обрабатывать запросы в качестве бэкенда.
 
-      Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
+      Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/service-for-ingress.md).
 
       Для бэкенда должен быть указан либо сервис, либо бакет {{ objstorage-name }} (`storageBucket`), но не оба одновременно.
 
@@ -131,7 +131,7 @@ spec:
 
       По умолчанию Ingress-контроллер {{ alb-name }} принимает от L7-балансировщика проверочные запросы на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда kube-proxy работоспособен, то даже если приложение в конкретном поде не отвечает, {{ k8s }} перенаправит трафик в другой под с этим приложением или на другой узел.
       
-      С помощью параметров `healthChecks` вы можете [настроить собственные проверки состояния](../../../managed-kubernetes/tutorials/custom-health-checks.md) приложений.
+      С помощью параметров `healthChecks` вы можете [настроить собственные проверки состояния]({{ tutorial-local-link }}/custom-health-checks.md) приложений.
 
       * `http` (`HttpBackend`)
 
@@ -143,7 +143,7 @@ spec:
 
       * `port` (`int32`)
 
-        Порт на узлах кластера для проверки доступности приложения. Значение совпадает с портом, указанным в ресурсе [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) типа `NodePort`, в параметре `spec.ports.nodePort`.
+        Порт на узлах кластера для проверки доступности приложения. Значение совпадает с портом, указанным в ресурсе [Service]({{ configuration-local-link }}/service-for-ingress.md) типа `NodePort`, в параметре `spec.ports.nodePort`.
 
         Приложение будет доступно для проверок состояния по адресу `http://<IP-адрес_узла>:<порт>/<путь>`.
 
@@ -165,7 +165,7 @@ spec:
 
         Возможные значения — от `1s` до `60s`. Значение `interval` должно быть больше значения `timeout` минимум на одну секунду.
 
-      {% include [alb-custom-hc-enabling](../../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
+      {% include [alb-custom-hc-enabling](../alb-custom-hc-enabling-with-preset.md) %}
 
     * `loadBalancingConfig` (`LoadBalancingConfig`)
 

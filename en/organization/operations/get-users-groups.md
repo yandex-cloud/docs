@@ -5,6 +5,8 @@ description: Follow this guide to view user groups.
 
 # Viewing user groups
 
+{% include [organization-deny-user-listing](../../_includes/organization/organization-deny-user-listing.md) %}
+
 To view which [groups](../../organization/concepts/groups.md) a specific [user](../../overview/roles-and-resources.md#users) belongs to, do the following:
 
 {% list tabs group=instructions %}
@@ -23,7 +25,7 @@ To view which [groups](../../organization/concepts/groups.md) a specific [user](
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to view user's groups:
+  1. See the description of the CLI command for viewing the user's groups:
 
      ```bash
      yc organization-manager group list-effective --help

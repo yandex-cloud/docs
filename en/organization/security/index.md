@@ -58,7 +58,7 @@ You can also assign roles for individual resources within the service:
 
 {% endlist %}
 
-## Roles this service has {#roles-list}
+## Roles existing in this service {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -321,18 +321,18 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. Make sure the configuration files are correct.
     
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
  
        ```
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. {{ TF }} will show any errors in the configuration. 
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. Otherwise, {{ TF }} will show any detected errors. 
  
   1. Assign roles.
   
-     If the configuration does not contain any errors, run this command:
+     If the configuration is correct, run this command:
 
        ```
        terraform apply

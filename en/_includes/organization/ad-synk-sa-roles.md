@@ -1,3 +1,4 @@
 * [`organization-manager.userpools.syncAgent`](../../organization/security/index.md#organization-manager-userpools-syncAgent)
+* [`organization-manager.groups.viewer`](../../organization/security/index.md#organization-manager-groups-viewer)
 * [`organization-manager.groups.externalCreator`](../../organization/security/index.md#organization-manager-groups-externalCreator)
 * [`organization-manager.groups.externalConverter`](../../organization/security/index.md#organization-manager-groups-externalConverter)

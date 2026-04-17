@@ -35,3 +35,18 @@ default:
       regular: 28.11.2023
       stable: 17.01.2024
       deprecated: 17.03.2025
+  alb-local-link: ../../../managed-kubernetes/alb-ref
+  alb-local-link2: ../../managed-kubernetes/alb-ref
+  ingress-local-link: ../../../managed-kubernetes/alb-ref/ingress-controller
+  ingress-local-link2: ../../managed-kubernetes/alb-ref/ingress-controller
+  gateway-local-link: ../../../managed-kubernetes/alb-ref/gateway-api
+  gateway-local-link2: ../../managed-kubernetes/alb-ref/gateway-api
+  configuration-local-link: ../../../managed-kubernetes/alb-ref
+  configuration-local-link2: ../../managed-kubernetes/alb-ref
+  tutorial-local-link: ../../../managed-kubernetes/tutorials
+  tutorial-local-link2: ../../managed-kubernetes/tutorials
+  gateway-install-local-link: ../../../managed-kubernetes/operations/applications/gateway-api.md
+  ingress-install-local-link: ../../../managed-kubernetes/operations/applications/alb-ingress-controller.md
+  ingress-upgrade-local-link: ../../../managed-kubernetes/operations/applications/upgrade-alb-ingress-controller.md
+  ingress-upgrade-local-link2: ../../managed-kubernetes/operations/applications/upgrade-alb-ingress-controller.md
+  gwin-tip-local-link: ../../managed-kubernetes/alb-ref/gwin-index.md

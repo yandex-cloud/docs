@@ -4245,6 +4245,8 @@ default:
           add-query: Добавить запрос
           create-alert-from-all-queries: Создать алерт по всем запросам
           execute-query: Выполнить запрос
+        button:
+          apply-and-parse: Выполнить
         hint:
           search-hotkey: 'Хоткей поиска: Cmd/Ctrl + Enter'
       quicklinks:

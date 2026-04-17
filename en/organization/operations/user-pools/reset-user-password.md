@@ -6,6 +6,8 @@ description: Follow this guide to set or reset a local user password in {{ org-f
 # Updating a local user password
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 ## Resetting a password {#reset}
 
 To reset a [local](../../../iam/concepts/users/accounts.md#local) user password, do the following:

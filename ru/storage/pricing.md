@@ -7,6 +7,12 @@ editable: false
 
 # Правила тарификации для {{ objstorage-name }}
 
+{% note warning %}
+
+С 20 апреля 2026 года начинает тарифицироваться функциональность [выгрузки метаданных объектов (S3 Inventory)](concepts/s3-inventory.md).
+
+{% endnote %}
+
 
 {% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 

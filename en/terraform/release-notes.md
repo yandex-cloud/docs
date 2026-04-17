@@ -6,6 +6,10 @@ editable: false
 
 
 
+## 0.199.0 (April 16, 2026)
+##### ENHANCEMENTS:
+* mysql: Disable disk shrinking during autoscaling in MySQL cluster
+
 ## 0.198.0 (April 13, 2026)
 ##### FEATURES:
 * CloudOrganization: added new password policy to userpool - password blacklist policy

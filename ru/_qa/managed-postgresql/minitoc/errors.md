@@ -16,7 +16,7 @@
 
 * [Почему не удается подключиться к хостам кластера?](#host-error)
 
-* [Почему я не могу остановить кластер?](#stop-cluster)
+* [Почему возникает ошибка при остановке кластера?](#stop-cluster-error)
 
 * [Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`?](#max-connections-error)
 

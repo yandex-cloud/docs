@@ -58,7 +58,7 @@ Let’s assume you need to calculate the monthly cost for using {{ video-name }}
 * Overall size of the video files in streaming format (optimized, multiple versions with different bitrate and resolution): `8 GB`.
 * Outgoing traffic (total size of the transmitted content when viewed): `50 GB`.
 
-We also assume that the videos (both the original and the streaming content) are stored for the entire month, i.e., 720 hours.
+We also assume that the videos (both the original and the streaming content) are stored for the entire month. Storage is billed in GB x hour, so the formulas multiply the video size by 720 for the number of hours in a month.
 
 
 
@@ -72,6 +72,8 @@ Let's assume you need to calculate the monthly cost of broadcasting as per the f
 * Broadcast duration: `60 minutes`.
 * Broadcast video size: `3 GB`.
 * Outgoing traffic (total video transmitted to viewers): `20 GB`.
+
+Storage is billed in GB x hour, so the formulas multiply the video size by 720 for the number of hours in a month.
 
 
 

@@ -26,11 +26,11 @@ Each [security profile](profiles.md) includes a _basic default rule_ with the lo
 
 ## Smart Protection rules {#smart-protection-rules}
 
-_Smart Protection_ is a rule that sends traffic, based on specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. Depending on the selected [action](#rule-action), suspicious requests are sent to {{ captcha-name }} for additional verification or get blocked.
+_Smart Protection_ is a rule that sends traffic, based on specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. This rule ensures L7 DDoS protection. If there is no such rule, or the rule is in `Logging only` mode, the protection does not apply and traffic reaches the protected resource. Depending on the selected [action](#rule-action), suspicious requests are sent to {{ captcha-name }} for additional verification or get blocked.
 
-## Web Application Firewall rules {#waf-rules}
+## WAF + Smart Protection rules {#waf-rules}
 
-Web Application Firewall rules engage a [WAF profile](waf.md) to analyze traffic for compliance with the [WAF basic rule sets](waf.md#rules-set). Depending on the selected [action](#rule-action), suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification or get blocked.
+Web Application Firewall rules engage a [WAF profile](waf.md) to analyze traffic for compliance with the [WAF basic rule sets](waf.md#rules-set). These rules also enable Smart Protection against L7 DDoS. Depending on the selected [action](#rule-action), suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification or get blocked.
 
 You can use the following {{ captcha-name }} CAPTCHA options to verify requests compliant with the Smart Protection and Web Application Firewall rules:
 
@@ -40,7 +40,7 @@ You can use the following {{ captcha-name }} CAPTCHA options to verify requests 
 
 An [Advanced Rate Limiter](arl.md) rule calculates the number of requests received over a certain period of time. Requests are counted after they are allowed by the Smart Protection and Web Application Firewall rules, meaning that ARL rules have their own priority independent of other rules.
 
-ARL rules allow you to set limits on either all traffic or its particular segments.
+ARL rules allow you to set limits either for the whole traffic or some of its segments.
 
 Unlike Smart Protection and WAF rules, ARL rules are configured in an ARL profile.
 
@@ -87,14 +87,14 @@ To standardize client response pages for triggered rules, you can create your ow
 
 The requests that were allowed by all rules and let through to the protected resource are called _legitimate_.
 
-## General principles of the rules {#rules-order}
+## Overview of how rules work {#rules-order}
 
-* All rules of a profile are triggered simultaneously; a single request may have several rules associated with it. The request's final action is determined by the highest-priority rule.
+* All rules within a profile trigger simultaneously, and a single request may match several rules. The highest-priority rule determines how to handle the request.
 * Assign higher priority to:
      * Rules that allow requests.
-     * Rules with filtering based on specific parameters.
+     * Rules with filtering conditions based on specific parameters.
 
-  Otherwise, general rules with broader conditions may be applied to the request.
+  Otherwise, general rules with broader conditions may apply.
 * If you are using a WAF rule for a traffic slice, a separate Smart Protection rule against DDoS attacks is not required for that same slice, as it is already included in the WAF rule. Therefore, WAF rules have full protection and API protection modes.
 * In API protection mode, requests are not sent to {{ captcha-name }}. Use this mode for automated traffic, mobile applications, and requests with dynamic content loading, e.g., `ajax`, `xhr`, and `iframe`.
 * ARL profile rules apply after the security profile and may block some legitimate requests. Therefore, if you have configured allowing rules in the security profile, duplicate them in the ARL profile.
