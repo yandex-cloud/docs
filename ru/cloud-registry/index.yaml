@@ -54,6 +54,9 @@ links:
   - title: Концепции
     description: Узнайте про концепции и ресурсы сервиса
     href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

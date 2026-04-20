@@ -1,6 +1,6 @@
 # Настроить MTU при включении защиты от DDoS-атак
 
-При включении защиты [{{ ddos-protection-full-name }}](./enable-ddos-protection.md) рекомендуется всегда задавать значение MTU равным `1450` байт.
+При включении защиты [{{ ddos-protection-full-name }}](./enable-ddos-protection.md) рекомендуется задавать значение MTU равным `1450` байт.
 
 {% note alert %}
 
@@ -100,6 +100,49 @@
    ip link show eth0 | grep mtu
    ss -i | grep mss
    ```
+
+#### При использовании Cilium {#cilium}
+
+{% note info %}
+
+При использовании сетевого плагина [Cilium](https://cilium.io/) дополнительно уменьшите MTU в [подах](../../managed-kubernetes/concepts/index.md#pod) до `1400` байт, иначе размер пакета в поде превысит MTU узла и возникнут ошибки передачи данных.
+
+{% endnote %}
+
+1. Создайте манифест ресурса `CiliumNodeConfig`:
+
+   ```yaml
+   apiVersion: cilium.io/v2alpha1
+   kind: CiliumNodeConfig
+   metadata:
+     namespace: kube-system
+     name: mtu-global
+   spec:
+     # Чтобы применить настройку ко всем узлам, оставьте nodeSelector пустым:
+     nodeSelector: {}
+     # Чтобы применить только к узлам с определенными метками, укажите их:
+     # nodeSelector:
+     #   matchLabels:
+     #     <ключ_метки>: <значение_метки>
+     defaults:
+       mtu: "1400"
+   ```
+
+   Сохраните его в файл с любым именем, например `cilium-mtu.yaml`.
+
+1. Примените манифест в кластере {{ managed-k8s-name }}:
+
+   ```bash
+   kubectl apply -f cilium-mtu.yaml
+   ```
+
+1. Перезапустите DaemonSet Cilium, чтобы изменения вступили в силу:
+
+   ```bash
+   kubectl rollout restart daemonset/cilium -n kube-system
+   ```
+
+1. Пересоздайте поды, которые должны работать с новым значением MTU.
 
 ### На ВМ с Windows Server {#windows-server}
 

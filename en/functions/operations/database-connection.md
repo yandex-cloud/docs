@@ -1,10 +1,16 @@
-# Connecting to managed databases from functions
+# Connecting to managed databases from a function
 
-To use a function to connect to managed databases and other {{ yandex-cloud }} resources with no public access, specify a [user network](../concepts/networking.md#user-network).
+To enable functions to connect to managed databases and other {{ yandex-cloud }} resources with no public access, specify a [user network](../concepts/networking.md#user-network).
 
 If you cannot configure access to {{ mpg-full-name }} and {{ mch-full-name }} cluster hosts via a user network, create a connection as described below. To configure access to other managed databases and {{ yandex-cloud }} resources, a user network is the only option.
 
 ## Creating a connection {#create}
+
+{% note warning %}
+
+Connection to {{ PG }} clusters version 17 and above is not supported.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -21,27 +27,28 @@ If you cannot configure access to {{ mpg-full-name }} and {{ mch-full-name }} cl
     1. Specify the following:
         * Cluster
         * Database
-        * DB user
-        * User password
+        * Database user
+        * Password
+
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 ## Connecting to a database {#connect}
 
-To access DB cluster hosts from a function using the created connection:
-* In the function version settings, specify the service account to which the `{{ roles-functions-mdbProxiesUser }}` role is assigned for the directory in which the connection is created. [How to assign a role](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
-* In advanced cluster settings, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** option.
+To access database cluster hosts from a function using the created connection:
+* In the function version settings, specify the service account with the `{{ roles-functions-mdbProxiesUser }}` role for the folder where you created the connection. [How to assign a role](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
+* In advanced cluster settings, enable **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
 
-To connect to a DB from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).
+To connect to a database from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).
 
-You can connect to a DB out of a function over SSL only.
+You can only connect to a database from a function over SSL.
 
-## Examples of functions for connecting to databases {#examples}
+## Examples of database connection functions {#examples}
 
-The connection ID and the entry point are available on the connection page in the [management console]({{ link-console-main }}).
+You can find the connection ID and the entry point on the connection page in the [management console]({{ link-console-main }}).
 
-[In the examples below, the IAM token is automatically extracted from the function invocation context](function-sa.md). You do not need to specify it manually.
+In the examples below, the IAM token is automatically [fetched from the function invocation context](function-sa.md). You do not need to specify it manually.
 
 ### {{ mpg-name }}
 
@@ -57,7 +64,7 @@ The connection ID and the entry point are available on the connection page in th
     module.exports.handler = async function (event, context) {
         let proxyId = "akfaf7nqdu**********"; // Connection ID
         let proxyEndpoint = "akfaf7nqdu**********.postgresql-proxy.serverless.yandexcloud.net:6432"; // Entry point
-        let user = "user1"; // DB user
+        let user = "user1"; // Database user
         console.log(context.token);
         let conString = "postgres://" + user + ":" + context.token.access_token + "@" + proxyEndpoint + "/" + proxyId + "?ssl=true";
 
@@ -118,7 +125,7 @@ The connection ID and the entry point are available on the connection page in th
     const (
         host   = "akfv6p92v4**********.postgresql-proxy.serverless.cloud-preprod.yandex.net" // Entry point
         port   = 6432
-        user   = "user1" // DB user
+        user   = "user1" // Database user
         dbname = "akfv6p92v4**********" // Connection ID
     )
 
@@ -179,7 +186,7 @@ The connection ID and the entry point are available on the connection page in th
 
         const DB_HOST = "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net"; // Entry point
         const DB_NAME = "akfd3bhqk3**********"; // Connection ID
-        const DB_USER = "user1"; // DB user
+        const DB_USER = "user1"; // Database user
         const DB_PASS = context.token.access_token;
 
         const CACERT = "/etc/ssl/certs/ca-certificates.crt";
@@ -278,7 +285,7 @@ The connection ID and the entry point are available on the connection page in th
     func Handler(ctx context.Context) (*Response, error) {
       const DB_HOST =  "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net" // Entry point
       const DB_NAME = "akfd3bhqk3**********" // Connection ID
-      const DB_USER = "user1" // DB user
+      const DB_USER = "user1" // Database user
       DB_PASS := getToken(ctx)
 
       caCertPool, _ := x509.SystemCertPool()

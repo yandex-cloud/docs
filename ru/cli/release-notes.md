@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.4.0 (20.04.26) {#v-1-4-0}
+
+#### {{ cloud-registry-name }} {#v-1-4-0-cloud-registry-name}
+
+* Добавлена команда `yc cloud-registry artifact get-by-path` для получения артефакта по его пути в реестре.
+
+* Добавлены команды для управления политиками сканирований реестров в {{ cloud-registry-name }}:
+  * `yc cloud-registry registry scan-policy get`;
+  * `yc cloud-registry registry scan-policy get-by-registry`;
+  * `yc cloud-registry registry scan-policy create`;
+  * `yc cloud-registry registry scan-policy upd`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.3.0 (16.04.26) {#v-1-3-0}
 
 #### {{ mos-name }} {#v-1-3-0-mos-name}
@@ -66,8 +80,6 @@ description: На странице представлены релизы CLI, а
 #### {{ mch-name }} {#v-1-3-0-mch-name}
 
 * В команду `yc managed-clickhouse cluster restore` добавлены параметры `--include-patterns` и `--exclude-patterns` для частичного восстановления кластера.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.2.0 (13.04.26) {#v-1-2-0}
 

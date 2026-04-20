@@ -14,7 +14,7 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
 - CLI {#cli}
 
@@ -41,7 +41,7 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -100,7 +100,7 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster.
 
 - CLI {#cli}
@@ -160,7 +160,7 @@ You can get detailed information about each {{ mmg-short-name }} cluster you cre
             yandex.cloud.mdb.mongodb.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.mongodb.v1.Cluster) to make sure your request was successful.
 
@@ -181,8 +181,8 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
   You can get a list of cluster operations as follows:
 
   1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mongodb.switch_list }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mongodb.switch_list }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.mongodb.switch_operations }}** tab.
 
      You will see the list of operations with the cluster.
@@ -202,16 +202,16 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
   Result:
 
   ```text
-  +----------------------+---------------------+----------------------+---------------------+--------+------------------------+
-  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |      DESCRIPTION       |
-  +----------------------+---------------------+----------------------+---------------------+--------+------------------------+
-  | c9ql1rfrqk4u******** | 2024-09-07 16:37:10 | aje9k8luj4qf******** | 2024-09-07 16:44:28 | DONE   | Create MongoDB cluster |
-  +----------------------+---------------------+----------------------+---------------------+--------+------------------------+
+  +----------------------+---------------------+----------------------+---------------------+--------+-------------------------+
+  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |       DESCRIPTION       |
+  +----------------------+---------------------+----------------------+---------------------+--------+-------------------------+
+  | c9ql1rfrqk4u******** | 2024-09-07 16:37:10 | aje9k8luj4qf******** | 2024-09-07 16:44:28 | DONE   | Create StoreDoc cluster |
+  +----------------------+---------------------+----------------------+---------------------+--------+-------------------------+
   ```
 
-  You can get the cluster’s name and ID from [list of clusters in your folder](#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc managed-mongodb cluster list-operations c9qk2926qqu9******** --format yaml
@@ -221,7 +221,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
   ```text
   - id: c9ql1rfrqk4u********
-    description: Create MongoDB cluster
+    description: Create StoreDoc cluster
     created_at: "2024-09-07T16:37:10.533508Z"
     created_by: aje9k8luj4qf********
     modified_at: "2024-09-07T16:44:28.147771Z"
@@ -249,7 +249,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/operations'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -277,7 +277,7 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
           yandex.cloud.mdb.mongodb.v1.ClusterService.ListOperations
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.mongodb.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -285,86 +285,130 @@ All actions with {{ mmg-name }} clusters are logged as a list of operations. Eac
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get the list of operations](#get-operations) for the cluster.
-1. Copy the ID of the operation you need.
-1. Get operation details:
+{% list tabs group=instructions %}
 
-   {% list tabs group=instructions %}
+- Management console {#console}
 
-   - CLI {#cli}
+    1. [Navigate to the list of all cluster operations or operations for your specific cluster](#get-operations).
+    1. Click the ID of the operation you need.
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [operation-details](../../_includes/mdb/console/operation-details.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+- CLI {#cli}
 
-     Run this command:
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-     ```bash
-     yc operation get <operation_ID>
-     ```
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     Result:
+    Run this command:
 
-     ```text
-     id: c9ql1rfrqk4u********
-     description: Create MongoDB cluster
-     created_at: "2024-09-07T16:37:10.533508Z"
-     created_by: aje9k8luj4qf********
-     modified_at: "2024-09-07T16:44:28.147771Z"
-     done: true
-     metadata:
-       '@type': type.googleapis.com/yandex.cloud.mdb.mongodb.v1.CreateClusterMetadata
-       cluster_id: c9q8tmbam8co********
-     response:
-       '@type': type.googleapis.com/yandex.cloud.mdb.mongodb.v1.Cluster
-     ...
-     ```
+    ```bash
+    yc operation get <operation_ID>
+    ```
 
-    - REST API {#api}
+    You can get the operation ID with the [list of operations](#get-operations) for the cluster.
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    Here is an example of an output for the completed cluster creation operation:
 
-          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+    ```text
+    id: mg4rld37o0rq********
+    description: Create StoreDoc cluster
+    created_at: "2026-01-29T00:57:43.452529Z"
+    created_by: ajegrmkclceh********
+    modified_at: "2026-01-29T01:03:45.266238Z"
+    done: true
+    metadata:
+      '@type': type.googleapis.com/yandex.cloud.mdb.mongodb.v1.CreateClusterMetadata
+      cluster_id: c9qiom6ca92e********
+      operation_log:
+        entities:
+          - cluster_id: c9qiom6ca92e********
+            action: Preparing metadata
+            started_at: "2026-01-29T00:57:45.309067Z"
+          - cluster_id: c9qiom6ca92e********
+            action: Preparing backup storage
+            started_at: "2026-01-29T00:57:47.369642Z"
+          - cluster_id: c9qiom6ca92e********
+            action: Creating cluster
+            started_at: "2026-01-29T00:58:00.630246Z"
+            hosts:
+              - fqdn: rc1b-adf7j2fj********.mdb.yandexcloud.net
+                action: Reserving resources
+                started_at: "2026-01-29T00:58:05.346173Z"
+              - fqdn: rc1b-adf7j2fj********.mdb.yandexcloud.net
+                action: Creating host
+                started_at: "2026-01-29T00:58:11.919280Z"
+          - cluster_id: c9qiom6ca92e********
+            action: Installing software
+            started_at: "2026-01-29T00:58:56.969708Z"
+            hosts:
+              - fqdn: rc1b-adf7j2fj********.mdb.yandexcloud.net
+                action: Launching host
+                started_at: "2026-01-29T00:59:22.489609Z"
+              - fqdn: rc1b-adf7j2fj********.mdb.yandexcloud.net
+                action: Updating database software
+                started_at: "2026-01-29T00:59:22.866599Z"
+          - cluster_id: c9qiom6ca92e********
+            action: Initializing database
+            started_at: "2026-01-29T00:59:39.858475Z"
+          - cluster_id: c9qiom6ca92e********
+            action: Infrastructure integration
+            started_at: "2026-01-29T01:03:33.564786Z"
+            hosts:
+              - fqdn: rc1b-adf7j2fj********.mdb.yandexcloud.net
+                action: Creating DNS records
+                started_at: "2026-01-29T01:03:33.806317Z"
+    response:
+      '@type': type.googleapis.com/yandex.cloud.mdb.mongodb.v1.Cluster
+      id: c9qiom6ca92e********
+      ...
+    ```
 
-      1. Call the [Operation.Get](../api-ref/Operation/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+- REST API {#api}
 
-          ```bash
-          curl \
-              --request GET \
-              --header "Authorization: Bearer $IAM_TOKEN" \
-              --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
-          ```
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-      1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    - gRPC API {#grpc-api}
+    1. Call the [Operation.Get](../api-ref/Operation/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
+        ```
 
-          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+    1. Check the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+- gRPC API {#grpc-api}
 
-      1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-          ```bash
-          grpcurl \
-              -format json \
-              -import-path ~/cloudapi/ \
-              -import-path ~/cloudapi/third_party/googleapis/ \
-              -proto ~/cloudapi/yandex/cloud/operation/operation_service.proto \
-              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-              -d '{
-                    "operation_id": "<operation_ID>"
-                  }' \
-              {{ api-host-operation }}:{{ port-https }} \
-              yandex.cloud.operation.OperationService.Get
-          ```
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-   {% endlist %}
+    1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-### See also {#see-also}
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/operation/operation_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "operation_id": "<operation_ID>"
+                }' \
+            {{ api-host-operation }}:{{ port-https }} \
+            yandex.cloud.operation.OperationService.Get
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+#### See also {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

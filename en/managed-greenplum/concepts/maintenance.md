@@ -34,9 +34,9 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% note info %}
 
-Viewing information on maintenance tasks requires the `managed-greenplum.maintenanceTask.viewer` [role](../security/index.md#managed-greenplum-maintenanceTask-viewer) or higher.
+To view maintenance task information, you need the `managed-greenplum.maintenanceTask.viewer` [role](../security/index.md#managed-greenplum-maintenanceTask-viewer) or higher.
 
-Managing maintenance tasks requires the `managed-greenplum.maintenanceTask.editor` [role](../security/index.md#managed-greenplum-maintenanceTask-editor) or higher.
+To manage maintenance tasks, you need the `managed-greenplum.maintenanceTask.editor` [role](../security/index.md#managed-greenplum-maintenanceTask-editor) or higher.
 
 {% endnote %}
 

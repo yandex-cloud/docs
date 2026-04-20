@@ -26,7 +26,7 @@ Additionally, {{ mmg-short-name }} ensures replication across database hosts (bo
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### When to use {{ mmg-short-name }} and when database VMs? {#mdb-advantage}
+#### When to use {{ mmg-short-name }} and when to use database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two approaches for working with databases:
 
@@ -178,4 +178,6 @@ Thresholds can only be set in bytes. For example, the recommended values for a 1
 
 {% include [logs](../../_qa/logs.md) %}
 
-{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
+#### What is the retention period for logs? {#log-keeping}
+
+{% include [log-duration](../../_includes/mdb/mmg/log-duration.md) %}

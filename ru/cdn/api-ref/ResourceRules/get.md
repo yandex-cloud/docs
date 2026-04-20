@@ -77,14 +77,14 @@ The maximum string length in characters is 50. ||
       "value": "boolean"
     },
     "edgeCacheSettings": {
-      "enabled": "boolean",
       // Includes only one of the fields `value`, `defaultValue`
       "value": {
         "simpleValue": "string",
         "customValues": "object"
       },
-      "defaultValue": "string"
+      "defaultValue": "string",
       // end of the list of possible fields
+      "enabled": "boolean"
     },
     "browserCacheSettings": {
       "enabled": "boolean",
@@ -317,9 +317,7 @@ Set up [QueryParamsOptions](#yandex.cloud.cdn.v1.ResourceOptions.QueryParamsOpti
 || slice | **[BoolOption](#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
 
 Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte.
-
 The origin must support HTTP Range requests.
-
 By default the option is disabled. ||
 || compressionOptions | **[CompressionOptions](#yandex.cloud.cdn.v1.ResourceOptions.CompressionOptions)**
 
@@ -341,7 +339,6 @@ different to a domain from which the request is received.
 || stale | **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
 
 List of errors which instruct CDN servers to serve stale content to clients.
-
 Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_502`, `http_503`, `http_504`, `invalid_header`, `timeout`, `updating`. ||
 || allowedHttpMethods | **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
 
@@ -423,10 +420,6 @@ A set of the edge cache parameters.
 
 #|
 ||Field | Description ||
-|| enabled | **boolean**
-
-True - the option is enabled and its `values_variant` is applied to the resource.
-False - the option is disabled and its default value is used for the resource. ||
 || value | **[CachingTimes](#yandex.cloud.cdn.v1.ResourceOptions.CachingTimes)**
 
 Value of the option.
@@ -440,6 +433,10 @@ if an origin server does not have caching HTTP headers.
 Responses with other codes will not be cached.
 
 Includes only one of the fields `value`, `defaultValue`. ||
+|| enabled | **boolean**
+
+True - the option is enabled and its `values_variant` is applied to the resource.
+False - the option is disabled and its default value is used for the resource. ||
 |#
 
 ## CachingTimes {#yandex.cloud.cdn.v1.ResourceOptions.CachingTimes}
@@ -538,9 +535,7 @@ Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`
 || brotliCompression | **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
 
 The option allows to compress content with brotli on the CDN's end.
-
 Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled.
-
 Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin.
 
 Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`. ||
@@ -574,9 +569,7 @@ A set of the host parameters.
 || host | **[StringOption](#yandex.cloud.cdn.v1.ResourceOptions.StringOption)**
 
 Custom value for the Host header.
-
 Your server must be able to process requests with the chosen header.
-
 Default value (if [StringOption.enabled](#yandex.cloud.cdn.v1.ResourceOptions.StringOption) is `false`) is [Resource.cname](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.Resource).
 
 Includes only one of the fields `host`, `forwardHostHeader`. ||
@@ -631,7 +624,6 @@ False - the option is disabled and its default value of the `flag` is used for t
 || body | **string**
 
 Pattern for rewrite.
-
 The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. ||
 || flag | **enum** (RewriteFlag)
 

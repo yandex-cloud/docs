@@ -9,8 +9,11 @@ apiPlayground:
         instanceId:
           description: |-
             **string**
-            ID of the GitLab instance to return
+            Required field. ID of the GitLab instance to return
+            The maximum string length in characters is 50.
           type: string
+      required:
+        - instanceId
       additionalProperties: false
     query: null
     body: null
@@ -35,7 +38,9 @@ Request message for InstanceService.Get
 ||Field | Description ||
 || instanceId | **string**
 
-Required field. ID of the GitLab instance to return ||
+Required field. ID of the GitLab instance to return
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.gitlab.v1.Instance}
@@ -160,7 +165,9 @@ Delete untagged resources during maintenance. ||
 Protect from accidental deletion. ||
 || approvalRulesId | **string**
 
-Approval rules ID. ||
+Approval rules ID.
+
+The maximum string length in characters is 30. ||
 || gitlabVersion | **string**
 
 GitLab version of the instance. ||

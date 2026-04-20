@@ -174,9 +174,18 @@ description: Из статьи вы узнаете, как создавать и
 
 О том, как передать ключ в запросе, читайте в документации [сервисов](../../concepts/authorization/api-key.md#supported-services), которые поддерживают такой способ аутентификации.
 
-### Посмотреть доступные области действия API-ключа {#available-scopes}
+## Посмотреть доступные области действия API-ключа {#available-scopes}
 
 {% list tabs group=instructions %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+   1. В открывшемся списке выберите сервисный аккаунт, области действия которого хотите посмотреть.
+   1. На вкладке ![flag](../../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}** найдите нужный API-ключ.
+   1. В строке с информацией о нем в столбце **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** будут указаны все доступные области действия API-ключа.
 
 - CLI {#cli}
 
@@ -197,8 +206,13 @@ description: Из статьи вы узнаете, как создавать и
   - yc.ai.speechkitTts.execute
   - yc.ai.translate.execute
   - yc.ai.vision.execute
+  - yc.logging.write
   - yc.monitoring.manage
   - yc.monitoring.read
+  - yc.monium.logs.write
+  - yc.monium.metrics.write
+  - yc.monium.traces.write
+  - yc.monium.telemetry.write
   - yc.postbox.send
   - yc.search-api.execute
   - yc.serverless.containers.invoke

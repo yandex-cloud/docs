@@ -19,6 +19,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+To view maintenance task information, you need the `managed-clickhouse.maintenanceTask.viewer` [role](../security.md#managed-clickhouse-maintenanceTask-viewer) or higher.
+
+To manage maintenance tasks, you need the `managed-clickhouse.maintenanceTask.editor` [role](../security.md#managed-clickhouse-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance workflow {#maintenance-order}
 
 The maintenance workflow for {{ mch-name }} clusters depends on the number of [shards](sharding.md) and hosts in them:

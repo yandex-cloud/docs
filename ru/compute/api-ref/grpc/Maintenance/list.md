@@ -79,7 +79,7 @@ The maximum string length in characters is 100. ||
 Filter list by various fields.
 Supported fields: ["status", "resource_type", "resource_id"]
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 300. ||
 |#
 
 ## yandex.cloud.maintenance.v2.ListMaintenancesResponse {#yandex.cloud.maintenance.v2.ListMaintenancesResponse}

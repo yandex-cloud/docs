@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mmy-full-name }}
-description: Access management in {{ MY }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in the {{ MY }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mmy-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -28,7 +28,7 @@ You can also assign a role for an individual cluster in the [management console]
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-mysql](../../_mermaid/roles/managed-mysql.md) %}
 
@@ -119,7 +119,7 @@ As a user, you need the [{{ roles.mmy.editor }} role or higher](../../iam/concep
 
 To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmy.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mmy.admin }}` role instead of `{{ roles.mmy.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.mmy.admin }}` instead of `{{ roles.mmy.editor }}`.
 
 ## What's next {#whats-next}
 

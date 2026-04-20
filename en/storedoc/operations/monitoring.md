@@ -24,63 +24,105 @@ To view detailed information on the health state of a {{ mmg-name }} cluster:
   1. Open the [folder dashboard]({{ link-console-main }}).
   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
-  1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+      
+      The page that opens will display performance charts for the cluster.
   
-  You will see the following charts:
+      {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
   
-  * **Asserts total**: Number of asserts triggered in the cluster.
-  * **Average operation time per host**: Average time it takes each host to execute operations, in microseconds.
-  * **Average operations time on primary**: Average execution time for operations on primary replicas, in microseconds.
-  * **Average operations time on secondaries**: Average execution time for operations on secondary replicas, in microseconds.
-  * **CPU usage per host**: vCPU utilization rate on each host, as a fraction of the total vCPU cores.
-  * **CPU usage per host, top 5 hosts**: 5 hosts with the highest vCPU utilization, in percent.
-  * **Configured oplog size per host**: Size of the operation log on each cluster host, in GB.
-  * **Connections per host**: Average number of connections to each host.
-  * **Data size on primary, top 5 databases**: Size of the five largest databases on the primary replica, in bytes. The chart is based on the raw [uncompressed](../concepts/settings-list.md#setting-wired-tiger) data.
-  * **Disk read per host, top 5 hosts**: Five hosts with the highest disk read throughput, in bytes per second.
-  * **Disk space usage per host, top 5 hosts**: Five hosts with the highest storage space usage (displayed in two charts: in bytes and in percent). The chart is based on the [compressed](../concepts/settings-list.md#setting-wired-tiger) data.
-  * **Disk usage per host, top 5 hosts**: 5 hosts with the highest storage I/O throughput, in bytes per second.
-  * **Disk write per host, top 5 hosts**: 5 hosts with the highest disk write throughput, in KB/s.
-  * **Documents affected on primary**: Average number of documents affected by queries on the primary replica.
-  * **Documents affected on secondaries**: Average number of documents affected by queries on all secondary replicas.
-  * **Documents affected per host**: Average number of documents affected by queries on each host.
-  * **Hosts available for read**: Number of hosts accepting read queries.
-  * **Hosts available for write**: Number of hosts accepting write queries.
-  * **Index size on primary, top 5 indexes**: Size of the five largest indexes on the primary replica, in bytes.
-  * **Memory usage per host**: Amount of RAM used by each host, in bytes.
-  * **Memory usage per host, top 5 hosts**: 5 hosts with the highest RAM usage, in percent.
-  * **Network data received per host, top 5 hosts**: 5 hosts with the highest inbound network throughput, in KB/s.
-  * **Network data sent per host, top 5 hosts**: 5 hosts with the highest outbound network thoughput, in KB/s.
-  * **Network usage per host, top 5 hosts**: 5 hosts with the highest total network throughput, in KB/s.
-  * **Open cursors total**: Number of open cursors in the cluster.
-  * **Oplog window**: Time interval defining how long replication data is stored in each host's oplog collection.
-  * **Page faults per host**: Number of [page faults](https://en.wikipedia.org/wiki/Page_fault) on each host.
-  * **Queries on secondaries**: Average number of queries broken down by type, processed on the secondary replicas.
-  * **Queries on primary**: Average number of queries broken down by type, processed on the primary replica.
-  * **Read operations time, top 5 collections**: Five collections with the longest time spent on read operations.
-  * **Readers/writers active queue per host, top 5**: Total size of the five largest queues for each host:
-      * With read queries
-      * With write queries
-  * **Replicated queries**: Average number of replicated queries in the cluster.
-  * **Replication lag per host and write_concern wait**: Replication delay on each host and write concern timeout, in seconds.
-  * **Scan and order per host**: Number of data sorts without using an index on each host.
-  * **Scanned / returned**: Shows the following ratios:
-      * `scanned_docs / returned_docs`: Scanned documents to returned documents.
-      * `scanned_keys / returned_docs`: Scanned index keys to returned documents.
-  * **TTL indexes activity**: Total number of TTL indexes.
-  * **Total operations count on cluster**: Total number of operations performed in the cluster.
-  * **Total operations time on cluster**: Total execution time of cluster operations, in ms.
-  * **WiredTiger cache pages evicted on primary**: Average number of memory pages evicted from the cache on the primary replica.
-  * **WiredTiger cache state on primary**: WiredTiger cache usage on the primary replica, in bytes.
-  * **WiredTiger checkpoint time on primary**: Time required to create WiredTiger checkpoints on the primary replica, in ms.
-  * **WiredTiger concurrent transactions on primary**: Average number of concurrent transactions on the primary replica.
-  * **WiredTiger transactions state on primary**: Average number of transactions at each level on the primary replica.
-  * **Write conflicts per host**: Number of write conflicts on each host.
-  * **Write operations time, top 5 collections**: Five collections with the longest total time spent on write operations.
+  The following charts are displayed for a cluster:
+
+  * **Hosts available for write**: Cluster host write availability.
+  * **Hosts available for read**: Cluster host read availability.
+
+  Under **Traffic**:
+
+  * **Queries on primary**: Increase in commands and operations on cluster primary replicas.
+  * **Queries on secondaries**: Increase in commands and operations on cluster secondary replicas.
+  * **Replicated queries**: Increase in replicated commands and operations on cluster secondary replicas.
+  * **Documents affected on primary**: Increase in documents added, updated, deleted, or returned by queries on cluster primary replicas.
+  * **Documents affected on secondaries**: Increase in documents added, updated, deleted, or returned by queries on cluster secondary replicas.
+  * **Documents affected per host**: Increase in documents added, updated, deleted, or returned by queries on each cluster host.
+  * **Total operations count on cluster**: Total increase in commands and operations in the cluster.
+  * **Connections per host**: Number of available and incoming connections on each cluster host.
+  * **Readers/writers active queue per host, top 5**: Number of read and write operations in the five largest lock queues on each cluster host.
+
+  Under **Latency**:
+   
+  * **Average operations time on primary**: Average execution time for commands and operations on cluster primary replicas.
+  * **Average operations time on secondaries**: Average execution time for commands and operations on cluster secondary replicas.
+  * **Average operation time per host**: Average time it takes each cluster host to execute operations.
+  * **Total operations time on Primaries**: Total execution time for all operations on cluster primary replicas.
+  * **Total operations time on Secondaries**: Total execution time for all operations on cluster secondary replicas.
+  * **Total operations time on Cluster**: Total execution time for all operations in the cluster.
+  * **Write operations time, top 5 collections**: Total time spent on write operations for the five largest collections in the cluster.
+  * **Read operations time, top 5 collections**: Total time spent on read operations for the five largest collections in the cluster.
+
+  Under **DB Metrics**:
+
+  * **Replication lag per host and write_concern wait**: Replication delay and write concern timeout on each cluster host.
+  * **Scanned / returned**: Average ratio of scanned keys and documents to returned documents in the cluster.
+  * **Scan and order per host**: Increase in the number of non-index-based data sorts on each cluster host.
+  * **Data size on primary, top 5 databases**: Data size for the five largest databases on cluster primary replicas.
+  * **Index size on primary, top 5 indexes**: Index size for the five largest databases on cluster primary replicas.
+  * **TTL indexes activity**: Increase in deleted documents and background deletion operations using TTL indexes.
+  * **Configured oplog size per host**: Maximum operation log size on each cluster host.
+  * **Oplog window**: Time interval for retaining replication data in the `oplog` collection on each cluster host.
+  * **Open cursors total**: Total number of open cursors on cluster hosts. The following is displayed separately:
+    
+    * Total cursors.
+    * Pinned cursors.
+    * No-timeout cursors.
+  
+  Under **Resources** → **CPU**:
+  
+  * **CPU usage per host**: CPU usage percentage per cluster host.
+  * **CPU usage on Primaries**: CPU load on cluster primary replicas.
+  * **CPU usage on Secondaries**: CPU load on cluster secondary replicas.
+  
+  Under **Resources** → **Memory**:
+   
+  * **Memory usage per host**: RAM usage per cluster host as a percentage.
+  * **Memory usage on Primaries**: RAM usage on cluster primary replicas.
+  * **Memory usage on Secondaries**: RAM usage on cluster secondary replicas.
+
+  Under **Resources** → **Network**:
+
+  * **Network usage per host**: Total network load on each cluster host.
+  * **Network data sent per host**: Network data send rate on each cluster host.
+  * **Network data received per host**: Network data receive rate on each cluster host.
+
+  Under **Resources** → **Data**:
+  
+  * **Disk space usage per host**: Disk space usage per cluster host as a percentage of the total storage size.
+  * **Disk space usage on Primaries**: Disk space usage on cluster primary replicas.
+  * **Disk space usage on Secondaries**: Disk space usage on cluster secondary replicas.
+  * **Disk usage per host**: Total disk read and write rate on each cluster host.
+  * **Disk write per host**: Disk write rate on each cluster host.
+  * **Disk read per host**: Disk read rate on each cluster host.
+
+  Under **Errors**:
+
+  * **Write conflicts per host**: Increase in write conflicts on each cluster host.
+  * **Page faults per host**: Number of page faults on each cluster host.
+  * **Asserts total**: Increase in triggered asserts in the cluster.
+
+  Under **WiredTiger**:
+
+  * **WiredTiger checkpoint time on primary**: Time required to create checkpoints on cluster primary replicas.
+  * **WiredTiger cache state on primary**: Cache usage on cluster primary replicas.
+  * **WiredTiger transactions state on primary**: Increase in transactions on cluster primary replicas.
+  * **WiredTiger concurrent transactions on primary**: Current number of parallel transaction tickets on cluster primary replicas.
+  * **WiredTiger cache pages evicted on primary**: Increase in evicted cache pages (both modified and not) on cluster primary replicas.
+  
+  Under **Mongos**:
+   
+  * **Mongos in balancer round**: Indicates whether _mongos_ is involved in the current balancing round.
+  * **Mongos active migrations**: Maximum number of active chunk migration operations via _mongos_.
+  * **Mongos migrations**: Maximum number of chunk migration operations (both successful and not) via _mongos_.
 
 {% endlist %}
 
-## Host status monitoring {#hosts}
+## Host state monitoring {#hosts}
 
 To view detailed information on the state of individual {{ mmg-name }} hosts:
 
@@ -89,18 +131,34 @@ To view detailed information on the state of individual {{ mmg-name }} hosts:
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
-  1. Click the name of your cluster and select **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
-  1. Select the required host from the drop-down list. Next to the host name, you will see its role, i.e., `PRIMARY` or `SECONDARY`, and type, i.e., `MONGOCFG`, `MONGOD`, `MONGOINFRA`, or `MONGOS`.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
+  1. Navigate to the **Hosts** tab and select the host.
+
+      The page that opens will display performance charts for the cluster hosts.
   
-  This page displays workload charts for an individual cluster host:
+      {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
   
-  * **CPU**: Processor core workload. With increased workload, the **Idle** value drops.
-  * **Memory**: RAM usage, in bytes. At high loads, the **Free** value goes down while the others increase.
-  * **Disk Bytes**: Speed of disk operations, in bytes per second.
-  * **Disk IOPS**: Number of disk operations per second.
-  * **Network Bytes**: Network data transfer rate, in bytes per second.
-  * **Network Packets**: Network packet exchange rate, in packets per second.
+  The following charts are displayed for the hosts:
+
+  * **CPU usage**: CPU usage percentage by consumption types: `user`, `system`, `steal`, `softirq`, `nice`, `irq`, `iowait`, `idle`, and `guest`.
+  * **Memory usage**: RAM usage by consumption type: `used`, `total`, `shared`, `free`, `cached`, `buffers`, `available`, and `active`.
+  * **Disk IOPS**: Number of read and write operations per second.
+  * **Network bytes**: Network data transmit and receive rate.
+  * **Network packets**: Network packet transmit and receive rate (packets per second).
+  * **Disk space usage**: Used and available disk space.
+
+  Under **Disk Metrics Details**:
+
+  * **Disk write latency (percentiles)**: Disk write latency, in percentiles.
+  * **Disk write bytes**: Average and maximum disk write rate.
+  * **Disk write operations**: Average and maximum number of write operations per second.
+  * **Disk read latency (percentiles)**: Disk read latency, in percentiles.
+  * **Disk read bytes**: Average and maximum disk read rate.
+  * **Disk read operations**: Average and maximum number of read operations per second.
+  * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, in percentiles.
+  * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, in percentiles.
+  * **Disk used quota**: Percentage of disk operation quota usage.
 
 {% endlist %}
 
@@ -113,8 +171,8 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Shards** tab and select a shard.
       
       The page that opens will display health state charts for the selected shard and its hosts.
@@ -159,7 +217,7 @@ To view detailed information on the health state of {{ mmg-name }} shards:
   * **TTL indexes activity**: Increase in deleted documents and background deletion operations using TTL indexes on the shard.
   * **Configured oplog size per host**: Maximum operation log size on each shard host.
   * **Oplog window**: Time interval for retaining replication data in the `oplog` collection on each shard host.
-  * **Open cursors total**: Total number of open cursors on shard hosts. These values are displayed separately:
+  * **Open cursors total**: Total number of open cursors on shard hosts. The following is displayed separately:
     
     * Total cursors
     * Pinned cursors
@@ -185,7 +243,7 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 
   Under **Resources** → **Data**:
   
-  * **Disk space usage per host**: Disk space usage percentage on each shard host.
+  * **Disk space usage per host**: Disk space usage per shard host as a percentage of the total storage size.
   * **Disk space usage on Primaries**: Disk space usage on shard primary replicas.
   * **Disk space usage on Secondaries**: Disk space usage on shard secondary replicas.
   * **Disk usage per host**: Total disk read and write rate on each shard host.
@@ -196,7 +254,7 @@ To view detailed information on the health state of {{ mmg-name }} shards:
 
   * **Write conflicts per host**: Increase in write conflicts on each shard host.
   * **Page faults per host**: Number of page faults on each shard host.
-  * **Asserts total** Increase in triggered asserts on the shard.
+  * **Asserts total**: Increase in triggered asserts on the shard.
 
   Under **WiredTiger**:
 
@@ -283,7 +341,7 @@ To track storage fill levels on the cluster hosts and receive notifications when
 To view the health state and status of a cluster:
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Locate the cluster you need in the list and hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster health states {#cluster-health}

@@ -15,6 +15,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [{#T}](cluster-expand.md)
 * [Managing backups](cluster-backups.md)
 * [Managing cluster access](cluster-access.md)
+* [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Connection {#connect}
@@ -66,6 +67,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [{#T}](performance-diagnostics.md)
 * [Cluster and host state monitoring](monitoring.md)
 * [Transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md)
+* [Reading {{ mgp-full-name }} cluster logs via SQL](sql-log-access.md)
 
 ## Auxiliary utilities {#tools}
 

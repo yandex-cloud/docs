@@ -34,8 +34,6 @@ Set up your infrastructure:
     
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
-
-    
     1. [Create a virtual machine on Linux](../../../compute/operations/vm-create/create-linux-vm.md) in the same cloud network as the {{ GP }} cluster.
 
 
@@ -47,6 +45,7 @@ Set up your infrastructure:
 
     
     1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
+
 
 
 - {{ TF }} {#tf}
@@ -107,7 +106,6 @@ Set up your infrastructure:
 
         The command saves to a file named `static-key.txt` the static key ID and the static key you are going to need later.
 
-    
     1. Go to the [management console]({{ link-console-main }}) and [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet hosting your cluster.
 
 
@@ -231,8 +229,10 @@ Some resources are not free of charge. Delete the resources you no longer need t
     1. [Delete the cloud network](../../../vpc/operations/network-delete.md).
 
 
+
 - {{ TF }} {#tf}
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
 
 {% endlist %}

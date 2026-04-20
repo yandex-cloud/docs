@@ -12,7 +12,7 @@ By default, notifications about upcoming maintenance and notifications from serv
 
 {% note info %}
 
-You can add [Yandex account](../../iam/concepts/users/accounts.md#passport) users, [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) users. Federated and local users must specify their email address in their account profile.
+You can add [Yandex account](../../iam/concepts/users/accounts.md#passport) users, [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) users. Federated and local users should specify their email address in their account settings.
 
 {% endnote %}
 
@@ -70,6 +70,7 @@ To configure notification methods:
     * ![image](../../_assets/console-icons/logo-telegram.svg): Telegram bot message.
     * ![image](../../_assets/console-icons/handset.svg): Phone call to the specified number (only available for {{ monitoring-name }} escalations).
     * ![image](../../_assets/console-icons/antenna-signal.svg): Messages to specified URLs.
+    * ![image](../../_assets/console-icons/logo-yandex-messenger.svg): Message in {{ messenger-full-name }}.
 
 ## Webhooks {#webhook}
 

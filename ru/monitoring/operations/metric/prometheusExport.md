@@ -7,7 +7,7 @@
 1. Выберите сервис из следующего списка:
    * `application-load-balancer` — {{ alb-name }}.
    * `audit-trails` — {{ at-name }}.
-   * `cdn` — {{ cdn-name }}.
+   * `yccdn` — {{ cdn-name }}.
    * `certificate-manager` — {{ certificate-manager-name }}.
    * `compute` — {{ compute-name }}.
    * `container-registry` — {{ container-registry-name }}.

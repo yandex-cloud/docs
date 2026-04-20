@@ -1,10 +1,10 @@
 # {{ baremetal-full-name }} overview
 
-In {{ baremetal-full-name }}, you can [lease](../operations/servers/server-lease.md) a physical server with all its hardware resources provisioned for your individual use. 
+In {{ baremetal-full-name }}, you can [rent](../operations/servers/server-lease.md) a physical server with all its hardware resources provisioned for your individual use. 
 
-To create and conveniently operate an infrastructure relying on leased physical servers, {{ baremetal-name }} provides users with all the required tools to manage the servers and their network’s settings.
+To create and conveniently operate an infrastructure relying on rented physical servers, {{ baremetal-name }} provides users with all the tools they need to manage the servers and their network settings.
 
-A system of flexible quotas and resource limits defines how many servers, networks, and how much space for custom OS images are available for each user.
+There is a system of flexible [quotas](limits.md) and resource limits which decides the amount of servers, networks, and disk space for custom OS images available to each user.
 
 ## Servers {#servers}
 
@@ -12,23 +12,23 @@ You can order servers of the following configurations:
 
 * Stock configuration: Get a ready-to-use server with or without an OS in minutes. Choose a server from dozens of configurations for typical tasks and workloads.
 
-   [Leasing a stock configuration server](server-configurations.md)
+   [Renting a stock configuration server](server-configurations.md)
 * Custom configuration: Use our builder to create a server optimized for your load profile from available server components and get your new server in 4 days' time. 
 
   [Building a custom server configuration](server-custom-configurations.md)
-* On-request configuration: If looking for a server for a variety of scenarios and workloads, apply for an on-request configuration. 
-  
-  [Describe your preferred configuration to get a personalized offer](https://yandex.cloud/en/services/baremetal#contact-form)
+* On-request configuration: If looking for a server for a variety of scenarios and workloads, apply for an on-request configuration.
 
-You can lease [servers](servers.md) for a period from one day to a year. When ordering a server, you can install an OS from ready-made Marketplace [images](images.md) or use your own distribution for installation by [uploading](../operations/image-upload.md) it to [{{ objstorage-full-name }}](../../storage/). You can also configure public and private IP addressing, SSH access, and server backup policies using [{{ backup-full-name }}](../../backup/).
+  [Learn more about on-request configurations](server-individual-configurations.md).
+
+You can rent [servers](servers.md) for a period from one day to one year. When ordering a server, you can install an OS from ready-made Marketplace [images](images.md) or use your own distribution for installation by [uploading](../operations/image-upload.md) it to [{{ objstorage-full-name }}](../../storage/). You can also configure public and private IP addressing, SSH access, and server backup policies using [{{ backup-full-name }}](../../backup/).
 
 ## Network {#network}
 
 All servers have multiple physical network interfaces connected to the [public internet](./public-network.md) and to a [private network](./private-network.md) through different, independent switches which make up a single IP fabric with the spine-leaf topology.
 
-In the public network, each server is allocated one public IPv4 address free of charge. You can also lease blocks of [dedicated public subnets](./public-network.md#public-subnet) of varying sizes and use them to assign addresses to servers. For servers with 10 and 25 Gbps network cards, you can select a daily internet traffic package.
+In the public network, each server is allocated one public IPv4 address free of charge. You can also rent blocks of [dedicated public subnets](./public-network.md#public-subnet) of varying sizes and use them to assign addresses to servers. For servers with 10 and 25 Gbps network cards, you can select a daily internet traffic package.
 
-In a private network, you can group servers at different levels through [private subnets](./private-network.md#private-subnet) (L2, VLAN 802.1Q) and use routing to join them into a [VRF](./private-network.md#vrf-segment) (L3). If required, you can assign multiple private subnets to a single server port (L2, trunk-port 802.1Q) or add static routes to the VRF.
+In a private network, you can group servers at different levels through [private subnets](./private-network.md#private-subnet) (L2, VLAN 802.1Q) and use routing to join them into a [VRF](./private-network.md#vrf-segment) (L3). If you need to, you can assign several private subnets to a single server port (L2, trunk-port 802.1Q) or add [static routes](./private-network.md#static-routes) to a VRF.
 
 To ensure stable operation of all networks, {{ baremetal-name }} has a number of [limits](network-restrictions.md).
 

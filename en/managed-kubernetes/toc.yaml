@@ -708,30 +708,30 @@ items:
             items:
               - name: Gateway
                 href: gwin-ref/gateway.md
-              - name: GatewayPolicy
-                href: gwin-ref/gatewaypolicy.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
-              - name: HTTPRoute
-                href: gwin-ref/httproute.md
               - name: Ingress
                 href: gwin-ref/ingress.md
-              - name: IngressBackendGroup
-                href: gwin-ref/ingressbackendgroup.md
+              - name: HTTPRoute
+                href: gwin-ref/httproute.md
               - name: IngressPolicy
                 href: gwin-ref/ingresspolicy.md
               - name: RoutePolicy
                 href: gwin-ref/routepolicy.md
+              - name: IngressBackendGroup
+                href: gwin-ref/ingressbackendgroup.md
               - name: Service
                 href: gwin-ref/service.md
               - name: ServicePolicy
                 href: gwin-ref/servicepolicy.md
               - name: TLSRoute
                 href: gwin-ref/tlsroute.md
-              - name: YCCertificate
-                href: gwin-ref/yccertificate.md
               - name: YCStorageBucket
                 href: gwin-ref/ycstoragebucket.md
+              - name: YCCertificate
+                href: gwin-ref/yccertificate.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
       - name: Ingress controller
         items:
           - name: Ingress

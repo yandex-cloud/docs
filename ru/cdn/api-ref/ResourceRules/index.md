@@ -5,7 +5,6 @@ editable: false
 # Cloud CDN API, REST: ResourceRules
 
 Rules management service.
-
 Used for Resources Rules management.
 
 ## Methods

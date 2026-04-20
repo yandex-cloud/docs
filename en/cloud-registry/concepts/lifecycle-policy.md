@@ -13,14 +13,14 @@ Each policy rule includes a filter by `path_prefix`. It indicates which artifact
 
 **Examples**
 
-Prefix | Apply the rule to
+Prefix | Selection
 --- | ---
-`.*` | All artifacts in the registry
-`ubuntu/.*` | Artifacts whose paths start with `ubuntu/`
+`/` | All artifacts in the registry
+`/ubuntu` | Artifacts whose paths start with `/ubuntu`
 
 {% note warning %}
 
-Rules apply to packages. If you set a rule saying _Keep only the ten most recent versions_ with `path_prefix = .*` for a registry containing two packages, e.g., `ubuntu` and `vault`, the rule will apply separately to each package. As a result, the ten latest versions will be retained in each package, rather than across all packages.
+Rules apply to packages. If you set a rule saying _Keep only the ten most recent versions_ with `path_prefix = /` for a registry containing two packages, e.g., `ubuntu` and `vault`, the rule will apply separately to each package. As a result, the ten latest versions will be retained in each package, rather than across all packages.
 
 The number of lifecycle policies and rules within them are subject to [quotas and limits](limits.md).
 
@@ -67,7 +67,7 @@ The `SOFT_DELETE` and `HARD_DELETE` rule conditions are the same.
 
 Each rule includes filters indicating which artifacts the rule applies to:
 
-* **Path prefix** (`path_prefix`): Determines which artifacts the rule applies to based on their path. If you specify `.*`, the rule will apply to all artifacts of all packages in the registry. You can provide a specific path prefix, e.g., `@path/prefix.*`.
+* **Path prefix** (`path_prefix`): Determines which artifacts the rule applies to based on their path. If you specify `/`, the rule will apply to all artifacts of all packages in the registry. You can specify one or more prefixes separated by commas, e.g., `/ubuntu,/vault`. This filter does not support regular expressions (`regexp`).
 * **Docker filters**: Additional filters for Docker images by tag status (with tags, no tags).
 * **Maven filters**: Additional filters for Java artifacts by version type (release versions, snapshots).
 

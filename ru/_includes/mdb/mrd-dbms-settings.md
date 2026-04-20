@@ -134,7 +134,7 @@
 
     При изменении не влияет на работу уже запущенного скрипта.
 
-    Подробнее см. в [документации {{ RD }}](https://github.com/redis/redis/blob/6.0/redis.conf#L1203).
+    Подробнее см. в [документации {{ VLK }}](https://github.com/valkey-io/valkey/blob/9.0/valkey.conf#L1732).
 
 * **Maxmemory percent**{#settings-maxmemory-percent} {{ tag-all }}
 
@@ -212,8 +212,6 @@
     Если флаг включен, для обработки Lua-скриптов используется [LuaJIT](https://luajit.org/). Это может ускорять обработку при активном использовании скриптов.
 
     По умолчанию настройка выключена.
-
-    Подробнее см. в [документации {{ VLK }}]().
 
 * **Zset max listpack entries**{#settings-zset-max-listpack} {{ tag-all }}
 

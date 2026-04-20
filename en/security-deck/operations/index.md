@@ -13,6 +13,11 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 * [{#T}](./workspaces/manage-access.md).
 * [{#T}](./workspaces/delete.md).
 
+## Alerts {#alerts}
+
+* [{#T}](./alerts/view.md).
+* [{#T}](./alerts/work.md).
+
 ## {{ dspm-full-name }} ({{ dspm-name }}) {#dspm}
 
 * [{#T}](./dspm/create-data-source.md).

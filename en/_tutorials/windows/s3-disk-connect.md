@@ -12,8 +12,12 @@ To mount your bucket as a disk:
 
 1. [Get your cloud ready](#before-begin).
 1. [Set up the runtime environment](#environment-prepare).
+
+
 1. [Create a service account](#create-sa).
 1. [Create a static access key](#create-static-key).
+
+
 1. [Create a bucket](#bucket-create).
 1. [Set up a connection to {{ objstorage-name }}](#rclone-config).
 1. [Mount your bucket](#bucket-mount).
@@ -44,6 +48,7 @@ The cost for bucket support includes:
 
     {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
+
 ## Create a service account {#create-sa}
 
 {% list tabs group=instructions %}
@@ -51,13 +56,13 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** service.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 
-- CLI {#cli}
+- YC CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -65,40 +70,37 @@ The cost for bucket support includes:
 
   1. Create a service account named `sa-win-disk-connect`:
 
-  ```bash
-  yc iam service-account create --name sa-win-disk-connect
-  ```
+      ```bash
+      yc iam service-account create --name sa-win-disk-connect
+      ```
 
-  The naming requirements are as follows:
+      The naming requirements are as follows:
 
-  {% include [name-format](../../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
-  For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Assign the `storage.editor` role to the service account:
 
-  ```bash
-  yc resource-manager folder add-access-binding <folder_ID> \
-    --role storage.editor \
-    --subject serviceAccount:<service_account_ID>
-  ```
+      ```bash
+      yc resource-manager folder add-access-binding <folder_ID> \
+        --role storage.editor \
+        --subject serviceAccount:<service_account_ID>
+      ```
   
-  For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
   1. To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
-  1. [Assign](../../organization/operations/add-role) the `storage.editor` role to the service account.
+  1. [Assign](../../organization/operations/add-role.md) the `storage.editor` role to the service account.
   
 {% endlist %}
 
-
 {% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
 
-
 ## Create a static access key {#create-static-key}
-
 
 {% list tabs group=instructions %}
 
@@ -113,7 +115,7 @@ The cost for bucket support includes:
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key. After you close this dialog, the key value will no longer be available.
 
-- CLI {#cli}
+- YC CLI {#cli}
 
   1. Create an access key for the `sa-win-disk-connect` service account:
 
@@ -142,7 +144,6 @@ The cost for bucket support includes:
 
 {% endlist %}
 
-
 {% include [get-static-key-info](../../_includes/storage/get-static-key-result.md) %}
 
 
@@ -159,7 +160,7 @@ The cost for bucket support includes:
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
  
-- AWS CLI {#cli}
+- AWS CLI {#aws-cli}
   
   1. If you do not have the AWS CLI yet, [install and configure it](../../storage/tools/aws-cli.md).
   1. Create a bucket by entering its name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming):
@@ -174,6 +175,7 @@ The cost for bucket support includes:
      ```text
      make_bucket: <bucket_name>
      ```
+
 
 - {{ TF }} {#tf}
 
@@ -199,24 +201,25 @@ The cost for bucket support includes:
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory you created the configuration file in.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
+     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. To confirm resource creation, type `yes` and press **Enter**.
+
 
 - API {#api}
 
@@ -239,8 +242,12 @@ The cost for bucket support includes:
    1. Select the storage type by entering `4` in the terminal.
    1. Select the provider by entering `1` in the terminal.
    1. Select manual entry of credentials by typing `1` in the terminal.
+
+   
    1. In the terminal, enter the secret key ID you [got previously](#create-static-key).
    1. In the terminal, enter the secret key value you [got previously](#create-static-key).
+
+
    1. Specify the region by entering `{{ region-id }}` in the terminal.
    1. Specify the endpoint by entering `{{ s3-storage-host }}` in the terminal.
    1. You can leave all other settings at their defaults by pressing **Enter** to skip them.

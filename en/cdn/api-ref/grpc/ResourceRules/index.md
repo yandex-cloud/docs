@@ -5,7 +5,6 @@ editable: false
 # Cloud CDN API, gRPC: ResourceRulesService
 
 Rules management service.
-
 Used for Resources Rules management.
 
 ## Methods

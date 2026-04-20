@@ -73,7 +73,6 @@ End of the TLS certificate validity period (Not After field) ||
 || certificate_id | **string**
 
 ID of the TLS certificate in Certificate Manager.
-
 To get information about the certificate from Certificate Manager, make a
 [yandex.cloud.certificatemanager.v1.CertificateService.Get](/docs/certificate-manager/api-ref/grpc/Certificate/get#Get) request. ||
 |#

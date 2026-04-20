@@ -102,7 +102,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || certificateId | **string**
 
 ID of the TLS certificate in Certificate Manager.
-
 To get information about the certificate from Certificate Manager, make a
 [yandex.cloud.certificatemanager.v1.CertificateService.Get](/docs/certificate-manager/api-ref/Certificate/get#Get) request. ||
 |#
