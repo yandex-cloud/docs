@@ -388,6 +388,7 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  messenger-full-name: Yandex Messenger
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
@@ -1033,6 +1034,21 @@ default:
   pcs|yt: dn2thrwhzxl2ygay7nvq
   pc|baremetal:
     component:
+      bms_1029p_body:
+        1_month: dn2n6sqhzm4i7eg4w4f5
+        12_month: dn2p6himjfj4hnjshxco
+        3_month: dn2idsw46rbwcnkndlhn
+        6_month: dn2hi7cbvh3bnbkef4up
+      bms_cpu_i6230:
+        1_month: dn2dxqjz3vqfxeq6fqbz
+        12_month: dn25uptp35c3njgv25wn
+        3_month: dn2oxbuy2kziiorp7436
+        6_month: dn27jt4jbpgrabnckmlm
+      bms_cpu_i6230r:
+        1_month: dn2j734aagfsgjhhnst5
+        12_month: dn2pydc6l4pylhxzylql
+        3_month: dn2revpxepujo6i4wvqv
+        6_month: dn2r4dbzpdsyoxjryx7n
       bms-4-body:
         1-month: dn2hf2sf5kjjsy24igas
         12-month: dn26l6yl7fy772frgm57
@@ -4635,6 +4651,8 @@ default:
         organization: Identity Hub
       mfa-policy-audiences:
         action_add-users: Add users
+      mfa-policy-exclusions:
+        action_add-exclusion: Add exclusion
       my-account:
         GroupsPageLayout:
           header: My groups
@@ -4764,6 +4782,8 @@ default:
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
           MfaPolicyPageLayout:
+            policies_title: MFA policies
+            tab_exclusions: Exclusions
             tab_groups: Users and groups
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Authentication settings
@@ -4923,8 +4943,6 @@ default:
             selectResources_bD5MC: Select resources
           ControlsExceptionsPage:
             action_create: Create exception
-            exceptions_header_qJD5D: KSPM
-            exceptions_header_vqsTb: KSPM
             scope_filter_header_7CrSm: Configuration controls
           ControlsExceptionTable:
             field_author: Author
@@ -11201,7 +11219,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.1.0
+        tag: v1.3.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

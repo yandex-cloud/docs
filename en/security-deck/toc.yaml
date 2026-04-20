@@ -24,6 +24,12 @@ items:
             href: operations/workspaces/manage-access.md
           - name: Deleting a workspace
             href: operations/workspaces/delete.md
+      - name: Alerts
+        items:
+          - name: Viewing alerts
+            href: operations/alerts/view.md
+          - name: Working with alerts
+            href: operations/alerts/work.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         items:
           - name: Overview

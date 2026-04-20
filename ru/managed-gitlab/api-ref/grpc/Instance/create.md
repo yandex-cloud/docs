@@ -37,36 +37,50 @@ Request message for InstanceService.Create.
 ||Field | Description ||
 || folder_id | **string**
 
-ID of the folder to create instance in. ||
+Required field. ID of the folder to create instance in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the instance (must be unique within the folder). ||
+Required field. Name of the instance (must be unique within the folder).
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the instance. ||
+Description of the instance.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod".
 
-No more than 64 per resource. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || resource_preset_id | **string**
 
-ID of the resource preset for computational resources. ||
+Required field. ID of the resource preset for computational resources.
+
+The maximum string length in characters is 50. ||
 || disk_size | **int64**
 
 Disk size in bytes. ||
 || admin_login | **string**
 
-Admin user login. ||
+Required field. Admin user login.
+
+The maximum string length in characters is 50. ||
 || admin_email | **string**
 
-Admin user email. ||
+Required field. Admin user email. ||
 || domain_prefix | **string**
 
-Domain prefix for the GitLab instance. ||
+Required field. Domain prefix for the GitLab instance.
+
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z0-9][a-z0-9-]{3,48}[a-z0-9] `. ||
 || subnet_id | **string**
 
-ID of the subnet where instance will be created. ||
+Required field. ID of the subnet where instance will be created.
+
+The maximum string length in characters is 50. ||
 || backup_retain_period_days | **int64**
 
 Number of days to retain backups. ||
@@ -78,7 +92,9 @@ Whether to delete untagged resources during maintenance. ||
 Whether deletion protection is enabled. ||
 || approval_rules_id | **string**
 
-ID of approval rules for the instance. ||
+ID of approval rules for the instance.
+
+The maximum string length in characters is 30. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -91,38 +107,10 @@ ID of approval rules for the instance. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "instance_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "resource_preset_id": "string",
-    "disk_size": "int64",
-    "status": "Status",
-    "admin_login": "string",
-    "admin_email": "string",
-    "domain": "string",
-    "subnet_id": "string",
-    "planned_operation": {
-      "info": "string",
-      "delayed_until": "google.protobuf.Timestamp",
-      "latest_maintenance_time": "google.protobuf.Timestamp",
-      "next_maintenance_window_time": "google.protobuf.Timestamp"
-    },
-    "backup_retain_period_days": "int64",
-    "maintenance_delete_untagged": "bool",
-    "deletion_protection": "bool",
-    "approval_rules_id": "string",
-    "gitlab_version": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -150,7 +138,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateInstanceMetadata](#yandex.cloud.gitlab.v1.CreateInstanceMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -165,7 +153,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Instance](#yandex.cloud.gitlab.v1.Instance)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -180,117 +168,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateInstanceMetadata {#yandex.cloud.gitlab.v1.CreateInstanceMetadata}
-
-Metadata message for InstanceService.Create.
-
-#|
-||Field | Description ||
-|| instance_id | **string**
-
-ID of the GitLab instance being created. ||
-|#
-
-## Instance {#yandex.cloud.gitlab.v1.Instance}
-
-Instance represents a GitLab instance with its configuration and state.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique instance ID. ||
-|| folder_id | **string**
-
-Folder ID where instance resides. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Last update timestamp. ||
-|| name | **string**
-
-Human-readable name. ||
-|| description | **string**
-
-Instance description. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as key-value pairs. ||
-|| resource_preset_id | **string**
-
-Resource preset ID. ||
-|| disk_size | **int64**
-
-Disk size in bytes. ||
-|| status | enum **Status**
-
-Current instance status.
-
-- `CREATING`: Instance is being created.
-- `RUNNING`: Instance is running normally.
-- `UPDATING`: Instance is being updated.
-- `ERROR`: Instance is in error state.
-- `DELETING`: Instance is being deleted.
-- `BACKUP_CREATING`: Backup is being created.
-- `BACKUP_RESTORING`: Backup is being restored.
-- `STARTING`: Instance is starting.
-- `STOPPING`: Instance is stopping.
-- `STOPPED`: Instance is stopped.
-- `BACKGROUND_MIGRATIONS`: Background migrations in progress.
-- `OBJECT_STORAGE_MIGRATIONS`: Object storage migrations in progress.
-- `SNAPSHOT_RESTORING`: Snapshot is being restored. ||
-|| admin_login | **string**
-
-Admin username. ||
-|| admin_email | **string**
-
-Admin email. ||
-|| domain | **string**
-
-Instance domain. ||
-|| subnet_id | **string**
-
-Subnet ID. ||
-|| planned_operation | **[MaintenanceOperation](#yandex.cloud.gitlab.v1.MaintenanceOperation)**
-
-Planned maintenance operation. ||
-|| backup_retain_period_days | **int64**
-
-How long to keep backups (days). ||
-|| maintenance_delete_untagged | **bool**
-
-Delete untagged resources during maintenance. ||
-|| deletion_protection | **bool**
-
-Protect from accidental deletion. ||
-|| approval_rules_id | **string**
-
-Approval rules ID. ||
-|| gitlab_version | **string**
-
-GitLab version of the instance. ||
-|#
-
-## MaintenanceOperation {#yandex.cloud.gitlab.v1.MaintenanceOperation}
-
-#|
-||Field | Description ||
-|| info | **string**
-
-The description of the operation.
-
-The maximum string length in characters is 256. ||
-|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Delay time for the maintenance operation. ||
-|| latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time of the last maintenance window. ||
-|| next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time of the next maintenance window. ||
 |#

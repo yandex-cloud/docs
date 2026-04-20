@@ -13,7 +13,7 @@ description: This tutorial provides examples of how to configure lifecycle polic
 
 ## Example 1: Policy for Ubuntu Docker images {#ubuntu-example}
 
-In this example, we create a policy to manage Docker images with the `ubuntu.*` path prefix. This policy contains three rules:
+In this example, we create a policy to manage Docker images with the `/ubuntu` path prefix. This policy contains three rules:
 
 1. Hard delete all untagged Docker images older than 7 days.
 1. Soft delete tagged Docker images exceeding a count of 10, with a 7-day waiting period.
@@ -26,7 +26,7 @@ Create a file named `ubuntu-policy-rules.json` with the following contents:
 ```json
 [
   {
-    "path_prefix": "ubuntu.*",
+    "path_prefix": "/ubuntu",
     "delete": {
       "type": "HARD_DELETE",
       "older_than_days": 7
@@ -36,7 +36,7 @@ Create a file named `ubuntu-policy-rules.json` with the following contents:
     }
   },
   {
-    "path_prefix": "ubuntu.*",
+    "path_prefix": "/ubuntu",
     "delete": {
       "type": "SOFT_DELETE",
       "cooldown_period_days": 7,
@@ -49,7 +49,7 @@ Create a file named `ubuntu-policy-rules.json` with the following contents:
     }
   },
   {
-    "path_prefix": "ubuntu.*",
+    "path_prefix": "/ubuntu",
     "keep_by_version": {
       "keep_versions_count": 5
     },
@@ -97,7 +97,7 @@ Rules apply in the order of priority, where retention rules (`keep_by_version`) 
 
     `--name`: Policy name.
     `--description`: Policy description.
-    `--registry-id`: ID of the registry for which you are creating the policy.
+    `--registry-id`: ID of the registry you want to create the policy for.
     `--state`: Policy state after creation (`DISABLED`).
     `--rules`: `ubuntu-policy-rules.json` file path.
 
@@ -109,7 +109,7 @@ Rules apply in the order of priority, where retention rules (`keep_by_version`) 
 
 ## Example 2: Java artifact policy {#maven-example}
 
-In this example, we create a policy to manage Java artifacts with the `com/example/myapp/.*` path prefix. This policy contains two rules:
+In this example, we create a policy to manage Java artifacts with the `/com/example/myapp` path prefix. This policy contains two rules:
 
 1. Hard delete all snapshots.
 1. Keep the 2 latest snapshots.
@@ -121,7 +121,7 @@ Create a file named `maven-policy-rules.json` with the following contents:
 ```json
 [
   {
-    "path_prefix": "com/example/myapp/.*",
+    "path_prefix": "/com/example/myapp",
     "delete": {
       "type": "HARD_DELETE",
       "always": true
@@ -131,7 +131,7 @@ Create a file named `maven-policy-rules.json` with the following contents:
     }
   },
   {
-    "path_prefix": "com/example/myapp/.*",
+    "path_prefix": "/com/example/myapp",
     "keep_by_version": {
       "keep_versions_count": 2
     },
@@ -173,7 +173,7 @@ The `keep_by_version` rule has a higher priority than the deletion rule. This me
 
     `--name`: Policy name.
     `--description`: Policy description.
-    `--registry-id`: ID of the registry for which you are creating the policy.
+    `--registry-id`: ID of the registry you want to create the policy for.
     `--state`: Policy state after creation (`DISABLED`).
     `--rules`: `maven-policy-rules.json` file path.
 

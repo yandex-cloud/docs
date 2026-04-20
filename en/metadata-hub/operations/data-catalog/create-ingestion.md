@@ -8,6 +8,11 @@
 {% endnote %}
 
 
+If the metadata origin's {{ yandex-cloud }} subnet security group has traffic restriction rules in place, add a new rule to allow incoming traffic:
+
+  * Based on CIDR IP address range 198.19.0.0/16, for {{ data-catalog-name }}.
+  * Based on port used for connection to the data source for the purpose of creating the ingestion, e.g., for {{ mpg-name }}, it is port 6432.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

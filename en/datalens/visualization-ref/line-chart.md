@@ -142,7 +142,7 @@ X | Dimension. You can specify only one field here. This dimension is usually a 
 Y | Measure. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).
 Y2 | Measure. Use it to add a second Y axis to a chart. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).
 Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the color of lines. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the Y axis.
-Forms | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the shape of lines.
+Forms | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the shape and size of lines. You can select the line shape from presets. You can select the line size from the list, or enter manually: from `1` to `12` pixels.
 Sorting | Dimension or measure. Affects the sorting of the X axis. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
 Labels | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** or **Y2** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25.
@@ -164,7 +164,8 @@ To create a line chart:
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as a chart on the Y axis.
 1. Drag one or more measures from the dataset to the **Y2** section. The values will be displayed as a chart on the second Y axis.
-1. Drag a dimension to the **Color** section. The measure value is divided by color depending on the selected dimension.
+1. Drag a dimension to the **Color** section. The measure value will be divided by color depending on the dimension you select.
+1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension or field to the **Forms** section. The measure value will be divided by line shape and width depending on the dimension you select. [Set up line sizes and shapes](../concepts/chart/settings.md#forms-settings).
 1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
 
 ### Configuring display of `null` values {#null-settings}

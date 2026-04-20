@@ -1,22 +1,22 @@
 ---
 title: Access management in {{ mos-full-name }}
-description: Access management in the {{ OS }} database service. This section covers role assignment to resources, available service roles, and required permissions for actions.
+description: Access management in the {{ OS }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Managing access to {{ mos-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
-* [Resources available for role assignment](#resources).
-* [Available service roles](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign roles for resources, you need either the `mdb.admin` role, the `managed-opensearch.admin` role, or one of the following roles on that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-opensearch.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 

@@ -48,7 +48,7 @@ To resolve the issue, try linking a different bank card or, if you are a legal e
 
 #### What happens if I do not link a bank card when creating a billing account? {#no-linked-card}
 
-{% include [initail-payment-amout](../../_includes/billing/initial-payment-amount.md) %}
+{% include [initial-payment-amount](../../_includes/billing/initial-payment-amount.md) %}
 
 {% note warning %}
 
@@ -88,7 +88,7 @@ The [billing threshold](../../billing/concepts/billing-threshold.md) gets enable
 
 #### How do I change the billing account owner? {#account-owner}
 
-Any user with the `billing.accounts.owner` role can remove this role from the billing account creator and change the owner. To learn more, see [Access management](../../billing/security/index.md).
+Any user with the `billing.accounts.owner` role can revoke this role from the billing account creator and change the owner. To learn more, see [Access management](../../billing/security/index.md).
 
 #### Where can add a bank account? {#checking-account}
 

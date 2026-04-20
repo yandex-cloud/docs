@@ -54,8 +54,6 @@ items:
             href: operations/servers/add-new-ssh-key.md
           - name: Восстановить загрузчик ОС
             href: operations/servers/restore-grub.md
-          - name: Анализ состояния дисков
-            href: concepts/smart-disk-analysis.md
           - name: Проанализировать состояние сервера с помощью HWCheck
             href: operations/servers/use-hwatcher.md
       - name: Сеть
@@ -86,6 +84,14 @@ items:
             href: concepts/server-custom-configurations.md
           - name: Конфигурация сервера под заказ
             href: concepts/server-individual-configurations.md
+          - name: Диски и RAID
+            items:
+              - name: Типы дисков
+                href: concepts/disks/disk-types.md
+              - name: Оценка состояния дисков
+                href: concepts/smart-disk-analysis.md
+              - name: RAID
+                href: concepts/disks/raid.md
       - name: Сеть
         expanded: true
         items:

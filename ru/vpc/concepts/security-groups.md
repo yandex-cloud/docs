@@ -36,23 +36,24 @@ description: Группы безопасности позволяют контр
 
 Список объектов в сервисах {{ yandex-cloud }}, где можно использовать группы безопасности:
 
-| Название сервиса | Объекты сервиса |
-| --- | --- |
-| [{{ compute-short-name }}](../../compute/) | [интерфейс ВМ](../../compute/concepts/network.md), [шаблон групп ВМ](../../compute/concepts/instance-groups/instance-template.md#network) |
+| Название сервиса                                    | Объекты сервиса                                                                                                                                 |
+|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [{{ compute-short-name }}](../../compute/)          | [интерфейс ВМ](../../compute/concepts/network.md), [шаблон групп ВМ](../../compute/concepts/instance-groups/instance-template.md#network)       |
 | [{{ managed-k8s-name }}](../../managed-kubernetes/) | [кластер](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [группа узлов](../../managed-kubernetes/concepts/index.md#node-group) |
-| [{{ alb-name }}](../../application-load-balancer/) | [балансировщик](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) |
-| [{{ mpg-name }}](../../managed-postgresql/) | [кластер](../../managed-postgresql/concepts/network.md#security-groups) |
-| [{{ mch-name }}](../../managed-clickhouse/) | [кластер](../../managed-clickhouse/concepts/network.md#security-groups) |
-| [{{ mgp-name }}](../../managed-greenplum/) | [кластер](../../managed-greenplum/concepts/network.md#security-groups) |
-| [{{ mmy-name }}](../../managed-mysql/) | [кластер](../../managed-mysql/concepts/network.md#security-groups) |
-| [{{ mrd-name }}](../../managed-valkey/) | [кластер](../../managed-valkey/concepts/network.md#security-groups) |
-| [{{ mmg-name }}](../../storedoc) | [кластер](../../storedoc/concepts/network.md#security-groups) |
-| [{{ mkf-name }}](../../managed-kafka/) | [кластер](../../managed-kafka/concepts/network.md#security-groups) |
-| [{{ mos-name }}](../../managed-opensearch/) | [кластер](../../managed-opensearch/concepts/network.md#security-groups) |
-| [{{ dataproc-name }}](../../data-proc/) | [кластер](../../data-proc/concepts/network.md#security-groups) |
-| [{{ data-transfer-name }}](../../data-transfer/) | [эндпоинт](../../data-transfer/concepts/network.md#security-groups) |
-| [{{ load-testing-name }}](../../load-testing/) | [агент тестирования](../../load-testing/concepts/agent.md) |
-| [{{ mgl-name }}](../../managed-gitlab/) | [инстанс](../../managed-gitlab/operations/configure-security-group.md) |
+| [{{ alb-name }}](../../application-load-balancer/)  | [балансировщик](../../application-load-balancer/concepts/application-load-balancer.md#security-groups)                                          |
+| [{{ mpg-name }}](../../managed-postgresql/)         | [кластер](../../managed-postgresql/concepts/network.md#security-groups)                                                                         |
+| [{{ mch-name }}](../../managed-clickhouse/)         | [кластер](../../managed-clickhouse/concepts/network.md#security-groups)                                                                         |
+| [{{ mgp-name }}](../../managed-greenplum/)          | [кластер](../../managed-greenplum/concepts/network.md#security-groups)                                                                          |
+| [{{ mmy-name }}](../../managed-mysql/)              | [кластер](../../managed-mysql/concepts/network.md#security-groups)                                                                              |
+| [{{ mrd-name }}](../../managed-valkey/)             | [кластер](../../managed-valkey/concepts/network.md#security-groups)                                                                             |
+| [{{ mmg-name }}](../../storedoc)                    | [кластер](../../storedoc/concepts/network.md#security-groups)                                                                                   |
+| [{{ mkf-name }}](../../managed-kafka/)              | [кластер](../../managed-kafka/concepts/network.md#security-groups)                                                                              |
+| [{{ mos-name }}](../../managed-opensearch/)         | [кластер](../../managed-opensearch/concepts/network.md#security-groups)                                                                         |
+| [{{ mtr-name }}](../../managed-trino/)              | [кластер](../../managed-trino/concepts/network.md#security-groups)                                                                              |
+| [{{ dataproc-name }}](../../data-proc/)             | [кластер](../../data-proc/concepts/network.md#security-groups)                                                                                  |
+| [{{ data-transfer-name }}](../../data-transfer/)    | [эндпоинт](../../data-transfer/concepts/network.md#security-groups)                                                                             |
+| [{{ load-testing-name }}](../../load-testing/)      | [агент тестирования](../../load-testing/concepts/agent.md)                                                                                      |
+| [{{ mgl-name }}](../../managed-gitlab/)             | [инстанс](../../managed-gitlab/operations/configure-security-group.md)                                                                          |
 
 {% note info %}
 

@@ -1,11 +1,11 @@
 ---
 title: '{{ mch-full-name }} use cases'
-description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ mch-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ mch-name }} tutorials
 
-* [Adding data to the database](insert.md)
+* [Adding data to a database](insert.md)
 * [{#T}](data-migration.md)
 * [{#T}](ch-to-mch-migration.md)
 * [Sharding tables](sharding.md)

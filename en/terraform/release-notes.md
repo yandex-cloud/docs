@@ -6,6 +6,10 @@ editable: false
 
 
 
+## 0.200.0 (April 20, 2026)
+##### BUG FIXES:
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with `default_database`
+
 ## 0.199.0 (April 16, 2026)
 ##### ENHANCEMENTS:
 * mysql: Disable disk shrinking during autoscaling in MySQL cluster

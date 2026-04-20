@@ -1,6 +1,6 @@
 ---
 title: Maintenance in {{ mmy-full-name }}
-description: In {{ mmy-name }}, maintenance implies automatic installation of DBMS updates and patches for hosts (including for stopped clusters), introducing host class and storage space modifications, and other maintenance operations.
+description: In {{ mmy-name }}, maintenance means automatic installation of database updates and patches for hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
 ---
 
 # Maintenance in {{ mmy-name }}
@@ -20,9 +20,9 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% note info %}
 
-Viewing information on maintenance tasks requires the `managed-mysql.maintenanceTask.viewer` [role](../security/index.md#managed-mysql-maintenanceTask-viewer) or higher.
+To view maintenance task information, you need the `managed-mysql.maintenanceTask.viewer` [role](../security/index.md#managed-mysql-maintenanceTask-viewer) or higher.
 
-Managing maintenance tasks requires the `managed-mysql.maintenanceTask.editor` [role](../security/index.md#managed-mysql-maintenanceTask-editor) or higher.
+To manage maintenance tasks, you need the `managed-mysql.maintenanceTask.editor` [role](../security/index.md#managed-mysql-maintenanceTask-editor) or higher.
 
 {% endnote %}
 
@@ -33,4 +33,4 @@ In {{ mmy-name }} single-host clusters, a master host undergoes maintenance. The
 In multi-host clusters, the maintenance is run as follows:
 
 1. [Replicas](replication.md) undergo maintenance one by one. The replicas are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable.
-1. Master host undergoes maintenance and gets updated. If the master host needs restarting and becomes unavailable, one of the replicas will assume its role. If you access a cluster using the [FQDN of the master host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [specific FQDN](../operations/connect/fqdn.md#special-fqdns) that always points to the master host.
+1. Master host undergoes maintenance and gets updated. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. If you access a cluster using the [FQDN of the master host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [specific FQDN](../operations/connect/fqdn.md#special-fqdns) that always points to the master host.

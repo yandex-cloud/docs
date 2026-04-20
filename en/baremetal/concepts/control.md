@@ -1,6 +1,6 @@
 # Managing {{ baremetal-name }} servers
 
-To order servers and manage your server lease periods, use the management console: from there, you can select a stock configuration or build a custom one from available parts. 
+To order servers and manage your server rent periods, use the [management console](./console.md): from there, you can select a stock configuration or build a custom one from available parts. 
 
 As soon as your server is ordered and ready to go, you can manage it via:
 

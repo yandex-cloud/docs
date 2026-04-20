@@ -9,8 +9,11 @@ apiPlayground:
         instanceId:
           description: |-
             **string**
-            ID of the GitLab instance to update.
+            Required field. ID of the GitLab instance to update.
+            The maximum string length in characters is 50.
           type: string
+      required:
+        - instanceId
       additionalProperties: false
     query: null
     body:
@@ -20,20 +23,30 @@ apiPlayground:
           description: |-
             **string**
             Name of the instance (must be unique within the folder).
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
           type: string
         description:
           description: |-
             **string**
             Description of the instance.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod"
-            No more than 64 per resource.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
           maxProperties: 64
         backupRetainPeriodDays:
           description: |-
@@ -60,11 +73,13 @@ apiPlayground:
           description: |-
             **string**
             ID of approval rules for the instance.
+            The maximum string length in characters is 30.
           type: string
         approvalRulesToken:
           description: |-
             **string**
             Token of approval rules for the instance.
+            The maximum string length in characters is 100.
           type: string
         diskSize:
           description: |-
@@ -106,7 +121,9 @@ Request message for InstanceService.Update.
 ||Field | Description ||
 || instanceId | **string**
 
-Required field. ID of the GitLab instance to update. ||
+Required field. ID of the GitLab instance to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.gitlab.v1.UpdateInstanceRequest}
@@ -133,15 +150,19 @@ Request message for InstanceService.Update.
 ||Field | Description ||
 || name | **string**
 
-Name of the instance (must be unique within the folder). ||
+Name of the instance (must be unique within the folder).
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the instance. ||
+Description of the instance.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod"
 
-No more than 64 per resource. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || backupRetainPeriodDays | **string** (int64)
 
 Number of days to retain backups. ||
@@ -156,10 +177,14 @@ Whether to delete untagged resources during maintenance. ||
 Whether deletion protection is enabled. ||
 || approvalRulesId | **string**
 
-ID of approval rules for the instance. ||
+ID of approval rules for the instance.
+
+The maximum string length in characters is 30. ||
 || approvalRulesToken | **string**
 
-Token of approval rules for the instance. ||
+Token of approval rules for the instance.
+
+The maximum string length in characters is 100. ||
 || diskSize | **string** (int64)
 
 Disk size in bytes. ||
@@ -187,9 +212,7 @@ The rest of the fields will be reset to the default. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "instanceId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -198,33 +221,7 @@ The rest of the fields will be reset to the default. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "resourcePresetId": "string",
-    "diskSize": "string",
-    "status": "string",
-    "adminLogin": "string",
-    "adminEmail": "string",
-    "domain": "string",
-    "subnetId": "string",
-    "plannedOperation": {
-      "info": "string",
-      "delayedUntil": "string",
-      "latestMaintenanceTime": "string",
-      "nextMaintenanceWindowTime": "string"
-    },
-    "backupRetainPeriodDays": "string",
-    "maintenanceDeleteUntagged": "boolean",
-    "deletionProtection": "boolean",
-    "approvalRulesId": "string",
-    "gitlabVersion": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -266,7 +263,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateInstanceMetadata](#yandex.cloud.gitlab.v1.UpdateInstanceMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -281,7 +278,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Instance](#yandex.cloud.gitlab.v1.Instance)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -296,17 +293,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateInstanceMetadata {#yandex.cloud.gitlab.v1.UpdateInstanceMetadata}
-
-Metadata message for InstanceService.Update.
-
-#|
-||Field | Description ||
-|| instanceId | **string**
-
-ID of the GitLab instance to update. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -324,141 +310,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Instance {#yandex.cloud.gitlab.v1.Instance}
-
-Instance represents a GitLab instance with its configuration and state.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique instance ID. ||
-|| folderId | **string**
-
-Folder ID where instance resides. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Last update timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Human-readable name. ||
-|| description | **string**
-
-Instance description. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as key-value pairs. ||
-|| resourcePresetId | **string**
-
-Resource preset ID. ||
-|| diskSize | **string** (int64)
-
-Disk size in bytes. ||
-|| status | **enum** (Status)
-
-Current instance status.
-
-- `CREATING`: Instance is being created.
-- `RUNNING`: Instance is running normally.
-- `UPDATING`: Instance is being updated.
-- `ERROR`: Instance is in error state.
-- `DELETING`: Instance is being deleted.
-- `BACKUP_CREATING`: Backup is being created.
-- `BACKUP_RESTORING`: Backup is being restored.
-- `STARTING`: Instance is starting.
-- `STOPPING`: Instance is stopping.
-- `STOPPED`: Instance is stopped.
-- `BACKGROUND_MIGRATIONS`: Background migrations in progress.
-- `OBJECT_STORAGE_MIGRATIONS`: Object storage migrations in progress.
-- `SNAPSHOT_RESTORING`: Snapshot is being restored. ||
-|| adminLogin | **string**
-
-Admin username. ||
-|| adminEmail | **string**
-
-Admin email. ||
-|| domain | **string**
-
-Instance domain. ||
-|| subnetId | **string**
-
-Subnet ID. ||
-|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.gitlab.v1.MaintenanceOperation)**
-
-Planned maintenance operation. ||
-|| backupRetainPeriodDays | **string** (int64)
-
-How long to keep backups (days). ||
-|| maintenanceDeleteUntagged | **boolean**
-
-Delete untagged resources during maintenance. ||
-|| deletionProtection | **boolean**
-
-Protect from accidental deletion. ||
-|| approvalRulesId | **string**
-
-Approval rules ID. ||
-|| gitlabVersion | **string**
-
-GitLab version of the instance. ||
-|#
-
-## MaintenanceOperation {#yandex.cloud.gitlab.v1.MaintenanceOperation}
-
-#|
-||Field | Description ||
-|| info | **string**
-
-The description of the operation.
-
-The maximum string length in characters is 256. ||
-|| delayedUntil | **string** (date-time)
-
-Delay time for the maintenance operation.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| latestMaintenanceTime | **string** (date-time)
-
-Time of the last maintenance window.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| nextMaintenanceWindowTime | **string** (date-time)
-
-Time of the next maintenance window.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

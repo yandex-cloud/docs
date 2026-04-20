@@ -92,9 +92,7 @@ Used if `meta` variant is `common`. ||
 || enabled | **bool**
 
 The setting allows to enable or disable an Origin source in the Origins group.
-
 It has two possible values:
-
 True - The origin is enabled and used as a source for the CDN. An origins
 group must contain at least one enabled origin.
 False - The origin is disabled and the CDN is not using it to pull content. ||

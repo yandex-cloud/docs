@@ -24,7 +24,9 @@ Request message for InstanceService.Get
 ||Field | Description ||
 || instance_id | **string**
 
-ID of the GitLab instance to return ||
+Required field. ID of the GitLab instance to return
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Instance {#yandex.cloud.gitlab.v1.Instance}
@@ -133,7 +135,9 @@ Delete untagged resources during maintenance. ||
 Protect from accidental deletion. ||
 || approval_rules_id | **string**
 
-Approval rules ID. ||
+Approval rules ID.
+
+The maximum string length in characters is 30. ||
 || gitlab_version | **string**
 
 GitLab version of the instance. ||

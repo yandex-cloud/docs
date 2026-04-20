@@ -18,27 +18,23 @@
 
     - Manually {#manual}
 
-        1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) with your preferred configuration. For this operation, the following requirements apply:
-
-             * The {{ PG }} version must be the same or higher than the version in the source cluster. Migration to an earlier {{ PG }} version is not supported.
-             * When creating a cluster, specify the same database name as in the source cluster.
-             * Enable the same [{{ PG }} extensions](../../../managed-postgresql/operations/extensions/cluster-extensions.md) as in the source cluster.
+        1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) with your preferred configuration. Enable the same [{{ PG }} extensions](../../../managed-postgresql/operations/extensions/cluster-extensions.md) as in the source cluster.
         1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-pg).
         1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
-             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`
+             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
 
            Configure the source cluster connection settings.
 
         1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
-             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
+             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
 
            Specify the target cluster ID.
 
-        1. [Create](../../../data-transfer/operations/transfer.md#create) a _{{ dt-type-copy-repl }}_-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_-type that will use the new endpoints.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
             {% note warning %}
@@ -89,19 +85,20 @@
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically as soon as it is created.
 
     {% endlist %}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to <q>read-only</q>.
+1. Remove the writing load from the source cluster.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait until the **Maximum data transfer delay** value drops to zero. This means that all changes made in the source cluster after the initial data copy have been transferred to the target cluster.
+1. Transfer the workload over to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
     For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Switch the workload to the target cluster.
-1. To reduce the consumption of resources you do not need, delete them:
+
+1. To minimize resource consumption, delete the resources you no longer need:
 
     {% list tabs group=instructions %}
 

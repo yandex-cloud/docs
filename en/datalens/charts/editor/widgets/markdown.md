@@ -175,7 +175,7 @@ will be displayed as:
 2. Item 2
 3. Third item
 
-To make a list nested in another list, add an indent for child list items. Here is an example:
+To make a list nested in another list, add an indent for child list items. For example:
 
 ```
 1. Item 1
@@ -421,7 +421,7 @@ The Markdown syntax for an embedded link consists of the `[link text] and `(URL)
 
 `[DataLens](https://datalens.ru)`
 
-[{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }})
+[{{ datalens-short-name }}]({{ link-datalens-main }})
 
 ### Inserting code {#code}
 

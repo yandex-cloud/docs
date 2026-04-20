@@ -48,6 +48,7 @@ spec:
     cookie:
       name: "session-cookie"
       ttl: "3600s"
+      path: "/app"
     header:
       name: "X-Session-ID"
 
@@ -301,6 +302,7 @@ Session affinity ensures that requests from the same client are routed to the sa
 |-------|-------------|
 | name | **string** <br> Name of the cookie used for session affinity. <br> Example: `session-cookie` |
 | ttl | **duration** <br> Maximum age of generated session cookies. Set to `0` for session cookies (deleted on client restart). If not set, balancer only uses incoming cookies. <br> Example: `3600s` |
+| path | **string** <br> Path attribute for the generated cookie. Used to set the path when a new cookie is generated. If unspecified or empty, no path is set for the cookie. <br> Example: `/app` |
 
 #### SessionAffinityHeader
 
