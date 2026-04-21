@@ -188,6 +188,10 @@ resource "yandex_vpc_security_group" "test-sg-x" {
     - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
     - `disk_type_id` (**Required**)(String). Type of the storage of Greenplum hosts - environment default is used if missing.
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/ru/docs/managed-greenplum/concepts/instance-types).
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

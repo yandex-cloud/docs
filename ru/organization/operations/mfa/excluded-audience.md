@@ -5,11 +5,27 @@ description: Следуя данной инструкции, вы сможете
 
 # Управлять исключениями политики MFA
 
-Исключения позволяют не применять [политику MFA](../../concepts/mfa.md#mfa-policies) к отдельным пользователям или [группам пользователей](../../concepts/groups.md), добавленным в целевую группу этой политики. Этим пользователям или группам пользователей не придется заново настраивать аутентификацию, если вы уберете их из списка исключений.
+Исключения позволяют не применять [политику MFA](../../concepts/mfa.md#mfa-policies) к отдельным пользователям или [группам пользователей](../../concepts/groups.md), добавленным в целевую группу этой политики. Например, можно исключить роботов или группу администраторов, если политика назначена на всю организацию. Этим пользователям или группам не придется заново настраивать аутентификацию, если вы уберете их из списка исключений.
 
 ## Изменить список исключений {#update}
 
 {% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.policies_title }}** и в списке политик выберите нужную. В открывшемся окне:
+
+      1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.tab_exclusions }}**.
+      1. Чтобы добавить пользователя или группу пользователей в список исключений:
+
+          1. Нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.mfa-policy-exclusions.action_add-exclusion }}**.
+          1. В открывшемся окне выберите нужного пользователя или группу пользователей.
+          1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Чтобы удалить пользователя или группу из списка исключений:
+          1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+          1. Подтвердите удаление.
 
 - CLI {#cli}
 
@@ -55,11 +71,22 @@ description: Следуя данной инструкции, вы сможете
           subject_id: aje0j5mts02t********
       ```
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [UpdateExcludedAudience](../../../organization/api-ref/MfaEnforcement/updateExcludedAudience.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/UpdateExcludedAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateExcludedAudience.md).
+
 {% endlist %}
 
 ## Посмотреть список исключений {#list}
 
 {% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.policies_title }}** и в списке политик выберите нужную.
+  1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.tab_exclusions }}** и просмотрите список пользователей и групп, исключенных из политики.
 
 - CLI {#cli}
 
@@ -83,6 +110,10 @@ description: Следуя данной инструкции, вы сможете
       | aje0j5mts02t******** | federatedUser |
       +----------------------+---------------+
       ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [ListExcludedAudience](../../../organization/api-ref/MfaEnforcement/listExcludedAudience.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/ListExcludedAudience](../../../organization/api-ref/grpc/MfaEnforcement/listExcludedAudience.md).
 
 {% endlist %}
 

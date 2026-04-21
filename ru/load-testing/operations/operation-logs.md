@@ -1,5 +1,8 @@
 # Посмотреть операции с ресурсами сервиса {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Все действия с ресурсами сервиса {{ load-testing-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ## Получить список операций {#get-operations}

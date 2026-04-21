@@ -4,7 +4,7 @@ If your cluster uses a <q>1C:Enterprise</q>-optimized {{ PG }} version, specify 
 
 * **Secure connection**: Disabled.
 * **DBMS type**: `PostgreSQL`.
-* **Database server**: `c-<cluster_ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Database server**: `<special_FQDN> port={{ port-mpg }}`.
 * **Database name**: `<DB_name>`.
 * **Database user**: `<username>`.
 * **User password**: `<password>`.
@@ -28,7 +28,7 @@ Before connecting, access the framework using one of the following methods:
     1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string in the `dbconnection` variable:
 
         ```url
-        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>
+        postgres://<username>:<user_password>@<special_FQDN>:{{ port-mpg }}/<DB_name>
         ```
 
     1. Build the project and start the service:
@@ -45,7 +45,7 @@ Before connecting, access the framework using one of the following methods:
     1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string in the `dbconnection` variable:
 
         ```url
-        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>?ssl=true&sslmode=verify-full
+        postgres://<username>:<user_password>@<special_FQDN>:{{ port-mpg }}/<DB_name>?ssl=true&sslmode=verify-full
         ```
 
     1. Build the project and start the service:
@@ -67,7 +67,7 @@ tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/
 db_statement=SELECT 1 AS ping
 db_type=postgres
 db_instance=********
-peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
+peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
 ...
 ```
 
@@ -90,7 +90,7 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
       {
           static async Task Main(string[] args)
           {
-              var host       = "c-<cluster_ID>.rw.{{ dns-zone }}";
+              var host       = "<list_of_hosts>";
               var port       = "{{ port-mpg }}";
               var db         = "<DB_name>";
               var username   = "<username>";
@@ -114,6 +114,8 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
   ```
 
 {% endlist %}
+
+In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
 ## Go {#go}
 
@@ -144,7 +146,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<cluster_ID>.rw.{{ dns-zone }}"
+        host     = "<list_of_hosts>"
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
@@ -182,6 +184,8 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
+    
+    In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:6432.{{ dns-zone }}`).
 
   1. Connecting:
 
@@ -210,7 +214,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<cluster_ID>.rw.{{ dns-zone }}"
+        host     = "<list_of_hosts>"
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
@@ -242,7 +246,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
           connConfig.TLSConfig = &tls.Config{
               RootCAs:            rootCertPool,
-              ServerName: "c-<cluster_ID>.rw.{{ dns-zone }}",
+              ServerName: "<list_of_hosts>",
           }
 
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -264,6 +268,8 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
+
+      In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
       For this connection method, you must specify the full path to the {{ PG }} `root.crt` certificate in the `ca` variable.
 
@@ -385,7 +391,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://<list_of_hosts>/<DB_name>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -402,6 +408,8 @@ Before connecting:
         }
       }
       ```
+
+     In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
   1. Building and connecting:
 
@@ -423,7 +431,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://<list_of_hosts>:{{ port-mgp }}/<DB_name>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -440,6 +448,8 @@ Before connecting:
         }
       }
       ```
+
+     In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
   1. Building and connecting:
 
@@ -471,7 +481,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>"
+            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<DB_name>"
     };
 
     const conn = new pg.Client(config);
@@ -497,7 +507,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>",
+            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<DB_name>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -551,11 +561,11 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster_ID>.rw.{{ dns-zone }}
+      Servername=<special_FQDN>
       Username=<username>
       Password=<user_password>
       Database=<DB_name>
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       ```
 
@@ -576,11 +586,11 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster_ID>.rw.{{ dns-zone }}
+      Servername=<special_FQDN>
       Username=<username>
       Password=<user_password>
       Database=<DB_name>
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
       ```
@@ -614,8 +624,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster_ID>.rw.{{ dns-zone }}
-            port=6432
+            host=<special_FQDN>
+            port={{ port-mgp }}
             sslmode=disable
             dbname=<DB_name>
             user=<username>
@@ -646,8 +656,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster_ID>.rw.{{ dns-zone }}
-            port=6432
+            host=<special_FQDN>
+            port={{ port-mgp }}
             sslmode=verify-full
             dbname=<DB_name>
             user=<username>
@@ -692,8 +702,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<cluster_ID>.rw.{{ dns-zone }}
-          port=6432
+          host=<list_of_hosts>
+          port={{ port-mgp }}
           sslmode=disable
           dbname=<DB_name>
           user=<username>
@@ -708,6 +718,8 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
+
+     {% include [host lists](../managed-postgresql/host-list.md) %}
 
   1. Connecting:
 
@@ -725,8 +737,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<cluster_ID>.rw.{{ dns-zone }}
-          port=6432
+          host=<list_of_hosts>
+          port={{ port-mgp }}
           sslmode=verify-full
           dbname=<DB_name>
           user=<username>
@@ -741,6 +753,8 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
+
+     {% include [host lists](../managed-postgresql/host-list.md) %}
 
   1. Connecting:
 
@@ -781,7 +795,7 @@ Before connecting:
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<DB_name>",
-            host="c-<cluster_ID>.rw.{{ dns-zone }}",
+            host="<special_FQDN>",
             port={{ port-mpg }},
             user="<username>",
             password="<user_password>"
@@ -811,7 +825,7 @@ Before connecting:
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<DB_name>",
-            host="c-<cluster_ID>.rw.{{ dns-zone }}",
+            host="<special_FQDN>",
             port={{ port-mpg }},
             sslmode="verify-full",
             user="<username>",
@@ -853,8 +867,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<cluster_ID>.rw.{{ dns-zone }}
-              port=6432
+              host=<special_FQDN>
+              port={{ port-mgp }}
               dbname=<DB_name>
               user=<username>
               password=<user_password>
@@ -884,8 +898,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<cluster_ID>.rw.{{ dns-zone }}
-              port=6432
+              host=<special_FQDN>
+              port={{ port-mgp }}
               dbname=<DB_name>
               user=<username>
               password=<user_password>

@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
           При необходимости воспользуйтесь фильтром по производителю, количеству ядер и тактовой частоте доступных процессоров.
       1. В блоке **{{ ui-key.yacloud_components.baremetal.ramLabel }}** укажите тип и объем доступной на сервере памяти RAM.
-      1. В блоке **{{ ui-key.yacloud_components.baremetal.disks }}** добавьте на сервер группу дисковых устройств определенного типоразмера:
+      1. В блоке **{{ ui-key.yacloud_components.baremetal.disks }}** добавьте на сервер группу [дисковых устройств](../../concepts/disks/disk-types.md) определенного типоразмера:
 
           1. В поле **{{ ui-key.yacloud_components.baremetal.type }}** выберите тип дискового устройства.
           1. В появившемся поле **{{ ui-key.yacloud_components.baremetal.size }}** выберите размер дисков в создаваемой группе.
@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
           1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
           1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
 
-              Чтобы самостоятельно собрать RAID-массивы и настроить разделы дисков, нажмите кнопку ![square-plus](../../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.baremetal.action_add-to-raid }}**.
+              Чтобы самостоятельно собрать [RAID](../../concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку ![square-plus](../../../_assets/console-icons/square-plus.svg) **{{ ui-key.yacloud.baremetal.action_add-to-raid }}**.
           1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
       1. {% include [server-lease-step9-bm](../../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
       1. {% include [server-lease-step10-bm](../../../_includes/baremetal/instruction-steps/server-lease-step10-bm.md) %}

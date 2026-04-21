@@ -184,7 +184,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
   {% cut "In the YAML specification" %}
 
-  Create a YAML specification containing the trail parameters and specify this file in the command to create the trail.
+  [Create a YAML specification](prepare-spec.md#spec-for-create) containing the trail parameters and specify this file in the command to create the trail.
   
   This method simplifies working with trail parameters and reduces error probability. In addition, you can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
 
@@ -314,6 +314,8 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 - API {#api}
 
   Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/Trail/create.md) gRPC API call.
+
+  To make it easier to create a trail specification, you can get existing trail parameters using the [get](../api-ref/Trail/get.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Get](../api-ref/grpc/Trail/get.md) gRPC API call.
 
 {% endlist %}
 

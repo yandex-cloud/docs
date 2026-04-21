@@ -170,6 +170,8 @@ items:
         href: qa/payment.md
       - name: Questions about the billing account
         href: qa/billing-account.md
+      - name: Questions about regular export of details
+        href: qa/export.md
       - name: Questions about the trial period and paid version
         href: qa/trial-commercial.md
       - name: Questions about working with non-residents

@@ -52,6 +52,9 @@ links:
   - title: Concepts
     description: Learn more about the service's concepts and resources
     href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
   - title: Access management
     description: Configure access permissions to use this service
     href: security/

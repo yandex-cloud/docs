@@ -132,7 +132,7 @@ For integration with {{ GL }}, users must have the `email` attribute.
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. Click the `emailaddress` attribute and do the following in the window that opens:
 
-        1. Change the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** field value to `email`.
+        1. Change the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field value to `email`.
         1. Click **{{ ui-key.yacloud.common.update }}**.
 
 {% endlist %}

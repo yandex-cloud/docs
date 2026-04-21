@@ -34,4 +34,10 @@ DELETE /{bucket}?policy HTTP/2
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
+* [Удаление политики](../../../operations/buckets/policy.md#delete-policy)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

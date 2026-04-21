@@ -23,7 +23,7 @@ description: Инструкция по управлению исключения
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}**.
 
       Список исключений для правил {{ k8s }} приведен в блоке **Контроль {{ k8s }}®** и содержит следующие поля:
-      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_name }}** — причина исключения.
+      * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_caption }}** — причина исключения.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_status }}** — активно или неактивно.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_rules }}** — список правил, проверка на соответствие с которыми исключена.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_author }}** — пользователь, создавший исключение.

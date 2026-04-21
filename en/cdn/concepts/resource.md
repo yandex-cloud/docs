@@ -14,6 +14,7 @@ After creating a resource, you can also configure for it:
 * HTTP headers and methods (see the [instructions](../operations/resources/configure-http.md)).
 * Processing of [cross-domain queries (CORS)](cors.md).
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
+* [Non-standard HTTP responses](../operations/resources/configure-response.md).
 
 You can restrict access to the resource with [secure tokens](./secure-tokens.md) and an [IP-based access policy](./ip-address-acl.md).
 

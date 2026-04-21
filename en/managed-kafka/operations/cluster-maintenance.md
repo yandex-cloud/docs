@@ -14,7 +14,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mkf-full-name }
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
     To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. To find a specific maintenance job, enter its ID or task name in the field above the list of maintenance sessions.
@@ -28,7 +28,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mkf-full-name }
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click the ID of the maintenance job you need.
     1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -46,7 +46,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
     To reschedule maintenance for a new date and time:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
@@ -191,7 +191,7 @@ You can start maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_tas
     To start scheduled maintenance immediately, do the following:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job.
     1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
@@ -243,7 +243,7 @@ You can start maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_tas
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -294,7 +294,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_kafka }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
     1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
     1. In the window that opens:
@@ -333,13 +333,13 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
-        For a complete list of {{ mkf-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
+        For a complete list of configurable {{ mkf-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mkf }}).
 
     1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -386,15 +386,15 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
 
-            * `anytime`: Maintenance can run at any time.
-            * `weeklyMaintenanceWindow`: Maintenance runs once a week on the specified day and at the specified time:
+            * `anytime`: Any time.
+            * `weeklyMaintenanceWindow`: Once a week on the specified day and time:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -440,8 +440,8 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
 
-            * `anytime`: Maintenance can run at any time.
-            * `weekly_maintenance_window`: Maintenance runs once a week on the specified day and at the specified time:
+            * `anytime`: Any time.
+            * `weekly_maintenance_window`: Once a week on the specified day and time:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.

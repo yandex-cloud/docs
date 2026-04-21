@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Управление ограничениями сообщества
 
+{% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}
+
 {% note info %}
 
 Вы можете ограничить доступные во всех проектах сообщества ресурсы и функциональность {{ ml-platform-name }}, только если в сообществе у вас есть роль `{{ roles-datasphere-communities-admin }}`.

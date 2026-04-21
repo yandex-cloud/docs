@@ -20,7 +20,7 @@ description: Follow this guide to create a lifecycle policy in {{ cloud-registry
        ```json
        [
          {
-           "path_prefix": "ubuntu.*",
+           "path_prefix": "/ubuntu",
            "delete": {
              "type": "SOFT_DELETE",
              "cooldown_period_days": 10,
@@ -46,7 +46,7 @@ description: Follow this guide to create a lifecycle policy in {{ cloud-registry
 
        Where:
        * `--name`: Policy name.
-       * `--description`: Policy description. This is an optional parameter.
+       * `--description`: Policy description. This is an optional setting.
        * `--registry-id`: ID of the registry for which you are creating the policy. There are [quotas and limits](../../concepts/limits.md) on the number of lifecycle policies per registry.
        * `--state`: Policy state after creation: `DISABLED` or `ENABLED`.
 
@@ -66,7 +66,7 @@ description: Follow this guide to create a lifecycle policy in {{ cloud-registry
        name: my-lifecycle-policy
        description: My lifecycle policy
        rules:
-         - path_prefix: ubuntu.*
+         - path_prefix: /ubuntu
            delete:
              type: SOFT_DELETE
              cooldown_period_days: "10"

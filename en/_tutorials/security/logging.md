@@ -26,15 +26,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The support cost for a load balancer with logging includes:
+* VMs: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ sf-full-name }} functions: number of function calls, idle time of provisioned instances, and computing resources allocated to run the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* {{ cloud-logging-name }} logs: amount of data written and its retention period (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ alb-name }} instances: use of computing resources of each active load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 
-* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for function calls for log processing and computing resources allocated to execute the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for logging operations and log storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
-* Fee for {{ alb-name }} resource usage (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
 
 ## Create a cloud network {#create-network}
 
@@ -121,7 +121,7 @@ To create security groups:
      | --- | --- | --- | --- | --- | --- |
      | `Ingress` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `alb-logging-sg-balancer` |
      | `Ingress` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-
+     
   1. Similarly, create a security group for the {{ PG }} cluster named `alb-logging-sg-cluster` with the same `alb-logging-network` and the following rules:
         
        | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |

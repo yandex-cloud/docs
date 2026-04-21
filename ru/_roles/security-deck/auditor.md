@@ -6,9 +6,9 @@
 * просматривать информацию о заданиях [сканирования](../../security-deck/concepts/dspm.md#scanning) на угрозы безопасности в модуле {{ dspm-name }};
 * просматривать информацию о типах и [категориях](../../security-deck/concepts/dspm.md#data-categories) данных;
 * просматривать результаты сканирования {{ dspm-name }} и информацию об обнаруженных угрозах безопасности;
-* просматривать информацию об [окружениях](../../security-deck/concepts/workspace.md) Security Deck и контролируемых в них ресурсах, а также о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию об [окружениях](../../security-deck/concepts/workspace.md) {{ sd-name }} и контролируемых в них ресурсах, а также о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
 * просматривать информацию о [коннекторах](../../security-deck/concepts/workspace.md#connectors);
-* просматривать информацию о заданиях проверок инфраструктуры на соответствие [стандартам безопасности](../../security-deck/concepts/cspm.md#standards), заданным в настройках [модуля {{ cspm-name }}](../../security-deck/concepts/cspm.md);
+* просматривать информацию о заданиях проверок инфраструктуры на соответствие [стандартам безопасности](../../security-deck/concepts/cspm.md#standards), заданным в настройках [модуля CSPM](../../security-deck/concepts/cspm.md);
 * просматривать информацию о настройках [модуля {{ kspm-name }}](../../security-deck/concepts/kspm.md) и операциях в модуле, а также список исключений из правил;
 * просматривать информацию о [приемниках алертов](../../security-deck/concepts/workspace.md#alert-sinks) и назначенных правах доступа к ним.
 

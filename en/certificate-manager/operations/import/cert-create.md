@@ -136,7 +136,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
      * `certificate`: [Certificate](../../concepts/imported-certificate.md) file contents.
      * `private_key`: Private key file contents.
 
-     For more information about the `yandex_cm_certificate` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/cm_certificate).
+     For more information about `yandex_cm_certificate` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -192,7 +192,7 @@ To avoid storing a private key of the user certificate as plain text in the {{ T
      * `id`: ID of the {{ lockbox-name }} secret the private key is located in.
      * `key`: Key of the {{ lockbox-name }} secret the private key is located in.
 
-     For more information about `yandex_cm_certificate` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
+     For more information about `yandex_cm_certificate` properties, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

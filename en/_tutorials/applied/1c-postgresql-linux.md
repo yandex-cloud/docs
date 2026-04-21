@@ -32,12 +32,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes:
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a continuously running {{ mpg-name }} cluster (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using a static [public IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+
 
 ## Set up a VPN to access the cloud infrastructure {#setup-vpn}
 
@@ -171,7 +171,7 @@ Create a VM for the 1C:Enterprise server:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `server-1c`.
@@ -348,7 +348,7 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
     sudo ./<file_name> --mode unattended --enable-components server,ws,server_admin
     ```
 
-    Where `<file_name>` is the name of the binary distribution file. For example: `setup-full-8.3.25.1257-x86_64.run`.
+    Where `<file_name>` is the name of the binary distribution file. Here is an example: `setup-full-8.3.25.1257-x86_64.run`.
 
 1. After installation is complete, delete the distribution file by specifying the name of the binary distribution file:
 
@@ -470,7 +470,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
     * **Database user password**: User password you set when creating the cluster.
     * **Allow license issuing by 1C:Enterprise server**: `Yes`.
     * **Language (Country)**: `English (United States)`.
-    * **Create database if none present**: Disabled.
+    * **Create a database if none exists**: Disabled.
     * **Lock execution of scheduled jobs**: Disabled.
 
    Click **OK**.

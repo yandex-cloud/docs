@@ -105,7 +105,7 @@ When creating a version, set the following parameters:
          * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
          * `memory`: Amount of memory allocated for the function, in MB.
-         * `execution_timeout`: Function running timeout.
+         * `execution_timeout`: Function execution timeout.
          * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
            * `content.0.zip_filename`: Name of the ZIP archive containing the function source code.
@@ -134,7 +134,7 @@ When creating a version, set the following parameters:
 
        {% endnote %}
 
-        For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -154,7 +154,7 @@ When creating a version, set the following parameters:
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+       You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
     1. Apply the changes:
 

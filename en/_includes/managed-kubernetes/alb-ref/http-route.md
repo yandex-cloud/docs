@@ -530,7 +530,7 @@ All requests to `http://demo.example.com/sample` will be redirected to `https://
 {% cut "Manifest for HTTPRoute: Request redirection with scheme change" %}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: sample-scheme-redirect
@@ -564,7 +564,7 @@ All requests to `http://demo.example.com/sample` will be redirected to `http://e
 {% cut "Manifest for HTTPRoute: Request redirection with domain name change" %}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: sample-hostname-redirect

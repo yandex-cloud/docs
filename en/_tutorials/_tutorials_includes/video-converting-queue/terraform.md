@@ -50,7 +50,7 @@ To create an infrastructure using {{ TF }}:
            {% endcut %}
 
         1. For an API function:
-           1. Create a file named `index.py` and paste this content into it:
+           1. Create a file named `index.py` and insert this line into it:
 
               {% cut "index.py for an API function" %}
 
@@ -65,10 +65,10 @@ To create an infrastructure using {{ TF }}:
                yandexcloud
                ```
 
-           1. In the folder, create an archive named `ffmpeg-api.zip` containing the files `requirements.txt` and `index.py`.
+           1. In the folder, create the `ffmpeg-api.zip` archive with `requirements.txt` and `index.py`.
 
         1. For a converter function:
-           1. Create a file named `index.py` and paste this content into it:
+           1. Create a file named `index.py` and insert this line into it:
 
               {% cut "index.py for a converter function" %}
 
@@ -86,7 +86,7 @@ To create an infrastructure using {{ TF }}:
 
            1. Prepare the FFmpeg executable. On [FFmpeg's official website](http://ffmpeg.org/download.html), navigate to the **Linux Static Builds** section, download the 64-bit FFmpeg archive, and make the file executable by running the `chmod +x ffmpeg` command.
 
-           1. In the folder, create an archive named `src.zip` containing the files `requirements.txt` and `index.py`, and the FFmpeg executable.
+           1. In the folder, create the `src.zip` archive with `requirements.txt` and `index.py`, and the FFmpeg executable.
 
    {% endlist %}
 
@@ -110,7 +110,7 @@ To create an infrastructure using {{ TF }}:
 
    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
 
-After you have created the infrastructure, [create a table](#create-table) in YDB.
+[Create a table](#create-table) in YDB when creating an infrastructure.
 
 
 
@@ -123,7 +123,7 @@ After you have created the infrastructure, [create a table](#create-table) in YD
     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../../ydb/operations/schema.md#create-table).
     * **{{ ui-key.yacloud.ydb.table.form.label_columns }}**: One column named `task_id` of the `String` type. Set the [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../../../ydb/operations/schema.md#create-table) attribute.
 
-After you have created the table, [test the application](#test-app).
+[Test the application](#test-app) after creating the table.
 
 
 

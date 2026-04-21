@@ -11,6 +11,8 @@ items:
         href: operations/create-trail.md
       - name: Managing a trail
         href: operations/manage-trail.md
+      - name: Drafting a trail specification
+        href: operations/prepare-spec.md
       - name: Managing trail access permissions
         items:
           - name: Viewing roles assigned to a trail
@@ -25,7 +27,7 @@ items:
         items:
           - name: Getting a list of trails
             href: operations/get-list.md
-          - name: Getting trail info
+          - name: Getting information about a trail
             href: operations/get-info.md
       - name: Viewing operations with service resources
         href: operations/operation-logs.md
@@ -58,8 +60,14 @@ items:
           - name: Uploading audit logs to {{ mos-full-name }}
             hidden: true
             href: tutorials/trails-logs-opensearch.md
-          - name: Uploading audit logs to MaxPatrol SIEM
-            href: tutorials/maxpatrol.md
+          - name: Exporting audit logs to MaxPatrol SIEM
+            items:
+              - name: Overview
+                href: tutorials/maxpatrol/index.md
+              - name: Management console
+                href: tutorials/maxpatrol/console.md
+              - name: '{{ TF }}'
+                href: tutorials/maxpatrol/terraform.md
           - name: Uploading audit logs to Splunk SIEM
             href: tutorials/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM
@@ -298,6 +306,8 @@ items:
             href: events-ref/CreatePrivateCloudConnection.md
           - name: CreatePrivateSubnet
             href: events-ref/CreatePrivateSubnet.md
+          - name: CreatePublicPrefixPool
+            href: events-ref/CreatePublicPrefixPool.md
           - name: CreatePublicSubnet
             href: events-ref/CreatePublicSubnet.md
           - name: CreateServer
@@ -310,12 +320,16 @@ items:
             href: events-ref/DeletePrivateCloudConnection.md
           - name: DeletePrivateSubnet
             href: events-ref/DeletePrivateSubnet.md
+          - name: DeletePublicPrefixPool
+            href: events-ref/DeletePublicPrefixPool.md
           - name: DeletePublicSubnet
             href: events-ref/DeletePublicSubnet.md
           - name: DeleteServer
             href: events-ref/DeleteServer.md
           - name: DeleteVRF
             href: events-ref/DeleteVRF.md
+          - name: ExternalFlow
+            href: events-ref/ExternalFlow.md
           - name: PowerOffServer
             href: events-ref/PowerOffServer.md
           - name: PowerOnServer
@@ -336,6 +350,8 @@ items:
             href: events-ref/UpdatePrivateCloudConnection.md
           - name: UpdatePrivateSubnet
             href: events-ref/UpdatePrivateSubnet.md
+          - name: UpdatePublicPrefixPool
+            href: events-ref/UpdatePublicPrefixPool.md
           - name: UpdatePublicSubnet
             href: events-ref/UpdatePublicSubnet.md
           - name: UpdateServer

@@ -164,38 +164,29 @@ For security profile configuration guidelines, see [{#T}](tutorials/sws-basic-pr
 
 ## Connect a security profile to the resource {#profile-connect}
 
-{% list tabs group=instructions %}
+The connection method depends on the resource type.
 
-- Management console {#console}
-
-  The connection method depends on the resource type.
-
-  * To connect a domain: 
-    1. Under ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** → ![globe](../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection-domains }}**, select the required domain. 
-    1. From the top menu, click ![plug-connection](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.DomainsTable.connectSecurityProfile_g5MA4 }}** and select an existing or create a new security profile.
+{% list tabs %}
   
-  * To connect a virtual host in {{ alb-name }}:
-
-    1. If the load balancer is managed by an {{ alb-name }} [ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
-    1. If the load balancer is managed by you, select the created profile under ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-    1. At the top right, click ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-    1. In the window that opens, select:
-
-       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
-       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
-       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). You can associate the security profile with multiple virtual hosts at once.
-
-        To associate the profile with another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
-
-    1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
-
-      You will see the associated virtual host under under ![cubes-3-overlap](../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
-
-  * To connect an API gateway:
-    1. Under ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**, copy the ID of the profile you need.
-    1. Specify the [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md) extension when creating an API gateway or in the existing API gateway specification.
-    1. Specify the copied ID in the extension.
-
+- L7 load balancer {#balancer}
+  
+  If the load balancer is managed by an {{ alb-name }} [ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+  
+  To connect a virtual host:
+  
+  {% include [host-connect](../_includes/smartwebsecurity/security-profile-host-connect.md) %}
+  
+- API gateway {#api-gateway}
+    
+  To connect an API gateway:
+  
+  {% include [api-gateway-connect](../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
+  
+- Domain {#domain}
+  
+  To connect a domain:
+  
+  {% include [domain-connect](../_includes/smartwebsecurity/security-profile-domain-connect.md) %}
 
 {% endlist %}
 

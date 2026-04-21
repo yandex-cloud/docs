@@ -21,9 +21,9 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% note info %}
 
-Viewing information on maintenance tasks requires the `managed-opensearch.maintenanceTask.viewer` [role](../security/index.md#managed-opensearch-maintenanceTask-viewer) or higher.
+To view maintenance task information, you need the `managed-opensearch.maintenanceTask.viewer` [role](../security/index.md#managed-opensearch-maintenanceTask-viewer) or higher.
 
-Managing maintenance tasks requires the `managed-opensearch.maintenanceTask.editor` [role](../security/index.md#managed-opensearch-maintenanceTask-editor) or higher.
+To manage maintenance tasks, you need the `managed-opensearch.maintenanceTask.editor` [role](../security/index.md#managed-opensearch-maintenanceTask-editor) or higher.
 
 {% endnote %}
 
@@ -31,4 +31,4 @@ Managing maintenance tasks requires the `managed-opensearch.maintenanceTask.edit
 
 In {{ mos-name }} single-host clusters, a single host undergoes maintenance. This means, if you restart such a cluster during maintenance, it will become unavailable.
 
-In multi-host clusters, hosts undergo maintenance one by one. Such hosts are queued randomly. If you restart a host during maintenance, it will become unavailable for this time period. If you access a cluster using the [FQDN of the {{ OS }} host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) always pointing to the available host.
+In multi-host clusters, hosts undergo maintenance one by one. Such hosts are queued randomly. Any host that requires a restart during maintenance will be unavailable until maintenance is complete. If you access a cluster using the [FQDN of the {{ OS }} host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) always pointing to the available host.

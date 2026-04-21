@@ -14,6 +14,8 @@ Event name | Description
 `DeleteMatchList` | Deleting an address list
 `DeleteSecurityProfile` | Deleting a security profile
 `DeleteWafProfile` | Deleting a WAF profile
+`StartLoadBalancer` | Starting a proxy server
+`StopLoadBalancer` | Stopping a proxy server
 `UpdateArlProfile` | Updating an ARL profile
 `UpdateCustomPage` | Updating a response page template
 `UpdateDomain` | Updating a domain

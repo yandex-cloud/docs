@@ -13,7 +13,7 @@ If the function version was created with a service account, you can get an IAM t
 To get an IAM token:
 
 1. [Create a function](../operations/function/function-create.md). When creating the first function version, select the [runtime environment](../concepts/runtime/index.md): Node.js or Python.
-1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**, select **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Create a ZIP archive with the function code:

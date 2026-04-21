@@ -1,13 +1,13 @@
 ---
 title: Managing {{ SD }} backups
-description: You can back up {{ SD }} clusters and restore them from existing backups. Point-in-time recovery (PITR) allows you to restore your cluster’s state to any point in time, starting from when the backup was created.
+description: You can back up {{ SD }} clusters and restore them from existing backups. Point-in-time recovery, or PITR, enables you to restore a cluster’s state to any point in time since the backup was created.
 ---
 
 # Managing backups in {{ mmg-name }}
 
 You can [back up](../concepts/backup.md) your clusters and restore them using existing backups.
 
-{{ mmg-name }} automatically creates a daily backup. For this backup, you can [configure the start time and retention period](update.md#change-additional-settings).
+{{ mmg-name }} automatically takes a daily backup as well. For this backup, you can [configure the start time and retention period](update.md#change-additional-settings).
 
 ## Restoring a cluster from a backup {#restore}
 
@@ -27,7 +27,7 @@ PITR is not supported for clusters with [sharding](../tutorials/sharding.md) ena
 
 {% endnote %}
 
-Restoring a cluster from a backup creates a new cluster with that backup’s data. If your folder lacks sufficient [resources](../concepts/limits.md) to create such a cluster, the restore operation will fail. The average restore speed is 10 MBps.
+Restoring a cluster from a backup creates a new cluster with that backup’s data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average restore speed is 10 MBps.
 
 For a new cluster, you must specify all settings required during creation, except for the cluster type, i.e., you cannot restore a {{ SD }} backup as a {{ PG }} cluster.
 
@@ -94,7 +94,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To restore a cluster from a backup:
 
-  1. See the description of the CLI command for restoring a {{ SD }} cluster:
+  1. View the description of the CLI command for restoring a {{ SD }} cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster restore --help
@@ -137,6 +137,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
          --mongod-resource-preset <host_class> \
          --mongod-disk-size <storage_size_in_GB> \
          --mongod-disk-type <disk_type> \
+         --disk-size-autoscaling mongod-disk-size-limit=<max_storage_size_in_GB>,`
+                                `mongod-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `mongod-emergency-usage-threshold=<immediate_expansion_percentage> \
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour> \
          --performance-diagnostics=<enable_diagnostics>
       ```
 
@@ -167,28 +173,330 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
          --<host_type>-resource-preset <host_class> \
          --<host_type>-disk-size <storage_size_in_GB> \
          --<host_type>-disk-type <disk_type> \
+         --disk-size-autoscaling mongod-disk-size-limit=<max_storage_size_in_GB>,`
+                                `mongod-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `mongod-emergency-usage-threshold=<immediate_expansion_percentage>,`
+                                 ...
+                                `<host_type>-disk-size-limit=<max_storage_size_in_GB>,`
+                                `<host_type>-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `<host_type>-emergency-usage-threshold=<immediate_expansion_percentage> \
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour> \
          --performance-diagnostics=<enable_diagnostics>
       ```
 
 
       Where:
 
-      * `--backup-id`: Backup ID. To restore a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. You can get the backup ID from the [list of backups](#list-backups) in your folder.
-
-      * `--recovery-target-timestamp`: Target recovery time for the {{ SD }} cluster, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you omit this argument, the cluster will be restored to its state at the time of backup completion.
-      * `--environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-
-      
-      * `--mongod-disk-type`: Disk type, `network-hdd`, `network-ssd`, or `network-ssd-io-m3`.
-
-
-      * `--<host_type>-resource-preset`, `--<host_type>-disk-size`, `--<host_type>-disk-type`: Host parameters controlling cluster sharding. The possible `<host_type>` values are `mongoinfra`, `mongocfg`, or `mongos`.
-
-      * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
+      {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-cli.md)%}
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "folderId": "<folder_ID>",
+          "backupId": "<backup_ID>",
+          "name": "<new_cluster_name>",
+          "environment": "<environment>",
+          "networkId": "<network_ID>",
+          "recoveryTargetSpec": {
+            "timestamp": "<time_point>"
+          },
+          "configSpec": {
+            "version": "<Yandex_StoreDoc_version>",
+            "mongodb": {
+              "<Yandex_StoreDoc_host_type>": {
+                "resources": {
+                  "resourcePresetId": "<host_class>",
+                  "diskSize": "<storage_size_in_bytes>",
+                  "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                }
+              },
+              ...
+              "<Yandex_StoreDoc_host_type>": {
+                "resources": {
+                  "resourcePresetId": "<host_class>",
+                  "diskSize": "<storage_size_in_bytes>",
+                  "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                }
+              }
+            }
+          },
+          "hostSpecs": [
+            {
+              "zoneId": "<availability_zone>",
+              "subnetId": "<subnet_ID>",
+              "assignPublicIp": <allow_public_access_to_host>,
+              "type": "<host_type>",
+              "shardName": "<shard_name>",
+              "hidden": <hide_host>,
+              "secondaryDelaySecs": "<lag_in_seconds>",
+              "priority": "<host_priority_for_assignment_as_master>",
+              "tags": "<host_labels>"
+            }
+          ],
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          }
+        }
+        ```
+
+        Where:
+
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-rest.md)%}
+
+    1. Call the [Cluster.Restore](../api-ref/Cluster/restore.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore' \
+            --data "@body.json"
+        ```
+
+    1. Check the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "folder_id": "<folder_ID>",
+          "backup_id": "<backup_ID>",
+          "name": "<new_cluster_name>",
+          "environment": "<environment>",
+          "network_id": "<network_ID>",
+          "recovery_target_spec": {
+            "timestamp": "<time_point>"
+          },
+          "config_spec": {
+            "version": "<Yandex_StoreDoc_version>",
+            "mongodb": {
+              "<Yandex_StoreDoc_host_type>": {
+                "resources": {
+                  "resource_preset_id": "<host_class>",
+                  "disk_size": "<storage_size_in_bytes>",
+                  "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                }
+              },
+              ...
+              "<Yandex_StoreDoc_host_type>": {
+                "resources": {
+                  "resource_preset_id": "<host_class>",
+                  "disk_size": "<storage_size_in_bytes>",
+                  "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                }
+              }
+            }
+          },
+          "host_specs": [
+            {
+              "zone_id": "<availability_zone>",
+              "subnet_id": "<subnet_ID>",
+              "assign_public_ip": <allow_public_access_to_host>,
+              "type": "<host_type>",
+              "shard_name": "<shard_name>",
+              "hidden": <hide_host>,
+              "secondary_delay_secs": "<lag_in_seconds>",
+              "priority": "<host_priority_for_assignment_as_master>",
+              "tags": "<host_labels>"
+            }
+          ],
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          }
+        }
+        ```
+
+        Where:
+
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-grpc.md)%}
+
+    1. Call the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mongodb.v1.ClusterService.Restore \
+            < body.json
+        ```
+
+  1. Check the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+          
+
+{% endlist %}
+
+## Restoring individual databases and collections from a backup {#restore-database}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To restore individual databases and collections from a backup:
+
+  1. View the description of the CLI command for restoring a {{ SD }} cluster:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster restore --help
+      ```
+
+  1. Get the list of available {{ SD }} cluster backups:
+
+     ```bash
+     {{ yc-mdb-mg }} backup list
+     ```
+
+     Result:
+
+     ```text
+     +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+     |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
+     +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+     | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
+     | ...                                                                                         |                    |
+     +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+     ```
+
+     You can see the backup completion time in the `CREATED AT` column of the available backups list. It is formatted as `yyyy-mm-dd hh:mm:ss`, e.g., `2020-08-10 12:00:00` in the example above. You can restore your cluster to any point in time since the backup was created.
+
+  1. Run the command to create a new cluster from a backup. Use `--whitelist` to specify which databases and collections to restore, or `--blacklist` to define exclusions.
+
+      
+      For a non-sharded cluster:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster restore \
+         --backup-id <backup_ID> \
+         --recovery-target-timestamp <time_point> \
+         --mongodb-version <Yandex_StoreDoc_version> \
+         --name <new_cluster_name> \
+         --environment <environment> \
+         --network-name <network_name> \
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID> \
+         --mongod-resource-preset <host_class> \
+         --mongod-disk-size <storage_size_in_GB> \
+         --mongod-disk-type <disk_type> \
+         --disk-size-autoscaling mongod-disk-size-limit=<max_storage_size_in_GB>,`
+                                `mongod-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `mongod-emergency-usage-threshold=<immediate_expansion_percentage> \
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour> \
+         --performance-diagnostics=<enable_diagnostics> \
+         --whitelist <list_of_databases_and_collections_to_restore> \
+         --blacklist <list_of_databases_and_collections_to_exclude_from_restoring>
+      ```
+
+      For a sharded cluster:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster restore \
+         --backup-id <backup_ID> \
+         --recovery-target-timestamp <time_point> \
+         --mongodb-version <Yandex_StoreDoc_version> \
+         --name <new_cluster_name> \
+         --environment <environment> \
+         --network-name <network_name> \
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `type=mongod,`
+               `shard-name=<shard_name> \
+         --mongod-resource-preset <host_class> \
+         --mongod-disk-size <storage_size_in_GB> \
+         --mongod-disk-type <disk_type> \
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `type=<host_type> \
+         ...
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `type=<host_type> \
+         --<host_type>-resource-preset <host_class> \
+         --<host_type>-disk-size <storage_size_in_GB> \
+         --<host_type>-disk-type <disk_type> \
+         --disk-size-autoscaling mongod-disk-size-limit=<max_storage_size_in_GB>,`
+                                `mongod-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `mongod-emergency-usage-threshold=<immediate_expansion_percentage>,`
+                                 ...
+                                `<host_type>-disk-size-limit=<max_storage_size_in_GB>,`
+                                `<host_type>-planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                `<host_type>-emergency-usage-threshold=<immediate_expansion_percentage> \
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour> \
+         --performance-diagnostics=<enable_diagnostics>
+         --whitelist <list_of_databases_and_collections_to_restore> \
+         --blacklist <list_of_databases_and_collections_to_exclude_from_restoring>
+      ```
+
+
+      Where:
+
+      {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-cli.md)%}
+
+      * Settings for restoring individual databases and collections:
+
+          * `--whitelist`: List of databases and collections to restore. Here is an example: `"db1","db2.collection1"`.
+          * `--blacklist`: List of databases and collections to exclude from restoring. Here is an example: `"db1.collection1"`.
+
+          If you specify databases under `--whitelist`, you can use `--blacklist` to exclude specific collections within those databases.
+          If the `--whitelist` parameter is not specified, all databases and collections will be restored except those specified under `--blacklist`.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -212,6 +520,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_bytes>"
                 }
               },
               ...
@@ -220,6 +533,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
+                },
+                "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                  "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                  "diskSizeLimit": "<maximum_storage_size_in_bytes>"
                 }
               }
             }
@@ -236,41 +554,31 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
               "priority": "<host_priority_for_assignment_as_master>",
               "tags": "<host_labels>"
             }
-          ]
+          ],
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
+          "partialRestoreSpec": {
+            "whitelist": [<list_of_databases_and_collections_to_restore>],
+            "blacklist": [<list_of_databases_and_collections_to_exclude_from_restoring>]
+          }
         }
         ```
 
         Where:
 
-        * `folderId`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
-        * `backupId`: Backup ID. To restore a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. You can get the backup ID from the [list of backups](#list-backups) in your folder.
-        * `name`: New cluster’s name.
-        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
-        * `recoveryTargetSpec.timestamp`: Target recovery time for the {{ SD }} cluster, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you omit this argument, the cluster will be restored to its state at the time of backup completion.
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-rest.md)%}
 
-        * `configSpec`: Cluster settings:
+        * `partialRestoreSpec`: Settings for restoring individual databases and collections:
 
-          * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
-          * {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
-            
-            * `resources`: Cluster resources:
+            * `whitelist`: List of databases and collections to restore. For example: `["db1", "db2.collection1"]`.
+            * `blacklist`: List of databases and collections to exclude from restoring. Here is an example: `["db1.collection1"]`.
 
-              * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-              * `diskSize`: Disk size, in bytes.
-              * `diskTypeId`: [Disk type](../concepts/storage.md).
-
-        * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
-
-          * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
-          * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
-          * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
-          * `shardName`: Shard name in a sharded cluster.
-          * `hidden`: Determines whether the host is hidden, `true` or `false`.
-          * `secondaryDelaySecs`: Host's replication lag behind the master.
-          * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
-          * `tags`: Host tags.
+            If you specify databases under `whitelist`, you can use `blacklist` to exclude specific collections within those databases.
+            If the `whitelist` parameter is not specified, all databases and collections will be restored except those specified under `blacklist`.
 
     1. Call the [Cluster.Restore](../api-ref/Cluster/restore.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -312,6 +620,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_bytes>"
                 }
               },
               ...
@@ -320,6 +633,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
                   "resource_preset_id": "<host_class>",
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
+                },
+                "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                  "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                  "disk_size_limit": "<maximum_storage_size_in_bytes>"
                 }
               }
             }
@@ -336,43 +654,33 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
               "priority": "<host_priority_for_assignment_as_master>",
               "tags": "<host_labels>"
             }
-          ]
+          ],
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
+          "partial_restore_spec": {
+            "whitelist": [<list_of_databases_and_collections_to_restore>],
+            "blacklist": [<list_of_databases_and_collections_to_exclude_from_restoring>]
+          }
         }
         ```
 
         Where:
 
-        * `folder_id`: Folder ID. You can get it from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
-        * `backup_id`: Backup ID. To restore a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. You can get the backup ID from the [list of backups](#list-backups) in your folder.
-        * `name`: New cluster’s name.
-        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
-        * `recovery_target_spec.timestamp`: Target recovery time for the {{ SD }} cluster, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you omit this argument, the cluster will be restored to its state at the time of backup completion.
+        {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-grpc.md)%}
 
-        * `config_spec`: Cluster settings:
+        * `partial_restore_spec`: Settings for restoring individual databases and collections:
 
-          * `version`: {{ SD }} version, 5.0, 6.0, or 7.0.
-          * {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
-            
-            * `resources`: Cluster resources:
-            
-              * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-              * `disk_size`: Disk size, in bytes.
-              * `disk_type_id`: [Disk type](../concepts/storage.md).
+            * `whitelist`: List of databases and collections to restore. For example: `["db1", "db2.collection1"]`. 
+            * `blacklist`: List of databases and collections to exclude from restoring. Here is an example: `["db1.collection1"]`.
 
-        * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
+            If you specify databases under `whitelist`, you can use `blacklist` to exclude specific collections within those databases.
+            If the `whitelist` parameter is not specified, all databases and collections will be restored except those specified under `blacklist`.
 
-          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
-          * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
-          * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
-          * `shard_name`: Shard name in a sharded cluster.
-          * `hidden`: Determines whether the host is hidden, `true` or `false`.
-          * `secondary_delay_secs`: Host's replication lag behind the master.
-          * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
-          * `tags`: Host tags.
-
-    1. Call the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md#yandex.cloud.mdb.mongodb.v1.HostSpec) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -388,7 +696,6 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
         ```
 
   1. Check the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-          
 
 {% endlist %}
 
@@ -413,7 +720,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   To create a cluster backup:
 
-  1. See the description of the CLI command for creating a {{ SD }} backup:
+  1. View the description of the CLI command for creating a {{ SD }} backup:
 
       ```bash
       {{ yc-mdb-mg }} cluster backup --help
@@ -429,7 +736,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -443,13 +750,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
           --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>:backup'
       ```
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -470,7 +777,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
           yandex.cloud.mdb.mongodb.v1.ClusterService.Backup
       ```
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -496,7 +803,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-  This list contains the following information:
+  These lists contain the following information:
 
   * Backup name.
   * Source shard.
@@ -531,14 +838,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
   The output table contains the following information:
   * Backup ID.
   * Backup end time (UTC).
-  * Source cluster ID.
+  * ID of the backed up cluster.
   * Backup start time (UTC).
   * Backup size.
   * Backup type: `AUTOMATED` or `MANUAL`.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -553,7 +860,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/backups'
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -577,7 +884,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -600,7 +907,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
               yandex.cloud.mdb.mongodb.v1.ClusterService.ListBackups
           ```
 
-          You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+          You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -623,7 +930,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
           ```
 
           
-          You can get the folder ID from the [list of your cloud folders](../../resource-manager/operations/folder/get-id.md).
+          You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
       1. Check the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.mongodb.v1.ListBackupsResponse) to make sure your request was successful.
@@ -659,11 +966,11 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
   {{ yc-mdb-mg }} backup get <backup_ID>
   ```
 
-  You can get the backup ID from the [list of backups](#list-backups).
+  You can get the backup ID with the [list of backups](#list-backups).
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -676,13 +983,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/backups/<backup_ID>'
      ```
 
-     You can get the backup ID from the [list of backups](#list-backups).
+     You can get the backup ID with the [list of backups](#list-backups).
 
   1. Check the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.mongodb.v1.Backup) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -703,7 +1010,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
        yandex.cloud.mdb.mongodb.v1.BackupService.Get
      ```
 
-     You can get the backup ID from the [list of backups](#list-backups).
+     You can get the backup ID with the [list of backups](#list-backups).
 
   1. Check the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.mongodb.v1.Backup) to make sure your request was successful.
 
@@ -732,15 +1039,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
   Allowed values range from `7` to `35`. The default value is `7`.
 
-  You can get the cluster’s name and ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ SD }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mmg }}).
+        For a complete list of configurable {{ SD }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
 
     1. Add the `backup_retain_period_days` block to the `cluster_config` section of the {{ SD }} cluster description:
 
@@ -764,7 +1071,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -772,7 +1079,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -796,7 +1103,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to update.
+      * `updateMask`: Comma-separated string of settings to update.
 
           Here, we provide only one setting.
 
@@ -804,13 +1111,13 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
           Allowed values range from `7` to `35`. The default value is `7`.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -852,7 +1159,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
           Allowed values range from `7` to `35`. The default value is `7`.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mongodb.v1.Cluster) to make sure your request was successful.
 

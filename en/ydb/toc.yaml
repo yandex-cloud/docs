@@ -120,7 +120,13 @@ items:
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
       - name: Exporting audit logs to MaxPatrol SIEM
-        href: tutorials/maxpatrol.md
+        items:
+          - name: Overview
+            href: tutorials/maxpatrol/index.md
+          - name: Management console
+            href: tutorials/maxpatrol/console.md
+          - name: '{{ TF }}'
+            href: tutorials/maxpatrol/terraform.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'
         href: tutorials/postbox-webhook.md
   - name: Concepts

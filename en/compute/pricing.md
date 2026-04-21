@@ -8,9 +8,6 @@ editable: false
 # {{ compute-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 {% note tip %}
 
 
@@ -131,7 +128,7 @@ If you created an image or snapshot, you pay for its storage separately dependin
 
 After deleting a VM instance, you will still be charged for disks, snapshots, and images. If you no longer need these resources, delete them.
 
-_The price covers one month of use. You are charged per second of usage._
+_{{ price-per-hour-count-per-second }}_
 
 {% note warning %}
 
@@ -140,6 +137,17 @@ Disks with installed [{{ marketplace-name }}](/marketplace) products contain the
 If you connect such a disk to a VM as additional storage, you will be charged for the use of the {{ marketplace-name }} products in addition to the storage fee.
 
 {% endnote %}
+
+
+#### Example of cost calculation for snapshot retention {#snapshot-example}
+
+Let’s calculate the cost of storing a 20 GB snapshot for 60 days.
+
+
+
+
+{% include [usd-snapshot](../_pricing_examples/compute/usd-snapshot.md) %}
+
 
 
 ### Using {{ ig-name }} {#instance-groups}
@@ -208,7 +216,7 @@ In {{ compute-name }}, a [software-accelerated network](./concepts/software-acce
 
 For resources provided under CVoS, the [Prices for the Russia region](#prices) section presents their CVoS prices separately with expiration date.
 
-Currently, you cannot order storage or web traffic this way.
+Storage size and internet traffic cannot currently be reserved via CVoS.
 
 {% endnote %}
 

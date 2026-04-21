@@ -44,7 +44,15 @@ The administrator can disable the automatic seat purchase option if required. In
 
 The **Total seats** section displays the total number of seats in an instance, and the **Available seats** section displays the number of seats that have been purchased but not assigned to users.
 
+{% note info %}
+
+* If you [delete a user from the organization](../../organization/operations/edit-account.md) or [revoke](#revoke) their seat, the number of seats does not decrease automatically. The seat revoked from the user becomes free and available for assignment to another user.
+* To reduce the number of seats, change the seat count in the service settings.
+
+{% endnote %}
+
 To edit the number of seats:
+
 1. Under **Total seats**, click ![image](../../_assets/console-icons/pencil.svg) **Edit**.
 1. Specify the required number of seats.
 1. Click **Continue** and confirm the action.

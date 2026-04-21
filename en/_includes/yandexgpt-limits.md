@@ -41,7 +41,7 @@ Number of concurrent {{ code-interpreter }} launches | 3
 
 Type of limit | Value
 ----- | -----
-Period to store results of asynchronous requests on the server | 3 days
+Storage period for results of text asynchronous requests on the server | 3 days
 **Text vectorization** |
 Number of input tokens | 2,048
 Output vector size | {{ emb-vector }}
@@ -52,6 +52,7 @@ Number of classes in prompt-based classifiers | 20
 Number of classes in fine-tuned classifiers | 100
 **Image generation** |
 Maximum prompt length | 500 characters
+Storage period for generated images | 12 hours
 **AI agents**|
 Maximum number of agents | 1,000
 Maximum number of files to upload | 10,000

@@ -12,7 +12,7 @@
 
        Экспортировать можно только сертификаты в статусе `Issued`.
     1. Выберите один из вариантов экспорта. В файле `certificate.pem` в текстовом формате в кодировке Base64 будут сохранены:
-       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}** — цепочка сертификатов (корневой и конечный сертификат) и приватный ключ со стандартным обрамлением:
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}** — цепочка сертификатов (конечный и промежуточный сертификат) и приватный ключ со стандартным обрамлением:
           ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -25,7 +25,7 @@
           -----END PRIVATE KEY-----
           ```
 
-       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}** — цепочка сертификатов (корневой и конечный сертификат):
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}** — цепочка сертификатов (конечный и промежуточный сертификат):
          ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -119,6 +119,8 @@
   Чтобы получить содержимое сертификата, воспользуйтесь методом REST API [get](../../certificate-manager/api-ref/CertificateContent/get.md) для ресурса [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) или вызовом gRPC API [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/CertificateContent/get.md).
 
 {% endlist %}
+
+Для сертификатов Let's Encrypt экспортируемая цепочка содержит конечный сертификат вашего домена и промежуточный сертификат. Корневой сертификат не включается, так как он уже встроен в доверенные хранилища операционных систем и браузеров. Этой цепочки достаточно для настройки веб-серверов, например Nginx или Apache. Если требуется полная цепочка с корневым сертификатом, его можно скачать с [сайта Let's Encrypt](https://letsencrypt.org/certificates/).
 
 {% note info %}
 

@@ -48,6 +48,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](applications/loki.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
+* [{#T}](applications/node-sitter.md)
 * [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)
 * [{#T}](applications/velero-yc-csi.md)
@@ -101,3 +102,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](external-nodes-connect-wireguard.md)
 * [{#T}](external-nodes-connect-ipsec.md)
 * [{#T}](bms-server-connect.md)
+
+## Working with {{ k8s }} objects from the management console {#kubernetes-console}
+
+* [{#T}](kubernetes-console/pod-terminal.md)

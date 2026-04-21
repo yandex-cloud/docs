@@ -151,6 +151,7 @@ To create a host group:
 
     To create a host group, run this command:
 
+    
     ```bash
     {{ yc-mdb-os }} node-group add --cluster-name <cluster_name> \
        --opensearch-node-group name=<{{ OS }}_host_group_name>,`
@@ -171,6 +172,7 @@ To create a host group:
                               `subnet-names=<subnet_names>,`
                               `assign-public-ip=<allow_public_access_to_hosts>
     ```
+
 
     Specify the required parameters in the command depending on what type of host group you want to create:
 
@@ -245,11 +247,11 @@ To create a host group:
 
         A cluster may contain only one `Dashboards` host group.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -306,11 +308,11 @@ To create a host group:
             * `diskTypeId`: [Disk type](../concepts/storage.md).
 
         * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
-        * `hostsCount`: Number of hosts per group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
+        * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
         * `zoneIds`: List of availability zones the cluster hosts are located in.
-        * `subnetIds`: List of subnet IDs.
 
         
+        * `subnetIds`: List of subnet IDs.
         * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
@@ -332,7 +334,7 @@ To create a host group:
 
                 {% endnote %}
 
-            * `diskSizeLimit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
+            * `diskSizeLimit`: Maximum storage size, in bytes, that can be set if the usage percentage reaches one of the specified thresholds.
 
             
             {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
@@ -424,11 +426,11 @@ To create a host group:
             * `disk_type_id`: [Disk type](../concepts/storage.md).
 
         * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
-        * `hosts_count`: Number of hosts per group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
+        * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
         * `zone_ids`: List of availability zones the cluster hosts are located in.
-        * `subnet_ids`: List of subnet IDs.
 
         
+        * `subnet_ids`: List of subnet IDs.
         * `assign_public_ip`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
@@ -450,7 +452,7 @@ To create a host group:
 
                 {% endnote %}
 
-            * `disk_size_limit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
+            * `disk_size_limit`: Maximum storage size, in bytes, that can be set if the usage percentage reaches one of the specified thresholds.
 
             
             {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
@@ -625,11 +627,11 @@ To create a host group:
 
         Where `assign_public_ip` is public access to the host, `true` or `false`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -679,7 +681,7 @@ To create a host group:
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
         * `nodeGroups`: Host settings:
 
             * `resources`: Cluster resources:
@@ -688,11 +690,11 @@ To create a host group:
                 * `diskSize`: Disk size, in bytes.
                 * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-            * `hostsCount`: Number of hosts in the group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
+            * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
             * `zoneIds`: List of availability zones the cluster hosts are located in.
-            * `subnetIds`: List of subnet IDs.
 
             
+            * `subnetIds`: List of subnet IDs.
             * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
@@ -714,7 +716,7 @@ To create a host group:
 
                     {% endnote %}
 
-                * `diskSizeLimit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
+                * `diskSizeLimit`: Maximum storage size, in bytes, that can be set if the usage percentage reaches one of the specified thresholds.
 
                 
                 {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
@@ -818,11 +820,11 @@ To create a host group:
                 * `disk_size`: Disk size, in bytes.
                 * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-            * `hosts_count`: Number of hosts in the group. The minimum number of `DATA` and `Dashboards` hosts is one; while the minimum number of `MANAGER` hosts is three.
+            * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
             * `zone_ids`: List of availability zones the cluster hosts are located in.
-            * `subnet_ids`: List of subnet IDs.
 
             
+            * `subnet_ids`: List of subnet IDs.
             * `assign_public_ip`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
 
@@ -844,7 +846,7 @@ To create a host group:
 
                     {% endnote %}
 
-                * `disk_size_limit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
+                * `disk_size_limit`: Maximum storage size, in bytes, that can be set if the usage percentage reaches one of the specified thresholds.
 
                 
                 {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
@@ -936,7 +938,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
     1. To delete a `Dashboards` host group, remove the `dashboards` section.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

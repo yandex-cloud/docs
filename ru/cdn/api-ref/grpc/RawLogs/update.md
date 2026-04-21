@@ -52,7 +52,6 @@ The maximum string length in characters is 50. ||
 || file_prefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
-
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
@@ -71,19 +70,10 @@ The maximum string length in characters is 50. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "resource_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "status": "RawLogsStatus",
-    "settings": {
-      "bucket_name": "string",
-      "bucket_region": "string",
-      "file_prefix": "string"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -111,7 +101,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateRawLogsMetadata](#yandex.cloud.cdn.v1.UpdateRawLogsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -126,7 +116,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[UpdateRawLogsResponse](#yandex.cloud.cdn.v1.UpdateRawLogsResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -141,58 +131,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateRawLogsMetadata {#yandex.cloud.cdn.v1.UpdateRawLogsMetadata}
-
-#|
-||Field | Description ||
-|| resource_id | **string**
-
-ID of CDN resource. ||
-|#
-
-## UpdateRawLogsResponse {#yandex.cloud.cdn.v1.UpdateRawLogsResponse}
-
-#|
-||Field | Description ||
-|| status | enum **RawLogsStatus**
-
-Raw logs status.
-
-- `RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.
-- `RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.
-- `RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but CDN provider has been failed to store logs.
-- `RAW_LOGS_STATUS_PENDING`: Raw logs was activated, but logs storing process is expected. ||
-|| settings | **[RawLogsSettings](#yandex.cloud.cdn.v1.RawLogsSettings2)**
-
-Raw logs settings. ||
-|#
-
-## RawLogsSettings {#yandex.cloud.cdn.v1.RawLogsSettings2}
-
-User settings for Raw logs.
-
-#|
-||Field | Description ||
-|| bucket_name | **string**
-
-Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
-
-The maximum string length in characters is 1024. ||
-|| bucket_region | **string**
-
-Bucket region, unused for now, could be blank.
-
-The maximum string length in characters is 50. ||
-|| file_prefix | **string**
-
-file_prefix: prefix each log object name with specified prefix.
-
-The prefix makes it simpler for you to locate the log objects.
-For example, if you specify the prefix value logs/, each log object that
-S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
-could be setup.
-
-The maximum string length in characters is 50. ||
 |#

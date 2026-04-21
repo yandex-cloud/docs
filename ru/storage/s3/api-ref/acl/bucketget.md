@@ -41,4 +41,10 @@ GET /{bucket}?acl HTTP/2
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/acl.md)
+
+* [{#T}](../../../operations/buckets/edit-acl.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

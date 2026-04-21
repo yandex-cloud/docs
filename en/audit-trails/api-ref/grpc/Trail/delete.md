@@ -22,7 +22,9 @@ Deletes the specified trail.
 ||Field | Description ||
 || trail_id | **string**
 
-Required field. ID of the trail to be deleted. ||
+Required field. ID of the trail to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

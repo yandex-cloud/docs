@@ -40,7 +40,7 @@ To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/oper
     To change the service account settings:
 
     1. In the [management console]({{ link-console-main }}), select the folder where the cluster is located.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select your service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [{#T}](s3-access.md).
 
@@ -59,9 +59,12 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
+* A cluster with local SSD storage may be unavailable for an extended period, as data migration to another physical server may be required.
 * Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
+
+You can also [change the host class for an individual shard](shards.md#shard-update).
 
 The host class affects the RAM amount {{ CH }} can use. For more information, see [Memory management](../concepts/memory-management.md).
 
@@ -72,7 +75,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the {{ CH }} host class, select the platform, VM type, and required host class under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**.
   1. To change the {{ ZK }} host class, select the platform, VM type, and required {{ ZK }} host class under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**.
@@ -123,7 +126,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `resource_preset_id` value in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
@@ -316,6 +319,10 @@ You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, 
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
+When changing the disk type or storage size, a cluster with local SSD storage may be unavailable for an extended period, as data migration to another physical server may be required.
+
+You can also [change the disk type and storage size for an individual shard](shards.md#shard-update).
+
 {% note info %}
 
 To change the disk type to `local-ssd`, contact [support]({{ link-console-support }}).
@@ -329,7 +336,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
   To change the disk type and expand the storage size for a cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the disk type and increase the storage size for your {{ CH }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
   1. To change the disk type and increase the storage size for your {{ ZK }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**.
@@ -371,7 +378,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `disk_size` and `disk_type_id` values in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
@@ -636,7 +643,7 @@ You cannot disable settings for user or database management via SQL once they ar
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and specify the `admin` password.
   1. To [manage databases via SQL](./databases.md#sql-database-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** and specify the `admin` password.
@@ -677,7 +684,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. {% include [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
@@ -687,7 +694,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -808,7 +815,7 @@ You cannot disable settings for user or database management via SQL once they ar
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -900,7 +907,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To change the backup start time, add the `backup_window_start` section to the {{ mch-name }} cluster description:
 
@@ -1200,7 +1207,7 @@ The following resources will be created for each database user:
 
   The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
 
-  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
+  You need the `connection-manager.viewer` role to view the connection details. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
 
   {% note info %}
 
@@ -1216,7 +1223,7 @@ The following resources will be created for each database user:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.common.move }}**.
     1. Select the folder you want to move your cluster to.
@@ -1249,7 +1256,7 @@ The following resources will be created for each database user:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](./cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, add or update the `folder_id` argument:
 
@@ -1264,7 +1271,7 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1338,7 +1345,7 @@ The following resources will be created for each database user:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
 
@@ -1367,7 +1374,7 @@ The following resources will be created for each database user:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` value in the cluster description:
 

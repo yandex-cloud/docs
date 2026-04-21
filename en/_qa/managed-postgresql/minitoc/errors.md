@@ -35,3 +35,5 @@
 * [What should I do if I see a `too many connections for role "monitor"` error in the logs?](#monitor-role-error)
 
 * [Why do I get an error when trying to install multiple extensions in the CLI?](#cli-extensions-errors)
+
+* [Why do I get the `could not open extension control file "<path_to_extension>/vector.control": No such file or directory` error when accessing the `vector` extension?](#vector-error)

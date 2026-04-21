@@ -25,6 +25,8 @@ items:
             href: collector/otel-clinic-example.md
           - name: Пример мониторинга ансамбля микросервисов в {{ k8s }}
             href: collector/otel-k8s-example.md
+          - name: Пример мониторинга Nginx в {{ k8s }}
+            href: collector/otel-k8s-nginx.md
           - name: Устранение неполадок при поставке данных
             href: collector/troubleshooting.md
       - name: Fluent Bit
@@ -201,6 +203,8 @@ items:
             href: metrics-ref/managed-valkey-ref.md
           - name: '{{ ydb-name }}'
             href: metrics-ref/ydb-ref.md
+          - name: '{{ myt-name }}'
+            href: metrics-ref/managed-ytsaurus-ref.md
           - name: '{{ message-queue-name }}'
             href: metrics-ref/message-queue-ref.md
           - name: '{{ monitoring-name }}'
@@ -225,24 +229,24 @@ items:
         href: concepts/ttl.md
   - name: Логи
     items:
-      - name: Начало работы
+      - name: Начало работы с логами приложений
         href: logs/quickstart.md
-      - name: Обзор
-        href: logs/index.md
-      - name: Сбор данных
+      - name: Начало работы с логами ресурсов {{ yandex-cloud }}
+        href: logs/quickstart-resources.md
+      - name: Поставка данных
         items:
           - name: Преобразование данных
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: Просмотр логов
+      - name: Поиск и анализ логов
         href: logs/logs-explorer.md
-      - name: Язык запросов
-        href: logs/query.md
       - name: Концепции
         items:
-          - name: Основные понятия
+          - name: Обзор и основные понятия
             href: logs/concepts/glossary.md
+          - name: Язык запросов
+            href: logs/query.md
           - name: Рекомендации по разметке логов
             href: logs/concepts/attributes-guide.md
           - name: Время хранения данных (TTL)

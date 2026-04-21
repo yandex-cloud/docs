@@ -24,7 +24,7 @@
 Authorization: Api-Key <API_ключ>
 ```
 
-API-ключ создается для сервисного аккаунта с ролью `monium.telemetry.writer`. Ключ должен иметь область действия `yc.monium.telemetry.write` для записи любого вида телеметрии, либо одну или несколько из `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write` для гранулированного доступа. Подробнее о [создании API-ключа](../../iam/operations/iam-token/create-for-sa.md).
+API-ключ создается для сервисного аккаунта с ролью `monium.telemetry.writer`. Ключ должен иметь область действия `yc.monium.telemetry.write` для записи любого вида телеметрии, либо одну или несколько из `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write` для гранулированного доступа. Подробнее о [создании API-ключа](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
 ## Заголовки {#headers}
 

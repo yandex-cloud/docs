@@ -1,35 +1,35 @@
 # Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster from 4.4 to 6.0 using {{ data-transfer-full-name }}
 
 
-You can migrate a production loaded sharded database deployed in a {{ mmg-name }} version 4.4 cluster to version 6.0.
+You can migrate a sharded production database under load from a {{ mmg-name }} cluster version 4.4 to version 6.0.
 
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Prepare the target cluster](#prepare-target).
-1. [Set up your transfers](#prepare-transfer).
+1. [Set up the transfers](#prepare-transfer).
 1. [Activate the transfers](#activate-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ SD }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ SD }} pricing](../../../storedoc/pricing.md)).
+* {{ mmg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 cluster.
+Create a {{ mmg-name }} target cluster running version 6.0, identical to the version 4.4 cluster.
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mmg-name }} target cluster](../../../storedoc/operations/cluster-create.md) with the same configuration as the source cluster and with the following settings:
+    1. [Create a {{ mmg-name }} (Managed Service for MongoDB) target cluster](../../../storedoc/operations/cluster-create.md) identical to the source cluster with the following settings:
 
         * Cluster version: `6.0`.
         * Database name: `db1`.
@@ -39,10 +39,10 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     
-    1. If using security groups, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
+    1. If you are using security groups in a cluster, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow connections to it.
 
 
-    1. [Grant](../../../storedoc/operations/cluster-users.md#updateuser) the `readWrite` role for the `db1` database to `user1`.
+    1. [Grant](../../../storedoc/operations/cluster-users.md#updateuser) the `readWrite` role on the database `db1` to `user1`.
 
     1. [Enable cluster sharding](../../../storedoc/operations/shards.md#enable) and [add](../../../storedoc/operations/shards.md#add-shard) the required number of shards.
 
@@ -59,15 +59,15 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         resource "yandex_mdb_mongodb_cluster" "old" { }
         ```
 
-    1. Write the {{ SD }} version 4.4 cluster ID to an environment variable:
+    1. Save the {{ SD }} cluster ID for version 4.4 to an environment variable:
 
         ```bash
         export MONGODB_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](../../../storedoc/operations/cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](../../../storedoc/operations/cluster-list.md#list-clusters).
 
-    1. Import the {{ SD }} version 4.4 cluster settings into the {{ TF }} configuration:
+    1. Import the {{ SD }} cluster settings for version 4.4 into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
@@ -79,20 +79,20 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and in the `name` argument.
-        * Set the `version` parameter to `6.0`.
+        * Set `version` to `6.0`.
         * Delete the `created_at`, `health`, `id`, `sharded`, and `status` arguments.
         * In the `host` sections, delete the `health` and `name` arguments.
         * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` argument.
         * Delete all `user` sections. Use `yandex_mdb_mongodb_user` resource to add database users.
-        * Delete all `database` sections. You can add databases using the separate `yandex_mdb_mongodb_database` resource.
-        * Optionally, make further changes if you need to customize the configuration.
+        * Delete all `database` sections. You can add databases using a separate `yandex_mdb_mongodb_database` resource.
+        * Optionally, you can customize the configuration further as needed.
 
-    1. Add the resource to create the database to the file:
+    1. Add the database resource to the configuration file:
 
         ```hcl
         resource "yandex_mdb_mongodb_database" "db1" {
@@ -101,9 +101,9 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         }
         ```
 
-        Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_mongodb_cluster` resource.
+        Where `<cluster_name>` is the name of your new cluster as specified in the `yandex_mdb_mongodb_cluster` resource.
 
-    1. Add the resource to the file to create a user named `user1`:
+    1. Add the resource for creating a user named `user1` to the configuration file:
 
         ```hcl
         resource "yandex_mdb_mongodb_user" "user1" {
@@ -120,13 +120,13 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
         }
         ```
 
-        Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_mongodb_cluster` resource.
+        Where `<cluster_name>` is the name of your new cluster as specified in the `yandex_mdb_mongodb_cluster` resource.
 
-    1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
+    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 
-    1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). [Download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) the provider configuration file rather than creating it manually.
+    1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not added the authentication credentials to environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -152,23 +152,23 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 
 1. Delete unused collections from the database.
 
-1. Disable unique indexes in the collections. They will be enabled after data migration.
+1. Disable the unique constraints of indexes in the collections. They will be automatically reenabled after data migration.
 
-1. Estimate your database workload. If it exceeds 10,000 writes per second, plan several transfers.
+1. Evaluate your database workload. If it exceeds 10,000 writes per second, schedule multiple transfers.
 
-    1. Identify the high-workload collections.
-    1. Distribute your collections between several transfers.
+    1. Identify collections under high load.
+    1. Distribute your collections across multiple transfers.
 
-1. Set the oplog storage size with a 15-20% margin over the cluster disk size. This will allow {{ data-transfer-name }} to read changes from the source cluster throughout the data copying process.
+1. Allocate oplog storage with a 15-20% margin over the cluster disk size. This will allow {{ data-transfer-name }} to read changes from the source cluster throughout the data copy process.
 
 
-## Set up the target cluster {#prepare-target}
+## Prepare the target cluster {#prepare-target}
 
-If the source database has sharded collections, [prepare the target database](../../../data-transfer/operations/prepare.md#target-mg). Do not enable unique indexes.
+If the source database has sharded collections, [prepare the target database](../../../data-transfer/operations/prepare.md#target-mg). Do not enable unique constraints for indexes.
 
 ## Set up the transfers {#prepare-transfer}
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for each scheduled transfer and specify the endpoint parameters:
+1. [Create source endpoints](../../../data-transfer/operations/endpoint/index.md#create) for each scheduled transfer and specify their settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
 
@@ -182,11 +182,11 @@ If the source database has sharded collections, [prepare the target database](..
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: `<password>`.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}**: For each endpoint, specify the list of included collections that you allocated for each transfer.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}**: For each endpoint, specify the list of included collections according to your transfer distribution plan.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}**: Specify `Time Series` collections if your database has any. {{ data-transfer-name }} does not support migration of such collections.
 
-1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) for each planned transfer and specify endpoint parameters:
+1. [Create target endpoints](../../../data-transfer/operations/endpoint/index.md#create) for each scheduled transfer and specify their settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
 
@@ -202,24 +202,24 @@ If the source database has sharded collections, [prepare the target database](..
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: `db1`.
 
-    If sharded collections have been created in the target database, select either the `Do not clean` or `TRUNCATE` cleanup policy.
+    If your target database contains sharded collections, select either the `Do not clean` or `TRUNCATE` cleanup policy.
 
     {% include [MongoDB endpoint DROP clean policy warning](../../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
-1. [Create transfers](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+1. [Create](../../../data-transfer/operations/transfer.md#create) **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfers configured to use the previously created endpoints.
 
-    To copy large collections (over 1 GB) faster, enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings:
+    To speed up copying of large collections (over 1 GB), enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}**: `5` or more
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}**: `8` or more
 
     The collection will be split into the specified number of parts that will be copied concurrently.
 
-    For parallel copy to work, the `_id` field data type must be the same for all documents in the same collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If needed, remove documents with mismatched data types from the collection before starting a transfer.
+    For parallel copy to work properly, the data type of the `_id` field must be the same for all documents in the same collection. If a transfer detects a type mismatch, the collection will not be split but transferred in a single thread instead. If needed, remove documents with mismatched data types from the collection prior to transfer.
 
     {% note info %}
 
-    If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-activated, the transfer will not be able to partition a collection because the `_id` field type requirement will not be met for some of the documents in the collection.
+    If a document with a different data type is added to the collection after the transfer starts, the transfer will migrate it at the replication stage after parallel copying. However, when reactivated, the transfer will not be able to split the collection into parts because the `_id` field type requirement will not be met for some of the documents in the collection.
 
     {% endnote %}
 
@@ -227,17 +227,17 @@ If the source database has sharded collections, [prepare the target database](..
 
 1. [Activate the transfers](../../../data-transfer/operations/transfer.md#activate).
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to read-only.
-1. If you disabled unique indexes in the source database, enable them in the target database.
-1. Switch the workload to the target cluster.
-1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to reach zero for each transfer. This indicates that the target cluster now contains all changes made in the source cluster after the data copy completed.
+1. Switch the source cluster to read-only mode.
+1. If you disabled unique constraints for indexes in the source database, enable them in the target database.
+1. Transfer the workload over to the target cluster.
+1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to drop to zero for each transfer. This indicates that the target cluster now contains all changes made in the source cluster after the data copy completed.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfers and wait for their status to change to {{ dt-status-stopped }}.
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-1. [Connect](../../../storedoc/operations/connect/index.md) to the `db1` database in the {{ mmg-name }} target cluster.
+1. [Connect](../../../storedoc/operations/connect/index.md) to the database `db1` in the {{ mmg-name }} target cluster.
 
-1. Make sure the data collections have appeared in the `db1` database:
+1. Verify that the data collections have appeared in the `db1` database:
 
     ```javascript
     show collections
@@ -246,17 +246,17 @@ If the source database has sharded collections, [prepare the target database](..
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the {{ mmg-name }} cluster version `6.0` depending on how it was created:
+1. Delete the {{ mmg-name }} cluster version `6.0` applying the same method used for its creation:
 
    {% list tabs group=instructions %}
 
    - Manually {#manual}
 
-       Delete the [{{ mmg-name }} cluster](../../../storedoc/operations/cluster-delete.md).
+       [Delete the {{ mmg-name }} cluster](../../../storedoc/operations/cluster-delete.md).
 
    - Using {{ TF }} {#tf}
 

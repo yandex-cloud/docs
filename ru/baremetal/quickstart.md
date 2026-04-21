@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [server-lease-step1](../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.PresetConfigurations }}` и подходящую [конфигурацию](./concepts/server-configurations.md) сервера {{ baremetal-name }}. Например: `BA-i103-S-10G`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](./concepts/server-configurations.md) сервера {{ baremetal-name }}. Например: `BA-i103-S-10G`.
 
       {% include [server-lease-selecting-the-right-config](../_includes/baremetal/instruction-steps/server-lease-selecting-the-right-config.md) %}
 
@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
           {% endnote %}
       1. В поле **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** оставьте `1`.
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите вариант `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` и образ с операционной системой `Ubuntu 24.04 LTS`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**, чтобы задать конфигурацию разделов дисковых устройств, имеющихся на сервере.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**, чтобы задать конфигурацию разделов [дисковых устройств](./concepts/disks/disk-types.md), имеющихся на сервере.
 
           В открывшемся окне оставьте параметры разметки дисков по умолчанию или измените их, затем нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
       1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}

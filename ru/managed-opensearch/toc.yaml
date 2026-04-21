@@ -90,6 +90,8 @@ items:
             href: tutorials/opensearch-to-greenplum.md
       - name: Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
         href: tutorials/filebeat-oss-monitoring.md
+      - name: Отправка оповещений по электронной почте
+        href: tutorials/opensearch-email-notifications.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -206,6 +208,14 @@ items:
             href: cli-ref/node-group/delete.md
           - name: update
             href: cli-ref/node-group/update.md
+      - name: plugin
+        items:
+          - name: Overview
+            href: cli-ref/plugin/index.md
+          - name: add
+            href: cli-ref/plugin/add.md
+          - name: delete
+            href: cli-ref/plugin/delete.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

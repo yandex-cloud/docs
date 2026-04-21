@@ -75,4 +75,10 @@ POST /{bucket}/{key}?uploads HTTP/2
 `Key` | Ключ, который ассоциируется с объектом, после окончания загрузки.<br/><br/>Путь: `/InitiateMultipartUploadResult/Key`.
 `UploadId` | Идентификатор загрузки.<br/><br/>Все последующие операции с загрузкой должны передавать в {{ objstorage-name }} этот идентификатор.<br/><br/>Путь: `/InitiateMultipartUploadResult/UploadId`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Создание составной загрузки в бакете](../../../operations/objects/multipart-upload.md#create-multipart-upload)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

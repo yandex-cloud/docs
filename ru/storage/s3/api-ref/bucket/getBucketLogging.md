@@ -73,4 +73,10 @@ GET /{bucket}?logging HTTP/2
 `TargetBucket` | Имя целевого бакета, в который сохраняются [объекты](../../../concepts/object.md) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Тип: String.
 `TargetPrefix` | [Префикс ключа объекта](../../../concepts/server-logs.md#key-prefix) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Тип: String.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Получение настроек логирования действий с бакетом](../../../operations/buckets/enable-logging.md#get-settings)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

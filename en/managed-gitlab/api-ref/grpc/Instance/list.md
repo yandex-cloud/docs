@@ -26,16 +26,22 @@ Request message for InstanceService.List.
 ||Field | Description ||
 || folder_id | **string**
 
-ID of the folder to list instances in. ||
+Required field. ID of the folder to list instances in.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListInstancesRequest.next_page_token]
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the [ListInstancesRequest.next_page_token]
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListInstancesResponse {#yandex.cloud.gitlab.v1.ListInstancesResponse}
@@ -166,7 +172,9 @@ Delete untagged resources during maintenance. ||
 Protect from accidental deletion. ||
 || approval_rules_id | **string**
 
-Approval rules ID. ||
+Approval rules ID.
+
+The maximum string length in characters is 30. ||
 || gitlab_version | **string**
 
 GitLab version of the instance. ||

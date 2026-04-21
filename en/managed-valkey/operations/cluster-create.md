@@ -121,9 +121,9 @@ There are no restrictions for non-sharded clusters.
       * To change the settings of a host, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host name.
 
           * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
-          * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**: Specify the [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
 
           
+          * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
           * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Enables access to the host from the internet if you enabled **{{ ui-key.yacloud.redis.field_tls-support }}** for the cluster.
 
 
@@ -222,17 +222,18 @@ There are no restrictions for non-sharded clusters.
       Where:
       * `--environment`: Environment, `prestable` or `production`.
       * `--redis-version`: {{ VLK }} version, {{ versions.cli.str }}.
-
-      
       * `--host`: Host settings:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
+
+         
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
          * `assign-public-ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
          * `replica-priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
       * `--disk-type-id`: Disk type.
 
       * `--websql-access`: Enables running [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
-
 
       * `--disk-size-autoscaling`: Automatic storage expansion settings:
 
@@ -266,7 +267,9 @@ There are no restrictions for non-sharded clusters.
 
          {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
+      
       You must specify the `subnet-id` if the selected availability zone has more than one subnet.
+
 
       {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
@@ -277,6 +280,7 @@ There are no restrictions for non-sharded clusters.
       The default [maintenance](../concepts/maintenance.md) mode for new clusters is `anytime`. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
 
       {% endnote %}
+
 
 - {{ TF }} {#tf}
 
@@ -289,15 +293,11 @@ There are no restrictions for non-sharded clusters.
     1. In the configuration file, describe the resources you want to create:
 
        * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here, if required.
-
-       
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a network in place, you do not need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
-
        Here is an example structure of a configuration file for creating a non-sharded cluster with SSL support:
 
-       
        ```hcl
        resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
          name                = "<cluster_name>"
@@ -346,24 +346,23 @@ There are no restrictions for non-sharded clusters.
        }
        ```
 
-
        Where:
        * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+           {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
        * `disk_size_autoscaling`: Automatic storage expansion settings:
 
-            {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
+           {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
 
        * `announce_hostnames`: [Use of FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-            {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
+           {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
        * `persistence_mode`: [Data persistence mode](../concepts/replication.md#persistence).
 
-            {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
+           {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
        * `version`: {{ VLK }} version, {{ versions.tf.str }}.
        * `hosts`: List of hosts and their settings in `"<host_name>" = { <host_settings> }` format. The host name must be unique within the cluster.
@@ -381,7 +380,6 @@ There are no restrictions for non-sharded clusters.
 
     1. {% include [Maintenance window](../../_includes/mdb/mvk/terraform/maintenance-window.md) %}
 
-    
     1. To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` argument to the cluster description:
 
         ```hcl
@@ -392,7 +390,6 @@ There are no restrictions for non-sharded clusters.
         ```
 
         To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
-
 
     1. To enable [{{ VLK }} modules](../concepts/modules.md), add the `modules` section to the cluster description:
 
@@ -423,7 +420,7 @@ There are no restrictions for non-sharded clusters.
         * `valkey_search.reader_threads`: Number of request processing threads in the `Valkey-Search` module.
         * `valkey_search.writer_threads`: Number of indexing threads in the `Valkey-Search` module.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -436,6 +433,7 @@ There are no restrictions for non-sharded clusters.
     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mrd }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -548,12 +546,12 @@ There are no restrictions for non-sharded clusters.
         * `hostSpecs`: Host settings:
 
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
-            * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
+            * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
             * `shardName`: Shard name for the host. This setting only applies when `sharded` is set to `true`.
-            * `replicaPriority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `replicaPriority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
             * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`. You can enable public access only if `tlsEnabled` is set to `true`.
 
-        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
 
         * `sharded`: [Cluster sharding](../concepts/sharding.md), `true` or `false`.
 
@@ -715,12 +713,12 @@ There are no restrictions for non-sharded clusters.
         * `host_specs`: Host settings:
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
-            * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
+            * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone has two or more subnets.
             * `shard_name`: Shard name for the host. This setting only applies when `sharded` is set to `true`.
             * `replica_priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
             * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`. You can enable public access only if `tls_enabled` is set to `true`.
 
-        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
 
         * `sharded`: [Cluster sharding](../concepts/sharding.md), `true` or `false`.
 
@@ -872,15 +870,17 @@ To create a {{ VLK }} cluster copy:
 
   Create a {{ mrd-name }} cluster with the following test specifications:
 
+  
   * Name: `myredis`.
   * Version: `{{ versions.cli.latest }}`.
   * Environment: `production`.
-  * Network: `default`.
+  * Network: `{{ network-name }}`.
   * A single `{{ mrd-host-class }}` host in the `b0rcctk2rvtr********` subnet, `{{ region-id }}-a` availability zone and security group with the `{{ security-group }}` ID, with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
   * SSL support: Enabled.
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
   * Password: `user1user1`.
   * Deletion protection: Enabled.
+
 
   Run this command:
 
@@ -890,7 +890,7 @@ To create a {{ VLK }} cluster copy:
     --name myredis \
     --redis-version {{ versions.cli.latest }} \
     --environment production \
-    --network-name default \
+    --network-name {{ network-name }} \
     --resource-preset {{ mrd-host-class }} \
     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
     --security-group-ids {{ security-group }} \
@@ -900,6 +900,7 @@ To create a {{ VLK }} cluster copy:
     --password=user1user1 \
     --deletion-protection
   ```
+
 
 
 - {{ TF }} {#tf}
@@ -913,7 +914,7 @@ To create a {{ VLK }} cluster copy:
     * Folder ID: `{{ tf-folder-id }}`.
     * Network: `mynet` (new).
     * A single `{{ mrd-host-class }}` class host in the new subnet called `mysubnet`, `{{ region-id }}-a` availability zone, with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. `mysubnet` CIDR range: `10.5.0.0/24`.
-    * Security group: `redis-sg` (new), allowing connections on port `{{ port-mrd-tls }}` from any addresses in `mysubnet`.
+    * New security group `redis-sg` allowing connections via port `{{ port-mrd-tls }}` from any addresses in `mysubnet`.
     * SSL support: Enabled.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
     * Password: `user1user1`.
@@ -921,7 +922,6 @@ To create a {{ VLK }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-  
   ```hcl
   resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
@@ -985,18 +985,20 @@ To create a {{ VLK }} cluster copy:
 
   Create a [sharded](../concepts/sharding.md) {{ mrd-name }} cluster with the following test specifications:
 
+  
   * Name: `myredis`.
   * Version: `{{ versions.cli.latest }}`.
   * Environment: `production`.
   * Sharding: Enabled.
   * SSL support: Enabled.
   * Deletion protection: Enabled.
-  * Network: `default`.
+  * Network: `{{ network-name }}`.
   * Security group ID: `{{ security-group }}`.
   * Host class: `{{ mrd-host-class }}`.
   * A single host in the shard called `shard1`, in the `b0rcctk2rvtr********` subnet, `{{ region-id }}-a` availability zone, with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
   * Password: `user1user1`.
+
 
   Run this command:
 
@@ -1009,7 +1011,7 @@ To create a {{ VLK }} cluster copy:
     --sharded \
     --enable-tls \
     --deletion-protection \
-    --network-name default \
+    --network-name {{ network-name }} \
     --security-group-ids {{ security-group }} \
     --resource-preset {{ mrd-host-class }} \
     --host shard-name=shard1,subnet-id=b0rcctk2rvtr********,zone-id=ru-central1-a,assign-public-ip=true,replica-priority=50 \
@@ -1017,6 +1019,7 @@ To create a {{ VLK }} cluster copy:
     --disk-size 16 \
     --password user1user1
   ```
+
 
 
 - {{ TF }} {#tf}
@@ -1030,7 +1033,7 @@ To create a {{ VLK }} cluster copy:
   * SSL support: Enabled.
   * Deletion protection: Enabled.
   * Network: `mynet` (new) with a single subnet: `mysubnet`. CIDR range for `mysubnet`: `10.5.0.0/24`.
-  * Security group: `redis-sg` (new), allowing connections on port `{{ port-mrd-tls }}` from any addresses in `mysubnet`.
+  * New security group `redis-sg` allowing connections via port `{{ port-mrd-tls }}` from any addresses in `mysubnet`.
   * Host class: `{{ mrd-host-class }}`.
   * A single host in the shard called `shard1`, in the `mysubnet` subnet, `{{ region-id }}-a` availability zone, with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
@@ -1038,7 +1041,6 @@ To create a {{ VLK }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-  
   ```hcl
   resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
@@ -1096,6 +1098,7 @@ To create a {{ VLK }} cluster copy:
 
 {% endlist %}
 
+
 ### Creating a sharded cluster with three shards {#creating-a-sharded-cluster}
 
 
@@ -1116,14 +1119,13 @@ To create a {{ VLK }} cluster copy:
       * `subnet-b` with the `10.2.0.0/24` range
       * `subnet-d` with the `10.3.0.0/24` range
     * Three `{{ mrd-host-class }}` class hosts, one in each subnet.
-    * New `redis-sg` security group allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) from any subnet addresses.
+    * New  security group `redis-sg` allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) from any subnet addresses.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
     * Password: `user1user1`.
     * Deletion protection: Enabled.
 
     The configuration file for this cluster is as follows:
 
-    
     ```hcl
     resource "yandex_mdb_redis_cluster_v2" "myredis" {
       name                = "myredis"
@@ -1216,5 +1218,5 @@ To create a {{ VLK }} cluster copy:
     }
     ```
 
-
 {% endlist %}
+

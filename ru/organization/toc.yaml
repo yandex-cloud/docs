@@ -55,6 +55,8 @@ items:
             href: operations/user-pools/deactivate-user.md
           - name: Посмотреть логи пользователя
             href: operations/user-pools/user-get-logs.md
+          - name: Управлять сессиями пользователя
+            href: operations/manage-sessions.md
           - name: Удалить аккаунт пользователя
             href: operations/edit-account.md
           - name: Покинуть организацию
@@ -145,6 +147,10 @@ items:
                 href: operations/applications/saml-create.md
               - name: Изменить приложение
                 href: operations/applications/saml-update.md
+              - name: Настроить доступ пользователям приложения
+                href: operations/applications/saml-set-access-bindings.md
+              - name: Получить информацию о приложении
+                href: operations/applications/saml-get.md
               - name: Деактивировать и удалить приложение
                 href: operations/applications/saml-deactivate-remove.md
           - name: OIDC-приложения
@@ -325,6 +331,8 @@ items:
         href: concepts/my-account.md
       - name: Аудитные логи и логи входа
         href: concepts/logs.md
+      - name: Сессии
+        href: concepts/sessions.md
       - name: Синхронизация с {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Квоты и лимиты
@@ -431,6 +439,8 @@ items:
             href: cli-ref/group/index.md
           - name: add-access-binding
             href: cli-ref/group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/group/add-labels.md
           - name: add-members
             href: cli-ref/group/add-members.md
           - name: create
@@ -451,6 +461,8 @@ items:
             href: cli-ref/group/list-operations.md
           - name: remove-access-binding
             href: cli-ref/group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/group/remove-labels.md
           - name: remove-members
             href: cli-ref/group/remove-members.md
           - name: set-access-bindings

@@ -72,6 +72,7 @@ Possible property names:
 || `--redirect-to-https` | Redirect HTTP requests to HTTPS for specified listener. ||
 || `--allow-http10` | Allow HTTP1.0 for specified listener. ||
 || `--rewrite-request-id` | Rewrite incoming x-request-id header with new value for specified listener. ||
+|| `--preserve-http1-header-casing` | Preserve HTTP1 header casing for specified listener. ||
 || `--http2-options` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 HTTP2 options for specified listener.

@@ -110,13 +110,13 @@ description: Правила определяют, могут ли пользов
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Посмотрите описание команды CLI для создания кластера:
+  1. Посмотрите описание команды CLI для создания кластера:
 
      ```bash
      {{ yc-mdb-tr }} cluster create --help
      ```
 
-  3. Выполните команду:
+  1. Выполните команду:
 
      ```bash
      {{ yc-mdb-tr }} cluster create \
@@ -211,11 +211,11 @@ description: Правила определяют, могут ли пользов
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  3. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
@@ -338,9 +338,9 @@ description: Правила определяют, могут ли пользов
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  2. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  3. Создайте файл `body.json` и добавьте в него следующее содержимое:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
       ```json
       {
@@ -433,7 +433,7 @@ description: Правила определяют, могут ли пользов
 
       Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
 
-  4. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -448,7 +448,7 @@ description: Правила определяют, могут ли пользов
           < body.json
       ```
 
-  5. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -559,7 +559,7 @@ description: Правила определяют, могут ли пользов
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  2. Выполните команду:
+  1. Выполните команду:
 
      ```bash
      {{ yc-mdb-tr }} cluster set-access-control <имя_или_идентификатор_кластера> \
@@ -655,17 +655,17 @@ description: Правила определяют, могут ли пользов
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Если правила доступа уже заданы, внесите правки в описание ресурса `yandex_trino_access_control`. Вы можете:
+  1. Если правила доступа уже заданы, внесите правки в описание ресурса `yandex_trino_access_control`. Вы можете:
 
      * добавить новые правила;
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  3. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  4. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
@@ -879,13 +879,13 @@ description: Правила определяют, могут ли пользов
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Если правила уже заданы, откройте существующий файл `body.json` с правилами и внесите в него правки. Вы можете:
+  1. Если правила уже заданы, откройте существующий файл `body.json` с правилами и внесите в него правки. Вы можете:
 
      * добавить новые правила;
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  3. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -900,7 +900,7 @@ description: Правила определяют, могут ли пользов
         < body.json
       ```
 
-  4. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

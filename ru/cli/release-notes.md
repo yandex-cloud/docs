@@ -7,6 +7,107 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.4.0 (20.04.26) {#v-1-4-0}
+
+#### {{ cloud-registry-name }} {#v-1-4-0-cloud-registry-name}
+
+* Добавлена команда `yc cloud-registry artifact get-by-path` для получения артефакта по его пути в реестре.
+
+* Добавлены команды для управления политиками сканирований реестров в {{ cloud-registry-name }}:
+  * `yc cloud-registry registry scan-policy get`;
+  * `yc cloud-registry registry scan-policy get-by-registry`;
+  * `yc cloud-registry registry scan-policy create`;
+  * `yc cloud-registry registry scan-policy upd`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.3.0 (16.04.26) {#v-1-3-0}
+
+#### {{ mos-name }} {#v-1-3-0-mos-name}
+
+* Добавлены команды для управления плагинами:
+  * `yc managed-opensearch plugins add`;
+  * `yc managed-opensearch plugins delete`.
+
+#### {{ alb-name }} {#v-1-3-0-alb-name}
+
+* Добавлен параметр `--preserve-http1-header-casing` для сохранения регистра HTTP/1-заголовков для определенного обработчика в команды:
+  * `yc application-load-balancer add-listener`;
+  * `yc application-load-balancer add-http-listener`;
+  * `yc application-load-balancer update-listener`;
+  * `yc application-load-balancer update-http-listener`;
+  * `yc application-load-balancer add-sni`;
+  * `yc application-load-balancer add-http-sni`;
+  * `yc application-load-balancer update-sni`;
+  * `yc application-load-balancer update-http-sni`.
+
+#### {{ quota-manager-name }} {#v-1-3-0-quota-manager-name}
+
+* В команде `yc quota-manager quota-request list` изменен способ вывода на постраничную загрузку.
+
+#### {{ org-full-name }} {#v-1-3-0-org-name}
+
+* В командах `yc organization-manager idp user list`, `yc organization-manager idp userpool list` и `yc organization-manager idp userpool domain list` изменен способ вывода на постраничную загрузку.
+* Добавлен параметр `--password-blacklist-check-common` для установки ограничений на использование пользователями утекших паролей в команды:
+  * `yc organization-manager idp userpool create`;
+  * `yc organization-manager idp userpool update`.
+
+#### {{ mmy-name }} {#v-1-3-0-mmy-name}
+
+* В команду `yc managed-mysql cluster create` добавлена поддержка версии MySQL 8.4.
+
+#### {{ dns-name }} {#v-1-3-0-Cloud DNS}
+
+* Добавлены команды для работы с DNS Firewall:
+  * `yc dns firewall get`;
+  * `yc dns firewall list`;
+  * `yc dns firewall create`;
+  * `yc dns firewall move`;
+  * `yc dns firewall update`;
+  * `yc dns firewall delete`;
+  * `yc dns firewall add-labels`;
+  * `yc dns firewall remove-labels`;
+  * `yc dns firewall list-access-bindings`;
+  * `yc dns firewall set-access-bindings`;
+  * `yc dns firewall add-access-binding`;
+  * `yc dns firewall remove-access-binding`;
+  * `yc dns firewall list-operations`.
+
+#### {{ interconnect-name }} {#v-1-3-0-cic-name}
+
+* Удалена команда `yc cic trunk-connection create`.
+
+#### {{ mch-name }} {#v-1-3-0-mch-name}
+
+* В команду `yc managed-clickhouse cluster restore` добавлены параметры `--include-patterns` и `--exclude-patterns` для частичного восстановления кластера.
+
+### Версия 1.2.0 (13.04.26) {#v-1-2-0}
+
+#### {{ mkf-name }} {#v-1-2-0-mkf-name}
+
+* Добавлены команды для управления коннектором Iceberg Sink:
+  * `yc managed-kafka connector-iceberg-sink create`;
+  * `yc managed-kafka connector-iceberg-sink update`.
+
+#### {{ org-full-name }} {#v-1-2-0-org-name}
+
+* Добавлены команды для управления метками групп организации:
+  * `yc organization-manager group add-labels`;
+  * `yc organization-manager group remove-labels`.
+* В команды `yc organization-manager group create` и `yc organization-manager group update` добавлен параметр `--labels` для управления метками групп организации.
+
+#### {{ vpc-name }} {#v-1-2-0-vpc-name}
+
+* В команде `yc vpc security-group` удалена проверка длины CIDR-блоков.
+
+#### {{ mch-name }} {#v-1-2-0-mch}
+
+* В команде `yc managed-clickhouse cluster add-zookeeper` параметр `--convert-tables-to-replicated` включен по умолчанию. 
+
+#### {{ mmy-name }} {#v-1-2-0-mmy}
+
+* Добавлен новый режим работы прокси `--daemon` для `yc managed-mysql connect`.
+
 ### Версия 1.1.0 (06.04.26) {#v-1-1-0}
 
 #### {{ sf-name }} {#v-1-1-0-sf-name}
@@ -36,8 +137,6 @@ description: На странице представлены релизы CLI, а
 * В команды `yc managed-kubernetes marketplace helm-release install` и `yc managed-kubernetes marketplace helm-release update` добавлены примеры передачи сложных значений (списков, объектов) через `--value` и `--value-from-file`:
   * `yc managed-kubernetes marketplace helm-release install`;
   * `yc managed-kubernetes marketplace helm-release update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.0.0 (02.04.26) {#version1.0.0}
 

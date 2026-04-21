@@ -51,7 +51,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter `mongo-express` as the service account name.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}`, and `{{ roles-serverless-containers-invoker }}` [roles](../../load-testing/security/index.md#roles-list).
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}`, and `{{ roles-serverless-containers-invoker }}` [roles](../../load-testing/security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -142,12 +142,12 @@ Create a [cloud network](../../vpc/concepts/network.md) and [subnet](../../vpc/c
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `mongo-express-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. At the top right, click **{{ ui-key.yacloud.common.create }}**.
+  1. Click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `mongo-express-subnet-{{ region-id }}-b`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select `{{ region-id }}-b`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `mongo-express-network`.
@@ -217,7 +217,7 @@ Create a [cloud network](../../vpc/concepts/network.md) and [subnet](../../vpc/c
 {% endlist %}
 
 
-## Configure the security group {#configure-sg}
+## Set up a security group {#configure-sg}
 
 Configure the default [security group](../../vpc/concepts/security-groups.md) in the cloud network you created [earlier](#create-network).
 
@@ -228,7 +228,7 @@ Configure the default [security group](../../vpc/concepts/security-groups.md) in
   1. Open the [management console]({{ link-console-main }}).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Next to the default security group created for `mongo-express-network`, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Next to the default security group created for `mongo-express-network`, click ![image](../../_assets/options.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}** and create a rule based on this table:
 
@@ -334,7 +334,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mongo-vm`.

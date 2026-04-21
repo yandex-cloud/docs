@@ -22,7 +22,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
 
 - CLI {#cli}
@@ -105,7 +105,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click the connector name.
 
@@ -188,7 +188,7 @@ You can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click **{{ ui-key.yacloud.kafka.button_create-connector }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify:
@@ -290,7 +290,7 @@ You can:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. To create a MirrorMaker connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_mirrormaker` configuration section:
 
@@ -356,7 +356,7 @@ You can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -548,7 +548,7 @@ Specify the MirrorMaker connector parameters as follows:
         * `key.converter`
         * `value.converter`
 
-        For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/) documentation.
+        For the list of general connector settings, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/kafka-connect-configs/).
 
     * `--replication-factor`: Number of replicas the cluster stores for each topic.
     * `--topics`: Pattern for selecting topics to replicate. List topic names separated by commas or `|`. You can also use a regular expression (`.*`), e.g., `analysis.*`. To migrate all topics, specify `.*`.
@@ -836,7 +836,7 @@ Specify the S3 Sink connector parameters as follows:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. In the connector row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
     1. Edit the connector properties as needed.
@@ -893,7 +893,7 @@ Specify the S3 Sink connector parameters as follows:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. Edit the parameter values in the `yandex_mdb_kafka_connector` resource description:
 
@@ -958,7 +958,7 @@ Specify the S3 Sink connector parameters as follows:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1092,7 +1092,7 @@ To pause a connector:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
@@ -1166,7 +1166,7 @@ To pause a connector:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
@@ -1264,7 +1264,7 @@ You can import the existing connectors to manage them with {{ TF }}.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.kafka.label_connectors }}** tab.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the connector name and select **{{ ui-key.yacloud.common.delete }}**.
     1. Click **{{ ui-key.yacloud.common.delete }}**.
@@ -1286,14 +1286,14 @@ You can import the existing connectors to manage them with {{ TF }}.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. Delete the `yandex_mdb_kafka_connector` resource with the connector description.
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

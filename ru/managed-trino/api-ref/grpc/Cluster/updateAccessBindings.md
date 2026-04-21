@@ -5,6 +5,7 @@ editable: false
 # Managed Service for Trino API, gRPC: ClusterService.UpdateAccessBindings
 
 Updates access bindings for the specified Trino cluster.
+(-- api-linter: yc::1705::http-method-mapping=disabled
 
 ## gRPC request
 

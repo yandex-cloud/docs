@@ -125,6 +125,10 @@ resource "yandex_vpc_security_group" "test-sgroup" {
   - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of MySQL backups](https://yandex.cloud/docs/managed-mysql/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the MySQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `version` (**Required**)(String). Version of the MySQL cluster.
 - `resources` [Block]. Resources allocated to hosts of the MySQL cluster.
   - `disk_size` (**Required**)(Number). Size of the disk in bytes.

@@ -30,6 +30,10 @@ resource "yandex_vpc_gateway" "my_gw" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
 - `shared_egress_gateway` [Block]. Shared egress gateway configuration. Currently empty.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

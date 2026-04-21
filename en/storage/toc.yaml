@@ -319,8 +319,8 @@ items:
       - name: Recognizing text in image archives using {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: >-
-          Regular recognition of images and PDF documents from an {{
-          objstorage-short-name }} bucket
+          Scheduled image and PDF recognition in an {{ objstorage-short-name }}
+          bucket
         href: tutorials/vision-ocrrecognizer-storage.md
       - name: Converting a video to a GIF in Python
         items:

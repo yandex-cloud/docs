@@ -63,6 +63,10 @@ resource "yandex_compute_instance" "vm" {
   - `generation2_features` [Block]. A newer hardware generation, which always uses `PCI_TOPOLOGY_V2` and UEFI boot.
   - `legacy_features` [Block]. Defines the first known hardware generation and its features.
     - `pci_topology` (String). A variant of PCI topology, one of `PCI_TOPOLOGY_V1` or `PCI_TOPOLOGY_V2`.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

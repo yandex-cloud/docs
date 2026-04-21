@@ -8,13 +8,12 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-  1. Select the cluster.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
+  1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
-     You will see a list of operations with the cluster.
+     You will see the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -22,7 +21,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ GP }} cluster operations, run this command:
+  To get a list of operations for a {{ GP }} cluster, run this command:
 
   ```bash
   yc managed-greenplum cluster list-operations <cluster_name_or_ID>
@@ -40,7 +39,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
 
   ```bash
   yc managed-greenplum cluster list-operations c9qk2926qqu9******** --format yaml
@@ -65,7 +64,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -84,7 +83,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -114,7 +113,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get the list of cluster operations](#get-operations).
+1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
 1. Get operation details:
 
@@ -151,11 +150,11 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
     - REST API {#api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Call the [Operation.Get](../api-ref/Operation/get.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+      1. Call the [Operation.Get](../api-ref/Operation/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
           ```bash
           curl \
@@ -168,13 +167,13 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
     - gRPC API {#grpc-api}
 
-      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-      1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+      1. Call the [OperationService.Get](../api-ref/grpc/Operation/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
           ```bash
           grpcurl \

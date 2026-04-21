@@ -150,8 +150,8 @@ Below is a list of bots used by various businesses for content indexing, deliver
 1. `Meta‑ExternalAdsBot`^2^: Crawls web content for use cases such as improving advertising and other business-related products and services.
 
 
-^1^ Facebook is a service provided by Meta, an organization designated as extremist.
-^2^ Meta is designated as extremist organization, and its activities are prohibited in Russia.
+^1^ Facebook is a service by  Meta, Inc., an organization declared extremist.
+^2^ Meta, Inc. has been declared extremist and banned in the Russian Federation.
 
 {% endcut %}
 
@@ -187,7 +187,7 @@ The use cases for fingerprints include:
 * Detecting DGA bots that constantly change domains and IP addresses.
 * Reducing the percentage of false positives.
 
-FingerPrint technology allows identifying specific clients by analyzing the parameters of the hello packet. Examples of such clients include browsers, applications, and malware. During this process, the parameters that the client sends in plain text during the TLS handshake are analyzed: TLS version, TLS record version, cipher suites, compression parameters, list of extensions, signature algorithms, data encryption algorithm, hash function.
+You can use fingerprints to identify certain clients by analyzing their hello packet parameters. Examples of such clients include browsers, applications, and malware. The analysis focuses on parameters the client sends in plain text during the TLS handshake: TLS version, TLS record version, cipher suites, compression parameters, list of extensions, signature algorithms, data encryption algorithm, and hash function.
 
 {{ sws-name }} uses the JA3 and JA4 methods to identify clients:
 

@@ -110,7 +110,7 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 || Markup | The field value will be formatted according to the option you select:
 
 * `None`: No markup.
-* `HTML`: HTML markup. Available only for `String` type fields. Here is an example:
+* `HTML`: HTML markup. Available only for `String` type fields. For example:
 
   ```html
   '<span style="font-size: 16px;">' +
@@ -229,7 +229,11 @@ Some of these settings may not be available for some axes.
 
 ### Colors {#color-settings}
 
-Generally, you can set a specific color for any graph value.
+[Generally](#color-general-settings), you can set a specific color for any graph value.
+
+You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
+
+If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions corresponding to the field values in the **Colors** section.
 
 For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualization-ref/table-chart.md) (including a [pivot table](../../visualization-ref/pivot-table-chart.md)), and [map](../../visualization-ref/map-chart.md), the following settings are available:
 
@@ -239,7 +243,7 @@ For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualiza
 
 * **Two-color**: Sets two colors for the gradient.
 * **Tree-color**: Sets three colors for the gradient. ||
-|| Color | Sets a color for a value. Available colors depend on the gradient type. ||
+|| Colors | Sets a color for a value. Available colors depend on the gradient type. ||
 || Set threshold values | Allows you to set threshold values that will refer to each color. ||
 || Borders | Sets borders for geopolygons.<br/><br/>Available values:
 
@@ -247,14 +251,12 @@ For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualiza
 * **Hide**: Hides geopolygon borders. ||
 |#
 
-If the **Legend** option is enabled in [common settings](#common-settings), placing this field into the **Colors** section will make the legend visible below the chart. The legend contains chart colors with text descriptions corresponding to the field values in the **Colors** section.
-
-{% cut "Available color settings" %}
+#### General color settings {#color-general-settings}
 
 To set up colors:
 
 1. In the top-right corner of the **Colors** section, click ![image](../../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
-1. Set the **Fill type**:
+1. Specify the setting parameters:
 
    {% note info %}
 
@@ -266,7 +268,40 @@ To set up colors:
 
    - For a dimension {#measure}
 
-     1. Click the color scheme selection field and set a color for each dimension value.
+     1. Set the color in one of the following ways:
+
+        * Select a color palette from the preset options or one [created](../../operations/chart/create-palette.md) by the user. You can set a color for each dimension from the preset options of the current color palette. To revert to the default colors for the current palette, click **AUTO**.
+
+          {% cut "Selecting a color from the color palette" %}
+
+          ![chart-color](../../../_assets/datalens/chart/chart-color.png)
+
+          {% endcut %}
+
+        * Click ![icon](../../../_assets/console-icons/pencil-to-line.svg) and set the color in hex format. You can also specify background transparency as a percentage.
+
+          {% cut "Setting a color in hex format" %}
+
+          ![chart-color-16](../../../_assets/datalens/chart/chart-color-16.png)
+
+          {% endcut %}
+
+        * Click ![icon](../../../_assets/console-icons/pencil-to-line.svg) and then click the color icon preceding its hex value. In the window that opens, select a color from the color palette or specify a color in RGB, HSL, or hex format. To switch between formats, click ![icon](../../../_assets/console-icons/chevrons-expand-vertical.svg).
+
+          {% cut "Switching between color formats" %}
+
+          ![chart-color-rgb](../../../_assets/datalens/chart/chart-color-rgb.png)
+
+          {% endcut %}
+          
+          You can also use the eyedropper tool to select a color on the report page.
+
+          {% cut "Picking a color on the screen" %}
+
+          ![chart-color-eyedropper](../../../_assets/datalens/chart/chart-color-eyedropper.png)
+
+          {% endcut %}
+
      1. Click **Apply**.
 
    - For a measure {#indicator}
@@ -284,9 +319,35 @@ To set up colors:
 
    {% endlist %}
 
-{% endcut %}
-
 You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
+
+### Forms {#forms-settings}
+
+This setting is only available for [line](../../visualization-ref/line-chart.md) (including as part of a [combined](../../visualization-ref/combined-chart.md) chart) and [scatter](../../visualization-ref/scatter-chart.md) charts in the [wizard](../chart/dataset-based-charts.md) and in [QL charts](../chart/ql-charts.md).
+
+In a line chart, the setting allows you to set line shape and size, as well as line cap and/or junction style for a dimension or the [Measure Names](./measure-values.md) field. To configure line shapes and sizes:
+
+1. In the top-right corner of the **Forms** section, click ![image](../../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
+1. On the **Lines** tab, specify the following for each value:
+  
+   * Select line thickness from the list or enter manually, from `1` to `12` pixels. If you select `Auto`, the size from the **General settings** tab or the default size will be used.
+   * Select line shape from the preset values. If you select `Auto`, the shape from the **General settings** tab or the default shape will be used.
+
+   {% cut "Line settings" %}
+
+   ![line-chart-forms-settings](../../../_assets/datalens/visualization-ref/line-chart/line-chart-forms-settings.png =439x362)
+
+   {% endcut %}
+
+1. In the **General settings** tab, set thickness, junction shape, and line caps for all values from the **Lines** tab.
+
+   {% cut "General line settings" %}
+
+   ![line-chart-forms-general-settings](../../../_assets/datalens/visualization-ref/line-chart/line-chart-forms-general-settings.png =439x362)
+
+   {% endcut %}
+
+In the scatter chart, the setting allows you to set the shape of the dimension points by selecting it from the preset shapes.
 
 ### Labels {#sign}
 

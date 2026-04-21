@@ -59,6 +59,9 @@ spec:
         id: "target-group-id-1"  # existing target group ID
         dontUpdatePaths: ["name", "description"]  # fields not to update
       gatewayClass: "yandex-cloud-gateway"  # gateway class filter
+    
+    # ALB resource naming
+    albTargetGroupName: "my-target-group"  # custom target group name
 ```
 
 | Field | Description |
@@ -128,6 +131,7 @@ Service policy configuration that applies to Service targets.
 |-------|-------------|
 | targets | **[ServiceTargets](#servicetargets)** <br> Configures how ALB should select and address Service endpoints |
 | attach | **[ServiceAttach](#serviceattach)** <br> Configures service attachment to existing cloud resources |
+| albTargetGroupName | **string** <br> Custom name for the ALB target group created for this service. By default, the controller generates the name automatically. <br> Example: `my-target-group` |
 
 ## ServiceTargets
 

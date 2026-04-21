@@ -28,7 +28,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -66,7 +66,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/list.md#yandex.cloud.mdb.kafka.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -93,7 +93,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
        yandex.cloud.mdb.kafka.v1.UserService.List
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.kafka.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -113,7 +113,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   To create a user for a producer or consumer in a cluster:
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter the username and password.
@@ -185,7 +185,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. Add the `yandex_mdb_kafka_user` resource:
 
      ```hcl
@@ -200,11 +200,11 @@ Use the CLI, API, or {{ TF }} to create an admin user.
      {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
   1. [Grant access permissions](#grant-permission) for the relevant topics.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -326,7 +326,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select:
 
@@ -347,7 +347,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
 
   1. In this file, locate the `yandex_mdb_kafka_user` resource for the user in question and make the changes as needed.
 
@@ -466,7 +466,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
@@ -495,7 +495,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. In this file, locate the `yandex_mdb_kafka_user` resource for the user in question.
   1. Edit the `password` field value:
 
@@ -513,7 +513,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -545,7 +545,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings to update.
+     * `updateMask`: Comma-separated string of settings you want to update.
 
         Here, we only specified a single setting, `password`.
 
@@ -614,8 +614,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
-  1. Select the cluster.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Select a cluster.
   1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the user you need to grant topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.kafka.button_add-topic }}**. If you do not see this button, the user already has permissions for all topics in the cluster.
@@ -698,7 +698,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. In this file, locate the `yandex_mdb_kafka_cluster` resource for the user in question.
   1. Add the `permission` section:
 
@@ -725,15 +725,15 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
      * `allow_hosts`: List of IP addresses the user is allowed to access the topic from.
 
-     Along with access to the topic, the user also gains access to data schema subjects. The list of available subjects depends on the roles and topics you specify. For more information, see [Subjects in {{ mkf-msr }}](../concepts/managed-schema-registry.md#subjects).
+     Along with access to the topic, the user also gains access to data schema subjects. The list of available subjects depends on the roles and topics you specify. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
 
     If a user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -838,8 +838,8 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
-  1. Select the cluster.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Select a cluster.
   1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Find the topic in the list of topics.
@@ -875,14 +875,14 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. In this file, locate the `yandex_mdb_kafka_user` resource for the user in question.
   1. Edit or delete the `permission` section.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1007,7 +1007,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -1030,13 +1030,13 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. Delete the `yandex_mdb_kafka_user` resource for the user in question.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

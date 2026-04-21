@@ -56,4 +56,10 @@ PUT /{bucket}?versioning HTTP/2
 
 Успешный ответ не содержит дополнительных данных.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/versioning.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -24,6 +24,12 @@ items:
             href: operations/workspaces/manage-access.md
           - name: Deleting a workspace
             href: operations/workspaces/delete.md
+      - name: Alerts
+        items:
+          - name: Viewing alerts
+            href: operations/alerts/view.md
+          - name: Working with alerts
+            href: operations/alerts/work.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         items:
           - name: Overview
@@ -90,6 +96,8 @@ items:
             href: concepts/standard-compliance/yc-security-baseline.md
           - name: Cloud infrastructure security standard {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
+          - name: CIS Benchmark™ requirements for {{ k8s }}
+            href: concepts/standard-compliance/cis-kubernetes-benchmark.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         href: concepts/dspm.md
       - name: '{{ kspm-full-name }} ({{ kspm-name }})'
@@ -140,6 +148,8 @@ items:
         href: rules-reference/all.md
       - name: '{{ cspm-name }}'
         href: rules-reference/cspm.md
+      - name: '{{ kspm-name }}'
+        href: rules-reference/kspm.md
   - name: API reference
     items:
       - name: Authentication

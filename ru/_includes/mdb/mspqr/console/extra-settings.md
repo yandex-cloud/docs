@@ -1,5 +1,3 @@
-* **{{ ui-key.yacloud.spqr.console_password }}**. Пароль для консоли администратора, в которой можно настраивать правила шардирования. Обязательный параметр, допустимая длина — от 8 до 128 символов.
-
 * **{{ ui-key.yacloud.logging.label_minlevel }}** — в журнал выполнения будут записываться логи указанного уровня и выше. Доступные уровни — `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL` и `PANIC`. Уровень по умолчанию — `INFO`.
 
 * {% include [Backup time](../../../../_includes/mdb/console/backup-time.md) %}

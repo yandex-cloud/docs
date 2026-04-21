@@ -147,7 +147,7 @@ Configuring RLS at the dataset level requires editing the datatset every time th
 
 To avoid this, you can move the row-level security logic to the data source side:
 
-1. Add a new field for storing the user ID to the source data. All requests to the source will be filtered by this field.
+1. Add a new field for storing the {{ datalens-short-name }} user ID to the source data. All requests to the source will be filtered by this field.
 
    
    
@@ -155,7 +155,7 @@ To avoid this, you can move the row-level security logic to the data source side
 
 
 
-1. For each source data row, specify the ID of the user who should get access to this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
+1. For each source data row, specify the ID of the {{ datalens-short-name }} user who should get access to this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
 
 
 1. In the dataset RLS setting, enter `userid:userid` in the ID field. The `userid` variable can be used together with the regular RLS type in the dataset:

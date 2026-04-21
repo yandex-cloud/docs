@@ -228,7 +228,7 @@ To integrate Grafana OSS with the OIDC app you created in {{ org-full-name }}, c
          <Grafana_OSS_instance_URL>/login/generic_oauth
          ```
 
-      1. In the **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** field, check the `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-groups_iZoa5 }}` attribute and select `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+      1. In the **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** field, check the `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-groups_iZoa5 }}` attribute and select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 

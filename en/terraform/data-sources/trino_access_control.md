@@ -101,5 +101,7 @@ Access control configuration for Trino cluster.
     - `name_regexp` (String). Table name regexp the rule is applied to.
     - `names` (List Of String). Table names rule is applied to.
   - `users` (List Of String). IAM user IDs the rule is applied to.
+- `timeouts` [Block]. 
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 
 

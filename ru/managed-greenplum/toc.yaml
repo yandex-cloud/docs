@@ -157,6 +157,8 @@ items:
         href: concepts/index.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Расчет конфигурации кластера
         href: concepts/calculate-specs.md
       - name: Сеть в {{ mgp-name }}

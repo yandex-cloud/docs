@@ -14,6 +14,7 @@ yc config set <имя_параметра> <значение_параметра>
 ```
 
 Например, измените каталог по умолчанию:
+
 1. [Получите информацию о текущих параметрах профиля](profile-list.md#profile-get).
 1. Измените каталог по умолчанию (параметр `folder-id`): 
 
@@ -34,11 +35,17 @@ yc config set <имя_параметра> <значение_параметра>
    Результат:
 
    ```text
-   token: y0_AgAAA...Njwvs7N4
+   subject-id: ajea53egl28l********
    cloud-id: b1gj9ja2h4ct********
    folder-id: b1g5bhjofg7o********
    organization-id: bpfaidqca8vd********
    ```
+   
+{% note info %}
+
+В CLI вам доступны ресурсы каталога по умолчанию. Если вы часто работаете с ресурсами в определенном каталоге, сделайте его каталогом по умолчанию — тогда вам не придется каждый раз указывать `--folder-id` или `--folder-name`. Когда вы используете идентификатор ресурса, указывать каталог не нужно.
+
+{% endnote %}
     
 Ознакомьтесь с полным [списком параметров](../../concepts/core-properties.md) профиля. Также вы можете изменить параметры профиля с помощью [процесса интерактивного создания профиля](profile-create.md#interactive-create).
 
@@ -67,7 +74,7 @@ yc config unset <имя_параметра>
     Результат:
 
     ```text
-    token: y0_AgAAA...Njwvs7N4
+    subject-id: ajea53egl28l********
     cloud-id: b1gj9ja2h4ct********
     folder-id: b1g5bhjofg7o********
     ```
@@ -85,7 +92,7 @@ yc config list --profile test
 Результат:
 
 ```text
-token: y0_AgAAA...Kjwgs7h3
+subject-id: ajea53egl28l********
 cloud-id: b15jlj22h4ct********
 folder-id: b1grb2jo7g7o********
 ```

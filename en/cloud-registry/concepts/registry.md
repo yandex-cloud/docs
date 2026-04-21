@@ -27,6 +27,19 @@ _Remote registries_ operate as proxies for remote repositories, such as [Docker 
 
 With {{ cloud-registry-name }}, developers can upload code libraries, software packages, and other development artifacts into remote registries for storage.
 
+#### Custom registries {#custom-registry}
+
+_Custom registries_ are a type of remote registries where the user specifies the source of artifacts manually instead of using a default public source. A custom source address must:
+* Point to a specific registry rather than a shared host, because different cloud providers and artifact management systems may serve multiple registries under a single domain.
+* Begin with `http://` or `https://`.
+
+Example of correct Docker registry addresses:
+
+```text
+https://registry.yandexcloud.net/v2/registry-id
+https://registry-1.docker.io/v2/registry-id
+```
+
 ### Virtual registries {#virtual-registry}
 
 Multiple local and/or remote registries can be combined under a single name with the help of _virtual registries_, providing a single entry point to search and download required artifacts. Virtual registries simplify access and management because, with the single entry point, users do not have to think about the physical location of registries.

@@ -67,17 +67,7 @@ If the load balancer is managed by an {{ alb-name }} [ingress controller](../../
 
 - Management console {#console}
 
-  1. At the top right of the page with security profile properties, click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-  1. Select the following in the given order:
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
-
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. You can associate the security profile with multiple virtual hosts at once.
-
-        To connect another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
-  1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
-
-      You will see the connected virtual hosts under ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}**.
+  {% include [host-connect](../../_includes/smartwebsecurity/security-profile-host-connect.md) %}
 
 {% endlist %}
 

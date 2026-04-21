@@ -70,4 +70,10 @@ PUT /{bucket}?logging HTTP/2
 
 Успешный ответ не содержит дополнительных данных.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Включение механизма логирования действий с бакетом](../../../operations/buckets/enable-logging.md#enable)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

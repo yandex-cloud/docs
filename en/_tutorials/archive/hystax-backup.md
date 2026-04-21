@@ -102,7 +102,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
           * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
-      1. Select the [storage class](../../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+      1. Select the [storage class](../../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.value_standard }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
   1. Save the bucket name. You will need it later.
 

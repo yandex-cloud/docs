@@ -1,13 +1,13 @@
 ---
-title: '{{ postbox-full-name }}. Service overview'
-description: '{{ postbox-full-name }} is a cloud platform for simplified and cost-effective sending of transactional emails.'
+title: '{{ postbox-full-name }}. Overview'
+description: '{{ postbox-full-name }} is a cloud service for simplified and cost-effective email sending.'
 ---
 
 # {{ postbox-full-name }} overview
 
-{{ postbox-full-name }} is an email platform that provides a simple and cost-effective way of sending emails from user [addresses](glossary.md#adress). The service also allows you to flexibly configure email delivery [notifications](notification.md).
+{{ postbox-full-name }} is an email service that provides a simple and cost-effective way to send emails from user [addresses](glossary.md#adress) and allows you to flexibly set up delivery [notifications](notification.md).
 
-{{ postbox-name }} is optimized for sending transactional emails, such as order confirmations or system action verifications, status emails, information bulletins, newsletters, and other types of messages. You may choose to unsubscribe from newsletters and forward emails that got answered by users.
+{{ postbox-name }} is optimized for sending transactional emails, notifications, informational and marketing newsletters, and other types of correspondence. You may choose to unsubscribe from newsletters and forward emails that got answered by users.
 
 You can develop your own software solutions, e.g., generate customer support tickets from incoming emails or build [integrations](#integration) with cloud systems and your own information systems. 
 

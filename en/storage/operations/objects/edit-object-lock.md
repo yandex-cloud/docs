@@ -103,6 +103,8 @@ To set or configure an object lock:
 
 {% endlist %}
 
+During the lock period, the object version is protected from deletion and modification. You can still perform actions on the object, but these will create new versions. You will be able to [restore the locked version](restore-object-version.md) until the lock expires.
+
 ## Removing governance-mode retention {#remove-governance-retention}
 
 The minimum required role is `storage.admin`.
@@ -281,6 +283,8 @@ To set or remove legal hold:
   Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
 
 {% endlist %}
+
+If you set a lock, the object version will be protected from deletion and modification. Actions with the object will create new versions, and it will be possible to [restore the locked version](restore-object-version.md) until the lock is removed.
 
 ## Examples {#examples}
 

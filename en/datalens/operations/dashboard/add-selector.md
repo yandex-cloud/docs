@@ -35,10 +35,10 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
      
      * **Show in tabs**: Select how the selector will be displayed on the dashboards:
 
-       * `Current tab <tab_name>`: Display the selector on the specified tab. This is the default option for a single selector.
-       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-       * `All tabs`: The selector will be displayed on all tabs. This option is available for a single selector.
-       * `From group settings <group_value>`: Selector display will be based on the advanced settings of the selector group widget. This option is available only for a selector within a group.
+       * `Current tab <tab_name>` (default for a single selector): The selector will be displayed on the specified tab.
+       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+       * `All tabs`: The selector will be displayed on all tabs. Available for a single selector.
+       * `From group settings <group_value>` settings: The selector will be displayed based on advanced settings of the widget with a group of selectors. This option is available only for a selector within a group.
 
      * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
 
@@ -95,10 +95,10 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
      
      * **Show in tabs**: Select how to display the selector on the dashboard:
 
-       * `Current tab <tab_name>`: Display the selector on the specified tab. This is the default option for a single selector.
-       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-       * `All tabs`: The selector will be displayed on all tabs. This option is available for a single selector.
-       * `From group settings <group_value>`: Selector display will be based on the advanced settings of the selector group widget. This option is available only for a selector within a group.
+       * `Current tab <tab_name>` (default for a single selector): The selector will be displayed on the specified tab.
+       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+       * `All tabs`: The selector will be displayed on all tabs. Available for a single selector.
+       * `From group settings <group_value>` settings: The selector will be displayed based on advanced settings of the widget with a group of selectors. This option is available only for a selector within a group.
 
      * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field or parameter** is speficied. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
 
@@ -151,7 +151,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    In [QL charts](../../concepts/chart/ql-charts.md), you can control [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
 
-1. Optionally, add another selector to the widget. To to this, on the left side of the **Selectors** tab, click ![image](../../../_assets/console-icons/plus.svg) **Add** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, on the **Selectors** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
+1. Optionally, add another selector to the widget. To do this, click ![image](../../../_assets/console-icons/plus.svg) **Add** on the left side of the **Selectors** tab and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, on the **Selectors** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
 
    * **Duplicate**: This will add a new selector with the same parameters to the widget.
    * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button on the **Selectors** tab or to a dashboard using the **Insert** button on the bottom panel of the dashboard page.
@@ -167,7 +167,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * `Current tab <tab_name>` is default. The selector will be displayed on the specified tab.
      * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-     * `All tabs`: Display the selector on all tabs.
+     * `All tabs`: The selector will be displayed on all tabs.
      
      This setting becomes available when you add a second selector to a widget:
      
@@ -214,3 +214,39 @@ When adding a selector by a certain field to your dashboard, filters added at th
 
 * For measure selectors, only one type is available: **Input field**.
 * We recommend that you always make your measure selectors independent from other selectors. To do this, set your dashboard's [link](../../dashboard/link.md) type to **Not linked** with other selectors in the **Links** section when editing.
+
+## Copying and pasting selectors {#copy-paste}
+
+You can copy a created selector and paste it onto your dashboard.
+
+When you copy a selector from one tab and paste it into another tab of the current dashboard, you can link it to the original selector or create a new independent selector.
+
+Generally, copying and pasting a widget or a JS selector works the same way as copying and pasting a separate selector.
+
+To copy a selector from a dashboard:
+
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
+1. At the top of the page, click **Edit**.
+1. On the dashboard, next to the widget, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Copy**.
+
+To paste a copied selector onto your dashboard:
+
+1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
+1. At the top of the page, click **Edit**.
+1. Select the dashboard tab you want to paste the widget onto.
+1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget to the target area. To paste the widget at the bottom of your dashboard, simply click ![image](../../../_assets/console-icons/copy-plus.svg) **Paste**.
+
+   If you are trying to paste a selector into another tab of the current dashboard, select:
+   
+   * **Update settings**: After pasting, the original selector's **Show in tabs** setting will automatically update:
+   
+     * `Current tab`: Switches to `Selected tabs`, i.e., the tabs containing the original and added selectors.
+     * `Selected tabs`: Remains unchanged, but the list of tabs will include the one with the new selector, if not specified previously.
+   
+   * **Copy** (or close the window): Creates an independent selector on the current tab.
+
+   If the selector has been copied from the current tab, an independent selector will be created.
+   If the current tab has already been checked in the **Show in tabs** setting, an independent selector will be created.
+   
+1. Resize the widget and move it to a convenient location on the page.
+1. In the top-right corner of the dashboard, click **Save**.

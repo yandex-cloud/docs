@@ -1,8 +1,6 @@
 # Яндекс Метрика: экспорт, постобработка и визуализация данных
 
 
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
-
 В этом практическом руководстве вы научитесь строить воронки конверсий, проведете когортный анализ и посчитаете Retention пользовательской базы в {{ ml-platform-full-name }} и визуализируете данные в {{ datalens-full-name }}.
 
 В качестве источника данных будут использованы данные из Яндекс Метрики.
@@ -86,7 +84,6 @@
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
         * **Доступ из консоли управления**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**
    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 ### 1.2. Подключите {{ ml-platform-short-name }} {#datasphere-connection}

@@ -40,4 +40,10 @@ GET /{bucket}?policy HTTP/2
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
+* [Просмотр политики](../../../operations/buckets/policy.md#view-policy)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -10,8 +10,8 @@ You can add and remove users, as well as manage their settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-  1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the cluster name and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
 
 - CLI {#cli}
 
@@ -29,7 +29,7 @@ You can add and remove users, as well as manage their settings.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -42,13 +42,13 @@ You can add and remove users, as well as manage their settings.
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/users'
       ```
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -69,7 +69,7 @@ You can add and remove users, as well as manage their settings.
           yandex.cloud.mdb.mysql.v1.UserService.List
       ```
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -81,7 +81,7 @@ You can add and remove users, as well as manage their settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
@@ -106,7 +106,7 @@ You can add and remove users, as well as manage their settings.
 
      * **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**: Authentication with a [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local user](../../iam/concepts/users/accounts.md#local).
 
-       In the **{{ ui-key.yacloud.common.user }}** field, open the list of available user accounts and select the one you need. To find the account you need, use the search bar above the list.
+       In the **{{ ui-key.yacloud.common.user }}** field, open the list of available user accounts and select the one you need. To find the account, use the search bar above the list.
 
 
   1. Select which databases the user should have access to:
@@ -119,7 +119,9 @@ You can add and remove users, as well as manage their settings.
       1. In the drop-down list, select the privilege you want to grant the user.
       1. Repeat these two steps to add all required privileges.
   1. To revoke a privilege granted by mistake, click ![image](../../_assets/console-icons/xmark.svg) to its right.
-  1. Configure the [{{ MY }} settings and administrative privileges](../concepts/settings-list.md#dbms-user-settings) for the user, if required.
+  1. Optionally, under **Advanced settings**: 
+      * Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
+      * Under **Global permissions**, specify the [administrative privileges](../concepts/settings-list.md#setting-administrative-privileges) to grant the user at the cluster level.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 - CLI {#cli}
@@ -203,7 +205,7 @@ You can add and remove users, as well as manage their settings.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -258,7 +260,7 @@ You can add and remove users, as well as manage their settings.
           --data "@body.json"
       ```
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -310,7 +312,7 @@ You can add and remove users, as well as manage their settings.
 
           In the `permissions` array, add a separate element with permission settings for each database.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Call the [UserService/Create](../api-ref/grpc/User/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -337,7 +339,7 @@ You can add and remove users, as well as manage their settings.
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
@@ -428,7 +430,7 @@ You can add and remove users, as well as manage their settings.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -450,7 +452,7 @@ You can add and remove users, as well as manage their settings.
 
       Where:
 
-      * `updateMask`: Comma-separated string of settings you want to update.
+      * `updateMask`: Comma-separated string of settings to update.
 
           Here, we provide only one setting.
 
@@ -477,7 +479,7 @@ You can add and remove users, as well as manage their settings.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -509,7 +511,7 @@ You can add and remove users, as well as manage their settings.
 
       Where:
 
-      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
           Here, we provide only one setting.
 
@@ -554,7 +556,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
@@ -593,7 +595,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      To learn how to create this file, see [Creating a cluster](./cluster-create.md).
+      For more on how to create this file, see [Creating a cluster](./cluster-create.md).
 
   1. Locate the `yandex_mdb_mysql_user` resource for the user in question.
 
@@ -640,7 +642,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -674,7 +676,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
       Where:
 
-      * `updateMask`: Comma-separated string of settings you want to update.
+      * `updateMask`: Comma-separated string of settings to update.
       * `globalPermissions`: Array of administrative privileges, each provided as a separate string in the array. For the list of possible values, see the [method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
       * `connectionLimits`: User connection settings:
 
@@ -693,7 +695,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -764,7 +766,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of your cluster and select the ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -802,7 +804,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -821,7 +823,7 @@ To change user's database access privileges, follow [this guide](grant.md#grant-
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -6,6 +6,29 @@ editable: false
 
 
 
+## 0.200.0 (April 20, 2026)
+##### BUG FIXES:
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with `default_database`
+
+## 0.199.0 (April 16, 2026)
+##### ENHANCEMENTS:
+* mysql: Disable disk shrinking during autoscaling in MySQL cluster
+
+## 0.198.0 (April 13, 2026)
+##### FEATURES:
+* CloudOrganization: added new password policy to userpool - password blacklist policy
+* lockbox_secret_version_entry: added new data source to retrieve a single secret entry by key
+* Kafka: Terraform Provider: add iceberg sink connector
+
+## 0.197.0 (April 9, 2026)
+##### FEATURES:
+* function_trigger: added `workflow` invocation target support for Workflows
+* ClickHouse: Terraform Provider: add cluster extension management
+##### BUG FIXES:
+* serverless: fix bug with batch_cutoff in triggers
+* postgresql: fix generating update mask for config_spec.disk_size_autoscaling.* parameters
+* mdb_clickhouse: fixed a bug with adding zookeeper/keeper hosts
+
 ## 0.196.0 (April 2, 2026)
 ##### FEATURES:
 * mysql: add yandex_mdb_mysql_database_v2 resource and datasource

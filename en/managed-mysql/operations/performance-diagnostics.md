@@ -36,7 +36,7 @@
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To enable and configure statistics collection, add the `performance_diagnostics` section to the cluster configuration:
 
@@ -54,7 +54,7 @@
 
         For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -66,7 +66,7 @@
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -135,7 +135,7 @@
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -274,31 +274,31 @@
 
 ### Available metrics {#metrics}
 
-This section lists metrics used to collect query statistics and the associated {{ mmy-name }} metrics in [{{ monitoring-name }}](../../monitoring/).
+This section lists metrics used to collect query statistics in [{{ monitoring-name }}](../../monitoring/).
 
-Statistic metric | {{ monitoring-name }} metric | Description
+Statistic metric | Unit | Description
 ----- | ----- | -----
-**Total query latency** | - | Total query execution time
-**Total lock latency** | - | Total lock wait time
-**Avg query latency** | `mysql_latency_query_avg`<br/>`DGAUGE`, milliseconds | Average query execution time
-**Avg lock latency** | - | Average lock wait time
-**Rows examined** | - | Number of rows read
-**Calls** | - | Number of database calls
-**Rows sent** | - | Number of rows returned
-**Rows affected** | - | Number of rows changed, deleted, added, or returned
-**Tmp tables** | `mysql_Created_tmp_tables_rate`<br/>`DGAUGE`, tables per second | Rate of temporary tables created during query processing
-**Tmp disk tables** | `mysql_Created_tmp_disk_tables_rate`<br/>`DGAUGE`, tables per second | Rate of temporary tables created on the disk during query processing
-**Select full join** | `mysql_Select_full_join_rate`<br/>`DGAUGE`, queries per second | Rate of joins using table scans rather than indexes
-**Select full range join** | `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, queries per second | Rate of joins searching by range in the reference table
-**Select range** | - | Number of range selects
-**Select scan** | - | Number of selects using table scans
-**Sort merge passes** | - | Number of merge sorts on tables
-**Sort range** | `mysql_Sort_range_rate`<br/>`DGAUGE`, queries per second | Number of range sorts per unit of time
-**Sort rows** | `mysql_Sort_rows_rate`<br/>`DGAUGE`, queries per second | Number of rows sorted per unit of time
-**Sort scan** | `mysql_Sort_scan_rate`<br/>`DGAUGE`, queries per second | Number of sorts using table scans per unit of time
-**No index used** | - | `1` if no index was used for the table scan, `0` otherwise
-**No good index used** | - | `1` if no suitable index was found for the query, `0` otherwise
-**Errors** | - | Number of query execution errors
-**Warnings** | - | Number of query execution warnings
+**Total query latency** | Milliseconds | Total query execution time
+**Total lock latency** | Milliseconds | Total lock wait time
+**Avg query latency** | Milliseconds | Average query execution time
+**Avg lock latency** | Milliseconds | Average lock wait time
+**Rows examined** | Count | Number of rows read
+**Calls** | Count | Number of database calls
+**Rows sent** | Count | Number of rows returned
+**Rows affected** | Count | Number of rows changed, deleted, added, or returned
+**Tmp tables** | Count | Rate of temporary tables created during query processing
+**Tmp disk tables** | Count | Rate of temporary tables created on the disk during query processing
+**Select full join** | Count | Rate of joins using table scans rather than indexes
+**Select full range join** | Count | Rate of joins searching by range in the reference table
+**Select range** | Count | Number of range selects
+**Select scan** | Count | Number of selects using table scans
+**Sort merge passes** | Count | Number of merge sorts on tables
+**Sort range** | Count | Number of range sorts per unit of time
+**Sort rows** | Count | Number of rows sorted per unit of time
+**Sort scan** | Count | Number of sorts using table scans per unit of time
+**No index used** | 0/1 | `1` if no index was used for the table scan, `0` otherwise
+**No good index used** | 0/1 | `1` if no suitable index was found for the query, `0` otherwise
+**Errors** | Count | Number of query execution errors
+**Warnings** | Count | Number of query execution warnings
 
 For more information about the statistics you can get, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).

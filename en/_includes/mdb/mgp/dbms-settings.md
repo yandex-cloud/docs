@@ -107,9 +107,12 @@ This is an [open-gpdb](https://github.com/open-gpdb/gpdb) build-specific paramet
 
 {% endnote %}
 
-| Available in version | Type     | Acceptable values            | Default value | Context |
-|-------------------|---------|--------------------------------|-----------------------|----------|
-| 6.28 and higher       | Boolean | `true` (`on`), `false` (`off`) | `true` (`on`)         | `user`   |
+#|
+|| **Available in version** | **Type** | **Valid values** | **Default value** | **Context** ||
+|| 6.28 and higher | Boolean | `true` (`on`), `false` (`off`) | Depends on the version:
+* 6.28: `false` (`off`)
+* 6.29 and higher: `true` (`on`) | `user` ||
+|#
 
 Controls the `ZSTD` memory accounting feature. Enabling it (`true`/`on`) prevents `ZSTD` from exceeding the memory available to the resource manager (a group or a queue) by moving `ZSTD` to a separate `zstd_context` memory context. This reduces the probability of an uncontrolled cluster crash due to out-of-memory errors.
 

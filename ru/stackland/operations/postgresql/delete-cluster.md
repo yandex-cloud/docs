@@ -1,6 +1,6 @@
 # Удалить кластер PostgreSQL
 
-Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md)), вы можете удалить его.
+Если у вас есть кластер [PostgreSQL](../../concepts/components/postgresql.md) в [проекте](../projects/create-project.md), вы можете удалить его.
 
 {% note warning %}
 

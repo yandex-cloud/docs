@@ -30,6 +30,11 @@ resource "yandex_organizationmanager_os_login_settings" "my_settings" {
 - `organization_id` (**Required**)(String). The organization to manage it's OsLogin Settings.
 - `ssh_certificate_settings` [Block]. SSH Certificate settings.
   - `enabled` (Bool). Enables or disables usage of SSH certificates signed by trusted Certification Authority (CA).
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `user_ssh_key_settings` [Block]. Users SSH key settings.
   - `allow_manage_own_keys` (Bool). If set to true subject is allowed to manage own ssh keys without having to be assigned specific permissions.
   - `enabled` (Bool). Enables or disables usage of ssh keys assigned to a specific subject.

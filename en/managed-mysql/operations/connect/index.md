@@ -9,11 +9,13 @@ You can connect to {{ mmy-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
+
 {% note warning %}
 
 If only some cluster hosts have public access, an [automatic master failover](../../concepts/replication.md#master-failover) can make the master host unreachable from the internet.
 
 {% endnote %}
+
 
 The maximum number of connections is defined by the [Max connections](../../concepts/settings-list.md#setting-max-connections) setting that [depends on the host class](../../concepts/settings-list.md#settings-instance-dependent).
 

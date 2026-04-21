@@ -20,7 +20,9 @@ If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/e
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) to it the following roles for the [organization](../concepts/organization.md) the user pool is in:
 
     {% include [ad-synk-sa-roles](../../_includes/organization/ad-synk-sa-roles.md) %}
-1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) and save an [authorized key](../../iam/concepts/authorization/key.md) for your [service account](../../iam/concepts/users/service-accounts.md).
+1. Optionally, [create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) and save an [authorized key](../../iam/concepts/authorization/key.md) for your [service account](../../iam/concepts/users/service-accounts.md).
+
+    {% include [ad-synk-iam-via-metadata-warning](../../_includes/organization/ad-synk-iam-via-metadata-warning.md) %}
 
 ## Prepare your {{ microsoft-idp.ad-short }} domain controller {#dc-setup}
 
@@ -29,6 +31,8 @@ If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/e
 ## Configure and start the synchronization agent {#setup-agent}
 
 You can install the [synchronization agent](../concepts/ad-sync.md#sync-agent) on any [Linux](https://en.wikipedia.org/wiki/Linux) or [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) server.
+
+If you are installing a sync agent on a {{ compute-full-name }} [VM](../../compute/concepts/vm.md), [connect](../../compute/operations/vm-control/vm-connect-sa.md) the service account you created [earlier](#prepare-org) to that VM.
 
 Before you start syncing, open the following [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) ports for incoming and outgoing network traffic on the server you are going to run the synchronization agent on:
 
@@ -64,7 +68,7 @@ To start syncing users and groups:
       To check service status: sudo systemctl status yc-identityhub-sync-agent
       yc-identityhub-sync-agent is installed to /usr/bin/yc-identityhub-sync-agent
       ```
-  1. Copy to your server the file with service account's authorized key you saved earlier.
+  1. Optionally, if you are going to use the authorized key of the service account to authenticate the agent in the {{ yandex-cloud }} API, copy the previously saved authorized key file to your server.
 
       Do it using the `scp` command or any other suitable tool.
   1. Use any text editor to open the [YAML](https://yaml.org/) file containing the synchronization agent's configuration. This example uses the `nano` editor:
@@ -134,7 +138,7 @@ To start syncing users and groups:
       ```powershell
       Start-Service yc-identityhub-sync-agent
       ```
-  1. To make sure syncing is in progress, look up the agent's log file. Here is an example:
+  1. To make sure syncing is in progress, look up the agent's log file. For example:
 
       ```bash
       cat C:\ProgramData\YcIdentityHubSyncAgent\identity_hub.log

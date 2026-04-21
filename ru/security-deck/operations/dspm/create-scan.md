@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы узнаете
 
 # Создать сканирование {{ dspm-name }}
 
-[Модуль контроля данных](../../concepts/dspm.md) ({{ ciem-full-name }}) находит чувствительную информацию в хранилищах с помощью сканирования [источников данных](../../concepts/dspm.md#data-source) — [бакетов](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [Яндекс Дисков]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}.
+[Модуль контроля данных](../../concepts/dspm.md) ({{ dspm-full-name }}) находит чувствительную информацию в хранилищах с помощью сканирования [источников данных](../../concepts/dspm.md#data-source) — [бакетов](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [Яндекс Дисков]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}.
 
 Прежде чем начать работать с {{ dspm-name }}, [настройте](../../quickstart-overview.md#configure-sd) каталог по умолчанию для хранения данных сервиса {{ sd-name }}.
 

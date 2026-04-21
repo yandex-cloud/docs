@@ -43,4 +43,8 @@ GET /{bucket}?website HTTP/2
 
 Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md).
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../operations/hosting/setup.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

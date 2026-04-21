@@ -81,6 +81,9 @@ metadata:
     gwin.yandex.cloud/attach.targetGroup.id: "target-group-id-1"  # Existing target group ID
     gwin.yandex.cloud/attach.targetGroup.dontUpdatePaths: "name,description"  # Fields not to update
     gwin.yandex.cloud/attach.gatewayClass: "yandex-cloud-gateway"  # Gateway class filter
+
+    # ALB resource naming
+    gwin.yandex.cloud/albTargetGroupName: "my-target-group"  # custom target group name
 ```
 
 ### Annotations reference
@@ -108,6 +111,12 @@ metadata:
 | `gwin.yandex.cloud/attach.targetGroup.id` <br> _(string)_ <br> Cloud target group ID that should be managed by this service. The controller will attach to this existing target group instead of creating a new one. <br> Example: `target-group-id-1` |
 | `gwin.yandex.cloud/attach.targetGroup.dontUpdatePaths` <br> _(string list)_ <br> Specifies which fields should NOT be updated by the controller. Default is "name" - the controller doesn't touch the group name. <br> Example: `name,description`, `none` |
 | `gwin.yandex.cloud/attach.gatewayClass` <br> _(string)_ <br> Specifies the gateway class that should manage this service. If specified and the corresponding gatewayClass is not managed by the controller, the service is ignored. This is useful for advanced scenarios where multiple controllers might be present. <br> Example: `yandex-cloud-gateway` |
+
+#### ALB resource naming
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/albTargetGroupName` <br> _(string)_ <br> Custom name for the ALB target group created for this service. By default, the controller generates the name automatically. <br> Example: `my-target-group` |
 
 ## ServiceSpec
 

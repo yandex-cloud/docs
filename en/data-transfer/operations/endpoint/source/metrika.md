@@ -22,7 +22,7 @@ noIndex: true
 
 * Processing data with {{ CH }} tools.
 * Streaming data from {{ CH }} to other locations.
-* Visualizing data with [{{ datalens-full-name }}]({{ link-datalens-main }}) or other services.
+* Visualizing data with [{{ datalens-full-name }}]({{ link-datalens-main-promo }}) or other services.
 
 See [this tutorial](../../../tutorials/metrika-to-clickhouse.md) on how to transfer {{ metrika }} tag data to a {{ CH }} cluster.
 

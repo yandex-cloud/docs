@@ -1,11 +1,12 @@
 ---
 title: Connecting to a {{ CH }} cluster in {{ mch-full-name }}
-description: Follow this guide to connect to a database in a {{ CH }} cluster using command line tools, browser, graphical IDEs, and Docker container.
+description: Follow this guide to connect to a database in a {{ CH }} cluster using the command line tools, browser, graphical IDEs, and Docker container.
 ---
 
 # Connecting to a {{ CH }} cluster from applications
 
-This section provides settings for connecting to {{ mch-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
+This section provides settings for connecting to {{ mch-name }} cluster hosts using the [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
+
 
 You can only connect to public {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
 
@@ -15,6 +16,7 @@ You can only connect to public {{ CH }} cluster hosts using [SSL certificates](i
 Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted for database connections.
 
 Before connecting, [configure security groups](index.md#configure-security-groups) for the cluster, if required.
+
 
 The examples for Linux were tested in the following environment:
 
@@ -74,9 +76,9 @@ The examples for Windows were tested in the following environment:
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host FQDN, see [this guide](fqdn.md).
 
-After you run this command, enter the user password to complete the connection process.
+After runing this command, enter the user password to complete your connection.
 
 Once connected to the DBMS, run the `SELECT version();` command.
 
@@ -123,9 +125,9 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
-After you run this command, enter the user password to complete the connection process.
+After runing this command, enter the user password to complete your connection.
 
 Once connected to the DBMS, run the `SELECT version();` command.
 
@@ -156,7 +158,7 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 #### Windows (PowerShell) {#curl-powershell}
 
@@ -184,13 +186,15 @@ Learn how to get a host FQDN in [this guide](fqdn.md).
 
 {% endlist %}
 
-Learn how to get a host FQDN in [this guide](fqdn.md).
+To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 ## Connecting from graphical IDEs {#ide}
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
+
 From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -208,7 +212,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
     1. On the **SSH/SSL** tab:
         1. Enable **Use SSL**.
         1. Specify the directory that contains the file with the downloaded [SSL certificate for the connection](index.md#get-ssl-cert).
-1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}
@@ -221,7 +225,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
         * **Host**: [FQDN of any {{ CH }} host](fqdn.md) or a [special FQDN](fqdn.md#auto).
         * **Port**: `{{ port-mch-http }}`.
         * **DB/Schema**: Name of the database to connect to.
-        * Under **Authentication**, specify the DB user name and password.
+        * Under **Authentication**, specify the database user name and password.
     1. On the **Driver properties** tab:
         1. Click **Download** in the new window that prompts you to download the driver files.
         1. Specify the [SSL connection](index.md#get-ssl-cert) settings in the driver property list:
@@ -244,7 +248,6 @@ To run SQL queries from your browser, use:
 
 
 
-
 ### {{ CH }} built-in SQL editor {#inline-editor}
 
 To connect to a cluster host from the built-in SQL editor, specify the following in the browser address bar:
@@ -253,7 +256,7 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN_of_any_{{ CH }}_host>:8443/play
 ```
 
-You can only connect to public cluster hosts. Learn how to get a host FQDN in [this guide](fqdn.md).
+You can only connect to public cluster hosts. To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
 To connect to a cluster with [automatic selection of an available host](fqdn.md#auto), use the following URL:
 
@@ -280,7 +283,7 @@ Use [{{ websql-full-name }}](../../../websql) to connect to a {{ CH }} cluster i
 
 ## Before you connect from a Docker container {#docker}
 
-To connect to a {{ mch-name }} cluster from a Docker container, add the following lines to the Dockerfile:
+To connect to a {{ mch-name }} cluster from a Docker container, add the following lines to your Dockerfile:
 
 {% list tabs group=connection %}
 

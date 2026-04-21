@@ -17,7 +17,7 @@ In this context, the log refers to the system logs of a cluster and its hosts. T
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
     1. Select **{{ ui-key.yacloud.kafka.label_filter_origin }}**, **{{ ui-key.yacloud.mdb.cluster.logs.label_hosts }}**, and **{{ ui-key.yacloud.mdb.cluster.logs.label_severity }}**.
     1. Specify a time period for the log entries you want to view.
@@ -28,7 +28,7 @@ In this context, the log refers to the system logs of a cluster and its hosts. T
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View the description of the CLI command for viewing cluster logs:
+    1. See the description of the CLI command for viewing cluster logs:
 
         ```bash
         {{ yc-mdb-kf }} cluster list-logs --help
@@ -39,7 +39,7 @@ In this context, the log refers to the system logs of a cluster and its hosts. T
         ```bash
         {{ yc-mdb-kf }} cluster list-logs <cluster_name_or_ID> \
            --limit <entry_number_limit> \
-           --columns <log_columns_list> \
+           --columns <list_of_log_columns> \
            --filter <entry_filtration_settings> \
            --since <time_range_left_boundary> \
            --until <time_range_right_boundary>
@@ -80,7 +80,7 @@ In this context, the log refers to the system logs of a cluster and its hosts. T
 
         Where:
 
-        * `columnFilter`: List of output data columns:
+        * `columnFilter`: List of output columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -91,10 +91,10 @@ In this context, the log refers to the system logs of a cluster and its hosts. T
         * `toTime`: End of the time range in the same format as `fromTime`.
 
         
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. Check the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -137,7 +137,7 @@ In this context, the log refers to the system logs of a cluster and its hosts. T
         * `to_time`: End of the time range in the same format as `from_time`.
 
         
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
     1. Check the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.kafka.v1.ListClusterLogsResponse) to make sure your request was successful.
@@ -185,7 +185,7 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `columnFilter`: List of output data columns:
+        * `columnFilter`: List of output columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -197,9 +197,9 @@ This method allows you to get cluster logs in real time.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
-        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+        * `filter`: Log filter. You can use a filter to stream only the logs you need.
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
+            To learn more about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
@@ -207,7 +207,7 @@ This method allows you to get cluster logs in real time.
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
-    1. Check the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.kafka.v1.StreamLogRecord) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -239,7 +239,7 @@ This method allows you to get cluster logs in real time.
 
         Where:
 
-        * `column_filter`: List of output data columns:
+        * `column_filter`: List of output columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -251,11 +251,11 @@ This method allows you to get cluster logs in real time.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
-        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+        * `filter`: Log filter. You can use a filter to stream only the logs you need.
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
+            To learn more about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
         
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).

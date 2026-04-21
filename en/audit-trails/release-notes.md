@@ -5,6 +5,263 @@ description: This section contains the {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## Q1 2026 {#q1-2026}
+
+* Added new events for the services:
+
+  {% cut "{{ ai-studio-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `guardrails.ChangeDefaultGuardrail` | Updating a system guardrail
+  `mcp_hub.CreateMcpGateway` | Creating an MCP server
+  `mcp_hub.DeleteMcpGateway` | Deleting an MCP server
+  `mcp_hub.SetMcpGatewayAccessBindings` | Assigning access permissions for an MCP server
+  `mcp_hub.UpdateMcpGateway` | Updating an MCP server
+  `mcp_hub.UpdateMcpGatewayAccessBindings` | Updating access permissions for an MCP server
+
+  {% endcut %}
+
+  {% cut "{{ baremetal-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `flowlogs.ExternalFlow` | Network traffic information
+
+  {% endcut %}
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetArtifactAccessBindings` | Assigning access permissions for an artifact
+  `UpdateArtifactAccessBindings` | Updating access permissions for an artifact
+
+  {% endcut %}
+
+  {% cut "{{ compute-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateDiskPlacementGroup` | Creating a disk placement group
+  `CreatePlacementGroup` | Creating a placement group
+  `DeleteDiskPlacementGroup` | Deleting a disk placement group
+  `DeletePlacementGroup` | Deleting a placement group
+  `UpdateDiskPlacementGroup` | Updating a disk placement group
+  `UpdatePlacementGroup` | Updating a placement group
+
+  {% endcut %}
+  
+  {% cut "{{ iam-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `awscompatibility.CreateEphemeralAccessKey` | Creating an ephemeral static access key
+  `awscompatibility.CreateTemporaryAccessKey` | Creating a temporary access key
+
+  {% endcut %}
+
+  {% cut "{{ mkf-short-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `AlterConfigAdminApi` | Updating the AdminAPI configuration
+  `CreateTopicAdminApi` | Creating an Admin API topic
+  `DeleteTopicAdminApi` | Deleting an Admin API topic
+
+  {% endcut %}
+
+  {% cut "{{ mch-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `DatabaseUserLogin` | Connecting a user to a database
+  `DatabaseUserLogout` | Disconnecting a user from a database
+  `DatabaseUserSQLRequest` | User SQL query to a database
+
+  {% endcut %}
+
+  {% cut "{{ mos-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `ComplianceReadEvent` | Reading data as part of compliance monitoring
+  `ComplianceWriteEvent` | Writing data as part of compliance monitoring
+  `FailedLoginRestEvent` | Failure to log in via the REST API
+  `GrantedPrivilegesRestEvent` | Granting privileges for requests via the REST API
+  `GrantedPrivilegesTransportEvent` | Granting privileges at the transport level
+  `MissingPrivilegesRestEvent` | Loss of privileges for requests via the REST API
+  `MissingPrivilegesTransportEvent` | Loss of privileges at the transport level
+  `SecurityIndexAttemptTransportEvent` | Attempt to access a security index at the transport level
+
+  {% endcut %}
+
+  {% cut "{{ metastore-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `RescheduleMaintenance` | Changing scheduled maintenance date and time
+
+  {% endcut %}
+
+  {% cut "{{ mspqr-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `AddClusterHosts` | Adding new hosts to a cluster
+  `BackupCluster` | Creating backups
+  `CreateCluster` | Creating a cluster
+  `DeleteBackup` | Deleting backups
+  `DeleteCluster` | Deleting a cluster
+  `DeleteClusterHosts` | Deleting hosts from a cluster
+  `RescheduleMaintenance` | Changing scheduled maintenance date and time
+  `RestoreCluster` | Creating a new cluster from a backup
+  `StartCluster` | Starting a cluster
+  `StopCluster` | Stopping a cluster
+  `UpdateCluster` | Updating a cluster
+  `UpdateClusterHosts` | Editing hosts in a cluster
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `AddClusterShards` | Adding shards to a cluster
+  `CreateDatabase` | Creating a database
+  `CreateUser` | Creating a database user
+  `DeleteClusterShards` | Deleting shards from a cluster
+  `DeleteDatabase` | Deleting a database
+  `DeleteUser` | Deleting a database user
+  `UpdateUser` | Editing a database user
+
+  {% endcut %}
+
+  {% cut "{{ objstorage-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `BucketAccessBindingsUpdate` | Updating the bucket access binding logic
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateAlertSink` | Creating an alert sink
+  `DeleteAlertSink` | Deleting an alert sink
+  `UpdateAlertSink` | Updating an alert sink
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event name | Description
+  --- | ---
+  `AssetFailedRuleCheck` | [{{ cspm-name }}](../security-deck/concepts/cspm.md) failed object check report
+  `AssetPassedRuleCheck` | {{ cspm-name }} passed object check report
+  `AssetRemovedFromScope` | {{ cspm-name }} object removed from scope report
+  `AssetRuleCheckCouldNotBeExecuted` | {{ cspm-name }} object check error report
+  `AssetRuleCheckNoLongerInScope` | {{ cspm-name }} report about excluding a rule from a scope
+  `TriggerRuntimeProcessInfo` | KSPM triggering when getting process information
+
+  {% endcut %}
+
+  {% cut "{{ sws-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `StartLoadBalancer` | Starting a proxy server
+  `StopLoadBalancer` | Stopping a proxy server
+
+  {% endcut %}
+
+  {% cut "{{ mmg-short-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `AuthCheck` | Authentication check
+  `GenericAuditEvent` | Starting a database check
+  `UserAuthentication` | User authentication
+  `UserLogout` | Disconnecting a user from a database
+
+  {% endcut %}
+
+  {% cut "{{ org-full-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `idp.branding.CreateAsset` | Uploading a resource for [branding](../organization/concepts/branding.md)
+  `idp.branding.CreateBranding` | Creating branding
+  `idp.branding.DeleteAsset` | Deleting a resource for branding
+  `idp.branding.DeleteBranding` | Deleting branding
+  `idp.branding.UpdateBranding` | Updating branding settings
+
+  {% endcut %}
+
+  {% cut "{{ websql-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `UpdateExecutedQueryAccessBindings` | Updating access permissions for an executed query
+  `UpdateSavedQueryAccessBindings` | Updating access permissions for a saved query
+
+  {% endcut %}
+
+  {% cut "{{ ydb-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `AlterTopic` | Updating a [topic]({{ ydb.docs }}/concepts/glossary#topic)
+  `CreateTopic` | Creating a topic
+  `DeleteTopic` | Deleting a topic
+
+  {% endcut %}
+
+* Deleted events for:
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SetRegistryFolderAccessBindings` | Assigning access permissions for a registry folder
+  `UpdateRegistryFolderAccessBindings` | Updating access permissions for a registry folder
+
+  {% endcut %}
+
 ## Q4 2025 {#q4-2025}
 
 * Added a setting for event flow compression when writing events to {{ yds-name }}. We recommend enabling compression for write speeds over 1 MB/s.

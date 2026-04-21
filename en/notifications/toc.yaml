@@ -59,11 +59,13 @@ items:
             href: operations/sms/test-number-delete.md
           - name: Sending a test SMS notification
             href: operations/sms/send.md
+          - name: Managing SMS templates
+            href: operations/sms/manage-templates.md
           - name: Exiting the sandbox
             href: operations/sms/exit-sandbox.md
       - name: Topics
         items:
-          - name: Create topic
+          - name: Creating a topic
             href: operations/topics/topic-create.md
           - name: Creating a subscription to a topic
             href: operations/topics/subscription-create.md
@@ -147,6 +149,30 @@ items:
             href: api-ref/list-endpoints.md
           - name: Delete
             href: api-ref/delete-endpoint.md
+      - name: SMS
+        items:
+          - name: Create
+            href: api-ref/create-sms-channel.md
+          - name: GetAttributes
+            href: api-ref/get-sms-channel-attributes.md
+          - name: GetSmsAttributes
+            href: api-ref/get-sms-attributes.md
+          - name: SetAttributes
+            href: api-ref/set-sms-channel-attributes.md
+          - name: List
+            href: api-ref/list-sms-channels.md
+          - name: Delete
+            href: api-ref/delete-sms-channel.md
+      - name: Sandbox
+        items:
+          - name: Create
+            href: api-ref/create-sms-sandbox-phone-number.md
+          - name: Verify
+            href: api-ref/verify-sms-sandbox-phone-number.md
+          - name: List
+            href: api-ref/list-sms-sandbox-phone-numbers.md
+          - name: Delete
+            href: api-ref/delete-sms-sandbox-phone-number.md
       - name: Publish
         href: api-ref/publish.md
   - name: '{{ monitoring-name }} metrics'

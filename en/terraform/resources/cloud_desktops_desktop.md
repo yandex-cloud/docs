@@ -75,7 +75,6 @@ resource "yandex_cloud_desktops_desktop_group" "desktop_group" {
 // desktop
 resource "yandex_cloud_desktops_desktop" "desktop" {
 	name 				= "desktop-name"
-	description 		= "My cloud desktop"
 	desktop_group_id 	= yandex_cloud_desktops_desktop_group.desktop_group.desktop_group_id
 	
 	network_interface = {
@@ -98,9 +97,9 @@ resource "yandex_cloud_desktops_desktop" "desktop" {
 
 ## Arguments & Attributes Reference
 
+- `description` (String). Description of the desktop. Maximum length is 1024 characters.
 - `desktop_group_id` (**Required**)(String). The id of the Desktop Group to which the Desktop belongs
 - `desktop_id` (*Read-Only*) (String). The id of the Desktop
-- `description` (String). Description of the desktop. Maximum length is 1024 characters.
 - `id` (*Read-Only*) (String). Import ID
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `members` [Block]. The list of members which can use the Desktop
@@ -109,6 +108,10 @@ resource "yandex_cloud_desktops_desktop" "desktop" {
 - `name` (String). The name of the Desktop
 - `network_interface` [Block]. The specification of the Desktop network interface
   - `subnet_id` (String). ID of the subnet for desktop
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

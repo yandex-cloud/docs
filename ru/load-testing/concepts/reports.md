@@ -5,6 +5,9 @@ description: Отчет в {{ load-testing-name }} — это совокупно
 
 # Отчеты
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Отчет — совокупность данных, собранных в результате выполнения нагрузочного тестирования.
 
 ## Просмотр отчета

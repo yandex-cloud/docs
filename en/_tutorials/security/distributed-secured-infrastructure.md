@@ -178,9 +178,9 @@ To consolidate folder resources into a single network, [move](../../vpc/operatio
   1. In the [management console]({{ link-console-main }}), navigate to `secured-entry-point`.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Select the `alb-network` cloud network.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the `subnet-service-1` row and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the `subnet-service-1` row and select **{{ ui-key.yacloud.common.move }}**.
   1. Select `service-1` from the drop-sown list.
-  1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click **{{ ui-key.yacloud.common.move }}**.
   1. Similarly, move `subnet-service-2` to `service-2`.
 
 {% endlist %}

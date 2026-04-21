@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Leasing a stock configuration server
+      - name: Renting a stock configuration server
         href: quickstart.md
-      - name: Leasing a custom-configured server
+      - name: Renting a custom-configured server
         href: operations/servers/custom-server-lease.md
   - name: Step-by-step guides
     expanded: true
@@ -14,9 +14,9 @@ items:
         href: operations/index.md
       - name: Servers
         items:
-          - name: Leasing a stock configuration server
+          - name: Renting a stock configuration server
             href: operations/servers/server-lease.md
-          - name: Leasing a custom-configured server
+          - name: Renting a custom-configured server
             href: operations/servers/custom-server-lease.md
           - name: Getting information about a server
             href: operations/servers/get-info.md
@@ -26,7 +26,7 @@ items:
             href: operations/servers/server-kvm.md
           - name: Stopping and starting a server
             href: operations/servers/server-stop-and-start.md
-          - name: Canceling a server lease
+          - name: Canceling a server rent
             href: operations/servers/server-lease-cancel.md
           - name: Uploading a custom OS image
             href: operations/image-upload.md
@@ -125,6 +125,8 @@ items:
                 href: events-ref/CreatePrivateCloudConnection.md
               - name: CreatePrivateSubnet
                 href: events-ref/CreatePrivateSubnet.md
+              - name: CreatePublicPrefixPool
+                href: events-ref/CreatePublicPrefixPool.md
               - name: CreatePublicSubnet
                 href: events-ref/CreatePublicSubnet.md
               - name: CreateServer
@@ -137,12 +139,16 @@ items:
                 href: events-ref/DeletePrivateCloudConnection.md
               - name: DeletePrivateSubnet
                 href: events-ref/DeletePrivateSubnet.md
+              - name: DeletePublicPrefixPool
+                href: events-ref/DeletePublicPrefixPool.md
               - name: DeletePublicSubnet
                 href: events-ref/DeletePublicSubnet.md
               - name: DeleteServer
                 href: events-ref/DeleteServer.md
               - name: DeleteVRF
                 href: events-ref/DeleteVRF.md
+              - name: ExternalFlow
+                href: events-ref/ExternalFlow.md
               - name: PowerOffServer
                 href: events-ref/PowerOffServer.md
               - name: PowerOnServer
@@ -163,6 +169,8 @@ items:
                 href: events-ref/UpdatePrivateCloudConnection.md
               - name: UpdatePrivateSubnet
                 href: events-ref/UpdatePrivateSubnet.md
+              - name: UpdatePublicPrefixPool
+                href: events-ref/UpdatePublicPrefixPool.md
               - name: UpdatePublicSubnet
                 href: events-ref/UpdatePublicSubnet.md
               - name: UpdateServer
@@ -173,6 +181,8 @@ items:
             href: security/index.md
           - name: Additional server settings
             href: concepts/server-advanced-settings.md
+          - name: Management console
+            href: concepts/console.md
           - name: CLI reference
             items:
               - name: Overview

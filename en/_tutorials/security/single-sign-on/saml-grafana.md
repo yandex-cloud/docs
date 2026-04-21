@@ -159,8 +159,8 @@ If users do not have the `login` attribute, add it:
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. In the top-right corner, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** and in the window that opens:
 
-        1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** field, enter `login`.
-        1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** field, select `SubjectClaims.preferred_username`.
+        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `login`.
+        1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, select `SubjectClaims.preferred_username`.
         1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -172,7 +172,7 @@ If you have configured role mapping in Grafana Cloud, add the user group attribu
 - {{ cloud-center }} UI {#cloud-center}
 
     1. In the top-right corner, click ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** and in the window that opens.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** field, select `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** field, select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

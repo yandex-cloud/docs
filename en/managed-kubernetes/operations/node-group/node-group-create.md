@@ -112,6 +112,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--platform-id`: {{ managed-k8s-name }} node [platform](../../../compute/concepts/vm-platforms.md).
      * `--container-runtime`: [containerd](https://containerd.io/) runtime environment.
      * `--preemptible`: Flag you set for [preemptible](../../../compute/concepts/preemptible-vm.md) VMs.
+
+        
+        {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * `--public-ip`: Flag you set if the {{ managed-k8s-name }} node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
      * `--template-labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
      * `--node-labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
@@ -293,7 +298,24 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          }
        }
        ```
+
+     * To create a {{ managed-k8s-name }} node group with [preemptible VMs](../../../compute/concepts/preemptible-vm.md), add the `scheduling_policy` section:
+
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<node_group_name>" {
+         ...
+         instance_template {
+           scheduling_policy {
+             preemptible = true
+           }
+         }
+       }
+       ```
+
        
+       {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * To add metadata for nodes, provide it in the `instance_template.metadata` parameter.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -403,6 +425,12 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * To set a template for {{ managed-k8s-name }} node names, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * To create a node group with [preemptible VMs](../../../compute/concepts/preemptible-vm.md), provide the `nodeTemplate.schedulingPolicy.preemptible` parameter:
+
+    
+    {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
 
   * To specify a [placement group](../../../compute/concepts/placement-groups.md) for {{ managed-k8s-name }} nodes, provide the placement group ID in the `nodeTemplate.placementPolicy.placementGroupId` parameter.
 

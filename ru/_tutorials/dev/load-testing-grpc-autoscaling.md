@@ -1,5 +1,7 @@
 # Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в {{ managed-k8s-full-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 По этому руководству вы развернете автомасштабируемый [gRPC](../../glossary/grpc.md)-сервис в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью [Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md) [{{ alb-full-name }}](../../application-load-balancer/) и проведете нагрузочное тестирование сервиса.
 
@@ -342,11 +344,12 @@
 
 1. Наблюдайте за прохождением теста:
 
-   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Перейдите в [консоль управления]({{ link-console-main }}).
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Выберите ваш тестовый кластер {{ managed-k8s-name }}.
    1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
    1. Наблюдайте за изменением количества подов приложения по мере увеличения и уменьшения нагрузки.
-   1. По завершении теста в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. По завершении теста в консоли управления [перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Выберите созданный L7-балансировщик.
    1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
    1. Просмотрите графики нагрузки за время работы теста.

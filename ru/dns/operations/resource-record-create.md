@@ -34,8 +34,15 @@ description: Следуя данной инструкции, вы сможете
 
   ```bash
   yc dns zone add-records --name <имя_зоны_DNS> \
-    --record "<доменное_имя> <TTL> <тип_записи> <значение>"
+    --record "<доменное_имя> <TTL> <тип_записи> <значение>" \
+    --description "<описание>"
   ```
+
+  Где:
+
+  * `--name` — имя зоны. Должно быть уникальным внутри каталога.
+  * `--record` — DNS-запись, содержащая доменное имя, время жизни, тип и значение записи.
+  * `--description` — описание для новых записей. Если флаг не указан, описание будет пустой строкой. Необязательный параметр.
 
   **Пример**
 
@@ -44,6 +51,14 @@ description: Следуя данной инструкции, вы сможете
   > ```bash
   > yc dns zone add-records test-zone \
   >   --record "test-record TXT v=DKIM1;k=rsa;p=MIIBIjAN...gkH2v1NTgQdTKfPmDK...YdRiwIDAQAB"
+  > ```
+
+  Создание записи с описанием:
+
+  > ```bash
+  >  yc dns zone add-records test-zone \
+  >   --record "srv.example.com. 600 A 10.1.0.1" \
+  >   --description "Web server"
   > ```
 
   Если значение TXT-записи содержит несколько значений, то следует заключить каждое значение в двойные кавычки `""`:
@@ -76,11 +91,12 @@ description: Следуя данной инструкции, вы сможете
      }
      
      resource "yandex_dns_recordset" "rs1" {
-       zone_id = yandex_dns_zone.zone1.id
-       name    = "srv.example.com."
-       type    = "A"
-       ttl     = 200
-       data    = ["10.1.0.1"]
+       zone_id     = yandex_dns_zone.zone1.id
+       name        = "srv.example.com."
+       type        = "A"
+       ttl         = 200
+       data        = ["10.1.0.1"]
+       description = "Web server primary"
      }
      
      resource "yandex_dns_recordset" "rs2" {
@@ -119,6 +135,7 @@ description: Следуя данной инструкции, вы сможете
         * `type` — тип DNS записи. Обязательный параметр.
         * `ttl` — время жизни записи (TTL, Time to live) в секундах до актуализации информации о значении записи. Необязательный параметр.
         * `data` — значение записи. Необязательный параметр.
+        * `description` — описание набора записей. Необязательный параметр.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, смотрите в [документации провайдера]({{ tf-provider-link }}).
 

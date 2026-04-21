@@ -97,6 +97,8 @@
 
 Создание раннеров с помощью консоли управления доступно только для инстансов {{ mgl-name }}.
 
+{% include [mr-network-access](../../_includes/managed-gitlab/mr-network-access.md) %}
+
 {% include [runner-create](../../_includes/managed-gitlab/runner-create-console.md) %}
 
 #### Убедитесь, что раннер работает {#view-runner}

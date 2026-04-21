@@ -5,6 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Сохранение артефактов теста в {{ objstorage-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Настройте сохранение артефактов тестирования в сервис {{ objstorage-full-name }}. Артефакты можно использовать для анализа результатов теста и выявления проблем при тестировании.
 
 {% note info %}

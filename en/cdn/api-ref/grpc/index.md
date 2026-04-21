@@ -20,7 +20,6 @@ Origin is not a standalone entity. It can live only within origin group. ||
 || [Provider](Provider/index.md) | A set of methods for managing Provider Service resources. ||
 || [RawLogs](RawLogs/index.md) |  ||
 || [ResourceRules](ResourceRules/index.md) | Rules management service.
-
 Used for Resources Rules management. ||
 || [Resource](Resource/index.md) | Provider's resources management service. ||
 || [Shielding](Shielding/index.md) | Shielding management service. ||

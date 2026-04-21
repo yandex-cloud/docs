@@ -132,7 +132,7 @@
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
     1. Нажмите на строку с атрибутом `emailaddress` и в открывшемся окне:
 
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** измените значение на `email`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** измените значение на `email`.
         1. Нажмите **{{ ui-key.yacloud.common.update }}**.
 
 {% endlist %}

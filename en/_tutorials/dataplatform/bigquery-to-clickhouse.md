@@ -3,37 +3,37 @@
 
 You can migrate a database from Google BigQuery to {{ mch-full-name }} and then use {{ datalens-full-name }} to analyze it.
 
-The table is compressed, then moved to a Google Storage bucket and then — to an {{ objstorage-full-name }} bucket. After that, the data is imported to a {{ mch-name }} cluster where you can analyze it using {{ datalens-full-name }}.
+A table is compressed and moved to a Google Storage bucket, from where it is transferred to an {{ objstorage-full-name }} bucket. After that, the data is imported to a {{ mch-name }} cluster where you can analyze it using {{ datalens-full-name }}.
 
-This method of migration has the following benefits:
+This migration method offers the following benefits:
 
 * You can specify the export format and the compression ratio.
-* Lower data amounts are involved, which accelerates migration and reduces its cost.
+* Significantly reduced data volume leads to faster migration and lower costs.
 
-However, in this case, the data is migrated _as is_ without transforming or copying the updated increments.
+However, in this case, the data is migrated as is without transforming or copying the updated increments.
 
-To migrate the database from Google BigQuery to {{ mch-name }}:
+To migrate a database from Google BigQuery to {{ mch-name }}:
 
-1. [Migrate data from Google BigQuery to {{ objstorage-full-name }}](#migrate-data).
-1. [Set up the mapping of data from {{ objstorage-full-name }} to the {{ mch-name }} cluster](#create-view).
-1. [Analyze the data with {{ datalens-full-name }}](#datalens).
+1. [Transfer data from Google BigQuery to {{ objstorage-full-name }}](#migrate-data).
+1. [Configure data mapping from {{ objstorage-full-name }} to the {{ mch-name }} cluster](#create-view).
+1. [Analyze your data with {{ datalens-full-name }}](#datalens).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mch-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee, which covers data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using {{ datalens-full-name }} (see [{{ datalens-name }} pricing](../../datalens/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
+To migrate your database, first create the following Google Cloud and {{ yandex-cloud }} resources.
 
 ### Create Google Cloud resources {#create-google-res}
 
@@ -44,8 +44,8 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
 1. [Download and install the `google-cloud-sdk` CLI utilities](https://cloud.google.com/sdk/docs/install).
 1. [Authenticate in gcloud CLI](https://cloud.google.com/sdk/docs/authorizing#authorizing_with_a_service_account).
-1. [Install the Google BigQuery Python SDK utility](https://github.com/googleapis/python-bigquery). This package requires Python 3.7 or higher.
-1. Prepare a dataset for Google BigQuery. As an example, here we use a [public dataset](https://cloud.google.com/bigquery/public-data) called `google_trends` for Google BigQuery that includes the `international_top_terms` table with the following columns:
+1. [Install the Google BigQuery Python SDK](https://github.com/googleapis/python-bigquery). This package requires Python version 3.7 or higher.
+1. Prepare a dataset for Google BigQuery. For this example, we use a Google BigQuery’s [public dataset](https://cloud.google.com/bigquery/public-data) `google_trends`, which includes the `international_top_terms` table with the following columns:
 
     * `rank`
     * `country_name`
@@ -59,23 +59,28 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
 ### Create {{ yandex-cloud }} resources {#create-yandex-res}
 
+
 1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role to access the {{ objstorage-name }} bucket.
 
-1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the key ID and secret key, you will need them later.
+1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the key ID and secret key, as you will need them later.
 
-1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration. When creating a cluster:
 
-      * Use the service account you created earlier.
-      * Enable the **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** parameter.
+1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration. When creating your cluster:
 
-1. [Use Zookeeper to enable fault tolerance](../../managed-clickhouse/operations/zk-hosts.md).
+    
+    * Specify the service account you created earlier.
 
-1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md). When creating the bucket, [enable public access](../../storage/operations/buckets/bucket-availability.md) to read objects and list objects in the bucket.
+    
+    * Enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}**.
+    * [Add {{ ZK }} hosts](../../managed-clickhouse/operations/zk-hosts.md) to ensure high cluster availability.
+
+1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md). When creating the bucket, activate [public read permissions](../../storage/operations/buckets/bucket-availability.md) for objects and the bucket listing.
 
 ## Migrate data from Google BigQuery to {{ objstorage-full-name }} {#migrate-data}
 
 1. Create a file named `credentials.boto` with access credentials for Google Cloud and {{ yandex-cloud }} resources:
 
+    
     ```boto
     [Credentials]
     gs_service_client_id  =<Google_Cloud_service_account>
@@ -91,15 +96,20 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
       host={{ s3-storage-host }}
     ```
 
+
     Where:
 
     * `gs_service_client_id`: [Google Cloud service account name](https://cloud.google.com/iam/docs/service-account-overview) in `service-account-name@project-id.iam.gserviceaccount.com` format.
-    * `gs_service_key_file`: Absolute path to the JSON file of the access key of the Google Cloud service account.
+    * `gs_service_key_file`: Absolute path to the JSON file containing your Google Cloud service account’s access key.
+
+    
     * `aws_access_key_id`: {{ yandex-cloud }} service account key ID.
-    * `aws_secret_access_key`: {{ yandex-cloud }} service account Secret key.
+    * `aws_secret_access_key`: {{ yandex-cloud }} service account secret key.
+
+
     * `default_project_id`: [Google Cloud project ID](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
 
-1. Create a `main.py` script file for data compression and migration:
+1. Create a `main.py` script for data compression and migration:
 
     {% cut "main.py" %}
 
@@ -110,7 +120,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
     import time
     import subprocess
     import os
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<absolute_path_to_JSON_file_of_Google_Cloud_service_account_access_key>"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<absolute_path_to_JSON_file_with_Google_Cloud_service_account_access_key>"
     os.environ["BOTO_CONFIG"]="<absolute_path_to_credentials.boto_file>"
 
     def parse_args():
@@ -188,7 +198,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
     {% endcut %}
 
-1. Run the `main.py` script to start migrating data from Google BigQuery to the Google Storage bucket and then to the {{ objstorage-full-name }} bucket:
+1. Run the `main.py` script to migrate data from Google BigQuery to the Google Storage, with subsequent transfer to the {{ objstorage-full-name }} bucket:
 
     ```bash
     python main.py \
@@ -198,11 +208,11 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
         --yc_bucket=<Object_Storage_bucket_name>
     ```
 
-    Wait until the data migrates completely.
+    Wait for the data migration to complete.
 
-## Set up the mapping of data from {{ objstorage-full-name }} to the {{ mch-name }} cluster {#create-view}
+## Configure data mapping from {{ objstorage-full-name }} to the {{ mch-name }} cluster {#create-view}
 
-1. To create a view based on the imported data, [connect to the {{ mch-name }} cluster database](../../managed-clickhouse/operations/connect/clients.md) and run the SQL query:
+1. To create a view of the imported data, [connect to the {{ mch-name }} cluster database](../../managed-clickhouse/operations/connect/clients.md) and run the following SQL query:
 
     ```sql
     CREATE view db1.v$google_top_rising_terms on cluster on cluster '{cluster}' AS
@@ -236,16 +246,16 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
     * `db1`: Name of the database in the {{ mch-name }} cluster where you want to create a view.
     * `v$google_top_rising_terms`: Name of the view for the imported data.
-    * `<cluster_ID>`: {{ mch-name }} cluster ID. You can retrieve it with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md).
-    * `top_terms-*`: Key part of the names of the {{ objstorage-name }} bucket objects. For example, if you move from Google Cloud a table containing rows with `top_terms` for name, then, in the {{ objstorage-name }} bucket, they will look as a set of objects with names like `top_terms-000000000001`, `top_terms-000000000002`, and so on. In this case, in the SQL query, you must specify `top_terms-*` for the view to include all the entries with this name from that table.
+    * `<cluster_ID>`: {{ mch-name }} cluster ID. You can get it from your [folder’s cluster list](../../managed-clickhouse/operations/cluster-list.md).
+    * `top_terms-*`: Naming prefix for {{ objstorage-name }} bucket objects. For example, if you migrate a Google Cloud table containing rows named `top_terms`, the corresponding objects in the {{ objstorage-name }} bucket will have the following names: `top_terms-000000000001`, `top_terms-000000000002`, etc. To include all table entries with this name in the view, use the `top_terms-*` pattern in your SQL query .
 
-1. To output the first 100 entries from the selected view, run the SQL query (in the example, we use the `v$google_top_rising_terms` view and the `db1` database):
+1. To retrieve the first 100 records from the view, run the following SQL query (in our example, we use database `db1` and its view `v$google_top_rising_terms`):
 
     ```sql
     SELECT * FROM db1.v$google_top_rising_terms limit 100
     ```
 
-## Use {{ datalens-full-name }} to analyze the data {#datalens}
+## Analize your data with {{ datalens-full-name }} {#datalens}
 
 1. [Connect the {{ mch-name }} cluster to {{ datalens-name }}](../../datalens/operations/connection/create-clickhouse.md).
 1. [Create a dataset](../../datalens/dataset/create-dataset.md#create) from the `db1.v$google_top_rising_terms` table. For the `score` field, select the average aggregation.
@@ -253,12 +263,12 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
     1. Drag the `country_name` field to the **X** section.
     1. Drag the `score` field to the **Y** section.
-    1. Drag the `term` field to the **Filters** section. In the resulting form, enter the settings:
+    1. Drag the `term` field to the **Filters** section. In the form that opens, specify the following settings:
         * **Operation**: **Belongs to a set**.
-        * **Available**: Enter a term from a list of available terms, then click **Apply filter**.
+        * **Available**: Select a term from a list of available terms, then click **Apply filter**.
     1. Drag the `term` field to the **Sorting** section.
 
-The system will analyze the usage of this query in the search system, and the result will be output as a bar chart by country.
+The use of the specified search query will be analyzed, with the result displayed as a country-by-country bar chart.
 
 ## Delete the resources you created {#clear-out}
 

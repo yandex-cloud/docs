@@ -218,6 +218,7 @@ default:
   forms-full-name: Yandex Forms
   forms-name: Forms
   forms-short-name: Forms
+  foundation-models-full-name: Yandex AI Studio
   foundation-models-name: AI Studio
   GL: GitLab
   gl:
@@ -313,6 +314,8 @@ default:
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
   link-datalens-main: https://datalens.ru
+  link-datalens-main-promo: https://datalens.ru/promo
+  link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
   link-datalens-settings: https://datalens.ru/settings
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
@@ -385,6 +388,7 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  messenger-full-name: Yandex Messenger
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
@@ -436,6 +440,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -578,7 +583,6 @@ default:
   roles-datalens-admin: datalens.admin
   roles-datalens-creator: datalens.creator
   roles-datalens-instances-admin: datalens.instances.admin
-  roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
   roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datasphere-admin: datasphere.admin
@@ -833,6 +837,8 @@ default:
   tag-preview: <code><b><small>Preview</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
+  td-full-name: Threat Detector
+  td-name: TD
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   TF: Terraform
   tf-cloud-id: b1gq90dgh25bebiu75o
@@ -907,6 +913,7 @@ default:
   yandex-direct: Yandex Direct
   yandex-domain: yandex.com
   yandex-oauth: Yandex.OAuth
+  yandex-siem-full-name: Yandex SIEM
   yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
@@ -1027,6 +1034,21 @@ default:
   pcs|yt: dn2thrwhzxl2ygay7nvq
   pc|baremetal:
     component:
+      bms_1029p_body:
+        1_month: dn2n6sqhzm4i7eg4w4f5
+        12_month: dn2p6himjfj4hnjshxco
+        3_month: dn2idsw46rbwcnkndlhn
+        6_month: dn2hi7cbvh3bnbkef4up
+      bms_cpu_i6230:
+        1_month: dn2dxqjz3vqfxeq6fqbz
+        12_month: dn25uptp35c3njgv25wn
+        3_month: dn2oxbuy2kziiorp7436
+        6_month: dn27jt4jbpgrabnckmlm
+      bms_cpu_i6230r:
+        1_month: dn2j734aagfsgjhhnst5
+        12_month: dn2pydc6l4pylhxzylql
+        3_month: dn2revpxepujo6i4wvqv
+        6_month: dn2r4dbzpdsyoxjryx7n
       bms-4-body:
         1-month: dn2hf2sf5kjjsy24igas
         12-month: dn26l6yl7fy772frgm57
@@ -1499,6 +1521,8 @@ default:
         1_month: dn26cypvum4o7othokpj
         12_month: dn22akrrpikbs5y3vwgl
         6_month: dn2zrlohcdk7mq6w5ebw
+      bms_publicannounce_pi_prefix_any:
+        1_month: dn2waf73ew5izjrkgflw
       bms_ram3_128:
         1_month: dn2dspoxf6trcs7xcb3j
         12_month: dn2aljp6sqk57xc2qebu
@@ -3044,6 +3068,8 @@ default:
       ram:
         v3|number: 0.002819659
         v3|string: $0.002819659
+    snapshot|number: 0.000039
+    snapshot|string: $0.000039
     vm:
       cpu:
         c100:
@@ -3902,9 +3928,9 @@ default:
         disks: Disks
         networkLabel: Network
         poolFilter: Pool
-        PresetConfigurations: Preset configurations
         ramLabel: RAM
         size: Size
+        StockConfigurations: Stock configurations
         type: Type
         withReserve: Enable
       cloud-center:
@@ -3965,6 +3991,7 @@ default:
         label_title_appearance: Appearance
         label_title_communications: Notifications
         label_title_region: Language and region
+        label_yandexMessenger-link: Go to Yandex Messenger bot
         section_email: Email settings
         section_phone: Phone number settings
         section_settings: Notification settings
@@ -4079,6 +4106,8 @@ default:
         title_method-email: Email
         title_method-push: Push notifications
         title_method-sms: SMS
+        type_cloud-function: Cloud Function
+        type_telegram: Telegram
       component:
         add-to-dashboard-form:
           action:
@@ -4153,6 +4182,9 @@ default:
         button_dashboards-action: Create dashboard
         title_service-dashboards: Service dashboards
         title_service-features: Features
+      monitoring-alerts-channels:
+        method:
+          ya-chats: Yandex Messenger
       monitoring-alerts:
         button:
           create-custom-title: Custom
@@ -4228,6 +4260,8 @@ default:
           add-query: Add query
           create-alert-from-all-queries: Create alert from all queries
           execute-query: Execute query
+        button:
+          apply-and-parse: Execute
         hint:
           search-hotkey: 'Search hotkey: Cmd/Ctrl + Enter'
       quicklinks:
@@ -4318,6 +4352,7 @@ default:
         add: Add
         delete: Delete
         edit: Edit
+        end: End
         exclude: Remove
         save-changes: Save
       app:
@@ -4347,11 +4382,6 @@ default:
           saml_field_request_signing_enabled: Only accept signed requests
           secret_section_add_new_secret_action: Add secret
           secret_section_title: App secrets
-      attributes:
-        update_dialog:
-          field_attribute_name: Attribute name
-          field_attribute_value: Value
-          field_group_attribute_value: Transmitted groups
       billing:
         account:
           button_enable-edm-action: Enable EDM
@@ -4398,6 +4428,7 @@ default:
         MyAccountLayout:
           activity_kyqSv: Activity
           groups_pqQRu: Groups
+          logout_nXPin: Log out
           profile_8kyBA: Profile
           security_7zQ3g: Login and security
       cloud-components:
@@ -4471,6 +4502,17 @@ default:
           label_include_in_scan: Include in scan
           public_buckets: Public buckets
           title_all_buckets: All buckets
+        scan:
+          action_button_apply: Download file
+          action_button_export: Validate and export
+          action_download-results: Download results
+          action_export-results: Export results
+          header_scan-result_sensitive-data: Display sensitive data
+          label_data-type: Data type
+          label_found-occurrence: Found occurrence
+          results_resource-name: Resource
+          scan-issue_data-source: Data source
+          scan-issue_object-path: Object path
         scans:
           label_new-scan: New scan
           section_access_title: Access to data in sources
@@ -4530,13 +4572,6 @@ default:
             status: Status
             username: Username
           column_last-auth: Last authentication
-      field-data:
-        attributes:
-          update_dialog:
-            field_group_all: 'All grous '
-            field_group_assigned: Assigned groups only
-            field_nameId_email: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
-            field_nameId_persistent: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
       form:
         federation:
           action:
@@ -4573,10 +4608,17 @@ default:
         userpool:
           caption:
             domain: Default domain
+            session-lifetime: Lifetime session
             settings-data: Data available for editing
           create:
             action:
               create: Create userpool
+        users:
+          federated:
+            add:
+              field:
+                federation: Federation
+                users: Users
       forms:
         action:
           create: Create
@@ -4609,6 +4651,8 @@ default:
         organization: Identity Hub
       mfa-policy-audiences:
         action_add-users: Add users
+      mfa-policy-exclusions:
+        action_add-exclusion: Add exclusion
       my-account:
         GroupsPageLayout:
           header: My groups
@@ -4618,12 +4662,20 @@ default:
         ProfileEditPageLayout:
           main_breadcrumb: Profile data
         ProfilePage:
+          contacts_subheader: Contacts
           edit_action: Edit
         refresh-tokens:
           action_remove_all: Delete all tokens
         security:
+          action_logout_p3aMC: Log out
           login-confirmation:
             header: Login confirmation
+          option_all_devices_n3iAA: Log out on all devices
+          option_keep_current_iaFpd: Do not log out on this device
+          SecurityDevicesPage:
+            action_logout_everywhere_xqkwM: Log out everywhere
+          SecurityPageLayout:
+            devices_breadcrumb_feYd2: Your devices
         SecurityPageLayout:
           refresh_breadcrumb: Refresh tokens
       myaccount:
@@ -4649,6 +4701,16 @@ default:
             assignments_kKzJS: Users and groups
             attributes_to71e: Attributes
             overview_b5LJQ: Overview
+          AttributeFormDialogNew:
+            field_attribute_value_dgUAv: Value
+          field_group_all_uY9US: All groups
+          field_group_assigned_amGdu: Assigned groups only
+          GroupAttributeFormDialog:
+            field_attribute_name_rPYTn: Attribute name
+            field_group_attribute_value_oxrpu: Transmitted groups
+          NameIdAttributeFormDialog:
+            field_nameId_email_mqNDG: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
+            field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
           OauthAppEditForm:
             field-description_fcXBi: Description
             field-labels_kc4MN: Labels
@@ -4720,6 +4782,8 @@ default:
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
           MfaPolicyPageLayout:
+            policies_title: MFA policies
+            tab_exclusions: Exclusions
             tab_groups: Users and groups
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Authentication settings
@@ -4769,13 +4833,20 @@ default:
             symbol_classes_required_1BHUu: Required
             unlimited_cSfYU: Unlimited
         users:
+          action_end-all-sso-sessions_7DUdt: End all sessions
           components:
             title_mfa_5CFwd: MFA
+          created_at_khi1N: Creation date
+          expires_at_adUqM: End date
           Filters:
             placeholder_eu3h7: All operations
+          ip_address_u9ysH: IP address
+          last_used_at_899qR: Date of use
+          user_agent_bHjZs: User-Agent
           UserPageLayout:
             title_audit-log_fGywF: Audit log
             title_auth-audit-log_sajZE: Login log
+            title_sso-sessions_pDJYw: Active sessions
       page:
         acl-diagnostics:
           action_select-subject: Select subject
@@ -4831,8 +4902,11 @@ default:
           title_alert_overview: Overview
           title_alert_recommendations: Recommendations
         dspm:
+          scan_results-title: Results
+          scan-issues-title: Messages and errors
           title_data-sources: Data sources
           title_scan-jobs: Regular scans
+          title_scans: Scan history
         kspm:
           title_clusters: Clusters
           title_dashboard: Dashboard
@@ -4869,12 +4943,9 @@ default:
             selectResources_bD5MC: Select resources
           ControlsExceptionsPage:
             action_create: Create exception
-            exceptions_header_qJD5D: KSPM
-            exceptions_header_vqsTb: KSPM
             scope_filter_header_7CrSm: Configuration controls
           ControlsExceptionTable:
             field_author: Author
-            field_name: Exception
             field_rules: Rules
             field_status: Status
           ControlsPage:
@@ -4883,6 +4954,9 @@ default:
           ControlsPageLayout:
             configuration_w7Kw7: Configuration
           ExceptionDrawer:
+            header_action_delete: Delete
+            header_action_edit: Edit
+            header_caption: Exception
             resources_field_id: ID
           ExceptionOverview:
             header_caption_cspm_9dTJt: Configuration control
@@ -4914,14 +4988,22 @@ default:
           dataSourceTypes:
             object_storage_meF3x: Object Storage
             yandex_360_1TUsr: Yandex 360
+          field_bucket-path_5qRqM: Path to bucket
+          field_file-name_kWRPK: File name
+          field_service-account_rTeXv: Service account
           infoTypes:
             value_financial-data_kTC5e: Financial data
             value_medical-data-images_7EQ2X: Medical data
             value_other_wUrAZ: Other
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
+          label_field-bucket_3mM6u: Bucket
+          ScanExportDialog:
+            action_button_export_without_validation_pFWLZ: Export without validation
           ScanForm:
             action_create-scan_dvakP: Create scan without validation
+            table_action_assign_roles_bw4am: Assign roles
+          tab_issues_title_hLQN2: Parameter validation
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
             action_configure-connection_v6Gjm: Configure connection
@@ -4939,15 +5021,32 @@ default:
             connectorsLabel_2NoP9: Connectors
             workspacesLabel_kZyU1: Workspaces
         siem:
+          action_create-exception_bLSu4: Create exception
           action_delete_wM5k5: Delete
           action_insert_into_query_kR3x1: Insert into query
+          action_mark-for-deployment_sUf3V: Mark for deployment
           action_new_folder_qmx81: New folder
           action_new_query_from_template_pL7m2: New query from template
+          action_not-deploy_sPzwj: Do not deploy
           action_rename_vN4w3: Rename
+          action_reset-changes_eXJka: Reset changes
+          action_switch-off_kYx8w: Disable
           cell-result-action-launch_v9v5f: Launch
           cell-result-action-share_i1khy: Share
           cell-result-canceled_fqtbJ: Canceled
           cell-result-running_4S3Mi: Running
+          condition_title_gAfRm: Conditions
+          CorrelationRulesPage:
+            create-correlation-rule: New rule
+          CorrelationRuleTable:
+            category: Category
+          deployment_status_changed: Changed
+          detect-deployment_created_2GEyZ: Will be deployed
+          detect-deployment_deployed_ejgvu: Deployed
+          detect-overview:
+            title-actions-on-trigger_j8dE3: Actions on trigger
+          ExceptionsPage:
+            create-exception: New exception
           InvestigationPageLayout:
             copy_wiAxw: Create copy
             fieldDescription_wiAxw: Description
@@ -4956,7 +5055,12 @@ default:
             newQuery_mzeBV: New query
           InvestigationsPage:
             create-investigation_iCPUP: New investigation
+          label_description_4xXeP: Description
+          label_name_udzhS: Name
           my_8uT22: Personal
+          SiemPageLayout:
+            correlationRules: Correlation rules
+            exceptions: Exceptions
           template_type_global_qSrVE: Global
           template_type_local_77J2t: Instance
           title_ap766: Save query as template
@@ -4971,14 +5075,16 @@ default:
             labelServiceAccountField: Service account
           label_rule-kind_3PswX: Rule type
           module-cspm_gozhj: Configuration Monitoring (CSPM)
-          namespace-checkbox_85krx: Namespace
+          namespace-checkbox_85krx: Namespaces
           section-title_9BLTm: Objects (optional)
           ServiceAccountResourceSelectDialog:
             action_save: Save selection
+          title_security-modules_8MdQg: Control modules
+          title_security-requirements_8r7hd: Sets of requirements
           WorkspaceEditPageLayout:
-            tabGeneralParams_xc2v2: Основные параметры
+            tabGeneralParams_xc2v2: Main parameters
             tabKubernetes_rC2uU: KSPM
-            tabResources_vJuSN: Ресурсы
+            tabResources_vJuSN: Resources
             tabStandards_wSeaW: Security compliance
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Alert sink
@@ -5011,9 +5117,6 @@ default:
             title: Workspace resources
           WorkspacesPlaceholder:
             createWorkspace_8yAnK: Create workspace
-          WorkspaceStandardsForm:
-            modules_title_s8LDi: Control modules
-            standards_title_dBBXP: Rule sets
         ycdr:
           preset_last_1_hour_s5Gq5: Last hour
           preset_last_12_hours_s5Gq5: Last 12 hours
@@ -5039,6 +5142,9 @@ default:
           severity_info_biSRh: Remark
           severity_low_tqf9A: Low severity
           severity_medium_8LZ4w: Medium severity
+      siem:
+        SearchActionButtonBlock:
+          save: Save
       storage:
         value_private-bucket: Private
         value_public-bucket: Public
@@ -5728,7 +5834,6 @@ default:
           field_certificate: Certificate
           field_chain: Intermediate certificate chain
           field_privateKey: Private key
-        label_certificates: Certificates
         metadata:
           field_name: Name
         overview:
@@ -5806,6 +5911,9 @@ default:
             action_submit: Create hosts
             field_copy_schema: Copy data schema
             title_additional-settings: Additional settings
+        PerformanceDiagnostics:
+          ClusterDiagnosticsTabs:
+            label_query-groups_w3anM: Query groups
         switch_backups: Backups
         switch_list: Clusters
         switch_operations: Operations
@@ -5950,6 +6058,7 @@ default:
         metadata-add-field: Add field
         metric: Metric
         monitoring: Monitoring
+        more: More information
         move: Move
         name: Name
         not-selected: Not selected
@@ -6576,7 +6685,7 @@ default:
         label_search-button-add-filter: Add filter
         label_search-placeholder: Data search
         label_source-data-tab: Uploaded data
-        label_source-database-type: Database type
+        label_source-database-type: Data source type
         label_sources: Data sources
         label_subterms: Child terms
         label_tag-mutual-exclusion: Mutually exclusive
@@ -7095,9 +7204,6 @@ default:
           action_disable-access: Disable access
           action_enable-access: Enable access
           label_filter-by-service-placeholder: Filter by service
-        users:
-          popup-add-users-from-federation_field_federation: Federation
-          popup-add-users-from-federation_field_users: Users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -7115,11 +7221,13 @@ default:
         label_yds-exports: Export to Data Streams
       k8s:
         access:
+          button_create-sa: Service accounts
           label_title: Access management
-        Cluster:
-          CommonInfo:
-            access-section-title_fW4Au: Access
+          popup-add-sa_field_name: Name
+          popup-add-sa_field_namespace: Namespace
         cluster:
+          button_create-resource: Create
+          field_namespace: Namespace
           marketplace:
             button_install: Install
             button_release-uninstall: Uninstall
@@ -7134,6 +7242,8 @@ default:
             label_status: Status
             label_title: Overview
             section_master: Master configuration
+          switch_access: Access management
+          switch_configuration: Configuration
           switch_custom-resources: Custom resources
           switch_events: Events
           switch_marketplace: Marketplace
@@ -7142,6 +7252,9 @@ default:
           switch_nodes-manager: Node manager
           switch_storage: Storage
           switch_workloads: Workload
+        Cluster:
+          CommonInfo:
+            access-section-title_fW4Au: Access
         clusters:
           button_create: Create cluster
           create:
@@ -7149,7 +7262,7 @@ default:
             field_address-type: Public address
             field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
-            field_maintenance-daily: Time (UTC) and duration
+            field_maintenance-daily: Maintenance window start time in UTC
             field_master-type: Type of master
             field_master-version: Kubernetes version
             field_network: Cloud network
@@ -7249,15 +7362,21 @@ default:
             label_labels: Labels
             label_monitoring: Monitoring
         nodes:
+          button_action-cordon: Cordon
+          button_action-uncordon: Uncordon
           label_node-groups: Node group
           label_nodes: Nodes
         pv:
           overview:
             label_zone: Availability zone
         storage:
+          button_action-add-default: Use as default
+          button_action-remove-default: Don't use as default
           label_pv: Persistent Volumes
+          label_storage-classes: Storage classes
         switch_operations: Operations
         workloads:
+          label_cron-jobs: Cron jobs
           label_pods: Pods
           label_tab-logs: Logs
           label_tab-yaml: YAML
@@ -7900,7 +8019,7 @@ default:
         switch_list: Clusters
         switch_operations: Operations
       monitoring:
-        button_open-in-monitoring: Open in Monitoring
+        button_open-in-monitoring: Open in Monium
       mysql:
         cluster:
           label_iam_dgBhy: IAM
@@ -8343,8 +8462,6 @@ default:
             protocol_q33c8: Protocol
             sni_mHMUX: SNI
             targetResources_hqBQm: Target resources
-        DomainsTable:
-          connectSecurityProfile_g5MA4: Connect security profile
         DomainTargetStateStatus:
           statusHealthy_5F2ks: Healthy
         form:
@@ -8464,7 +8581,6 @@ default:
         cluster:
           switch_databases: Databases
           switch_users: Users
-        console_password: Password from Sharded PostgreSQL console
         section_coordinator: Coordinator
         section_hosts: Hosts
         section_infra: Infrastructure
@@ -8545,9 +8661,6 @@ default:
             access_value_private: With authorization
             access_value_public: For all
             button_save: Save
-            class_value_cold: Cold
-            class_value_ice: Ice
-            class_value_standard: Standard
             field_access-config-read: Read settings
             field_access-list: Read object list
             field_access-read: Read objects
@@ -8629,6 +8742,9 @@ default:
           label_role-write: 'READ and WRITE '
         switch_buckets: Buckets
         title_object-lock: Object version lock
+        value_cold: Cold
+        value_ice: Ice
+        value_standard: Standard
       trino:
         catalogs:
           create_action: Create catalog
@@ -8649,6 +8765,7 @@ default:
         ClusterView:
           RBACView:
             label_rbac-settings_o2F64: Access settings
+        label_private-access: Private access
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs
         label_rbac-catalog-access: Catalogs the rule applies to
@@ -8740,7 +8857,6 @@ default:
           popup-create_field_deletion-protection: Deletion protection
           popup-create_field_internal-v4-address: Internal IPv4 address
           popup-create_field_zone: Availability zone
-        button_move-vpc-object: Move
         gateways:
           button_create-gateway: Create gateway
           field_name: Name
@@ -11034,15 +11150,15 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1771418848696431394901031348572912380488071835858
-            tag: 1.28.2-v1
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
+            tag: 1.28.3-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1771418848696431394901031348572912380488071835858
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.5+003
+        tag: 1.0.6
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
@@ -11080,7 +11196,7 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-4
+        tag: 4.2.3-1
     yc_gatekeeper:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
@@ -11103,7 +11219,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.1.0
+        tag: v1.3.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

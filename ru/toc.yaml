@@ -61,6 +61,8 @@ items:
     href: datasphere/index.yaml
   - name: Yandex Cloud Detection and Response
     href: ycdr/index.yaml
+  - name: Yandex SIEM
+    href: yandex-siem/index.yaml
   - name: Cloud DNS
     href: dns/index.yaml
   - name: Начало работы
@@ -121,6 +123,8 @@ items:
     href: microsoft/index.yaml
   - name: Monitoring
     href: monitoring/index.yaml
+  - name: Monium
+    href: monium/index.yaml
   - name: Network Load Balancer
     href: network-load-balancer/index.yaml
   - name: Neurosupport

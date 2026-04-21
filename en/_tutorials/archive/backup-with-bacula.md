@@ -46,7 +46,7 @@ To create a backup bucket in {{ objstorage-name }}:
   1. On the folder dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify the bucket name.
   1. Set [public access](../../storage/security/public-access.md) to read [objects](../../storage/concepts/object.md) in the bucket, get an object list, and read bucket settings, i.e., `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.value_cold }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}

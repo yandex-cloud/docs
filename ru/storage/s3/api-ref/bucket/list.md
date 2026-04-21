@@ -49,4 +49,10 @@ GET / HTTP/2
 `ListAllMyBucketsResult` | Корневой элемент ответа.<br/><br/>Путь: `/ListAllMyBucketsResult`.
 `Name` | Имя бакета.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/get-list.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
