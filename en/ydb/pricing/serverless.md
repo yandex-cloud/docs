@@ -85,6 +85,8 @@ If you export data using `ydb tools dump`, the billing is based on the `ReadTabl
 
 #### Example of calculating the cost of creating an on-demand backup {#example-of-cost-calculation-backup-storage}
 
+{% include [pricies-difference](../../_includes/prices-difference.md) %}
+
 Let's calculate the cost of creating backups of 1 GB and 10 GB databases.
 
 **Cost calculation for a 1 GB database**
@@ -120,6 +122,8 @@ If you restore data using `ydb tools restore`, billing is based on the cost of w
 {% endnote %}
 
 #### Example of calculating the cost of recovery from a backup {#example-of-cost-calculation-backup-restore}
+
+{% include [pricies-difference](../../_includes/prices-difference.md) %}
 
 Let's calculate the cost of backup recovery for 1 GB and 10 GB databases.
 

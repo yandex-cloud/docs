@@ -127,6 +127,8 @@ items:
             href: cli-ref/artifact/delete.md
           - name: get
             href: cli-ref/artifact/get.md
+          - name: get-by-path
+            href: cli-ref/artifact/get-by-path.md
           - name: list-access-bindings
             href: cli-ref/artifact/list-access-bindings.md
           - name: remove-access-binding

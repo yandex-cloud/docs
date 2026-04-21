@@ -435,6 +435,18 @@ items:
                         href: api-ref/grpc/PrivateSubnet/delete.md
                       - name: ListOperations
                         href: api-ref/grpc/PrivateSubnet/listOperations.md
+                  - name: PublicPrefixPool
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/PublicPrefixPool/index.md
+                      - name: Get
+                        href: api-ref/grpc/PublicPrefixPool/get.md
+                      - name: List
+                        href: api-ref/grpc/PublicPrefixPool/list.md
+                      - name: Update
+                        href: api-ref/grpc/PublicPrefixPool/update.md
+                      - name: ListOperations
+                        href: api-ref/grpc/PublicPrefixPool/listOperations.md
                   - name: PublicSubnet
                     items:
                       - name: Overview
@@ -479,12 +491,12 @@ items:
                         href: api-ref/grpc/Server/reboot.md
                       - name: Reinstall
                         href: api-ref/grpc/Server/reinstall.md
+                      - name: ListOperations
+                        href: api-ref/grpc/Server/listOperations.md
                       - name: StartProlongation
                         href: api-ref/grpc/Server/startProlongation.md
                       - name: StopProlongation
                         href: api-ref/grpc/Server/stopProlongation.md
-                      - name: ListOperations
-                        href: api-ref/grpc/Server/listOperations.md
                   - name: StandardImage
                     items:
                       - name: Overview
@@ -643,12 +655,12 @@ items:
                         href: api-ref/Server/reboot.md
                       - name: Reinstall
                         href: api-ref/Server/reinstall.md
+                      - name: ListOperations
+                        href: api-ref/Server/listOperations.md
                       - name: StartProlongation
                         href: api-ref/Server/startProlongation.md
                       - name: StopProlongation
                         href: api-ref/Server/stopProlongation.md
-                      - name: ListOperations
-                        href: api-ref/Server/listOperations.md
                   - name: StandardImage
                     items:
                       - name: Overview

@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Репликация](../concepts/replication.md).
+В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
 Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
-Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Репликация](../concepts/replication.md#zk).
+Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
@@ -311,7 +311,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Репликация](../concepts/replication.md).
+В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -546,7 +546,11 @@ description: Следуя данной инструкции, вы сможете
 
 ### Включить сервис координации {#enable-coordination}
 
+{% note warning %}
+
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -555,7 +559,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
-  1. В блоке **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}** выберите [сервис координации](../concepts/replication.md).
+  1. В блоке **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}** выберите [сервис координации](../concepts/coordination-system.md).
   1. В зависимости от выбранного сервиса задайте следующие настройки:
       
       * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:

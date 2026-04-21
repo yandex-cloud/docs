@@ -95,6 +95,8 @@ The price covers one month of use based on 720 hours per month. The minimum bil
 
 ### Cluster cost calculation example {#example}
 
+{% include [prices-difference](../../_includes/prices-difference.md) %}
+
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 

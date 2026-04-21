@@ -36,6 +36,9 @@ Usage example:
 || `--security-profile-id` | `string`
 
 ID of the security profile to delete. ||
+|| `--name` | `string`
+
+Resolve security-profile-id by resource name within the current scope. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

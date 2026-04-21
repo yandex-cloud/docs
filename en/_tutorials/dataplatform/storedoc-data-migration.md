@@ -7,7 +7,7 @@ You can migrate data from a third-party _source cluster_ to a {{ mmg-name }} _ta
 
 * [Migrating data via {{ data-transfer-full-name }}](#data-transfer).
 
-    This migration method allows you to:
+    This method allows you to:
 
     * Migrate your database with zero downtime.
     * Migrate from older to newer versions of {{ MG }}.
@@ -24,13 +24,13 @@ You can migrate data from a third-party _source cluster_ to a {{ mmg-name }} _ta
 
 ## Required paid resources {#paid-resources}
 
-When migrating data using {{ data-transfer-name }}, you pay for the following resources:
+The cost of migrating data via {{ data-transfer-name }} includes:
 
 * {{ mmg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
-When migrating data using a database dump, you pay for the following resources:
+The cost of migration via database dump includes:
 
 * {{ mmg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).

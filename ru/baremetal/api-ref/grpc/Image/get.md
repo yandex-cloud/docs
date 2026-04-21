@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: ImageService.Get
 
 Returns the specific Image resource.
-
 To get the list of available Image resources, make a [List](/docs/baremetal/api-ref/grpc/Image/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of available Image resources, make a [List](/docs/baremetal/api-
 || image_id | **string**
 
 ID of the Image resource to return.
+To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/grpc/Image/list#List) request.
 
-To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/grpc/Image/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Image {#yandex.cloud.baremetal.v1alpha.Image}
@@ -68,7 +68,6 @@ MD5 checksum of the image. ||
 
 Status of the image.
 
-- `STATUS_UNSPECIFIED`: Unspecified image status.
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered an error.

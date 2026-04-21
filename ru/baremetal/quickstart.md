@@ -23,6 +23,8 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [server-lease-selecting-the-right-config](../_includes/baremetal/instruction-steps/server-lease-selecting-the-right-config.md) %}
 
+      {% include [server-lease-save-with-assembling-tip](../_includes/baremetal/instruction-steps/server-lease-save-with-assembling-tip.md) %}
+
   1. В открывшемся окне с настройками конфигурации сервера:
 
       1. {% include [server-lease-step4](../_includes/baremetal/instruction-steps/server-lease-step4.md) %}

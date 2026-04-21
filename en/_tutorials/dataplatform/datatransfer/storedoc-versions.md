@@ -1,4 +1,4 @@
-# Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster from 4.4 to 6.0 using {{ data-transfer-full-name }}
+# Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster from version 4.4 to 6.0 using {{ data-transfer-full-name }}
 
 
 You can migrate a sharded production database under load from a {{ mmg-name }} cluster version 4.4 to version 6.0.
@@ -7,16 +7,16 @@ To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Prepare the target cluster](#prepare-target).
-1. [Set up the transfers](#prepare-transfer).
-1. [Activate the transfers](#activate-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up the transfer](#prepare-transfer).
+1. [Activate the transfer](#activate-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../../storedoc/pricing.md)).
+* {{ mmg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mmg-name }} pricing](../../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
@@ -39,7 +39,7 @@ Create a {{ mmg-name }} target cluster running version 6.0, identical to the ver
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     
-    1. If you are using security groups in a cluster, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow connections to it.
+    1. If using security groups, make sure they are [configured correctly](../../../storedoc/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
 
 
     1. [Grant](../../../storedoc/operations/cluster-users.md#updateuser) the `readWrite` role on the database `db1` to `user1`.

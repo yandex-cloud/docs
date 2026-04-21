@@ -5,48 +5,48 @@ editable: false
 # yc config
 
 The 'yc config' command group lets you set, view and unset properties used by Yandex Cloud CLI.
-Core properties:
-endpoint
-string, Main Cloud API endpoint (host:port)
-token
-string, OAuth token 'yc' should use for authentication. Can be overridden by using the global '--token' flag.
-Cannot be set at the same time as the 'service-account-key' and 'instance-service-account' properties. Setting one of them unsets the other.
-service-account-key
-object, IAM Key issued for service account that 'yc' should use for authentication.
+
+#### Core properties
+
+#|
+||Property | Description ||
+|| `endpoint` | string, Main Cloud API endpoint (host:port) ||
+|| `token` | string, OAuth token 'yc' should use for authentication. Can be overridden by using the global '--token' flag.
+Cannot be set at the same time as the 'service-account-key' and 'instance-service-account' properties. Setting one of them unsets the other. ||
+|| `service-account-key` | object, IAM Key issued for service account that 'yc' should use for authentication.
 Set from key file. See 'yc iam key create --help' for key create details.
-Cannot be set at the same time as the 'token' and 'instance-service-account' property. Setting one of them unsets the other.
-instance-service-account
-bool, indicating that 'yc' should use for authentication Service Account of Compute Instance where 'yc' is executed.
+Cannot be set at the same time as the 'token' and 'instance-service-account' property. Setting one of them unsets the other. ||
+|| `instance-service-account` | bool, indicating that 'yc' should use for authentication Service Account of Compute Instance where 'yc' is executed.
 See doc for yandex.cloud.compute.v1.CreateInstanceRequest.service_account_id for details.
-Cannot be set at the same time as the 'token', 'service-account-key' properties. Setting one of them unsets the other.
-organization-id
-string, ID of the organization to operate on by default. Will be used, for example, in 'yc resource-manager cloud list' command.
-Can be overridden by using the '--organization-id' flag.
-cloud-id
-string, ID of the cloud to operate on by default. Will be used, for example, in 'yc resource-manager folder list' command.
-Can be overridden by using the global '--cloud-id' flag.
-folder-id
-ID of the folder to resolve names, list and create resources in by default. Can be overridden by using the global '--folder-id' flag.
-Cannot be set at the same time as the 'folder-name' property. Setting one of them unsets the other.
-folder-name
-Name of the default folder to list and create resources in. Can be overridden by using the global '--folder-name' flag.
-Cannot be set at the same time as the 'folder-id' property. Setting one of them unsets the other.
-format
-string, default output format: text, yaml, json. Can be overridden by using the global '--format' flag.
-storage-endpoint
-string, HTTP endpoint of storage service. By default cli takes endpoint from ApiEndpointService/Get handler
-Yandex Compute Cloud properties:
-compute-default-zone
-Default availability zone to create instances, disks, or subnets in.
-Yandex S3 Storage properties:
-s3.max-concurrent-requests
-The maximum number of concurrent requests.
-s3.max-queue-size
-The maximum number of tasks in the task queue.
-s3.multipart-chunksize
-When using multipart transfers, this is the chunk size that the CLI uses for multipart transfers of individual files.
-s3.multipart-threshold
-The size threshold the CLI uses for multipart transfers of individual files.
+Cannot be set at the same time as the 'token', 'service-account-key' properties. Setting one of them unsets the other. ||
+|| `organization-id` | string, ID of the organization to operate on by default. Will be used, for example, in 'yc resource-manager cloud list' command.
+Can be overridden by using the '--organization-id' flag. ||
+|| `cloud-id` | string, ID of the cloud to operate on by default. Will be used, for example, in 'yc resource-manager folder list' command.
+Can be overridden by using the global '--cloud-id' flag. ||
+|| `folder-id` | ID of the folder to resolve names, list and create resources in by default. Can be overridden by using the global '--folder-id' flag.
+Cannot be set at the same time as the 'folder-name' property. Setting one of them unsets the other. ||
+|| `folder-name` | Name of the default folder to list and create resources in. Can be overridden by using the global '--folder-name' flag.
+Cannot be set at the same time as the 'folder-id' property. Setting one of them unsets the other. ||
+|| `format` | string, default output format: text, yaml, json. Can be overridden by using the global '--format' flag. ||
+|| `storage-endpoint` | string, HTTP endpoint of storage service. By default cli takes endpoint from ApiEndpointService/Get handler ||
+|#
+
+#### Yandex Compute Cloud properties
+
+#|
+||Property | Description ||
+|| `compute-default-zone` | Default availability zone to create instances, disks, or subnets in. ||
+|#
+
+#### Yandex S3 Storage properties
+
+#|
+||Property | Description ||
+|| `s3.max-concurrent-requests` | The maximum number of concurrent requests. ||
+|| `s3.max-queue-size` | The maximum number of tasks in the task queue. ||
+|| `s3.multipart-chunksize` | When using multipart transfers, this is the chunk size that the CLI uses for multipart transfers of individual files. ||
+|| `s3.multipart-threshold` | The size threshold the CLI uses for multipart transfers of individual files. ||
+|#
 
 #### Command Usage
 

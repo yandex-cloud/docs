@@ -84,6 +84,8 @@ editable: false
 
 #### Пример расчета стоимости создания резервной копии по требованию {#example-of-cost-calculation-backup-storage}
 
+{% include [pricies-difference](../../_includes/prices-difference.md) %}
+
 Рассмотрим расчеты стоимости создания резервных копий БД объемом 1 ГБ и 10 ГБ.
 
 **Расчет стоимости для БД объемом 1 ГБ**
@@ -129,6 +131,8 @@ editable: false
 {% endnote %}
 
 #### Пример расчета стоимости восстановления из резервной копии {#example-of-cost-calculation-backup-restore}
+
+{% include [pricies-difference](../../_includes/prices-difference.md) %}
 
 Рассмотрим расчеты стоимости восстановления из резервной копии БД объемом 1 ГБ и 10 ГБ.
 

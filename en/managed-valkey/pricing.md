@@ -68,6 +68,8 @@ The price covers one month of use, based on 720 hours per month. The minimum bi
 
 ### Cluster cost calculation example {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 
 * **{{ VLK }} hosts**: Three `hm3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
